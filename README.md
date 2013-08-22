@@ -1,4 +1,4 @@
-ShadowWolf
+ShadowWolf [![Build Status](https://travis-ci.org/notionparallax/ShadowWolf.png)](https://travis-ci.org/notionparallax/ShadowWolf)
 ==========
 
 A mini ERP type app to capture people, projects and their relationships.
