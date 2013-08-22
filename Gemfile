@@ -39,11 +39,13 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'mongoid'
+gem 'mongoid', github: 'mongoid/mongoid'
 gem 'bson_ext'
 
 group :test do
   gem 'cucumber-rails', :require => false
   gem 'rspec-rails'
+  gem 'mongoid-rspec', github: 'evansagge/mongoid-rspec'
   gem 'capybara'
+  gem 'database_cleaner'
 end
