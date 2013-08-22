@@ -41,3 +41,9 @@ end
 
 gem 'mongoid'
 gem 'bson_ext'
+
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'rspec-rails'
+  gem 'capybara'
+end
