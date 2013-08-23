@@ -3,7 +3,8 @@ Feature: Go to the home page
   As any user 
   I should be able to go to the home page
 
+  @javascript
   Scenario: Seeing home
-    Given a I'm a non-logged-in user
-    When I go to cv.bvn.com.au
+    Given I'm a non-logged-in user
+    When I go to the home route
     Then I see 'hello'

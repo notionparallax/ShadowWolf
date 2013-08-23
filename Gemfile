@@ -48,4 +48,5 @@ group :test do
   gem 'mongoid-rspec', github: 'evansagge/mongoid-rspec'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
 end
