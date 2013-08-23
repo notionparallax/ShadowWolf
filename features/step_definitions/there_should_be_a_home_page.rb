@@ -6,5 +6,5 @@ When(/^I go to the home route$/) do
 end
 
 Then(/^I see 'hello'$/) do
-  pending # express the regexp above with the code you wish you had
+  page.has_content?('hello')
 end
