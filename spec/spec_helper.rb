@@ -28,5 +28,5 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  configuration.include Mongoid::Matchers
+  config.include Mongoid::Matchers
 end

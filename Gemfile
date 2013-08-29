@@ -29,4 +29,5 @@ gem 'bson_ext'
 group :test do
   gem 'rspec-rails'
   gem 'mongoid-rspec', github: 'evansagge/mongoid-rspec'
+  gem 'webrat'
 end
