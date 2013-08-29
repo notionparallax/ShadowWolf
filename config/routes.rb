@@ -1,7 +1,7 @@
 ShadowWolf::Application.routes.draw do
-  resources :person_names
-
-  resources :people
+  resources :people do
+    resources :person_name
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

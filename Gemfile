@@ -26,8 +26,8 @@ end
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'bson_ext'
 
+gem 'rspec-rails', group: [:test, :development]
 group :test do
-  gem 'rspec-rails'
+  gem 'guard-rspec'
   gem 'mongoid-rspec', github: 'evansagge/mongoid-rspec'
-  gem 'webrat'
 end
