@@ -11,6 +11,29 @@
     </div>
   <% end %>
 
+  <%= f.fields_for :name, PersonName.new do |builder| %>
+    <div class="field">
+      <%= builder.label :first_name %><br>
+      <%= builder.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= builder.label :last_name %><br>
+      <%= builder.text_field :last_name %>
+    </div>
+    <div class="field">
+      <%= builder.label :middle_name %><br>
+      <%= builder.text_field :middle_name %>
+    </div>
+    <div class="field">
+      <%= builder.label :preferred_first_name %><br>
+      <%= builder.text_field :preferred_first_name %>
+    </div>
+    <div class="field">
+      <%= builder.label :preferred_last_name %><br>
+      <%= builder.text_field :preferred_last_name %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

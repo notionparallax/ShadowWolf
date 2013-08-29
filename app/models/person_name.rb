@@ -2,7 +2,7 @@ class PersonName
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embedded_in :person
+  embedded_in :person, inverse_of: :name
 
   field :first_name, type: String
   field :last_name, type: String

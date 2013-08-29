@@ -2,7 +2,9 @@ class Person
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embeds_one :person_name, store_as: "name"
+  embeds_one :name, class_name: 'PersonName'
 
-  validates_presence_of :person_name
+  validates_presence_of :name
+
+  accepts_nested_attributes_for :name
 end
