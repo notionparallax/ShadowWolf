@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @person_name.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @person_name.last_name %>
+</p>
+
+<p>
+  <strong>Middle name:</strong>
+  <%= @person_name.middle_name %>
+</p>
+
+<p>
+  <strong>Preferred first name:</strong>
+  <%= @person_name.preferred_first_name %>
+</p>
+
+<p>
+  <strong>Preferred last name:</strong>
+  <%= @person_name.preferred_last_name %>
+</p>
+
+<%= link_to 'Edit', edit_person_name_path(@person_name) %> |
+<%= link_to 'Back', person_names_path %>
