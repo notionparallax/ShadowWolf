@@ -17,6 +17,7 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-typescript');
 
   // configurable paths
   var yeomanConfig = {
@@ -156,6 +157,18 @@ module.exports = function (grunt) {
           dest: '.tmp/spec',
           ext: '.js'
         }]
+      }
+    },
+    typescript: {
+      base: {
+        src: ['app/scripts/*/*.ts', 'app/scripts/**/*.ts'],
+        dest: 'app/scripts',
+        options: {
+          base_path: 'app/scripts',
+          sourcemap: true,
+          fullSourceMapPath: true,
+          declaration: true
+        }
       }
     },
     compass: {
@@ -298,12 +311,14 @@ module.exports = function (grunt) {
       server: [
         'coffee:dist',
         'compass:server',
-        'copy:styles'
+        'copy:styles',
+        'typescript'
       ],
       test: [
         'coffee',
         'compass',
-        'copy:styles'
+        'copy:styles',
+        'typescript'
       ],
       dist: [
         'coffee',
@@ -311,7 +326,8 @@ module.exports = function (grunt) {
         'copy:styles',
         'imagemin',
         'svgmin',
-        'htmlmin'
+        'htmlmin',
+        'typescript'
       ]
     },
     karma: {
