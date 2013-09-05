@@ -18,6 +18,7 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-typescript');
+  grunt.loadNpmTasks('grunt-cucumber');
 
   // configurable paths
   var yeomanConfig = {
@@ -59,6 +60,10 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
+    },
+    cucumberjs: {
+      files: 'test/features',
+      options: 'test/features/step_definitions'
     },
     autoprefixer: {
       options: ['last 1 version'],
