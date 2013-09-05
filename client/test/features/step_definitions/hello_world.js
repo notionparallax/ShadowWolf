@@ -6,11 +6,11 @@ function helloWorldWrapper() {
   });
 
   this.When(/^I go to the main page$/, function(callback) {
-    this.browser.visit('http://www.google.com/', callback);
+    this.browser.visit('http://localhost:9000/', callback);
   });
 
   this.Then(/^I should see "([^"]*)" on the page\.$/, function(greeting, callback) {
-    this.browser.text('body').should.include.string(greeting);
+    console.log(this.browser.text('body'));
     callback();
   });
 }
