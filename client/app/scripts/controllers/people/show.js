@@ -2,7 +2,8 @@
 
 angular.module('ShadowWolf')
 .controller('PeopleShowController',
-function($scope, Person, $routeParams) {
-  Person.setPerson( $routeParams.id );
-  $scope.person = Person.getPerson().get();
+function($scope, People, $routeParams) {
+  $scope.person = function() {
+    return People.getPerson( $routeParams.id );
+  };
 });

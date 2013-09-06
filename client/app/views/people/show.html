@@ -1,4 +1,4 @@
-<div ng-show="person">
-  <h1>Check out {{ person.first_name }}'s Page!!</h1>
-  <p>{{ person.first_name }}'s last name is {{ person.last_name }} and prefers to be called {{ person.preferred_first_name }}.</p>
+<div ng-show="person()">
+  <h1>Check out {{ person().preferred_first_name }}'s Page!!</h1>
+  <p>{{ person().first_name }}'s last name is {{ person().last_name }} and prefers to be called {{ person().preferred_first_name }}.</p>
 </div>
