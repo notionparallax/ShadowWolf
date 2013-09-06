@@ -9,9 +9,8 @@ describe('Routes', function() {
       $location.path('/');
       $rootScope.$digest();
 
-      expect(true).toBe(true);
-      //expect($route.current.templateUrl).toBe('views/main.html');
-      //expect($route.current.controller).toBe($controller('MainController'));
+      expect($route.current.templateUrl).toBe('views/main.html');
+      expect($route.current.controller).toBe($controller('MainController'));
 
     });
   });

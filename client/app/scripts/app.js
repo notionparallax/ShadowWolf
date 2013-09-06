@@ -1,11 +1,14 @@
 'use strict';
 
-angular.module('ShadowWolf', [])
+angular.module('ShadowWolf', ['ngResource'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainController'
+      })
+      .when('/people', {
+        templateUrl: 'views/people/index.html',
+        controller: 'PeopleIndexController'
       })
       .otherwise({
         redirectTo: '/'
