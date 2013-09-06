@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :person do
+    name { FactoryGirl.build( :person_name) }
   end
 end
