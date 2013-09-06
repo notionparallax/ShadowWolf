@@ -39,7 +39,10 @@
     "karma-phantomjs-launcher": "~0.1.0",
     "karma": "~0.10.2",
     "karma-ng-html2js-preprocessor": "~0.1.0",
-    "grunt-typescript": "~0.2.4"
+    "cucumber": "latest",
+    "zombie": "latest",
+    "grunt-typescript": "~0.2.4",
+    "grunt-cucumber": "~0.2.1"
   },
   "engines": {
     "node": ">=0.8.0"
