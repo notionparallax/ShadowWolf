@@ -1,5 +1,5 @@
 <ul>
   <li ng-repeat="p in people">
-    <p>{{ p.preferred_first_name }}</p>
+    <p><a href="#/people/{{ p.id['$oid'] }}">{{ p.preferred_first_name }}</a></p>
   </li>
 </ul>

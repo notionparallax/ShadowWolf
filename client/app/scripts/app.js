@@ -10,6 +10,10 @@ angular.module('ShadowWolf', ['ngResource'])
         templateUrl: 'views/people/index.html',
         controller: 'PeopleIndexController'
       })
+      .when('/people/:id', {
+        templateUrl: 'views/people/show.html',
+        controller: 'PeopleShowController'
+      })
       .otherwise({
         redirectTo: '/'
       });
