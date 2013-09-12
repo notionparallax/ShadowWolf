@@ -13,24 +13,24 @@
 
   <%= f.fields_for :name, PersonName.new do |builder| %>
     <div class="field">
-      <%= builder.label :first_name %><br>
-      <%= builder.text_field :first_name %>
+      <%= builder.label :first %><br>
+      <%= builder.text_field :first %>
     </div>
     <div class="field">
-      <%= builder.label :last_name %><br>
-      <%= builder.text_field :last_name %>
+      <%= builder.label :last %><br>
+      <%= builder.text_field :last %>
     </div>
     <div class="field">
-      <%= builder.label :middle_name %><br>
-      <%= builder.text_field :middle_name %>
+      <%= builder.label :middle %><br>
+      <%= builder.text_field :middle %>
     </div>
     <div class="field">
-      <%= builder.label :preferred_first_name %><br>
-      <%= builder.text_field :preferred_first_name %>
+      <%= builder.label :preferred_first %><br>
+      <%= builder.text_field :preferred_first %>
     </div>
     <div class="field">
-      <%= builder.label :preferred_last_name %><br>
-      <%= builder.text_field :preferred_last_name %>
+      <%= builder.label :preferred_last %><br>
+      <%= builder.text_field :preferred_last %>
     </div>
   <% end %>
 
