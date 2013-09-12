@@ -26,8 +26,8 @@ end
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'bson_ext'
 
-gem 'factory_girl_rails', '~> 4.0', group: [:test, :development]
-gem 'faker', group: [:test, :development]
+gem 'factory_girl_rails', '~> 4.0'#, group: [:test, :development]
+gem 'faker'#, group: [:test, :development]
 gem 'rspec-rails', group: [:test, :development]
 group :test do
   gem 'guard-rspec'
