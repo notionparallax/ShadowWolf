@@ -1,4 +1,11 @@
 <div ng-show="person()">
-  <h1>Check out {{ person().preferred_first_name }}'s Page!!</h1>
-  <p>{{ person().first_name }}'s last name is {{ person().last_name }} and prefers to be called {{ person().preferred_first_name }}.</p>
+  <h1>Check out {{ person().name.preferred_first }}'s Page!!</h1>
+  <p>{{ person().name.first }}'s last name is {{ person().name.last }} and prefers to be called {{ person().name.preferred_first }}.</p>
+  <section ng-show="person().employee">
+    <section ng-show="person().employee.biography">
+      <h2>Biography</h2>
+      <p>{{ person().employee.biography.one_line_bio }}</p>
+      <p>{{ person().employee.biography.expertise }}</p>
+    </section>
+  </section>
 </div>

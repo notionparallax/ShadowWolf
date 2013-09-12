@@ -1,6 +1,6 @@
 <ul>
   <li ng-repeat="p in people()">
-    <p><a href="#/people/{{ p.id['$oid'] }}">{{ p.preferred_first_name }}</a></p>
+    <p><a href="#/people/{{ p.id['$oid'] }}">{{ p.name.preferred_first }}</a></p>
   </li>
 <!-- 
   [{"created_at":"2013-09-06T08:19:50.609Z","updated_at":"2013-09-06T08:19:50.609Z","first_name":"Kyra","last_name":"Blick","middle_name":"Willa","preferred_first_name":"Davonte","preferred_last_name":"Witting","id":{"$oid":"52299026ee6da1111d000001"},"url":"http://localhost:3000/people/52299026ee6da1111d000001.json"}]
