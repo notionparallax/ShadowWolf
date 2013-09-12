@@ -1,8 +1,8 @@
 ShadowWolf::Application.configure do
   config.middleware.use Rack::Cors do
     allow do
-      origins 'notionparallax.co.uk'
-      resource '*', :headers => :any, :methods => :any
+      origins '*'
+      resource '*', :headers => :any, :methods => [:get, :options]
     end
   end
 
