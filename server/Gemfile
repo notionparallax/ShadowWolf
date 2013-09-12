@@ -34,4 +34,7 @@ group :test do
   gem 'mongoid-rspec', github: 'evansagge/mongoid-rspec'
 end
 
-gem 'uglifier', group: :assets
+group :assets do
+  gem 'uglifier'
+  gem 'sass-rails'
+end
