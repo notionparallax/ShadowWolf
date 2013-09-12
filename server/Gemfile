@@ -38,3 +38,5 @@ group :assets do
   gem 'uglifier'
   gem 'sass-rails'
 end
+
+gem 'rack-cors', :require => 'rack/cors'

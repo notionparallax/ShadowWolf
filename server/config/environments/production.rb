@@ -1,4 +1,11 @@
 ShadowWolf::Application.configure do
+  config.middleware.use Rack::Cors do
+    allow do
+      origins 'notionparallax.co.uk'
+      resource '*', :headers => :any, :methods => :any
+    end
+  end
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
