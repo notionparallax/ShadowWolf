@@ -53,6 +53,7 @@ GEM
     coderay (1.0.9)
     diff-lcs (1.2.4)
     erubis (2.7.0)
+    execjs (2.0.0)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.2.1)
@@ -156,6 +157,9 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
+    uglifier (2.1.2)
+      execjs (>= 0.3.0)
+      multi_json (~> 1.0, >= 1.0.2)
 
 PLATFORMS
   ruby
@@ -171,3 +175,4 @@ DEPENDENCIES
   rails (= 4.0.0)
   rspec-rails
   sdoc
+  uglifier

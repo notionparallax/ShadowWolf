@@ -33,3 +33,5 @@ group :test do
   gem 'guard-rspec'
   gem 'mongoid-rspec', github: 'evansagge/mongoid-rspec'
 end
+
+gem 'uglifier', group: :assets
