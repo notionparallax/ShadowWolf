@@ -9,7 +9,7 @@ html, body {
 }
 
 body {
-    background: #fafafa;
+    background: #808080;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
 }
@@ -29,4 +29,11 @@ body {
     font-size: 60px;
     line-height: 1;
     letter-spacing: -1px;
+}
+
+.face-box{
+  height:100px;
+}
+.inline-thing{
+  display:inline-block;
 }
