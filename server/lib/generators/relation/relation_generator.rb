@@ -14,6 +14,7 @@ class RelationGenerator < Rails::Generators::NamedBase
 #    routes_relation
     model_relation
     view_relation
+    factories_relation
   end
 
 private
@@ -81,6 +82,14 @@ json.array!(#{parent_class.underscore}.#{child_name.pluralize.underscore}) do |#
 end
 RUBY
       end
+    end
+  end
+
+  def factories_relation
+    inject_into_file "spec/factories/#{parent_class.underscore}.rb", after: "factory :#{parent_class.underscore} do\n" do
+<<RUBY
+    #{child_name.underscore} { FactoryGirl.build( :#{name.underscore} ) }
+RUBY
     end
   end
 
