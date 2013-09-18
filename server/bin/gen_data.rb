@@ -16,3 +16,5 @@ end
 relations.each do |rel|
   puts %x(rails g relation #{rel})
 end
+
+puts "\nAnd don't forget to tell app/views/people/{show,index}.json.jbuilder to point to app/views/people_person.json.jbuilder!"
