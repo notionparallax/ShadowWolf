@@ -77,8 +77,10 @@ end if #{parent_class.underscore}.#{child_name.underscore}
 RUBY
       elsif relation_type == "embeds_many"
 <<RUBY
-json.array!(#{parent_class.underscore}.#{child_name.pluralize.underscore}) do |#{child_name.underscore}|
-  json.partial! '#{name.pluralize.underscore}/#{name.underscore}.json.jbuilder', #{child_name.underscore}: #{child_name.underscore}
+json.#{child_name.pluralize.underscore} do
+  json.array!(#{parent_class.underscore}.#{child_name.pluralize.underscore}) do |#{child_name.underscore}|
+    json.partial! '#{name.pluralize.underscore}/#{name.underscore}.json.jbuilder', #{child_name.underscore}: #{child_name.underscore}
+  end
 end
 RUBY
       end
