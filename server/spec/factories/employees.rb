@@ -3,7 +3,11 @@
 FactoryGirl.define do
   factory :employee do
     after(:create) do |employee|
-      FactoryGirl.create_list(:condition, 3, employee: employee)
+      if rand > 0.1
+        FactoryGirl.create(:condition, employee: employee, end_date: nil)
+      else
+        FactoryGirl.create(:condition, employee: employee)
+      end
     end
     photo { FactoryGirl.build( :photo ) }
   end
