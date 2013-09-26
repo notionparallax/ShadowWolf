@@ -3,7 +3,7 @@ models = <<-RUBY.split("\n")
 person
 person_name first:string last:string preferred_first:string preferred_last:string
 employee
-photos fun:string bw:string colour:string
+photo fun:string bw:string colour:string
 condition name:string start_date:date end_date:date
 RUBY
 
@@ -11,7 +11,7 @@ RUBY
 relations = <<-RUBY.split("\n")
 person_name   --parent-class=person   --relation-type=embeds_one  --class_synonym=name
 employee      --parent-class=person   --relation-type=embeds_one
-photos        --parent-class=employee --relation-type=embeds_one
+photo         --parent-class=employee --relation-type=embeds_one
 condition     --parent-class=employee --relation-type=embeds_many
 RUBY
 

@@ -1,0 +1,33 @@
+<h1>Listing person_names</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First</th>
+      <th>Last</th>
+      <th>Preferred first</th>
+      <th>Preferred last</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @person_names.each do |person_name| %>
+      <tr>
+        <td><%= person_name.first %></td>
+        <td><%= person_name.last %></td>
+        <td><%= person_name.preferred_first %></td>
+        <td><%= person_name.preferred_last %></td>
+        <td><%= link_to 'Show', person_name %></td>
+        <td><%= link_to 'Edit', edit_person_name_path(person_name) %></td>
+        <td><%= link_to 'Destroy', person_name, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Person name', new_person_name_path %>

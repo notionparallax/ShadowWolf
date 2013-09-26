@@ -1,4 +1,14 @@
 ShadowWolf::Application.routes.draw do
+  resources :conditions
+
+  resources :photos
+
+  resources :employees
+
+  resources :person_names
+
+  resources :people
+
   resources :people do
     resources :person_name
   end
