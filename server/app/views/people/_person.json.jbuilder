@@ -1,3 +1,4 @@
+json.id person.id
 json.name do
   json.partial! 'person_names/person_name.json.jbuilder', name: person.name
 end if person.name
