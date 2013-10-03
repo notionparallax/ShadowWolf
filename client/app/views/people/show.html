@@ -1,6 +1,7 @@
 <div ng-show="person()">
   <h1>Check out {{ person().name.preferred_first }}'s Page!!</h1>
   <p>{{ person().name.first }}'s last name is {{ person().name.last }} and prefers to be called {{ person().name.preferred_first }}.</p>
+  <editable label="label" value="person().name.first"></editable>
   <section ng-show="person().employee">
     <section ng-show="person().employee.biography">
       <h2>Biography</h2>
@@ -30,9 +31,9 @@
   <h2>Contact</h2>
     Studio:<span itemprop="workLocation">{{ person().studio }}</span><br>
     <div>
-      <img src="{{ person().photos.bw  }}" itemprop="image" />
-      <img src="{{ person().photos.col }}" itemprop="image" />
-      <img src="{{ person().photos.fun }}" itemprop="image" />
+      <img ng-src="{{ person().employee.photo.bw  }}" itemprop="image" />
+      <img ng-src="{{ person().employee.photo.colour }}" itemprop="image" />
+      <img ng-src="{{ person().employee.photo.fun }}" itemprop="image" />
     </div>
     
     <span itemprop="jobTitle">{{ person().employee.position }}</span><br>
@@ -65,6 +66,6 @@
   
   <section class='hidden-details' style="display:none;">
     <span itemprop="isicV4">8712-02</span><br> (Architects)
-    <span itemprop="worksFor">{{some clever stuff that checks if someone is a current employee, if so, says BVN DH, if not gets their currently known employer}}</span><br>
+    <span itemprop="worksFor">some clever stuff that checks if someone is a current employee, if so, says BVN DH, if not gets their currently known employer</span><br>
   </section>
 </div>
