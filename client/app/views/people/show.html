@@ -9,3 +9,62 @@
     </section>
   </section>
 </div>
+
+<h1>Using http://schema.org/Person for the markup, still needs organisng and styling</h1>
+<div itemscope itemtype="http://schema.org/Person" ng-show="person()">
+  <section ng-show="person().name">
+    <span itemprop="name">
+      <span itemprop="givenName" >{{ person().name.preferred_first }}</span> 
+      <span itemprop="familyName">{{ person().name.preferred_first }}</span> 
+    </span><br>
+    
+    <span itemprop="name">
+      <span itemprop="honorificPrefix" >{{ person().name.prefix }}</span> 
+      <span itemprop="familyName">{{ person().name.first }}</span> 
+      <span itemprop="givenName" >{{ person().name.last }}</span> 
+      <span itemprop="honorificSufix">{{ person().name.suffix }}</span> 
+    </span>
+  </section>
+  
+  <section ng-show="person().employee">
+  <h2>Contact</h2>
+    Studio:<span itemprop="workLocation">{{ person().studio }}</span><br>
+    <div>
+      <img src="{{ person().photos.bw  }}" itemprop="image" />
+      <img src="{{ person().photos.col }}" itemprop="image" />
+      <img src="{{ person().photos.fun }}" itemprop="image" />
+    </div>
+    
+    <span itemprop="jobTitle">{{ person().employee.position }}</span><br>
+    
+    <div>
+      <i class=".glyphicon .glyphicon-earphone" ></i><span itemprop="telephone">{{ person().contact.phoneDirect }}</span><br>
+      <i class=".glyphicon .glyphicon-phone"    ></i><span itemprop="telephone">{{ person().contact.phoneMobile }}</span><br>
+      <i class=".glyphicon .glyphicon-phone-alt"></i><span itemprop="telephone">{{ person().contact.extension }}</span><br>
+      <a href="mailto:jane-doe@xyz.edu" itemprop="email">{{ person().contact.email }}</a>
+    </div>
+    
+    <div ng-repeat="a in person().personalAwards">
+      <div itemscope itemprop="award">
+        <span itemprop="">{{a.xxx}}</span><br>
+        <time itemprop="" datetime="2009-11-13"></time>
+        <span itemprop="">{{a.xxx}}</span><br>
+        <span itemprop="">{{a.xxx}}</span><br>
+        <a href="{{a.URL}}" itemprop="URL">a link</a>
+      </div>
+    </div>
+    
+    <div ng-repeat="q in person().qualifications">
+      <!--<div itemprop="Event">--><!--is education an event?-->
+        <span itemprop="alumniOf">{{q.xxx}}</span><br>
+        
+        <a href="{{q.URL}}" itemprop="url">a link</a>
+      <!--</div>-->
+    </div>
+  </section>
+  
+  <section class='hidden-details' style="display:none;">
+    <span itemprop="isicV4">8712-02</span><br> (Architects)
+    <span itemprop="worksFor">{{some clever stuff that checks if someone is a current employee, if so, says BVN DH, if not gets their currently known employer}}</span><br>
+  </section>
+</div>
