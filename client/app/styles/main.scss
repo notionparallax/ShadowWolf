@@ -2,6 +2,7 @@ $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 @import "bootstrap-sass/lib/bootstrap";
+@import "display-box";
 
 /* Put your CSS here */
 html, body {
@@ -32,8 +33,14 @@ body {
 }
 
 .face-box{
-  height:100px;
+  position:relative;
+  margin-bottom: 1em;
 }
-.inline-thing{
-  display:inline-block;
+.name-tag{
+  position: absolute;
+  top: 5px;
+  left: 20px;
+}
+.full-width{
+  width:100%
 }
