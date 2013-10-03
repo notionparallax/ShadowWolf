@@ -1,7 +1,7 @@
 <div ng-show="person()">
   <h1>Check out {{ person().name.preferred_first }}'s Page!!</h1>
   <p>{{ person().name.first }}'s last name is {{ person().name.last }} and prefers to be called {{ person().name.preferred_first }}.</p>
-  <editable label="label" value="person().name.first"></editable>
+  <editable label="label" value="{{person().name.first}}"></editable>
   <section ng-show="person().employee">
     <section ng-show="person().employee.biography">
       <h2>Biography</h2>

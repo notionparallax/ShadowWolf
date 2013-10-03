@@ -8,29 +8,26 @@ angular.module("ShadowWolf")
     templateUrl: 'scripts/directives/editable.html',
     scope: {
       label: "@",
-      value: "@"            
+      value: "@" 
     },
     link: function (scope, element, attrs) { 
      
     },
     controller: function($scope) {
-      $scope.view = {
-        editableValue: $scope.value,
-        editorEnabled: false
-      };
+      $scope.editableValue= $scope.value;
+      $scope.editorEnabled= false;
 
       $scope.enableEditor = function() {
-        $scope.view.editorEnabled = true;
-        $scope.view.editableValue = $scope.value;
+        $scope.editorEnabled = true;
+        $scope.editableValue = $scope.value;
       };
 
       $scope.disableEditor = function() {
-        $scope.view.editorEnabled = false;
+        $scope.editorEnabled = false;
       };
 
       $scope.save = function() {
-        console.log("Saving");
-        $scope.value = $scope.view.editableValue;
+        $scope.value = $scope.editableValue;
         $scope.disableEditor();
       };
     }
