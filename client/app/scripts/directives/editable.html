@@ -1,0 +1,19 @@
+<div class="form-group show-field" ng-click="enableEditor()">                 
+  <label class="col-sm-2 control-label">Email</label>                         
+  <div   class="col-sm-6">                                                    
+    <p ng-hide="view.editorEnabled" class="form-control-static editable">     
+      {{value}}                                                               
+      <span class="pulsar glyphicon glyphicon-cloud pull-margin-right-1em-out"
+            title="save"></span>                                              
+    </p>
+     <div ng-show="view.editorEnabled" class="input-group">                   
+      <input type="text"                                                      
+             ng-model="editableValue"                                         
+             class="form-control" />                                          
+      <span class="input-group-addon">                                        
+        <span class="glyphicon glyphicon-ok"                                  
+              title="save" ng-click="save()"></span>                          
+      </span>                                                                 
+    </div>
+  </div>                                                                   
+</div>                                                                        
