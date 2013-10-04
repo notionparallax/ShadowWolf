@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Extension:</strong>
+  <%= @contact.extension %>
+</p>
+
+<p>
+  <strong>Studio:</strong>
+  <%= @contact.studio %>
+</p>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>

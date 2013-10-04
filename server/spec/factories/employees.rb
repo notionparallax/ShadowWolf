@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :employee do
+    contact { FactoryGirl.build( :contact ) }
     after(:create) do |employee|
       if rand > 0.1
         FactoryGirl.create(:condition, employee: employee, end_date: nil)
@@ -10,5 +11,6 @@ FactoryGirl.define do
       end
     end
     photo { FactoryGirl.build( :photo ) }
+    photo { FactoryGirl.build( :contact ) }
   end
 end

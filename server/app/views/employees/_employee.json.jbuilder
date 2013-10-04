@@ -7,3 +7,6 @@ json.conditions do
     json.partial! 'conditions/condition.json.jbuilder', condition: condition
   end
 end
+json.contact do
+  json.partial! 'contacts/contact.json.jbuilder', contact: employee.contact
+end if employee.contact

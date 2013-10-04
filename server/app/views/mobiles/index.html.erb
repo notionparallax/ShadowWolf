@@ -1,0 +1,31 @@
+<h1>Listing mobiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Is bvn</th>
+      <th>Distribute</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mobiles.each do |mobile| %>
+      <tr>
+        <td><%= mobile.number %></td>
+        <td><%= mobile.is_bvn %></td>
+        <td><%= mobile.distribute %></td>
+        <td><%= link_to 'Show', mobile %></td>
+        <td><%= link_to 'Edit', edit_mobile_path(mobile) %></td>
+        <td><%= link_to 'Destroy', mobile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mobile', new_mobile_path %>
