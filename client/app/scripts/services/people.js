@@ -3,6 +3,9 @@
 angular.module('ShadowWolf')
 .service('People', function($resource, $http) {
   $http.defaults.useXDomain = true;
+  // todo follow advice here or similar
+  //  http://stackoverflow.com/questions/18415912/configure-restangular-baseurl-using-gruntjs
+  // to get enviromnet agnostic code. Also abstract it into a service somewhere.
   var _People = $resource('http://fathomless-oasis-7708.herokuapp.com/people.json');
   //*                      localhost:3000*/
   var _people = _People.query();
