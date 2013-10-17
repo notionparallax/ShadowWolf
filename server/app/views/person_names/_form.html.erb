@@ -12,12 +12,24 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :prefix %><br>
+    <%= f.text_field :prefix %>
+  </div>
+  <div class="field">
     <%= f.label :first %><br>
     <%= f.text_field :first %>
   </div>
   <div class="field">
+    <%= f.label :middle %><br>
+    <%= f.text_field :middle %>
+  </div>
+  <div class="field">
     <%= f.label :last %><br>
     <%= f.text_field :last %>
+  </div>
+  <div class="field">
+    <%= f.label :suffix %><br>
+    <%= f.text_field :suffix %>
   </div>
   <div class="field">
     <%= f.label :preferred_first %><br>

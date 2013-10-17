@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @employee_mobile.number %>
+</p>
+
+<p>
+  <strong>Is work:</strong>
+  <%= @employee_mobile.is_work %>
+</p>
+
+<p>
+  <strong>Distribute:</strong>
+  <%= @employee_mobile.distribute %>
+</p>
+
+<%= link_to 'Edit', edit_employee_mobile_path(@employee_mobile) %> |
+<%= link_to 'Back', employee_mobiles_path %>

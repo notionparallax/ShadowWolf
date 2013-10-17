@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @attention.date %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @attention.url %>
+</p>
+
+<p>
+  <strong>Scan or screengrab:</strong>
+  <%= @attention.scan_or_screengrab %>
+</p>
+
+<p>
+  <strong>Body text:</strong>
+  <%= @attention.body_text %>
+</p>
+
+<p>
+  <strong>Publication:</strong>
+  <%= @attention.publication %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @attention.reason %>
+</p>
+
+<%= link_to 'Edit', edit_attention_path(@attention) %> |
+<%= link_to 'Back', attentions_path %>

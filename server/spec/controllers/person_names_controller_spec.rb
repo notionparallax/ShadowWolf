@@ -23,7 +23,7 @@ describe PersonNamesController do
   # This should return the minimal set of attributes required to create a valid
   # PersonName. As you add validations to PersonName, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "first" => "MyString" } }
+  let(:valid_attributes) { { "prefix" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe PersonNamesController do
       it "assigns a newly created but unsaved person_name as @person_name" do
         # Trigger the behavior that occurs when invalid params are submitted
         PersonName.any_instance.stub(:save).and_return(false)
-        post :create, {:person_name => { "first" => "invalid value" }}, valid_session
+        post :create, {:person_name => { "prefix" => "invalid value" }}, valid_session
         assigns(:person_name).should be_a_new(PersonName)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         PersonName.any_instance.stub(:save).and_return(false)
-        post :create, {:person_name => { "first" => "invalid value" }}, valid_session
+        post :create, {:person_name => { "prefix" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe PersonNamesController do
         # specifies that the PersonName created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        PersonName.any_instance.should_receive(:update).with({ "first" => "MyString" })
-        put :update, {:id => person_name.to_param, :person_name => { "first" => "MyString" }}, valid_session
+        PersonName.any_instance.should_receive(:update).with({ "prefix" => "MyString" })
+        put :update, {:id => person_name.to_param, :person_name => { "prefix" => "MyString" }}, valid_session
       end
 
       it "assigns the requested person_name as @person_name" do
@@ -128,7 +128,7 @@ describe PersonNamesController do
         person_name = PersonName.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         PersonName.any_instance.stub(:save).and_return(false)
-        put :update, {:id => person_name.to_param, :person_name => { "first" => "invalid value" }}, valid_session
+        put :update, {:id => person_name.to_param, :person_name => { "prefix" => "invalid value" }}, valid_session
         assigns(:person_name).should eq(person_name)
       end
 
@@ -136,7 +136,7 @@ describe PersonNamesController do
         person_name = PersonName.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         PersonName.any_instance.stub(:save).and_return(false)
-        put :update, {:id => person_name.to_param, :person_name => { "first" => "invalid value" }}, valid_session
+        put :update, {:id => person_name.to_param, :person_name => { "prefix" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

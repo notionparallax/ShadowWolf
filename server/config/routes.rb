@@ -1,7 +1,51 @@
 ShadowWolf::Application.routes.draw do
-  resources :mobiles
+  resources :preferences
 
-  resources :contacts
+  resources :presses
+
+  resources :dietaries
+
+  resources :event_participations
+
+  resources :office_cultures
+
+  resources :attentions
+
+  resources :socials
+
+  resources :biographies
+
+  resources :project_experiences
+
+  resources :frequent_flier_programs
+
+  resources :passports
+
+  resources :travels
+
+  resources :professional_contributions
+
+  resources :personal_awards
+
+  resources :memberships
+
+  resources :registrations
+
+  resources :qualifications
+
+  resources :finances
+
+  resources :security_clearances
+
+  resources :applications
+
+  resources :applicants
+
+  resources :person_contacts
+
+  resources :employee_contacts
+
+  resources :employee_mobiles
 
   resources :conditions
 

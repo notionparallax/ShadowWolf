@@ -3,6 +3,8 @@
 <table>
   <thead>
     <tr>
+      <th>Login</th>
+      <th>Position</th>
       <th></th>
       <th></th>
       <th></th>
@@ -12,6 +14,8 @@
   <tbody>
     <% @employees.each do |employee| %>
       <tr>
+        <td><%= employee.login %></td>
+        <td><%= employee.position %></td>
         <td><%= link_to 'Show', employee %></td>
         <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>

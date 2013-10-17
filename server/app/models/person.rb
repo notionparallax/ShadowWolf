@@ -2,11 +2,11 @@ class Person
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embeds_one :employee
+  embeds_one :applicant
 
-  accepts_nested_attributes_for :employee
+  accepts_nested_attributes_for :applicant
 
-  embeds_one :name, class_name: 'PersonName'
+  embeds_one :contact, class_name: 'PersonContact'
 
-  accepts_nested_attributes_for :name
+  accepts_nested_attributes_for :contact
 end

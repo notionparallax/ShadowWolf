@@ -23,7 +23,7 @@ describe EmployeesController do
   # This should return the minimal set of attributes required to create a valid
   # Employee. As you add validations to Employee, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {  } }
+  let(:valid_attributes) { { "login" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe EmployeesController do
       it "assigns a newly created but unsaved employee as @employee" do
         # Trigger the behavior that occurs when invalid params are submitted
         Employee.any_instance.stub(:save).and_return(false)
-        post :create, {:employee => {  }}, valid_session
+        post :create, {:employee => { "login" => "invalid value" }}, valid_session
         assigns(:employee).should be_a_new(Employee)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Employee.any_instance.stub(:save).and_return(false)
-        post :create, {:employee => {  }}, valid_session
+        post :create, {:employee => { "login" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe EmployeesController do
         # specifies that the Employee created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Employee.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => employee.to_param, :employee => { "these" => "params" }}, valid_session
+        Employee.any_instance.should_receive(:update).with({ "login" => "MyString" })
+        put :update, {:id => employee.to_param, :employee => { "login" => "MyString" }}, valid_session
       end
 
       it "assigns the requested employee as @employee" do
@@ -128,7 +128,7 @@ describe EmployeesController do
         employee = Employee.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Employee.any_instance.stub(:save).and_return(false)
-        put :update, {:id => employee.to_param, :employee => {  }}, valid_session
+        put :update, {:id => employee.to_param, :employee => { "login" => "invalid value" }}, valid_session
         assigns(:employee).should eq(employee)
       end
 
@@ -136,7 +136,7 @@ describe EmployeesController do
         employee = Employee.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Employee.any_instance.stub(:save).and_return(false)
-        put :update, {:id => employee.to_param, :employee => {  }}, valid_session
+        put :update, {:id => employee.to_param, :employee => { "login" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
