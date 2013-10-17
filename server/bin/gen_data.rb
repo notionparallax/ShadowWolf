@@ -9,7 +9,9 @@ employee                   login:string           position:string
 employee_mobile            number:string          is_work:boolean             distribute:boolean
 employee_contact           extension:string       studio:string               work_email:string
 person_contact             personal_email:string  personal_phone:string
-person_name                prefix:string          first:string                middle:string              last:string         suffix:string       preferred_first:string  preferred_last:string
+person_name                prefix:string          first:string                middle:string              last:string         suffix:string                 preferred_first:string    preferred_last:string
+applicant
+application                date:date              covering_letter:string      portfolio:string           assessment:text     future_consideration:boolean  skills_and_keywords:text
 security_clearance         issuing_body:string    level:string                expiry:date
 finance                    employee_code:string
 qualification              name:string            level:string                institution:string         first_year:integer  last_year:integer
@@ -20,12 +22,15 @@ professional_contribution  activity:string        description:text            ur
 travel
 passport                   number:string          expiry:date                 issuing_body:string
 frequent_flier_program     name:string            number:string
-project_experience         start:date             end:date                    name:string                firm:string         role:string         stage:string            url:string
-biography                  one_line_bio:string    approach:text               expertise:text             experience:text     achievements:text   value_statement:text
-social                     twitter:string         instagram:string            github:string              pinterest:string    google_plus:string  linkedin:string         facebook:string        tumblr:string
+project_experience         start:date             end:date                    name:string                firm:string         role:string                   stage:string              url:string
+biography                  one_line_bio:string    approach:text               expertise:text             experience:text     achievements:text             value_statement:text
+social                     twitter:string         instagram:string            github:string              pinterest:string    google_plus:string            linkedin:string           facebook:string        tumblr:string
 media
-attention                  date:date              url:string                  scan_or_screengrab:string  body_text:text      publication:string  reason:string
+attention                  date:date              url:string                  scan_or_screengrab:string  body_text:text      publication:string            reason:string
 office_culture             first_aider:boolean    fire_warden:boolean
+event_participation        name:string            date:date                   url:string
+dietary                    requirements:text
+preferences                likes:text             dislikes:text
 RUBY
 
 # Commands to be passed to the relation generator
@@ -55,6 +60,11 @@ social                     --parent-class=person_contact    --relation-type=embe
 media                      --parent-class=employee          --relation-type=embeds_one
 attention                  --parent-class=media             --relation-type=embeds_many
 office_culture             --parent-class=employee          --relation-type=embeds_one
+event_participation        --parent-class=office_culture    --relation-type=embeds_many
+dietary                    --parent-class=office_culture    --relation-type=embeds_one
+preferences                --parent-class=dietary           --relation-type=embeds_one
+applicant --parent-class=person --relation-type=embeds_one
+application --parent-class=application --relation-type=embeds_many
 RUBY
 models.each do |model|
   puts %x(rails g scaffold #{model} --timestamps)
