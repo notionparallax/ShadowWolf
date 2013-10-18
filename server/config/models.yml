@@ -1,0 +1,343 @@
+person_name:
+  fields:
+  - name: prefix
+    type: string
+  - name: first
+    type: string
+  - name: middle
+    type: string
+  - name: last
+    type: string
+  - name: suffix
+    type: string
+  - name: preferred_first
+    type: string
+  - name: preferred_last
+    type: string
+  relation:
+    parent: person
+    type: embeds_one
+    synonym: name
+employee:
+  fields:
+  - name: login
+    type: string
+  - name: position
+    type: string
+  relation:
+    parent: person
+    type: embeds_one
+photo:
+  fields:
+  - name: fun
+    type: string
+  - name: bw
+    type: string
+  - name: colour
+    type: string
+  relation:
+    parent: employee
+    type: embeds_one
+condition:
+  fields:
+  - name: name
+    type: string
+  - name: start_date
+    type: date
+  - name: end_date
+    type: date
+  relation:
+    parent: employee
+    type: embeds_many
+office_culture:
+  fields:
+  - name: first_aider
+    type: boolean
+  - name: fire_warden
+    type: boolean
+  relation:
+    parent: employee
+    type: embeds_one
+event_participation:
+  fields:
+  - name: name
+    type: string
+  - name: date
+    type: date
+  - name: url
+    type: string
+  relation:
+    parent: office_culture
+    type: embeds_many
+dietary:
+  fields:
+  - name: requirements
+    type: text
+  relation:
+    parent: office_culture
+    type: embeds_one
+person:
+  fields:
+  relation:
+employee_mobile:
+  fields:
+  - name: number
+    type: string
+  - name: is_work
+    type: boolean
+  - name: distribute
+    type: boolean
+  relation:
+    parent: employee_contact
+    type: embeds_one
+    synonym: mobile
+employee_contact:
+  fields:
+  - name: extension
+    type: string
+  - name: studio
+    type: string
+  - name: work_email
+    type: string
+  relation:
+    parent: employee
+    type: embeds_one
+    synonym: contact
+person_contact:
+  fields:
+  - name: personal_email
+    type: string
+  - name: personal_phone
+    type: string
+  relation:
+    parent: person
+    type: embeds_one
+    synonym: contact
+security_clearance:
+  fields:
+  - name: issuing_body
+    type: string
+  - name: level
+    type: string
+  - name: expiry
+    type: date
+  relation:
+    parent: employee
+    type: embeds_many
+finance:
+  fields:
+  - name: employee_code
+    type: string
+  relation:
+    parent: employee
+    type: embeds_one
+qualification:
+  fields:
+  - name: name
+    type: string
+  - name: level
+    type: string
+  - name: institution
+    type: string
+  - name: first_year
+    type: integer
+  - name: last_year
+    type: integer
+  relation:
+    parent: employee
+    type: embeds_many
+registration:
+  fields:
+  - name: organisation
+    type: string
+  - name: registration_number
+    type: string
+  - name: state
+    type: string
+  - name: country
+    type: string
+  relation:
+    parent: employee
+    type: embeds_many
+membership:
+  fields:
+  - name: organisation
+    type: string
+  - name: membership_number
+    type: string
+  - name: state
+    type: string
+  - name: country
+    type: string
+  relation:
+    parent: employee
+    type: embeds_many
+personal_award:
+  fields:
+  - name: name
+    type: string
+  - name: awarding_body
+    type: string
+  - name: description
+    type: text
+  - name: url
+    type: string
+  relation:
+    parent: employee
+    type: embeds_many
+professional_contribution:
+  fields:
+  - name: activity
+    type: string
+  - name: description
+    type: text
+  - name: url
+    type: string
+  relation:
+    parent: employee
+    type: embeds_many
+travel:
+  fields: []
+  relation:
+    parent: employee
+    type: embeds_one
+passport:
+  fields:
+  - name: number
+    type: string
+  - name: expiry
+    type: date
+  - name: issuing_body
+    type: string
+  relation:
+    parent: travel
+    type: embeds_many
+frequent_flier_program:
+  fields:
+  - name: name
+    type: string
+  - name: number
+    type: string
+  relation:
+    parent: travel
+    type: embeds_many
+project_experience:
+  fields:
+  - name: start_date
+    type: date
+  - name: end_date
+    type: date
+  - name: name
+    type: string
+  - name: firm
+    type: string
+  - name: role
+    type: string
+  - name: stage
+    type: string
+  - name: url
+    type: string
+  relation:
+    parent: employee
+    type: embeds_many
+biography:
+  fields:
+  - name: one_line_bio
+    type: string
+  - name: approach
+    type: text
+  - name: expertise
+    type: text
+  - name: experience
+    type: text
+  - name: achievements
+    type: text
+  - name: value_statement
+    type: text
+  relation:
+    parent: employee
+    type: embeds_one
+social:
+  fields:
+  - name: twitter
+    type: string
+  - name: instagram
+    type: string
+  - name: github
+    type: string
+  - name: pinterest
+    type: string
+  - name: google_plus
+    type: string
+  - name: linkedin
+    type: string
+  - name: facebook
+    type: string
+  - name: tumblr
+    type: string
+  relation:
+    parent: person_contact
+    type: embeds_one
+press:
+  fields: []
+  relation:
+    parent: employee
+    type: embeds_one
+attention:
+  fields:
+  - name: date
+    type: date
+  - name: url
+    type: string
+  - name: scan_or_screengrab
+    type: string
+  - name: body_text
+    type: text
+  - name: publication
+    type: string
+  - name: reason
+    type: string
+  relation:
+    parent: press
+    type: embeds_many
+preference:
+  fields:
+  - name: likes
+    type: text
+  - name: dislikes
+    type: text
+  relation:
+    parent: dietary
+    type: embeds_one
+applicant:
+  fields: []
+  relation:
+    parent: person
+    type: embeds_one
+application:
+  fields:
+  - name: date
+    type: date
+  - name: covering_letter
+    type: string
+  - name: portfolio
+    type: string
+  - name: assessment
+    type: text
+  - name: future_consideration
+    type: boolean
+  - name: skills_and_keywords
+    type: text
+  relation:
+    parent: applicant
+    type: embeds_many
+contact:
+  fields:
+  relation:
+    parent: employee
+    type: embeds_one
+mobile:
+  fields:
+  relation:
+    parent: contact
+    type: embeds_one
