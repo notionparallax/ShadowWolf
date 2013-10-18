@@ -77,8 +77,7 @@ dietary:
     parent: office_culture
     type: embeds_one
 person:
-  fields:
-  relation:
+  fields: []
 employee_mobile:
   fields:
   - name: number
@@ -332,12 +331,12 @@ application:
     parent: applicant
     type: embeds_many
 contact:
-  fields:
+  fields: []
   relation:
     parent: employee
     type: embeds_one
 mobile:
-  fields:
+  fields: []
   relation:
     parent: contact
     type: embeds_one
