@@ -1,340 +1,472 @@
 person_name:
   fields:
+    #mock:# 
   - name: prefix
     type: string
+    #mock:# Faker::Name.prefix
   - name: first
     type: string
+    #mock:# Faker::Name.first_name
   - name: middle
     type: string
+    #mock:# Faker::Name.first_name
   - name: last
     type: string
+    #mock:# Faker::Name.last_name
   - name: suffix
     type: string
+    #mock:# Faker::Name.suffix
   - name: preferred_first
     type: string
+    #mock:# 
   - name: preferred_last
     type: string
+    #mock:# Faker::Name.last_name
   relation:
     parent: person
     type: embeds_one
     synonym: name
+
 employee:
   fields:
   - name: login
     type: string
+    #mock:# (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase
   - name: position
     type: string
+    #mock:# Faker::Name.title
   relation:
     parent: person
     type: embeds_one
+
 photo:
   fields:
   - name: fun
     type: string
+    #mock:# 'http://api.randomuser.me/0.2/portraits/' + ['women','men'].sample + '/' + (1..60).to_a.sample.to_s + '.jpg'
   - name: bw
     type: string
+    #mock:# 'http://api.randomuser.me/0.2/portraits/' + ['women','men'].sample + '/' + (1..60).to_a.sample.to_s + '.jpg'
   - name: colour
     type: string
+    #mock:# 'http://api.randomuser.me/0.2/portraits/' + ['women','men'].sample + '/' + (1..60).to_a.sample.to_s + '.jpg'
   relation:
     parent: employee
     type: embeds_one
+
 condition:
   fields:
   - name: name
     type: string
+    #mock:# ['Active', 'Retired', 'Maternity', 'Leave', 'Deceased' , 'Left'].sample
   - name: start_date
     type: date
+    #mock:# (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days
   - name: end_date
     type: date
+    #mock:# (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days + (0..3).to_a.sample.years
   relation:
     parent: employee
     type: embeds_many
+
 office_culture:
   fields:
   - name: first_aider
     type: boolean
+    #mock:# [true, false].sample
   - name: fire_warden
     type: boolean
+    #mock:# [true, false].sample
   relation:
     parent: employee
     type: embeds_one
+
 event_participation:
   fields:
   - name: name
     type: string
+    #mock:# ['gong', 'beach', 'charlie', 'Biggest',     'very posh', 'shark island', 'extreme', 'nuts and berries'].sample + ' '+ ['ride', 'walk','party','fund raiser', 'gala', 'swim', 'bake off', 'trail'].sample 
   - name: date
     type: date
+    #mock:# (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days
   - name: url
     type: string
+    #mock:# 'http://'+ Faker::Internet.domain_name + '/greatAward/' + ['event','registration','party'].sample
   relation:
     parent: office_culture
     type: embeds_many
+
 dietary:
   fields:
   - name: requirements
     type: text
+    #mock:# ['Gluten free','Hindu ','Kosher ','Vegan ','Vegetarian ','Jain','Paleo','None', 'Bland'].sample(3).join(', ')
   relation:
     parent: office_culture
     type: embeds_one
+
 person:
   fields: []
+
 employee_mobile:
   fields:
   - name: number
     type: string
+    #mock:# '04' + Faker::Number.number(8)
   - name: is_work
     type: boolean
+    #mock:# [true, false].sample
   - name: distribute
     type: boolean
+    #mock:# [true, false].sample
   relation:
     parent: employee_contact
     type: embeds_one
     synonym: mobile
+
 employee_contact:
   fields:
   - name: extension
     type: string
+    #mock:# [2,3,4,7].sample.to_s + Faker::Number.digit + Faker::Number.digit
   - name: studio
     type: string
+    #mock:# ['Brisbane', 'Sydney', 'Canberra', 'Auckland', 'Bangkok', 'London', 'Melbourne'].sample
   - name: work_email
     type: string
+    #mock:# Faker::Name.first_name+"_"+Faker::Name.last_name+"@bvn.com.au"
   relation:
     parent: employee
     type: embeds_one
     synonym: contact
+
 person_contact:
   fields:
   - name: personal_email
     type: string
+    #mock:# Faker::Name.first_name+"."+Faker::Name.last_name+"@"+['gmail','yahoo','hotmail']+".com"
   - name: personal_phone
     type: string
+    #mock:# #mock:# '04' + Faker::Number.number(8)
   relation:
     parent: person
     type: embeds_one
     synonym: contact
+
 security_clearance:
   fields:
   - name: issuing_body
     type: string
+    #mock:# ['Army','Navy','Airforce', 'Police', 'Scooby Doo gang', 'CIA', 'FBI', 'MI6', 'MI5', 'ASIO'].sample
   - name: level
     type: string
+    #mock:# ['Top Secret', 'Licence to Kill', 'Double Secret Probation', 'Baseline'].sample
   - name: expiry
     type: date
+    #mock:# (0..3).to_a.sample.years.from_now + (1..345).to_a.sample.days
   relation:
     parent: employee
     type: embeds_many
+
 finance:
-  fields:
+  fields: 
   - name: employee_code
     type: string
+    #mock:# (Faker::Internet.password + (0..9).to_a.join().to_s).split('').shuffle[0..8].join
   relation:
     parent: employee
     type: embeds_one
+
 qualification:
   fields:
   - name: name
     type: string
+    #mock:# Faker::Name.title + " studies"
   - name: level
     type: string
+    #mock:# ['High school', 'Batchelors', 'Masters', 'Doctoral' ].sample
   - name: institution
     type: string
+    #mock:# Faker::Name.first_name + ' ' + ['Institute','College','University'].sample
   - name: first_year
     type: integer
+    #mock:# (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days
   - name: last_year
     type: integer
+    #mock:# (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days + (0..3).to_a.sample.years
   relation:
     parent: employee
     type: embeds_many
+
 registration:
   fields:
   - name: organisation
     type: string
+    #mock:# ['Institute','Association','Board'].sample +' of ' + Faker::Name.first_name
   - name: registration_number
     type: string
+    #mock:# ((Faker::Internet.password + (0..9).to_a.join().to_s).split('')).shuffle[0..5].join
   - name: state
     type: string
+    #mock:# ['NSW', 'NT', 'ACT', 'VIC', 'WA'].sample
   - name: country
     type: string
+    #mock:# ['Australia', 'Iceland', 'Luxemburg'].sample
+  - name: expiry
+    type: date
+    expiry date
+    #mock:# (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days
   relation:
     parent: employee
     type: embeds_many
+
 membership:
   fields:
   - name: organisation
     type: string
+    #mock:# Faker::Name.first_name + ' ' +['Society','Fellowship','Club'].sample
   - name: membership_number
     type: string
+    #mock:# ((Faker::Internet.password + (0..9).to_a.join().to_s).split('')).shuffle[0..5].join
   - name: state
     type: string
+    #mock:# ['NSW', 'NT', 'ACT', 'VIC', 'WA'].sample
   - name: country
     type: string
+    #mock:# ['Australia', 'Iceland', 'Luxemburg'].sample
+  - name: expiry
+    type: date
+    expiry date
+    #mock:# (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days
   relation:
     parent: employee
     type: embeds_many
+
 personal_award:
   fields:
   - name: name
     type: string
+    #mock:# Faker::Company.catch_phrase
   - name: awarding_body
     type: string
+    #mock:# Faker::Company.name + ' ' +['Society','Fellowship','Club'].sample
   - name: description
     type: text
+    #mock:# Faker::Lorem.paragraphs.join('<br>')
   - name: url
     type: string
+    #mock:# 'http://'+ Faker::Internet.domain_name + '/greatAward/' + ['pretty','amazing','clever'].sample
   relation:
     parent: employee
     type: embeds_many
+
 professional_contribution:
   fields:
   - name: activity
     type: string
+    #mock:# #mock:# Faker::Company.catch_phrase
   - name: description
     type: text
+    #mock:# Faker::Lorem.paragraphs.join('<br>')
   - name: url
     type: string
+    #mock:# 'http://'+ Faker::Internet.domain_name + '/greatAward/' + ['pretty','amazing','clever'].sample
   relation:
     parent: employee
     type: embeds_many
+
 travel:
   fields: []
   relation:
     parent: employee
     type: embeds_one
+
 passport:
   fields:
   - name: number
     type: string
+    #mock:# ((Faker::Internet.password + (0..9).to_a.join().to_s).split('')).shuffle[0..12].join
   - name: expiry
     type: date
+    #mock:# (0..3).to_a.sample.years.from_now + (1..345).to_a.sample.days
   - name: issuing_body
     type: string
+    #mock:# ['Australia', 'Iceland', 'Luxemburg'].sample
   relation:
     parent: travel
     type: embeds_many
+
 frequent_flier_program:
   fields:
   - name: name
     type: string
+    #mock:# Faker::Name.first_name + " air"
   - name: number
     type: string
+    #mock:# ((Faker::Internet.password + (0..9).to_a.join().to_s).split('')).shuffle[0..12].join
   relation:
     parent: travel
     type: embeds_many
+
 project_experience:
   fields:
   - name: start_date
     type: date
+    #mock:# (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days
   - name: end_date
     type: date
+    #mock:# (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days
   - name: name
     type: string
+    #mock:# Faker::Name.last_name + ' ' + ['building', 'centre', 'tower'].sample
   - name: firm
     type: string
+    #mock:# Faker::Name.first_name + ", "+Faker::Name.first_name + " and "+Faker::Name.first_name
   - name: role
     type: string
+    #mock:# ['Producer', 'Executive Producer', 'Production Manager', 'Production Assistant', 'Screenwriter', 'Stunt Coordinator', 'Director', 'Location Scout', 'System administrator'].sample
   - name: stage
     type: string
+    #mock:# ['Pre Design Services', 'Concept Design', 'Design Development', 'Approval Documents', 'Post DA Lodgment Services', 'Construction Approval', 'Construction Documentation', 'Tendering & Builder Appointment', 'Construction Period Services'].sample
   - name: url
     type: string
+    #mock:# 'http://'+ Faker::Internet.domain_name + '/projects/'+ Faker::Name.first_name + 'projects/'
   relation:
     parent: employee
     type: embeds_many
+
 biography:
   fields:
   - name: one_line_bio
     type: string
+    #mock:# Faker::Lorem.paragraph
   - name: approach
     type: text
+    #mock:# Faker::Lorem.paragraphs.join('<br>')
   - name: expertise
     type: text
+    #mock:# Faker::Lorem.paragraphs.join('<br>')
   - name: experience
     type: text
+    #mock:# Faker::Lorem.paragraphs.join('<br>')
   - name: achievements
     type: text
+    #mock:# Faker::Lorem.paragraphs.join('<br>')
   - name: value_statement
     type: text
+    #mock:# Faker::Lorem.paragraphs.join('<br>')
   relation:
     parent: employee
     type: embeds_one
+
 social:
   fields:
   - name: twitter
     type: string
+    #mock:# '@'+Faker::Lorem.word
   - name: instagram
     type: string
+    #mock:# '@'+Faker::Lorem.word
   - name: github
     type: string
+    #mock:# Faker::Lorem.word
   - name: pinterest
     type: string
+    #mock:# Faker::Lorem.word+Faker::Lorem.word
   - name: google_plus
     type: string
+    #mock:# 'https://plus.google.com/u/0/'+ Faker::Number.number(20)
   - name: linkedin
     type: string
+    #mock:# 'au.linkedin.com/pub/' + Faker::Name.first_name + '-' + Faker::Name.last_name + '/'+Faker::Number.digit+'a/258/933/'
   - name: facebook
     type: string
+    #mock:# (Faker::Name.first_name + Faker::Name.last_name+Faker::Number.digit).downcase
   - name: tumblr
     type: string
+    #mock:# 'http://tumblr.'+Faker::Lorem.word+Faker::Lorem.word+'.com/'
   relation:
     parent: person_contact
     type: embeds_one
+
 press:
   fields: []
   relation:
     parent: employee
     type: embeds_one
+
 attention:
   fields:
   - name: date
     type: date
+    #mock:# (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days
   - name: url
     type: string
+    #mock:# 'http://'+ Faker::Internet.domain_name + '/stories/' + ['style_section','business','theatre'].sample
   - name: scan_or_screengrab
     type: string
+    #mock:# 'http://'+ Faker::Internet.domain_name + '/images/' + Faker::Number.number(20) + 'screencap.jpg'
   - name: body_text
     type: text
+    #mock:# Faker::Lorem.paragraphs(paragraph_count = 8).join('<br>')
   - name: publication
     type: string
+    #mock:# Faker::Company.bs + ' weekly'
   - name: reason
     type: string
+    #mock:#['reactive', 'planned', 'response to release'].sample
   relation:
     parent: press
     type: embeds_many
+
 preference:
   fields:
   - name: likes
     type: text
+    #mock:# ['Asparagus','Avocados','Beets','Bell peppers','Broccoli','Brussels sprouts','Cabbage','Carrots','Cauliflower','Celery','Collard greens','Cucumbers','Eggplant','Fennel','Garlic','Green beans','Green peas','Kale','Leeks','Mushrooms, crimini','Mushrooms, shiitake','Mustard greens','Olives','Onions','Potatoes','Romaine lettuce','Sea vegetables','Spinach','Squash, summer','Squash, winter','Sweet potatoes','Swiss chard','Tomatoes','Turnip greens','Yams'].sample(4).join(', ')
   - name: dislikes
     type: text
+    #mock:#['Almonds','Cashews','Flaxseeds','Olive oil, extra virgin','Peanuts','Pumpkin seeds','Sesame seeds','Sunflower seeds','Walnuts'].sample(4).join(', ')
   relation:
     parent: dietary
     type: embeds_one
+
 applicant:
   fields: []
   relation:
     parent: person
     type: embeds_one
+
 application:
   fields:
   - name: date
     type: date
+    #mock:# (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days
   - name: covering_letter
     type: string
+    #mock:# 'http://'+ Faker::Internet.domain_name + '/images/' + Faker::Number.number(20) + 'coverLetter.jpg'
   - name: portfolio
     type: string
+    #mock:# 'http://'+ Faker::Internet.domain_name + '/images/' + Faker::Number.number(20) + 'portfolio.jpg'
   - name: assessment
     type: text
+    #mock:# Faker::Lorem.paragraphs(paragraph_count = 2).join('<br>')
   - name: future_consideration
     type: boolean
+    #mock:# [true, false].sample
   - name: skills_and_keywords
     type: text
+    #mock:# ['Communication','Teamwork','Problem Solving','Initiative and Enterprise','Planning and Organising','Self-Management','Learning','Technology','detailing','big data','social media','Revit','Rendering','Python','Javascript','Welding'].sample(6).join(', ')
   relation:
     parent: applicant
     type: embeds_many
+
 contact:
   fields: []
   relation:
     parent: employee
     type: embeds_one
+
 mobile:
   fields: []
   relation:
