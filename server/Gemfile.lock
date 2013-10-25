@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/Dawil/MongoidModelMaker.git
+  revision: 22eaebe03d9e074299f1b8dd894a614aa939ee06
+  specs:
+    mongoid-model-maker (0.0.1)
+
+GIT
   remote: git://github.com/evansagge/mongoid-rspec.git
   revision: 1c549f24beeb8fc709181774cf2bc7c11d57b567
   specs:
@@ -178,6 +184,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 1.2)
   mongoid!
+  mongoid-model-maker!
   mongoid-rspec!
   rack-cors
   rails (= 4.0.0)
