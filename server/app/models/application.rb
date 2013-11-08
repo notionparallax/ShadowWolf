@@ -2,12 +2,8 @@ class Application
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embedded_in :application
+  embedded_in :applicant
 
-
-  embeds_many :applications
-
-  accepts_nested_attributes_for :applications
   field :date, type: Date
   field :covering_letter, type: String
   field :portfolio, type: String

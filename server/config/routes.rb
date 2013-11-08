@@ -1,4 +1,8 @@
 ShadowWolf::Application.routes.draw do
+  resources :applications
+
+  resources :applicants
+
   resources :preferences
 
   resources :presses
@@ -36,10 +40,6 @@ ShadowWolf::Application.routes.draw do
   resources :finances
 
   resources :security_clearances
-
-  resources :applications
-
-  resources :applicants
 
   resources :person_contacts
 

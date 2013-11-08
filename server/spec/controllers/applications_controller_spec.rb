@@ -23,7 +23,7 @@ describe ApplicationsController do
   # This should return the minimal set of attributes required to create a valid
   # Application. As you add validations to Application, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "date" => "2013-10-17" } }
+  let(:valid_attributes) { { "date" => "2013-10-18" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -106,8 +106,8 @@ describe ApplicationsController do
         # specifies that the Application created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Application.any_instance.should_receive(:update).with({ "date" => "2013-10-17" })
-        put :update, {:id => application.to_param, :application => { "date" => "2013-10-17" }}, valid_session
+        Application.any_instance.should_receive(:update).with({ "date" => "2013-10-18" })
+        put :update, {:id => application.to_param, :application => { "date" => "2013-10-18" }}, valid_session
       end
 
       it "assigns the requested application as @application" do

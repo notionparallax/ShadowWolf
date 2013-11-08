@@ -1,6 +1,9 @@
 class PersonName
   include Mongoid::Document
   include Mongoid::Timestamps
+
+  embedded_in :person, inverse_of: :name
+
   field :prefix, type: String
   field :first, type: String
   field :middle, type: String
