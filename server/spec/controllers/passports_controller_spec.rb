@@ -39,25 +39,25 @@ describe PassportsController do
   end
 
   describe "GET show" do
-    it "assigns the requested passport as @passport" do
+    it "assigns the requested config_model as @config_model" do
       passport = Passport.create! valid_attributes
       get :show, {:id => passport.to_param}, valid_session
-      assigns(:passport).should eq(passport)
+      assigns(:config_model).should eq(passport)
     end
   end
 
   describe "GET new" do
-    it "assigns a new passport as @passport" do
+    it "assigns a new config_model as @config_model" do
       get :new, {}, valid_session
-      assigns(:passport).should be_a_new(Passport)
+      assigns(:config_model).should be_a_new(Passport)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested passport as @passport" do
+    it "assigns the requested config_model as @config_model" do
       passport = Passport.create! valid_attributes
       get :edit, {:id => passport.to_param}, valid_session
-      assigns(:passport).should eq(passport)
+      assigns(:config_model).should eq(passport)
     end
   end
 
@@ -65,34 +65,34 @@ describe PassportsController do
     describe "with valid params" do
       it "creates a new Passport" do
         expect {
-          post :create, {:passport => valid_attributes}, valid_session
+          post :create, {:config_model => valid_attributes}, valid_session
         }.to change(Passport, :count).by(1)
       end
 
-      it "assigns a newly created passport as @passport" do
-        post :create, {:passport => valid_attributes}, valid_session
-        assigns(:passport).should be_a(Passport)
-        assigns(:passport).should be_persisted
+      it "assigns a newly created config_model as @config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
+        assigns(:config_model).should be_a(Passport)
+        assigns(:config_model).should be_persisted
       end
 
-      it "redirects to the created passport" do
-        post :create, {:passport => valid_attributes}, valid_session
+      it "redirects to the created config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
         response.should redirect_to(Passport.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved passport as @passport" do
+      it "assigns a newly created but unsaved config_model as @config_model" do
         # Trigger the behavior that occurs when invalid params are submitted
         Passport.any_instance.stub(:save).and_return(false)
-        post :create, {:passport => { "number" => "invalid value" }}, valid_session
-        assigns(:passport).should be_a_new(Passport)
+        post :create, {:config_model => { "number" => "invalid value" }}, valid_session
+        assigns(:config_model).should be_a_new(Passport)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Passport.any_instance.stub(:save).and_return(false)
-        post :create, {:passport => { "number" => "invalid value" }}, valid_session
+        post :create, {:config_model => { "number" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe PassportsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested passport" do
+      it "updates the requested config_model" do
         passport = Passport.create! valid_attributes
         # Assuming there are no other passports in the database, this
         # specifies that the Passport created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Passport.any_instance.should_receive(:update).with({ "number" => "MyString" })
-        put :update, {:id => passport.to_param, :passport => { "number" => "MyString" }}, valid_session
+        put :update, {:id => passport.to_param, :config_model => { "number" => "MyString" }}, valid_session
       end
 
-      it "assigns the requested passport as @passport" do
+      it "assigns the requested config_model as @config_model" do
         passport = Passport.create! valid_attributes
-        put :update, {:id => passport.to_param, :passport => valid_attributes}, valid_session
-        assigns(:passport).should eq(passport)
+        put :update, {:id => passport.to_param, :config_model => valid_attributes}, valid_session
+        assigns(:config_model).should eq(passport)
       end
 
-      it "redirects to the passport" do
+      it "redirects to the config_model" do
         passport = Passport.create! valid_attributes
-        put :update, {:id => passport.to_param, :passport => valid_attributes}, valid_session
+        put :update, {:id => passport.to_param, :config_model => valid_attributes}, valid_session
         response.should redirect_to(passport)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the passport as @passport" do
+      it "assigns the config_model as @config_model" do
         passport = Passport.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Passport.any_instance.stub(:save).and_return(false)
-        put :update, {:id => passport.to_param, :passport => { "number" => "invalid value" }}, valid_session
-        assigns(:passport).should eq(passport)
+        put :update, {:id => passport.to_param, :config_model => { "number" => "invalid value" }}, valid_session
+        assigns(:config_model).should eq(passport)
       end
 
       it "re-renders the 'edit' template" do
         passport = Passport.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Passport.any_instance.stub(:save).and_return(false)
-        put :update, {:id => passport.to_param, :passport => { "number" => "invalid value" }}, valid_session
+        put :update, {:id => passport.to_param, :config_model => { "number" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested passport" do
+    it "destroys the requested config_model" do
       passport = Passport.create! valid_attributes
       expect {
         delete :destroy, {:id => passport.to_param}, valid_session

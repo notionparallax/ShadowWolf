@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :finance do
-    employee_code "MyString"
+    employee_code { (Faker::Internet.password + (0..9).to_a.join().to_s).split('').shuffle[0..8].join }
   end
 end

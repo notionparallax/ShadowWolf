@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "professional_contributions/show" do
+describe "config/models/show" do
   before(:each) do
-    @professional_contribution = assign(:professional_contribution, stub_model(ProfessionalContribution,
+    @config_model = assign(:config_model, stub_model(ProfessionalContribution,
       :activity => "Activity",
       :description => "MyText",
       :url => "Url"

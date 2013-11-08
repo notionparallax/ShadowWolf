@@ -1,1 +1,1 @@
-json.extract! @dietary, :requirements, :created_at, :updated_at
+json.partial! "dietaries/dietary.json.jbuilder", dietary: @dietary

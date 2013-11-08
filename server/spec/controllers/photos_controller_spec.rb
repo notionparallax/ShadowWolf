@@ -39,25 +39,25 @@ describe PhotosController do
   end
 
   describe "GET show" do
-    it "assigns the requested photo as @photo" do
+    it "assigns the requested config_model as @config_model" do
       photo = Photo.create! valid_attributes
       get :show, {:id => photo.to_param}, valid_session
-      assigns(:photo).should eq(photo)
+      assigns(:config_model).should eq(photo)
     end
   end
 
   describe "GET new" do
-    it "assigns a new photo as @photo" do
+    it "assigns a new config_model as @config_model" do
       get :new, {}, valid_session
-      assigns(:photo).should be_a_new(Photo)
+      assigns(:config_model).should be_a_new(Photo)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested photo as @photo" do
+    it "assigns the requested config_model as @config_model" do
       photo = Photo.create! valid_attributes
       get :edit, {:id => photo.to_param}, valid_session
-      assigns(:photo).should eq(photo)
+      assigns(:config_model).should eq(photo)
     end
   end
 
@@ -65,34 +65,34 @@ describe PhotosController do
     describe "with valid params" do
       it "creates a new Photo" do
         expect {
-          post :create, {:photo => valid_attributes}, valid_session
+          post :create, {:config_model => valid_attributes}, valid_session
         }.to change(Photo, :count).by(1)
       end
 
-      it "assigns a newly created photo as @photo" do
-        post :create, {:photo => valid_attributes}, valid_session
-        assigns(:photo).should be_a(Photo)
-        assigns(:photo).should be_persisted
+      it "assigns a newly created config_model as @config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
+        assigns(:config_model).should be_a(Photo)
+        assigns(:config_model).should be_persisted
       end
 
-      it "redirects to the created photo" do
-        post :create, {:photo => valid_attributes}, valid_session
+      it "redirects to the created config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
         response.should redirect_to(Photo.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved photo as @photo" do
+      it "assigns a newly created but unsaved config_model as @config_model" do
         # Trigger the behavior that occurs when invalid params are submitted
         Photo.any_instance.stub(:save).and_return(false)
-        post :create, {:photo => { "fun" => "invalid value" }}, valid_session
-        assigns(:photo).should be_a_new(Photo)
+        post :create, {:config_model => { "fun" => "invalid value" }}, valid_session
+        assigns(:config_model).should be_a_new(Photo)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Photo.any_instance.stub(:save).and_return(false)
-        post :create, {:photo => { "fun" => "invalid value" }}, valid_session
+        post :create, {:config_model => { "fun" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe PhotosController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested photo" do
+      it "updates the requested config_model" do
         photo = Photo.create! valid_attributes
         # Assuming there are no other photos in the database, this
         # specifies that the Photo created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Photo.any_instance.should_receive(:update).with({ "fun" => "MyString" })
-        put :update, {:id => photo.to_param, :photo => { "fun" => "MyString" }}, valid_session
+        put :update, {:id => photo.to_param, :config_model => { "fun" => "MyString" }}, valid_session
       end
 
-      it "assigns the requested photo as @photo" do
+      it "assigns the requested config_model as @config_model" do
         photo = Photo.create! valid_attributes
-        put :update, {:id => photo.to_param, :photo => valid_attributes}, valid_session
-        assigns(:photo).should eq(photo)
+        put :update, {:id => photo.to_param, :config_model => valid_attributes}, valid_session
+        assigns(:config_model).should eq(photo)
       end
 
-      it "redirects to the photo" do
+      it "redirects to the config_model" do
         photo = Photo.create! valid_attributes
-        put :update, {:id => photo.to_param, :photo => valid_attributes}, valid_session
+        put :update, {:id => photo.to_param, :config_model => valid_attributes}, valid_session
         response.should redirect_to(photo)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the photo as @photo" do
+      it "assigns the config_model as @config_model" do
         photo = Photo.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Photo.any_instance.stub(:save).and_return(false)
-        put :update, {:id => photo.to_param, :photo => { "fun" => "invalid value" }}, valid_session
-        assigns(:photo).should eq(photo)
+        put :update, {:id => photo.to_param, :config_model => { "fun" => "invalid value" }}, valid_session
+        assigns(:config_model).should eq(photo)
       end
 
       it "re-renders the 'edit' template" do
         photo = Photo.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Photo.any_instance.stub(:save).and_return(false)
-        put :update, {:id => photo.to_param, :photo => { "fun" => "invalid value" }}, valid_session
+        put :update, {:id => photo.to_param, :config_model => { "fun" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested photo" do
+    it "destroys the requested config_model" do
       photo = Photo.create! valid_attributes
       expect {
         delete :destroy, {:id => photo.to_param}, valid_session

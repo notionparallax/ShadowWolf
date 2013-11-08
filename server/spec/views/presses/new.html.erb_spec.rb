@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe "presses/new" do
+describe "config/models/new" do
   before(:each) do
-    assign(:press, stub_model(Press).as_new_record)
+    assign(:config_model, stub_model(Press).as_new_record)
   end
 
-  it "renders new press form" do
+  it "renders new config_model form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers

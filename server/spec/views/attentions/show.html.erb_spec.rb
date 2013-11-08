@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "attentions/show" do
+describe "config/models/show" do
   before(:each) do
-    @attention = assign(:attention, stub_model(Attention,
+    @config_model = assign(:config_model, stub_model(Attention,
       :url => "Url",
       :scan_or_screengrab => "Scan Or Screengrab",
       :body_text => "MyText",

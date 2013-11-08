@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :press do
     after(:create) do |press|
-      FactoryGirl.create_list(:attention, 3, press: press)
+      FactoryGirl.create_list( :attention, 3, press: press )
     end
   end
 end

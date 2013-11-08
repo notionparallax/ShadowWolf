@@ -39,25 +39,25 @@ describe EventParticipationsController do
   end
 
   describe "GET show" do
-    it "assigns the requested event_participation as @event_participation" do
+    it "assigns the requested config_model as @config_model" do
       event_participation = EventParticipation.create! valid_attributes
       get :show, {:id => event_participation.to_param}, valid_session
-      assigns(:event_participation).should eq(event_participation)
+      assigns(:config_model).should eq(event_participation)
     end
   end
 
   describe "GET new" do
-    it "assigns a new event_participation as @event_participation" do
+    it "assigns a new config_model as @config_model" do
       get :new, {}, valid_session
-      assigns(:event_participation).should be_a_new(EventParticipation)
+      assigns(:config_model).should be_a_new(EventParticipation)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested event_participation as @event_participation" do
+    it "assigns the requested config_model as @config_model" do
       event_participation = EventParticipation.create! valid_attributes
       get :edit, {:id => event_participation.to_param}, valid_session
-      assigns(:event_participation).should eq(event_participation)
+      assigns(:config_model).should eq(event_participation)
     end
   end
 
@@ -65,34 +65,34 @@ describe EventParticipationsController do
     describe "with valid params" do
       it "creates a new EventParticipation" do
         expect {
-          post :create, {:event_participation => valid_attributes}, valid_session
+          post :create, {:config_model => valid_attributes}, valid_session
         }.to change(EventParticipation, :count).by(1)
       end
 
-      it "assigns a newly created event_participation as @event_participation" do
-        post :create, {:event_participation => valid_attributes}, valid_session
-        assigns(:event_participation).should be_a(EventParticipation)
-        assigns(:event_participation).should be_persisted
+      it "assigns a newly created config_model as @config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
+        assigns(:config_model).should be_a(EventParticipation)
+        assigns(:config_model).should be_persisted
       end
 
-      it "redirects to the created event_participation" do
-        post :create, {:event_participation => valid_attributes}, valid_session
+      it "redirects to the created config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
         response.should redirect_to(EventParticipation.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved event_participation as @event_participation" do
+      it "assigns a newly created but unsaved config_model as @config_model" do
         # Trigger the behavior that occurs when invalid params are submitted
         EventParticipation.any_instance.stub(:save).and_return(false)
-        post :create, {:event_participation => { "name" => "invalid value" }}, valid_session
-        assigns(:event_participation).should be_a_new(EventParticipation)
+        post :create, {:config_model => { "name" => "invalid value" }}, valid_session
+        assigns(:config_model).should be_a_new(EventParticipation)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         EventParticipation.any_instance.stub(:save).and_return(false)
-        post :create, {:event_participation => { "name" => "invalid value" }}, valid_session
+        post :create, {:config_model => { "name" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe EventParticipationsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested event_participation" do
+      it "updates the requested config_model" do
         event_participation = EventParticipation.create! valid_attributes
         # Assuming there are no other event_participations in the database, this
         # specifies that the EventParticipation created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         EventParticipation.any_instance.should_receive(:update).with({ "name" => "MyString" })
-        put :update, {:id => event_participation.to_param, :event_participation => { "name" => "MyString" }}, valid_session
+        put :update, {:id => event_participation.to_param, :config_model => { "name" => "MyString" }}, valid_session
       end
 
-      it "assigns the requested event_participation as @event_participation" do
+      it "assigns the requested config_model as @config_model" do
         event_participation = EventParticipation.create! valid_attributes
-        put :update, {:id => event_participation.to_param, :event_participation => valid_attributes}, valid_session
-        assigns(:event_participation).should eq(event_participation)
+        put :update, {:id => event_participation.to_param, :config_model => valid_attributes}, valid_session
+        assigns(:config_model).should eq(event_participation)
       end
 
-      it "redirects to the event_participation" do
+      it "redirects to the config_model" do
         event_participation = EventParticipation.create! valid_attributes
-        put :update, {:id => event_participation.to_param, :event_participation => valid_attributes}, valid_session
+        put :update, {:id => event_participation.to_param, :config_model => valid_attributes}, valid_session
         response.should redirect_to(event_participation)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the event_participation as @event_participation" do
+      it "assigns the config_model as @config_model" do
         event_participation = EventParticipation.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         EventParticipation.any_instance.stub(:save).and_return(false)
-        put :update, {:id => event_participation.to_param, :event_participation => { "name" => "invalid value" }}, valid_session
-        assigns(:event_participation).should eq(event_participation)
+        put :update, {:id => event_participation.to_param, :config_model => { "name" => "invalid value" }}, valid_session
+        assigns(:config_model).should eq(event_participation)
       end
 
       it "re-renders the 'edit' template" do
         event_participation = EventParticipation.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         EventParticipation.any_instance.stub(:save).and_return(false)
-        put :update, {:id => event_participation.to_param, :event_participation => { "name" => "invalid value" }}, valid_session
+        put :update, {:id => event_participation.to_param, :config_model => { "name" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested event_participation" do
+    it "destroys the requested config_model" do
       event_participation = EventParticipation.create! valid_attributes
       expect {
         delete :destroy, {:id => event_participation.to_param}, valid_session

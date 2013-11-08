@@ -6,9 +6,9 @@ class OfficeCulture
 
   accepts_nested_attributes_for :dietary
 
-  embeds_many :event_participations
+  embeds_many :event_participation
 
-  accepts_nested_attributes_for :event_participations
+  accepts_nested_attributes_for :event_participation
 
   embedded_in :employee
 

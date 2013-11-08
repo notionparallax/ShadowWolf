@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "finances/show" do
+describe "config/models/show" do
   before(:each) do
-    @finance = assign(:finance, stub_model(Finance,
+    @config_model = assign(:config_model, stub_model(Finance,
       :employee_code => "Employee Code"
     ))
   end

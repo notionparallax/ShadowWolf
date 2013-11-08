@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "employees/index" do
+describe "config/models/index" do
   before(:each) do
     assign(:employees, [
       stub_model(Employee,
@@ -14,7 +14,7 @@ describe "employees/index" do
     ])
   end
 
-  it "renders a list of employees" do
+  it "renders a list of config/models" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Login".to_s, :count => 2

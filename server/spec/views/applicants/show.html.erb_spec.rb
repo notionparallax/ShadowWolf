@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "applicants/show" do
+describe "config/models/show" do
   before(:each) do
-    @applicant = assign(:applicant, stub_model(Applicant))
+    @config_model = assign(:config_model, stub_model(Applicant))
   end
 
   it "renders attributes in <p>" do

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "applications/show" do
+describe "config/models/show" do
   before(:each) do
-    @application = assign(:application, stub_model(Application,
+    @config_model = assign(:config_model, stub_model(Application,
       :covering_letter => "Covering Letter",
       :portfolio => "Portfolio",
       :assessment => "MyText",

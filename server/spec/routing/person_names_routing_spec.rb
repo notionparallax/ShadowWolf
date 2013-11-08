@@ -4,31 +4,31 @@ describe PersonNamesController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/person_names").should route_to("person_names#index")
+      get("/config/models").should route_to("config/models#index")
     end
 
     it "routes to #new" do
-      get("/person_names/new").should route_to("person_names#new")
+      get("/config/models/new").should route_to("config/models#new")
     end
 
     it "routes to #show" do
-      get("/person_names/1").should route_to("person_names#show", :id => "1")
+      get("/config/models/1").should route_to("config/models#show", :id => "1")
     end
 
     it "routes to #edit" do
-      get("/person_names/1/edit").should route_to("person_names#edit", :id => "1")
+      get("/config/models/1/edit").should route_to("config/models#edit", :id => "1")
     end
 
     it "routes to #create" do
-      post("/person_names").should route_to("person_names#create")
+      post("/config/models").should route_to("config/models#create")
     end
 
     it "routes to #update" do
-      put("/person_names/1").should route_to("person_names#update", :id => "1")
+      put("/config/models/1").should route_to("config/models#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      delete("/person_names/1").should route_to("person_names#destroy", :id => "1")
+      delete("/config/models/1").should route_to("config/models#destroy", :id => "1")
     end
 
   end

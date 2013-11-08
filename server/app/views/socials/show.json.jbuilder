@@ -1,1 +1,1 @@
-json.extract! @social, :twitter, :instagram, :github, :pinterest, :google_plus, :linkedin, :facebook, :tumblr, :created_at, :updated_at
+json.partial! "socials/social.json.jbuilder", social: @social

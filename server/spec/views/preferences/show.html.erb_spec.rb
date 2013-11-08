@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "preferences/show" do
+describe "config/models/show" do
   before(:each) do
-    @preference = assign(:preference, stub_model(Preference,
+    @config_model = assign(:config_model, stub_model(Preference,
       :likes => "MyText",
       :dislikes => "MyText"
     ))

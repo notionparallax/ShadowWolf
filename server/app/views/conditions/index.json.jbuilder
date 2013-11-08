@@ -1,4 +1,3 @@
 json.array!(@conditions) do |condition|
-  json.extract! condition, :name, :start_date, :end_date
-  json.url condition_url(condition, format: :json)
+  json.partial! "conditions/condition.json.jbuilder", condition: condition
 end

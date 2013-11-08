@@ -23,7 +23,7 @@ describe ProjectExperiencesController do
   # This should return the minimal set of attributes required to create a valid
   # ProjectExperience. As you add validations to ProjectExperience, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "start_date" => "2013-10-17" } }
+  let(:valid_attributes) { { "start_date" => "2013-11-08" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -39,25 +39,25 @@ describe ProjectExperiencesController do
   end
 
   describe "GET show" do
-    it "assigns the requested project_experience as @project_experience" do
+    it "assigns the requested config_model as @config_model" do
       project_experience = ProjectExperience.create! valid_attributes
       get :show, {:id => project_experience.to_param}, valid_session
-      assigns(:project_experience).should eq(project_experience)
+      assigns(:config_model).should eq(project_experience)
     end
   end
 
   describe "GET new" do
-    it "assigns a new project_experience as @project_experience" do
+    it "assigns a new config_model as @config_model" do
       get :new, {}, valid_session
-      assigns(:project_experience).should be_a_new(ProjectExperience)
+      assigns(:config_model).should be_a_new(ProjectExperience)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested project_experience as @project_experience" do
+    it "assigns the requested config_model as @config_model" do
       project_experience = ProjectExperience.create! valid_attributes
       get :edit, {:id => project_experience.to_param}, valid_session
-      assigns(:project_experience).should eq(project_experience)
+      assigns(:config_model).should eq(project_experience)
     end
   end
 
@@ -65,34 +65,34 @@ describe ProjectExperiencesController do
     describe "with valid params" do
       it "creates a new ProjectExperience" do
         expect {
-          post :create, {:project_experience => valid_attributes}, valid_session
+          post :create, {:config_model => valid_attributes}, valid_session
         }.to change(ProjectExperience, :count).by(1)
       end
 
-      it "assigns a newly created project_experience as @project_experience" do
-        post :create, {:project_experience => valid_attributes}, valid_session
-        assigns(:project_experience).should be_a(ProjectExperience)
-        assigns(:project_experience).should be_persisted
+      it "assigns a newly created config_model as @config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
+        assigns(:config_model).should be_a(ProjectExperience)
+        assigns(:config_model).should be_persisted
       end
 
-      it "redirects to the created project_experience" do
-        post :create, {:project_experience => valid_attributes}, valid_session
+      it "redirects to the created config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
         response.should redirect_to(ProjectExperience.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved project_experience as @project_experience" do
+      it "assigns a newly created but unsaved config_model as @config_model" do
         # Trigger the behavior that occurs when invalid params are submitted
         ProjectExperience.any_instance.stub(:save).and_return(false)
-        post :create, {:project_experience => { "start_date" => "invalid value" }}, valid_session
-        assigns(:project_experience).should be_a_new(ProjectExperience)
+        post :create, {:config_model => { "start_date" => "invalid value" }}, valid_session
+        assigns(:config_model).should be_a_new(ProjectExperience)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         ProjectExperience.any_instance.stub(:save).and_return(false)
-        post :create, {:project_experience => { "start_date" => "invalid value" }}, valid_session
+        post :create, {:config_model => { "start_date" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe ProjectExperiencesController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested project_experience" do
+      it "updates the requested config_model" do
         project_experience = ProjectExperience.create! valid_attributes
         # Assuming there are no other project_experiences in the database, this
         # specifies that the ProjectExperience created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        ProjectExperience.any_instance.should_receive(:update).with({ "start_date" => "2013-10-17" })
-        put :update, {:id => project_experience.to_param, :project_experience => { "start_date" => "2013-10-17" }}, valid_session
+        ProjectExperience.any_instance.should_receive(:update).with({ "start_date" => "2013-11-08" })
+        put :update, {:id => project_experience.to_param, :config_model => { "start_date" => "2013-11-08" }}, valid_session
       end
 
-      it "assigns the requested project_experience as @project_experience" do
+      it "assigns the requested config_model as @config_model" do
         project_experience = ProjectExperience.create! valid_attributes
-        put :update, {:id => project_experience.to_param, :project_experience => valid_attributes}, valid_session
-        assigns(:project_experience).should eq(project_experience)
+        put :update, {:id => project_experience.to_param, :config_model => valid_attributes}, valid_session
+        assigns(:config_model).should eq(project_experience)
       end
 
-      it "redirects to the project_experience" do
+      it "redirects to the config_model" do
         project_experience = ProjectExperience.create! valid_attributes
-        put :update, {:id => project_experience.to_param, :project_experience => valid_attributes}, valid_session
+        put :update, {:id => project_experience.to_param, :config_model => valid_attributes}, valid_session
         response.should redirect_to(project_experience)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the project_experience as @project_experience" do
+      it "assigns the config_model as @config_model" do
         project_experience = ProjectExperience.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         ProjectExperience.any_instance.stub(:save).and_return(false)
-        put :update, {:id => project_experience.to_param, :project_experience => { "start_date" => "invalid value" }}, valid_session
-        assigns(:project_experience).should eq(project_experience)
+        put :update, {:id => project_experience.to_param, :config_model => { "start_date" => "invalid value" }}, valid_session
+        assigns(:config_model).should eq(project_experience)
       end
 
       it "re-renders the 'edit' template" do
         project_experience = ProjectExperience.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         ProjectExperience.any_instance.stub(:save).and_return(false)
-        put :update, {:id => project_experience.to_param, :project_experience => { "start_date" => "invalid value" }}, valid_session
+        put :update, {:id => project_experience.to_param, :config_model => { "start_date" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested project_experience" do
+    it "destroys the requested config_model" do
       project_experience = ProjectExperience.create! valid_attributes
       expect {
         delete :destroy, {:id => project_experience.to_param}, valid_session

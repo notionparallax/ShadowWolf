@@ -8,4 +8,5 @@ class Registration
   field :registration_number, type: String
   field :state, type: String
   field :country, type: String
+  field :expiry, type: Date
 end

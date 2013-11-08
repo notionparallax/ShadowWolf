@@ -1,4 +1,3 @@
 json.array!(@photos) do |photo|
-  json.extract! photo, :fun, :bw, :colour
-  json.url photo_url(photo, format: :json)
+  json.partial! "photos/photo.json.jbuilder", photo: photo
 end

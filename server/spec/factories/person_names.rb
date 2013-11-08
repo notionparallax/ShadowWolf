@@ -2,12 +2,12 @@
 
 FactoryGirl.define do
   factory :person_name do
-    prefix "MyString"
-    first "MyString"
-    middle "MyString"
-    last "MyString"
-    suffix "MyString"
-    preferred_first "MyString"
-    preferred_last "MyString"
+    prefix { Faker::Name.prefix }
+    first { Faker::Name.first_name }
+    middle { Faker::Name.first_name }
+    last { Faker::Name.last_name }
+    suffix { Faker::Name.suffix }
+    preferred_first {  }
+    preferred_last { Faker::Name.last_name }
   end
 end

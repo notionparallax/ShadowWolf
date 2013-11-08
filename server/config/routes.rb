@@ -1,4 +1,8 @@
 ShadowWolf::Application.routes.draw do
+  resources :mobiles
+
+  resources :contacts
+
   resources :applications
 
   resources :applicants

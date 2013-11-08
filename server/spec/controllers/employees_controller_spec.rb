@@ -39,25 +39,25 @@ describe EmployeesController do
   end
 
   describe "GET show" do
-    it "assigns the requested employee as @employee" do
+    it "assigns the requested config_model as @config_model" do
       employee = Employee.create! valid_attributes
       get :show, {:id => employee.to_param}, valid_session
-      assigns(:employee).should eq(employee)
+      assigns(:config_model).should eq(employee)
     end
   end
 
   describe "GET new" do
-    it "assigns a new employee as @employee" do
+    it "assigns a new config_model as @config_model" do
       get :new, {}, valid_session
-      assigns(:employee).should be_a_new(Employee)
+      assigns(:config_model).should be_a_new(Employee)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested employee as @employee" do
+    it "assigns the requested config_model as @config_model" do
       employee = Employee.create! valid_attributes
       get :edit, {:id => employee.to_param}, valid_session
-      assigns(:employee).should eq(employee)
+      assigns(:config_model).should eq(employee)
     end
   end
 
@@ -65,34 +65,34 @@ describe EmployeesController do
     describe "with valid params" do
       it "creates a new Employee" do
         expect {
-          post :create, {:employee => valid_attributes}, valid_session
+          post :create, {:config_model => valid_attributes}, valid_session
         }.to change(Employee, :count).by(1)
       end
 
-      it "assigns a newly created employee as @employee" do
-        post :create, {:employee => valid_attributes}, valid_session
-        assigns(:employee).should be_a(Employee)
-        assigns(:employee).should be_persisted
+      it "assigns a newly created config_model as @config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
+        assigns(:config_model).should be_a(Employee)
+        assigns(:config_model).should be_persisted
       end
 
-      it "redirects to the created employee" do
-        post :create, {:employee => valid_attributes}, valid_session
+      it "redirects to the created config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
         response.should redirect_to(Employee.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved employee as @employee" do
+      it "assigns a newly created but unsaved config_model as @config_model" do
         # Trigger the behavior that occurs when invalid params are submitted
         Employee.any_instance.stub(:save).and_return(false)
-        post :create, {:employee => { "login" => "invalid value" }}, valid_session
-        assigns(:employee).should be_a_new(Employee)
+        post :create, {:config_model => { "login" => "invalid value" }}, valid_session
+        assigns(:config_model).should be_a_new(Employee)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Employee.any_instance.stub(:save).and_return(false)
-        post :create, {:employee => { "login" => "invalid value" }}, valid_session
+        post :create, {:config_model => { "login" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe EmployeesController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested employee" do
+      it "updates the requested config_model" do
         employee = Employee.create! valid_attributes
         # Assuming there are no other employees in the database, this
         # specifies that the Employee created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Employee.any_instance.should_receive(:update).with({ "login" => "MyString" })
-        put :update, {:id => employee.to_param, :employee => { "login" => "MyString" }}, valid_session
+        put :update, {:id => employee.to_param, :config_model => { "login" => "MyString" }}, valid_session
       end
 
-      it "assigns the requested employee as @employee" do
+      it "assigns the requested config_model as @config_model" do
         employee = Employee.create! valid_attributes
-        put :update, {:id => employee.to_param, :employee => valid_attributes}, valid_session
-        assigns(:employee).should eq(employee)
+        put :update, {:id => employee.to_param, :config_model => valid_attributes}, valid_session
+        assigns(:config_model).should eq(employee)
       end
 
-      it "redirects to the employee" do
+      it "redirects to the config_model" do
         employee = Employee.create! valid_attributes
-        put :update, {:id => employee.to_param, :employee => valid_attributes}, valid_session
+        put :update, {:id => employee.to_param, :config_model => valid_attributes}, valid_session
         response.should redirect_to(employee)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the employee as @employee" do
+      it "assigns the config_model as @config_model" do
         employee = Employee.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Employee.any_instance.stub(:save).and_return(false)
-        put :update, {:id => employee.to_param, :employee => { "login" => "invalid value" }}, valid_session
-        assigns(:employee).should eq(employee)
+        put :update, {:id => employee.to_param, :config_model => { "login" => "invalid value" }}, valid_session
+        assigns(:config_model).should eq(employee)
       end
 
       it "re-renders the 'edit' template" do
         employee = Employee.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Employee.any_instance.stub(:save).and_return(false)
-        put :update, {:id => employee.to_param, :employee => { "login" => "invalid value" }}, valid_session
+        put :update, {:id => employee.to_param, :config_model => { "login" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested employee" do
+    it "destroys the requested config_model" do
       employee = Employee.create! valid_attributes
       expect {
         delete :destroy, {:id => employee.to_param}, valid_session

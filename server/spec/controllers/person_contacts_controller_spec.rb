@@ -39,25 +39,25 @@ describe PersonContactsController do
   end
 
   describe "GET show" do
-    it "assigns the requested person_contact as @person_contact" do
+    it "assigns the requested config_model as @config_model" do
       person_contact = PersonContact.create! valid_attributes
       get :show, {:id => person_contact.to_param}, valid_session
-      assigns(:person_contact).should eq(person_contact)
+      assigns(:config_model).should eq(person_contact)
     end
   end
 
   describe "GET new" do
-    it "assigns a new person_contact as @person_contact" do
+    it "assigns a new config_model as @config_model" do
       get :new, {}, valid_session
-      assigns(:person_contact).should be_a_new(PersonContact)
+      assigns(:config_model).should be_a_new(PersonContact)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested person_contact as @person_contact" do
+    it "assigns the requested config_model as @config_model" do
       person_contact = PersonContact.create! valid_attributes
       get :edit, {:id => person_contact.to_param}, valid_session
-      assigns(:person_contact).should eq(person_contact)
+      assigns(:config_model).should eq(person_contact)
     end
   end
 
@@ -65,34 +65,34 @@ describe PersonContactsController do
     describe "with valid params" do
       it "creates a new PersonContact" do
         expect {
-          post :create, {:person_contact => valid_attributes}, valid_session
+          post :create, {:config_model => valid_attributes}, valid_session
         }.to change(PersonContact, :count).by(1)
       end
 
-      it "assigns a newly created person_contact as @person_contact" do
-        post :create, {:person_contact => valid_attributes}, valid_session
-        assigns(:person_contact).should be_a(PersonContact)
-        assigns(:person_contact).should be_persisted
+      it "assigns a newly created config_model as @config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
+        assigns(:config_model).should be_a(PersonContact)
+        assigns(:config_model).should be_persisted
       end
 
-      it "redirects to the created person_contact" do
-        post :create, {:person_contact => valid_attributes}, valid_session
+      it "redirects to the created config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
         response.should redirect_to(PersonContact.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved person_contact as @person_contact" do
+      it "assigns a newly created but unsaved config_model as @config_model" do
         # Trigger the behavior that occurs when invalid params are submitted
         PersonContact.any_instance.stub(:save).and_return(false)
-        post :create, {:person_contact => { "personal_email" => "invalid value" }}, valid_session
-        assigns(:person_contact).should be_a_new(PersonContact)
+        post :create, {:config_model => { "personal_email" => "invalid value" }}, valid_session
+        assigns(:config_model).should be_a_new(PersonContact)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         PersonContact.any_instance.stub(:save).and_return(false)
-        post :create, {:person_contact => { "personal_email" => "invalid value" }}, valid_session
+        post :create, {:config_model => { "personal_email" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe PersonContactsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested person_contact" do
+      it "updates the requested config_model" do
         person_contact = PersonContact.create! valid_attributes
         # Assuming there are no other person_contacts in the database, this
         # specifies that the PersonContact created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         PersonContact.any_instance.should_receive(:update).with({ "personal_email" => "MyString" })
-        put :update, {:id => person_contact.to_param, :person_contact => { "personal_email" => "MyString" }}, valid_session
+        put :update, {:id => person_contact.to_param, :config_model => { "personal_email" => "MyString" }}, valid_session
       end
 
-      it "assigns the requested person_contact as @person_contact" do
+      it "assigns the requested config_model as @config_model" do
         person_contact = PersonContact.create! valid_attributes
-        put :update, {:id => person_contact.to_param, :person_contact => valid_attributes}, valid_session
-        assigns(:person_contact).should eq(person_contact)
+        put :update, {:id => person_contact.to_param, :config_model => valid_attributes}, valid_session
+        assigns(:config_model).should eq(person_contact)
       end
 
-      it "redirects to the person_contact" do
+      it "redirects to the config_model" do
         person_contact = PersonContact.create! valid_attributes
-        put :update, {:id => person_contact.to_param, :person_contact => valid_attributes}, valid_session
+        put :update, {:id => person_contact.to_param, :config_model => valid_attributes}, valid_session
         response.should redirect_to(person_contact)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the person_contact as @person_contact" do
+      it "assigns the config_model as @config_model" do
         person_contact = PersonContact.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         PersonContact.any_instance.stub(:save).and_return(false)
-        put :update, {:id => person_contact.to_param, :person_contact => { "personal_email" => "invalid value" }}, valid_session
-        assigns(:person_contact).should eq(person_contact)
+        put :update, {:id => person_contact.to_param, :config_model => { "personal_email" => "invalid value" }}, valid_session
+        assigns(:config_model).should eq(person_contact)
       end
 
       it "re-renders the 'edit' template" do
         person_contact = PersonContact.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         PersonContact.any_instance.stub(:save).and_return(false)
-        put :update, {:id => person_contact.to_param, :person_contact => { "personal_email" => "invalid value" }}, valid_session
+        put :update, {:id => person_contact.to_param, :config_model => { "personal_email" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested person_contact" do
+    it "destroys the requested config_model" do
       person_contact = PersonContact.create! valid_attributes
       expect {
         delete :destroy, {:id => person_contact.to_param}, valid_session

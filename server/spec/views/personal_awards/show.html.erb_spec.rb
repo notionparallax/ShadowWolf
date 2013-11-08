@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "personal_awards/show" do
+describe "config/models/show" do
   before(:each) do
-    @personal_award = assign(:personal_award, stub_model(PersonalAward,
+    @config_model = assign(:config_model, stub_model(PersonalAward,
       :name => "Name",
       :awarding_body => "Awarding Body",
       :description => "MyText",

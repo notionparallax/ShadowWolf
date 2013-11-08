@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "employee_contacts/show" do
+describe "config/models/show" do
   before(:each) do
-    @employee_contact = assign(:employee_contact, stub_model(EmployeeContact,
+    @config_model = assign(:config_model, stub_model(EmployeeContact,
       :extension => "Extension",
       :studio => "Studio",
       :work_email => "Work Email"

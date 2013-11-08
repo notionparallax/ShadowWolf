@@ -1,1 +1,1 @@
-json.extract! @finance, :employee_code, :created_at, :updated_at
+json.partial! "finances/finance.json.jbuilder", finance: @finance

@@ -2,9 +2,8 @@
 
 FactoryGirl.define do
   factory :condition do
-    d = Proc.new { (10..20).to_a.sample.years }
-    name "employed"
-    start_date { d.call.ago }
-    end_date { (d.call - (0..10).to_a.sample.years).ago }
+    name { ['Active', 'Retired', 'Maternity', 'Leave', 'Deceased' , 'Left'].sample }
+    start_date { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+    end_date { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days + (0..3).to_a.sample.years }
   end
 end

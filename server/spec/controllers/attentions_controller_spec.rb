@@ -23,7 +23,7 @@ describe AttentionsController do
   # This should return the minimal set of attributes required to create a valid
   # Attention. As you add validations to Attention, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "date" => "2013-10-17" } }
+  let(:valid_attributes) { { "date" => "2013-11-08" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -39,25 +39,25 @@ describe AttentionsController do
   end
 
   describe "GET show" do
-    it "assigns the requested attention as @attention" do
+    it "assigns the requested config_model as @config_model" do
       attention = Attention.create! valid_attributes
       get :show, {:id => attention.to_param}, valid_session
-      assigns(:attention).should eq(attention)
+      assigns(:config_model).should eq(attention)
     end
   end
 
   describe "GET new" do
-    it "assigns a new attention as @attention" do
+    it "assigns a new config_model as @config_model" do
       get :new, {}, valid_session
-      assigns(:attention).should be_a_new(Attention)
+      assigns(:config_model).should be_a_new(Attention)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested attention as @attention" do
+    it "assigns the requested config_model as @config_model" do
       attention = Attention.create! valid_attributes
       get :edit, {:id => attention.to_param}, valid_session
-      assigns(:attention).should eq(attention)
+      assigns(:config_model).should eq(attention)
     end
   end
 
@@ -65,34 +65,34 @@ describe AttentionsController do
     describe "with valid params" do
       it "creates a new Attention" do
         expect {
-          post :create, {:attention => valid_attributes}, valid_session
+          post :create, {:config_model => valid_attributes}, valid_session
         }.to change(Attention, :count).by(1)
       end
 
-      it "assigns a newly created attention as @attention" do
-        post :create, {:attention => valid_attributes}, valid_session
-        assigns(:attention).should be_a(Attention)
-        assigns(:attention).should be_persisted
+      it "assigns a newly created config_model as @config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
+        assigns(:config_model).should be_a(Attention)
+        assigns(:config_model).should be_persisted
       end
 
-      it "redirects to the created attention" do
-        post :create, {:attention => valid_attributes}, valid_session
+      it "redirects to the created config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
         response.should redirect_to(Attention.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved attention as @attention" do
+      it "assigns a newly created but unsaved config_model as @config_model" do
         # Trigger the behavior that occurs when invalid params are submitted
         Attention.any_instance.stub(:save).and_return(false)
-        post :create, {:attention => { "date" => "invalid value" }}, valid_session
-        assigns(:attention).should be_a_new(Attention)
+        post :create, {:config_model => { "date" => "invalid value" }}, valid_session
+        assigns(:config_model).should be_a_new(Attention)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Attention.any_instance.stub(:save).and_return(false)
-        post :create, {:attention => { "date" => "invalid value" }}, valid_session
+        post :create, {:config_model => { "date" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe AttentionsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested attention" do
+      it "updates the requested config_model" do
         attention = Attention.create! valid_attributes
         # Assuming there are no other attentions in the database, this
         # specifies that the Attention created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Attention.any_instance.should_receive(:update).with({ "date" => "2013-10-17" })
-        put :update, {:id => attention.to_param, :attention => { "date" => "2013-10-17" }}, valid_session
+        Attention.any_instance.should_receive(:update).with({ "date" => "2013-11-08" })
+        put :update, {:id => attention.to_param, :config_model => { "date" => "2013-11-08" }}, valid_session
       end
 
-      it "assigns the requested attention as @attention" do
+      it "assigns the requested config_model as @config_model" do
         attention = Attention.create! valid_attributes
-        put :update, {:id => attention.to_param, :attention => valid_attributes}, valid_session
-        assigns(:attention).should eq(attention)
+        put :update, {:id => attention.to_param, :config_model => valid_attributes}, valid_session
+        assigns(:config_model).should eq(attention)
       end
 
-      it "redirects to the attention" do
+      it "redirects to the config_model" do
         attention = Attention.create! valid_attributes
-        put :update, {:id => attention.to_param, :attention => valid_attributes}, valid_session
+        put :update, {:id => attention.to_param, :config_model => valid_attributes}, valid_session
         response.should redirect_to(attention)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the attention as @attention" do
+      it "assigns the config_model as @config_model" do
         attention = Attention.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Attention.any_instance.stub(:save).and_return(false)
-        put :update, {:id => attention.to_param, :attention => { "date" => "invalid value" }}, valid_session
-        assigns(:attention).should eq(attention)
+        put :update, {:id => attention.to_param, :config_model => { "date" => "invalid value" }}, valid_session
+        assigns(:config_model).should eq(attention)
       end
 
       it "re-renders the 'edit' template" do
         attention = Attention.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Attention.any_instance.stub(:save).and_return(false)
-        put :update, {:id => attention.to_param, :attention => { "date" => "invalid value" }}, valid_session
+        put :update, {:id => attention.to_param, :config_model => { "date" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested attention" do
+    it "destroys the requested config_model" do
       attention = Attention.create! valid_attributes
       expect {
         delete :destroy, {:id => attention.to_param}, valid_session

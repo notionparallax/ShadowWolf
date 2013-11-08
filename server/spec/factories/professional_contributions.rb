@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :professional_contribution do
-    activity "MyString"
-    description "MyText"
-    url "MyString"
+    activity { Faker::Company.catch_phrase }
+    description { Faker::Lorem.paragraphs.join('<br>') }
+    url { 'http://'+ Faker::Internet.domain_name + '/greatAward/' + ['pretty','amazing','clever'].sample }
   end
 end

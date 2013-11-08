@@ -4,31 +4,31 @@ describe PersonalAwardsController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/personal_awards").should route_to("personal_awards#index")
+      get("/config/models").should route_to("config/models#index")
     end
 
     it "routes to #new" do
-      get("/personal_awards/new").should route_to("personal_awards#new")
+      get("/config/models/new").should route_to("config/models#new")
     end
 
     it "routes to #show" do
-      get("/personal_awards/1").should route_to("personal_awards#show", :id => "1")
+      get("/config/models/1").should route_to("config/models#show", :id => "1")
     end
 
     it "routes to #edit" do
-      get("/personal_awards/1/edit").should route_to("personal_awards#edit", :id => "1")
+      get("/config/models/1/edit").should route_to("config/models#edit", :id => "1")
     end
 
     it "routes to #create" do
-      post("/personal_awards").should route_to("personal_awards#create")
+      post("/config/models").should route_to("config/models#create")
     end
 
     it "routes to #update" do
-      put("/personal_awards/1").should route_to("personal_awards#update", :id => "1")
+      put("/config/models/1").should route_to("config/models#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      delete("/personal_awards/1").should route_to("personal_awards#destroy", :id => "1")
+      delete("/config/models/1").should route_to("config/models#destroy", :id => "1")
     end
 
   end

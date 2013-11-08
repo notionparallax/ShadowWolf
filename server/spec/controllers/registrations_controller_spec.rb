@@ -39,25 +39,25 @@ describe RegistrationsController do
   end
 
   describe "GET show" do
-    it "assigns the requested registration as @registration" do
+    it "assigns the requested config_model as @config_model" do
       registration = Registration.create! valid_attributes
       get :show, {:id => registration.to_param}, valid_session
-      assigns(:registration).should eq(registration)
+      assigns(:config_model).should eq(registration)
     end
   end
 
   describe "GET new" do
-    it "assigns a new registration as @registration" do
+    it "assigns a new config_model as @config_model" do
       get :new, {}, valid_session
-      assigns(:registration).should be_a_new(Registration)
+      assigns(:config_model).should be_a_new(Registration)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested registration as @registration" do
+    it "assigns the requested config_model as @config_model" do
       registration = Registration.create! valid_attributes
       get :edit, {:id => registration.to_param}, valid_session
-      assigns(:registration).should eq(registration)
+      assigns(:config_model).should eq(registration)
     end
   end
 
@@ -65,34 +65,34 @@ describe RegistrationsController do
     describe "with valid params" do
       it "creates a new Registration" do
         expect {
-          post :create, {:registration => valid_attributes}, valid_session
+          post :create, {:config_model => valid_attributes}, valid_session
         }.to change(Registration, :count).by(1)
       end
 
-      it "assigns a newly created registration as @registration" do
-        post :create, {:registration => valid_attributes}, valid_session
-        assigns(:registration).should be_a(Registration)
-        assigns(:registration).should be_persisted
+      it "assigns a newly created config_model as @config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
+        assigns(:config_model).should be_a(Registration)
+        assigns(:config_model).should be_persisted
       end
 
-      it "redirects to the created registration" do
-        post :create, {:registration => valid_attributes}, valid_session
+      it "redirects to the created config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
         response.should redirect_to(Registration.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved registration as @registration" do
+      it "assigns a newly created but unsaved config_model as @config_model" do
         # Trigger the behavior that occurs when invalid params are submitted
         Registration.any_instance.stub(:save).and_return(false)
-        post :create, {:registration => { "organisation" => "invalid value" }}, valid_session
-        assigns(:registration).should be_a_new(Registration)
+        post :create, {:config_model => { "organisation" => "invalid value" }}, valid_session
+        assigns(:config_model).should be_a_new(Registration)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Registration.any_instance.stub(:save).and_return(false)
-        post :create, {:registration => { "organisation" => "invalid value" }}, valid_session
+        post :create, {:config_model => { "organisation" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe RegistrationsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested registration" do
+      it "updates the requested config_model" do
         registration = Registration.create! valid_attributes
         # Assuming there are no other registrations in the database, this
         # specifies that the Registration created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Registration.any_instance.should_receive(:update).with({ "organisation" => "MyString" })
-        put :update, {:id => registration.to_param, :registration => { "organisation" => "MyString" }}, valid_session
+        put :update, {:id => registration.to_param, :config_model => { "organisation" => "MyString" }}, valid_session
       end
 
-      it "assigns the requested registration as @registration" do
+      it "assigns the requested config_model as @config_model" do
         registration = Registration.create! valid_attributes
-        put :update, {:id => registration.to_param, :registration => valid_attributes}, valid_session
-        assigns(:registration).should eq(registration)
+        put :update, {:id => registration.to_param, :config_model => valid_attributes}, valid_session
+        assigns(:config_model).should eq(registration)
       end
 
-      it "redirects to the registration" do
+      it "redirects to the config_model" do
         registration = Registration.create! valid_attributes
-        put :update, {:id => registration.to_param, :registration => valid_attributes}, valid_session
+        put :update, {:id => registration.to_param, :config_model => valid_attributes}, valid_session
         response.should redirect_to(registration)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the registration as @registration" do
+      it "assigns the config_model as @config_model" do
         registration = Registration.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Registration.any_instance.stub(:save).and_return(false)
-        put :update, {:id => registration.to_param, :registration => { "organisation" => "invalid value" }}, valid_session
-        assigns(:registration).should eq(registration)
+        put :update, {:id => registration.to_param, :config_model => { "organisation" => "invalid value" }}, valid_session
+        assigns(:config_model).should eq(registration)
       end
 
       it "re-renders the 'edit' template" do
         registration = Registration.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Registration.any_instance.stub(:save).and_return(false)
-        put :update, {:id => registration.to_param, :registration => { "organisation" => "invalid value" }}, valid_session
+        put :update, {:id => registration.to_param, :config_model => { "organisation" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested registration" do
+    it "destroys the requested config_model" do
       registration = Registration.create! valid_attributes
       expect {
         delete :destroy, {:id => registration.to_param}, valid_session

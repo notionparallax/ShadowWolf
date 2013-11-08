@@ -39,25 +39,25 @@ describe PreferencesController do
   end
 
   describe "GET show" do
-    it "assigns the requested preference as @preference" do
+    it "assigns the requested config_model as @config_model" do
       preference = Preference.create! valid_attributes
       get :show, {:id => preference.to_param}, valid_session
-      assigns(:preference).should eq(preference)
+      assigns(:config_model).should eq(preference)
     end
   end
 
   describe "GET new" do
-    it "assigns a new preference as @preference" do
+    it "assigns a new config_model as @config_model" do
       get :new, {}, valid_session
-      assigns(:preference).should be_a_new(Preference)
+      assigns(:config_model).should be_a_new(Preference)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested preference as @preference" do
+    it "assigns the requested config_model as @config_model" do
       preference = Preference.create! valid_attributes
       get :edit, {:id => preference.to_param}, valid_session
-      assigns(:preference).should eq(preference)
+      assigns(:config_model).should eq(preference)
     end
   end
 
@@ -65,34 +65,34 @@ describe PreferencesController do
     describe "with valid params" do
       it "creates a new Preference" do
         expect {
-          post :create, {:preference => valid_attributes}, valid_session
+          post :create, {:config_model => valid_attributes}, valid_session
         }.to change(Preference, :count).by(1)
       end
 
-      it "assigns a newly created preference as @preference" do
-        post :create, {:preference => valid_attributes}, valid_session
-        assigns(:preference).should be_a(Preference)
-        assigns(:preference).should be_persisted
+      it "assigns a newly created config_model as @config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
+        assigns(:config_model).should be_a(Preference)
+        assigns(:config_model).should be_persisted
       end
 
-      it "redirects to the created preference" do
-        post :create, {:preference => valid_attributes}, valid_session
+      it "redirects to the created config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
         response.should redirect_to(Preference.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved preference as @preference" do
+      it "assigns a newly created but unsaved config_model as @config_model" do
         # Trigger the behavior that occurs when invalid params are submitted
         Preference.any_instance.stub(:save).and_return(false)
-        post :create, {:preference => { "likes" => "invalid value" }}, valid_session
-        assigns(:preference).should be_a_new(Preference)
+        post :create, {:config_model => { "likes" => "invalid value" }}, valid_session
+        assigns(:config_model).should be_a_new(Preference)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Preference.any_instance.stub(:save).and_return(false)
-        post :create, {:preference => { "likes" => "invalid value" }}, valid_session
+        post :create, {:config_model => { "likes" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe PreferencesController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested preference" do
+      it "updates the requested config_model" do
         preference = Preference.create! valid_attributes
         # Assuming there are no other preferences in the database, this
         # specifies that the Preference created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Preference.any_instance.should_receive(:update).with({ "likes" => "MyText" })
-        put :update, {:id => preference.to_param, :preference => { "likes" => "MyText" }}, valid_session
+        put :update, {:id => preference.to_param, :config_model => { "likes" => "MyText" }}, valid_session
       end
 
-      it "assigns the requested preference as @preference" do
+      it "assigns the requested config_model as @config_model" do
         preference = Preference.create! valid_attributes
-        put :update, {:id => preference.to_param, :preference => valid_attributes}, valid_session
-        assigns(:preference).should eq(preference)
+        put :update, {:id => preference.to_param, :config_model => valid_attributes}, valid_session
+        assigns(:config_model).should eq(preference)
       end
 
-      it "redirects to the preference" do
+      it "redirects to the config_model" do
         preference = Preference.create! valid_attributes
-        put :update, {:id => preference.to_param, :preference => valid_attributes}, valid_session
+        put :update, {:id => preference.to_param, :config_model => valid_attributes}, valid_session
         response.should redirect_to(preference)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the preference as @preference" do
+      it "assigns the config_model as @config_model" do
         preference = Preference.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Preference.any_instance.stub(:save).and_return(false)
-        put :update, {:id => preference.to_param, :preference => { "likes" => "invalid value" }}, valid_session
-        assigns(:preference).should eq(preference)
+        put :update, {:id => preference.to_param, :config_model => { "likes" => "invalid value" }}, valid_session
+        assigns(:config_model).should eq(preference)
       end
 
       it "re-renders the 'edit' template" do
         preference = Preference.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Preference.any_instance.stub(:save).and_return(false)
-        put :update, {:id => preference.to_param, :preference => { "likes" => "invalid value" }}, valid_session
+        put :update, {:id => preference.to_param, :config_model => { "likes" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested preference" do
+    it "destroys the requested config_model" do
       preference = Preference.create! valid_attributes
       expect {
         delete :destroy, {:id => preference.to_param}, valid_session

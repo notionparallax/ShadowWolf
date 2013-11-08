@@ -4,31 +4,31 @@ describe ApplicationsController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/applications").should route_to("applications#index")
+      get("/config/models").should route_to("config/models#index")
     end
 
     it "routes to #new" do
-      get("/applications/new").should route_to("applications#new")
+      get("/config/models/new").should route_to("config/models#new")
     end
 
     it "routes to #show" do
-      get("/applications/1").should route_to("applications#show", :id => "1")
+      get("/config/models/1").should route_to("config/models#show", :id => "1")
     end
 
     it "routes to #edit" do
-      get("/applications/1/edit").should route_to("applications#edit", :id => "1")
+      get("/config/models/1/edit").should route_to("config/models#edit", :id => "1")
     end
 
     it "routes to #create" do
-      post("/applications").should route_to("applications#create")
+      post("/config/models").should route_to("config/models#create")
     end
 
     it "routes to #update" do
-      put("/applications/1").should route_to("applications#update", :id => "1")
+      put("/config/models/1").should route_to("config/models#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      delete("/applications/1").should route_to("applications#destroy", :id => "1")
+      delete("/config/models/1").should route_to("config/models#destroy", :id => "1")
     end
 
   end

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "biographies/show" do
+describe "config/models/show" do
   before(:each) do
-    @biography = assign(:biography, stub_model(Biography,
+    @config_model = assign(:config_model, stub_model(Biography,
       :one_line_bio => "One Line Bio",
       :approach => "MyText",
       :expertise => "MyText",

@@ -20,5 +20,10 @@
   <%= @registration.country %>
 </p>
 
+<p>
+  <strong>Expiry:</strong>
+  <%= @registration.expiry %>
+</p>
+
 <%= link_to 'Edit', edit_registration_path(@registration) %> |
 <%= link_to 'Back', registrations_path %>

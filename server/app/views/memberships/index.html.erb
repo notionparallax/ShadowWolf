@@ -7,6 +7,7 @@
       <th>Membership number</th>
       <th>State</th>
       <th>Country</th>
+      <th>Expiry</th>
       <th></th>
       <th></th>
       <th></th>
@@ -20,6 +21,7 @@
         <td><%= membership.membership_number %></td>
         <td><%= membership.state %></td>
         <td><%= membership.country %></td>
+        <td><%= membership.expiry %></td>
         <td><%= link_to 'Show', membership %></td>
         <td><%= link_to 'Edit', edit_membership_path(membership) %></td>
         <td><%= link_to 'Destroy', membership, method: :delete, data: { confirm: 'Are you sure?' } %></td>

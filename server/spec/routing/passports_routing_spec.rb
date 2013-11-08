@@ -4,31 +4,31 @@ describe PassportsController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/passports").should route_to("passports#index")
+      get("/config/models").should route_to("config/models#index")
     end
 
     it "routes to #new" do
-      get("/passports/new").should route_to("passports#new")
+      get("/config/models/new").should route_to("config/models#new")
     end
 
     it "routes to #show" do
-      get("/passports/1").should route_to("passports#show", :id => "1")
+      get("/config/models/1").should route_to("config/models#show", :id => "1")
     end
 
     it "routes to #edit" do
-      get("/passports/1/edit").should route_to("passports#edit", :id => "1")
+      get("/config/models/1/edit").should route_to("config/models#edit", :id => "1")
     end
 
     it "routes to #create" do
-      post("/passports").should route_to("passports#create")
+      post("/config/models").should route_to("config/models#create")
     end
 
     it "routes to #update" do
-      put("/passports/1").should route_to("passports#update", :id => "1")
+      put("/config/models/1").should route_to("config/models#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      delete("/passports/1").should route_to("passports#destroy", :id => "1")
+      delete("/config/models/1").should route_to("config/models#destroy", :id => "1")
     end
 
   end

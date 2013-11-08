@@ -1,22 +1,22 @@
 require 'spec_helper'
 
-describe "employee_mobiles/edit" do
+describe "config/models/edit" do
   before(:each) do
-    @employee_mobile = assign(:employee_mobile, stub_model(EmployeeMobile,
+    @config_model = assign(:config_model, stub_model(EmployeeMobile,
       :number => "MyString",
       :is_work => false,
       :distribute => false
     ))
   end
 
-  it "renders the edit employee_mobile form" do
+  it "renders the edit config_model form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", employee_mobile_path(@employee_mobile), "post" do
-      assert_select "input#employee_mobile_number[name=?]", "employee_mobile[number]"
-      assert_select "input#employee_mobile_is_work[name=?]", "employee_mobile[is_work]"
-      assert_select "input#employee_mobile_distribute[name=?]", "employee_mobile[distribute]"
+    assert_select "form[action=?][method=?]", config_model_path(@config_model), "post" do
+      assert_select "input#config_model_number[name=?]", "config_model[number]"
+      assert_select "input#config_model_is_work[name=?]", "config_model[is_work]"
+      assert_select "input#config_model_distribute[name=?]", "config_model[distribute]"
     end
   end
 end

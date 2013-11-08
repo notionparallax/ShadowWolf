@@ -39,25 +39,25 @@ describe PersonalAwardsController do
   end
 
   describe "GET show" do
-    it "assigns the requested personal_award as @personal_award" do
+    it "assigns the requested config_model as @config_model" do
       personal_award = PersonalAward.create! valid_attributes
       get :show, {:id => personal_award.to_param}, valid_session
-      assigns(:personal_award).should eq(personal_award)
+      assigns(:config_model).should eq(personal_award)
     end
   end
 
   describe "GET new" do
-    it "assigns a new personal_award as @personal_award" do
+    it "assigns a new config_model as @config_model" do
       get :new, {}, valid_session
-      assigns(:personal_award).should be_a_new(PersonalAward)
+      assigns(:config_model).should be_a_new(PersonalAward)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested personal_award as @personal_award" do
+    it "assigns the requested config_model as @config_model" do
       personal_award = PersonalAward.create! valid_attributes
       get :edit, {:id => personal_award.to_param}, valid_session
-      assigns(:personal_award).should eq(personal_award)
+      assigns(:config_model).should eq(personal_award)
     end
   end
 
@@ -65,34 +65,34 @@ describe PersonalAwardsController do
     describe "with valid params" do
       it "creates a new PersonalAward" do
         expect {
-          post :create, {:personal_award => valid_attributes}, valid_session
+          post :create, {:config_model => valid_attributes}, valid_session
         }.to change(PersonalAward, :count).by(1)
       end
 
-      it "assigns a newly created personal_award as @personal_award" do
-        post :create, {:personal_award => valid_attributes}, valid_session
-        assigns(:personal_award).should be_a(PersonalAward)
-        assigns(:personal_award).should be_persisted
+      it "assigns a newly created config_model as @config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
+        assigns(:config_model).should be_a(PersonalAward)
+        assigns(:config_model).should be_persisted
       end
 
-      it "redirects to the created personal_award" do
-        post :create, {:personal_award => valid_attributes}, valid_session
+      it "redirects to the created config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
         response.should redirect_to(PersonalAward.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved personal_award as @personal_award" do
+      it "assigns a newly created but unsaved config_model as @config_model" do
         # Trigger the behavior that occurs when invalid params are submitted
         PersonalAward.any_instance.stub(:save).and_return(false)
-        post :create, {:personal_award => { "name" => "invalid value" }}, valid_session
-        assigns(:personal_award).should be_a_new(PersonalAward)
+        post :create, {:config_model => { "name" => "invalid value" }}, valid_session
+        assigns(:config_model).should be_a_new(PersonalAward)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         PersonalAward.any_instance.stub(:save).and_return(false)
-        post :create, {:personal_award => { "name" => "invalid value" }}, valid_session
+        post :create, {:config_model => { "name" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe PersonalAwardsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested personal_award" do
+      it "updates the requested config_model" do
         personal_award = PersonalAward.create! valid_attributes
         # Assuming there are no other personal_awards in the database, this
         # specifies that the PersonalAward created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         PersonalAward.any_instance.should_receive(:update).with({ "name" => "MyString" })
-        put :update, {:id => personal_award.to_param, :personal_award => { "name" => "MyString" }}, valid_session
+        put :update, {:id => personal_award.to_param, :config_model => { "name" => "MyString" }}, valid_session
       end
 
-      it "assigns the requested personal_award as @personal_award" do
+      it "assigns the requested config_model as @config_model" do
         personal_award = PersonalAward.create! valid_attributes
-        put :update, {:id => personal_award.to_param, :personal_award => valid_attributes}, valid_session
-        assigns(:personal_award).should eq(personal_award)
+        put :update, {:id => personal_award.to_param, :config_model => valid_attributes}, valid_session
+        assigns(:config_model).should eq(personal_award)
       end
 
-      it "redirects to the personal_award" do
+      it "redirects to the config_model" do
         personal_award = PersonalAward.create! valid_attributes
-        put :update, {:id => personal_award.to_param, :personal_award => valid_attributes}, valid_session
+        put :update, {:id => personal_award.to_param, :config_model => valid_attributes}, valid_session
         response.should redirect_to(personal_award)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the personal_award as @personal_award" do
+      it "assigns the config_model as @config_model" do
         personal_award = PersonalAward.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         PersonalAward.any_instance.stub(:save).and_return(false)
-        put :update, {:id => personal_award.to_param, :personal_award => { "name" => "invalid value" }}, valid_session
-        assigns(:personal_award).should eq(personal_award)
+        put :update, {:id => personal_award.to_param, :config_model => { "name" => "invalid value" }}, valid_session
+        assigns(:config_model).should eq(personal_award)
       end
 
       it "re-renders the 'edit' template" do
         personal_award = PersonalAward.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         PersonalAward.any_instance.stub(:save).and_return(false)
-        put :update, {:id => personal_award.to_param, :personal_award => { "name" => "invalid value" }}, valid_session
+        put :update, {:id => personal_award.to_param, :config_model => { "name" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested personal_award" do
+    it "destroys the requested config_model" do
       personal_award = PersonalAward.create! valid_attributes
       expect {
         delete :destroy, {:id => personal_award.to_param}, valid_session

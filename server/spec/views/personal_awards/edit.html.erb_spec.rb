@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "personal_awards/edit" do
+describe "config/models/edit" do
   before(:each) do
-    @personal_award = assign(:personal_award, stub_model(PersonalAward,
+    @config_model = assign(:config_model, stub_model(PersonalAward,
       :name => "MyString",
       :awarding_body => "MyString",
       :description => "MyText",
@@ -10,15 +10,15 @@ describe "personal_awards/edit" do
     ))
   end
 
-  it "renders the edit personal_award form" do
+  it "renders the edit config_model form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", personal_award_path(@personal_award), "post" do
-      assert_select "input#personal_award_name[name=?]", "personal_award[name]"
-      assert_select "input#personal_award_awarding_body[name=?]", "personal_award[awarding_body]"
-      assert_select "textarea#personal_award_description[name=?]", "personal_award[description]"
-      assert_select "input#personal_award_url[name=?]", "personal_award[url]"
+    assert_select "form[action=?][method=?]", config_model_path(@config_model), "post" do
+      assert_select "input#config_model_name[name=?]", "config_model[name]"
+      assert_select "input#config_model_awarding_body[name=?]", "config_model[awarding_body]"
+      assert_select "textarea#config_model_description[name=?]", "config_model[description]"
+      assert_select "input#config_model_url[name=?]", "config_model[url]"
     end
   end
 end

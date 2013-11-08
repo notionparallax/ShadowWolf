@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "dietaries/show" do
+describe "config/models/show" do
   before(:each) do
-    @dietary = assign(:dietary, stub_model(Dietary,
+    @config_model = assign(:config_model, stub_model(Dietary,
       :requirements => "MyText"
     ))
   end

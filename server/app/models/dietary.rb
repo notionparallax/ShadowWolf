@@ -6,10 +6,6 @@ class Dietary
 
   accepts_nested_attributes_for :preference
 
-  embeds_one :preferences
-
-  accepts_nested_attributes_for :preferences
-
   embedded_in :office_culture
 
   field :requirements, type: String

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "registrations/edit" do
+describe "config/models/edit" do
   before(:each) do
-    @registration = assign(:registration, stub_model(Registration,
+    @config_model = assign(:config_model, stub_model(Registration,
       :organisation => "MyString",
       :registration_number => "MyString",
       :state => "MyString",
@@ -10,15 +10,15 @@ describe "registrations/edit" do
     ))
   end
 
-  it "renders the edit registration form" do
+  it "renders the edit config_model form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", registration_path(@registration), "post" do
-      assert_select "input#registration_organisation[name=?]", "registration[organisation]"
-      assert_select "input#registration_registration_number[name=?]", "registration[registration_number]"
-      assert_select "input#registration_state[name=?]", "registration[state]"
-      assert_select "input#registration_country[name=?]", "registration[country]"
+    assert_select "form[action=?][method=?]", config_model_path(@config_model), "post" do
+      assert_select "input#config_model_organisation[name=?]", "config_model[organisation]"
+      assert_select "input#config_model_registration_number[name=?]", "config_model[registration_number]"
+      assert_select "input#config_model_state[name=?]", "config_model[state]"
+      assert_select "input#config_model_country[name=?]", "config_model[country]"
     end
   end
 end

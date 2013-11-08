@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "project_experiences/show" do
+describe "config/models/show" do
   before(:each) do
-    @project_experience = assign(:project_experience, stub_model(ProjectExperience,
+    @config_model = assign(:config_model, stub_model(ProjectExperience,
       :name => "Name",
       :firm => "Firm",
       :role => "Role",

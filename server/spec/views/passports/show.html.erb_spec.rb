@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "passports/show" do
+describe "config/models/show" do
   before(:each) do
-    @passport = assign(:passport, stub_model(Passport,
+    @config_model = assign(:config_model, stub_model(Passport,
       :number => "Number",
       :issuing_body => "Issuing Body"
     ))

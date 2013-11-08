@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :applicant do
     after(:create) do |applicant|
-      FactoryGirl.create_list(:application, 3, applicant: applicant)
+      FactoryGirl.create_list( :application, 3, applicant: applicant )
     end
   end
 end

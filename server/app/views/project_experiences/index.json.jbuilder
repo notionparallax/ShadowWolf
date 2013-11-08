@@ -1,4 +1,3 @@
 json.array!(@project_experiences) do |project_experience|
-  json.extract! project_experience, :start_date, :end_date, :name, :firm, :role, :stage, :url
-  json.url project_experience_url(project_experience, format: :json)
+  json.partial! "project_experiences/project_experience.json.jbuilder", project_experience: project_experience
 end

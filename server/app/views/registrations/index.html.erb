@@ -7,6 +7,7 @@
       <th>Registration number</th>
       <th>State</th>
       <th>Country</th>
+      <th>Expiry</th>
       <th></th>
       <th></th>
       <th></th>
@@ -20,6 +21,7 @@
         <td><%= registration.registration_number %></td>
         <td><%= registration.state %></td>
         <td><%= registration.country %></td>
+        <td><%= registration.expiry %></td>
         <td><%= link_to 'Show', registration %></td>
         <td><%= link_to 'Edit', edit_registration_path(registration) %></td>
         <td><%= link_to 'Destroy', registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>

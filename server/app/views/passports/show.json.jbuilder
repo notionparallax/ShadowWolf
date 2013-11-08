@@ -1,1 +1,1 @@
-json.extract! @passport, :number, :expiry, :issuing_body, :created_at, :updated_at
+json.partial! "passports/passport.json.jbuilder", passport: @passport

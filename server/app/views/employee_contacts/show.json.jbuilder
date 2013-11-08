@@ -1,1 +1,1 @@
-json.extract! @employee_contact, :extension, :studio, :work_email, :created_at, :updated_at
+json.partial! "employee_contacts/employee_contact.json.jbuilder", employee_contact: @employee_contact

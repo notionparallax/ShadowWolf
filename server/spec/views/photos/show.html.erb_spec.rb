@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "photos/show" do
+describe "config/models/show" do
   before(:each) do
-    @photo = assign(:photo, stub_model(Photo,
+    @config_model = assign(:config_model, stub_model(Photo,
       :fun => "Fun",
       :bw => "Bw",
       :colour => "Colour"

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "conditions/show" do
+describe "config/models/show" do
   before(:each) do
-    @condition = assign(:condition, stub_model(Condition,
+    @config_model = assign(:config_model, stub_model(Condition,
       :name => "Name"
     ))
   end

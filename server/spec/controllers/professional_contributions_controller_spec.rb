@@ -39,25 +39,25 @@ describe ProfessionalContributionsController do
   end
 
   describe "GET show" do
-    it "assigns the requested professional_contribution as @professional_contribution" do
+    it "assigns the requested config_model as @config_model" do
       professional_contribution = ProfessionalContribution.create! valid_attributes
       get :show, {:id => professional_contribution.to_param}, valid_session
-      assigns(:professional_contribution).should eq(professional_contribution)
+      assigns(:config_model).should eq(professional_contribution)
     end
   end
 
   describe "GET new" do
-    it "assigns a new professional_contribution as @professional_contribution" do
+    it "assigns a new config_model as @config_model" do
       get :new, {}, valid_session
-      assigns(:professional_contribution).should be_a_new(ProfessionalContribution)
+      assigns(:config_model).should be_a_new(ProfessionalContribution)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested professional_contribution as @professional_contribution" do
+    it "assigns the requested config_model as @config_model" do
       professional_contribution = ProfessionalContribution.create! valid_attributes
       get :edit, {:id => professional_contribution.to_param}, valid_session
-      assigns(:professional_contribution).should eq(professional_contribution)
+      assigns(:config_model).should eq(professional_contribution)
     end
   end
 
@@ -65,34 +65,34 @@ describe ProfessionalContributionsController do
     describe "with valid params" do
       it "creates a new ProfessionalContribution" do
         expect {
-          post :create, {:professional_contribution => valid_attributes}, valid_session
+          post :create, {:config_model => valid_attributes}, valid_session
         }.to change(ProfessionalContribution, :count).by(1)
       end
 
-      it "assigns a newly created professional_contribution as @professional_contribution" do
-        post :create, {:professional_contribution => valid_attributes}, valid_session
-        assigns(:professional_contribution).should be_a(ProfessionalContribution)
-        assigns(:professional_contribution).should be_persisted
+      it "assigns a newly created config_model as @config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
+        assigns(:config_model).should be_a(ProfessionalContribution)
+        assigns(:config_model).should be_persisted
       end
 
-      it "redirects to the created professional_contribution" do
-        post :create, {:professional_contribution => valid_attributes}, valid_session
+      it "redirects to the created config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
         response.should redirect_to(ProfessionalContribution.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved professional_contribution as @professional_contribution" do
+      it "assigns a newly created but unsaved config_model as @config_model" do
         # Trigger the behavior that occurs when invalid params are submitted
         ProfessionalContribution.any_instance.stub(:save).and_return(false)
-        post :create, {:professional_contribution => { "activity" => "invalid value" }}, valid_session
-        assigns(:professional_contribution).should be_a_new(ProfessionalContribution)
+        post :create, {:config_model => { "activity" => "invalid value" }}, valid_session
+        assigns(:config_model).should be_a_new(ProfessionalContribution)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         ProfessionalContribution.any_instance.stub(:save).and_return(false)
-        post :create, {:professional_contribution => { "activity" => "invalid value" }}, valid_session
+        post :create, {:config_model => { "activity" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe ProfessionalContributionsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested professional_contribution" do
+      it "updates the requested config_model" do
         professional_contribution = ProfessionalContribution.create! valid_attributes
         # Assuming there are no other professional_contributions in the database, this
         # specifies that the ProfessionalContribution created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         ProfessionalContribution.any_instance.should_receive(:update).with({ "activity" => "MyString" })
-        put :update, {:id => professional_contribution.to_param, :professional_contribution => { "activity" => "MyString" }}, valid_session
+        put :update, {:id => professional_contribution.to_param, :config_model => { "activity" => "MyString" }}, valid_session
       end
 
-      it "assigns the requested professional_contribution as @professional_contribution" do
+      it "assigns the requested config_model as @config_model" do
         professional_contribution = ProfessionalContribution.create! valid_attributes
-        put :update, {:id => professional_contribution.to_param, :professional_contribution => valid_attributes}, valid_session
-        assigns(:professional_contribution).should eq(professional_contribution)
+        put :update, {:id => professional_contribution.to_param, :config_model => valid_attributes}, valid_session
+        assigns(:config_model).should eq(professional_contribution)
       end
 
-      it "redirects to the professional_contribution" do
+      it "redirects to the config_model" do
         professional_contribution = ProfessionalContribution.create! valid_attributes
-        put :update, {:id => professional_contribution.to_param, :professional_contribution => valid_attributes}, valid_session
+        put :update, {:id => professional_contribution.to_param, :config_model => valid_attributes}, valid_session
         response.should redirect_to(professional_contribution)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the professional_contribution as @professional_contribution" do
+      it "assigns the config_model as @config_model" do
         professional_contribution = ProfessionalContribution.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         ProfessionalContribution.any_instance.stub(:save).and_return(false)
-        put :update, {:id => professional_contribution.to_param, :professional_contribution => { "activity" => "invalid value" }}, valid_session
-        assigns(:professional_contribution).should eq(professional_contribution)
+        put :update, {:id => professional_contribution.to_param, :config_model => { "activity" => "invalid value" }}, valid_session
+        assigns(:config_model).should eq(professional_contribution)
       end
 
       it "re-renders the 'edit' template" do
         professional_contribution = ProfessionalContribution.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         ProfessionalContribution.any_instance.stub(:save).and_return(false)
-        put :update, {:id => professional_contribution.to_param, :professional_contribution => { "activity" => "invalid value" }}, valid_session
+        put :update, {:id => professional_contribution.to_param, :config_model => { "activity" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested professional_contribution" do
+    it "destroys the requested config_model" do
       professional_contribution = ProfessionalContribution.create! valid_attributes
       expect {
         delete :destroy, {:id => professional_contribution.to_param}, valid_session

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "office_cultures/show" do
+describe "config/models/show" do
   before(:each) do
-    @office_culture = assign(:office_culture, stub_model(OfficeCulture,
+    @config_model = assign(:config_model, stub_model(OfficeCulture,
       :first_aider => false,
       :fire_warden => false
     ))

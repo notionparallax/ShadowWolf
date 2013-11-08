@@ -1,1 +1,1 @@
-json.extract! @personal_award, :name, :awarding_body, :description, :url, :created_at, :updated_at
+json.partial! "personal_awards/personal_award.json.jbuilder", personal_award: @personal_award

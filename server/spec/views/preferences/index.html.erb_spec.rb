@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "preferences/index" do
+describe "config/models/index" do
   before(:each) do
     assign(:preferences, [
       stub_model(Preference,
@@ -14,7 +14,7 @@ describe "preferences/index" do
     ])
   end
 
-  it "renders a list of preferences" do
+  it "renders a list of config/models" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "MyText".to_s, :count => 2

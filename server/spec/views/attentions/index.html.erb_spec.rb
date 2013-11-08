@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "attentions/index" do
+describe "config/models/index" do
   before(:each) do
     assign(:attentions, [
       stub_model(Attention,
@@ -20,7 +20,7 @@ describe "attentions/index" do
     ])
   end
 
-  it "renders a list of attentions" do
+  it "renders a list of config/models" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Url".to_s, :count => 2

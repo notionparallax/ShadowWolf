@@ -4,31 +4,31 @@ describe OfficeCulturesController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/office_cultures").should route_to("office_cultures#index")
+      get("/config/models").should route_to("config/models#index")
     end
 
     it "routes to #new" do
-      get("/office_cultures/new").should route_to("office_cultures#new")
+      get("/config/models/new").should route_to("config/models#new")
     end
 
     it "routes to #show" do
-      get("/office_cultures/1").should route_to("office_cultures#show", :id => "1")
+      get("/config/models/1").should route_to("config/models#show", :id => "1")
     end
 
     it "routes to #edit" do
-      get("/office_cultures/1/edit").should route_to("office_cultures#edit", :id => "1")
+      get("/config/models/1/edit").should route_to("config/models#edit", :id => "1")
     end
 
     it "routes to #create" do
-      post("/office_cultures").should route_to("office_cultures#create")
+      post("/config/models").should route_to("config/models#create")
     end
 
     it "routes to #update" do
-      put("/office_cultures/1").should route_to("office_cultures#update", :id => "1")
+      put("/config/models/1").should route_to("config/models#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      delete("/office_cultures/1").should route_to("office_cultures#destroy", :id => "1")
+      delete("/config/models/1").should route_to("config/models#destroy", :id => "1")
     end
 
   end

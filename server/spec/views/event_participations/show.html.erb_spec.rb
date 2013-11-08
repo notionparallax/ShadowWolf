@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "event_participations/show" do
+describe "config/models/show" do
   before(:each) do
-    @event_participation = assign(:event_participation, stub_model(EventParticipation,
+    @config_model = assign(:config_model, stub_model(EventParticipation,
       :name => "Name",
       :url => "Url"
     ))

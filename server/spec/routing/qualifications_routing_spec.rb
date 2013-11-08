@@ -4,31 +4,31 @@ describe QualificationsController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/qualifications").should route_to("qualifications#index")
+      get("/config/models").should route_to("config/models#index")
     end
 
     it "routes to #new" do
-      get("/qualifications/new").should route_to("qualifications#new")
+      get("/config/models/new").should route_to("config/models#new")
     end
 
     it "routes to #show" do
-      get("/qualifications/1").should route_to("qualifications#show", :id => "1")
+      get("/config/models/1").should route_to("config/models#show", :id => "1")
     end
 
     it "routes to #edit" do
-      get("/qualifications/1/edit").should route_to("qualifications#edit", :id => "1")
+      get("/config/models/1/edit").should route_to("config/models#edit", :id => "1")
     end
 
     it "routes to #create" do
-      post("/qualifications").should route_to("qualifications#create")
+      post("/config/models").should route_to("config/models#create")
     end
 
     it "routes to #update" do
-      put("/qualifications/1").should route_to("qualifications#update", :id => "1")
+      put("/config/models/1").should route_to("config/models#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      delete("/qualifications/1").should route_to("qualifications#destroy", :id => "1")
+      delete("/config/models/1").should route_to("config/models#destroy", :id => "1")
     end
 
   end

@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :photo do
-    fun { "http://api.randomuser.me/0.2/portraits/#{%w(men women).sample}/#{(0..59).to_a.sample}.jpg" }
-    bw { "http://api.randomuser.me/0.2/portraits/#{%w(men women).sample}/#{(0..59).to_a.sample}.jpg" }
-    colour { "http://api.randomuser.me/0.2/portraits/#{%w(men women).sample}/#{(0..59).to_a.sample}.jpg" }
+    fun { 'http://api.randomuser.me/0.2/portraits/' + ['women','men'].sample + '/' + (1..60).to_a.sample.to_s + '.jpg' }
+    bw { 'http://api.randomuser.me/0.2/portraits/' + ['women','men'].sample + '/' + (1..60).to_a.sample.to_s + '.jpg' }
+    colour { 'http://api.randomuser.me/0.2/portraits/' + ['women','men'].sample + '/' + (1..60).to_a.sample.to_s + '.jpg' }
   end
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "project_experiences/index" do
+describe "config/models/index" do
   before(:each) do
     assign(:project_experiences, [
       stub_model(ProjectExperience,
@@ -20,7 +20,7 @@ describe "project_experiences/index" do
     ])
   end
 
-  it "renders a list of project_experiences" do
+  it "renders a list of config/models" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Name".to_s, :count => 2

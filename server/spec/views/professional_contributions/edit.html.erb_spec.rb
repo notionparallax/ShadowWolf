@@ -1,22 +1,22 @@
 require 'spec_helper'
 
-describe "professional_contributions/edit" do
+describe "config/models/edit" do
   before(:each) do
-    @professional_contribution = assign(:professional_contribution, stub_model(ProfessionalContribution,
+    @config_model = assign(:config_model, stub_model(ProfessionalContribution,
       :activity => "MyString",
       :description => "MyText",
       :url => "MyString"
     ))
   end
 
-  it "renders the edit professional_contribution form" do
+  it "renders the edit config_model form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", professional_contribution_path(@professional_contribution), "post" do
-      assert_select "input#professional_contribution_activity[name=?]", "professional_contribution[activity]"
-      assert_select "textarea#professional_contribution_description[name=?]", "professional_contribution[description]"
-      assert_select "input#professional_contribution_url[name=?]", "professional_contribution[url]"
+    assert_select "form[action=?][method=?]", config_model_path(@config_model), "post" do
+      assert_select "input#config_model_activity[name=?]", "config_model[activity]"
+      assert_select "textarea#config_model_description[name=?]", "config_model[description]"
+      assert_select "input#config_model_url[name=?]", "config_model[url]"
     end
   end
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "professional_contributions/index" do
+describe "config/models/index" do
   before(:each) do
     assign(:professional_contributions, [
       stub_model(ProfessionalContribution,
@@ -16,7 +16,7 @@ describe "professional_contributions/index" do
     ])
   end
 
-  it "renders a list of professional_contributions" do
+  it "renders a list of config/models" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Activity".to_s, :count => 2

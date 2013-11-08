@@ -1,1 +1,1 @@
-json.extract! @security_clearance, :issuing_body, :level, :expiry, :created_at, :updated_at
+json.partial! "security_clearances/security_clearance.json.jbuilder", security_clearance: @security_clearance

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "employee_mobiles/show" do
+describe "config/models/show" do
   before(:each) do
-    @employee_mobile = assign(:employee_mobile, stub_model(EmployeeMobile,
+    @config_model = assign(:config_model, stub_model(EmployeeMobile,
       :number => "Number",
       :is_work => false,
       :distribute => false

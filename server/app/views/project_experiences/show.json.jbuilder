@@ -1,1 +1,1 @@
-json.extract! @project_experience, :start_date, :end_date, :name, :firm, :role, :stage, :url, :created_at, :updated_at
+json.partial! "project_experiences/project_experience.json.jbuilder", project_experience: @project_experience

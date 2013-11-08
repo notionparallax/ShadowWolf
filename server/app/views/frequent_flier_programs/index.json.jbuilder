@@ -1,4 +1,3 @@
 json.array!(@frequent_flier_programs) do |frequent_flier_program|
-  json.extract! frequent_flier_program, :name, :number
-  json.url frequent_flier_program_url(frequent_flier_program, format: :json)
+  json.partial! "frequent_flier_programs/frequent_flier_program.json.jbuilder", frequent_flier_program: frequent_flier_program
 end

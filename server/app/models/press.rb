@@ -2,9 +2,9 @@ class Press
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embeds_many :attentions
+  embeds_many :attention
 
-  accepts_nested_attributes_for :attentions
+  accepts_nested_attributes_for :attention
 
   embedded_in :employee
 

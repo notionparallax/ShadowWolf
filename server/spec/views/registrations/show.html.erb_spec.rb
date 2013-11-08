@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "registrations/show" do
+describe "config/models/show" do
   before(:each) do
-    @registration = assign(:registration, stub_model(Registration,
+    @config_model = assign(:config_model, stub_model(Registration,
       :organisation => "Organisation",
       :registration_number => "Registration Number",
       :state => "State",

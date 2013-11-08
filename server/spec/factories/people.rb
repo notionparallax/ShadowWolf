@@ -3,8 +3,8 @@
 FactoryGirl.define do
   factory :person do
     applicant { FactoryGirl.build( :applicant ) }
-    contact { FactoryGirl.build( :person_contact ) }
-    name { FactoryGirl.build( :person_name ) }
+    person_contact { FactoryGirl.build( :person_contact ) }
     employee { FactoryGirl.build( :employee ) }
+    person_name { FactoryGirl.build( :person_name ) }
   end
 end

@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe "presses/edit" do
+describe "config/models/edit" do
   before(:each) do
-    @press = assign(:press, stub_model(Press))
+    @config_model = assign(:config_model, stub_model(Press))
   end
 
-  it "renders the edit press form" do
+  it "renders the edit config_model form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", press_path(@press), "post" do
+    assert_select "form[action=?][method=?]", config_model_path(@config_model), "post" do
     end
   end
 end

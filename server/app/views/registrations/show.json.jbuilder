@@ -1,1 +1,1 @@
-json.extract! @registration, :organisation, :registration_number, :state, :country, :created_at, :updated_at
+json.partial! "registrations/registration.json.jbuilder", registration: @registration

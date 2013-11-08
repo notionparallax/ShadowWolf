@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe "applicants/new" do
+describe "config/models/new" do
   before(:each) do
-    assign(:applicant, stub_model(Applicant).as_new_record)
+    assign(:config_model, stub_model(Applicant).as_new_record)
   end
 
-  it "renders new applicant form" do
+  it "renders new config_model form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers

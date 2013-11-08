@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "qualifications/edit" do
+describe "config/models/edit" do
   before(:each) do
-    @qualification = assign(:qualification, stub_model(Qualification,
+    @config_model = assign(:config_model, stub_model(Qualification,
       :name => "MyString",
       :level => "MyString",
       :institution => "MyString",
@@ -11,16 +11,16 @@ describe "qualifications/edit" do
     ))
   end
 
-  it "renders the edit qualification form" do
+  it "renders the edit config_model form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", qualification_path(@qualification), "post" do
-      assert_select "input#qualification_name[name=?]", "qualification[name]"
-      assert_select "input#qualification_level[name=?]", "qualification[level]"
-      assert_select "input#qualification_institution[name=?]", "qualification[institution]"
-      assert_select "input#qualification_first_year[name=?]", "qualification[first_year]"
-      assert_select "input#qualification_last_year[name=?]", "qualification[last_year]"
+    assert_select "form[action=?][method=?]", config_model_path(@config_model), "post" do
+      assert_select "input#config_model_name[name=?]", "config_model[name]"
+      assert_select "input#config_model_level[name=?]", "config_model[level]"
+      assert_select "input#config_model_institution[name=?]", "config_model[institution]"
+      assert_select "input#config_model_first_year[name=?]", "config_model[first_year]"
+      assert_select "input#config_model_last_year[name=?]", "config_model[last_year]"
     end
   end
 end

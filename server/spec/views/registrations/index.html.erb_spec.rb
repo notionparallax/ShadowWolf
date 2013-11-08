@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "registrations/index" do
+describe "config/models/index" do
   before(:each) do
     assign(:registrations, [
       stub_model(Registration,
@@ -18,7 +18,7 @@ describe "registrations/index" do
     ])
   end
 
-  it "renders a list of registrations" do
+  it "renders a list of config/models" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Organisation".to_s, :count => 2

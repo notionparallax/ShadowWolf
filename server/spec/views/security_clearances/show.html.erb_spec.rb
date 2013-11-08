@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "security_clearances/show" do
+describe "config/models/show" do
   before(:each) do
-    @security_clearance = assign(:security_clearance, stub_model(SecurityClearance,
+    @config_model = assign(:config_model, stub_model(SecurityClearance,
       :issuing_body => "Issuing Body",
       :level => "Level"
     ))

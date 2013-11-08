@@ -4,31 +4,31 @@ describe ProfessionalContributionsController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/professional_contributions").should route_to("professional_contributions#index")
+      get("/config/models").should route_to("config/models#index")
     end
 
     it "routes to #new" do
-      get("/professional_contributions/new").should route_to("professional_contributions#new")
+      get("/config/models/new").should route_to("config/models#new")
     end
 
     it "routes to #show" do
-      get("/professional_contributions/1").should route_to("professional_contributions#show", :id => "1")
+      get("/config/models/1").should route_to("config/models#show", :id => "1")
     end
 
     it "routes to #edit" do
-      get("/professional_contributions/1/edit").should route_to("professional_contributions#edit", :id => "1")
+      get("/config/models/1/edit").should route_to("config/models#edit", :id => "1")
     end
 
     it "routes to #create" do
-      post("/professional_contributions").should route_to("professional_contributions#create")
+      post("/config/models").should route_to("config/models#create")
     end
 
     it "routes to #update" do
-      put("/professional_contributions/1").should route_to("professional_contributions#update", :id => "1")
+      put("/config/models/1").should route_to("config/models#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      delete("/professional_contributions/1").should route_to("professional_contributions#destroy", :id => "1")
+      delete("/config/models/1").should route_to("config/models#destroy", :id => "1")
     end
 
   end

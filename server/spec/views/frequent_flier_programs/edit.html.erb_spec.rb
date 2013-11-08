@@ -1,20 +1,20 @@
 require 'spec_helper'
 
-describe "frequent_flier_programs/edit" do
+describe "config/models/edit" do
   before(:each) do
-    @frequent_flier_program = assign(:frequent_flier_program, stub_model(FrequentFlierProgram,
+    @config_model = assign(:config_model, stub_model(FrequentFlierProgram,
       :name => "MyString",
       :number => "MyString"
     ))
   end
 
-  it "renders the edit frequent_flier_program form" do
+  it "renders the edit config_model form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", frequent_flier_program_path(@frequent_flier_program), "post" do
-      assert_select "input#frequent_flier_program_name[name=?]", "frequent_flier_program[name]"
-      assert_select "input#frequent_flier_program_number[name=?]", "frequent_flier_program[number]"
+    assert_select "form[action=?][method=?]", config_model_path(@config_model), "post" do
+      assert_select "input#config_model_name[name=?]", "config_model[name]"
+      assert_select "input#config_model_number[name=?]", "config_model[number]"
     end
   end
 end

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "qualifications/show" do
+describe "config/models/show" do
   before(:each) do
-    @qualification = assign(:qualification, stub_model(Qualification,
+    @config_model = assign(:config_model, stub_model(Qualification,
       :name => "Name",
       :level => "Level",
       :institution => "Institution",

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "memberships/new" do
+describe "config/models/new" do
   before(:each) do
-    assign(:membership, stub_model(Membership,
+    assign(:config_model, stub_model(Membership,
       :organisation => "MyString",
       :membership_number => "MyString",
       :state => "MyString",
@@ -10,15 +10,15 @@ describe "memberships/new" do
     ).as_new_record)
   end
 
-  it "renders new membership form" do
+  it "renders new config_model form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", memberships_path, "post" do
-      assert_select "input#membership_organisation[name=?]", "membership[organisation]"
-      assert_select "input#membership_membership_number[name=?]", "membership[membership_number]"
-      assert_select "input#membership_state[name=?]", "membership[state]"
-      assert_select "input#membership_country[name=?]", "membership[country]"
+      assert_select "input#config_model_organisation[name=?]", "config_model[organisation]"
+      assert_select "input#config_model_membership_number[name=?]", "config_model[membership_number]"
+      assert_select "input#config_model_state[name=?]", "config_model[state]"
+      assert_select "input#config_model_country[name=?]", "config_model[country]"
     end
   end
 end

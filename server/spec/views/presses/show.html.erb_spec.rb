@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "presses/show" do
+describe "config/models/show" do
   before(:each) do
-    @press = assign(:press, stub_model(Press))
+    @config_model = assign(:config_model, stub_model(Press))
   end
 
   it "renders attributes in <p>" do

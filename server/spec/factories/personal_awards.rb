@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :personal_award do
-    name "MyString"
-    awarding_body "MyString"
-    description "MyText"
-    url "MyString"
+    name { Faker::Company.catch_phrase }
+    awarding_body { Faker::Company.name + ' ' +['Society','Fellowship','Club'].sample }
+    description { Faker::Lorem.paragraphs.join('<br>') }
+    url { 'http://'+ Faker::Internet.domain_name + '/greatAward/' + ['pretty','amazing','clever'].sample }
   end
 end

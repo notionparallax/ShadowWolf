@@ -39,25 +39,25 @@ describe OfficeCulturesController do
   end
 
   describe "GET show" do
-    it "assigns the requested office_culture as @office_culture" do
+    it "assigns the requested config_model as @config_model" do
       office_culture = OfficeCulture.create! valid_attributes
       get :show, {:id => office_culture.to_param}, valid_session
-      assigns(:office_culture).should eq(office_culture)
+      assigns(:config_model).should eq(office_culture)
     end
   end
 
   describe "GET new" do
-    it "assigns a new office_culture as @office_culture" do
+    it "assigns a new config_model as @config_model" do
       get :new, {}, valid_session
-      assigns(:office_culture).should be_a_new(OfficeCulture)
+      assigns(:config_model).should be_a_new(OfficeCulture)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested office_culture as @office_culture" do
+    it "assigns the requested config_model as @config_model" do
       office_culture = OfficeCulture.create! valid_attributes
       get :edit, {:id => office_culture.to_param}, valid_session
-      assigns(:office_culture).should eq(office_culture)
+      assigns(:config_model).should eq(office_culture)
     end
   end
 
@@ -65,34 +65,34 @@ describe OfficeCulturesController do
     describe "with valid params" do
       it "creates a new OfficeCulture" do
         expect {
-          post :create, {:office_culture => valid_attributes}, valid_session
+          post :create, {:config_model => valid_attributes}, valid_session
         }.to change(OfficeCulture, :count).by(1)
       end
 
-      it "assigns a newly created office_culture as @office_culture" do
-        post :create, {:office_culture => valid_attributes}, valid_session
-        assigns(:office_culture).should be_a(OfficeCulture)
-        assigns(:office_culture).should be_persisted
+      it "assigns a newly created config_model as @config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
+        assigns(:config_model).should be_a(OfficeCulture)
+        assigns(:config_model).should be_persisted
       end
 
-      it "redirects to the created office_culture" do
-        post :create, {:office_culture => valid_attributes}, valid_session
+      it "redirects to the created config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
         response.should redirect_to(OfficeCulture.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved office_culture as @office_culture" do
+      it "assigns a newly created but unsaved config_model as @config_model" do
         # Trigger the behavior that occurs when invalid params are submitted
         OfficeCulture.any_instance.stub(:save).and_return(false)
-        post :create, {:office_culture => { "first_aider" => "invalid value" }}, valid_session
-        assigns(:office_culture).should be_a_new(OfficeCulture)
+        post :create, {:config_model => { "first_aider" => "invalid value" }}, valid_session
+        assigns(:config_model).should be_a_new(OfficeCulture)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         OfficeCulture.any_instance.stub(:save).and_return(false)
-        post :create, {:office_culture => { "first_aider" => "invalid value" }}, valid_session
+        post :create, {:config_model => { "first_aider" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe OfficeCulturesController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested office_culture" do
+      it "updates the requested config_model" do
         office_culture = OfficeCulture.create! valid_attributes
         # Assuming there are no other office_cultures in the database, this
         # specifies that the OfficeCulture created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         OfficeCulture.any_instance.should_receive(:update).with({ "first_aider" => "false" })
-        put :update, {:id => office_culture.to_param, :office_culture => { "first_aider" => "false" }}, valid_session
+        put :update, {:id => office_culture.to_param, :config_model => { "first_aider" => "false" }}, valid_session
       end
 
-      it "assigns the requested office_culture as @office_culture" do
+      it "assigns the requested config_model as @config_model" do
         office_culture = OfficeCulture.create! valid_attributes
-        put :update, {:id => office_culture.to_param, :office_culture => valid_attributes}, valid_session
-        assigns(:office_culture).should eq(office_culture)
+        put :update, {:id => office_culture.to_param, :config_model => valid_attributes}, valid_session
+        assigns(:config_model).should eq(office_culture)
       end
 
-      it "redirects to the office_culture" do
+      it "redirects to the config_model" do
         office_culture = OfficeCulture.create! valid_attributes
-        put :update, {:id => office_culture.to_param, :office_culture => valid_attributes}, valid_session
+        put :update, {:id => office_culture.to_param, :config_model => valid_attributes}, valid_session
         response.should redirect_to(office_culture)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the office_culture as @office_culture" do
+      it "assigns the config_model as @config_model" do
         office_culture = OfficeCulture.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         OfficeCulture.any_instance.stub(:save).and_return(false)
-        put :update, {:id => office_culture.to_param, :office_culture => { "first_aider" => "invalid value" }}, valid_session
-        assigns(:office_culture).should eq(office_culture)
+        put :update, {:id => office_culture.to_param, :config_model => { "first_aider" => "invalid value" }}, valid_session
+        assigns(:config_model).should eq(office_culture)
       end
 
       it "re-renders the 'edit' template" do
         office_culture = OfficeCulture.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         OfficeCulture.any_instance.stub(:save).and_return(false)
-        put :update, {:id => office_culture.to_param, :office_culture => { "first_aider" => "invalid value" }}, valid_session
+        put :update, {:id => office_culture.to_param, :config_model => { "first_aider" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested office_culture" do
+    it "destroys the requested config_model" do
       office_culture = OfficeCulture.create! valid_attributes
       expect {
         delete :destroy, {:id => office_culture.to_param}, valid_session

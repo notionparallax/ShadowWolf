@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "qualifications/new" do
+describe "config/models/new" do
   before(:each) do
-    assign(:qualification, stub_model(Qualification,
+    assign(:config_model, stub_model(Qualification,
       :name => "MyString",
       :level => "MyString",
       :institution => "MyString",
@@ -11,16 +11,16 @@ describe "qualifications/new" do
     ).as_new_record)
   end
 
-  it "renders new qualification form" do
+  it "renders new config_model form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", qualifications_path, "post" do
-      assert_select "input#qualification_name[name=?]", "qualification[name]"
-      assert_select "input#qualification_level[name=?]", "qualification[level]"
-      assert_select "input#qualification_institution[name=?]", "qualification[institution]"
-      assert_select "input#qualification_first_year[name=?]", "qualification[first_year]"
-      assert_select "input#qualification_last_year[name=?]", "qualification[last_year]"
+      assert_select "input#config_model_name[name=?]", "config_model[name]"
+      assert_select "input#config_model_level[name=?]", "config_model[level]"
+      assert_select "input#config_model_institution[name=?]", "config_model[institution]"
+      assert_select "input#config_model_first_year[name=?]", "config_model[first_year]"
+      assert_select "input#config_model_last_year[name=?]", "config_model[last_year]"
     end
   end
 end

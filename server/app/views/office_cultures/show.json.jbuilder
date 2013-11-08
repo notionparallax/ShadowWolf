@@ -1,1 +1,1 @@
-json.extract! @office_culture, :first_aider, :fire_warden, :created_at, :updated_at
+json.partial! "office_cultures/office_culture.json.jbuilder", office_culture: @office_culture

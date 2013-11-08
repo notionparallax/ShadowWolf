@@ -39,25 +39,25 @@ describe EmployeeMobilesController do
   end
 
   describe "GET show" do
-    it "assigns the requested employee_mobile as @employee_mobile" do
+    it "assigns the requested config_model as @config_model" do
       employee_mobile = EmployeeMobile.create! valid_attributes
       get :show, {:id => employee_mobile.to_param}, valid_session
-      assigns(:employee_mobile).should eq(employee_mobile)
+      assigns(:config_model).should eq(employee_mobile)
     end
   end
 
   describe "GET new" do
-    it "assigns a new employee_mobile as @employee_mobile" do
+    it "assigns a new config_model as @config_model" do
       get :new, {}, valid_session
-      assigns(:employee_mobile).should be_a_new(EmployeeMobile)
+      assigns(:config_model).should be_a_new(EmployeeMobile)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested employee_mobile as @employee_mobile" do
+    it "assigns the requested config_model as @config_model" do
       employee_mobile = EmployeeMobile.create! valid_attributes
       get :edit, {:id => employee_mobile.to_param}, valid_session
-      assigns(:employee_mobile).should eq(employee_mobile)
+      assigns(:config_model).should eq(employee_mobile)
     end
   end
 
@@ -65,34 +65,34 @@ describe EmployeeMobilesController do
     describe "with valid params" do
       it "creates a new EmployeeMobile" do
         expect {
-          post :create, {:employee_mobile => valid_attributes}, valid_session
+          post :create, {:config_model => valid_attributes}, valid_session
         }.to change(EmployeeMobile, :count).by(1)
       end
 
-      it "assigns a newly created employee_mobile as @employee_mobile" do
-        post :create, {:employee_mobile => valid_attributes}, valid_session
-        assigns(:employee_mobile).should be_a(EmployeeMobile)
-        assigns(:employee_mobile).should be_persisted
+      it "assigns a newly created config_model as @config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
+        assigns(:config_model).should be_a(EmployeeMobile)
+        assigns(:config_model).should be_persisted
       end
 
-      it "redirects to the created employee_mobile" do
-        post :create, {:employee_mobile => valid_attributes}, valid_session
+      it "redirects to the created config_model" do
+        post :create, {:config_model => valid_attributes}, valid_session
         response.should redirect_to(EmployeeMobile.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved employee_mobile as @employee_mobile" do
+      it "assigns a newly created but unsaved config_model as @config_model" do
         # Trigger the behavior that occurs when invalid params are submitted
         EmployeeMobile.any_instance.stub(:save).and_return(false)
-        post :create, {:employee_mobile => { "number" => "invalid value" }}, valid_session
-        assigns(:employee_mobile).should be_a_new(EmployeeMobile)
+        post :create, {:config_model => { "number" => "invalid value" }}, valid_session
+        assigns(:config_model).should be_a_new(EmployeeMobile)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         EmployeeMobile.any_instance.stub(:save).and_return(false)
-        post :create, {:employee_mobile => { "number" => "invalid value" }}, valid_session
+        post :create, {:config_model => { "number" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe EmployeeMobilesController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested employee_mobile" do
+      it "updates the requested config_model" do
         employee_mobile = EmployeeMobile.create! valid_attributes
         # Assuming there are no other employee_mobiles in the database, this
         # specifies that the EmployeeMobile created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         EmployeeMobile.any_instance.should_receive(:update).with({ "number" => "MyString" })
-        put :update, {:id => employee_mobile.to_param, :employee_mobile => { "number" => "MyString" }}, valid_session
+        put :update, {:id => employee_mobile.to_param, :config_model => { "number" => "MyString" }}, valid_session
       end
 
-      it "assigns the requested employee_mobile as @employee_mobile" do
+      it "assigns the requested config_model as @config_model" do
         employee_mobile = EmployeeMobile.create! valid_attributes
-        put :update, {:id => employee_mobile.to_param, :employee_mobile => valid_attributes}, valid_session
-        assigns(:employee_mobile).should eq(employee_mobile)
+        put :update, {:id => employee_mobile.to_param, :config_model => valid_attributes}, valid_session
+        assigns(:config_model).should eq(employee_mobile)
       end
 
-      it "redirects to the employee_mobile" do
+      it "redirects to the config_model" do
         employee_mobile = EmployeeMobile.create! valid_attributes
-        put :update, {:id => employee_mobile.to_param, :employee_mobile => valid_attributes}, valid_session
+        put :update, {:id => employee_mobile.to_param, :config_model => valid_attributes}, valid_session
         response.should redirect_to(employee_mobile)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the employee_mobile as @employee_mobile" do
+      it "assigns the config_model as @config_model" do
         employee_mobile = EmployeeMobile.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         EmployeeMobile.any_instance.stub(:save).and_return(false)
-        put :update, {:id => employee_mobile.to_param, :employee_mobile => { "number" => "invalid value" }}, valid_session
-        assigns(:employee_mobile).should eq(employee_mobile)
+        put :update, {:id => employee_mobile.to_param, :config_model => { "number" => "invalid value" }}, valid_session
+        assigns(:config_model).should eq(employee_mobile)
       end
 
       it "re-renders the 'edit' template" do
         employee_mobile = EmployeeMobile.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         EmployeeMobile.any_instance.stub(:save).and_return(false)
-        put :update, {:id => employee_mobile.to_param, :employee_mobile => { "number" => "invalid value" }}, valid_session
+        put :update, {:id => employee_mobile.to_param, :config_model => { "number" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested employee_mobile" do
+    it "destroys the requested config_model" do
       employee_mobile = EmployeeMobile.create! valid_attributes
       expect {
         delete :destroy, {:id => employee_mobile.to_param}, valid_session

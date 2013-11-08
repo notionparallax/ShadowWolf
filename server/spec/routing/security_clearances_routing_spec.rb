@@ -4,31 +4,31 @@ describe SecurityClearancesController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/security_clearances").should route_to("security_clearances#index")
+      get("/config/models").should route_to("config/models#index")
     end
 
     it "routes to #new" do
-      get("/security_clearances/new").should route_to("security_clearances#new")
+      get("/config/models/new").should route_to("config/models#new")
     end
 
     it "routes to #show" do
-      get("/security_clearances/1").should route_to("security_clearances#show", :id => "1")
+      get("/config/models/1").should route_to("config/models#show", :id => "1")
     end
 
     it "routes to #edit" do
-      get("/security_clearances/1/edit").should route_to("security_clearances#edit", :id => "1")
+      get("/config/models/1/edit").should route_to("config/models#edit", :id => "1")
     end
 
     it "routes to #create" do
-      post("/security_clearances").should route_to("security_clearances#create")
+      post("/config/models").should route_to("config/models#create")
     end
 
     it "routes to #update" do
-      put("/security_clearances/1").should route_to("security_clearances#update", :id => "1")
+      put("/config/models/1").should route_to("config/models#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      delete("/security_clearances/1").should route_to("security_clearances#destroy", :id => "1")
+      delete("/config/models/1").should route_to("config/models#destroy", :id => "1")
     end
 
   end

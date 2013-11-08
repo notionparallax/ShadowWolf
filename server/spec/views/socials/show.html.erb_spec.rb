@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "socials/show" do
+describe "config/models/show" do
   before(:each) do
-    @social = assign(:social, stub_model(Social,
+    @config_model = assign(:config_model, stub_model(Social,
       :twitter => "Twitter",
       :instagram => "Instagram",
       :github => "Github",

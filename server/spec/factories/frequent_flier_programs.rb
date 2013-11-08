@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :frequent_flier_program do
-    name "MyString"
-    number "MyString"
+    name { Faker::Name.first_name + " air" }
+    number { ((Faker::Internet.password + (0..9).to_a.join().to_s).split('')).shuffle[0..12].join }
   end
 end

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "person_contacts/show" do
+describe "config/models/show" do
   before(:each) do
-    @person_contact = assign(:person_contact, stub_model(PersonContact,
+    @config_model = assign(:config_model, stub_model(PersonContact,
       :personal_email => "Personal Email",
       :personal_phone => "Personal Phone"
     ))

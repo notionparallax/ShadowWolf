@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "socials/new" do
+describe "config/models/new" do
   before(:each) do
-    assign(:social, stub_model(Social,
+    assign(:config_model, stub_model(Social,
       :twitter => "MyString",
       :instagram => "MyString",
       :github => "MyString",
@@ -14,19 +14,19 @@ describe "socials/new" do
     ).as_new_record)
   end
 
-  it "renders new social form" do
+  it "renders new config_model form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", socials_path, "post" do
-      assert_select "input#social_twitter[name=?]", "social[twitter]"
-      assert_select "input#social_instagram[name=?]", "social[instagram]"
-      assert_select "input#social_github[name=?]", "social[github]"
-      assert_select "input#social_pinterest[name=?]", "social[pinterest]"
-      assert_select "input#social_google_plus[name=?]", "social[google_plus]"
-      assert_select "input#social_linkedin[name=?]", "social[linkedin]"
-      assert_select "input#social_facebook[name=?]", "social[facebook]"
-      assert_select "input#social_tumblr[name=?]", "social[tumblr]"
+      assert_select "input#config_model_twitter[name=?]", "config_model[twitter]"
+      assert_select "input#config_model_instagram[name=?]", "config_model[instagram]"
+      assert_select "input#config_model_github[name=?]", "config_model[github]"
+      assert_select "input#config_model_pinterest[name=?]", "config_model[pinterest]"
+      assert_select "input#config_model_google_plus[name=?]", "config_model[google_plus]"
+      assert_select "input#config_model_linkedin[name=?]", "config_model[linkedin]"
+      assert_select "input#config_model_facebook[name=?]", "config_model[facebook]"
+      assert_select "input#config_model_tumblr[name=?]", "config_model[tumblr]"
     end
   end
 end

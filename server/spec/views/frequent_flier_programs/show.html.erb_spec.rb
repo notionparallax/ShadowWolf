@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "frequent_flier_programs/show" do
+describe "config/models/show" do
   before(:each) do
-    @frequent_flier_program = assign(:frequent_flier_program, stub_model(FrequentFlierProgram,
+    @config_model = assign(:config_model, stub_model(FrequentFlierProgram,
       :name => "Name",
       :number => "Number"
     ))

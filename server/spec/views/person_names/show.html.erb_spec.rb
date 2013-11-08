@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "person_names/show" do
+describe "config/models/show" do
   before(:each) do
-    @person_name = assign(:person_name, stub_model(PersonName,
+    @config_model = assign(:config_model, stub_model(PersonName,
       :prefix => "Prefix",
       :first => "First",
       :middle => "Middle",
