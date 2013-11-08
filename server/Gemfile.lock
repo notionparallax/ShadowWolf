@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/Dawil/MongoidModelMaker.git
-  revision: 875044ca21a18b6adc6b2e28b67a0c463c935c34
+  revision: e321357f78ff97eba242fdada64543f54eb55756
   specs:
-    mongoid-model-maker (0.1.11)
+    mongoid-model-maker (0.1.12)
       rails
       thor
 
