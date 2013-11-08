@@ -2,25 +2,25 @@ person_name:
   fields:
   - name: prefix
     type: string
-    factory: { Faker::Name.prefix }
+    factory: str!! { Faker::Name.prefix }
   - name: first
     type: string
-    factory: { Faker::Name.first_name }
+    factory: str!! { Faker::Name.first_name }
   - name: middle
     type: string
-    factory: { Faker::Name.first_name }
+    factory: str!! { Faker::Name.first_name }
   - name: last
     type: string
-    factory: { Faker::Name.last_name }
+    factory: str!! { Faker::Name.last_name }
   - name: suffix
     type: string
-    factory: { Faker::Name.suffix }
+    factory: str!! { Faker::Name.suffix }
   - name: preferred_first
     type: string
-    factory: {  }
+    factory: str!! {  }
   - name: preferred_last
     type: string
-    factory: { Faker::Name.last_name }
+    factory: str!! { Faker::Name.last_name }
   relation:
     parent: person
     type: embeds_one
@@ -30,10 +30,10 @@ employee:
   fields:
   - name: login
     type: string
-    factory: { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
+    factory: str!! { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
   - name: position
     type: string
-    factory: { Faker::Name.title }
+    factory: str!! { Faker::Name.title }
   relation:
     parent: person
     type: embeds_one
@@ -42,13 +42,13 @@ photo:
   fields:
   - name: fun
     type: string
-    factory: { 'http://api.randomuser.me/0.2/portraits/' + ['women','men'].sample + '/' + (1..60).to_a.sample.to_s + '.jpg' }
+    factory: str!! { 'http://api.randomuser.me/0.2/portraits/' + ['women','men'].sample + '/' + (1..60).to_a.sample.to_s + '.jpg' }
   - name: bw
     type: string
-    factory: { 'http://api.randomuser.me/0.2/portraits/' + ['women','men'].sample + '/' + (1..60).to_a.sample.to_s + '.jpg' }
+    factory: str!! { 'http://api.randomuser.me/0.2/portraits/' + ['women','men'].sample + '/' + (1..60).to_a.sample.to_s + '.jpg' }
   - name: colour
     type: string
-    factory: { 'http://api.randomuser.me/0.2/portraits/' + ['women','men'].sample + '/' + (1..60).to_a.sample.to_s + '.jpg' }
+    factory: str!! { 'http://api.randomuser.me/0.2/portraits/' + ['women','men'].sample + '/' + (1..60).to_a.sample.to_s + '.jpg' }
   relation:
     parent: employee
     type: embeds_one
@@ -57,13 +57,13 @@ condition:
   fields:
   - name: name
     type: string
-    factory: { ['Active', 'Retired', 'Maternity', 'Leave', 'Deceased' , 'Left'].sample }
+    factory: str!! { ['Active', 'Retired', 'Maternity', 'Leave', 'Deceased' , 'Left'].sample }
   - name: start_date
     type: date
-    factory: { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+    factory: str!! { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   - name: end_date
     type: date
-    factory: { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days + (0..3).to_a.sample.years }
+    factory: str!! { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days + (0..3).to_a.sample.years }
   relation:
     parent: employee
     type: embeds_many
@@ -72,10 +72,10 @@ office_culture:
   fields:
   - name: first_aider
     type: boolean
-    factory: { [true, false].sample }
+    factory: str!! { [true, false].sample }
   - name: fire_warden
     type: boolean
-    factory: { [true, false].sample }
+    factory: str!! { [true, false].sample }
   relation:
     parent: employee
     type: embeds_one
@@ -84,13 +84,13 @@ event_participation:
   fields:
   - name: name
     type: string
-    factory: { ['gong', 'beach', 'charlie', 'Biggest',     'very posh', 'shark island', 'extreme', 'nuts and berries'].sample + ' '+ ['ride', 'walk','party','fund raiser', 'gala', 'swim', 'bake off', 'trail'].sample  }
+    factory: str!! { ['gong', 'beach', 'charlie', 'Biggest',     'very posh', 'shark island', 'extreme', 'nuts and berries'].sample + ' '+ ['ride', 'walk','party','fund raiser', 'gala', 'swim', 'bake off', 'trail'].sample  }
   - name: date
     type: date
-    factory: { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
+    factory: str!! { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
   - name: url
     type: string
-    factory: { 'http://'+ Faker::Internet.domain_name + '/greatAward/' + ['event','registration','party'].sample }
+    factory: str!! { 'http://'+ Faker::Internet.domain_name + '/greatAward/' + ['event','registration','party'].sample }
   relation:
     parent: office_culture
     type: embeds_many
@@ -99,7 +99,7 @@ dietary:
   fields:
   - name: requirements
     type: text
-    factory: { ['Gluten free','Hindu ','Kosher ','Vegan ','Vegetarian ','Jain','Paleo','None', 'Bland'].sample(3).join(', ') }
+    factory: str!! { ['Gluten free','Hindu ','Kosher ','Vegan ','Vegetarian ','Jain','Paleo','None', 'Bland'].sample(3).join(', ') }
   relation:
     parent: office_culture
     type: embeds_one
@@ -111,13 +111,13 @@ employee_mobile:
   fields:
   - name: number
     type: string
-    factory: { '04' + Faker::Number.number(8) }
+    factory: str!! { '04' + Faker::Number.number(8) }
   - name: is_work
     type: boolean
-    factory: { [true, false].sample }
+    factory: str!! { [true, false].sample }
   - name: distribute
     type: boolean
-    factory: { [true, false].sample }
+    factory: str!! { [true, false].sample }
   relation:
     parent: employee_contact
     type: embeds_one
@@ -127,13 +127,13 @@ employee_contact:
   fields:
   - name: extension
     type: string
-    factory: { [2,3,4,7].sample.to_s + Faker::Number.digit + Faker::Number.digit }
+    factory: str!! { [2,3,4,7].sample.to_s + Faker::Number.digit + Faker::Number.digit }
   - name: studio
     type: string
-    factory: { ['Brisbane', 'Sydney', 'Canberra', 'Auckland', 'Bangkok', 'London', 'Melbourne'].sample }
+    factory: str!! { ['Brisbane', 'Sydney', 'Canberra', 'Auckland', 'Bangkok', 'London', 'Melbourne'].sample }
   - name: work_email
     type: string
-    factory: { Faker::Name.first_name+"_"+Faker::Name.last_name+"@bvn.com.au" }
+    factory: str!! { Faker::Name.first_name+"_"+Faker::Name.last_name+"@bvn.com.au" }
   relation:
     parent: employee
     type: embeds_one
@@ -143,10 +143,10 @@ person_contact:
   fields:
   - name: personal_email
     type: string
-    factory: { Faker::Name.first_name+"."+Faker::Name.last_name+"@"+['gmail','yahoo','hotmail']+".com" }
+    factory: str!! { Faker::Name.first_name+"."+Faker::Name.last_name+"@"+['gmail','yahoo','hotmail']+".com" }
   - name: personal_phone
     type: string
-    factory: { #mock:# '04' + Faker::Number.number(8) }
+    factory: str!! { #mock:# '04' + Faker::Number.number(8) }
   relation:
     parent: person
     type: embeds_one
@@ -156,13 +156,13 @@ security_clearance:
   fields:
   - name: issuing_body
     type: string
-    factory: { ['Army','Navy','Airforce', 'Police', 'Scooby Doo gang', 'CIA', 'FBI', 'MI6', 'MI5', 'ASIO'].sample }
+    factory: str!! { ['Army','Navy','Airforce', 'Police', 'Scooby Doo gang', 'CIA', 'FBI', 'MI6', 'MI5', 'ASIO'].sample }
   - name: level
     type: string
-    factory: { ['Top Secret', 'Licence to Kill', 'Double Secret Probation', 'Baseline'].sample }
+    factory: str!! { ['Top Secret', 'Licence to Kill', 'Double Secret Probation', 'Baseline'].sample }
   - name: expiry
     type: date
-    factory: { (0..3).to_a.sample.years.from_now + (1..345).to_a.sample.days }
+    factory: str!! { (0..3).to_a.sample.years.from_now + (1..345).to_a.sample.days }
   relation:
     parent: employee
     type: embeds_many
@@ -171,7 +171,7 @@ finance:
   fields: 
   - name: employee_code
     type: string
-    factory: { (Faker::Internet.password + (0..9).to_a.join().to_s).split('').shuffle[0..8].join }
+    factory: str!! { (Faker::Internet.password + (0..9).to_a.join().to_s).split('').shuffle[0..8].join }
   relation:
     parent: employee
     type: embeds_one
@@ -180,19 +180,19 @@ qualification:
   fields:
   - name: name
     type: string
-    factory: { Faker::Name.title + " studies" }
+    factory: str!! { Faker::Name.title + " studies" }
   - name: level
     type: string
-    factory: { ['High school', 'Batchelors', 'Masters', 'Doctoral' ].sample }
+    factory: str!! { ['High school', 'Batchelors', 'Masters', 'Doctoral' ].sample }
   - name: institution
     type: string
-    factory: { Faker::Name.first_name + ' ' + ['Institute','College','University'].sample }
+    factory: str!! { Faker::Name.first_name + ' ' + ['Institute','College','University'].sample }
   - name: first_year
     type: integer
-    factory: { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+    factory: str!! { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   - name: last_year
     type: integer
-    factory: { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days + (0..3).to_a.sample.years }
+    factory: str!! { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days + (0..3).to_a.sample.years }
   relation:
     parent: employee
     type: embeds_many
@@ -201,20 +201,19 @@ registration:
   fields:
   - name: organisation
     type: string
-    factory: { ['Institute','Association','Board'].sample +' of ' + Faker::Name.first_name }
+    factory: str!! { ['Institute','Association','Board'].sample + ' of ' + Faker::Name.first_name }
   - name: registration_number
     type: string
-    factory: { ((Faker::Internet.password + (0..9).to_a.join().to_s).split('')).shuffle[0..5].join }
+    factory: str!! { ((Faker::Internet.password + (0..9).to_a.join().to_s).split('')).shuffle[0..5].join }
   - name: state
     type: string
-    factory: { ['NSW', 'NT', 'ACT', 'VIC', 'WA'].sample }
+    factory: str!! { ['NSW', 'NT', 'ACT', 'VIC', 'WA'].sample }
   - name: country
     type: string
-    factory: { ['Australia', 'Iceland', 'Luxemburg'].sample }
+    factory: str!! { ['Australia', 'Iceland', 'Luxemburg'].sample }
   - name: expiry
     type: date
-    expiry date
-    factory: { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+    factory: str!! { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   relation:
     parent: employee
     type: embeds_many
@@ -223,20 +222,19 @@ membership:
   fields:
   - name: organisation
     type: string
-    factory: { Faker::Name.first_name + ' ' +['Society','Fellowship','Club'].sample }
+    factory: str!! { Faker::Name.first_name + ' ' +['Society','Fellowship','Club'].sample }
   - name: membership_number
     type: string
-    factory: { ((Faker::Internet.password + (0..9).to_a.join().to_s).split('')).shuffle[0..5].join }
+    factory: str!! { ((Faker::Internet.password + (0..9).to_a.join().to_s).split('')).shuffle[0..5].join }
   - name: state
     type: string
-    factory: { ['NSW', 'NT', 'ACT', 'VIC', 'WA'].sample }
+    factory: str!! { ['NSW', 'NT', 'ACT', 'VIC', 'WA'].sample }
   - name: country
     type: string
-    factory: { ['Australia', 'Iceland', 'Luxemburg'].sample }
+    factory: str!! { ['Australia', 'Iceland', 'Luxemburg'].sample }
   - name: expiry
     type: date
-    expiry date
-    factory: { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+    factory: str!! { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   relation:
     parent: employee
     type: embeds_many
@@ -245,16 +243,16 @@ personal_award:
   fields:
   - name: name
     type: string
-    factory: { Faker::Company.catch_phrase }
+    factory: str!! { Faker::Company.catch_phrase }
   - name: awarding_body
     type: string
-    factory: { Faker::Company.name + ' ' +['Society','Fellowship','Club'].sample }
+    factory: str!! { Faker::Company.name + ' ' +['Society','Fellowship','Club'].sample }
   - name: description
     type: text
-    factory: { Faker::Lorem.paragraphs.join('<br>') }
+    factory: str!! { Faker::Lorem.paragraphs.join('<br>') }
   - name: url
     type: string
-    factory: { 'http://'+ Faker::Internet.domain_name + '/greatAward/' + ['pretty','amazing','clever'].sample }
+    factory: str!! { 'http://'+ Faker::Internet.domain_name + '/greatAward/' + ['pretty','amazing','clever'].sample }
   relation:
     parent: employee
     type: embeds_many
@@ -263,13 +261,13 @@ professional_contribution:
   fields:
   - name: activity
     type: string
-    factory: { #mock:# Faker::Company.catch_phrase }
+    factory: str!! { #mock:# Faker::Company.catch_phrase }
   - name: description
     type: text
-    factory: { Faker::Lorem.paragraphs.join('<br>') }
+    factory: str!! { Faker::Lorem.paragraphs.join('<br>') }
   - name: url
     type: string
-    factory: { 'http://'+ Faker::Internet.domain_name + '/greatAward/' + ['pretty','amazing','clever'].sample }
+    factory: str!! { 'http://'+ Faker::Internet.domain_name + '/greatAward/' + ['pretty','amazing','clever'].sample }
   relation:
     parent: employee
     type: embeds_many
@@ -284,13 +282,13 @@ passport:
   fields:
   - name: number
     type: string
-    factory: { ((Faker::Internet.password + (0..9).to_a.join().to_s).split('')).shuffle[0..12].join }
+    factory: str!! { ((Faker::Internet.password + (0..9).to_a.join().to_s).split('')).shuffle[0..12].join }
   - name: expiry
     type: date
-    factory: { (0..3).to_a.sample.years.from_now + (1..345).to_a.sample.days }
+    factory: str!! { (0..3).to_a.sample.years.from_now + (1..345).to_a.sample.days }
   - name: issuing_body
     type: string
-    factory: { ['Australia', 'Iceland', 'Luxemburg'].sample }
+    factory: str!! { ['Australia', 'Iceland', 'Luxemburg'].sample }
   relation:
     parent: travel
     type: embeds_many
@@ -299,10 +297,10 @@ frequent_flier_program:
   fields:
   - name: name
     type: string
-    factory: { Faker::Name.first_name + " air" }
+    factory: str!! { Faker::Name.first_name + " air" }
   - name: number
     type: string
-    factory: { ((Faker::Internet.password + (0..9).to_a.join().to_s).split('')).shuffle[0..12].join }
+    factory: str!! { ((Faker::Internet.password + (0..9).to_a.join().to_s).split('')).shuffle[0..12].join }
   relation:
     parent: travel
     type: embeds_many
@@ -311,25 +309,25 @@ project_experience:
   fields:
   - name: start_date
     type: date
-    factory: { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
+    factory: str!! { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
   - name: end_date
     type: date
-    factory: { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
+    factory: str!! { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
   - name: name
     type: string
-    factory: { Faker::Name.last_name + ' ' + ['building', 'centre', 'tower'].sample }
+    factory: str!! { Faker::Name.last_name + ' ' + ['building', 'centre', 'tower'].sample }
   - name: firm
     type: string
-    factory: { Faker::Name.first_name + ", "+Faker::Name.first_name + " and "+Faker::Name.first_name }
+    factory: str!! { Faker::Name.first_name + ", "+Faker::Name.first_name + " and "+Faker::Name.first_name }
   - name: role
     type: string
-    factory: { ['Producer', 'Executive Producer', 'Production Manager', 'Production Assistant', 'Screenwriter', 'Stunt Coordinator', 'Director', 'Location Scout', 'System administrator'].sample }
+    factory: str!! { ['Producer', 'Executive Producer', 'Production Manager', 'Production Assistant', 'Screenwriter', 'Stunt Coordinator', 'Director', 'Location Scout', 'System administrator'].sample }
   - name: stage
     type: string
-    factory: { ['Pre Design Services', 'Concept Design', 'Design Development', 'Approval Documents', 'Post DA Lodgment Services', 'Construction Approval', 'Construction Documentation', 'Tendering & Builder Appointment', 'Construction Period Services'].sample }
+    factory: str!! { ['Pre Design Services', 'Concept Design', 'Design Development', 'Approval Documents', 'Post DA Lodgment Services', 'Construction Approval', 'Construction Documentation', 'Tendering & Builder Appointment', 'Construction Period Services'].sample }
   - name: url
     type: string
-    factory: { 'http://'+ Faker::Internet.domain_name + '/projects/'+ Faker::Name.first_name + 'projects/' }
+    factory: str!! { 'http://'+ Faker::Internet.domain_name + '/projects/'+ Faker::Name.first_name + 'projects/' }
   relation:
     parent: employee
     type: embeds_many
@@ -338,22 +336,22 @@ biography:
   fields:
   - name: one_line_bio
     type: string
-    factory: { Faker::Lorem.paragraph }
+    factory: str!! { Faker::Lorem.paragraph }
   - name: approach
     type: text
-    factory: { Faker::Lorem.paragraphs.join('<br>') }
+    factory: str!! { Faker::Lorem.paragraphs.join('<br>') }
   - name: expertise
     type: text
-    factory: { Faker::Lorem.paragraphs.join('<br>') }
+    factory: str!! { Faker::Lorem.paragraphs.join('<br>') }
   - name: experience
     type: text
-    factory: { Faker::Lorem.paragraphs.join('<br>') }
+    factory: str!! { Faker::Lorem.paragraphs.join('<br>') }
   - name: achievements
     type: text
-    factory: { Faker::Lorem.paragraphs.join('<br>') }
+    factory: str!! { Faker::Lorem.paragraphs.join('<br>') }
   - name: value_statement
     type: text
-    factory: { Faker::Lorem.paragraphs.join('<br>') }
+    factory: str!! { Faker::Lorem.paragraphs.join('<br>') }
   relation:
     parent: employee
     type: embeds_one
@@ -362,28 +360,28 @@ social:
   fields:
   - name: twitter
     type: string
-    factory: { '@'+Faker::Lorem.word }
+    factory: str!! { '@'+Faker::Lorem.word }
   - name: instagram
     type: string
-    factory: { '@'+Faker::Lorem.word }
+    factory: str!! { '@'+Faker::Lorem.word }
   - name: github
     type: string
-    factory: { Faker::Lorem.word }
+    factory: str!! { Faker::Lorem.word }
   - name: pinterest
     type: string
-    factory: { Faker::Lorem.word+Faker::Lorem.word }
+    factory: str!! { Faker::Lorem.word+Faker::Lorem.word }
   - name: google_plus
     type: string
-    factory: { 'https://plus.google.com/u/0/'+ Faker::Number.number(20) }
+    factory: str!! { 'https://plus.google.com/u/0/'+ Faker::Number.number(20) }
   - name: linkedin
     type: string
-    factory: { 'au.linkedin.com/pub/' + Faker::Name.first_name + '-' + Faker::Name.last_name + '/'+Faker::Number.digit+'a/258/933/' }
+    factory: str!! { 'au.linkedin.com/pub/' + Faker::Name.first_name + '-' + Faker::Name.last_name + '/'+Faker::Number.digit+'a/258/933/' }
   - name: facebook
     type: string
-    factory: { (Faker::Name.first_name + Faker::Name.last_name+Faker::Number.digit).downcase }
+    factory: str!! { (Faker::Name.first_name + Faker::Name.last_name+Faker::Number.digit).downcase }
   - name: tumblr
     type: string
-    factory: { 'http://tumblr.'+Faker::Lorem.word+Faker::Lorem.word+'.com/' }
+    factory: str!! { 'http://tumblr.'+Faker::Lorem.word+Faker::Lorem.word+'.com/' }
   relation:
     parent: person_contact
     type: embeds_one
@@ -398,22 +396,22 @@ attention:
   fields:
   - name: date
     type: date
-    factory: { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
+    factory: str!! { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
   - name: url
     type: string
-    factory: { 'http://'+ Faker::Internet.domain_name + '/stories/' + ['style_section','business','theatre'].sample }
+    factory: str!! { 'http://'+ Faker::Internet.domain_name + '/stories/' + ['style_section','business','theatre'].sample }
   - name: scan_or_screengrab
     type: string
-    factory: { 'http://'+ Faker::Internet.domain_name + '/images/' + Faker::Number.number(20) + 'screencap.jpg' }
+    factory: str!! { 'http://'+ Faker::Internet.domain_name + '/images/' + Faker::Number.number(20) + 'screencap.jpg' }
   - name: body_text
     type: text
-    factory: { Faker::Lorem.paragraphs(paragraph_count = 8).join('<br>') }
+    factory: str!! { Faker::Lorem.paragraphs(paragraph_count = 8).join('<br>') }
   - name: publication
     type: string
-    factory: { Faker::Company.bs + ' weekly' }
+    factory: str!! { Faker::Company.bs + ' weekly' }
   - name: reason
     type: string
-    factory:['reactive', { 'planned', 'response to release'].sample }
+    factory: str!! { ['reactive', 'planned', 'response to release'].sample }
   relation:
     parent: press
     type: embeds_many
@@ -422,10 +420,10 @@ preference:
   fields:
   - name: likes
     type: text
-    factory: { ['Asparagus','Avocados','Beets','Bell peppers','Broccoli','Brussels sprouts','Cabbage','Carrots','Cauliflower','Celery','Collard greens','Cucumbers','Eggplant','Fennel','Garlic','Green beans','Green peas','Kale','Leeks','Mushrooms, crimini','Mushrooms, shiitake','Mustard greens','Olives','Onions','Potatoes','Romaine lettuce','Sea vegetables','Spinach','Squash, summer','Squash, winter','Sweet potatoes','Swiss chard','Tomatoes','Turnip greens','Yams'].sample(4).join(', ') }
+    factory: str!! { ['Asparagus', 'Avocados', 'Beets', 'Bell peppers', 'Broccoli', 'Brussels sprouts', 'Cabbage', 'Carrots', 'Cauliflower', 'Celery', 'Collard greens', 'Cucumbers', 'Eggplant', 'Fennel', 'Garlic', 'Green beans', 'Green peas', 'Kale', 'Leeks', 'Mushrooms, crimini', 'Mushrooms, shiitake', 'Mustard greens', 'Olives', 'Onions', 'Potatoes', 'Romaine lettuce', 'Sea vegetables', 'Spinach', 'Squash, summer', 'Squash, winter', 'Sweet potatoes', 'Swiss chard', 'Tomatoes', 'Turnip greens', 'Yams'].sample(4).join( ', ' ) }
   - name: dislikes
     type: text
-    factory:['Almonds','Cashews','Flaxseeds','Olive { oil, extra virgin','Peanuts','Pumpkin seeds','Sesame seeds','Sunflower seeds','Walnuts'].sample(4).join(', ') }
+    factory: str!! { ['Almonds','Cashews','Flaxseeds','Olive oil', 'extra virgin','Peanuts','Pumpkin seeds','Sesame seeds','Sunflower seeds','Walnuts'].sample(4).join( ', ') }
   relation:
     parent: dietary
     type: embeds_one
@@ -440,22 +438,22 @@ application:
   fields:
   - name: date
     type: date
-    factory: { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
+    factory: str!! { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
   - name: covering_letter
     type: string
-    factory: { 'http://'+ Faker::Internet.domain_name + '/images/' + Faker::Number.number(20) + 'coverLetter.jpg' }
+    factory: str!! { 'http://'+ Faker::Internet.domain_name + '/images/' + Faker::Number.number(20) + 'coverLetter.jpg' }
   - name: portfolio
     type: string
-    factory: { 'http://'+ Faker::Internet.domain_name + '/images/' + Faker::Number.number(20) + 'portfolio.jpg' }
+    factory: str!! { 'http://'+ Faker::Internet.domain_name + '/images/' + Faker::Number.number(20) + 'portfolio.jpg' }
   - name: assessment
     type: text
-    factory: { Faker::Lorem.paragraphs(paragraph_count = 2).join('<br>') }
+    factory: str!! { Faker::Lorem.paragraphs(paragraph_count = 2).join('<br>') }
   - name: future_consideration
     type: boolean
-    factory: { [true, false].sample }
+    factory: str!! { [true, false].sample }
   - name: skills_and_keywords
     type: text
-    factory: { ['Communication','Teamwork','Problem Solving','Initiative and Enterprise','Planning and Organising','Self-Management','Learning','Technology','detailing','big data','social media','Revit','Rendering','Python','Javascript','Welding'].sample(6).join(', ') }
+    factory: str!! { ['Communication','Teamwork','Problem Solving','Initiative and Enterprise','Planning and Organising','Self-Management','Learning','Technology','detailing','big data','social media','Revit','Rendering','Python','Javascript','Welding'].sample(6).join(', ') }
   relation:
     parent: applicant
     type: embeds_many
