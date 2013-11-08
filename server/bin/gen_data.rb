@@ -1,4 +1,3 @@
-# Commands to be passed to the scaffold generator
 #person_name  first:string      last:string      preferred_first:string  preferred_last:string
 #employee
 #photo        fun:string        bw:string        colour:string
@@ -12,8 +11,6 @@
 #employee_contact           extension:string       studio:string               work_email:string
 #person_contact             personal_email:string  personal_phone:string
 #person_name                prefix:string          first:string                middle:string              last:string         suffix:string                 preferred_first:string    preferred_last:string
-#applicant
-#application                date:date              covering_letter:string      portfolio:string           assessment:text     future_consideration:boolean  skills_and_keywords:text
 #security_clearance         issuing_body:string    level:string                expiry:date
 #finance                    employee_code:string
 #qualification              name:string            level:string                institution:string         first_year:integer  last_year:integer
@@ -27,13 +24,14 @@
 #project_experience         start_date:date             end_date:date                    name:string                firm:string         role:string                   stage:string              url:string
 #biography                  one_line_bio:string    approach:text               expertise:text             experience:text     achievements:text             value_statement:text
 #social                     twitter:string         instagram:string            github:string              pinterest:string    google_plus:string            linkedin:string           facebook:string        tumblr:string
+#press
+#attention                  date:date              url:string                  scan_or_screengrab:string  body_text:text      publication:string            reason:string
+#preference                likes:text             dislikes:text
+#applicant
+#application                date:date              covering_letter:string      portfolio:string           assessment:text     future_consideration:boolean  skills_and_keywords:text
 models = <<-RUBY.split("\n")
-press
-attention                  date:date              url:string                  scan_or_screengrab:string  body_text:text      publication:string            reason:string
-preference                likes:text             dislikes:text
 RUBY
 
-# Commands to be passed to the relation generator
 #person_name       --parent-class=person   --relation-type=embeds_one  --class_synonym=name
 #employee          --parent-class=person   --relation-type=embeds_one
 #photo             --parent-class=employee --relation-type=embeds_one
@@ -59,12 +57,12 @@ RUBY
 #office_culture             --parent-class=employee          --relation-type=embeds_one
 #event_participation        --parent-class=office_culture    --relation-type=embeds_many
 #dietary                    --parent-class=office_culture    --relation-type=embeds_one
+#preference                --parent-class=dietary           --relation-type=embeds_one
+#press                      --parent-class=employee          --relation-type=embeds_one
+#attention                  --parent-class=press             --relation-type=embeds_many
 #applicant --parent-class=person --relation-type=embeds_one
-#application --parent-class=application --relation-type=embeds_many
+#application --parent-class=applicant --relation-type=embeds_many
 relations = <<-RUBY.split("\n")
-preference                --parent-class=dietary           --relation-type=embeds_one
-press                      --parent-class=employee          --relation-type=embeds_one
-attention                  --parent-class=press             --relation-type=embeds_many
 RUBY
 
 def exec_and_print command
