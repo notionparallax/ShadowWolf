@@ -14,41 +14,41 @@ class Employee
 
   accepts_nested_attributes_for :biography
 
-  embeds_many :project_experience
+  embeds_many :project_experiences
 
-  accepts_nested_attributes_for :project_experience
+  accepts_nested_attributes_for :project_experiences
 
   embeds_one :travel
 
   accepts_nested_attributes_for :travel
 
-  embeds_many :professional_contribution
+  embeds_many :professional_contributions
 
-  accepts_nested_attributes_for :professional_contribution
+  accepts_nested_attributes_for :professional_contributions
 
-  embeds_many :personal_award
+  embeds_many :personal_awards
 
-  accepts_nested_attributes_for :personal_award
+  accepts_nested_attributes_for :personal_awards
 
-  embeds_many :membership
+  embeds_many :memberships
 
-  accepts_nested_attributes_for :membership
+  accepts_nested_attributes_for :memberships
 
-  embeds_many :registration
+  embeds_many :registrations
 
-  accepts_nested_attributes_for :registration
+  accepts_nested_attributes_for :registrations
 
-  embeds_many :qualification
+  embeds_many :qualifications
 
-  accepts_nested_attributes_for :qualification
+  accepts_nested_attributes_for :qualifications
 
   embeds_one :finance
 
   accepts_nested_attributes_for :finance
 
-  embeds_many :security_clearance
+  embeds_many :security_clearances
 
-  accepts_nested_attributes_for :security_clearance
+  accepts_nested_attributes_for :security_clearances
 
   embeds_one :contact, class_name: 'EmployeeContact'
 
@@ -58,9 +58,9 @@ class Employee
 
   accepts_nested_attributes_for :office_culture
 
-  embeds_many :condition
+  embeds_many :conditions
 
-  accepts_nested_attributes_for :condition
+  accepts_nested_attributes_for :conditions
 
   embeds_one :photo
 

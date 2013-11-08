@@ -2,13 +2,13 @@ class Travel
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embeds_many :frequent_flier_program
+  embeds_many :frequent_flier_programs
 
-  accepts_nested_attributes_for :frequent_flier_program
+  accepts_nested_attributes_for :frequent_flier_programs
 
-  embeds_many :passport
+  embeds_many :passports
 
-  accepts_nested_attributes_for :passport
+  accepts_nested_attributes_for :passports
 
   embedded_in :employee
 

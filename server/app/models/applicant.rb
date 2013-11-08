@@ -2,9 +2,9 @@ class Applicant
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embeds_many :application
+  embeds_many :applications
 
-  accepts_nested_attributes_for :application
+  accepts_nested_attributes_for :applications
 
   embedded_in :person
 

@@ -1,1 +1,1 @@
-json.partial! "contacts/contact.json.jbuilder", contact: @contact
+json.extract! @contact, :created_at, :updated_at
