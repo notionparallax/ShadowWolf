@@ -50,9 +50,9 @@ class Employee
 
   accepts_nested_attributes_for :security_clearance
 
-  embeds_one :employee_contact
+  embeds_one :contact, class_name: 'EmployeeContact'
 
-  accepts_nested_attributes_for :employee_contact
+  accepts_nested_attributes_for :contact
 
   embeds_one :office_culture
 

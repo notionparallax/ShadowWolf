@@ -1,1 +1,1 @@
-json.extract! @mobile, :created_at, :updated_at
+json.partial! "mobiles/mobile.json.jbuilder", mobile: @mobile

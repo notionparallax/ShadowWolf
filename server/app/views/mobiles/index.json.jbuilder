@@ -1,4 +1,3 @@
 json.array!(@mobiles) do |mobile|
-  json.extract! mobile, 
-  json.url mobile_url(mobile, format: :json)
+  json.partial! "mobiles/mobile.json.jbuilder", mobile: mobile
 end

@@ -6,7 +6,7 @@ class PersonContact
 
   accepts_nested_attributes_for :social
 
-  embedded_in :person
+  embedded_in :person, inverse_of: :contact
 
   field :personal_email, type: String
   field :personal_phone, type: String

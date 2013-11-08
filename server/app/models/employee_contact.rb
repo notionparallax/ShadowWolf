@@ -2,12 +2,12 @@ class EmployeeContact
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embedded_in :employee
+  embedded_in :employee, inverse_of: :contact
 
 
-  embeds_one :employee_mobile
+  embeds_one :mobile, class_name: 'EmployeeMobile'
 
-  accepts_nested_attributes_for :employee_mobile
+  accepts_nested_attributes_for :mobile
   field :extension, type: String
   field :studio, type: String
   field :work_email, type: String

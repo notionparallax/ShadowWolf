@@ -11,9 +11,9 @@ end
 json.office_culture do
   json.partial! "app/views/office_cultures/office_culture.json.jbuilder", office_culture: employee.office_culture
 end if employee.office_culture
-json.employee_contact do
-  json.partial! "app/views/employee_contacts/employee_contact.json.jbuilder", employee_contact: employee.employee_contact
-end if employee.employee_contact
+json.contact do
+  json.partial! "app/views/employee_contacts/employee_contact.json.jbuilder", contact: employee.contact
+end if employee.contact
 json.security_clearances do
   json.array!(employee.security_clearances) do |security_clearance|
     json.partial! "app/views/security_clearances/security_clearance.json.jbuilder", security_clearance: security_clearance

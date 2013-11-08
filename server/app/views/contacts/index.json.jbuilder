@@ -1,4 +1,3 @@
 json.array!(@contacts) do |contact|
-  json.extract! contact, 
-  json.url contact_url(contact, format: :json)
+  json.partial! "contacts/contact.json.jbuilder", contact: contact
 end

@@ -28,7 +28,7 @@ FactoryGirl.define do
     after(:create) do |employee|
       FactoryGirl.create_list( :security_clearance, 3, employee: employee )
     end
-    employee_contact { FactoryGirl.build( :employee_contact ) }
+    contact { FactoryGirl.build( :employee_contact ) }
     office_culture { FactoryGirl.build( :office_culture ) }
     after(:create) do |employee|
       FactoryGirl.create_list( :condition, 3, employee: employee )

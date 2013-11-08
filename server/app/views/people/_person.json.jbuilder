@@ -20,3 +20,9 @@ end if person.employee
 json.person_contact do
   json.partial! "app/views/person_contacts/person_contact.json.jbuilder", person_contact: person.person_contact
 end if person.person_contact
+json.name do
+  json.partial! "app/views/person_names/person_name.json.jbuilder", name: person.name
+end if person.name
+json.contact do
+  json.partial! "app/views/person_contacts/person_contact.json.jbuilder", contact: person.contact
+end if person.contact

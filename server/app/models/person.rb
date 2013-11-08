@@ -6,15 +6,15 @@ class Person
 
   accepts_nested_attributes_for :applicant
 
-  embeds_one :person_contact
+  embeds_one :contact, class_name: 'PersonContact'
 
-  accepts_nested_attributes_for :person_contact
+  accepts_nested_attributes_for :contact
 
   embeds_one :employee
 
   accepts_nested_attributes_for :employee
 
-  embeds_one :person_name
+  embeds_one :name, class_name: 'PersonName'
 
-  accepts_nested_attributes_for :person_name
+  accepts_nested_attributes_for :name
 end
