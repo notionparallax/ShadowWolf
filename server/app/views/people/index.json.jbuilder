@@ -1,4 +1,3 @@
 json.array!(@people) do |person|
-  json.extract! person
-  json.url person_url(person, format: :json)
+  json.partial! 'people/person.json.jbuilder', person: person
 end
