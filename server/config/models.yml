@@ -23,7 +23,7 @@ person_name:
   - name: preferred_first
     type: string
     factory: |
-      {  }
+      { Faker::Name.first_name }
   - name: preferred_last
     type: string
     factory: |
