@@ -552,15 +552,3 @@ application:
   relation:
     parent: applicant
     type: embeds_many
-
-contact:
-  fields: []
-  relation:
-    parent: employee
-    type: embeds_one
-
-mobile:
-  fields: []
-  relation:
-    parent: contact
-    type: embeds_one
