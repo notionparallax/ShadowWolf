@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :applicant do
-    after(:create) do |applicant|
-      FactoryGirl.create_list( :application, 3, applicant: applicant )
+    after(:build) do |applicant|
+      FactoryGirl.build_list( :application, [0,1,2,3,10].sample, applicant: applicant )
     end
   end
 end

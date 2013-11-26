@@ -1,4 +1,3 @@
 json.array!(@travels) do |travel|
-  json.extract! travel, 
-  json.url travel_url(travel, format: :json)
+  json.partial! "travels/travel.json.jbuilder", travel: travel
 end

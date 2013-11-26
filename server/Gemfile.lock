@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/Dawil/MongoidModelMaker.git
-  revision: 75ff6019787b82b88f2b441252510240bcd13055
+  revision: 27abf697c484390352718ee5be1cf04c24bd08c1
   specs:
-    mongoid-model-maker (0.1.17)
+    mongoid-model-maker (0.1.18)
       rails
       thor
 
@@ -95,7 +95,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     method_source (0.8.2)
-    mime-types (1.25)
+    mime-types (1.25.1)
     minitest (4.7.5)
     moped (1.5.1)
     multi_json (1.8.2)
@@ -155,7 +155,7 @@ GEM
       json (>= 1.1.3)
       rdoc (~> 3.10)
     slop (3.4.6)
-    sprockets (2.10.0)
+    sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)

@@ -7,6 +7,6 @@ FactoryGirl.define do
     portfolio { 'http://'+ Faker::Internet.domain_name + '/images/' + Faker::Number.number(20) + 'portfolio.jpg' }
     assessment { Faker::Lorem.paragraphs(paragraph_count = 2).join('<br>') }
     future_consideration { [true, false].sample }
-    skills_and_keywords { ['Communication','Teamwork','Problem Solving','Initiative and Enterprise','Planning and Organising','Self-Management','Learning','Technology','detailing','big data','social media','Revit','Rendering','Python','Javascript','Welding'].sample(6).join(', ') }
+    skills_and_keywords { ['Communication','Teamwork','Problem Solving','Initiative and Enterprise','Planning and Organising','Self-Management','Learning','Technology','detailing','big data','social media','Revit','Rendering','Python','Javascript','Welding'].sample(6).join( ', ') }
   end
 end

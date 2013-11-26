@@ -1,3 +1,6 @@
+person:
+  fields: []
+
 person_name:
   fields:
   - name: prefix
@@ -125,8 +128,24 @@ dietary:
     parent: office_culture
     type: embeds_one
 
-person:
-  fields: []
+employee_contact:
+  fields:
+  - name: extension
+    type: string
+    factory: |
+      { [2,3,4,7].sample.to_s + Faker::Number.digit + Faker::Number.digit }
+  - name: studio
+    type: string
+    factory: |
+      { ['Brisbane', 'Sydney', 'Canberra', 'Auckland', 'Bangkok', 'London', 'Melbourne'].sample }
+  - name: work_email
+    type: string
+    factory: |
+      { Faker::Name.first_name + "_" + Faker::Name.last_name + "@bvn.com.au" }
+  relation:
+    parent: employee
+    type: embeds_one
+    synonym: contact
 
 employee_mobile:
   fields:
@@ -146,25 +165,6 @@ employee_mobile:
     parent: employee_contact
     type: embeds_one
     synonym: mobile
-
-employee_contact:
-  fields:
-  - name: extension
-    type: string
-    factory: |
-      { [2,3,4,7].sample.to_s + Faker::Number.digit + Faker::Number.digit }
-  - name: studio
-    type: string
-    factory: |
-      { ['Brisbane', 'Sydney', 'Canberra', 'Auckland', 'Bangkok', 'London', 'Melbourne'].sample }
-  - name: work_email
-    type: string
-    factory: |
-      { Faker::Name.first_name + "_" + Faker::Name.last_name + "@bvn.com.au" }
-  relation:
-    parent: employee
-    type: embeds_one
-    synonym: contact
 
 person_contact:
   fields:

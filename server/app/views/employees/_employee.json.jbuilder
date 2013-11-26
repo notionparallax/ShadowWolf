@@ -47,6 +47,9 @@ json.professional_contributions do
     json.partial! "professional_contributions/professional_contribution.json.jbuilder", professional_contribution: professional_contribution
   end
 end
+json.travel do
+  json.partial! "travels/travel.json.jbuilder", travel: employee.travel
+end if employee.travel
 json.project_experiences do
   json.array!(employee.project_experiences) do |project_experience|
     json.partial! "project_experiences/project_experience.json.jbuilder", project_experience: project_experience
@@ -55,3 +58,6 @@ end
 json.biography do
   json.partial! "biographies/biography.json.jbuilder", biography: employee.biography
 end if employee.biography
+json.press do
+  json.partial! "presses/press.json.jbuilder", press: employee.press
+end if employee.press
