@@ -120,7 +120,7 @@ dietary:
   - name: requirements
     type: text
     factory: |
-      { ['Gluten free','Hindu ','Kosher ','Vegan ','Vegetarian ','Jain','Paleo','None', 'Bland'].sample(3).join(', ') }
+      { ['Gluten free','Hindu ','Kosher ','Vegan ','Vegetarian ','Jain','Paleo','None', 'Bland'].sample(3).join( ', ') }
   relation:
     parent: office_culture
     type: embeds_one
@@ -160,7 +160,7 @@ employee_contact:
   - name: work_email
     type: string
     factory: |
-      { Faker::Name.first_name+"_"+Faker::Name.last_name+"@bvn.com.au" }
+      { Faker::Name.first_name + "_" + Faker::Name.last_name + "@bvn.com.au" }
   relation:
     parent: employee
     type: embeds_one
