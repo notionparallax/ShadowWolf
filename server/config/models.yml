@@ -266,7 +266,7 @@ membership:
   - name: organisation
     type: string
     factory: |
-      { Faker::Name.first_name + ' ' +['Society','Fellowship','Club'].sample }
+      { Faker::Name.first_name + ' ' + ['Society','Fellowship','Club'].sample }
   - name: membership_number
     type: string
     factory: |
@@ -382,7 +382,7 @@ project_experience:
   - name: firm
     type: string
     factory: |
-      { Faker::Name.first_name + ", "+Faker::Name.first_name + " and "+Faker::Name.first_name }
+      { Faker::Name.first_name + ", " + Faker::Name.first_name + " and " + Faker::Name.first_name }
   - name: role
     type: string
     factory: |
@@ -394,7 +394,7 @@ project_experience:
   - name: url
     type: string
     factory: |
-      { 'http://'+ Faker::Internet.domain_name + '/projects/'+ Faker::Name.first_name + 'projects/' }
+      { 'http://' + Faker::Internet.domain_name + '/projects/' + Faker::Name.first_name + 'projects/' }
   relation:
     parent: employee
     type: embeds_many
@@ -548,7 +548,7 @@ application:
   - name: skills_and_keywords
     type: text
     factory: |
-      { ['Communication','Teamwork','Problem Solving','Initiative and Enterprise','Planning and Organising','Self-Management','Learning','Technology','detailing','big data','social media','Revit','Rendering','Python','Javascript','Welding'].sample(6).join(', ') }
+      { ['Communication','Teamwork','Problem Solving','Initiative and Enterprise','Planning and Organising','Self-Management','Learning','Technology','detailing','big data','social media','Revit','Rendering','Python','Javascript','Welding'].sample(6).join( ', ') }
   relation:
     parent: applicant
     type: embeds_many
