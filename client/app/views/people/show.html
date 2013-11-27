@@ -79,7 +79,7 @@
     
     <h3>registrations</h3>
     <div class="row">
-    <div class="alert alert-info col-sm-4" 
+      <div class="alert alert-info col-sm-4" 
            ng-repeat="q in person().employee.registrations">
         <p><span class="field-name">organisation</span>{{q.organisation}}</p>
         <p><span class="field-name">registration_number</span>{{q.registration_number}}</p>
@@ -91,7 +91,7 @@
     
     <h3>memberships</h3>
     <div class="row">
-    <div class="alert alert-info col-sm-4" 
+      <div class="alert alert-info col-sm-4" 
            ng-repeat="q in person().employee.memberships">
         <p><span class="field-name">organisation</span>{{q.organisation}}</p>
         <p><span class="field-name">membership_number</span>{{q.membership_number}}</p>
@@ -103,7 +103,7 @@
     
     <h3>personal_awards</h3>
     <div class="row">
-    <div class="alert alert-info col-sm-4" 
+      <div class="alert alert-info col-sm-4" 
            ng-repeat="q in person().employee.personal_awards">
         <p><span class="field-name">name</span>{{q.name}}</p>
         <p><span class="field-name">awarding_body</span>{{q.awarding_body}}</p>
@@ -114,7 +114,7 @@
     
     <h3>professional_contributions</h3>
     <div class="row">
-    <div class="alert alert-info col-sm-4" 
+      <div class="alert alert-info col-sm-4" 
            ng-repeat="q in person().employee.professional_contributions">
         <p><span class="field-name">activity</span>{{q.activity}}</p>
         <p><span class="field-name">description</span>{{q.description}}</p>
@@ -125,28 +125,91 @@
     <h3>travel</h3>
     <h4>passports</h4>
     <div class="row">
-    <div class="alert alert-info col-sm-4" 
-           ng-repeat="q in person().employee.">
+      <div class="alert alert-info col-sm-4" 
+           ng-repeat="q in person().travel.passports">
         <p><span class="field-name">activity</span>{{q.activity}}</p>
-        <p><span class="field-name">description</span>{{q.description}}</p>
-        <p><span class="field-name">url</span>{{q.url}}</p>
+        <p><span class="field-name">expiry</span>{{q.expiry}}</p>
+        <p><span class="field-name">issuing_body</span>{{q.issuing_body}}</p>
       </div>
     </div>
-    <h4>passports</h4>
+    <h4>frequent_flier_programs</h4>
+    <!--it'd be cool to get status updates from somewhere 
+    like http://awardwallet.com/ in the future-->
     <div class="row">
-    <div class="alert alert-info col-sm-4" 
-           ng-repeat="q in person().employee.">
-        <p><span class="field-name">activity</span>{{q.activity}}</p>
-        <p><span class="field-name">description</span>{{q.description}}</p>
+      <div class="alert alert-info col-sm-4" 
+           ng-repeat="q in person().travel.frequent_flier_programs">
+        <p><span class="field-name">name</span>{{q.name}}</p>
+        <p><span class="field-name">number</span>{{q.number}}</p>
+      </div>
+    </div>
+    
+    <h4>project_experiences (int)</h4>
+    <div class="alert alert-warning">coming as soon as we've tied the project 
+    data to people through the Epicor data. </div>
+    <h4>project_experiences (ext)</h4>
+    <div class="row">
+      <div class="alert alert-info col-sm-4" 
+           ng-repeat="q in person().project_experiences">
+        <p><span class="field-name">name</span>{{q.name}}</p>
+        <p><span class="field-name">firm</span>{{q.firm}}</p>
+        <p><span class="field-name">role</span>{{q.role}}</p>
+        <p><span class="field-name">stage</span>{{q.stage}}</p>
+        <p><span class="field-name">start_date</span>{{q.start_date}}</p>
+        <p><span class="field-name">end_date</span>{{q.end_date}}</p>
         <p><span class="field-name">url</span>{{q.url}}</p>
       </div>
     </div>
     
+    
     <section ng-show="person().employee.biography">
-      <h2>Biography</h2>
-      <p>{{ person().employee.biography.one_line_bio }}</p>
-      <p>{{ person().employee.biography.expertise }}</p>
+      <h3>Biography</h3>
+      <p><span class="field-name">one_line_bio</span> {{person().employee.biography.one_line_bio}}</a></p>
+      <p><span class="field-name">approach</span> {{person().employee.biography.approach}}</a></p>
+      <p><span class="field-name">expertise</span> {{person().employee.biography.expertise}}</a></p>
+      <p><span class="field-name">experience</span> {{person().employee.biography.experience}}</a></p>
+      <p><span class="field-name">achievements</span> {{person().employee.biography.achievements}}</a></p>
+      <p><span class="field-name">value_statement</span> {{person().employee.biography.value_statement}}</a></p>
     </section>
+    
+    <h3>press</h3>
+    <div class="row">
+      <div class="alert alert-info col-sm-4" 
+           ng-repeat="q in person().employee.press.attentions">
+        <p><span class="field-name">date</span>{{q.date}}</p>
+        <p><span class="field-name">url</span>{{q.url}}</p>
+        <p><span class="field-name">scan_or_screengrab</span>{{q.scan_or_screengrab}}</p>
+        <p><span class="field-name">body_text</span>{{q.body_text}}</p>
+        <p><span class="field-name">publication</span>{{q.publication}}</p>
+        <p><span class="field-name">reason</span>{{q.reason}}</p>
+      </div>
+    </div>
+    
+    <h3>contact</h3>
+    <p><span class="field-name">personal_email</span> {{person().contact.personal_email}}</a></p>
+    <p><span class="field-name">personal_phone</span> {{person().contact.personal_phone}}</a></p>
+    <h4>social</h4>
+    <p><span class="field-name">twitter</span> {{person().contact.social.twitter}}</a></p>
+    <p><span class="field-name">instagram</span> {{person().contact.social.instagram}}</a></p>
+    <p><span class="field-name">github</span> {{person().contact.social.github}}</a></p>
+    <p><span class="field-name">pinterest</span> {{person().contact.social.pinterest}}</a></p>
+    <p><span class="field-name">google_plus</span> {{person().contact.social.google_plus}}</a></p>
+    <p><span class="field-name">linkedin</span> {{person().contact.social.linkedin}}</a></p>
+    <p><span class="field-name">facebook</span> {{person().contact.social.facebook}}</a></p>
+    <p><span class="field-name">tumblr</span> {{person().contact.social.tumblr}}</a></p>
+    
+    <h3>applicant</h3>    
+    <div class="row">
+      <div class="alert alert-info col-sm-4" 
+           ng-repeat="q in person().applicant.applications">
+        <p><span class="field-name">date</span>{{q.date}}</p>
+        <p><span class="field-name">covering_letter</span>{{q.covering_letter}}</p>
+        <p><span class="field-name">portfolio</span>{{q.portfolio}}</p>
+        <p><span class="field-name">assessment</span>{{q.assessment}}</p>
+        <p><span class="field-name">future_consideration</span>{{q.future_consideration}}</p>
+        <p><span class="field-name">skills_and_keywords</span>{{q.skills_and_keywords}}</p>
+      </div>
+    </div>
+    
   </section>
 </div>
 
