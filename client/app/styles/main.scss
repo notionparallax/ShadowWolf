@@ -44,9 +44,17 @@ body {
 .full-width{
   width:100%
 }
-field-name{
-  width: 8em;
+.field-name{
+  width: 35%;
   display: inline-block;
   padding-right: 1em;
   text-align: right;
+  vertical-align: top;
+  overflow: hidden;
+}
+.ang-inserted{
+  width: 60%;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
 }

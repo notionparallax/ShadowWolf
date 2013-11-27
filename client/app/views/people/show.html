@@ -10,11 +10,44 @@
     <p><span class="field-name">position</span>
        <span class="ang-inserted">{{person().employee.position}}</span></p>
     
+    
+   
+    
     <h3>photo</h3>
     <div class="row">
-      <img class="col-sm-4" ng-src="{{ person().employee.photo.bw  }}" itemprop="image" />
-      <img class="col-sm-4" ng-src="{{ person().employee.photo.colour }}" itemprop="image" />
-      <img class="col-sm-4" ng-src="{{ person().employee.photo.fun }}" itemprop="image" />
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img class="" 
+               ng-src="{{ person().employee.photo.bw  }}" 
+               itemprop="image" />
+          <div class="caption">
+            <h3>Serious B&W Photo</h3>
+            <p>...</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img class="" 
+               ng-src="{{ person().employee.photo.colour  }}" 
+               itemprop="image" />
+          <div class="caption">
+            <h3>Serious Colour Photo</h3>
+            <p>...</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img class="" 
+               ng-src="{{ person().employee.photo.fun  }}" 
+               itemprop="image" />
+          <div class="caption">
+            <h3>Fun Photo</h3>
+            <p>...</p>
+          </div>
+        </div>
+      </div>
     </div>
     
     <h3>conditions</h3>
@@ -168,8 +201,8 @@
     <div class="row">
       <div class="alert alert-info col-sm-4" 
            ng-repeat="q in person().employee.travel.passports">
-        <p><span class="field-name">activity</span>
-           <span class="ang-inserted">{{q.activity}}</span></p>
+        <p><span class="field-name">number</span>
+           <span class="ang-inserted">{{q.number}}</span></p>
         <p><span class="field-name">expiry</span>
            <span class="ang-inserted">{{q.expiry}}</span></p>
         <p><span class="field-name">issuing_body</span>
@@ -294,80 +327,4 @@
   </section>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<p>Using http://schema.org/Person for the markup, still needs organisng and styling</p>
-<div itemscope itemtype="http://schema.org/Person" ng-show="person()">
-  <section ng-show="person().name">
-    <span itemprop="name">
-      <span itemprop="givenName" >{{ person().name.preferred_first }}</span></span> 
-      <span itemprop="familyName">{{ person().name.preferred_first }}</span></span> 
-    </span><br>
-    
-    <span itemprop="name">
-      <span itemprop="honorificPrefix" >{{ person().name.prefix }}</span></span> 
-      <span itemprop="familyName">{{ person().name.first }}</span></span> 
-      <span itemprop="givenName" >{{ person().name.last }}</span></span> 
-      <span itemprop="honorificSufix">{{ person().name.suffix }}</span></span> 
-    </span>
-  </section>
-  
-  <section ng-show="person().employee">
-  <h2>Contact</h2>
-    Studio:<span itemprop="workLocation">{{ person().studio }}</span></span><br>
-    <div>
-      <img ng-src="{{ person().employee.photo.bw  }}</span>" itemprop="image" />
-      <img ng-src="{{ person().employee.photo.colour }}</span>" itemprop="image" />
-      <img ng-src="{{ person().employee.photo.fun }}</span>" itemprop="image" />
-    </div>
-    
-    <span itemprop="jobTitle">{{ person().employee.position }}</span></span><br>
-    
-    <div>
-      <i class=".glyphicon .glyphicon-earphone" ></i><span itemprop="telephone">{{ person().contact.phoneDirect }}</span></span><br>
-      <i class=".glyphicon .glyphicon-phone"    ></i><span itemprop="telephone">{{ person().contact.phoneMobile }}</span></span><br>
-      <i class=".glyphicon .glyphicon-phone-alt"></i><span itemprop="telephone">{{ person().contact.extension }}</span></span><br>
-      <a href="mailto:jane-doe@xyz.edu" itemprop="email">{{ person().contact.email }}</span></a>
-    </div>
-    
-    <div ng-repeat="a in person().personalAwards">
-      <div itemscope itemprop="award">
-        <span itemprop="">{{a.xxx}}</span></span><br>
-        <time itemprop="" datetime="2009-11-13"></time>
-        <span itemprop="">{{a.xxx}}</span></span><br>
-        <span itemprop="">{{a.xxx}}</span></span><br>
-        <a href="{{a.URL}}</span>" itemprop="URL">a link</a>
-      </div>
-    </div>
-    
-    <div ng-repeat="q in person().qualifications">
-      <!--<div itemprop="Event">--><!--is education an event?-->
-        <span itemprop="alumniOf">{{q.xxx}}</span></span><br>
-        
-        <a href="{{q.URL}}</span>" itemprop="url">a link</a>
-      <!--</div>-->
-    </div>
-  </section>
-  
-  <section class='hidden-details' style="display:none;">
-    <span itemprop="isicV4">8712-02</span><br> (Architects)
-    <span itemprop="worksFor">some clever stuff that checks if someone is a current employee, if so, says BVN DH, if not gets their currently known employer</span><br>
-  </section>
-</div>
+<p>Should be using http://schema.org/Person for the markup, still needs organisng and styling</p>
