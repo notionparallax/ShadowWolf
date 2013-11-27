@@ -1,8 +1,65 @@
 <div ng-show="person()">
   <h1>Check out {{ person().name.preferred_first }}'s Page!!</h1>
-  <p>{{ person().name.first }}'s last name is {{ person().name.last }} and prefers to be called {{ person().name.preferred_first }}.</p>
-  <editable label="label" value="{{person().name.first}}"></editable>
+  <p>{{ person().name.prefix }} {{ person().name.first }} {{ person().name.last }} {{ person().name.suffix }}'s  prefers to be called {{ person().name.preferred_first }}.</p>
+  
   <section ng-show="person().employee">
+    <p><span class="field-name">login</span>{{person().employee.login}}</p>
+    <p><span class="field-name">position</span>{{person().employee.position}}</p>
+    
+    <div class="row">
+      <img class="col-sm-4" ng-src="{{ person().employee.photo.bw  }}" itemprop="image" />
+      <img class="col-sm-4" ng-src="{{ person().employee.photo.colour }}" itemprop="image" />
+      <img class="col-sm-4" ng-src="{{ person().employee.photo.fun }}" itemprop="image" />
+    </div>
+    
+    <div class="row">
+      <div class="alert alert-info col-sm-4" ng-repeat="c in person().employee.conditions">
+        <p><span class="field-name">name</span>      {{c.name}}</p>
+        <p><span class="field-name">start_date</span>{{c.start_date}}</p>
+        <p><span class="field-name">end_date</span>  {{c.end_date}}</p>
+      </div>
+    </div>
+        
+    <p><span class="field-name">first_aider</span>{{person().employee.office_culture.first_aider}}</p>
+    <p><span class="field-name">fire_warden</span>{{person().employee.office_culture.fire_warden}}</p>
+    <div class="row">
+      <div class="alert alert-info col-sm-4" 
+           ng-repeat="e in person().employee.office_culture.event_participations">
+        <p><span class="field-name">name</span>{{c.name}}</p>
+        <p><span class="field-name">date</span>{{c.date}}</p>
+        <p><span class="field-name">url</span> <a href="{{c.url}}">{{c.url}}</a></p>
+      </div>
+    </div>    
+    <p><span class="field-name">dietary.requirements</span>
+                                       {{person().employee.office_culture.dietary.requirements}}</p>
+    <p><span class="field-name">dietary.preference.likes</span>
+                                       {{person().employee.office_culture.dietary.preference.likes}}</p>
+    <p><span class="field-name">dietary.preference.dislikes</span>
+                                       {{person().employee.office_culture.dietary.preference.dislikes}}</p>
+    
+    <h3>contact</h3>
+    <p><span class="field-name"></span>{{person().employee.contact.extension}}</p>
+    <p><span class="field-name"></span>{{person().employee.contact.studio}}</p>
+    <p><span class="field-name"></span>{{person().employee.contact.work_email}}</p>
+    <h4>Mobile</h4>
+    <p><span class="field-name">mobile.number</span>{{person().employee.contact.mobile.number}}</p>
+    <p><span class="field-name">mobile.is_work</span>{{person().employee.contact.mobile.is_work}}</p>
+    <p><span class="field-name">mobile.distribute</span>{{person().employee.contact.mobile.distribute}}</p>
+    
+    <h3>security_clearances</h3>
+    <div class="row">
+      <div class="alert alert-info col-sm-4" 
+           ng-repeat="sc in person().employee.security_clearances">
+        <p><span class="field-name">issuing_body</span>{{sc.issuing_body}}</p>
+        <p><span class="field-name">level       </span>{{sc.level}}</p>
+        <p><span class="field-name">expiry      </span> {{sc.expiry}}</a></p>
+      </div>
+    </div>    
+    
+    <h3>finance</h3>
+    <p><span class="field-name">employee_code</span> {{sc.finance}}</a></p>
+    <p class="note">This is the foreign key into micropay</p>
+    
     <section ng-show="person().employee.biography">
       <h2>Biography</h2>
       <p>{{ person().employee.biography.one_line_bio }}</p>
@@ -11,7 +68,26 @@
   </section>
 </div>
 
-<h1>Using http://schema.org/Person for the markup, still needs organisng and styling</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Using http://schema.org/Person for the markup, still needs organisng and styling</p>
 <div itemscope itemtype="http://schema.org/Person" ng-show="person()">
   <section ng-show="person().name">
     <span itemprop="name">
