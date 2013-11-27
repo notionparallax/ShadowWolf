@@ -57,15 +57,90 @@
            ng-repeat="sc in person().employee.security_clearances">
         <p><span class="field-name">issuing_body</span>{{sc.issuing_body}}</p>
         <p><span class="field-name">level       </span>{{sc.level}}</p>
-        <p><span class="field-name">expiry      </span> {{sc.expiry}}</a></p>
+        <p><span class="field-name">expiry      </span> {{sc.expiry}}</p>
       </div>
     </div>    
     
     <h3>finance</h3>
-    <p><span class="field-name">employee_code</span> {{sc.finance}}</a></p>
+    <p><span class="field-name">employee_code</span> {{person().employee.finance.employee_code}}</a></p>
     <p class="well well-sm">This is the foreign key into micropay</p>
     
+    <h3>qualifications</h3>
+    <div class="row">
+      <div class="alert alert-info col-sm-4" 
+           ng-repeat="q in person().employee.qualifications">
+        <p><span class="field-name">name</span>{{q.name}}</p>
+        <p><span class="field-name">level</span>{{q.level}}</p>
+        <p><span class="field-name">institution</span>{{q.institution}}</p>
+        <p><span class="field-name">first_year</span>{{q.first_year}}</p>
+        <p><span class="field-name">last_year</span>{{q.last_year}}</p>
+      </div>
+    </div>
     
+    <h3>registrations</h3>
+    <div class="row">
+    <div class="alert alert-info col-sm-4" 
+           ng-repeat="q in person().employee.registrations">
+        <p><span class="field-name">organisation</span>{{q.organisation}}</p>
+        <p><span class="field-name">registration_number</span>{{q.registration_number}}</p>
+        <p><span class="field-name">state</span>{{q.state}}</p>
+        <p><span class="field-name">country</span>{{q.country}}</p>
+        <p><span class="field-name">expiry</span>{{q.expiry}}</p>
+      </div>
+    </div>
+    
+    <h3>memberships</h3>
+    <div class="row">
+    <div class="alert alert-info col-sm-4" 
+           ng-repeat="q in person().employee.memberships">
+        <p><span class="field-name">organisation</span>{{q.organisation}}</p>
+        <p><span class="field-name">membership_number</span>{{q.membership_number}}</p>
+        <p><span class="field-name">state</span>{{q.state}}</p>
+        <p><span class="field-name">country</span>{{q.country}}</p>
+        <p><span class="field-name">expiry</span>{{q.expiry}}</p>
+      </div>
+    </div>
+    
+    <h3>personal_awards</h3>
+    <div class="row">
+    <div class="alert alert-info col-sm-4" 
+           ng-repeat="q in person().employee.personal_awards">
+        <p><span class="field-name">name</span>{{q.name}}</p>
+        <p><span class="field-name">awarding_body</span>{{q.awarding_body}}</p>
+        <p><span class="field-name">description</span>{{q.description}}</p>
+        <p><span class="field-name">url</span>{{q.url}}</p>
+      </div>
+    </div>
+    
+    <h3>professional_contributions</h3>
+    <div class="row">
+    <div class="alert alert-info col-sm-4" 
+           ng-repeat="q in person().employee.professional_contributions">
+        <p><span class="field-name">activity</span>{{q.activity}}</p>
+        <p><span class="field-name">description</span>{{q.description}}</p>
+        <p><span class="field-name">url</span>{{q.url}}</p>
+      </div>
+    </div>
+    
+    <h3>travel</h3>
+    <h4>passports</h4>
+    <div class="row">
+    <div class="alert alert-info col-sm-4" 
+           ng-repeat="q in person().employee.">
+        <p><span class="field-name">activity</span>{{q.activity}}</p>
+        <p><span class="field-name">description</span>{{q.description}}</p>
+        <p><span class="field-name">url</span>{{q.url}}</p>
+      </div>
+    </div>
+    <h4>passports</h4>
+    <div class="row">
+    <div class="alert alert-info col-sm-4" 
+           ng-repeat="q in person().employee.">
+        <p><span class="field-name">activity</span>{{q.activity}}</p>
+        <p><span class="field-name">description</span>{{q.description}}</p>
+        <p><span class="field-name">url</span>{{q.url}}</p>
+      </div>
+    </div>
     
     <section ng-show="person().employee.biography">
       <h2>Biography</h2>
