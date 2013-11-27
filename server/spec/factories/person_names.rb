@@ -7,7 +7,7 @@ FactoryGirl.define do
     middle { Faker::Name.first_name }
     last { Faker::Name.last_name }
     suffix { Faker::Name.suffix }
-    preferred_first {  }
+    preferred_first { Faker::Name.first_name }
     preferred_last { Faker::Name.last_name }
   end
 end

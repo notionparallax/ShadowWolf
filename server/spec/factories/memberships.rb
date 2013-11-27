@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :membership do
-    organisation { Faker::Name.first_name + ' ' +['Society','Fellowship','Club'].sample }
+    organisation { Faker::Name.first_name + ' ' + ['Society','Fellowship','Club'].sample }
     membership_number { ((Faker::Internet.password + (0..9).to_a.join().to_s).split('')).shuffle[0..5].join }
     state { ['NSW', 'NT', 'ACT', 'VIC', 'WA'].sample }
     country { ['Australia', 'Iceland', 'Luxemburg'].sample }

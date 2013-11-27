@@ -1,1 +1,1 @@
-json.extract! @press, :created_at, :updated_at
+json.partial! "presses/press.json.jbuilder", press: @press

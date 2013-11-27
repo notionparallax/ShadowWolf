@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :press do
-    after(:create) do |press|
-      FactoryGirl.create_list( :attention, 3, press: press )
+    after(:build) do |press|
+      FactoryGirl.build_list( :attention, [0,1,2,3,10].sample, press: press )
     end
   end
 end

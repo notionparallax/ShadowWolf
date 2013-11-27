@@ -2,11 +2,11 @@
 
 FactoryGirl.define do
   factory :travel do
-    after(:create) do |travel|
-      FactoryGirl.create_list( :frequent_flier_program, 3, travel: travel )
+    after(:build) do |travel|
+      FactoryGirl.build_list( :frequent_flier_program, [0,1,2,3,10].sample, travel: travel )
     end
-    after(:create) do |travel|
-      FactoryGirl.create_list( :passport, 3, travel: travel )
+    after(:build) do |travel|
+      FactoryGirl.build_list( :passport, [0,1,2,3,10].sample, travel: travel )
     end
   end
 end
