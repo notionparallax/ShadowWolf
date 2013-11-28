@@ -6,5 +6,6 @@ FactoryGirl.define do
     awarding_body { Faker::Company.name + ' ' +['Society','Fellowship','Club'].sample }
     description { Faker::Lorem.paragraphs.join('<br>') }
     url { 'http://'+ Faker::Internet.domain_name + '/greatAward/' + ['pretty','amazing','clever'].sample }
+    year_achieved { (0..20).to_a.sample.years.ago.year }
   end
 end

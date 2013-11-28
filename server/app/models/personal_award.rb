@@ -8,4 +8,5 @@ class PersonalAward
   field :awarding_body, type: String
   field :description, type: String
   field :url, type: String
+  field :year_achieved, type: Integer
 end

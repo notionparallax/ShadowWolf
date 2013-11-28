@@ -7,13 +7,15 @@ describe "config/models/index" do
         :name => "Name",
         :awarding_body => "Awarding Body",
         :description => "MyText",
-        :url => "Url"
+        :url => "Url",
+        :year_achieved => 1
       ),
       stub_model(PersonalAward,
         :name => "Name",
         :awarding_body => "Awarding Body",
         :description => "MyText",
-        :url => "Url"
+        :url => "Url",
+        :year_achieved => 1
       )
     ])
   end
@@ -25,5 +27,6 @@ describe "config/models/index" do
     assert_select "tr>td", :text => "Awarding Body".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "Url".to_s, :count => 2
+    assert_select "tr>td", :text => 1.to_s, :count => 2
   end
 end

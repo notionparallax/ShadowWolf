@@ -305,6 +305,10 @@ personal_award:
     type: string
     factory: |
       { 'http://'+ Faker::Internet.domain_name + '/greatAward/' + ['pretty','amazing','clever'].sample }
+  - name: year_achieved
+    type: integer
+    factory: |
+      { (0..20).to_a.sample.years.ago.year }
   relation:
     parent: employee
     type: embeds_many
