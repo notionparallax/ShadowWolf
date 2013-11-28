@@ -5,7 +5,8 @@ describe "config/models/show" do
     @config_model = assign(:config_model, stub_model(ProfessionalContribution,
       :activity => "Activity",
       :description => "MyText",
-      :url => "Url"
+      :url => "Url",
+      :date => "Date"
     ))
   end
 
@@ -15,5 +16,6 @@ describe "config/models/show" do
     rendered.should match(/Activity/)
     rendered.should match(/MyText/)
     rendered.should match(/Url/)
+    rendered.should match(/Date/)
   end
 end

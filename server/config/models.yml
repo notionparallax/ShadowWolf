@@ -327,6 +327,10 @@ professional_contribution:
     type: string
     factory: |
       { 'http://'+ Faker::Internet.domain_name + '/greatAward/' + ['pretty','amazing','clever'].sample }
+  - name: date
+    type: string
+    factory: |
+      { (0..20).to_a.sample.years.ago.to_s }
   relation:
     parent: employee
     type: embeds_many
