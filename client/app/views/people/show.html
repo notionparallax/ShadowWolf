@@ -198,7 +198,7 @@
           <p><span class="field-name">awarding_body</span>
              <span class="ang-inserted">{{q.awarding_body}}</span></p>
           <p><span class="field-name">description</span>
-             <span class="ang-inserted">{{q.description}}</span></p>
+             <span class="ang-inserted" ng-bind-html="q.description"></span></p>
           <p><span class="field-name">url</span>
              <span class="ang-inserted">{{q.url}}</span></p>
         </div>
@@ -213,7 +213,7 @@
           <p><span class="field-name">activity</span>
              <span class="ang-inserted">{{q.activity}}</span></p>
           <p><span class="field-name">description</span>
-             <span class="ang-inserted">{{q.description}}</span></p>
+             <span class="ang-inserted"  ng-bind-html="q.description"></span></p>
           <p><span class="field-name">url</span>
              <span class="ang-inserted">{{q.url}}</span></p>
         </div>
@@ -277,17 +277,17 @@
     <section ng-show="person().employee.biography">
       <h3>Biography</h3>
       <p><span class="field-name">one_line_bio</span>
-         <span class="ang-inserted">{{person().employee.biography.one_line_bio}}</span></a></p>
+         <span class="ang-inserted" ng-bind-html="person().employee.biography.one_line_bio">   </span></p>
       <p><span class="field-name">approach</span>
-         <span class="ang-inserted">{{person().employee.biography.approach}}</span></a></p>
+         <span class="ang-inserted" ng-bind-html="person().employee.biography.approach">       </span></p>
       <p><span class="field-name">expertise</span>
-         <span class="ang-inserted">{{person().employee.biography.expertise}}</span></a></p>
+         <span class="ang-inserted" ng-bind-html="person().employee.biography.expertise">      </span></p>
       <p><span class="field-name">experience</span>
-         <span class="ang-inserted">{{person().employee.biography.experience}}</span></a></p>
+         <span class="ang-inserted" ng-bind-html="person().employee.biography.experience">     </span></p>
       <p><span class="field-name">achievements</span>
-         <span class="ang-inserted">{{person().employee.biography.achievements}}</span></a></p>
+         <span class="ang-inserted" ng-bind-html="person().employee.biography.achievements">   </span></p>
       <p><span class="field-name">value_statement</span>
-         <span class="ang-inserted">{{person().employee.biography.value_statement}}</span></a></p>
+         <span class="ang-inserted" ng-bind-html="person().employee.biography.value_statement"></span></p>
     </section>
     
     <section ng-show="person().employee.press">
@@ -302,13 +302,11 @@
           <p><span class="field-name">scan_or_screengrab</span>
              <span class="ang-inserted">{{q.scan_or_screengrab}}</span></p>
           <p><span class="field-name">body_text</span>
-             <span class="ang-inserted">{{q.body_text}}</span></p>
+             <span class="ang-inserted" ng-bind-html="q.body_text"></span></p>
           <p><span class="field-name">publication</span>
              <span class="ang-inserted">{{q.publication}}</span></p>
           <p><span class="field-name">reason</span>
              <span class="ang-inserted">{{q.reason}}</span></p>
-          <h2>unsafe</h2>
-          <p ng-bind-html="q.body_text"></p>
         </div>
       </div>
     </section>
@@ -350,13 +348,11 @@
           <p><span class="field-name">portfolio</span>
              <span class="ang-inserted">{{q.portfolio}}</span></p>
           <p><span class="field-name">assessment</span>
-             <span class="ang-inserted">{{q.assessment}}</span></p>
+             <span class="ang-inserted" ng-bind-html="q.assessment"></span></p>
           <p><span class="field-name">future_consideration</span>
              <span class="ang-inserted">{{q.future_consideration}}</span></p>
           <p><span class="field-name">skills_and_keywords</span>
              <span class="ang-inserted">{{q.skills_and_keywords}}</span></p>
-          <p><span class="field-name">unsafe test</span>
-             <span class="ang-inserted" ng-bind-html-unsafe="q.skills_and_keywords" /> </p>
         </div>
       </div>
     </section>
