@@ -6,12 +6,14 @@ describe "config/models/index" do
       stub_model(ProfessionalContribution,
         :activity => "Activity",
         :description => "MyText",
-        :url => "Url"
+        :url => "Url",
+        :date => "Date"
       ),
       stub_model(ProfessionalContribution,
         :activity => "Activity",
         :description => "MyText",
-        :url => "Url"
+        :url => "Url",
+        :date => "Date"
       )
     ])
   end
@@ -22,5 +24,6 @@ describe "config/models/index" do
     assert_select "tr>td", :text => "Activity".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "Url".to_s, :count => 2
+    assert_select "tr>td", :text => "Date".to_s, :count => 2
   end
 end

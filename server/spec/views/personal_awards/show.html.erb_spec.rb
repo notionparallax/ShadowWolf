@@ -6,7 +6,8 @@ describe "config/models/show" do
       :name => "Name",
       :awarding_body => "Awarding Body",
       :description => "MyText",
-      :url => "Url"
+      :url => "Url",
+      :year_achieved => 1
     ))
   end
 
@@ -17,5 +18,6 @@ describe "config/models/show" do
     rendered.should match(/Awarding Body/)
     rendered.should match(/MyText/)
     rendered.should match(/Url/)
+    rendered.should match(/1/)
   end
 end

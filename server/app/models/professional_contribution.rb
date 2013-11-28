@@ -7,4 +7,5 @@ class ProfessionalContribution
   field :activity, type: String
   field :description, type: String
   field :url, type: String
+  field :date, type: String
 end

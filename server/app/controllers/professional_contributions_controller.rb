@@ -69,6 +69,6 @@ class ProfessionalContributionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def professional_contribution_params
-      params.require(:professional_contribution).permit(:activity, :description, :url)
+      params.require(:professional_contribution).permit(:activity, :description, :url, :date)
     end
 end

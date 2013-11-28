@@ -6,7 +6,8 @@ describe "config/models/edit" do
       :name => "MyString",
       :awarding_body => "MyString",
       :description => "MyText",
-      :url => "MyString"
+      :url => "MyString",
+      :year_achieved => 1
     ))
   end
 
@@ -19,6 +20,7 @@ describe "config/models/edit" do
       assert_select "input#config_model_awarding_body[name=?]", "config_model[awarding_body]"
       assert_select "textarea#config_model_description[name=?]", "config_model[description]"
       assert_select "input#config_model_url[name=?]", "config_model[url]"
+      assert_select "input#config_model_year_achieved[name=?]", "config_model[year_achieved]"
     end
   end
 end

@@ -23,7 +23,7 @@ describe ProjectExperiencesController do
   # This should return the minimal set of attributes required to create a valid
   # ProjectExperience. As you add validations to ProjectExperience, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "start_date" => "2013-11-26" } }
+  let(:valid_attributes) { { "start_date" => "2013-11-28" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -106,8 +106,8 @@ describe ProjectExperiencesController do
         # specifies that the ProjectExperience created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        ProjectExperience.any_instance.should_receive(:update).with({ "start_date" => "2013-11-26" })
-        put :update, {:id => project_experience.to_param, :config_model => { "start_date" => "2013-11-26" }}, valid_session
+        ProjectExperience.any_instance.should_receive(:update).with({ "start_date" => "2013-11-28" })
+        put :update, {:id => project_experience.to_param, :config_model => { "start_date" => "2013-11-28" }}, valid_session
       end
 
       it "assigns the requested config_model as @config_model" do

@@ -69,6 +69,6 @@ class PersonalAwardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def personal_award_params
-      params.require(:personal_award).permit(:name, :awarding_body, :description, :url)
+      params.require(:personal_award).permit(:name, :awarding_body, :description, :url, :year_achieved)
     end
 end
