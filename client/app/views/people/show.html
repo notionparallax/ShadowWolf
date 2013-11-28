@@ -236,7 +236,7 @@
       </div>
       <h4>frequent_flier_programs</h4>
       <!--it'd be cool to get status updates from somewhere 
-      like http://awardwallet.com/ in the future-->
+          like http://awardwallet.com/ in the future-->
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4" 
              ng-repeat="q in person().employee.travel.frequent_flier_programs">
@@ -307,6 +307,8 @@
              <span class="ang-inserted">{{q.publication}}</span></p>
           <p><span class="field-name">reason</span>
              <span class="ang-inserted">{{q.reason}}</span></p>
+          <h2>unsafe</h2>
+          <p ng-bind-html="q.body_text"></p>
         </div>
       </div>
     </section>
