@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ShadowWolf', ['ngResource','ngRoute'])
+angular.module('ShadowWolf', ['ngResource','ngRoute', 'ngSanitize'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
