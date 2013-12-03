@@ -349,7 +349,7 @@
          <span class="ang-inserted" itemprop="telephone">{{person().contact.personal_phone}}</span></a></p>
       <h4>social</h4>
       <p><span class="field-name">twitter</span>
-         <span class="ang-inserted"> {{person().contact.social.twitter}}</span></a></p>
+         <span class="ang-inserted"> {{person().contact.social.twitter}} </span></a></p>
       <p><span class="field-name">instagram</span>
          <span class="ang-inserted"> {{person().contact.social.instagram}}</span></a></p>
       <p><span class="field-name">github</span>
@@ -364,7 +364,19 @@
          <span class="ang-inserted"> {{person().contact.social.facebook}}</span></a></p>
       <p><span class="field-name">tumblr</span>
          <span class="ang-inserted"> {{person().contact.social.tumblr}}</span></a></p>
+
+      <!--Instagram-->
       <iframe src="http://widget.stagram.com/in/{{person().contact.social.instagram}}/?s=141&w=5&h=1&b=1&p=5" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:780px; height: 156px" ></iframe> <!-- Webstagram - web.stagram.com -->
+
+      <!--Twitter-->
+      <a class="twitter-timeline" href="https://twitter.com/{{person().contact.social.twitter}}" data-widget-id="407675783386128384">Tweets by @{{person().contact.social.twitter}}</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+
+
+
 
 
     </section>
