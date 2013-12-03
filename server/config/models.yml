@@ -442,11 +442,11 @@ social:
   - name: twitter
     type: string
     factory: |
-      { '@'+Faker::Lorem.word }
+      { Faker::Lorem.word }
   - name: instagram
     type: string
     factory: |
-      { '@'+Faker::Lorem.word }
+      { Faker::Lorem.word }
   - name: github
     type: string
     factory: |
