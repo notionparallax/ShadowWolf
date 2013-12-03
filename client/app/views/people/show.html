@@ -2,6 +2,42 @@
   <h1>Check out {{ person().name.preferred_first }}'s Page!!</h1>
   <p>{{ person().name.prefix }} {{ person().name.first }} {{ person().name.last }} {{ person().name.suffix }}
      prefers to be called {{ person().name.preferred_first }} {{ person().name.preferred_last }}.</p>
+
+  <section ng-show="person().employee.photo">
+    <h3>photo</h3>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img class="" 
+               ng-src="{{ person().employee.photo.bw  }}" 
+               itemprop="image" />
+          <div class="caption">
+            <h3>Serious B&W Photo</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img class="" 
+               ng-src="{{ person().employee.photo.colour  }}" 
+               itemprop="image" />
+          <div class="caption">
+            <h3>Serious Colour Photo</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img class="" 
+               ng-src="{{ person().employee.photo.fun  }}" 
+               itemprop="image" />
+          <div class="caption">
+            <h3>Fun Photo</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   
   <section ng-show="person().name">
     <h3>name</h3>
@@ -44,42 +80,6 @@
       <h3>position</h3>
       <p><span class="field-name">position</span>
          <span class="ang-inserted" itemprop="jobTitle">{{person().employee.position}}</span></p>
-    </section>
-       
-    <section ng-show="person().employee.photo">
-      <h3>photo</h3>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img class="" 
-                 ng-src="{{ person().employee.photo.bw  }}" 
-                 itemprop="image" />
-            <div class="caption">
-              <h3>Serious B&W Photo</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img class="" 
-                 ng-src="{{ person().employee.photo.colour  }}" 
-                 itemprop="image" />
-            <div class="caption">
-              <h3>Serious Colour Photo</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img class="" 
-                 ng-src="{{ person().employee.photo.fun  }}" 
-                 itemprop="image" />
-            <div class="caption">
-              <h3>Fun Photo</h3>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
     
     <section ng-show="person().employee.conditions">
@@ -364,6 +364,9 @@
          <span class="ang-inserted"> {{person().contact.social.facebook}}</span></a></p>
       <p><span class="field-name">tumblr</span>
          <span class="ang-inserted"> {{person().contact.social.tumblr}}</span></a></p>
+      <iframe src="http://widget.stagram.com/in/{{person().contact.social.instagram}}/?s=141&w=5&h=1&b=1&p=5" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:780px; height: 156px" ></iframe> <!-- Webstagram - web.stagram.com -->
+
+
     </section>
     
     <section ng-show="person().applicant">
