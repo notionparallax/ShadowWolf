@@ -226,11 +226,11 @@ qualification:
   - name: first_year
     type: integer
     factory: |
-      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+      { (0..20).to_a.sample.years.ago.year }
   - name: last_year
     type: integer
     factory: |
-      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days + (0..3).to_a.sample.years }
+      { (0..20).to_a.sample.years.ago.year }
   relation:
     parent: employee
     type: embeds_many
