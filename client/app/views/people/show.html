@@ -4,13 +4,13 @@
   
   <section ng-show="person().employee">
   
-    <section ng-show="person().employee.photo">
+    <section ng-show="person().employee.login">
       <h3>login</h3>
       <p><span class="field-name">login</span>
          <span class="ang-inserted">{{person().employee.login}}</span></p>
     </section>
     
-    <section ng-show="person().employee.photo">
+    <section ng-show="person().employee.position">
       <h3>position</h3>
       <p><span class="field-name">position</span>
          <span class="ang-inserted">{{person().employee.position}}</span></p>
@@ -22,7 +22,7 @@
         <div class="col-sm-4">
           <div class="thumbnail">
             <img class="" 
-                 ng-src="{{ person().employee.photo.bw  }}" 
+                 ng-src="{{ person().employee.photo.bw }}" 
                  itemprop="image" />
             <div class="caption">
               <h3>Serious B&W Photo</h3>
@@ -32,7 +32,7 @@
         <div class="col-sm-4">
           <div class="thumbnail">
             <img class="" 
-                 ng-src="{{ person().employee.photo.colour  }}" 
+                 ng-src="{{ person().employee.photo.colour }}" 
                  itemprop="image" />
             <div class="caption">
               <h3>Serious Colour Photo</h3>
@@ -42,7 +42,7 @@
         <div class="col-sm-4">
           <div class="thumbnail">
             <img class="" 
-                 ng-src="{{ person().employee.photo.fun  }}" 
+                 ng-src="{{ person().employee.photo.fun }}" 
                  itemprop="image" />
             <div class="caption">
               <h3>Fun Photo</h3>
