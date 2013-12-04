@@ -1,7 +1,34 @@
 <div ng-show="person()">
-  <h1>Check out {{ person().name.preferred_first }}'s Page!!</h1>
-  <p>{{ person().name.prefix }} {{ person().name.first }} {{ person().name.last }} {{ person().name.suffix }}'s  prefers to be called {{ person().name.preferred_first }}.</p>
-  
+  <section ng-show="person().name">
+    <h1>Check out {{ person().name.preferred_first }}'s Page!!</h1>
+
+    <p>{{ person().name.prefix }} {{ person().name.first }} {{ person().name.middle }} {{ person().name.last }} {{ person().name.suffix }} prefers to be called {{ person().name.preferred_first }}.</p>
+    <h3>name</h3>
+    <p>
+    {{ person().name.prefix }}
+    {{ person().name.first }} 
+    {{ person().name.middle }} 
+    {{ person().name.last }} 
+    {{ person().name.last }}
+    </p>
+    <p>{{ person().name.preferred_first }} {{ person().name.preferred_last }}</p>
+    <h3>passport</h3>
+    <p><span class="field-name">prefix</span>
+      <span class="ang-inserted">{{person().name.prefix}}</span></p>
+    <p><span class="field-name">first</span>
+      <span class="ang-inserted">{{person().name.first}}</span></p>
+    <p><span class="field-name">middle</span>
+      <span class="ang-inserted">{{person().name.middle}}</span></p>
+    <p><span class="field-name">last</span>
+      <span class="ang-inserted">{{person().name.last}}</span></p>
+    <p><span class="field-name">last</span>
+      <span class="ang-inserted">{{person().name.last}}</span></p>
+    <h3>Preferred</h3>
+    <p><span class="field-name">preferred_first</span>
+       <span class="ang-inserted">{{person().name.preferred_first}}</span></p>
+    <p><span class="field-name">preferred_last</span>
+       <span class="ang-inserted">{{person().name.preferred_last}}</span></p>
+  </section>
   <section ng-show="person().employee">
   
     <section ng-show="person().employee.login">
