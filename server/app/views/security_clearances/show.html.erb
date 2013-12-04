@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Issuing body:</strong>
+  <%= @security_clearance.issuing_body %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @security_clearance.level %>
+</p>
+
+<p>
+  <strong>Expiry:</strong>
+  <%= @security_clearance.expiry %>
+</p>
+
+<%= link_to 'Edit', edit_security_clearance_path(@security_clearance) %> |
+<%= link_to 'Back', security_clearances_path %>

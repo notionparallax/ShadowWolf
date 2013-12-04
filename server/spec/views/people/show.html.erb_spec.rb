@@ -1,11 +1,12 @@
 require 'spec_helper'
 
-describe "people/show" do
+describe "config/models/show" do
   before(:each) do
-    @person = assign(:person, stub_model(Person))
+    @config_model = assign(:config_model, stub_model(Person))
   end
 
   it "renders attributes in <p>" do
     render
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
   end
 end

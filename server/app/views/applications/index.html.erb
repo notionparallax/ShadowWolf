@@ -1,0 +1,37 @@
+<h1>Listing applications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Covering letter</th>
+      <th>Portfolio</th>
+      <th>Assessment</th>
+      <th>Future consideration</th>
+      <th>Skills and keywords</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @applications.each do |application| %>
+      <tr>
+        <td><%= application.date %></td>
+        <td><%= application.covering_letter %></td>
+        <td><%= application.portfolio %></td>
+        <td><%= application.assessment %></td>
+        <td><%= application.future_consideration %></td>
+        <td><%= application.skills_and_keywords %></td>
+        <td><%= link_to 'Show', application %></td>
+        <td><%= link_to 'Edit', edit_application_path(application) %></td>
+        <td><%= link_to 'Destroy', application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Application', new_application_path %>

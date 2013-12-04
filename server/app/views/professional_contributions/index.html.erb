@@ -1,0 +1,33 @@
+<h1>Listing professional_contributions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Activity</th>
+      <th>Description</th>
+      <th>Url</th>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @professional_contributions.each do |professional_contribution| %>
+      <tr>
+        <td><%= professional_contribution.activity %></td>
+        <td><%= professional_contribution.description %></td>
+        <td><%= professional_contribution.url %></td>
+        <td><%= professional_contribution.date %></td>
+        <td><%= link_to 'Show', professional_contribution %></td>
+        <td><%= link_to 'Edit', edit_professional_contribution_path(professional_contribution) %></td>
+        <td><%= link_to 'Destroy', professional_contribution, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Professional contribution', new_professional_contribution_path %>

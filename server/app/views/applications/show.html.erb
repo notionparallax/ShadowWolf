@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @application.date %>
+</p>
+
+<p>
+  <strong>Covering letter:</strong>
+  <%= @application.covering_letter %>
+</p>
+
+<p>
+  <strong>Portfolio:</strong>
+  <%= @application.portfolio %>
+</p>
+
+<p>
+  <strong>Assessment:</strong>
+  <%= @application.assessment %>
+</p>
+
+<p>
+  <strong>Future consideration:</strong>
+  <%= @application.future_consideration %>
+</p>
+
+<p>
+  <strong>Skills and keywords:</strong>
+  <%= @application.skills_and_keywords %>
+</p>
+
+<%= link_to 'Edit', edit_application_path(@application) %> |
+<%= link_to 'Back', applications_path %>

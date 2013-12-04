@@ -1,0 +1,35 @@
+<h1>Listing personal_awards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Awarding body</th>
+      <th>Description</th>
+      <th>Url</th>
+      <th>Year achieved</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @personal_awards.each do |personal_award| %>
+      <tr>
+        <td><%= personal_award.name %></td>
+        <td><%= personal_award.awarding_body %></td>
+        <td><%= personal_award.description %></td>
+        <td><%= personal_award.url %></td>
+        <td><%= personal_award.year_achieved %></td>
+        <td><%= link_to 'Show', personal_award %></td>
+        <td><%= link_to 'Edit', edit_personal_award_path(personal_award) %></td>
+        <td><%= link_to 'Destroy', personal_award, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Personal award', new_personal_award_path %>

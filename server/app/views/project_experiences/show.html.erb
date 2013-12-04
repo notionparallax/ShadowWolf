@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @project_experience.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @project_experience.end_date %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project_experience.name %>
+</p>
+
+<p>
+  <strong>Firm:</strong>
+  <%= @project_experience.firm %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @project_experience.role %>
+</p>
+
+<p>
+  <strong>Stage:</strong>
+  <%= @project_experience.stage %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @project_experience.url %>
+</p>
+
+<%= link_to 'Edit', edit_project_experience_path(@project_experience) %> |
+<%= link_to 'Back', project_experiences_path %>

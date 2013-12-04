@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Person do
-  it { should validate_presence_of :person_name }
+  pending "add some examples to (or delete) #{__FILE__}"
 end

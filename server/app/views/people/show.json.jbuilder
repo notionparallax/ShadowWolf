@@ -1,1 +1,1 @@
-json.extract! @person, :created_at, :updated_at
+json.partial! "people/person.json.jbuilder", person: @person

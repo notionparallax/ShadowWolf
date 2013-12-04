@@ -1,0 +1,37 @@
+<h1>Listing biographies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>One line bio</th>
+      <th>Approach</th>
+      <th>Expertise</th>
+      <th>Experience</th>
+      <th>Achievements</th>
+      <th>Value statement</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @biographies.each do |biography| %>
+      <tr>
+        <td><%= biography.one_line_bio %></td>
+        <td><%= biography.approach %></td>
+        <td><%= biography.expertise %></td>
+        <td><%= biography.experience %></td>
+        <td><%= biography.achievements %></td>
+        <td><%= biography.value_statement %></td>
+        <td><%= link_to 'Show', biography %></td>
+        <td><%= link_to 'Edit', edit_biography_path(biography) %></td>
+        <td><%= link_to 'Destroy', biography, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Biography', new_biography_path %>

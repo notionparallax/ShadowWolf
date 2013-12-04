@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @professional_contribution.activity %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @professional_contribution.description %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @professional_contribution.url %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @professional_contribution.date %>
+</p>
+
+<%= link_to 'Edit', edit_professional_contribution_path(@professional_contribution) %> |
+<%= link_to 'Back', professional_contributions_path %>

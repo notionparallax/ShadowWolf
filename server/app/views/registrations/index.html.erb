@@ -1,0 +1,35 @@
+<h1>Listing registrations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Organisation</th>
+      <th>Registration number</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Expiry</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @registrations.each do |registration| %>
+      <tr>
+        <td><%= registration.organisation %></td>
+        <td><%= registration.registration_number %></td>
+        <td><%= registration.state %></td>
+        <td><%= registration.country %></td>
+        <td><%= registration.expiry %></td>
+        <td><%= link_to 'Show', registration %></td>
+        <td><%= link_to 'Edit', edit_registration_path(registration) %></td>
+        <td><%= link_to 'Destroy', registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Registration', new_registration_path %>

@@ -12,24 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.label :prefix %><br>
+    <%= f.text_field :prefix %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <%= f.label :first %><br>
+    <%= f.text_field :first %>
   </div>
   <div class="field">
-    <%= f.label :middle_name %><br>
-    <%= f.text_field :middle_name %>
+    <%= f.label :middle %><br>
+    <%= f.text_field :middle %>
   </div>
   <div class="field">
-    <%= f.label :preferred_first_name %><br>
-    <%= f.text_field :preferred_first_name %>
+    <%= f.label :last %><br>
+    <%= f.text_field :last %>
   </div>
   <div class="field">
-    <%= f.label :preferred_last_name %><br>
-    <%= f.text_field :preferred_last_name %>
+    <%= f.label :suffix %><br>
+    <%= f.text_field :suffix %>
+  </div>
+  <div class="field">
+    <%= f.label :preferred_first %><br>
+    <%= f.text_field :preferred_first %>
+  </div>
+  <div class="field">
+    <%= f.label :preferred_last %><br>
+    <%= f.text_field :preferred_last %>
   </div>
   <div class="actions">
     <%= f.submit %>

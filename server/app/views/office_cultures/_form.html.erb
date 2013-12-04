@@ -1,0 +1,25 @@
+<%= form_for(@office_culture) do |f| %>
+  <% if @office_culture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@office_culture.errors.count, "error") %> prohibited this office_culture from being saved:</h2>
+
+      <ul>
+      <% @office_culture.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_aider %><br>
+    <%= f.check_box :first_aider %>
+  </div>
+  <div class="field">
+    <%= f.label :fire_warden %><br>
+    <%= f.check_box :fire_warden %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

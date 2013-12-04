@@ -1,28 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
-  <%= @person_name.first_name %>
+  <strong>Prefix:</strong>
+  <%= @person_name.prefix %>
 </p>
 
 <p>
-  <strong>Last name:</strong>
-  <%= @person_name.last_name %>
+  <strong>First:</strong>
+  <%= @person_name.first %>
 </p>
 
 <p>
-  <strong>Middle name:</strong>
-  <%= @person_name.middle_name %>
+  <strong>Middle:</strong>
+  <%= @person_name.middle %>
 </p>
 
 <p>
-  <strong>Preferred first name:</strong>
-  <%= @person_name.preferred_first_name %>
+  <strong>Last:</strong>
+  <%= @person_name.last %>
 </p>
 
 <p>
-  <strong>Preferred last name:</strong>
-  <%= @person_name.preferred_last_name %>
+  <strong>Suffix:</strong>
+  <%= @person_name.suffix %>
+</p>
+
+<p>
+  <strong>Preferred first:</strong>
+  <%= @person_name.preferred_first %>
+</p>
+
+<p>
+  <strong>Preferred last:</strong>
+  <%= @person_name.preferred_last %>
 </p>
 
 <%= link_to 'Edit', edit_person_name_path(@person_name) %> |

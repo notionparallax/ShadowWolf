@@ -1,0 +1,21 @@
+<%= form_for(@dietary) do |f| %>
+  <% if @dietary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dietary.errors.count, "error") %> prohibited this dietary from being saved:</h2>
+
+      <ul>
+      <% @dietary.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :requirements %><br>
+    <%= f.text_area :requirements %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

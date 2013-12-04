@@ -4,14 +4,11 @@ class PersonName
 
   embedded_in :person, inverse_of: :name
 
-  field :first_name, type: String
-  field :last_name, type: String
-  field :middle_name, type: String
-  field :preferred_first_name, type: String
-  field :preferred_last_name, type: String
-
-  validates_presence_of :first_name
-  validates_presence_of :last_name
-  validates_presence_of :preferred_first_name
-  validates_presence_of :preferred_last_name
+  field :prefix, type: String
+  field :first, type: String
+  field :middle, type: String
+  field :last, type: String
+  field :suffix, type: String
+  field :preferred_first, type: String
+  field :preferred_last, type: String
 end

@@ -1,4 +1,11 @@
 ShadowWolf::Application.configure do
+  config.middleware.use Rack::Cors do
+    allow do
+      origins '*'
+      resource '*', :headers => :any, :methods => [:get, :options]
+    end
+  end
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -23,7 +30,7 @@ ShadowWolf::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  #config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -43,7 +50,7 @@ ShadowWolf::Application.configure do
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
-  config.log_level = :info
+  config.log_level = :debug
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]

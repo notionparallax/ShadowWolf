@@ -1,0 +1,2 @@
+module ProfessionalContributionsHelper
+end
