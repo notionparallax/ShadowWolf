@@ -364,7 +364,11 @@
 
       <section ng-show="person().contact.social.instagram">
         <h3>Instagram feed for {{person().contact.social.instagram}}</h3>
-        <iframe src="http://widget.stagram.com/in/{{person().contact.social.instagram}}/?s=141&w=5&h=1&b=1&p=5" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:780px; height: 156px"></iframe> 
+        <iframe src="http://widget.stagram.com/in/{{person().contact.social.instagram}}/?s=141&w=5&h=1&b=1&p=5" 
+                allowtransparency="true" 
+                frameborder="0" 
+                scrolling="no" 
+                style="border:none;overflow:hidden;width:780px; height: 156px"></iframe> 
         <!-- Webstagram - web.stagram.com -->
       </section>
 
@@ -373,7 +377,14 @@
         <a class="twitter-timeline ng-binding" 
            href="https://twitter.com/@{{person().contact.social.twitter}}" 
            data-widget-id="407675783386128384">Tweets by @{{person().contact.social.twitter}}</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+        <script>!function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+          if(!d.getElementById(id)){
+            js=d.createElement(s);
+            js.id=id;
+            js.src=p+"://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js,fjs);
+          }}(document,"script","twitter-wjs");
         </script>
       </section>
 
@@ -390,7 +401,7 @@
                 data-id="http://www.linkedin.com/pub/ben-doherty/59/193/b2a" 
                 data-format="inline"></script>-->
       </section>
-      
+
     </section>
 
 
