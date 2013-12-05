@@ -413,6 +413,14 @@
                 height="500"></iframe>
       </section>
 
+      <section ng-show="person().contact.social.pintrest">
+      <!--from here: -->
+        <h3>Pintrest feed for {{person().contact.social.pintrest}}</h3>
+        <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+        <a data-pin-do="embedUser" 
+           href="http://www.pinterest.com/{{person().contact.social.pintrest}}/">
+           Visit {{ person().name.preferred_first }} {{ person().name.preferred_last }} profile on Pinterest.</a>
+      </section>
       
 
     </section>
