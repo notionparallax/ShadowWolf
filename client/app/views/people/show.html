@@ -361,6 +361,17 @@
          <span class="ang-inserted"> {{person().contact.social.facebook}}</span></a></p>
       <p><span class="field-name">tumblr</span>
          <span class="ang-inserted"> {{person().contact.social.tumblr}}</span></a></p>
+
+      <section ng-show="person().contact.social.instagram">
+        <!--Instagram-->
+        <iframe src="http://widget.stagram.com/in/{{person().contact.social.instagram}}/?s=141&amp;w=5&amp;h=1&amp;b=1&amp;p=5" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:780px; height: 156px"></iframe> 
+        <!-- Webstagram - web.stagram.com -->
+      </section>
+      <section ng-show="person().contact.social.twitter">
+        <!--Twitter-->
+        <a class="twitter-timeline ng-binding" href="https://twitter.com/@{{person().contact.social.twitter}}" data-widget-id="407675783386128384">Tweets by @{{person().contact.social.twitter}}</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </section>     
     </section>
     
     <section ng-show="person().applicant">
