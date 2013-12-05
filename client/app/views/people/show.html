@@ -1,55 +1,85 @@
-<div ng-show="person()">
+<div ng-show="person()" itemscope itemtype="http://schema.org/Person">
   <h1>Check out {{ person().name.preferred_first }}'s Page!!</h1>
-  <p>{{ person().name.prefix }} {{ person().name.first }} {{ person().name.last }} {{ person().name.suffix }}'s  prefers to be called {{ person().name.preferred_first }}.</p>
+  <p>{{ person().name.prefix }} {{ person().name.first }} {{ person().name.last }} {{ person().name.suffix }}
+     prefers to be called {{ person().name.preferred_first }} {{ person().name.preferred_last }}.</p>
+
+  <section ng-show="person().employee.photo">
+    <h3>photo</h3>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img class="" 
+               ng-src="{{ person().employee.photo.bw  }}" 
+               itemprop="image" />
+          <div class="caption">
+            <h3>Serious B&W Photo</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img class="" 
+               ng-src="{{ person().employee.photo.colour  }}" 
+               itemprop="image" />
+          <div class="caption">
+            <h3>Serious Colour Photo</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img class="" 
+               ng-src="{{ person().employee.photo.fun  }}" 
+               itemprop="image" />
+          <div class="caption">
+            <h3>Fun Photo</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section ng-show="person().name">
+    <h3>name</h3>
+    <p itemprop="name"> {{person().name.prefix}}
+                        {{person().name.first}}
+                        {{person().name.middle}}
+                        {{person().name.last}}
+                        {{person().name.suffix}}
+    </p>
+    <p itemprop="nickname">{{person().name.preferred_first}}
+                           {{person().name.preferred_last}}
+    </p>
+    <h4>Passport</h4>
+    <p><span class="field-name">prefix</span>
+       <span class="ang-inserted">{{person().name.prefix}}</span></p>
+    <p><span class="field-name">first</span>
+        <span class="ang-inserted">{{person().name.first}}</span></p>
+    <p><span class="field-name">middle</span>
+        <span class="ang-inserted">{{person().name.middle}}</span></p>
+    <p><span class="field-name">last</span>
+        <span class="ang-inserted">{{person().name.last}}</span></p>
+    <p><span class="field-name">suffix</span>
+        <span class="ang-inserted">{{person().name.suffix}}</span></p>
+    <h3>Preferred</h4>
+    <p><span class="field-name">preferred_first</span>
+        <span class="ang-inserted">{{person().name.preferred_first}}</span></p>
+    <p><span class="field-name">preferred_last</span>
+        <span class="ang-inserted">{{person().name.preferred_last}}</span></p>
+  </section>
   
   <section ng-show="person().employee">
-  
+    
     <section ng-show="person().employee.photo">
       <h3>login</h3>
       <p><span class="field-name">login</span>
          <span class="ang-inserted">{{person().employee.login}}</span></p>
     </section>
     
-    <section ng-show="person().employee.photo">
+    <section ng-show="person().employee.position">
       <h3>position</h3>
       <p><span class="field-name">position</span>
-         <span class="ang-inserted">{{person().employee.position}}</span></p>
-    </section>
-       
-    <section ng-show="person().employee.photo">
-      <h3>photo</h3>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img class="" 
-                 ng-src="{{ person().employee.photo.bw  }}" 
-                 itemprop="image" />
-            <div class="caption">
-              <h3>Serious B&W Photo</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img class="" 
-                 ng-src="{{ person().employee.photo.colour  }}" 
-                 itemprop="image" />
-            <div class="caption">
-              <h3>Serious Colour Photo</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img class="" 
-                 ng-src="{{ person().employee.photo.fun  }}" 
-                 itemprop="image" />
-            <div class="caption">
-              <h3>Fun Photo</h3>
-            </div>
-          </div>
-        </div>
-      </div>
+         <span class="ang-inserted" itemprop="jobTitle">{{person().employee.position}}</span></p>
     </section>
     
     <section ng-show="person().employee.conditions">
@@ -95,13 +125,13 @@
     <section ng-show="person().employee.contact">
       <h3>contact</h3>
       <p><span class="field-name">extension</span>
-         <span class="ang-inserted">{{person().employee.contact.extension}}</span></p>
+         <span class="ang-inserted" itemprop="telephone">{{person().employee.contact.extension}}</span></p>
       <p><span class="field-name">studio</span>
          <span class="ang-inserted">{{person().employee.contact.studio}}</span></p>
       <p><span class="field-name">work_email</span>
-         <span class="ang-inserted">{{person().employee.contact.work_email}}</span></p>
+         <span class="ang-inserted" itemprop="email">{{person().employee.contact.work_email}}</span></p>
       <h4>Mobile</h4>
-      <p><span class="field-name">mobile.number</span>
+      <p><span class="field-name" itemprop="telephone">mobile.number</span>
          <span class="ang-inserted">{{person().employee.contact.mobile.number}}</span></p>
       <p><span class="field-name">mobile.is_work</span>
          <span class="ang-inserted">{{person().employee.contact.mobile.is_work}}</span></p>
@@ -300,7 +330,7 @@
           <p><span class="field-name">url</span>
              <span class="ang-inserted">{{q.url}}</span></p>
           <p><span class="field-name">scan_or_screengrab</span>
-             <span class="ang-inserted">{{q.scan_or_screengrab}}</span></p>
+             <span class="ang-inserted" >{{q.scan_or_screengrab}}</span></p>
           <p><span class="field-name">body_text</span>
              <span class="ang-inserted" ng-bind-html="q.body_text"></span></p>
           <p><span class="field-name">publication</span>
@@ -313,13 +343,13 @@
     
     <section ng-show="person().contact">
       <h3>contact</h3>
-      <p><span class="field-name">personal_email</span>
+      <p><span class="field-name" itemprop="email">personal_email</span>
          <span class="ang-inserted"> {{person().contact.personal_email}}</span></a></p>
       <p><span class="field-name">personal_phone</span>
-         <span class="ang-inserted"> {{person().contact.personal_phone}}</span></a></p>
+         <span class="ang-inserted" itemprop="telephone">{{person().contact.personal_phone}}</span></a></p>
       <h4>social</h4>
       <p><span class="field-name">twitter</span>
-         <span class="ang-inserted"> {{person().contact.social.twitter}}</span></a></p>
+         <span class="ang-inserted"> {{person().contact.social.twitter}} </span></a></p>
       <p><span class="field-name">instagram</span>
          <span class="ang-inserted"> {{person().contact.social.instagram}}</span></a></p>
       <p><span class="field-name">github</span>
@@ -334,6 +364,21 @@
          <span class="ang-inserted"> {{person().contact.social.facebook}}</span></a></p>
       <p><span class="field-name">tumblr</span>
          <span class="ang-inserted"> {{person().contact.social.tumblr}}</span></a></p>
+
+      <!--Instagram-->
+      <iframe src="http://widget.stagram.com/in/{{person().contact.social.instagram}}/?s=141&w=5&h=1&b=1&p=5" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:780px; height: 156px" ></iframe> <!-- Webstagram - web.stagram.com -->
+
+      <!--Twitter-->
+      <a class="twitter-timeline" href="https://twitter.com/{{person().contact.social.twitter}}" data-widget-id="407675783386128384">Tweets by @{{person().contact.social.twitter}}</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+
+
+
+
+
     </section>
     
     <section ng-show="person().applicant">
@@ -358,5 +403,3 @@
     </section>
   </section>
 </div>
-
-<p>Should be using http://schema.org/Person for the markup, still needs organising and styling</p>
