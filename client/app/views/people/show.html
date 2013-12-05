@@ -402,6 +402,19 @@
                 data-format="inline"></script>-->
       </section>
 
+      <section ng-show="person().contact.social.google_plus">
+      <!--from here: http://www.gglpls.com/google-plus-feed-widget/#.Up_isN-7z08-->
+        <h3>google_plus feed for {{person().contact.social.google_plus}}</h3>
+        <iframe frameborder="0" 
+                border="0" 
+                cellspacing="0" 
+                src="http://stream.pluswidget.com/google-plus-widget/iframe/{{person().contact.social.google_plus}}/?width=300&height=500&shell_bg=333&shell_text=fff&shell_links=4D90FE&post_bg=1e456d&post_text=fff&post_links=4D90FE&scroll_bg=1e456d&scroll_handle_text=aaa" 
+                width="300" 
+                height="500"></iframe>
+      </section>
+
+      
+
     </section>
 
 
