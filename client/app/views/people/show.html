@@ -376,7 +376,25 @@
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
         </script>
       </section>
+
+      <section ng-show="person().contact.social.linkedin">
+      <!--from here: http://developer.linkedin.com/plugins/member-profile-plugin-generator-->
+        <h3>LinkedIn feed for {{person().contact.social.linkedin}} </h3>
+        <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+        <script type="IN/MemberProfile" 
+                data-id="{{person().contact.social.linkedin}}" 
+                data-format="inline" 
+                data-related="false"></script>
+        <!--example: remove once we're more confident-->
+        <!--<script type="IN/MemberProfile" 
+                data-id="http://www.linkedin.com/pub/ben-doherty/59/193/b2a" 
+                data-format="inline"></script>-->
+      </section>
+      
     </section>
+
+
+    
     
     <section ng-show="person().applicant">
       <h3>applicant</h3>    
