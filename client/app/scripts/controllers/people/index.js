@@ -17,15 +17,15 @@ function($scope, People) {
       var queryTerms = query.split(' '),
           queryObject =
           {
-            first:   queryTerms[0]  ?  queryTerms[0]  :  null,
-            last:    queryTerms[1]  ?  queryTerms[1]  :  null,
-            studio:  queryTerms[2]  ?  queryTerms[2]  :  null,
+            first:   (queryTerms[0] || null),
+            last:    (queryTerms[1] || null),
+            studio:  (queryTerms[2] || null),
           },
           // Match each term against the person
           results =
-          [ person.name.first.match( queryObject.first ) != null
-          , person.name.first.match( queryObject.last  ) != null
-          , person.employee.contact.studio.match( queryObject.studio ) != null
+          [ (person.name.first || "").match( queryObject.first ) != null
+          , (person.name.last  || "").match( queryObject.last  ) != null
+          , (person.employee.contact.studio || "").match( queryObject.studio ) != null
           ];
 
       // Do a logical OR on the results
