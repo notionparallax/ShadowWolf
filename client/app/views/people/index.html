@@ -1,6 +1,9 @@
 <div class="row">
+  <input type="text" ng-model="searchQuery">
+</div>
+<div class="row">
   <!--start a project/person box as a directive-->
-  <display-box ng-repeat="p in people()"
+  <display-box ng-repeat="p in people() | filter:compareTo(searchQuery)"
               title-text="{{p.name.preferred_first}} {{p.name.preferred_last}}"
               body-text="Some body text"
               img-src="{{p.employee.photo.bw}}"

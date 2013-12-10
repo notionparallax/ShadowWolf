@@ -1,65 +1,78 @@
 body {
-  padding-top: 50px;
-  position:relative;
+    padding-top: 50px;
+    position: relative;
 }
-.demo{
-  /*border:1px dashed red;*/
-  padding:0;
-  
-}
-.square{
-  width:100%;
-  visibility:hidden;
-}
-.info-box{
-  position:absolute;
-  width:100%;
-  height:100%;
-  /*border:1px dashed blue;*/
-  overflow:hidden;
-  top: 0;
-}
-.details{
-  background-color:rgba(0,0,0,0.5);
-  width:100%;
-  height:50%;
-  position:absolute;
-  padding-left:0.5em;
-  padding-right:0.5em;
-  color:white;
 
-  -moz-transition:top 0.25s;
-  -webkit-transition:top 0.25s;
-  -o-transition:top 0.25s;
-  transition:top 0.25s;  
+.demo {
+    /*border:1px dashed red;*/
+    padding: 0;
 }
-.drawer-in{
-  top: 100%;
+
+.square {
+    width: 100%;
+    visibility: hidden;
 }
+
+.info-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*border:1px dashed blue;*/
+    overflow: hidden;
+    top: 0;
+}
+
+.details {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    color: white;
+    -moz-transition: top 0.25s;
+    -webkit-transition: top 0.25s;
+    -o-transition: top 0.25s;
+    transition: top 0.25s;
+    h1{
+        font-size: 24px;
+    }
+}
+
+.drawer-in {
+    top: 100%;
+}
+
 .drawer-out {
-  top:50%;
+    top: 50%;
 }
-.title{
-  position:relative;
-  margin:0;
 
-  -moz-transition:top 0.25s, color 0.25s;
-  -webkit-transition:top 0.25s, color 0.25s;
-  -o-transition:top 0.25s, color 0.25s;
-  transition:top 0.25s, color 0.25s;  
+.title {
+    position: relative;
+    margin: 0;
+    -moz-transition: top 0.25s, color 0.25s;
+    -webkit-transition: top 0.25s, color 0.25s;
+    -o-transition: top 0.25s, color 0.25s;
+    transition: top 0.25s, color 0.25s;
 }
-.title-drawer-in{
-  top: -40px;
-  color:rgba(200, 54, 54, 0.9);
+
+.title-drawer-in {
+    top: -40px;
+    color: rgba(200, 54, 54, 0.9);
 }
+
 .title-drawer-out {
-  top:0;
-  color:rgba(255, 255, 255, 0.9);
+    top: 0;
+    color: rgba(255, 255, 255, 0.9);
 }
-.box-image{
-  max-height: auto;
-  height:100%;
+
+.box-image {
+    /*this works for portrait images, 
+      seems to freak out on landscape*/
+    max-width: 100%;
+    width: 100%;
 }
-.info-button{
-  float:right;
+
+.info-button {
+    float: right;
 }
