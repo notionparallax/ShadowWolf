@@ -15,6 +15,11 @@ body {
     color: #333;
 }
 
+.container{
+  width:100%;
+  /*This overrides the media queries so that it has a full width layout all the time*/
+}
+
 .hero-unit {
     margin: 50px auto 0 auto;
     width: 300px;

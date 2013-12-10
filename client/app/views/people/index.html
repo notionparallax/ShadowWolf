@@ -6,10 +6,10 @@
   <display-box ng-repeat="p in people() | filter:compareTo(searchQuery)"
               title-text="{{p.name.preferred_first}} {{p.name.preferred_last}}"
               body-text="Some body text"
-              img-src="{{p.employee.photo.colour}}"
+              img-src="{{p.employee.photo.bw}}"
               more-link="#/people/{{ p.id['$oid'] }}">
     <p>{{ p.employee.contact.extension }}</p>
-    <p>{{ p.employee.contact.mobile.number }}</p>
+    <!--<p>{{ p.employee.contact.mobile.number }}</p>-->
     <p>{{ p.employee.contact.studio }}</p>
   </display-box>
   

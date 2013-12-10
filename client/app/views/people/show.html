@@ -1,76 +1,37 @@
-<div ng-show="person()" itemscope itemtype="http://schema.org/Person">
-  <h1>Check out {{ person().name.preferred_first }}'s Page!!</h1>
-  <p>{{ person().name.prefix }} {{ person().name.first }} {{ person().name.last }} {{ person().name.suffix }}
-     prefers to be called {{ person().name.preferred_first }} {{ person().name.preferred_last }}.</p>
-
-  <section ng-show="person().employee.photo">
-    <h3>photo</h3>
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img class="" 
-               ng-src="{{ person().employee.photo.bw  }}" 
-               itemprop="image" />
-          <div class="caption">
-            <h3>Serious B&W Photo</h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img class="" 
-               ng-src="{{ person().employee.photo.colour  }}" 
-               itemprop="image" />
-          <div class="caption">
-            <h3>Serious Colour Photo</h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img class="" 
-               ng-src="{{ person().employee.photo.fun  }}" 
-               itemprop="image" />
-          <div class="caption">
-            <h3>Fun Photo</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
+<div ng-show="person()">
   <section ng-show="person().name">
+    <h1>Check out {{ person().name.preferred_first }}'s Page!!</h1>
+
+    <p>{{ person().name.prefix }} {{ person().name.first }} {{ person().name.middle }} {{ person().name.last }} {{ person().name.suffix }} prefers to be called {{ person().name.preferred_first }}.</p>
     <h3>name</h3>
-    <p itemprop="name"> {{person().name.prefix}}
-                        {{person().name.first}}
-                        {{person().name.middle}}
-                        {{person().name.last}}
-                        {{person().name.suffix}}
+    <p>
+    {{ person().name.prefix }}
+    {{ person().name.first }} 
+    {{ person().name.middle }} 
+    {{ person().name.last }} 
+    {{ person().name.last }}
     </p>
-    <p itemprop="nickname">{{person().name.preferred_first}}
-                           {{person().name.preferred_last}}
-    </p>
-    <h4>Passport</h4>
+    <p>{{ person().name.preferred_first }} {{ person().name.preferred_last }}</p>
+    <h3>passport</h3>
     <p><span class="field-name">prefix</span>
-       <span class="ang-inserted">{{person().name.prefix}}</span></p>
+      <span class="ang-inserted">{{person().name.prefix}}</span></p>
     <p><span class="field-name">first</span>
-        <span class="ang-inserted">{{person().name.first}}</span></p>
+      <span class="ang-inserted">{{person().name.first}}</span></p>
     <p><span class="field-name">middle</span>
-        <span class="ang-inserted">{{person().name.middle}}</span></p>
+      <span class="ang-inserted">{{person().name.middle}}</span></p>
     <p><span class="field-name">last</span>
-        <span class="ang-inserted">{{person().name.last}}</span></p>
-    <p><span class="field-name">suffix</span>
-        <span class="ang-inserted">{{person().name.suffix}}</span></p>
-    <h3>Preferred</h4>
+      <span class="ang-inserted">{{person().name.last}}</span></p>
+    <p><span class="field-name">last</span>
+      <span class="ang-inserted">{{person().name.last}}</span></p>
+    <h3>Preferred</h3>
     <p><span class="field-name">preferred_first</span>
-        <span class="ang-inserted">{{person().name.preferred_first}}</span></p>
+       <span class="ang-inserted">{{person().name.preferred_first}}</span></p>
     <p><span class="field-name">preferred_last</span>
-        <span class="ang-inserted">{{person().name.preferred_last}}</span></p>
+       <span class="ang-inserted">{{person().name.preferred_last}}</span></p>
   </section>
-  
   <section ng-show="person().employee">
-    
-    <section ng-show="person().employee.photo">
+  
+    <section ng-show="person().employee.login">
       <h3>login</h3>
       <p><span class="field-name">login</span>
          <span class="ang-inserted">{{person().employee.login}}</span></p>
@@ -79,7 +40,43 @@
     <section ng-show="person().employee.position">
       <h3>position</h3>
       <p><span class="field-name">position</span>
-         <span class="ang-inserted" itemprop="jobTitle">{{person().employee.position}}</span></p>
+         <span class="ang-inserted">{{person().employee.position}}</span></p>
+    </section>
+       
+    <section ng-show="person().employee.photo">
+      <h3>photo</h3>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <img class="" 
+                 ng-src="{{ person().employee.photo.bw }}" 
+                 itemprop="image" />
+            <div class="caption">
+              <h3>Serious B&W Photo</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <img class="" 
+                 ng-src="{{ person().employee.photo.colour }}" 
+                 itemprop="image" />
+            <div class="caption">
+              <h3>Serious Colour Photo</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <img class="" 
+                 ng-src="{{ person().employee.photo.fun }}" 
+                 itemprop="image" />
+            <div class="caption">
+              <h3>Fun Photo</h3>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     
     <section ng-show="person().employee.conditions">
@@ -125,13 +122,13 @@
     <section ng-show="person().employee.contact">
       <h3>contact</h3>
       <p><span class="field-name">extension</span>
-         <span class="ang-inserted" itemprop="telephone">{{person().employee.contact.extension}}</span></p>
+         <span class="ang-inserted">{{person().employee.contact.extension}}</span></p>
       <p><span class="field-name">studio</span>
          <span class="ang-inserted">{{person().employee.contact.studio}}</span></p>
       <p><span class="field-name">work_email</span>
-         <span class="ang-inserted" itemprop="email">{{person().employee.contact.work_email}}</span></p>
+         <span class="ang-inserted">{{person().employee.contact.work_email}}</span></p>
       <h4>Mobile</h4>
-      <p><span class="field-name" itemprop="telephone">mobile.number</span>
+      <p><span class="field-name">mobile.number</span>
          <span class="ang-inserted">{{person().employee.contact.mobile.number}}</span></p>
       <p><span class="field-name">mobile.is_work</span>
          <span class="ang-inserted">{{person().employee.contact.mobile.is_work}}</span></p>
@@ -330,7 +327,7 @@
           <p><span class="field-name">url</span>
              <span class="ang-inserted">{{q.url}}</span></p>
           <p><span class="field-name">scan_or_screengrab</span>
-             <span class="ang-inserted" >{{q.scan_or_screengrab}}</span></p>
+             <span class="ang-inserted">{{q.scan_or_screengrab}}</span></p>
           <p><span class="field-name">body_text</span>
              <span class="ang-inserted" ng-bind-html="q.body_text"></span></p>
           <p><span class="field-name">publication</span>
@@ -343,13 +340,13 @@
     
     <section ng-show="person().contact">
       <h3>contact</h3>
-      <p><span class="field-name" itemprop="email">personal_email</span>
+      <p><span class="field-name">personal_email</span>
          <span class="ang-inserted"> {{person().contact.personal_email}}</span></a></p>
       <p><span class="field-name">personal_phone</span>
-         <span class="ang-inserted" itemprop="telephone">{{person().contact.personal_phone}}</span></a></p>
+         <span class="ang-inserted"> {{person().contact.personal_phone}}</span></a></p>
       <h4>social</h4>
       <p><span class="field-name">twitter</span>
-         <span class="ang-inserted"> {{person().contact.social.twitter}} </span></a></p>
+         <span class="ang-inserted"> {{person().contact.social.twitter}}</span></a></p>
       <p><span class="field-name">instagram</span>
          <span class="ang-inserted"> {{person().contact.social.instagram}}</span></a></p>
       <p><span class="field-name">github</span>
@@ -365,21 +362,80 @@
       <p><span class="field-name">tumblr</span>
          <span class="ang-inserted"> {{person().contact.social.tumblr}}</span></a></p>
 
-      <!--Instagram-->
-      <iframe src="http://widget.stagram.com/in/{{person().contact.social.instagram}}/?s=141&w=5&h=1&b=1&p=5" allowtransparency="true" frameborder="0" scrolling="no" style="border:none;overflow:hidden;width:780px; height: 156px" ></iframe> <!-- Webstagram - web.stagram.com -->
+      <section ng-show="person().contact.social.instagram">
+        <h3>Instagram feed for {{person().contact.social.instagram}}</h3>
+        <iframe src="http://widget.stagram.com/in/{{person().contact.social.instagram}}/?s=141&w=5&h=1&b=1&p=5" 
+                allowtransparency="true" 
+                frameborder="0" 
+                scrolling="no" 
+                style="border:none;overflow:hidden;width:780px; height: 156px"></iframe> 
+        <!-- Webstagram - web.stagram.com -->
+      </section>
 
-      <!--Twitter-->
-      <a class="twitter-timeline" href="https://twitter.com/{{person().contact.social.twitter}}" data-widget-id="407675783386128384">Tweets by @{{person().contact.social.twitter}}</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      <section ng-show="person().contact.social.twitter">
+        <h3>Twitter feed for {{person().contact.social.twitter}} </h3>
+        <a class="twitter-timeline ng-binding" 
+           href="https://twitter.com/@{{person().contact.social.twitter}}" 
+           data-widget-id="407675783386128384">Tweets by @{{person().contact.social.twitter}}</a>
+        <script>!function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+          if(!d.getElementById(id)){
+            js=d.createElement(s);
+            js.id=id;
+            js.src=p+"://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js,fjs);
+          }}(document,"script","twitter-wjs");
+        </script>
+      </section>
 
+      <section ng-show="person().contact.social.linkedin">
+      <!--from here: http://developer.linkedin.com/plugins/member-profile-plugin-generator-->
+        <h3>LinkedIn feed for {{person().contact.social.linkedin}} </h3>
+        <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+        <script type="IN/MemberProfile" 
+                data-id="{{person().contact.social.linkedin}}" 
+                data-format="inline" 
+                data-related="false"></script>
+        <!--example: remove once we're more confident-->
+        <!--<script type="IN/MemberProfile" 
+                data-id="http://www.linkedin.com/pub/ben-doherty/59/193/b2a" 
+                data-format="inline"></script>-->
+      </section>
 
+      <section ng-show="person().contact.social.google_plus">
+      <!--from here: http://www.gglpls.com/google-plus-feed-widget/#.Up_isN-7z08-->
+        <h3>google_plus feed for {{person().contact.social.google_plus}}</h3>
+        <iframe frameborder="0" 
+                border="0" 
+                cellspacing="0" 
+                src="http://stream.pluswidget.com/google-plus-widget/iframe/{{person().contact.social.google_plus}}/?width=300&height=500&shell_bg=333&shell_text=fff&shell_links=4D90FE&post_bg=1e456d&post_text=fff&post_links=4D90FE&scroll_bg=1e456d&scroll_handle_text=aaa" 
+                width="300" 
+                height="500"></iframe>
+      </section>
 
+      <section ng-show="person().contact.social.pintrest">
+      <!--from here: -->
+        <h3>Pintrest feed for {{person().contact.social.pintrest}}</h3>
+        <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+        <a data-pin-do="embedUser" 
+           href="http://www.pinterest.com/{{person().contact.social.pintrest}}/">
+           Visit {{ person().name.preferred_first }} {{ person().name.preferred_last }} profile on Pinterest.</a>
+      </section>
 
-
-
-
+      <!-- one day, when I feel more enthusiastic...
+      <section ng-show="person().contact.social.github"> -->
+      <!--from here: --><!--
+        <h3>github feed for {{person().contact.social.github}}</h3>
+        <script src="github-activity.js"></script> 
+        <div github-activity events="events" options="options"></div>
+      </section>
+      -->
+      
 
     </section>
+
+
+    
     
     <section ng-show="person().applicant">
       <h3>applicant</h3>    
@@ -403,3 +459,5 @@
     </section>
   </section>
 </div>
+
+<p>Should be using http://schema.org/Person for the markup, still needs organising and styling</p>
