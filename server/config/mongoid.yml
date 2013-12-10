@@ -78,7 +78,9 @@ test:
 production:
   sessions:
     default:
-      uri: <%= ENV['MONGOHQ_URL'] %>
+      hosts:
+        - localhost:27017
+      database: shadow_wolf_production
       options:
         skip_version_check: true
         safe: true
