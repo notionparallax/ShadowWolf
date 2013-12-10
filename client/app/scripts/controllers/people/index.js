@@ -13,23 +13,19 @@ function($scope, People) {
   $scope.compareTo = function(query) {
     return function(person) {
       if (!query || !person) return true;
-      // Break the query into first, last and studio
+      // Split the query by spaces into terms
       var queryTerms = query.split(' '),
-          queryObject =
-          {
-            first:   (queryTerms[0] || null),
-            last:    (queryTerms[1] || null),
-            studio:  (queryTerms[2] || null),
-          },
-          // Match each term against the person
-          results =
-          [ (person.name.first || "").match( queryObject.first ) != null
-          , (person.name.last  || "").match( queryObject.last  ) != null
-          , (person.employee.contact.studio || "").match( queryObject.studio ) != null
+          matchAgainst =
+          [ (person.name.first || "")
+          , (person.name.last  || "")
+          , (person.employee.contact.studio || "")
           ];
-
-      // Do a logical OR on the results
-      return results.reduce(function(a,b){return a || b;})
+      // Then we OR each term against all the fields and AND all the terms.
+      return queryTerms.map(function(term) {
+          return matchAgainst.map(function(field) {
+            return field.match(term);
+          }).reduce(function(a,b){return a || b;});
+        }).reduce(function(a,b){return a && b;});
     };
   };
 });
