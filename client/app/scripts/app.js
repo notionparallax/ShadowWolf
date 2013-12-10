@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('ShadowWolf', ['ngResource','ngRoute', 'ngSanitize'])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
