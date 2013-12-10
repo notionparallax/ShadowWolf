@@ -67,8 +67,10 @@ body {
 }
 
 .box-image {
-    max-height: auto;
-    height: 100%;
+    /*this works for portrait images, 
+      seems to freak out on landscape*/
+    max-width: 100%;
+    width: 100%;
 }
 
 .info-button {
