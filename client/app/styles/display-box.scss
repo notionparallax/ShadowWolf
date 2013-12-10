@@ -35,7 +35,7 @@ body {
     -o-transition: top 0.25s;
     transition: top 0.25s;
     h1{
-        font-size: 28px;
+        font-size: 24px;
     }
 }
 
@@ -67,8 +67,10 @@ body {
 }
 
 .box-image {
-    max-height: auto;
-    height: 100%;
+    /*this works for portrait images, 
+      seems to freak out on landscape*/
+    max-width: 100%;
+    width: 100%;
 }
 
 .info-button {
