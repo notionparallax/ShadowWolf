@@ -1,5 +1,23 @@
 require 'spec_helper'
 
 describe Condition do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'Name' do
+    it 'should only allow permissable names' do
+      permissable_names = ['Active', 'Retired', 'Maternity', 'Leave', 'Deceased', 'Applicant', 'Left', 'Unknown']
+      example_non_permissable_names = ['Dickhead', 'stable', 'firm']
+      
+      permissable_names.each do |name|
+        person = FactoryGirl.create :person, conditions: []
+        person.conditions << Condition.new( name: name, start_date: 1.day.ago )
+        person.save.should eq(true)
+      end
+
+      example_non_permissable_names.each do |name|
+        person = FactoryGirl.create :person, conditions: []
+        person.conditions << Condition.new( name: name, start_date: 1.day.ago )
+        person.save.should eq(false)
+      end
+
+    end
+  end
 end
