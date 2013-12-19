@@ -73,18 +73,17 @@ condition:
   - name: name
     type: string
     factory: |
-      { ['Active', 'Retired', 'Maternity', 'Leave', 'Deceased' , 'Left'].sample }
+      { ['Active', 'Retired', 'Maternity', 'Leave', 'Deceased', 'Applicant', 'Left', 'Unknown'].sample }
   - name: start_date
     type: date
     factory: |
-      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
-  - name: end_date
-    type: date
-    factory: |
-      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days + (0..3).to_a.sample.years }
+      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }  
   relation:
-    parent: employee
+    parent: person
     type: embeds_many
+    validation: |      
+      #no dates the same
+      #name is in list of permissable states
 
 office_culture:
   fields:
