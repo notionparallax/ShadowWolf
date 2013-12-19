@@ -17,7 +17,12 @@ describe Condition do
         person.conditions << Condition.new( name: name, start_date: 1.day.ago )
         person.save.should eq(false)
       end
-
     end
+
+  	it 'should not allow two conditions with the same start date' do
+      person = FactoryGirl.create :person, condtion: []
+      2.times { person.condtions << Condition.new( name: 'Active', start_date: 0.day.ago ) }
+      person.save.should eq(false)
+  	end
   end
 end
