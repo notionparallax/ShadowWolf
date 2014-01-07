@@ -29,9 +29,6 @@ FactoryGirl.define do
     end
     contact { FactoryGirl.build( :employee_contact ) }
     office_culture { FactoryGirl.build( :office_culture ) }
-    after(:build) do |employee|
-      FactoryGirl.build_list( :condition, [0,1,2,3,10].sample, employee: employee )
-    end
     photo { FactoryGirl.build( :photo ) }
     login { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
     position { Faker::Name.title }

@@ -54,10 +54,6 @@ class Employee
 
   accepts_nested_attributes_for :office_culture
 
-  embeds_many :conditions
-
-  accepts_nested_attributes_for :conditions
-
   embeds_one :photo
 
   accepts_nested_attributes_for :photo

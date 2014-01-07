@@ -10,6 +10,10 @@ class Person
 
   accepts_nested_attributes_for :contact
 
+  embeds_many :conditions
+
+  accepts_nested_attributes_for :conditions
+
   embeds_one :employee
 
   accepts_nested_attributes_for :employee

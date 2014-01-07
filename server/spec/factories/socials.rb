@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :social do
-    twitter { '@'+Faker::Lorem.word }
-    instagram { '@'+Faker::Lorem.word }
+    twitter { Faker::Lorem.word }
+    instagram { Faker::Lorem.word }
     github { Faker::Lorem.word }
     pinterest { Faker::Lorem.word+Faker::Lorem.word }
     google_plus { 'https://plus.google.com/u/0/'+ Faker::Number.number(20) }

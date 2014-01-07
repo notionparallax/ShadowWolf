@@ -69,6 +69,6 @@ class ConditionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def condition_params
-      params.require(:condition).permit(:name, :start_date, :end_date)
+      params.require(:condition).permit(:name, :start_date)
     end
 end

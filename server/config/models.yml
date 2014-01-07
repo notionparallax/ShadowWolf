@@ -79,10 +79,8 @@ condition:
     factory: |
       { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }  
   validation: |            
-    #name is in list of permissable states
-    validates :name, inclusion: { in: ['Active', 'Retired', 'Maternity', 'Leave', 'Deceased', 'Applicant', 'Left', 'Unknown'] }
-    #no start_dates the same      
     validates_uniqueness_of :start_date, scope: :person
+    validates :name, inclusion: { in: ['Active', 'Retired', 'Maternity', 'Leave', 'Deceased', 'Applicant', 'Left', 'Unknown'] }
   relation:
     parent: person
     type: embeds_many

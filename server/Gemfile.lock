@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Dawil/MongoidModelMaker.git
-  revision: 27abf697c484390352718ee5be1cf04c24bd08c1
+  revision: 93184ed096b5d1f89498666b0fc45870ecf09bec
   specs:
     mongoid-model-maker (0.1.18)
       rails
@@ -81,7 +81,7 @@ GEM
       guard (>= 1.8)
       rspec (~> 2.13)
     hike (1.2.3)
-    i18n (0.6.5)
+    i18n (0.6.9)
     jbuilder (1.5.0)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
