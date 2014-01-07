@@ -1,25 +1,28 @@
 p = Person.new
 
-#p.name.prefix = ""
-#p.name.first = ""
-#p.name.middle = ""
-#p.name.last = ""
-#p.name.suffix = "" 
-#p.name.preferred_first = ""
-#p.name.preferred_last = ""
+pn = PersonName.new person: p
+#pn.prefix = ""
+pn.first = "Test"
+#pn.middle = ""
+pn.last = "Person"
+#pn.suffix = "" 
+#pn.preferred_first = ""
+#pn.preferred_last = ""
 
-#p.employee.photo.bw = "" 
-#p.employee.photo.colour = "" 
-#p.employee.photo.fun = ""
+#pe = PersonEmployee.new person: p
+#pe.photo.bw = "" 
+#pe.photo.colour = "" 
+#pe.photo.fun = ""
 
-#p.employee.position = ""
-#p.employee.login = ""
+#pe.position = ""
+#pe.login = "tperson"
 
-#p.employee.contact.extension = ""
-#p.employee.contact.studio = ""
-#p.employee.contact.social.instagram = ""
-#p.employee.contact.social.twitter = ""
-#p.employee.contact.social.github = ""
+#pec = Contact.new employee: pe
+#pec.extension = "777"
+#pec.studio = "Brisbane"
+#pec.social.instagram = ""
+#pec.social.twitter = ""
+#pec.social.github = ""
 
 p.save
 
