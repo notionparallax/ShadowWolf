@@ -42,3 +42,6 @@ end
 gem 'rack-cors', :require => 'rack/cors'
 
 gem 'mongoid-model-maker', github: 'Dawil/MongoidModelMaker'
+
+gem 'omniauth'
+gem 'omniauth-ldap'
