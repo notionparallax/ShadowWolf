@@ -15,5 +15,6 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+config/local_env.yml
 
 nohup.out

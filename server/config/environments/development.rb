@@ -24,4 +24,13 @@ ShadowWolf::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  config.middleware.use OmniAuth::Strategies::LDAP, 
+    :host => ENV['LDAP_HOST'],
+    :port => ENV['LDAP_PORT'].to_i,
+    :base => ENV['LDAP_BASE'],
+    :method => ENV['LDAP_METHOD'].to_sym,
+    :bind_dn => ENV['LDAP_BIND_DN'],
+    :password => ENV['LDAP_PASSWORD'],
+    :uid => ENV['LDAP_UID']
 end
