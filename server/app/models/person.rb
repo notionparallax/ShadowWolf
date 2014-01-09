@@ -2,6 +2,15 @@ class Person
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  devise :omniauthable, :trackable, omniauth_providers: [:ldap]
+
+  ## Trackable
+  field :sign_in_count,      :type => Integer, :default => 0
+  field :current_sign_in_at, :type => Time
+  field :last_sign_in_at,    :type => Time
+  field :current_sign_in_ip, :type => String
+  field :last_sign_in_ip,    :type => String
+
   embeds_one :applicant
 
   accepts_nested_attributes_for :applicant

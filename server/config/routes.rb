@@ -1,4 +1,9 @@
 ShadowWolf::Application.routes.draw do
+  devise_for :people, :controllers => { :omniauth_callbacks => "people/omniauth_callbacks" }
+  devise_scope :person do
+    get "sign_in", :to => "devise/sessions#new"
+  end
+
   resources :mobiles
 
   resources :contacts
