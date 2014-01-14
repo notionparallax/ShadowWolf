@@ -239,7 +239,7 @@ Devise.setup do |config|
     :uid => ENV['LDAP_UID'],
     :request_phase_override =>
       (Proc.new do |request, callback_path|
-        ERB.new(File.read(File.join(Rails.root, 'app/views/people/sessions/new2.html.erb')))
+        ERB.new(File.read(File.join(Rails.root, 'app/views/people/sessions/new.html.erb')))
           .result( lambda { |request, callback_path| binding }.call(request, callback_path) )
       end)
 
