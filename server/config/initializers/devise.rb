@@ -1,4 +1,5 @@
 require 'omniauth-ldap'
+require 'erb'
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -201,7 +202,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -235,7 +236,12 @@ Devise.setup do |config|
     :method => ENV['LDAP_METHOD'].to_sym,
     :bind_dn => ENV['LDAP_BIND_DN'],
     :password => ENV['LDAP_PASSWORD'],
-    :uid => ENV['LDAP_UID']
+    :uid => ENV['LDAP_UID'],
+    :request_phase_override =>
+      (Proc.new do |request, callback_path|
+        ERB.new(File.read(File.join(Rails.root, 'app/views/people/sessions/new2.html.erb')))
+          .result( lambda { |request, callback_path| binding }.call(request, callback_path) )
+      end)
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

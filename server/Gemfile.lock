@@ -7,6 +7,16 @@ GIT
       thor
 
 GIT
+  remote: git://github.com/Dawil/omniauth-ldap.git
+  revision: 0916dcb68a9ffbaf110ab68be23db2214693f4e5
+  specs:
+    omniauth-ldap (1.0.4)
+      net-ldap (~> 0.3.1)
+      omniauth (~> 1.0)
+      pyu-ruby-sasl (~> 0.0.3.1)
+      rubyntlm (~> 0.1.1)
+
+GIT
   remote: git://github.com/evansagge/mongoid-rspec.git
   revision: 1c549f24beeb8fc709181774cf2bc7c11d57b567
   specs:
@@ -111,11 +121,6 @@ GEM
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
-    omniauth-ldap (1.0.4)
-      net-ldap (~> 0.3.1)
-      omniauth (~> 1.0)
-      pyu-ruby-sasl (~> 0.0.3.1)
-      rubyntlm (~> 0.1.1)
     origin (1.1.0)
     orm_adapter (0.5.0)
     polyglot (0.3.3)
@@ -212,7 +217,7 @@ DEPENDENCIES
   mongoid-model-maker!
   mongoid-rspec!
   omniauth
-  omniauth-ldap
+  omniauth-ldap!
   rack-cors
   rails (= 4.0.0)
   rspec-rails
