@@ -1,7 +1,7 @@
 require 'uri'
 class People::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def ldap
-    @person = Person.all.find_all { |p| p.employee.login == auth_login }.first
+    @person = Person.where( 'employee.login' => auth_login ).first
     if @person#.persisted?
       #sign_in_and_redirect @person, :event => :authentication
       apiKey = ApiKey.create person: @person
