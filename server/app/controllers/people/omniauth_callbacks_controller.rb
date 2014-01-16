@@ -29,6 +29,6 @@ class People::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     request.env['omniauth.auth']
   end
   def auth_login
-    auth_hash['extra']['raw_info']['samaccountname']
+    auth_hash['extra']['raw_info']['samaccountname'].first.to_s
   end
 end
