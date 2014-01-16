@@ -74,10 +74,10 @@ class PeopleController < ApplicationController
     end
 
     def authorize_person
-      apiKey = ApiKey.where( access_token: params[:access_token] )
+      apiKey = ApiKey.where( access_token: params[:access_token] ).first
       if request.method == 'GET'
         render status: :forbidden unless @person.admin? or apiKey and apiKey.person == @person
-      else if request.method == 'POST'
+      elsif request.method == 'POST'
         render status: :forbidden unless apiKey and apiKey.person == @person
       end
     end
