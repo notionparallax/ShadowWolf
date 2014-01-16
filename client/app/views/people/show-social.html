@@ -1,0 +1,74 @@
+
+      <!--
+      <section ng-show="person().contact.social.instagram">
+        <h3>Instagram feed for {{person().contact.social.instagram}}</h3>
+        <iframe src="http://widget.stagram.com/in/{{person().contact.social.instagram}}/?s=141&w=5&h=1&b=1&p=5" 
+                allowtransparency="true" 
+                frameborder="0" 
+                scrolling="no" 
+                style="border:none;overflow:hidden;width:780px; height: 156px"></iframe> 
+        <!-- Webstagram - web.stagram.com -->
+      </section>
+
+      <section ng-show="person().contact.social.twitter">
+        <h3>Twitter feed for {{person().contact.social.twitter}} </h3>
+        <a class="twitter-timeline ng-binding" 
+           href="https://twitter.com/@{{person().contact.social.twitter}}" 
+           data-widget-id="407675783386128384">Tweets by @{{person().contact.social.twitter}}</a>
+        <script>!function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+          if(!d.getElementById(id)){
+            js=d.createElement(s);
+            js.id=id;
+            js.src=p+"://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js,fjs);
+          }}(document,"script","twitter-wjs");
+        </script>
+      </section>
+      -->
+
+      <!--
+      <section ng-show="person().contact.social.linkedin">
+      <!--from here: http://developer.linkedin.com/plugins/member-profile-plugin-generator-->
+        <h3>LinkedIn feed for {{person().contact.social.linkedin}} </h3>
+        <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+        <script type="IN/MemberProfile" 
+                data-id="{{person().contact.social.linkedin}}" 
+                data-format="inline" 
+                data-related="false"></script>
+        <!--example: remove once we're more confident-->
+        <script type="IN/MemberProfile" 
+                data-id="http://www.linkedin.com/pub/ben-doherty/59/193/b2a" 
+                data-format="inline"></script>
+      </section>
+      -->
+
+      <!--
+      <section ng-show="person().contact.social.google_plus">
+      <!--from here: http://www.gglpls.com/google-plus-feed-widget/#.Up_isN-7z08-->
+        <h3>google_plus feed for {{person().contact.social.google_plus}}</h3>
+        <iframe frameborder="0" 
+                border="0" 
+                cellspacing="0" 
+                src="http://stream.pluswidget.com/google-plus-widget/iframe/{{person().contact.social.google_plus}}/?width=300&height=500&shell_bg=333&shell_text=fff&shell_links=4D90FE&post_bg=1e456d&post_text=fff&post_links=4D90FE&scroll_bg=1e456d&scroll_handle_text=aaa" 
+                width="300" 
+                height="500"></iframe>
+      </section>
+
+      <section ng-show="person().contact.social.pintrest">
+      <!--from here: -->
+        <h3>Pintrest feed for {{person().contact.social.pintrest}}</h3>
+        <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+        <a data-pin-do="embedUser" 
+           href="http://www.pinterest.com/{{person().contact.social.pintrest}}/">
+           Visit {{ person().name.preferred_first }} {{ person().name.preferred_last }} profile on Pinterest.</a>
+      </section>
+
+      <!-- one day, when I feel more enthusiastic...
+      <section ng-show="person().contact.social.github"> -->
+      <!--from here: --><!--
+        <h3>github feed for {{person().contact.social.github}}</h3>
+        <script src="github-activity.js"></script> 
+        <div github-activity events="events" options="options"></div>
+      </section>
+      -->

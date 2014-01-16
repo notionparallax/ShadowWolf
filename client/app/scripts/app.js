@@ -16,6 +16,10 @@ angular.module('ShadowWolf', ['ngResource','ngRoute', 'ngSanitize'])
         templateUrl: 'views/people/show.html',
         controller: 'PeopleShowController'
       })
+      .when('/callback', {
+        template: '<span></span>', // doesn't seem to work without some html
+        controller: 'CallbackController'
+      })
       .otherwise({
         redirectTo: '/'
       });

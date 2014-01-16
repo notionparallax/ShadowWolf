@@ -119,7 +119,7 @@
          <span class="ang-inserted">{{person().employee.office_culture.dietary.preference.dislikes}}</span></p>
     </section>
     
-    <section ng-show="person().employee.contact">
+    <section ng-show="false && person().employee.contact">
       <h3>contact</h3>
       <p><span class="field-name">extension</span>
          <span class="ang-inserted">{{person().employee.contact.extension}}</span></p>
@@ -338,7 +338,7 @@
       </div>
     </section>
     
-    <section ng-show="person().contact">
+    <section ng-show="false && person().contact">
       <h3>contact</h3>
       <p><span class="field-name">personal_email</span>
          <span class="ang-inserted"> {{person().contact.personal_email}}</span></a></p>
@@ -397,9 +397,9 @@
                 data-format="inline" 
                 data-related="false"></script>
         <!--example: remove once we're more confident-->
-        <!--<script type="IN/MemberProfile" 
+        <script type="IN/MemberProfile" 
                 data-id="http://www.linkedin.com/pub/ben-doherty/59/193/b2a" 
-                data-format="inline"></script>-->
+                data-format="inline"></script>
       </section>
 
       <section ng-show="person().contact.social.google_plus">
@@ -424,7 +424,8 @@
 
       <!-- one day, when I feel more enthusiastic...
       <section ng-show="person().contact.social.github"> -->
-      <!--from here: --><!--
+      <!--from here: -->
+      <!--
         <h3>github feed for {{person().contact.social.github}}</h3>
         <script src="github-activity.js"></script> 
         <div github-activity events="events" options="options"></div>

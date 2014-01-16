@@ -2,8 +2,16 @@
 
 angular.module('ShadowWolf')
 .controller('PeopleIndexController',
-function($scope, People) {
+function($scope, People, Session) {
   $scope.people = People.getPeople;
+  $scope.loggedIn = function() { return !!Session.getAccessToken(); };
+  $scope.logout = function() { console.log('logout'); Session.logout(); };
+
+  $scope.getMoreLink = function(personId) {
+    if (personId == Session.getPersonId()) {
+      return "#/people/" + personId;
+    }
+  };
   /**
    * Compares the searchQuery with the actual person.
    * Is a match if the query is a (space separated) 3-tuple that ORs the

@@ -2,8 +2,9 @@
 
 angular.module('ShadowWolf')
 .controller('PeopleShowController',
-function($scope, People, $routeParams) {
-  $scope.person = function() {
-    return People.getPerson( $routeParams.id );
-  };
+function($scope, Person, $routeParams, Session, $location) {
+  if ($routeParams.id != Session.getPersonId()) {
+    $location.path("/people");
+  }
+  $scope.person = Person.getPerson;
 });

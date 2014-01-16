@@ -10,7 +10,8 @@ angular.module('ShadowWolf')
           titleText: "@",
           bodyText:  "@",
           imgSrc:    "@",
-          moreLink:  "@"
+          moreLink:  "@",
+          isCurrentUser: "@"
         },
         link: function (scope, element, attrs) {}, 
         controller: function($scope) {
