@@ -239,6 +239,7 @@ Devise.setup do |config|
     :uid => ENV['LDAP_UID'],
     :request_phase_override =>
       (Proc.new do |request, callback_path|
+        # Remember that errors occuring here are often due to a failed template
         ERB.new(File.read(File.join(Rails.root, 'app/views/people/sessions/new.html.erb')))
           .result( lambda { |request, callback_path| binding }.call(request, callback_path) )
       end)
