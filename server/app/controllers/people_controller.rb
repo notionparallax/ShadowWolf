@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_person, except: [:index]
 
   # GET /people
   # GET /people.json
@@ -70,5 +71,14 @@ class PeopleController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
       params[:person]
+    end
+
+    def authorize_person
+      apiKey = ApiKey.where( access_token: params[:access_token] )
+      if request.method == 'GET'
+        render status: :forbidden unless @person.admin? or apiKey and apiKey.person == @person
+      else if request.method == 'POST'
+        render status: :forbidden unless apiKey and apiKey.person == @person
+      end
     end
 end

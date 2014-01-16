@@ -30,4 +30,8 @@ class Person
   embeds_one :name, class_name: 'PersonName'
 
   accepts_nested_attributes_for :name
+
+  def admin?
+    false
+  end
 end
