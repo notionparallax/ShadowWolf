@@ -1,3 +1,6 @@
+# edit this, and then `load` it from the rails 
+# console to make a new person
+
 p = Person.new
 
 pn = PersonName.new person: p
@@ -9,7 +12,7 @@ pn.last = "Person"
 #pn.preferred_first = ""
 #pn.preferred_last = ""
 
-#pe = PersonEmployee.new person: p
+#pe = PersonEmployee.new person: p # this line causes it to fail at the moment
 #pe.photo.bw = "" 
 #pe.photo.colour = "" 
 #pe.photo.fun = ""
