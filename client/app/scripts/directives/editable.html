@@ -1,12 +1,12 @@
 <div class="form-group show-field">                 
-  <label class="col-sm-2 control-label">Email</label>                         
+  <label class="col-sm-2 control-label">{{ label }}</label>                         
   <div   class="col-sm-6">                                                    
     <p ng-hide="editorEnabled" class="form-control-static editable" ng-click="enableEditor($event)">     
       {{value}}                                                              
       <span class="pulsar glyphicon glyphicon-cloud pull-margin-right-1em-out"
             title="save"></span>                                              
     </p>
-     <div ng-show="editorEnabled" class="input-group">                   
+    <div ng-show="editorEnabled" class="input-group">                   
       <input type="text" 
              ng-model="editableValue"                                         
              class="form-control" />                                          
