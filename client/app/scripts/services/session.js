@@ -1,15 +1,18 @@
 'use strict';
 
 angular.module('ShadowWolf')
-.service('Session', function() {
+.service('Session', function($cookieStore) {
+  var _accessToken = '_accessToken',
+      _personId = '_personId';
   //TODO use cookies or some other more permanent store than memory
-  var _accessToken;
-  this.getAccessToken = function() { return _accessToken; };
-  this.setAccessToken = function(accessToken) { _accessToken = accessToken; };
+  this.getAccessToken = function() { return $cookieStore.get(_accessToken); };
+  this.setAccessToken = function(accessToken) { $cookieStore.put(_accessToken, accessToken); };
 
-  var _personId;
-  this.getPersonId = function() { return _personId; };
-  this.setPersonId = function(personId) { _personId = personId; };
+  this.getPersonId = function() { return $cookieStore.get(_personId); };
+  this.setPersonId = function(personId) { $cookieStore.put(_personId, personId); };
 
-  this.logout = function() { _accessToken = undefined; _personId = undefined; };
+  this.logout = function() {
+    $cookieStore.put(_accessToken, undefined);
+    $cookieStore.put(_personId, undefined);
+  };
 });

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('ShadowWolf', ['ngResource','ngRoute', 'ngSanitize'])
+angular.module('ShadowWolf', ['ngResource','ngRoute', 'ngSanitize', 'ngCookies'])
   .config(function ($routeProvider, $httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
