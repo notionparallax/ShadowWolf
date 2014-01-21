@@ -31,6 +31,10 @@ class Person
 
   accepts_nested_attributes_for :name
 
+  def current_condition
+    self.conditions.sort_by { |c| c.start_date }.last
+  end
+
   def admin?
     false
   end
