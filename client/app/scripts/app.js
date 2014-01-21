@@ -12,7 +12,7 @@ angular.module('ShadowWolf', ['ngResource','ngRoute', 'ngSanitize', 'ngCookies']
         templateUrl: 'views/people/index.html',
         controller: 'PeopleIndexController'
       })
-      .when('/people/:id', {
+      .when('/people/:personId', {
         templateUrl: 'views/people/show.html',
         controller: 'PeopleShowController'
       })

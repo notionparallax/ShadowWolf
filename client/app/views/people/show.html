@@ -1,55 +1,55 @@
-<div ng-show="person()">
-  <section ng-show="person().name">
-    <h1>Check out {{ person().name.preferred_first }}'s Page!!</h1>
+<div ng-show="person">
+  <section ng-show="person.name">
+    <h1>Check out {{ person.name.preferred_first }}'s Page!!</h1>
 
-    <p>{{ person().name.prefix }} {{ person().name.first }} {{ person().name.middle }} {{ person().name.last }} {{ person().name.suffix }} prefers to be called {{ person().name.preferred_first }}.</p>
+    <p>{{ person.name.prefix }} {{ person.name.first }} {{ person.name.middle }} {{ person.name.last }} {{ person.name.suffix }} prefers to be called {{ person.name.preferred_first }}.</p>
     <h3>name</h3>
     <p>
-    {{ person().name.prefix }}
-    {{ person().name.first }} 
-    {{ person().name.middle }} 
-    {{ person().name.last }} 
-    {{ person().name.last }}
+    {{ person.name.prefix }}
+    {{ person.name.first }} 
+    {{ person.name.middle }} 
+    {{ person.name.last }} 
+    {{ person.name.last }}
     </p>
-    <p>{{ person().name.preferred_first }} {{ person().name.preferred_last }}</p>
+    <p>{{ person.name.preferred_first }} {{ person.name.preferred_last }}</p>
     <h3>passport</h3>
     <p><span class="field-name">prefix</span>
-      <span class="ang-inserted">{{person().name.prefix}}</span></p>
+      <span class="ang-inserted">{{person.name.prefix}}</span></p>
     <p><span class="field-name">first</span>
-      <span class="ang-inserted">{{person().name.first}}</span></p>
+      <span class="ang-inserted">{{person.name.first}}</span></p>
     <p><span class="field-name">middle</span>
-      <span class="ang-inserted">{{person().name.middle}}</span></p>
+      <span class="ang-inserted">{{person.name.middle}}</span></p>
     <p><span class="field-name">last</span>
-      <span class="ang-inserted">{{person().name.last}}</span></p>
+      <span class="ang-inserted">{{person.name.last}}</span></p>
     <p><span class="field-name">last</span>
-      <span class="ang-inserted">{{person().name.last}}</span></p>
+      <span class="ang-inserted">{{person.name.last}}</span></p>
     <h3>Preferred</h3>
     <p><span class="field-name">preferred_first</span>
-       <span class="ang-inserted">{{person().name.preferred_first}}</span></p>
+       <span class="ang-inserted">{{person.name.preferred_first}}</span></p>
     <p><span class="field-name">preferred_last</span>
-       <span class="ang-inserted">{{person().name.preferred_last}}</span></p>
+       <span class="ang-inserted">{{person.name.preferred_last}}</span></p>
   </section>
-  <section ng-show="person().employee">
+  <section ng-show="person.employee">
   
-    <section ng-show="person().employee.login">
+    <section ng-show="person.employee.login">
       <h3>login</h3>
       <p><span class="field-name">login</span>
-         <span class="ang-inserted">{{person().employee.login}}</span></p>
+         <span class="ang-inserted">{{person.employee.login}}</span></p>
     </section>
     
-    <section ng-show="person().employee.position">
+    <section ng-show="person.employee.position">
       <h3>position</h3>
       <p><span class="field-name">position</span>
-         <span class="ang-inserted">{{person().employee.position}}</span></p>
+         <span class="ang-inserted">{{person.employee.position}}</span></p>
     </section>
        
-    <section ng-show="person().employee.photo">
+    <section ng-show="person.employee.photo">
       <h3>photo</h3>
       <div class="row">
         <div class="col-sm-4">
           <div class="thumbnail">
             <img class="" 
-                 ng-src="{{ person().employee.photo.bw }}" 
+                 ng-src="{{ person.employee.photo.bw }}" 
                  itemprop="image" />
             <div class="caption">
               <h3>Serious B&W Photo</h3>
@@ -59,7 +59,7 @@
         <div class="col-sm-4">
           <div class="thumbnail">
             <img class="" 
-                 ng-src="{{ person().employee.photo.colour }}" 
+                 ng-src="{{ person.employee.photo.colour }}" 
                  itemprop="image" />
             <div class="caption">
               <h3>Serious Colour Photo</h3>
@@ -69,7 +69,7 @@
         <div class="col-sm-4">
           <div class="thumbnail">
             <img class="" 
-                 ng-src="{{ person().employee.photo.fun }}" 
+                 ng-src="{{ person.employee.photo.fun }}" 
                  itemprop="image" />
             <div class="caption">
               <h3>Fun Photo</h3>
@@ -79,11 +79,11 @@
       </div>
     </section>
     
-    <section ng-show="person().employee.conditions">
+    <section ng-show="person.employee.conditions">
       <h3>conditions</h3>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="c in person().employee.conditions">
+             ng-repeat="c in person.employee.conditions">
           <p><span class="field-name">name</span>
              <span class="ang-inserted">{{c.name}}</span></p>
           <p><span class="field-name">start_date</span>
@@ -94,15 +94,15 @@
       </div>
     </section>
     
-    <section ng-show="person().employee.office_culture">
+    <section ng-show="person.employee.office_culture">
       <h3>office_culture</h3>
       <p><span class="field-name">first_aider</span>
-         <span class="ang-inserted">{{person().employee.office_culture.first_aider}}</span></p>
+         <span class="ang-inserted">{{person.employee.office_culture.first_aider}}</span></p>
       <p><span class="field-name">fire_warden</span>
-         <span class="ang-inserted">{{person().employee.office_culture.fire_warden}}</span></p>
+         <span class="ang-inserted">{{person.employee.office_culture.fire_warden}}</span></p>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="e in person().employee.office_culture.event_participations">
+             ng-repeat="e in person.employee.office_culture.event_participations">
           <p><span class="field-name">name</span>
              <span class="ang-inserted">{{e.name}}</span></p>
           <p><span class="field-name">date</span>
@@ -112,35 +112,35 @@
         </div>
       </div>    
       <p><span class="field-name">dietary.requirements</span>
-         <span class="ang-inserted">{{person().employee.office_culture.dietary.requirements}}</span></p>
+         <span class="ang-inserted">{{person.employee.office_culture.dietary.requirements}}</span></p>
       <p><span class="field-name">dietary.preference.likes</span>
-         <span class="ang-inserted">{{person().employee.office_culture.dietary.preference.likes}}</span></p>
+         <span class="ang-inserted">{{person.employee.office_culture.dietary.preference.likes}}</span></p>
       <p><span class="field-name">dietary.preference.dislikes</span>
-         <span class="ang-inserted">{{person().employee.office_culture.dietary.preference.dislikes}}</span></p>
+         <span class="ang-inserted">{{person.employee.office_culture.dietary.preference.dislikes}}</span></p>
     </section>
     
-    <section ng-show="false && person().employee.contact">
+    <section ng-show="false && person.employee.contact">
       <h3>contact</h3>
       <p><span class="field-name">extension</span>
-         <span class="ang-inserted">{{person().employee.contact.extension}}</span></p>
+         <span class="ang-inserted">{{person.employee.contact.extension}}</span></p>
       <p><span class="field-name">studio</span>
-         <span class="ang-inserted">{{person().employee.contact.studio}}</span></p>
+         <span class="ang-inserted">{{person.employee.contact.studio}}</span></p>
       <p><span class="field-name">work_email</span>
-         <span class="ang-inserted">{{person().employee.contact.work_email}}</span></p>
+         <span class="ang-inserted">{{person.employee.contact.work_email}}</span></p>
       <h4>Mobile</h4>
       <p><span class="field-name">mobile.number</span>
-         <span class="ang-inserted">{{person().employee.contact.mobile.number}}</span></p>
+         <span class="ang-inserted">{{person.employee.contact.mobile.number}}</span></p>
       <p><span class="field-name">mobile.is_work</span>
-         <span class="ang-inserted">{{person().employee.contact.mobile.is_work}}</span></p>
+         <span class="ang-inserted">{{person.employee.contact.mobile.is_work}}</span></p>
       <p><span class="field-name">mobile.distribute</span>
-         <span class="ang-inserted">{{person().employee.contact.mobile.distribute}}</span></p>
+         <span class="ang-inserted">{{person.employee.contact.mobile.distribute}}</span></p>
     </section>
     
-    <section ng-show="person().employee.security_clearances">
+    <section ng-show="person.employee.security_clearances">
     <h3>security_clearances</h3>
     <div class="row">
       <div class="alert alert-info col-sm-6 col-md-4" 
-           ng-repeat="sc in person().employee.security_clearances">
+           ng-repeat="sc in person.employee.security_clearances">
         <p><span class="field-name">issuing_body</span>
            <span class="ang-inserted">{{sc.issuing_body}}</span></p>
         <p><span class="field-name">level       </span>
@@ -151,18 +151,18 @@
     </div>    
     </section>
     
-    <section ng-show="person().employee.finance">
+    <section ng-show="person.employee.finance">
       <h3>finance</h3>
       <p><span class="field-name">employee_code</span>
-         <span class="ang-inserted">{{person().employee.finance.employee_code}}</span></p>
+         <span class="ang-inserted">{{person.employee.finance.employee_code}}</span></p>
       <p class="well well-sm">This is the foreign key into micropay</p>
     </section>
     
-    <section ng-show="person().employee.qualifications">
+    <section ng-show="person.employee.qualifications">
       <h3>qualifications</h3>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="q in person().employee.qualifications">
+             ng-repeat="q in person.employee.qualifications">
           <p><span class="field-name">name</span>
              <span class="ang-inserted">{{q.name}}</span></p>
           <p><span class="field-name">level</span>
@@ -177,11 +177,11 @@
       </div>
     </section>
     
-    <section ng-show="person().employee.registrations">
+    <section ng-show="person.employee.registrations">
       <h3>registrations</h3>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="q in person().employee.registrations">
+             ng-repeat="q in person.employee.registrations">
           <p><span class="field-name">organisation</span>
              <span class="ang-inserted">{{q.organisation}}</span></p>
           <p><span class="field-name">registration_number</span>
@@ -196,11 +196,11 @@
       </div>
     </section>
     
-    <section ng-show="person().employee.memberships">
+    <section ng-show="person.employee.memberships">
       <h3>memberships</h3>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="q in person().employee.memberships">
+             ng-repeat="q in person.employee.memberships">
           <p><span class="field-name">organisation</span>
              <span class="ang-inserted">{{q.organisation}}</span></p>
           <p><span class="field-name">membership_number</span>
@@ -215,11 +215,11 @@
       </div>
     </section>
     
-    <section ng-show="person().employee.personal_awards">
+    <section ng-show="person.employee.personal_awards">
       <h3>personal_awards</h3>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="q in person().employee.personal_awards">
+             ng-repeat="q in person.employee.personal_awards">
           <p><span class="field-name">name</span>
              <span class="ang-inserted">{{q.name}}</span></p>
           <p><span class="field-name">awarding_body</span>
@@ -232,11 +232,11 @@
       </div>
     </section>
     
-    <section ng-show="person().employee.professional_contributions">
+    <section ng-show="person.employee.professional_contributions">
       <h3>professional_contributions</h3>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="q in person().employee.professional_contributions">
+             ng-repeat="q in person.employee.professional_contributions">
           <p><span class="field-name">activity</span>
              <span class="ang-inserted">{{q.activity}}</span></p>
           <p><span class="field-name">description</span>
@@ -247,12 +247,12 @@
       </div>
     </section>
     
-    <section ng-show="person().employee.travel">
+    <section ng-show="person.employee.travel">
       <h3>travel</h3>
       <h4>passports</h4>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="q in person().employee.travel.passports">
+             ng-repeat="q in person.employee.travel.passports">
           <p><span class="field-name">number</span>
              <span class="ang-inserted">{{q.number}}</span></p>
           <p><span class="field-name">expiry</span>
@@ -266,7 +266,7 @@
           like http://awardwallet.com/ in the future-->
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="q in person().employee.travel.frequent_flier_programs">
+             ng-repeat="q in person.employee.travel.frequent_flier_programs">
           <p><span class="field-name">name</span>
              <span class="ang-inserted">{{q.name}}</span></p>
           <p><span class="field-name">number</span>
@@ -275,14 +275,14 @@
       </div>
     </section>
     
-    <section ng-show="person().employee.project_experiences">
+    <section ng-show="person.employee.project_experiences">
       <h4>project_experiences (int)</h4>
       <div class="alert alert-warning">coming as soon as we've tied the project 
       data to people through the Epicor data. </div>
       <h4>project_experiences (ext)</h4>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="q in person().employee.project_experiences">
+             ng-repeat="q in person.employee.project_experiences">
           <p><span class="field-name">name</span>
              <span class="ang-inserted">{{q.name}}</span></p>
           <p><span class="field-name">firm</span>
@@ -301,27 +301,27 @@
       </div>
     </section>
         
-    <section ng-show="person().employee.biography">
+    <section ng-show="person.employee.biography">
       <h3>Biography</h3>
       <p><span class="field-name">one_line_bio</span>
-         <span class="ang-inserted" ng-bind-html="person().employee.biography.one_line_bio">   </span></p>
+         <span class="ang-inserted" ng-bind-html="person.employee.biography.one_line_bio">   </span></p>
       <p><span class="field-name">approach</span>
-         <span class="ang-inserted" ng-bind-html="person().employee.biography.approach">       </span></p>
+         <span class="ang-inserted" ng-bind-html="person.employee.biography.approach">       </span></p>
       <p><span class="field-name">expertise</span>
-         <span class="ang-inserted" ng-bind-html="person().employee.biography.expertise">      </span></p>
+         <span class="ang-inserted" ng-bind-html="person.employee.biography.expertise">      </span></p>
       <p><span class="field-name">experience</span>
-         <span class="ang-inserted" ng-bind-html="person().employee.biography.experience">     </span></p>
+         <span class="ang-inserted" ng-bind-html="person.employee.biography.experience">     </span></p>
       <p><span class="field-name">achievements</span>
-         <span class="ang-inserted" ng-bind-html="person().employee.biography.achievements">   </span></p>
+         <span class="ang-inserted" ng-bind-html="person.employee.biography.achievements">   </span></p>
       <p><span class="field-name">value_statement</span>
-         <span class="ang-inserted" ng-bind-html="person().employee.biography.value_statement"></span></p>
+         <span class="ang-inserted" ng-bind-html="person.employee.biography.value_statement"></span></p>
     </section>
     
-    <section ng-show="person().employee.press">
+    <section ng-show="person.employee.press">
       <h3>press</h3>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="q in person().employee.press.attentions">
+             ng-repeat="q in person.employee.press.attentions">
           <p><span class="field-name">date</span>
              <span class="ang-inserted">{{q.date}}</span></p>
           <p><span class="field-name">url</span>
@@ -338,33 +338,33 @@
       </div>
     </section>
     
-    <section ng-show="false && person().contact">
+    <section ng-show="false && person.contact">
       <h3>contact</h3>
       <p><span class="field-name">personal_email</span>
-         <span class="ang-inserted"> {{person().contact.personal_email}}</span></a></p>
+         <span class="ang-inserted"> {{person.contact.personal_email}}</span></a></p>
       <p><span class="field-name">personal_phone</span>
-         <span class="ang-inserted"> {{person().contact.personal_phone}}</span></a></p>
+         <span class="ang-inserted"> {{person.contact.personal_phone}}</span></a></p>
       <h4>social</h4>
       <p><span class="field-name">twitter</span>
-         <span class="ang-inserted"> {{person().contact.social.twitter}}</span></a></p>
+         <span class="ang-inserted"> {{person.contact.social.twitter}}</span></a></p>
       <p><span class="field-name">instagram</span>
-         <span class="ang-inserted"> {{person().contact.social.instagram}}</span></a></p>
+         <span class="ang-inserted"> {{person.contact.social.instagram}}</span></a></p>
       <p><span class="field-name">github</span>
-         <span class="ang-inserted"> {{person().contact.social.github}}</span></a></p>
+         <span class="ang-inserted"> {{person.contact.social.github}}</span></a></p>
       <p><span class="field-name">pinterest</span>
-         <span class="ang-inserted"> {{person().contact.social.pinterest}}</span></a></p>
+         <span class="ang-inserted"> {{person.contact.social.pinterest}}</span></a></p>
       <p><span class="field-name">google_plus</span>
-         <span class="ang-inserted"> {{person().contact.social.google_plus}}</span></a></p>
+         <span class="ang-inserted"> {{person.contact.social.google_plus}}</span></a></p>
       <p><span class="field-name">linkedin</span>
-         <span class="ang-inserted"> {{person().contact.social.linkedin}}</span></a></p>
+         <span class="ang-inserted"> {{person.contact.social.linkedin}}</span></a></p>
       <p><span class="field-name">facebook</span>
-         <span class="ang-inserted"> {{person().contact.social.facebook}}</span></a></p>
+         <span class="ang-inserted"> {{person.contact.social.facebook}}</span></a></p>
       <p><span class="field-name">tumblr</span>
-         <span class="ang-inserted"> {{person().contact.social.tumblr}}</span></a></p>
+         <span class="ang-inserted"> {{person.contact.social.tumblr}}</span></a></p>
 
-      <section ng-show="person().contact.social.instagram">
-        <h3>Instagram feed for {{person().contact.social.instagram}}</h3>
-        <iframe src="http://widget.stagram.com/in/{{person().contact.social.instagram}}/?s=141&w=5&h=1&b=1&p=5" 
+      <section ng-show="person.contact.social.instagram">
+        <h3>Instagram feed for {{person.contact.social.instagram}}</h3>
+        <iframe src="http://widget.stagram.com/in/{{person.contact.social.instagram}}/?s=141&w=5&h=1&b=1&p=5" 
                 allowtransparency="true" 
                 frameborder="0" 
                 scrolling="no" 
@@ -372,11 +372,11 @@
         <!-- Webstagram - web.stagram.com -->
       </section>
 
-      <section ng-show="person().contact.social.twitter">
-        <h3>Twitter feed for {{person().contact.social.twitter}} </h3>
+      <section ng-show="person.contact.social.twitter">
+        <h3>Twitter feed for {{person.contact.social.twitter}} </h3>
         <a class="twitter-timeline ng-binding" 
-           href="https://twitter.com/@{{person().contact.social.twitter}}" 
-           data-widget-id="407675783386128384">Tweets by @{{person().contact.social.twitter}}</a>
+           href="https://twitter.com/@{{person.contact.social.twitter}}" 
+           data-widget-id="407675783386128384">Tweets by @{{person.contact.social.twitter}}</a>
         <script>!function(d,s,id){
           var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
           if(!d.getElementById(id)){
@@ -388,12 +388,12 @@
         </script>
       </section>
 
-      <section ng-show="person().contact.social.linkedin">
+      <section ng-show="person.contact.social.linkedin">
       <!--from here: http://developer.linkedin.com/plugins/member-profile-plugin-generator-->
-        <h3>LinkedIn feed for {{person().contact.social.linkedin}} </h3>
+        <h3>LinkedIn feed for {{person.contact.social.linkedin}} </h3>
         <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
         <script type="IN/MemberProfile" 
-                data-id="{{person().contact.social.linkedin}}" 
+                data-id="{{person.contact.social.linkedin}}" 
                 data-format="inline" 
                 data-related="false"></script>
         <!--example: remove once we're more confident-->
@@ -402,31 +402,31 @@
                 data-format="inline"></script>
       </section>
 
-      <section ng-show="person().contact.social.google_plus">
+      <section ng-show="person.contact.social.google_plus">
       <!--from here: http://www.gglpls.com/google-plus-feed-widget/#.Up_isN-7z08-->
-        <h3>google_plus feed for {{person().contact.social.google_plus}}</h3>
+        <h3>google_plus feed for {{person.contact.social.google_plus}}</h3>
         <iframe frameborder="0" 
                 border="0" 
                 cellspacing="0" 
-                src="http://stream.pluswidget.com/google-plus-widget/iframe/{{person().contact.social.google_plus}}/?width=300&height=500&shell_bg=333&shell_text=fff&shell_links=4D90FE&post_bg=1e456d&post_text=fff&post_links=4D90FE&scroll_bg=1e456d&scroll_handle_text=aaa" 
+                src="http://stream.pluswidget.com/google-plus-widget/iframe/{{person.contact.social.google_plus}}/?width=300&height=500&shell_bg=333&shell_text=fff&shell_links=4D90FE&post_bg=1e456d&post_text=fff&post_links=4D90FE&scroll_bg=1e456d&scroll_handle_text=aaa" 
                 width="300" 
                 height="500"></iframe>
       </section>
 
-      <section ng-show="person().contact.social.pintrest">
+      <section ng-show="person.contact.social.pintrest">
       <!--from here: -->
-        <h3>Pintrest feed for {{person().contact.social.pintrest}}</h3>
+        <h3>Pintrest feed for {{person.contact.social.pintrest}}</h3>
         <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
         <a data-pin-do="embedUser" 
-           href="http://www.pinterest.com/{{person().contact.social.pintrest}}/">
-           Visit {{ person().name.preferred_first }} {{ person().name.preferred_last }} profile on Pinterest.</a>
+           href="http://www.pinterest.com/{{person.contact.social.pintrest}}/">
+           Visit {{ person.name.preferred_first }} {{ person.name.preferred_last }} profile on Pinterest.</a>
       </section>
 
       <!-- one day, when I feel more enthusiastic...
-      <section ng-show="person().contact.social.github"> -->
+      <section ng-show="person.contact.social.github"> -->
       <!--from here: -->
       <!--
-        <h3>github feed for {{person().contact.social.github}}</h3>
+        <h3>github feed for {{person.contact.social.github}}</h3>
         <script src="github-activity.js"></script> 
         <div github-activity events="events" options="options"></div>
       </section>
@@ -438,11 +438,11 @@
 
     
     
-    <section ng-show="person().applicant">
+    <section ng-show="person.applicant">
       <h3>applicant</h3>    
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="q in person().applicant.applications">
+             ng-repeat="q in person.applicant.applications">
           <p><span class="field-name">date</span>
              <span class="ang-inserted">{{q.date}}</span></p>
           <p><span class="field-name">covering_letter</span>

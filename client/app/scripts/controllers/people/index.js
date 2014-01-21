@@ -8,7 +8,7 @@ function($scope, People, Session) {
   $scope.logout = function() { console.log('logout'); Session.logout(); };
 
   $scope.getMoreLink = function(personId) {
-    if (personId == Session.getPersonId()) {
+    if (Session.getPersonId()) {
       return "#/people/" + personId;
     }
   };
