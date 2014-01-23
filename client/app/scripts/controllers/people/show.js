@@ -7,4 +7,5 @@ function($scope, Person, $routeParams, Session, $location) {
     $location.path("/people");
   }
   $scope.person = Person.getPerson($routeParams.personId);
+  $scope.updatePerson = Person.update;
 });
