@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("ShadowWolf")
-.directive("editable", function() {
+.directive("editable", function(Lens) {
   var editDisabled = false;
   return {
     restrict: "E",
@@ -9,8 +9,9 @@ angular.module("ShadowWolf")
     templateUrl: 'scripts/directives/editable.html',
     scope: {
       label: "@",
-      value: "@",
-      name:  "@"
+      object: "=",
+      objectName: "@object",
+      lens:  "@"
     },
     link: function (scope, element, attrs) { 
       if (attrs['editDisabled']) editDisabled = true;
@@ -19,10 +20,22 @@ angular.module("ShadowWolf")
       $scope.editableValue= $scope.value;
       $scope.editorEnabled= false;
 
+      $scope.get = Lens.get;
+      $scope.set = Lens.set;
+
+      $scope.getName = function() {
+        var name = $scope.objectName;
+        var props = $scope.lens.split('.');
+        for (var prop in props) {
+          name += "[" + props[prop] + "]";
+        }
+        return name;
+      };
+
       $scope.enableEditor = function() {
         if (editDisabled) return;
         $scope.editorEnabled = true;
-        $scope.editableValue = $scope.value;
+        $scope.editableValue = Lens.get($scope.object, $scope.lens);
       };
 
       $scope.disableEditor = function() {
@@ -32,6 +45,9 @@ angular.module("ShadowWolf")
       $scope.save = function() {
         console.log('saving field: ' + $scope.label + ' as ' + $scope.value);
         $scope.value = $scope.editableValue;
+        $scope.disableEditor();
+      };
+      $scope.cancel = function() {
         $scope.disableEditor();
       };
     }
