@@ -18,16 +18,11 @@
         </div>
         <div class="col-md-3">
           <h3>passport</h3>
-          <p><span class="field-name">prefix</span>
-            <span class="ang-inserted">{{person.name.prefix}}</span></p>
-          <p><span class="field-name">first</span>
-            <span class="ang-inserted">{{person.name.first}}</span></p>
-          <p><span class="field-name">middle</span>
-            <span class="ang-inserted">{{person.name.middle}}</span></p>
-          <p><span class="field-name">last</span>
-            <span class="ang-inserted">{{person.name.last}}</span></p>
-          <p><span class="field-name">last</span>
-            <span class="ang-inserted">{{person.name.last}}</span></p>
+          <editable object="person" lens="name.prefix" label="prefix"></editable>
+          <editable object="person" lens="name.first" label="first"></editable>
+          <editable object="person" lens="name.middle" label="middle"></editable>
+          <editable object="person" lens="name.last" label="prefix"></editable>
+          <editable object="person" lens="name.sufix" label="sufix"></editable>
         </div>
         <div class="col-md-3">
           <h3>Preferred</h3>
@@ -394,7 +389,7 @@
          <span class="ang-inserted"> {{person.contact.social.facebook}}</span></a></p>
       <p><span class="field-name">tumblr</span>
          <span class="ang-inserted"> {{person.contact.social.tumblr}}</span></a></p>
-
+<!--
       <section ng-show="person.contact.social.instagram">
         <h3>Instagram feed for {{person.contact.social.instagram}}</h3>
         <iframe src="http://widget.stagram.com/in/{{person.contact.social.instagram}}/?s=141&w=5&h=1&b=1&p=5" 
