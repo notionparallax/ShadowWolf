@@ -15,6 +15,9 @@ class People::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def failure
+    if params[:redirect_uri]
+      redirect_to "#{params[:redirect_uri]}?message=Invalid%20password%20or%20username."
+    end
   end
     
   protected
