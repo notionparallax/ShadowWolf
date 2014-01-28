@@ -2,7 +2,11 @@ $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 @import "bootstrap-sass/lib/bootstrap";
+/*display-box starts here*/
 @import "display-box";
+/*editable starts here*/
+@import "editable";
+
 
 /* Put your CSS here */
 html, body {
