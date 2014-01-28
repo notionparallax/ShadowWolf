@@ -8,4 +8,12 @@ function($scope, Person, $routeParams, Session, $location) {
   }
   $scope.person = Person.getPerson($routeParams.personId);
   $scope.updatePerson = Person.update;
+
+  $scope.range = function(n) {
+    var list = [];
+    for (var i = 0; i < n; i++) {
+      list.push(i);
+    }
+    return list;
+  };
 });

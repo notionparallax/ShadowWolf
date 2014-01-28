@@ -114,17 +114,8 @@
         <div class="col-md-8">
           <div class="row">
           <h4>Event Participation</h4>
-            <div class="alert alert-info col-sm-6" 
-                 ng-repeat="e in person.employee.office_culture.event_participations">
-              <!--<editable object="person" lens="employee.office_culture.event_participations[{{i}}]" label="name" ng-repeat="i in person.employee.office_culture_event_participations.length"></editable> dave's editable repeater-->
-              
-              <p><span class="field-name">name</span>
-                 <span class="ang-inserted">{{e.name}}</span></p>
-              <p><span class="field-name">date</span>
-                 <span class="ang-inserted">{{e.date}}</span></p>
-              <p><span class="field-name">url</span> 
-                 <span class="ang-inserted"><a href="{{e.url}}">{{e.url}}</a></span></p>
-              <p class="alert alert-warning">coming soon: event photos link</p>
+            <div ng-repeat="i in range(person.employee.office_culture.event_participations.length)">
+              <editable object="person" lens="employee.office_culture.event_participations[{{i}}]" label="name"></editable>
             </div>
           </div>
       </div>    
