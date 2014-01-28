@@ -349,27 +349,17 @@
     
     <section dissabled-ng-show="false && person.contact">
       <h3>contact</h3>
-      <p><span class="field-name">personal_email</span>
-         <span class="ang-inserted"> {{person.contact.personal_email}}</span></a></p>
-      <p><span class="field-name">personal_phone</span>
-         <span class="ang-inserted"> {{person.contact.personal_phone}}</span></a></p>
+      <editable object="person" lens="contact.personal_email" label="personal_email"></editable>
+      <editable object="person" lens="contact.personal_phone" label="personal_phone"></editable>
       <h4>social</h4>
-      <p><span class="field-name">twitter</span>
-         <span class="ang-inserted"> {{person.contact.social.twitter}}</span></a></p>
-      <p><span class="field-name">instagram</span>
-         <span class="ang-inserted"> {{person.contact.social.instagram}}</span></a></p>
-      <p><span class="field-name">github</span>
-         <span class="ang-inserted"> {{person.contact.social.github}}</span></a></p>
-      <p><span class="field-name">pinterest</span>
-         <span class="ang-inserted"> {{person.contact.social.pinterest}}</span></a></p>
-      <p><span class="field-name">google_plus</span>
-         <span class="ang-inserted"> {{person.contact.social.google_plus}}</span></a></p>
-      <p><span class="field-name">linkedin</span>
-         <span class="ang-inserted"> {{person.contact.social.linkedin}}</span></a></p>
-      <p><span class="field-name">facebook</span>
-         <span class="ang-inserted"> {{person.contact.social.facebook}}</span></a></p>
-      <p><span class="field-name">tumblr</span>
-         <span class="ang-inserted"> {{person.contact.social.tumblr}}</span></a></p>
+        <editable object="person" lens="contact.social.twitter" label="twitter"></editable>
+        <editable object="person" lens="contact.social.instagram" label="instagram"></editable>
+        <editable object="person" lens="contact.social.github" label="github"></editable>
+        <editable object="person" lens="contact.social.pinterest" label="pinterest"></editable>
+        <editable object="person" lens="contact.social.google_plus" label="google_plus"></editable>
+        <editable object="person" lens="contact.social.linkedin" label="linkedin"></editable>
+        <editable object="person" lens="contact.social.facebook" label="facebook"></editable>
+        <editable object="person" lens="contact.social.tumblr" label="tumblr"></editable>
       <!--Social widgets went in here-->
    </section>      
 
@@ -381,18 +371,15 @@
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4" 
              ng-repeat="q in person.applicant.applications">
-          <p><span class="field-name">date</span>
-             <span class="ang-inserted">{{q.date}}</span></p>
-          <p><span class="field-name">covering_letter</span>
-             <span class="ang-inserted">{{q.covering_letter}}</span></p>
-          <p><span class="field-name">portfolio</span>
-             <span class="ang-inserted">{{q.portfolio}}</span></p>
+          <editable object="person" lens="applicant.applications" label="date"></editable>
+          <editable object="person" lens="applicant.covering_letter" label="covering_letter"></editable>
+          <editable object="person" lens="applicant.portfolio" label="portfolio"></editable>
+          <editable object="person" lens="applicant.future_consideration" label="future_consideration"></editable>
+          <editable object="person" lens="applicant.future_consideration" label="future_consideration"></editable>
+          <editable object="person" lens="applicant.applications" label="date"></editable>
           <p><span class="field-name">assessment</span>
              <span class="ang-inserted" ng-bind-html="q.assessment"></span></p>
-          <p><span class="field-name">future_consideration</span>
-             <span class="ang-inserted">{{q.future_consideration}}</span></p>
-          <p><span class="field-name">skills_and_keywords</span>
-             <span class="ang-inserted">{{q.skills_and_keywords}}</span></p>
+          
         </div>
       </div>
     </section>
