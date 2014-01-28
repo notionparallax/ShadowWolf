@@ -26,10 +26,8 @@
         </div>
         <div class="col-md-3">
           <h3>Preferred</h3>
-          <p><span class="field-name">preferred_first</span>
-             <span class="ang-inserted">{{person.name.preferred_first}}</span></p>
-          <p><span class="field-name">preferred_last</span>
-             <span class="ang-inserted">{{person.name.preferred_last}}</span></p>
+          <editable object="person" lens="name.preferred_first" label="preferred first"></editable>
+          <editable object="person" lens="name.preferred_last" label="preferred last"></editable>
         </div> 
     </div>
   </section>
@@ -44,8 +42,7 @@
     
     <section ng-show="person.employee.position">
       <h3>position</h3>
-      <p><span class="field-name">position</span>
-         <span class="ang-inserted">{{person.employee.position}}</span></p>
+      <editable object="person" lens="employee.position" label="position"></editable>
     </section>
        
     <section ng-show="person.employee.photo">
@@ -119,6 +116,8 @@
           <h4>Event Participation</h4>
             <div class="alert alert-info col-sm-6" 
                  ng-repeat="e in person.employee.office_culture.event_participations">
+              <!--<editable object="person" lens="employee.office_culture.event_participations[{{i}}]" label="name" ng-repeat="i in person.employee.office_culture_event_participations.length"></editable> dave's editable repeater-->
+              
               <p><span class="field-name">name</span>
                  <span class="ang-inserted">{{e.name}}</span></p>
               <p><span class="field-name">date</span>
