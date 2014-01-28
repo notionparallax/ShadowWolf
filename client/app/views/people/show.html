@@ -1,34 +1,44 @@
 <div ng-show="person">
   <section ng-show="person.name">
     <h1>Check out {{ person.name.preferred_first }}'s Page!!</h1>
-
-    <p>{{ person.name.prefix }} {{ person.name.first }} {{ person.name.middle }} {{ person.name.last }} {{ person.name.suffix }} prefers to be called {{ person.name.preferred_first }}.</p>
-    <h3>name</h3>
-    <p>
-    {{ person.name.prefix }}
-    {{ person.name.first }} 
-    {{ person.name.middle }} 
-    {{ person.name.last }} 
-    {{ person.name.last }}
-    </p>
-    <p>{{ person.name.preferred_first }} {{ person.name.preferred_last }}</p>
-    <h3>passport</h3>
-    <p><span class="field-name">prefix</span>
-      <span class="ang-inserted">{{person.name.prefix}}</span></p>
-    <p><span class="field-name">first</span>
-      <span class="ang-inserted">{{person.name.first}}</span></p>
-    <p><span class="field-name">middle</span>
-      <span class="ang-inserted">{{person.name.middle}}</span></p>
-    <p><span class="field-name">last</span>
-      <span class="ang-inserted">{{person.name.last}}</span></p>
-    <p><span class="field-name">last</span>
-      <span class="ang-inserted">{{person.name.last}}</span></p>
-    <h3>Preferred</h3>
-    <p><span class="field-name">preferred_first</span>
-       <span class="ang-inserted">{{person.name.preferred_first}}</span></p>
-    <p><span class="field-name">preferred_last</span>
-       <span class="ang-inserted">{{person.name.preferred_last}}</span></p>
+    <div class="row">
+      <div class="col-md-3">
+        <p>{{ person.name.prefix }} {{ person.name.first }} {{ person.name.middle }} {{ person.name.last }} {{ person.name.suffix }} prefers to be called {{ person.name.preferred_first }}.</p>
+      </div>
+      <div class="col-md-3">
+        <h3>name</h3>
+        <p>
+        {{ person.name.prefix }}
+        {{ person.name.first }} 
+        {{ person.name.middle }} 
+        {{ person.name.last }} 
+        {{ person.name.last }}
+        </p>
+        <p>{{ person.name.preferred_first }} {{ person.name.preferred_last }}</p>
+        </div>
+        <div class="col-md-3">
+          <h3>passport</h3>
+          <p><span class="field-name">prefix</span>
+            <span class="ang-inserted">{{person.name.prefix}}</span></p>
+          <p><span class="field-name">first</span>
+            <span class="ang-inserted">{{person.name.first}}</span></p>
+          <p><span class="field-name">middle</span>
+            <span class="ang-inserted">{{person.name.middle}}</span></p>
+          <p><span class="field-name">last</span>
+            <span class="ang-inserted">{{person.name.last}}</span></p>
+          <p><span class="field-name">last</span>
+            <span class="ang-inserted">{{person.name.last}}</span></p>
+        </div>
+        <div class="col-md-3">
+          <h3>Preferred</h3>
+          <p><span class="field-name">preferred_first</span>
+             <span class="ang-inserted">{{person.name.preferred_first}}</span></p>
+          <p><span class="field-name">preferred_last</span>
+             <span class="ang-inserted">{{person.name.preferred_last}}</span></p>
+        </div> 
+    </div>
   </section>
+  
   <section ng-show="person.employee">
   
     <section ng-show="person.employee.login">
@@ -78,7 +88,7 @@
         </div>
       </div>
     </section>
-    
+    </div>
     <section ng-show="person.employee.conditions">
       <h3>conditions</h3>
       <div class="row">
@@ -96,27 +106,35 @@
     
     <section ng-show="person.employee.office_culture">
       <h3>office_culture</h3>
-      <p><span class="field-name">first_aider</span>
-         <span class="ang-inserted">{{person.employee.office_culture.first_aider}}</span></p>
-      <p><span class="field-name">fire_warden</span>
-         <span class="ang-inserted">{{person.employee.office_culture.fire_warden}}</span></p>
       <div class="row">
-        <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="e in person.employee.office_culture.event_participations">
-          <p><span class="field-name">name</span>
-             <span class="ang-inserted">{{e.name}}</span></p>
-          <p><span class="field-name">date</span>
-             <span class="ang-inserted">{{e.date}}</span></p>
-          <p><span class="field-name">url</span> 
-             <span class="ang-inserted"><a href="{{e.url}}">{{e.url}}</a></span></p>
+        <div class="col-md-4">
+          <p><span class="field-name">first_aider</span>
+             <span class="ang-inserted">{{person.employee.office_culture.first_aider}}</span></p>
+          <p><span class="field-name">fire_warden</span>
+             <span class="ang-inserted">{{person.employee.office_culture.fire_warden}}</span></p>
+          <p><span class="field-name">dietary.requirements</span>
+             <span class="ang-inserted">{{person.employee.office_culture.dietary.requirements}}</span></p>
+          <p><span class="field-name">dietary.preference.likes</span>
+             <span class="ang-inserted">{{person.employee.office_culture.dietary.preference.likes}}</span></p>
+          <p><span class="field-name">dietary.preference.dislikes</span>
+             <span class="ang-inserted">{{person.employee.office_culture.dietary.preference.dislikes}}</span></p>
         </div>
+        <div class="col-md-8">
+          <div class="row">
+          <h4>Event Participation</h4>
+            <div class="alert alert-info col-sm-6" 
+                 ng-repeat="e in person.employee.office_culture.event_participations">
+              <p><span class="field-name">name</span>
+                 <span class="ang-inserted">{{e.name}}</span></p>
+              <p><span class="field-name">date</span>
+                 <span class="ang-inserted">{{e.date}}</span></p>
+              <p><span class="field-name">url</span> 
+                 <span class="ang-inserted"><a href="{{e.url}}">{{e.url}}</a></span></p>
+              <p class="alert alert-warning">coming soon: event photos link</p>
+            </div>
+          </div>
       </div>    
-      <p><span class="field-name">dietary.requirements</span>
-         <span class="ang-inserted">{{person.employee.office_culture.dietary.requirements}}</span></p>
-      <p><span class="field-name">dietary.preference.likes</span>
-         <span class="ang-inserted">{{person.employee.office_culture.dietary.preference.likes}}</span></p>
-      <p><span class="field-name">dietary.preference.dislikes</span>
-         <span class="ang-inserted">{{person.employee.office_culture.dietary.preference.dislikes}}</span></p>
+      
     </section>
     
     <section ng-show="false && person.employee.contact">
@@ -139,7 +157,7 @@
     <section ng-show="person.employee.security_clearances">
     <h3>security_clearances</h3>
     <div class="row">
-      <div class="alert alert-info col-sm-6 col-md-4" 
+      <div class="alert alert-info col-sm-6 col-md-3" 
            ng-repeat="sc in person.employee.security_clearances">
         <p><span class="field-name">issuing_body</span>
            <span class="ang-inserted">{{sc.issuing_body}}</span></p>
@@ -157,11 +175,12 @@
          <span class="ang-inserted">{{person.employee.finance.employee_code}}</span></p>
       <p class="well well-sm">This is the foreign key into micropay</p>
     </section>
-    
+
+    <div class="row"> 
     <section ng-show="person.employee.qualifications">
       <h3>qualifications</h3>
       <div class="row">
-        <div class="alert alert-info col-sm-6 col-md-4" 
+        <div class="alert alert-info col-xs-12 col-sm-4 col-md-3" 
              ng-repeat="q in person.employee.qualifications">
           <p><span class="field-name">name</span>
              <span class="ang-inserted">{{q.name}}</span></p>
@@ -177,60 +196,68 @@
       </div>
     </section>
     
-    <section ng-show="person.employee.registrations">
-      <h3>registrations</h3>
-      <div class="row">
-        <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="q in person.employee.registrations">
-          <p><span class="field-name">organisation</span>
-             <span class="ang-inserted">{{q.organisation}}</span></p>
-          <p><span class="field-name">registration_number</span>
-             <span class="ang-inserted">{{q.registration_number}}</span></p>
-          <p><span class="field-name">state</span>
-             <span class="ang-inserted">{{q.state}}</span></p>
-          <p><span class="field-name">country</span>
-             <span class="ang-inserted">{{q.country}}</span></p>
-          <p><span class="field-name">expiry</span>
-             <span class="ang-inserted">{{q.expiry}}</span></p>
-        </div>
+    <div class="row">
+      <div class="col-md-4">
+        <section ng-show="person.employee.registrations">
+          <h3>registrations</h3>
+          <div class="row">
+            <div class="alert alert-info col-sm-12 col-md-6" 
+                 ng-repeat="q in person.employee.registrations">
+              <p><span class="field-name">organisation</span>
+                 <span class="ang-inserted">{{q.organisation}}</span></p>
+              <p><span class="field-name">registration_number</span>
+                 <span class="ang-inserted">{{q.registration_number}}</span></p>
+              <p><span class="field-name">state</span>
+                 <span class="ang-inserted">{{q.state}}</span></p>
+              <p><span class="field-name">country</span>
+                 <span class="ang-inserted">{{q.country}}</span></p>
+              <p><span class="field-name">expiry</span>
+                 <span class="ang-inserted">{{q.expiry}}</span></p>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
+      
+      <div class="col-md-4">
+        <section ng-show="person.employee.memberships">
+          <h3>memberships</h3>
+          <div class="row">
+            <div class="alert alert-info col-sm-12 col-md-6" 
+                 ng-repeat="q in person.employee.memberships">
+              <p><span class="field-name">organisation</span>
+                 <span class="ang-inserted">{{q.organisation}}</span></p>
+              <p><span class="field-name">membership_number</span>
+                 <span class="ang-inserted">{{q.membership_number}}</span></p>
+              <p><span class="field-name">state</span>
+                 <span class="ang-inserted">{{q.state}}</span></p>
+              <p><span class="field-name">country</span>
+                 <span class="ang-inserted">{{q.country}}</span></p>
+              <p><span class="field-name">expiry</span>
+                 <span class="ang-inserted">{{q.expiry}}</span></p>
+            </div>
+          </div>
+        </section>
+      </div>
     
-    <section ng-show="person.employee.memberships">
-      <h3>memberships</h3>
-      <div class="row">
-        <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="q in person.employee.memberships">
-          <p><span class="field-name">organisation</span>
-             <span class="ang-inserted">{{q.organisation}}</span></p>
-          <p><span class="field-name">membership_number</span>
-             <span class="ang-inserted">{{q.membership_number}}</span></p>
-          <p><span class="field-name">state</span>
-             <span class="ang-inserted">{{q.state}}</span></p>
-          <p><span class="field-name">country</span>
-             <span class="ang-inserted">{{q.country}}</span></p>
-          <p><span class="field-name">expiry</span>
-             <span class="ang-inserted">{{q.expiry}}</span></p>
-        </div>
+      <div class="col-md-4">
+        <section ng-show="person.employee.personal_awards">
+          <h3>personal_awards</h3>
+          <div class="row">
+            <div class="alert alert-info col-sm-12 col-md-6" 
+                 ng-repeat="q in person.employee.personal_awards">
+              <p><span class="field-name">name</span>
+                 <span class="ang-inserted">{{q.name}}</span></p>
+              <p><span class="field-name">awarding_body</span>
+                 <span class="ang-inserted">{{q.awarding_body}}</span></p>
+              <p><span class="field-name">description</span>
+                 <span class="ang-inserted" ng-bind-html="q.description"></span></p>
+              <p><span class="field-name">url</span>
+                 <span class="ang-inserted">{{q.url}}</span></p>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
-    
-    <section ng-show="person.employee.personal_awards">
-      <h3>personal_awards</h3>
-      <div class="row">
-        <div class="alert alert-info col-sm-6 col-md-4" 
-             ng-repeat="q in person.employee.personal_awards">
-          <p><span class="field-name">name</span>
-             <span class="ang-inserted">{{q.name}}</span></p>
-          <p><span class="field-name">awarding_body</span>
-             <span class="ang-inserted">{{q.awarding_body}}</span></p>
-          <p><span class="field-name">description</span>
-             <span class="ang-inserted" ng-bind-html="q.description"></span></p>
-          <p><span class="field-name">url</span>
-             <span class="ang-inserted">{{q.url}}</span></p>
-        </div>
-      </div>
-    </section>
+    </div> <!--end row-->
     
     <section ng-show="person.employee.professional_contributions">
       <h3>professional_contributions</h3>
@@ -301,21 +328,27 @@
       </div>
     </section>
         
+    
     <section ng-show="person.employee.biography">
       <h3>Biography</h3>
-      <p><span class="field-name">one_line_bio</span>
-         <span class="ang-inserted" ng-bind-html="person.employee.biography.one_line_bio">   </span></p>
-      <p><span class="field-name">approach</span>
-         <span class="ang-inserted" ng-bind-html="person.employee.biography.approach">       </span></p>
-      <p><span class="field-name">expertise</span>
-         <span class="ang-inserted" ng-bind-html="person.employee.biography.expertise">      </span></p>
-      <p><span class="field-name">experience</span>
-         <span class="ang-inserted" ng-bind-html="person.employee.biography.experience">     </span></p>
-      <p><span class="field-name">achievements</span>
-         <span class="ang-inserted" ng-bind-html="person.employee.biography.achievements">   </span></p>
-      <p><span class="field-name">value_statement</span>
-         <span class="ang-inserted" ng-bind-html="person.employee.biography.value_statement"></span></p>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <p><span class="field-name">one_line_bio</span>
+             <span class="ang-inserted" ng-bind-html="person.employee.biography.one_line_bio">   </span></p>
+          <p><span class="field-name">approach</span>
+             <span class="ang-inserted" ng-bind-html="person.employee.biography.approach">       </span></p>
+          <p><span class="field-name">expertise</span>
+             <span class="ang-inserted" ng-bind-html="person.employee.biography.expertise">      </span></p>
+          <p><span class="field-name">experience</span>
+             <span class="ang-inserted" ng-bind-html="person.employee.biography.experience">     </span></p>
+          <p><span class="field-name">achievements</span>
+             <span class="ang-inserted" ng-bind-html="person.employee.biography.achievements">   </span></p>
+          <p><span class="field-name">value_statement</span>
+             <span class="ang-inserted" ng-bind-html="person.employee.biography.value_statement"></span></p>
+        </div>
+      </div>
     </section>
+        
     
     <section ng-show="person.employee.press">
       <h3>press</h3>
