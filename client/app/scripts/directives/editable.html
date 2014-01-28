@@ -5,7 +5,8 @@
       <p ng-hide="editorEnabled" 
          class="form-control-static editable editable-text" 
          ng-click="enableEditor($event)">     
-        {{ get(object, lens) }}
+        <span ng-hide="subobject && sublens">{{ get(object, lens) }}</span>
+        <span ng-show="subobject && sublens">{{ subobject[sublens] }}</span>
         <span class="pulsar glyphicon glyphicon-hand-left pull-right"
               title="edit"></span>                                              
       </p>

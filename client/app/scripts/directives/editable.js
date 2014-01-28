@@ -11,7 +11,9 @@ angular.module("ShadowWolf")
       label: "@",
       object: "=",
       objectName: "@object",
+      subobject: "=",
       lens:  "@",
+      sublens: "@",
       updatePerson: "&"
     },
     link: function (scope, element, attrs) { 
@@ -49,17 +51,30 @@ angular.module("ShadowWolf")
       $scope.enableEditor = function() {
         if (editDisabled) return;
         $scope.editorEnabled = true;
-        $scope.editableValue = Lens.get($scope.object, $scope.lens);
+        $scope.editableValue = $scope.subobject && $scope.sublens
+          ? $scope.subobject[$scope.sublens] : Lens.get($scope.object, $scope.lens);
       };
 
       $scope.disableEditor = function() {
         $scope.editorEnabled = false;
       };
 
+      /**
+       * Saves the edited value in the rails database. If the subobject and sublens
+       * variables exist then it will send all of the sibling values back to the
+       * server, otherwise it just sends back the single field.
+       */
       $scope.save = function() {
-        $scope.set($scope.object, $scope.lens, $scope.editableValue);
+        var updateObject;
+        if ($scope.subobject) {
+          $scope.subobject[$scope.sublens] = $scope.editableValue;
+          updateObject = { person: $scope.wrapObject( $scope.get( $scope.object, $scope.lens ) ) };
+        } else {
+          $scope.set($scope.object, $scope.lens, $scope.editableValue);
+          updateObject = { person: $scope.wrapObject( $scope.editableValue ) };
+        }
         $scope.$parent.updatePerson( $scope.object.id['$oid'],
-          { person: $scope.wrapObject( $scope.editableValue ) },
+          updateObject,
           function() {
             console.log("successful update");
           }, function() {
