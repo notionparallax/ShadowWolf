@@ -1,23 +1,28 @@
-<div class="form-group show-field">                 
-  <label class="col-sm-2 control-label" for="{{ getName() }}">{{ label }}</label>                         
-  <div   class="col-sm-6">                                                    
-    <p ng-hide="editorEnabled" class="form-control-static editable" ng-click="enableEditor($event)">     
-      {{ get(object, lens) }}
-      <span class="pulsar glyphicon glyphicon-cloud pull-margin-right-1em-out"
-            title="save"></span>                                              
-    </p>
-    <div ng-show="editorEnabled" class="input-group">                   
-      <input type="text" 
-             ng-model="editableValue"                                         
-             class="form-control" />                                          
-      <span class="input-group-addon" ng-click="save()">                                        
-        <span class="glyphicon glyphicon-ok"                                  
-              title="save"></span>                          
-      </span>                                                                 
-      <span class="input-group-addon" ng-click="cancel()">                                        
-        <span class="glyphicon glyphicon-remove"                                  
-              title="cancel"></span>                          
-      </span>                                                                 
-    </div>
-  </div>                                                                   
-</div>                                                                        
+<div class="row">
+  <div class="form-group show-field">                 
+    <label class="col-sm-2 control-label" for="{{ getName() }}">{{ label }}</label>                         
+    <div class="col-sm-8">                                                    
+      <p ng-hide="editorEnabled" 
+         class="form-control-static editable" 
+         ng-click="enableEditor($event)">     
+        {{ get(object, lens) }}
+        <span class="pulsar glyphicon glyphicon-hand-left pull-right"
+              title="edit"></span>                                              
+      </p>
+      <div ng-show="editorEnabled" 
+           class="input-group">                   
+        <input type="text" 
+               ng-model="editableValue"                                         
+               class="form-control" />                                          
+        <span class="input-group-addon" ng-click="save()">                                        
+          <span class="glyphicon glyphicon-ok"                                  
+                title="save"></span>                          
+        </span>                                                                 
+        <span class="input-group-addon" ng-click="cancel()">                                        
+          <span class="glyphicon glyphicon-remove"                                  
+                title="cancel"></span>                          
+        </span>                                                                 
+      </div>
+    </div>                                                                   
+  </div>                                                                        
+</div>
