@@ -5,6 +5,7 @@
 }
 .editable-text{
 	padding-left:12px;
+	overflow-wrap: break-word;/*stop long links etc from poking out of the container*/
 }
 .editable-lable{
 	text-align: right;
