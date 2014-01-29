@@ -11,7 +11,7 @@
 	text-align: right;
 }
 .hit-area{
-	
+	border: 1px dashed rgba(255, 255, 255, 0.2); /*temporary way to show what's an editable and what isn't*/
 	&:hover{
 		background:rgba(255, 255, 255, 0.2);
 	}
