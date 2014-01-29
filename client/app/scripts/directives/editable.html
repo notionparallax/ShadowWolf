@@ -1,29 +1,31 @@
 <div class="row hit-area">
-  <div class="form-group show-field">                 
-    <label class="col-xs-12 col-sm-3 control-label editable-lable" for="{{ getName() }}">{{ label }}</label>                         
-    <div class="col-xs-12 col-sm-9">                                                    
-      <p ng-hide="editorEnabled" 
-         class="form-control-static editable editable-text" 
-         ng-click="enableEditor($event)">     
+  <div class="form-group show-field">
+
+    <label class="col-xs-12 col-sm-3 control-label editable-lable" for="{{ getName() }}">{{ label }}</label>
+    
+    <div class="col-xs-12 col-sm-9"><!--data area-->
+      <p ng-hide="editorEnabled"
+         class="form-control-static editable editable-text"
+         ng-click="enableEditor($event)">
         <span ng-hide="subobject && sublens">{{ get(object, lens) }}</span>
         <span ng-show="subobject && sublens">{{ subobject[sublens] }}</span>
-        <span class="pulsar glyphicon glyphicon-hand-left pull-right"
-              title="edit"></span>                                              
+        <span class="glyphicon glyphicon-hand-left pull-right" title="edit"></span>
       </p>
       <div ng-show="editorEnabled" 
-           class="input-group">                   
+           class="input-group">
         <input type="text" 
-               ng-model="editableValue"                                         
-               class="form-control" />                                          
-        <span class="input-group-addon" ng-click="save()">                                        
-          <span class="glyphicon glyphicon-ok"                                  
-                title="save"></span>                          
-        </span>                                                                 
-        <span class="input-group-addon" ng-click="cancel()">                                        
-          <span class="glyphicon glyphicon-remove"                                  
-                title="cancel"></span>                          
-        </span>                                                                 
-      </div>
-    </div>                                                                   
-  </div>                                                                        
-</div>
+               ng-model="editableValue"
+               class="form-control" />
+        <span class="input-group-addon" ng-click="save()">
+          <span class="glyphicon glyphicon-ok"
+                title="save"></span>
+        </span>
+        <span class="input-group-addon" ng-click="cancel()">
+          <span class="glyphicon glyphicon-remove"
+                title="cancel"></span>
+        </span>
+      </div><!--end editorEnabled-->
+    </div>  <!--end data area-->   
+
+  </div>    <!--end form-group-->
+</div>      <!--end row-->
