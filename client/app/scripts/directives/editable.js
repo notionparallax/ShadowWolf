@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("ShadowWolf")
-.directive("editable", function(Lens) {
+.directive("editable", function(Lens, Session) {
   var editDisabled = false;
   return {
     restrict: "E",
@@ -14,6 +14,7 @@ angular.module("ShadowWolf")
       subobject: "=",
       lens:  "@",
       sublens: "@",
+      type: "@",
       updatePerson: "&"
     },
     link: function (scope, element, attrs) { 
@@ -49,7 +50,7 @@ angular.module("ShadowWolf")
       };
 
       $scope.enableEditor = function() {
-        if (editDisabled) return;
+        if (editDisabled || Session.getPersonId() != $scope.object.id['$oid']) return;
         $scope.editorEnabled = true;
         $scope.editableValue = $scope.subobject && $scope.sublens
           ? $scope.subobject[$scope.sublens] : Lens.get($scope.object, $scope.lens);
