@@ -303,7 +303,7 @@
           <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="stage" label="stage"></editable>
           <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="start_date" label="start_date"></editable>
           <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="end_date" label="end_date" type="date"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="url" label="url"></editable>git
+          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="url" label="url"></editable>
         </div>
       </div>
     </section>
@@ -313,18 +313,12 @@
       <h3>Biography</h3>
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <p><span class="field-name">one_line_bio</span>
-             <span class="ang-inserted" ng-bind-html="person.employee.biography.one_line_bio">   </span></p>
-          <p><span class="field-name">approach</span>
-             <span class="ang-inserted" ng-bind-html="person.employee.biography.approach">       </span></p>
-          <p><span class="field-name">expertise</span>
-             <span class="ang-inserted" ng-bind-html="person.employee.biography.expertise">      </span></p>
-          <p><span class="field-name">experience</span>
-             <span class="ang-inserted" ng-bind-html="person.employee.biography.experience">     </span></p>
-          <p><span class="field-name">achievements</span>
-             <span class="ang-inserted" ng-bind-html="person.employee.biography.achievements">   </span></p>
-          <p><span class="field-name">value_statement</span>
-             <span class="ang-inserted" ng-bind-html="person.employee.biography.value_statement"></span></p>
+          <editable object="person" lens="employee.biography.one_line_bio" label="one_line_bio" type="textarea"></editable>
+          <editable object="person" lens="employee.biography.approach" label="approach" type="textarea"></editable>
+          <editable object="person" lens="employee.biography.expertise" label="expertise" type="textarea"></editable>
+          <editable object="person" lens="employee.biography.experience" label="experience" type="textarea"></editable>
+          <editable object="person" lens="employee.biography.achievements" label="achievements" type="textarea"></editable>
+          <editable object="person" lens="employee.biography.value_statement" label="value_statement" type="textarea"></editable>
         </div>
       </div>
     </section>
@@ -335,18 +329,13 @@
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.press.attentions">
-          <p><span class="field-name">date</span>
-             <span class="ang-inserted">{{q.date}}</span></p>
-          <p><span class="field-name">url</span>
-             <span class="ang-inserted">{{q.url}}</span></p>
-          <p><span class="field-name">scan_or_screengrab</span>
-             <span class="ang-inserted">{{q.scan_or_screengrab}}</span></p>
-          <p><span class="field-name">body_text</span>
-             <span class="ang-inserted" ng-bind-html="q.body_text"></span></p>
-          <p><span class="field-name">publication</span>
-             <span class="ang-inserted">{{q.publication}}</span></p>
-          <p><span class="field-name">reason</span>
-             <span class="ang-inserted">{{q.reason}}</span></p>
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="date" label="date"></editable>
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="url" label="url"></editable>
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="scan_or_screengrab" label="scan_or_screengrab"></editable>
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="body_text" label="body_text"></editable>
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="body_text" label="body_text" type="textarea"></editable>
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="publication" label="publication"></editable>
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="reason" label="reason"></editable>
         </div>
       </div>
     </section>
