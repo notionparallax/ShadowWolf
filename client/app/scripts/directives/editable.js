@@ -5,7 +5,7 @@ angular.module("ShadowWolf")
   var editDisabled = false;
   return {
     restrict: "E",
-    replace: true,
+    replace: false,
     templateUrl: 'scripts/directives/editable.html',
     scope: {
       label: "@",
