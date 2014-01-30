@@ -14,6 +14,7 @@ angular.module("ShadowWolf")
       subobject: "=",
       lens:  "@",
       sublens: "@",
+      type: "@",
       updatePerson: "&"
     },
     link: function (scope, element, attrs) { 
