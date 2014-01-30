@@ -4,13 +4,13 @@
     <label class="col-xs-12 col-sm-3 control-label editable-lable" for="{{ getName() }}">{{ label }}</label>
     
     <div class="col-xs-12 col-sm-9"><!--data area-->
-      <p ng-hide="editorEnabled"
+      <div ng-hide="editorEnabled"
          class="form-control-static editable editable-text"
          ng-click="enableEditor($event)">
-        <span ng-hide="subobject && sublens">{{ get(object, lens) }}</span>
-        <span ng-show="subobject && sublens">{{ subobject[sublens] }}</span>
+        <span ng-hide="subobject && sublens" ng-bind-html="{{ get(object, lens) }}"></span>
+        <span ng-show="subobject && sublens" ng-bind-html="{{ subobject[sublens] }}"></span>
         <span class="glyphicon glyphicon-hand-left pull-right" title="edit"></span>
-      </p>
+      </div>
       <div ng-show="editorEnabled" 
            class="input-group">
         <input ng-show="type != 'textarea'"
