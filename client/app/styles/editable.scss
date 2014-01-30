@@ -5,13 +5,20 @@
 }
 .editable-text{
 	padding-left:12px;
+	overflow-wrap: break-word;/*stop long links etc from poking out of the container*/
 }
 .editable-lable{
 	text-align: right;
 }
 .hit-area{
-	
+	border: 1px dashed rgba(255, 255, 255, 0.2); /*temporary way to show what's an editable and what isn't*/
 	&:hover{
 		background:rgba(255, 255, 255, 0.2);
+	}
+}
+
+@media (max-width: 767px){
+	.editable-lable{
+		text-align: left;
 	}
 }
