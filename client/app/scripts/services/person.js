@@ -4,7 +4,7 @@ angular.module('ShadowWolf')
 .service('Person', function($resource, $http, Session, $q, $rootScope) {
   $http.defaults.useXDomain = true;
   
-  var _Person = $resource('http://10.1.3.70:port/people/:personId.json?access_token=:accessToken',
+  var _Person = $resource('http://localhost:port/people/:personId.json?access_token=:accessToken',
     { port: ':3000', personId: '@personId', accessToken: Session.getAccessToken() },
     {
       'get':    {method:'GET'},
