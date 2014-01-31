@@ -7,8 +7,8 @@
       <div ng-hide="editorEnabled"
          class="form-control-static editable editable-text"
          ng-click="enableEditor($event)">
-        <span ng-hide="subobject && sublens" ng-bind-html="{{ get(object, lens) }}"></span>
-        <span ng-show="subobject && sublens" ng-bind-html="{{ subobject[sublens] }}"></span>
+        <div ng-hide="subobject && sublens" ng-bind-html="get(object, lens)"></div>
+        <div ng-show="subobject && sublens" ng-bind-html="subobject[sublens]"></div>
         <span class="glyphicon glyphicon-hand-left pull-right" title="edit"></span>
       </div>
       <div ng-show="editorEnabled" 
