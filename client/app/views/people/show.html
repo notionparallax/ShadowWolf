@@ -93,7 +93,7 @@
     <section dissabled-ng-show="person.employee.conditions">
       <!--One day this might show up as a pretty timeline or somethign like that!-->
       <h3>Conditions</h3>
-      <p class="explantory-text">A <em>condition</em>is like a status. At the moment you can either be 'Active', 'Retired', 'Maternity', 'Leave', 'Deceased', 'Applicant', 'Left' or 'Unknown', but we'll add more as we work out what is needed. The system calculates your current condition by looking at the most recent start date, so it is important to update new conditins as soon as you can. </p>
+      <p class="explantory-text">A <em>condition</em>is like a status. At the moment you can either be <em>Active</em>, <em>Retired</em>, <em>Maternity</em>, <em>Leave</em>, <em>Deceased</em>, <em>Applicant</em>, <em>Left</em> or </em>Unknown</em>, but we'll add more as we work out what is needed. The system calculates your current condition by looking at the most recent start date, so it is important to update new conditins as soon as you can. </p>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-3"
              ng-repeat="c in person.employee.conditions">
@@ -201,7 +201,7 @@
           <editable object="q" lens="level" label="level"></editable>
           <editable object="q" lens="institution" label="institution"></editable>
           <editable object="q" lens="first_year" label="first year" type="number"></editable>
-          <editable object="q" lens="last_year" label="last year" type="number" min="1970" max="2020" step="1"></editable>
+          <editable object="q" lens="last_year" label="last year" type="number"></editable>
         </div>
       </div>
     </section>
