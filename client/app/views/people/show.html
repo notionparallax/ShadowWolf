@@ -105,12 +105,12 @@
     </section>
 
     <section dissabled-ng-show="person.employee.office_culture">
-      <h3>office_culture</h3>
+      <h3>Office culture</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="col-md-4">
-          <editable object="person" lens="employee.office_culture.first_aider" label="first_aider"></editable>
-          <editable object="person" lens="employee.office_culture.fire_warden" label="fire_warden"></editable>
+          <editable object="person" lens="employee.office_culture.first_aider" label="first aider"></editable>
+          <editable object="person" lens="employee.office_culture.fire_warden" label="fire warden"></editable>
           <editable object="person" lens="employee.office_culture.dietary.requirements" label="requirements"></editable>
           <editable object="person" lens="employee.office_culture.dietary.likes" label="likes"></editable>
           <editable object="person" lens="employee.office_culture.dietary.dislikes" label="dislikes"></editable>
@@ -144,7 +144,7 @@
             <div class="col-md-6">
               <h4>Mobile</h4>
               <editable object="person" lens="employee.contact.mobile.number" label="number"></editable>
-              <editable object="person" lens="employee.contact.mobile.is_work" label="is_work"></editable>
+              <editable object="person" lens="employee.contact.mobile.is_work" label="is work"></editable>
               <editable object="person" lens="employee.contact.mobile.distribute" label="distribute"></editable>
             </div>
           </div>
@@ -179,12 +179,12 @@
 
 
     <section dissabled-ng-show="person.employee.security_clearances">
-      <h3>security_clearances</h3>
+      <h3> clearances</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-3"
              ng-repeat="sc in person.employee.security_clearances">
-          <editable object="sc" lens="issuing_body" label="issuing_body"></editable>
+          <editable object="sc" lens="issuing_body" label="issuing body"></editable>
           <editable object="sc" lens="level" label="level"></editable>
           <editable object="sc" lens="expiry" label="expiry"></editable>
         </div>
@@ -201,8 +201,8 @@
           <editable object="q" lens="name" label="name"></editable>
           <editable object="q" lens="level" label="level"></editable>
           <editable object="q" lens="institution" label="institution"></editable>
-          <editable object="q" lens="first_year" label="first_year"></editable>
-          <editable object="q" lens="last_year" label="last_year"></editable>
+          <editable object="q" lens="first_year" label="first year"></editable>
+          <editable object="q" lens="last_year" label="last year"></editable>
         </div>
       </div>
     </section>
@@ -233,7 +233,7 @@
             <div class="alert alert-info col-sm-12 col-md-6"
                  ng-repeat="m in person.employee.memberships">
               <editable object="person" subobject="m" lens="employee.memberships" sublens="organisation" label="organisation"></editable>
-              <editable object="person" subobject="m" lens="employee.memberships" sublens="membership_number" label="membership_number"></editable>
+              <editable object="person" subobject="m" lens="employee.memberships" sublens="membership_number" label="membership number"></editable>
               <editable object="person" subobject="m" lens="employee.memberships" sublens="state" label="state"></editable>
               <editable object="person" subobject="m" lens="employee.memberships" sublens="country" label="country"></editable>
               <editable object="person" subobject="m" lens="employee.memberships" sublens="expiry" label="expiry"></editable>
@@ -244,13 +244,13 @@
 
       <div class="col-md-4">
         <section dissabled-ng-show="person.employee.personal_awards">
-          <h3>personal_awards</h3>
+          <h3>personal awards</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
           <div class="row">
             <div class="alert alert-info col-sm-12 col-md-6"
                  ng-repeat="q in person.employee.personal_awards">
               <editable object="person" subobject="q" lens="employee.memberships" sublens="name" label="name"></editable>
-              <editable object="person" subobject="q" lens="employee.memberships" sublens="awarding_body" label="awarding_body"></editable>
+              <editable object="person" subobject="q" lens="employee.memberships" sublens="awarding_body" label="awarding body"></editable>
               <editable object="person" subobject="q" lens="employee.memberships" sublens="description" label="description" type="textarea"></editable>
               <editable object="person" subobject="q" lens="employee.memberships" sublens="url" label="url"></editable>
             </div>
@@ -260,7 +260,7 @@
     </div> <!--end row-->
 
     <section dissabled-ng-show="person.employee.professional_contributions">
-      <h3>professional_contributions</h3>
+      <h3>professional contributions</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
@@ -281,10 +281,10 @@
              ng-repeat="q in person.employee.travel.passports">
           <editable object="person" subobject="q" lens="employee.travel.passports" sublens="number" label="number"></editable>
           <editable object="person" subobject="q" lens="employee.travel.passports" sublens="expiry" label="expiry"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.passports" sublens="issuing_body" label="issuing_body"></editable>
+          <editable object="person" subobject="q" lens="employee.travel.passports" sublens="issuing_body" label="issuing body"></editable>
         </div>
       </div>
-      <h4>frequent_flier_programs</h4>
+      <h4>frequent flier programs</h4>
       <!--it'd be cool to get status updates from somewhere like http://awardwallet.com/ in the future-->
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
@@ -296,10 +296,10 @@
     </section>
 
     <section dissabled-ng-show="person.employee.project_experiences">
-      <h4>project_experiences (int)</h4>
+      <h4> experiences (int)</h4>
       <div class="alert alert-warning">coming as soon as we've tied the project
       data to people through the Epicor data. </div>
-      <h4>project_experiences (ext)</h4>
+      <h4> experiences (ext)</h4>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.project_experiences">
@@ -307,8 +307,8 @@
           <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="firm" label="firm"></editable>
           <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="role" label="role"></editable>
           <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="stage" label="stage"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="start_date" label="start_date"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="end_date" label="end_date" type="date"></editable>
+          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="start_date" label="start date"></editable>
+          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="end_date" label="end date" type="date"></editable>
           <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="url" label="url"></editable>
         </div>
       </div>
@@ -319,12 +319,12 @@
       <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <editable object="person" lens="employee.biography.one_line_bio" label="one_line_bio" type="textarea"></editable>
+          <editable object="person" lens="employee.biography.one_line_bio" label="one line bio" type="textarea"></editable>
           <editable object="person" lens="employee.biography.approach" label="approach" type="textarea"></editable>
           <editable object="person" lens="employee.biography.expertise" label="expertise" type="textarea"></editable>
           <editable object="person" lens="employee.biography.experience" label="experience" type="textarea"></editable>
           <editable object="person" lens="employee.biography.achievements" label="achievements" type="textarea"></editable>
-          <editable object="person" lens="employee.biography.value_statement" label="value_statement" type="textarea"></editable>
+          <editable object="person" lens="employee.biography.value_statement" label="value statement" type="textarea"></editable>
         </div>
       </div>
     </section>
@@ -338,9 +338,9 @@
              ng-repeat="q in person.employee.press.attentions">
           <editable object="person" subobject="q" lens="employee.press.attentions" sublens="date" label="date"></editable>
           <editable object="person" subobject="q" lens="employee.press.attentions" sublens="url" label="url"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="scan_or_screengrab" label="scan_or_screengrab"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="body_text" label="body_text"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="body_text" label="body_text" type="textarea"></editable>
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="scan_or_screengrab" label="scan_or screengrab"></editable>
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="body_text" label="body text"></editable>
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="body_text" label="body text" type="textarea"></editable>
           <editable object="person" subobject="q" lens="employee.press.attentions" sublens="publication" label="publication"></editable>
           <editable object="person" subobject="q" lens="employee.press.attentions" sublens="reason" label="reason"></editable>
         </div>
@@ -355,11 +355,11 @@
       <div class="alert alert-info col-sm-6 col-md-4"
            ng-repeat="q in person.applicant.applications">
         <editable object="person" lens="applicant.applications.date" label="date"></editable>
-        <editable object="person" lens="applicant.applications.covering_letter" label="covering_letter"></editable>
+        <editable object="person" lens="applicant.applications.covering_letter" label="covering letter"></editable>
         <editable object="person" lens="applicant.applications.portfolio" label="portfolio"></editable>
         <editable object="person" lens="applicant.applications.assessment" label="assessment" type="textarea"></editable>
-        <editable object="person" lens="applicant.applications.future_consideration" label="future_consideration"></editable>
-        <editable object="person" lens="applicant.applications.skills_and_keywords" label="skills_and_keywords"></editable>
+        <editable object="person" lens="applicant.applications.future_consideration" label="future consideration"></editable>
+        <editable object="person" lens="applicant.applications.skills_and_keywords" label="skills_and keywords"></editable>
       </div>
     </div>
   </section>
