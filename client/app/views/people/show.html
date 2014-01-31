@@ -1,36 +1,27 @@
-<div dissabled-ng-show="person">
+<article dissabled-ng-show="person">
 
   <section dissabled-ng-show="person.name">
     <h1>Check out {{ person.name.preferred_first }}'s Page!!</h1>
     <div class="row">
-      <div class="col-md-3">
-        <p>{{ person.name.prefix }} {{ person.name.first }} {{ person.name.middle }} {{ person.name.last }} {{ person.name.suffix }} prefers to be called {{ person.name.preferred_first }}.</p>
+      <div class="col-md-4">
+        <p>{{ person.name.prefix }} {{ person.name.first }} {{ person.name.middle }} {{ person.name.last }} {{ person.name.suffix }} prefers to be called {{ person.name.preferred_first }} {{ person.name.preferred_last }}.</p>
       </div>
-      <div class="col-md-3">
-        <h3>name</h3>
-        <p>
-        {{ person.name.prefix }}
-        {{ person.name.first }}
-        {{ person.name.middle }}
-        {{ person.name.last }}
-        {{ person.name.last }}
-        </p>
-        <p>{{ person.name.preferred_first }} {{ person.name.preferred_last }}</p>
-        </div>
-        <div class="col-md-3">
-          <h3>passport</h3>
-          <editable object="person" lens="name.prefix" label="prefix"></editable>
-          <editable object="person" lens="name.first" label="first"></editable>
-          <editable object="person" lens="name.middle" label="middle"></editable>
-          <editable object="person" lens="name.last" label="prefix"></editable>
-          <editable object="person" lens="name.sufix" label="sufix"></editable>
-        </div>
-        <div class="col-md-3">
-          <h3>Preferred</h3>
-          <editable object="person" lens="name.preferred_first" label="preferred first"></editable>
-          <editable object="person" lens="name.preferred_last" label="preferred last"></editable>
-        </div>
-    </div>
+      <div class="col-md-4">
+        <h3>Passport Name</h3>
+        <p class"explantory-text">This is your name as it appears in your passport. We sometimes need this for legal documents.</p>
+        <editable object="person" lens="name.prefix" label="prefix"></editable>
+        <editable object="person" lens="name.first" label="first"></editable>
+        <editable object="person" lens="name.middle" label="middle"></editable>
+        <editable object="person" lens="name.last" label="prefix"></editable>
+        <editable object="person" lens="name.sufix" label="sufix"></editable>
+      </div>
+      <div class="col-md-4">
+        <h3>Preferred Name</h3>
+        <p class"explantory-text">Often people are called something other than their<em>official</em> name. This is where you tell us what you'd prefer to be know as.</p>
+        <editable object="person" lens="name.preferred_first" label="preferred first"></editable>
+        <editable object="person" lens="name.preferred_last" label="preferred last"></editable>
+      </div>
+    </div><!--end row-->
   </section>
 
   <section dissabled-ng-show="person.employee">
@@ -349,4 +340,4 @@
     </div>
   </section>
 
-</div>
+</article>
