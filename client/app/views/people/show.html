@@ -8,7 +8,7 @@
       </div>
       <div class="col-md-4">
         <h3>Passport Name</h3>
-        <p class"explantory-text">This is your name as it appears in your passport. We sometimes need this for legal documents.</p>
+        <p class="explantory-text">This is your name as it appears in your passport. We sometimes need this for legal documents.</p>
         <editable object="person" lens="name.prefix" label="prefix"></editable>
         <editable object="person" lens="name.first" label="first"></editable>
         <editable object="person" lens="name.middle" label="middle"></editable>
@@ -17,7 +17,7 @@
       </div>
       <div class="col-md-4">
         <h3>Preferred Name</h3>
-        <p class"explantory-text">Often people are called something other than their<em>official</em> name. This is where you tell us what you'd prefer to be know as.</p>
+        <p class="explantory-text">Often people are called something other than their<em>official</em> name. This is where you tell us what you'd prefer to be know as.</p>
         <editable object="person" lens="name.preferred_first" label="preferred first"></editable>
         <editable object="person" lens="name.preferred_last" label="preferred last"></editable>
       </div>
@@ -25,21 +25,35 @@
   </section>
 
   <section dissabled-ng-show="person.employee">
-
-    <section dissabled-ng-show="person.employee.login">
-      <h3>login</h3>
-      <!--non editable, primary DB key-->
-      <p><span class="field-name">login</span>
-         <span class="ang-inserted">{{person.employee.login}}</span></p>
+    <h2>Employee details</h2>
+    <section>
+      <h3>Fixed details</h3>
+      <p class="explantory-text">These aren't editable because these are the values that identify you to the databases that we use.</p>
+      <div dissabled-ng-show="person.employee.login">
+        <h3>login</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
+        <!--non editable, primary DB key-->
+        <p><span class="field-name">login</span>
+           <span class="ang-inserted">{{person.employee.login}}</span></p>
+      </div>
+      <div dissabled-ng-show="person.employee.finance">
+        <h3>finance</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
+        <!--non editable becasue this is a db key-->
+        <p><span class="field-name">employee code</span>
+           <span class="ang-inserted">{{person.employee.finance.employee_code}}</span></p>
+      </div>
     </section>
 
     <section dissabled-ng-show="person.employee.position">
       <h3>position</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
       <editable object="person" lens="employee.position" label="position"></editable>
     </section>
 
     <section dissabled-ng-show="person.employee.photo">
       <h3>photo</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="col-sm-4">
           <div class="thumbnail">
@@ -48,6 +62,7 @@
                  itemprop="image" />
             <div class="caption">
               <h3>Serious B&W Photo</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
             </div>
           </div>
         </div>
@@ -58,6 +73,7 @@
                  itemprop="image" />
             <div class="caption">
               <h3>Serious Colour Photo</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
             </div>
           </div>
         </div>
@@ -68,6 +84,7 @@
                  itemprop="image" />
             <div class="caption">
               <h3>Fun Photo</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
             </div>
           </div>
         </div>
@@ -77,6 +94,7 @@
 
     <section dissabled-ng-show="person.employee.conditions">
       <h3>conditions</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="c in person.employee.conditions">
@@ -88,6 +106,7 @@
 
     <section dissabled-ng-show="person.employee.office_culture">
       <h3>office_culture</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="col-md-4">
           <editable object="person" lens="employee.office_culture.first_aider" label="first_aider"></editable>
@@ -116,6 +135,7 @@
         <section dissabled-ng-show="false && person.employee.contact">
           <div class="row">
             <h3>contact (office)</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
             <div class="col-md-6">
               <editable object="person" lens="employee.contact.extension" label="extension"></editable>
               <editable object="person" lens="employee.contact.studio" label="studio"></editable>
@@ -135,6 +155,7 @@
         <section dissabled-ng-show="false && person.contact">
           <div class="row">
             <h3>contact (personal)</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
             <div class="col-md-6">
               <editable object="person" lens="contact.personal_email" label="personal email"></editable>
               <editable object="person" lens="contact.personal_phone" label="personal phone"></editable>
@@ -159,6 +180,7 @@
 
     <section dissabled-ng-show="person.employee.security_clearances">
       <h3>security_clearances</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-3"
              ng-repeat="sc in person.employee.security_clearances">
@@ -169,16 +191,10 @@
       </div>
     </section>
 
-    <section dissabled-ng-show="person.employee.finance">
-      <h3>finance</h3>
-      <!--non editable becasue this is a db key-->
-      <p><span class="field-name">employee_code</span>
-         <span class="ang-inserted">{{person.employee.finance.employee_code}}</span></p>
-    </section>
-
     <div class="row">
     <section dissabled-ng-show="person.employee.qualifications">
       <h3>qualifications</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="alert alert-info col-xs-12 col-sm-4 col-md-3"
              ng-repeat="q in person.employee.qualifications">
@@ -195,6 +211,7 @@
       <div class="col-md-4">
         <section dissabled-ng-show="person.employee.registrations">
           <h3>registrations</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
           <div class="row">
             <div class="alert alert-info col-sm-12 col-md-6"
                  ng-repeat="q in person.employee.registrations">
@@ -211,6 +228,7 @@
       <div class="col-md-4">
         <section dissabled-ng-show="person.employee.memberships">
           <h3>memberships</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
           <div class="row">
             <div class="alert alert-info col-sm-12 col-md-6"
                  ng-repeat="m in person.employee.memberships">
@@ -227,6 +245,7 @@
       <div class="col-md-4">
         <section dissabled-ng-show="person.employee.personal_awards">
           <h3>personal_awards</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
           <div class="row">
             <div class="alert alert-info col-sm-12 col-md-6"
                  ng-repeat="q in person.employee.personal_awards">
@@ -242,6 +261,7 @@
 
     <section dissabled-ng-show="person.employee.professional_contributions">
       <h3>professional_contributions</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.professional_contributions">
@@ -254,6 +274,7 @@
 
     <section dissabled-ng-show="person.employee.travel">
       <h3>travel</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
       <h4>passports</h4>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
@@ -295,6 +316,7 @@
 
     <section dissabled-ng-show="person.employee.biography">
       <h3>Biography</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <editable object="person" lens="employee.biography.one_line_bio" label="one_line_bio" type="textarea"></editable>
@@ -310,6 +332,7 @@
 
     <section dissabled-ng-show="person.employee.press">
       <h3>press</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.press.attentions">
@@ -327,6 +350,7 @@
 
   <section dissabled-ng-show="person.applicant">
     <h3>applicant</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
     <div class="row">
       <div class="alert alert-info col-sm-6 col-md-4"
            ng-repeat="q in person.applicant.applications">
