@@ -26,6 +26,13 @@
 
   <section dissabled-ng-show="person.employee">
     <h2>Employee details</h2>
+
+    <section dissabled-ng-show="person.employee.position">
+      <h3>Position</h3>
+      <p class="explantory-text">Explanatory text goes in here</p>
+      <editable object="person" lens="employee.position" label="position"></editable>
+    </section>
+
     <section>
       <h3>Fixed details</h3>
       <p class="explantory-text">These aren't editable because these are the values that identify you to the databases that we use.</p>
@@ -45,15 +52,10 @@
       </div>
     </section>
 
-    <section dissabled-ng-show="person.employee.position">
-      <h3>position</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
-      <editable object="person" lens="employee.position" label="position"></editable>
-    </section>
-
     <section dissabled-ng-show="person.employee.photo">
-      <h3>photo</h3>
+      <h3>Photos</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
+
       <div class="row">
         <div class="col-sm-4">
           <div class="thumbnail">
@@ -62,7 +64,6 @@
                  itemprop="image" />
             <div class="caption">
               <h3>Serious B&W Photo</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
             </div>
           </div>
         </div>
@@ -73,7 +74,6 @@
                  itemprop="image" />
             <div class="caption">
               <h3>Serious Colour Photo</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
             </div>
           </div>
         </div>
@@ -84,19 +84,18 @@
                  itemprop="image" />
             <div class="caption">
               <h3>Fun Photo</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
             </div>
           </div>
         </div>
-      </div>
+      </div><!--end row-->
     </section>
-    </div>
 
     <section dissabled-ng-show="person.employee.conditions">
-      <h3>conditions</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
+      <!--One day this might show up as a pretty timeline or somethign like that!-->
+      <h3>Conditions</h3>
+      <p class="explantory-text">A <em>condition</em>is like a status. At the moment you can either be 'Active', 'Retired', 'Maternity', 'Leave', 'Deceased', 'Applicant', 'Left' or 'Unknown', but we'll add more as we work out what is needed. The system calculates your current condition by looking at the most recent start date, so it is important to update new conditins as soon as you can. </p>
       <div class="row">
-        <div class="alert alert-info col-sm-6 col-md-4"
+        <div class="alert alert-info col-sm-6 col-md-3"
              ng-repeat="c in person.employee.conditions">
           <editable object="person" subobject="c" lens="employee.conditions" sublens="name" label="name"></editable>
           <editable object="person" subobject="c" lens="employee.conditions" sublens="start_date" label="start date"></editable>
@@ -124,7 +123,7 @@
               <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="name" label="name"></editable>
               <div class="alert alert-warning">
                 <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="url" label="url"></editable>
-                coming soon: event photos link</div>
+                coming soon: event photos link<span class="glyphicon glyphicon-link"></span></div>
             </div>
           </div>
       </div>
