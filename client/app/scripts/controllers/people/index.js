@@ -2,11 +2,19 @@
 
 angular.module('ShadowWolf')
 .controller('PeopleIndexController',
-function($scope, People, Session) {
+function($scope, People, Session, Config) {
   $scope.people = People.getPeople;
   $scope.loggedIn = function() { return !!Session.getAccessToken(); };
   $scope.logout = function() { console.log('logout'); Session.logout(); };
 
+  $scope.getLogInLink = function() {
+    return Config.getEndPoint() 
+      + '/people/auth/ldap?redirect_uri='
+      + encodeURIComponent( 
+          Config.getReturnPoint()
+          + '/#/callback'
+        )
+  };
   $scope.getMoreLink = function(personId) {
     if (Session.getPersonId()) {
       return "#/people/" + personId;

@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('ShadowWolf')
-.service('Person', function($resource, $http, Session, $q, $rootScope) {
+.service('Person', function($resource, $http, Session, $q, $rootScope, Config) {
   $http.defaults.useXDomain = true;
   
-  var _Person = $resource('http://10.1.3.70:port/people/:personId.json?access_token=:accessToken',
-    { port: ':3000', personId: '@personId', accessToken: Session.getAccessToken() },
+  var _Person = $resource(Config.getEndPoint() + '/people/:personId.json?access_token=:accessToken',
+    { personId: '@personId', accessToken: Session.getAccessToken() },
     {
       'get':    {method:'GET'},
       'save':   {method:'POST'},

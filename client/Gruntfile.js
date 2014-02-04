@@ -19,6 +19,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-typescript');
   grunt.loadNpmTasks('grunt-cucumber');
+  grunt.loadNpmTasks('grunt-ng-constant');
 
   // configurable paths
   var yeomanConfig = {
@@ -61,6 +62,29 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
+    },
+    ngconstant: {
+      options: {
+        space: '  '
+      },
+
+      // targets
+      development: [{
+        dest: '<%= yeoman.app %>/scripts/config.js',
+        wrap: '"use strict";\n\n <%= __ngModule %>',
+        name: 'config',
+        constants: {
+          ENV: 'development'
+        }
+      }],
+      production: [{
+        dest: '<%= yeoman.dist %>/scripts/config.js',
+        wrap: '"use strict";\n\n <%= __ngModule %>',
+        name: 'config',
+        constants: {
+          ENV: 'production'
+        }
+      }]
     },
     cucumberjs: {
       files: 'test/features',
@@ -385,6 +409,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -403,6 +428,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
