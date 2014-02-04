@@ -3,14 +3,14 @@ project:
   - name: project_number
     type: string
     factory: |
-      { ((0..20).to_a.sample.years.ago + (1..345).to_a.sample.days) + "." + (Faker::Base::ULetters.sample)+ (Faker::Base::ULetters.sample)+ (Faker::Base::ULetters.sample) }
+      { Date.strptime((0..20).to_a.sample.years.ago.to_s,"%Y-%m-%d %H:%M:%S %Z").strftime("%Y%m%d") + "." + (Faker::Base::ULetters.sample)+ (Faker::Base::ULetters.sample)+ (Faker::Base::ULetters.sample)}
 
 non_building:
   fields:
   - name: description
     type: text
     factory: |
-      { Faker::Lorem.paragraphs.join('<br>') }
+      { Faker::Lorem.paragraphs[2].join('<br>') }
   relation:
     parent: project
     type: embeds_one
@@ -52,15 +52,15 @@ geoJSON:
   - name: lat
     type: double
     factory: |
-      { (110..-155).sample + rand }
+      { (-155..110).to_a.sample + rand }
   - name: lon
     type: double
     factory: |
-      { (-45..-10).sample + rand }
+      { (-45..-10).to_a.sample + rand }
   - name: boundary_points
     type: array
     factory: |
-      { [[(110..-155).sample + rand, (-45..-10).sample + rand],[(110..-155).sample + rand, (-45..-10).sample + rand],[(110..-155).sample + rand, (-45..-10).sample + rand],[(110..-155).sample + rand, (-45..-10).sample + rand]] }
+      { [[(-155..110).to_a.sample + rand, (-45..-10).to_a.sample + rand],[(-155..110).to_a.sample + rand, (-45..-10).to_a.sample + rand],[(-155..110).to_a.sample + rand, (-45..-10).to_a.sample + rand],[(-155..110).to_a.sample + rand, (-45..-10).to_a.sample + rand]] }
   relation:
     parent: location
     type: embeds_one
@@ -232,15 +232,15 @@ client:
   - name:main
     type:string
     factory: |
-      { TODO }
+      { Faker::name.name }
   - name:direct
     type:string
     factory: |
-      { TODO }
+      { Faker::name.name  }
   - name:end_user
     type:string
     factory: |
-      { TODO }
+      { Faker::name.name  }
   relation:
     parent: building
     type: embeds_one
