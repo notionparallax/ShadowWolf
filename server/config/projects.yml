@@ -24,19 +24,19 @@ building:
   - name: attribution
     type: string
     factory: |
-      { TODO }
+      { "TODO: I don't remember why this field exists" }
   - name: BCA_classification
     type: string
     factory: |
-      { TODO }
+      { "Class " + ["1","1A","1B","2","3","4","5","6","7","8","9","9A","9B","9C","10","10A","10B"].sample }
   - name: project_catagories
     type: array
     factory: |
-      { TODO }
+      { Faker::Name.first_name + ", "+Faker::Name.first_name + ", " + Faker::Name.first_name }
    - name: project_sub-catagories
     type: array
     factory: |
-      { TODO }
+      { Faker::Name.first_name + ", "+Faker::Name.first_name + ", " + Faker::Name.first_name }
   relation:
     parent: project
     type: embeds_one
@@ -52,41 +52,41 @@ geoJSON:
   - name: lat
     type: double
     factory: |
-      { TODO }
+      { (110..-155).sample + rand }
   - name: lon
     type: double
     factory: |
-      { TODO }
+      { (-45..-10).sample + rand }
   - name: boundary_points
     type: array
     factory: |
-      { TODO }
+      { [[(110..-155).sample + rand, (-45..-10).sample + rand],[(110..-155).sample + rand, (-45..-10).sample + rand],[(110..-155).sample + rand, (-45..-10).sample + rand],[(110..-155).sample + rand, (-45..-10).sample + rand]] }
   relation:
     parent: location
     type: embeds_one
 
 address:
   fields:
-  - name: name
+  - name: building_name
     type: string
     factory: |
-      { TODO }
+      { Faker::Name.first_name + " Building"}
   - name: street_number
     type: string
     factory: |
-      { TODO }
+      { (1..100).sample }
   - name: street
     type: string
     factory: |
-      { TODO }
+      { Faker::Address.street_address }
   - name: suburb_area
     type: string
     factory: |
-      { TODO }
+      { Faker::Address.us_state}
   - name: state_county
     type: string
     factory: |
-      { TODO }
+      { Faker::Address.uk_county }
   - name: country
     type: string
     factory: |
@@ -94,7 +94,7 @@ address:
   - name: postcode
     type: string
     factory: |
-      { TODO }
+      { Faker::Address.uk_postcode}
   relation:
     parent: location
     type: embeds_one
