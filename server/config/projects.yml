@@ -48,12 +48,6 @@ location:
     type: embeds_one
 
 geoJSON:
-  fields:[]
-  relation:
-    parent: location
-    type: embeds_one
-
-point_loc:
   fields:
   - name: lat
     type: double
@@ -63,18 +57,12 @@ point_loc:
     type: double
     factory: |
       { TODO }
-  relation:
-    parent: geoJSON
-    type: embeds_one
-
-boundary:
-  fields:
   - name: boundary_points
     type: array
     factory: |
       { TODO }
   relation:
-    parent: geoJSON
+    parent: location
     type: embeds_one
 
 address:
