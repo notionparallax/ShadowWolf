@@ -1,0 +1,150 @@
+project:
+  fields: 
+  - name: project_number
+    type: string
+    factory: |
+      { TODO }
+
+non_building:
+  fields:
+  - name: description
+    type: text
+    factory: |
+      { TODO }
+  relation:
+    parent: project
+    type: embeds_one
+
+building:
+  fields:
+  - name: description
+    type: text
+    factory: |
+      { TODO }
+  - name: attribution
+    type: string
+    factory: |
+      { TODO }
+  - name: BCA_classification
+    type: string
+    factory: |
+      { TODO }
+  - name: project_catagories
+    type: array
+    factory: |
+      { TODO }
+   - name: project_sub-catagories
+    type: array
+    factory: |
+      { TODO }
+
+  - name: location
+    type: string
+    factory: |
+      { TODO }
+  - name: projecct_source
+    type: string
+    factory: |
+      { TODO }
+  - name: dims
+    type: string
+    factory: |
+      { TODO }
+  - name: client
+    type: string
+    factory: |
+      { TODO }
+  - name: relationships
+    type: string
+    factory: |
+      { TODO }
+  - name: phase
+    type: string
+    factory: |
+      { TODO }
+  - name: legacy
+    type: string
+    factory: |
+      { TODO }
+  - name: media
+    type: string
+    factory: |
+      { TODO }
+  - name: QA
+    type: string
+    factory: |
+      { TODO }
+  relation:
+    parent: project
+    type: embeds_one
+
+location:
+  fields:[]
+  relation:
+    parent: building
+    type: embeds_one
+
+geoJSON:
+  fields:[]
+  relation:
+    parent: location
+    type: embeds_one
+
+point_loc:
+  fields:
+  - name: lat
+    type: double
+    factory: |
+      { TODO }
+  - name: lon
+    type: double
+    factory: |
+      { TODO }
+  relation:
+    parent: geoJSON
+    type: embeds_one
+
+boundary:
+  fields:
+  - name: boundary_points
+    type: array
+    factory: |
+      { TODO }
+  relation:
+    parent: geoJSON
+    type: embeds_one
+
+address:
+  fields:
+  - name: name
+    type: string
+    factory: |
+      { TODO }
+  - name: street_number
+    type: string
+    factory: |
+      { TODO }
+  - name: street
+    type: string
+    factory: |
+      { TODO }
+  - name: suburb_area
+    type: string
+    factory: |
+      { TODO }
+  - name: state_county
+    type: string
+    factory: |
+      { TODO }
+  - name: country
+    type: string
+    factory: |
+      { TODO }
+  - name: postcode
+    type: string
+    factory: |
+      { TODO }
+  relation:
+    parent: location
+    type: embeds_one
+
