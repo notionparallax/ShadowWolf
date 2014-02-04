@@ -90,7 +90,7 @@ address:
   - name: country
     type: string
     factory: |
-      { TODO }
+      {  Faker::Address.uk_country }
   - name: postcode
     type: string
     factory: |
@@ -104,11 +104,11 @@ project_source:
   - name: competition_win
     type: boolean
     factory: |
-      { TODO }
+      { [true,false].sample }
   - name: competition_URL
     type: string
     factory: |
-      { TODO }
+      { 'http://' + Faker::Internet.domain_name + '/projects/' + Faker::Name.first_name + 'projects/' }
   relation:
     parent: building
     type: embeds_one
@@ -122,11 +122,11 @@ referred_by:
   - name: contact_name
     type: string
     factory: |
-      { TODO }
+      { Faker::Name.name }
   - name: contact_organisation
     type: string
     factory: |
-      { TODO }
+      { Faker::Name.name + "Institute" }
   relation:
     parent: project_source
     type: embeds_one
@@ -142,15 +142,15 @@ height:
   - name:measurement
     type:double
     factory: |
-      { TODO }
+      { rand * 800 }
   - name:standard_name
     type:string
     factory: |
-      { TODO }
+      { ["Highest occupied floor", "top of radio mast"].sample }
   - name:standard_version
     type:string
     factory: |
-      { TODO }
+      { "V"+(1..5).sample }
   relation:
     parent: dims
     type: embeds_one
@@ -160,15 +160,15 @@ footprint_area:
   - name:measurement
     type:double
     factory: |
-      { TODO }
+      { rand * 80000 }
   - name:standard_name
     type:string
     factory: |
-      { TODO }
+      { ["BC", "IOS", "RM"].sample +  ["USA", "Au", "UK"].sample}
   - name:standard_version
     type:string
     factory: |
-      { TODO }
+      { "V"+(1..5).sample }
   relation:
     parent: dims
     type: embeds_one
@@ -178,15 +178,15 @@ GBA:
   - name:measurement
     type:double
     factory: |
-      { TODO }
+      { rand * 80000  }
   - name:standard_name
     type:string
     factory: |
-      { TODO }
+      { ["BC", "IOS", "RM"].sample +  ["USA", "Au", "UK"].sample}
   - name:standard_version
     type:string
     factory: |
-      { TODO }
+      { "V"+(1..5).sample }
   relation:
     parent: dims
     type: embeds_one
@@ -196,15 +196,15 @@ GFA:
   - name:measurement
     type:double
     factory: |
-      { TODO }
+      { rand * 80000  }
   - name:standard_name
     type:string
     factory: |
-      { TODO }
+      { ["BC", "IOS", "RM"].sample +  ["USA", "Au", "UK"].sample}
   - name:standard_version
     type:string
     factory: |
-      { TODO }
+      { "V"+(1..5).sample }
   relation:
     parent: dims
     type: embeds_one
@@ -214,15 +214,15 @@ NLA:
   - name:measurement
     type:double
     factory: |
-      { TODO }
+      { rand * 80000  }
   - name:standard_name
     type:string
     factory: |
-      { TODO }
+      { ["BC", "IOS", "RM"].sample +  ["USA", "Au", "UK"].sample}
   - name:standard_version
     type:string
     factory: |
-      { TODO }
+      { "V"+(1..5).sample }
   relation:
     parent: dims
     type: embeds_one
@@ -330,35 +330,35 @@ budget:
   - name:initial_phase_value_total
     type:double
     factory: |
-      { TODO }
+      { (rand*100).floor*1000000 }
   - name:final_phase_value_total
     type:double
     factory: |
-      { TODO }
+      { (rand*100).floor*1000000 }
   - name:initial_phase_fee_total
     type:double
     factory: |
-      { TODO }
+      { (rand*100).floor*1000000 }
   - name:final_phase_fee_total
     type:double
     factory: |
-      { TODO }
+      { (rand*100).floor*1000000 }
   - name:construction_initial
     type:double
     factory: |
-      { TODO }
+      { (rand*100).floor*1000000 }
   - name:construction_final
     type:double
     factory: |
-      { TODO }
+      { (rand*100).floor*1000000 }
   - name:comments
     type:text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name:fee_type
     type:string
     factory: |
-      { TODO }
+      { ["fixed fee", "lump sum", "hourly"].sample }
   relation:
     parent: phase
     type: embeds_one
@@ -408,15 +408,15 @@ initiatives:
   - name:title
     type:string
     factory: |
-      { TODO }
+      { ["wind turbine", "magic glass", "green roof"].sample }
   - name:reason
     type:string
     factory: |
-      { TODO }
+      { Faker::Lorem.sentence }
   - name:description
-    type:string
+    type:text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs(2).join('<br>') }
   relation:
     parent: ESD
     type: embeds_many
@@ -426,19 +426,19 @@ certifications:
   - name:name
     type:string
     factory: |
-      { TODO }
+      { ["NABERS", "GBCA", "Carbon Buzz"].sample + ["designed", "built", "imagined"].sample}
   - name:ranking
     type:string
     factory: |
-      { TODO }
+      { ["***", "****", "******"].sample }
   - name:awarding_body
     type:string
     factory: |
-      { TODO }
+      { ["NABERS", "GBCA", "Carbon Buzz"].sample }
   - name:expiry_date
     type:date
     factory: |
-      { TODO }
+      { { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days } }
   relation:
     parent: ESD
     type: embeds_many
