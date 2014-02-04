@@ -108,7 +108,7 @@ project_source:
   - name: competition_URL
     type: string
     factory: |
-      { 'http://' + Faker::Internet.domain_name + '/projects/' }
+      { 'http://' + Faker::Internet.domain_name + '/project-offers/' }
   relation:
     parent: building
     type: embeds_one
@@ -164,7 +164,7 @@ footprint_area:
   - name:standard_name
     type:string
     factory: |
-      { ["BC", "IOS", "RM"].sample +  ["USA", "Au", "UK"].sample}
+      { ["BC", "IOS", "RM"].sample +  ["USA", "AU", "UK"].sample}
   - name:standard_version
     type:string
     factory: |
@@ -268,15 +268,15 @@ phase:
   - name:project_name
     type:string
     factory: |
-      { TODO }
+      { Faker::Commerce.product_name + " " + ["base", "tower", "building", "Labs"].sample}
   - name:studio
     type:string
     factory: |
-      { TODO }
+      { ['Brisbane', 'Sydney', 'Canberra', 'Auckland', 'Bangkok', 'London', 'Melbourne', 'Townsville'].sample }
   - name:client
     type:string
     factory: |
-      { TODO }
+      { Faker::Company.name }
   - name:services_scope
     type: text
     factory: |
@@ -320,7 +320,7 @@ other_dates:
   - name:description
     type:string
     factory: |
-      { TODO }
+      { Faker::Company.catch_phrase }
   relation:
     parent: key_date
     type: embeds_many
@@ -392,7 +392,7 @@ legacy:
   - name:security_level
     type:string
     factory: |
-      { TODO }
+      { ['Top Secret', 'Licence to Kill', 'Double Secret Probation', 'Baseline'].sample }
   relation:
     parent: building
     type: embeds_one
@@ -438,7 +438,7 @@ certifications:
   - name:expiry_date
     type:date
     factory: |
-      { { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days } }
+      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   relation:
     parent: ESD
     type: embeds_many
@@ -448,11 +448,11 @@ photography:
   -name:photographer
    type:string
    factory: |
-      { TODO }
+      { Faker::Name.name  }
   - name:date
     type:date
     factory: |
-      { TODO }
+      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   relation:
     parent: legacy
     type: embeds_one
@@ -462,7 +462,7 @@ awards:
   -name:award
    type:string
    factory: |
-      { TODO }
+      { Faker::Company.catch_phrase }
   - name:date
     type:date
     factory: |
@@ -470,7 +470,7 @@ awards:
   - name:jury
     type:array
     factory: |
-      { TODO }
+      { [Faker::Name.name,Faker::Name.name,Faker::Name.name ,Faker::Name.name].join ', ' }
   relation:
     parent: legacy
     type: embeds_one
@@ -480,7 +480,7 @@ testimonials:
   -name:testimonial
    type:text
    factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>')  }
   - name:date
     type:date
     factory: |
@@ -488,7 +488,7 @@ testimonials:
   - name:citation
     type:string
     factory: |
-      { TODO }
+      { Faker::Name.name  }
   relation:
     parent: legacy
     type: embeds_one
@@ -504,9 +504,9 @@ quotes:
     factory: |
       { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   - name:citation
-    type:array
+    type:string
     factory: |
-      { TODO }
+      { Faker::Name.name  }
   relation:
     parent: legacy
     type: embeds_one
@@ -561,11 +561,11 @@ press_release:
   - name:date
     type:date
     factory: |
-      { TODO }
+      { (10..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   - name:channel_list
     type:string
     factory: |
-      { TODO }
+      { Faker::Company.name + " " + "professional targetted marketing" }
   - name:content
     type: text
     factory: |
