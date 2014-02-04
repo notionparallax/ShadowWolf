@@ -74,27 +74,27 @@ address:
   - name: street_number
     type: string
     factory: |
-      { (1..100).sample }
+      { Faker::Address.building_number }
   - name: street
     type: string
     factory: |
-      { Faker::Address.street_address }
+      { Faker::Address.street_name + " " + Faker::Address.street_suffix}
   - name: suburb_area
     type: string
     factory: |
-      { Faker::Address.us_state}
+      { ["Eagle Vale", "Earlwood", "East Gordon", "East Hills", "East Killara", "East Lindfield", "East Ryde", "East Sydney", "Eastern Creek", "Eastgardens", "Eastlakes", "Eastwood", "Edensor Park", "Edgecliff", "Edmondson Park", "Elanora Heights", "Elderslie", "Elizabeth Bay", "Ellis Lane", "Elvina Bay", "Emerton", "Emu Heights", "Emu Plains", "Enfield", "Engadine", "Englorie Park", "Enmore", "Epping", "Ermington", "Erskine Park", "Erskineville", "Eschol Park", "Eveleigh"].sample}
   - name: state_county
     type: string
     factory: |
-      { Faker::Address.uk_county }
+      { ["Ashmore and Cartier Islands","Australian Antarctic Territory","Australian Capital Territory","Christmas Island	Christmas Island","Cocos (Keeling) Islands	Cocos (Keeling) Islands","Coral Sea Islands","Heard Island and McDonald Islands","Jervis Bay Territory","New South Wales","Norfolk Island","Northern Territory","Queensland	Queensland","South Australia","Tasmania","Victoria","Western Australia"].sample }
   - name: country
     type: string
     factory: |
-      {  Faker::Address.uk_country }
+      {  Faker::Address.country }
   - name: postcode
     type: string
     factory: |
-      { Faker::Address.uk_postcode}
+      { Faker::Address.postcode}
   relation:
     parent: location
     type: embeds_one
@@ -108,7 +108,7 @@ project_source:
   - name: competition_URL
     type: string
     factory: |
-      { 'http://' + Faker::Internet.domain_name + '/projects/' + Faker::Name.first_name + 'projects/' }
+      { 'http://' + Faker::Internet.domain_name + '/projects/' }
   relation:
     parent: building
     type: embeds_one
@@ -150,7 +150,7 @@ height:
   - name:standard_version
     type:string
     factory: |
-      { "V"+(1..5).sample }
+      { "V"+(1..5)to_a.sample }
   relation:
     parent: dims
     type: embeds_one
@@ -168,7 +168,7 @@ footprint_area:
   - name:standard_version
     type:string
     factory: |
-      { "V"+(1..5).sample }
+      { "V"+(1..5)to_a.sample }
   relation:
     parent: dims
     type: embeds_one
@@ -186,7 +186,7 @@ GBA:
   - name:standard_version
     type:string
     factory: |
-      { "V"+(1..5).sample }
+      { "V"+(1..5)to_a.sample }
   relation:
     parent: dims
     type: embeds_one
@@ -204,7 +204,7 @@ GFA:
   - name:standard_version
     type:string
     factory: |
-      { "V"+(1..5).sample }
+      { "V"+(1..5)to_a.sample }
   relation:
     parent: dims
     type: embeds_one
@@ -222,7 +222,7 @@ NLA:
   - name:standard_version
     type:string
     factory: |
-      { "V"+(1..5).sample }
+      { "V"+(1..5)to_a.sample }
   relation:
     parent: dims
     type: embeds_one
