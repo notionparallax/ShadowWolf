@@ -3,14 +3,14 @@ project:
   - name: project_number
     type: string
     factory: |
-      { TODO }
+      { ((0..20).to_a.sample.years.ago + (1..345).to_a.sample.days) + "." + (Faker::Base::ULetters.sample)+ (Faker::Base::ULetters.sample)+ (Faker::Base::ULetters.sample) }
 
 non_building:
   fields:
   - name: description
     type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   relation:
     parent: project
     type: embeds_one
@@ -20,7 +20,7 @@ building:
   - name: description
     type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name: attribution
     type: string
     factory: |
@@ -118,7 +118,7 @@ referred_by:
   - name: BVN_staff_login
     type: string
     factory: |
-      { TODO }
+      { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
   - name: contact_name
     type: string
     factory: |
@@ -248,17 +248,17 @@ client:
 relationships:
   fields:
   - name:client
-    type:text
+    type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name:stakeholder
-    type:text
+    type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name:councils
-    type:text
+    type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   relation:
     parent: building
     type: embeds_one
@@ -278,21 +278,21 @@ phase:
     factory: |
       { TODO }
   - name:services_scope
-    type:text
+    type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name:delivery_contract
-    type:text
+    type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name:staff_contact_login
     type:string
     factory: |
-      { TODO }
+      { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
   - name:staff_custodian_login
     type:string
     factory: |
-      { TODO }
+      { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
   relation:
     parent: building
     type: embeds_one
@@ -302,11 +302,11 @@ key_date:
   - name:start_date
     type:date
     factory: |
-      { TODO }
+      { (10..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   - name:end_date
     type:date
     factory: |
-      { TODO }
+      { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
   relation:
     parent: phase
     type: embeds_one
@@ -316,7 +316,7 @@ other_dates:
   - name:date
     type:date
     factory: |
-      { TODO }
+      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   - name:description
     type:string
     factory: |
@@ -366,29 +366,29 @@ budget:
 legacy:
   fields:
   - name:one_line_grab
-    type:text
+    type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name:description_project_sheet
-    type:text
+    type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name:description_awards_style
-    type:text
+    type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name:innovation_client_style
-    type:text
+    type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name:interesting_things
-    type:text
+    type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name:brief_elements
-    type:array
+    type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name:security_level
     type:string
     factory: |
@@ -466,7 +466,7 @@ awards:
   - name:date
     type:date
     factory: |
-      { TODO }
+      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   - name:jury
     type:array
     factory: |
@@ -484,7 +484,7 @@ testimonials:
   - name:date
     type:date
     factory: |
-      { TODO }
+      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   - name:citation
     type:string
     factory: |
@@ -496,13 +496,13 @@ testimonials:
 quotes:
   fields:
   -name:quote
-   type:text
-   factory: |
-      { TODO }
+   type: text
+    factory: |
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name:date
     type:date
     factory: |
-      { TODO }
+      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   - name:citation
     type:array
     factory: |
@@ -550,9 +550,9 @@ attention:
 campaign:
   fields:
   - name:strategy
-    type:text
+    type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   relation:
     parent: press
     type: embeds_many
@@ -567,13 +567,13 @@ press_release:
     factory: |
       { TODO }
   - name:content
-    type:text
+    type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name:author_login
     type:string
     factory: |
-      { TODO }
+      { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
   relation:
     parent: campaign
     type: embeds_many
@@ -581,9 +581,9 @@ press_release:
 QA:
   fields:
   - name:notes
-    type:text
+    type: text
     factory: |
-      { TODO }
+      { Faker::Lorem.paragraphs.join('<br>') }
   relation:
     parent: building
     type: embeds_many
