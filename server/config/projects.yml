@@ -24,7 +24,7 @@ building:
   - name: attribution
     type: string
     factory: |
-      { "TODO: I don't remember why this field exists" }
+      { "TODO: I don't remember why this field  exists" }
   - name: BCA_classification
     type: string
     factory: |
