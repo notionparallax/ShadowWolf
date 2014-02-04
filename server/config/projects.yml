@@ -1,5 +1,5 @@
 project:
-  fields: 
+  fields:
   - name: project_number
     type: string
     factory: |
