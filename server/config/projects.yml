@@ -156,11 +156,11 @@ height:
     factory: |
       { TODO }
   - name:standard_name
-    type:double
+    type:string
     factory: |
       { TODO }
   - name:standard_version
-    type:double
+    type:string
     factory: |
       { TODO }
   relation:
@@ -174,11 +174,11 @@ footprint_area:
     factory: |
       { TODO }
   - name:standard_name
-    type:double
+    type:string
     factory: |
       { TODO }
   - name:standard_version
-    type:double
+    type:string
     factory: |
       { TODO }
   relation:
@@ -192,11 +192,11 @@ GBA:
     factory: |
       { TODO }
   - name:standard_name
-    type:double
+    type:string
     factory: |
       { TODO }
   - name:standard_version
-    type:double
+    type:string
     factory: |
       { TODO }
   relation:
@@ -210,11 +210,11 @@ GFA:
     factory: |
       { TODO }
   - name:standard_name
-    type:double
+    type:string
     factory: |
       { TODO }
   - name:standard_version
-    type:double
+    type:string
     factory: |
       { TODO }
   relation:
@@ -228,26 +228,374 @@ NLA:
     factory: |
       { TODO }
   - name:standard_name
-    type:double
+    type:string
     factory: |
       { TODO }
   - name:standard_version
-    type:double
+    type:string
     factory: |
       { TODO }
   relation:
     parent: dims
     type: embeds_one
 
-
 client:
+  fields:
+  - name:main
+    type:string
+    factory: |
+      { TODO }
+  - name:direct
+    type:string
+    factory: |
+      { TODO }
+  - name:end_user
+    type:string
+    factory: |
+      { TODO }
+  relation:
+    parent: building
+    type: embeds_one
 
 relationships:
+  fields:
+  - name:client
+    type:text
+    factory: |
+      { TODO }
+  - name:stakeholder
+    type:text
+    factory: |
+      { TODO }
+  - name:councils
+    type:text
+    factory: |
+      { TODO }
+  relation:
+    parent: building
+    type: embeds_one
 
 phase:
+  fields:
+  - name:project_name
+    type:string
+    factory: |
+      { TODO }
+  - name:studio
+    type:string
+    factory: |
+      { TODO }
+  - name:client
+    type:string
+    factory: |
+      { TODO }
+  - name:services_scope
+    type:text
+    factory: |
+      { TODO }
+  - name:delivery_contract
+    type:text
+    factory: |
+      { TODO }
+  - name:staff_contact_login
+    type:string
+    factory: |
+      { TODO }
+  - name:staff_custodian_login
+    type:string
+    factory: |
+      { TODO }
+  relation:
+    parent: building
+    type: embeds_one
+
+key_date:
+  fields:
+  - name:start_date
+    type:date
+    factory: |
+      { TODO }
+  - name:end_date
+    type:date
+    factory: |
+      { TODO }
+  relation:
+    parent: phase
+    type: embeds_one
+
+other_dates:
+  fields:
+  - name:date
+    type:date
+    factory: |
+      { TODO }
+  - name:description
+    type:string
+    factory: |
+      { TODO }
+  relation:
+    parent: key_date
+    type: embeds_many
+
+budget:
+  fields:
+  - name:initial_phase_value_total
+    type:double
+    factory: |
+      { TODO }
+  - name:final_phase_value_total
+    type:double
+    factory: |
+      { TODO }
+  - name:initial_phase_fee_total
+    type:double
+    factory: |
+      { TODO }
+  - name:final_phase_fee_total
+    type:double
+    factory: |
+      { TODO }
+  - name:construction_initial
+    type:double
+    factory: |
+      { TODO }
+  - name:construction_final
+    type:double
+    factory: |
+      { TODO }
+  - name:comments
+    type:text
+    factory: |
+      { TODO }
+  - name:fee_type
+    type:string
+    factory: |
+      { TODO }
+  relation:
+    parent: phase
+    type: embeds_one
 
 legacy:
+  fields:
+  - name:one_line_grab
+    type:text
+    factory: |
+      { TODO }
+  - name:description_project_sheet
+    type:text
+    factory: |
+      { TODO }
+  - name:description_awards_style
+    type:text
+    factory: |
+      { TODO }
+  - name:innovation_client_style
+    type:text
+    factory: |
+      { TODO }
+  - name:interesting_things
+    type:text
+    factory: |
+      { TODO }
+  - name:brief_elements
+    type:array
+    factory: |
+      { TODO }
+  - name:security_level
+    type:string
+    factory: |
+      { TODO }
+  relation:
+    parent: building
+    type: embeds_one
 
-media:
+ESD:
+  fields:[]
+  relation:
+    parent: legacy
+    type: embeds_one
+
+initiatives:
+  fields:
+  - name:title
+    type:string
+    factory: |
+      { TODO }
+  - name:reason
+    type:string
+    factory: |
+      { TODO }
+  - name:description
+    type:string
+    factory: |
+      { TODO }
+  relation:
+    parent: ESD
+    type: embeds_many
+
+certifications:
+  fields:
+  - name:name
+    type:string
+    factory: |
+      { TODO }
+  - name:ranking
+    type:string
+    factory: |
+      { TODO }
+  - name:awarding_body
+    type:string
+    factory: |
+      { TODO }
+  - name:expiry_date
+    type:date
+    factory: |
+      { TODO }
+  relation:
+    parent: ESD
+    type: embeds_many
+
+photography:
+  fields:
+  -name:photographer
+   type:string
+   factory: |
+      { TODO }
+  - name:date
+    type:date
+    factory: |
+      { TODO }
+  relation:
+    parent: legacy
+    type: embeds_one
+
+awards:
+  fields:
+  -name:award
+   type:string
+   factory: |
+      { TODO }
+  - name:date
+    type:date
+    factory: |
+      { TODO }
+  - name:jury
+    type:array
+    factory: |
+      { TODO }
+  relation:
+    parent: legacy
+    type: embeds_one
+
+testimonials:
+  fields:
+  -name:testimonial
+   type:text
+   factory: |
+      { TODO }
+  - name:date
+    type:date
+    factory: |
+      { TODO }
+  - name:citation
+    type:string
+    factory: |
+      { TODO }
+  relation:
+    parent: legacy
+    type: embeds_one
+
+quotes:
+  fields:
+  -name:quote
+   type:text
+   factory: |
+      { TODO }
+  - name:date
+    type:date
+    factory: |
+      { TODO }
+  - name:citation
+    type:array
+    factory: |
+      { TODO }
+  relation:
+    parent: legacy
+    type: embeds_one
+
+press:
+  fields: []
+  relation:
+    parent: building
+    type: embeds_one
+
+attention:
+  fields:
+  - name: date
+    type: date
+    factory: |
+      { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
+  - name: url
+    type: string
+    factory: |
+      { 'http://'+ Faker::Internet.domain_name + '/stories/' + ['style_section','business','theatre'].sample }
+  - name: scan_or_screengrab
+    type: string
+    factory: |
+      { 'http://'+ Faker::Internet.domain_name + '/images/' + Faker::Number.number(20) + 'screencap.jpg' }
+  - name: body_text
+    type: text
+    factory: |
+      { Faker::Lorem.paragraphs(paragraph_count = 8).join('<br>') }
+  - name: publication
+    type: string
+    factory: |
+      { Faker::Company.bs + ' weekly' }
+  - name: reason
+    type: string
+    factory: |
+      { ['reactive', 'planned', 'response to release'].sample }
+  relation:
+    parent: press
+    type: embeds_many
+
+campaign:
+  fields:
+  - name:strategy
+    type:text
+    factory: |
+      { TODO }
+  relation:
+    parent: press
+    type: embeds_many
+
+press_release:
+  - name:date
+    type:date
+    factory: |
+      { TODO }
+  - name:channel_list
+    type:string
+    factory: |
+      { TODO }
+  - name:content
+    type:text
+    factory: |
+      { TODO }
+  - name:author_login
+    type:string
+    factory: |
+      { TODO }
+  relation:
+    parent: campaign
+    type: embeds_many
 
 QA:
+  fields:
+  - name:notes
+    type:text
+    factory: |
+      { TODO }
+  relation:
+    parent: building
+    type: embeds_many
