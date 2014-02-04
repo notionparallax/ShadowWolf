@@ -37,43 +37,6 @@ building:
     type: array
     factory: |
       { TODO }
-
-  - name: location
-    type: string
-    factory: |
-      { TODO }
-  - name: projecct_source
-    type: string
-    factory: |
-      { TODO }
-  - name: dims
-    type: string
-    factory: |
-      { TODO }
-  - name: client
-    type: string
-    factory: |
-      { TODO }
-  - name: relationships
-    type: string
-    factory: |
-      { TODO }
-  - name: phase
-    type: string
-    factory: |
-      { TODO }
-  - name: legacy
-    type: string
-    factory: |
-      { TODO }
-  - name: media
-    type: string
-    factory: |
-      { TODO }
-  - name: QA
-    type: string
-    factory: |
-      { TODO }
   relation:
     parent: project
     type: embeds_one
@@ -148,3 +111,143 @@ address:
     parent: location
     type: embeds_one
 
+project_source:
+  fields:
+  - name: competition_win
+    type: boolean
+    factory: |
+      { TODO }
+  - name: competition_URL
+    type: string
+    factory: |
+      { TODO }
+  relation:
+    parent: building
+    type: embeds_one
+
+referred_by:
+  fields:
+  - name: BVN_staff_login
+    type: string
+    factory: |
+      { TODO }
+  - name: contact_name
+    type: string
+    factory: |
+      { TODO }
+  - name: contact_organisation
+    type: string
+    factory: |
+      { TODO }
+  relation:
+    parent: project_source
+    type: embeds_one
+
+dims:
+  fields:[]
+  relation:
+    parent: building
+    type: embeds_one
+
+height:
+  fields:
+  - name:measurement
+    type:double
+    factory: |
+      { TODO }
+  - name:standard_name
+    type:double
+    factory: |
+      { TODO }
+  - name:standard_version
+    type:double
+    factory: |
+      { TODO }
+  relation:
+    parent: dims
+    type: embeds_one
+
+footprint_area:
+  fields:
+  - name:measurement
+    type:double
+    factory: |
+      { TODO }
+  - name:standard_name
+    type:double
+    factory: |
+      { TODO }
+  - name:standard_version
+    type:double
+    factory: |
+      { TODO }
+  relation:
+    parent: dims
+    type: embeds_one
+
+GBA:
+  fields:
+  - name:measurement
+    type:double
+    factory: |
+      { TODO }
+  - name:standard_name
+    type:double
+    factory: |
+      { TODO }
+  - name:standard_version
+    type:double
+    factory: |
+      { TODO }
+  relation:
+    parent: dims
+    type: embeds_one
+
+GFA:
+  fields:
+  - name:measurement
+    type:double
+    factory: |
+      { TODO }
+  - name:standard_name
+    type:double
+    factory: |
+      { TODO }
+  - name:standard_version
+    type:double
+    factory: |
+      { TODO }
+  relation:
+    parent: dims
+    type: embeds_one
+
+NLA:
+  fields:
+  - name:measurement
+    type:double
+    factory: |
+      { TODO }
+  - name:standard_name
+    type:double
+    factory: |
+      { TODO }
+  - name:standard_version
+    type:double
+    factory: |
+      { TODO }
+  relation:
+    parent: dims
+    type: embeds_one
+
+
+client:
+
+relationships:
+
+phase:
+
+legacy:
+
+media:
+
+QA:
