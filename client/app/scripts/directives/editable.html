@@ -2,18 +2,15 @@
   <div class="form-group show-field">
 
     <label class="col-xs-12 col-sm-3 control-label editable-lable" for="{{ getName() }}">{{ label }}</label>
-    
+
     <div class="col-xs-12 col-sm-9"><!--data area-->
       <div ng-hide="editorEnabled"
          class="form-control-static editable editable-text"
          ng-click="enableEditor($event)">
         <div ng-hide="subobject && sublens" ng-bind-html="get(object, lens)"></div>
-        <div ng-show="subobject && sublens">
-          <span ng-bind-html="subobject[sublens]"></span>
-          <span class="glyphicon glyphicon-hand-left pull-right" title="edit"></span>
-        </div>
+        <div ng-show="subobject && sublens" ng-bind-html="subobject[sublens]"></div>
       </div>
-      <div ng-show="editorEnabled" 
+      <div ng-show="editorEnabled"
            class="input-group">
         <input ng-show="type != 'textarea'"
                type="{{ type }}"
@@ -31,7 +28,7 @@
                 title="cancel"></span>
         </span>
       </div><!--end editorEnabled-->
-    </div>  <!--end data area-->   
+    </div>  <!--end data area-->
 
   </div>    <!--end form-group-->
 </div>      <!--end row-->
