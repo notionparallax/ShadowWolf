@@ -52,4 +52,17 @@ angular.module("ShadowWolf")
       object[lens[i]] = value;
     } catch (e) {}
   };
+
+  // Wrap the object for the PATCH update
+  this.wrapObject = function(lens, result) {
+    var object = {}, innerObject = object;
+    var props = lens.split('.');
+    var i;
+    for (i = 0; i <= props.length-2; i++) {
+      innerObject[props[i]] = {};
+      innerObject = innerObject[props[i]];
+    }
+    innerObject[props[i]] = result;
+    return object;
+  };
 });

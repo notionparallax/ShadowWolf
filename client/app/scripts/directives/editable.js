@@ -36,18 +36,6 @@ angular.module("ShadowWolf")
         }
         return name;
       };
-      // Wrap the object for the PATCH update
-      $scope.wrapObject = function(result) {
-        var object = {}, innerObject = object;
-        var props = $scope.lens.split('.');
-        var i;
-        for (i = 0; i <= props.length-2; i++) {
-          innerObject[props[i]] = {};
-          innerObject = innerObject[props[i]];
-        }
-        innerObject[props[i]] = result;
-        return object;
-      };
 
       $scope.enableEditor = function() {
         if (editDisabled || Session.getPersonId() != $scope.object.id['$oid']) return;
@@ -69,10 +57,10 @@ angular.module("ShadowWolf")
         var updateObject;
         if ($scope.subobject) {
           $scope.subobject[$scope.sublens] = $scope.editableValue;
-          updateObject = { person: $scope.wrapObject( $scope.get( $scope.object, $scope.lens ) ) };
+          updateObject = { person: Lens.wrapObject( $scope.lens, $scope.get( $scope.object, $scope.lens ) ) };
         } else {
           $scope.set($scope.object, $scope.lens, $scope.editableValue);
-          updateObject = { person: $scope.wrapObject( $scope.editableValue ) };
+          updateObject = { person: Lens.wrapObject( $scope.lens,  $scope.editableValue ) };
         }
         $scope.$parent.updatePerson( $scope.object.id['$oid'],
           updateObject,
