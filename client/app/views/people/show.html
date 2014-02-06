@@ -1,6 +1,6 @@
-<article dissabled-ng-show="person">
+<article ng-show="isCurrentUser(person) || person">
 
-  <section dissabled-ng-show="person.name">
+  <section ng-show="isCurrentUser(person) || person.name">
     <h1>Check out {{ person.name.preferred_first }}'s Page!!</h1>
     <div class="row">
       <div class="col-md-4">
@@ -9,79 +9,109 @@
       <div class="col-md-4">
         <h3>Passport Name</h3>
         <p class="explantory-text">This is your name as it appears in your passport. We sometimes need this for legal documents.</p>
-        <editable object="person" lens="name.prefix" label="prefix"></editable>
-        <editable object="person" lens="name.first" label="first"></editable>
-        <editable object="person" lens="name.middle" label="middle"></editable>
-        <editable object="person" lens="name.last" label="prefix"></editable>
-        <editable object="person" lens="name.sufix" label="sufix"></editable>
+        <editable object="person" lens="name.prefix" label="prefix">
+          A name prefix is usually something like Miss, Ms, Mr, or it could be Dr Admiral or Archbishop.
+        </editable>
+
+        <editable object="person" lens="name.first" label="first">
+          This is your first name as it appears on your passport.
+        </editable>
+
+        <editable object="person" lens="name.middle" label="middle">
+          This is your middle name or names as they appear on your passport. (If you don't have a middle name just leave it blank.)
+        </editable>
+
+        <editable object="person" lens="name.last" label="prefix">
+          This is your last name as it appears on your passport.
+        </editable>
+
+        <editable object="person" lens="name.sufix" label="sufix">
+          A name suffix is usually something like Jr, PhD, OA etc.
+        </editable>
+
       </div>
       <div class="col-md-4">
         <h3>Preferred Name</h3>
         <p class="explantory-text">Often people are called something other than their<em>official</em> name. This is where you tell us what you'd prefer to be know as.</p>
-        <editable object="person" lens="name.preferred_first" label="preferred first"></editable>
-        <editable object="person" lens="name.preferred_last" label="preferred last"></editable>
+        <editable object="person" lens="name.preferred_first" label="preferred first">
+          This is the first name that you prefer to be known by. This is what you'll be called in sumbissions and on your business card. [TODO: is this true? Do we need ANOTHER field for casual name?]
+        </editable>
+
+        <editable object="person" lens="name.preferred_last" label="preferred last">
+          This is the last name that you prefer to be known by. For example, this would be different to your passport name if you have changed your name legally, but still use your old name professionally.
+        </editable>
+
       </div>
     </div><!--end row-->
   </section>
 
-  <section dissabled-ng-show="person.employee">
+  <section ng-show="isCurrentUser(person) || person.employee">
     <h2>Employee details</h2>
 
-    <section dissabled-ng-show="person.employee.position">
+    <section ng-show="isCurrentUser(person) || person.employee.position">
       <h3>Position</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
-      <editable object="person" lens="employee.position" label="position"></editable>
+
+      <editable object="person" lens="employee.position" label="position">
+          This is your Position/Title.
+      </editable>
+
     </section>
 
     <section>
       <h3>Fixed details</h3>
       <p class="explantory-text">These aren't editable because these are the values that identify you to the databases that we use.</p>
-      <div dissabled-ng-show="person.employee.login">
+      <div ng-show="isCurrentUser(person) || person.employee.login">
         <h3>login</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
-        <!--non editable, primary DB key-->
+      <p class="explantory-text">This is your login for the computer system, and also how <a href="http://en.wikipedia.org/wiki/Active_directory" title="Wikipedia: Active Directory">Active Directory</a> and <a href="http://en.wikipedia.org/wiki/Epicor" title="Wikipedia: Epicor">Epicor</a> identifies you. Only you have this login.</p><!--non editable, primary DB key-->
         <p><span class="field-name">login</span>
            <span class="ang-inserted">{{person.employee.login}}</span></p>
       </div>
-      <div dissabled-ng-show="person.employee.finance">
+      <div ng-show="isCurrentUser(person) || person.employee.finance">
         <h3>finance</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
-        <!--non editable becasue this is a db key-->
+      <p class="explantory-text">This is your identifier in <a href="http://en.wikipedia.org/wiki/Sage_MicrOpay" title="Wikipedia: MicrOpay">MicrOpay</a>.</p><!--non editable, primary DB key-->
         <p><span class="field-name">employee code</span>
            <span class="ang-inserted">{{person.employee.finance.employee_code}}</span></p>
       </div>
     </section>
 
-    <section dissabled-ng-show="person.employee.photo">
+    <section ng-show="isCurrentUser(person) || person.employee.photo">
       <h3>Photos</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
 
       <div class="row">
         <div class="col-sm-4">
           <div class="thumbnail">
             <img class=""
                  ng-src="{{ person.employee.photo.bw }}"
-                 itemprop="image" />
+                 itemprop="image"
+                 title="This photo is used in submissions and on the public facing website."
+                 alt="A black and white photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
             <div class="caption">
               <h3>Serious B&W Photo</h3>
             </div>
           </div>
         </div>
+
         <div class="col-sm-4">
           <div class="thumbnail">
             <img class=""
                  ng-src="{{ person.employee.photo.colour }}"
-                 itemprop="image" />
+                 itemprop="image"
+                 title="This photo is used in submissions and on the public facing website."
+                 alt="A colour photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
             <div class="caption">
               <h3>Serious Colour Photo</h3>
             </div>
           </div>
         </div>
+
         <div class="col-sm-4">
           <div class="thumbnail">
             <img class=""
                  ng-src="{{ person.employee.photo.fun }}"
-                 itemprop="image" />
+                 itemprop="image"
+                 title="This photo is used internally and won't be show to the public."
+                 alt="A fun, colour photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
             <div class="caption">
               <h3>Fun Photo</h3>
             </div>
@@ -90,38 +120,70 @@
       </div><!--end row-->
     </section>
 
-    <section dissabled-ng-show="person.employee.conditions">
+    <section ng-show="isCurrentUser(person) || person.employee.conditions">
       <!--One day this might show up as a pretty timeline or somethign like that!-->
       <h3>Conditions</h3>
       <p class="explantory-text">A <em>condition</em>is like a status. At the moment you can either be <em>Active</em>, <em>Retired</em>, <em>Maternity</em>, <em>Leave</em>, <em>Deceased</em>, <em>Applicant</em>, <em>Left</em> or </em>Unknown</em>, but we'll add more as we work out what is needed. The system calculates your current condition by looking at the most recent start date, so it is important to update new conditins as soon as you can. </p>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-3"
              ng-repeat="c in person.employee.conditions">
-          <editable object="person" subobject="c" lens="employee.conditions" sublens="name" label="name"></editable>
-          <editable object="person" subobject="c" lens="employee.conditions" sublens="start_date" label="start date" type="date"></editable>
+            <ed-group object="person" lens="employee.conditions" subobject="c" >
+              <editable sublens="name" label="name">
+                This is the label of this period of your life, it will normally be taken from teh list above.
+              </editable>
+
+              <editable object="person" subobject="c" lens="employee.conditions" sublens="start_date" label="start date" type="date">
+                This is the date that this period started. YOu don't need to put in when it ended becasue that is inferred from the start date of the next period.
+              </editable>
+
+            </ed-group>
         </div>
       </div>
     </section>
 
-    <section dissabled-ng-show="person.employee.office_culture">
+    <section ng-show="isCurrentUser(person) || person.employee.office_culture">
       <h3>Office culture</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="col-md-4">
-          <editable object="person" lens="employee.office_culture.first_aider" label="first aider"></editable>
-          <editable object="person" lens="employee.office_culture.fire_warden" label="fire warden"></editable>
-          <editable object="person" lens="employee.office_culture.dietary.requirements" label="requirements"></editable>
-          <editable object="person" lens="employee.office_culture.dietary.likes" label="likes"></editable>
-          <editable object="person" lens="employee.office_culture.dietary.dislikes" label="dislikes"></editable>
+          <editable object="person" lens="employee.office_culture.first_aider" label="first aider">
+
+        </editable>
+
+          <editable object="person" lens="employee.office_culture.fire_warden" label="fire warden">
+
+        </editable>
+
+          <editable object="person" lens="employee.office_culture.dietary.requirements" label="requirements">
+
+        </editable>
+
+          <editable object="person" lens="employee.office_culture.dietary.likes" label="likes">
+
+        </editable>
+
+          <editable object="person" lens="employee.office_culture.dietary.dislikes" label="dislikes">
+
+        </editable>
+
         </div>
         <div class="col-md-8">
           <div class="row">
           <h4>Event Participation</h4>
             <div class="alert alert-info col-sm-6"
                  ng-repeat="ep in person.employee.office_culture.event_participations">
-              <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="date" label="date" type="date"></editable>
-              <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="name" label="name"></editable>
-              <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="url" label="url" type="url"></editable>
+              <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="date" label="date" type="date">
+
+        </editable>
+
+              <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="name" label="name">
+
+        </editable>
+
+              <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="url" label="url" type="url">
+
+        </editable>
+
               <p><a href="{{ ep.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></div>
             </div>
           </div>
@@ -130,45 +192,93 @@
 
     <div class="row">
       <div class="col-md-6">
-        <section dissabled-ng-show="false && person.employee.contact">
+        <section ng-show="isCurrentUser(person) || false && person.employee.contact">
           <div class="row">
             <h3>contact (office)</h3>
             <p class="explantory-text">Explanatory text goes in here</p>
             <div class="col-md-6">
-              <editable object="person" lens="employee.contact.extension" label="extension"></editable>
-              <editable object="person" lens="employee.contact.studio" label="studio"></editable>
-              <editable object="person" lens="employee.contact.work_email" label="work email" type="email"></editable>
+              <editable object="person" lens="employee.contact.extension" label="extension">
+
+        </editable>
+
+              <editable object="person" lens="employee.contact.studio" label="studio">
+
+        </editable>
+
+              <editable object="person" lens="employee.contact.work_email" label="work email" type="email">
+
+        </editable>
+
             </div>
             <div class="col-md-6">
               <h4>Mobile</h4>
-              <editable object="person" lens="employee.contact.mobile.number" label="number"></editable>
-              <editable object="person" lens="employee.contact.mobile.is_work" label="is work"></editable>
-              <editable object="person" lens="employee.contact.mobile.distribute" label="distribute"></editable>
+              <editable object="person" lens="employee.contact.mobile.number" label="number">
+
+        </editable>
+
+              <editable object="person" lens="employee.contact.mobile.is_work" label="is work">
+
+        </editable>
+
+              <editable object="person" lens="employee.contact.mobile.distribute" label="distribute">
+
+        </editable>
+
             </div>
           </div>
         </section>
       </div>
 
       <div class="col-md-6">
-        <section dissabled-ng-show="false && person.contact">
+        <section ng-show="isCurrentUser(person) || false && person.contact">
           <div class="row">
             <h3>contact (personal)</h3>
             <p class="explantory-text">Explanatory text goes in here</p>
             <div class="col-md-6">
               <h4>anti-social</h4>
-              <editable object="person" lens="contact.personal_email" label="personal email" type="email"></editable>
-              <editable object="person" lens="contact.personal_phone" label="personal phone" type="tel"></editable>
+              <editable object="person" lens="contact.personal_email" label="personal email" type="email">
+
+        </editable>
+
+              <editable object="person" lens="contact.personal_phone" label="personal phone" type="tel">
+
+        </editable>
+
             </div>
             <div class="col-md-6">
               <h4>social</h4>
-              <editable object="person" lens="contact.social.twitter" label="twitter"></editable>
-              <editable object="person" lens="contact.social.instagram" label="instagram"></editable>
-              <editable object="person" lens="contact.social.github" label="github"></editable>
-              <editable object="person" lens="contact.social.pinterest" label="pinterest"></editable>
-              <editable object="person" lens="contact.social.google_plus" label="google plus"></editable>
-              <editable object="person" lens="contact.social.linkedin" label="linkedin"></editable>
-              <editable object="person" lens="contact.social.facebook" label="facebook"></editable>
-              <editable object="person" lens="contact.social.tumblr" label="tumblr"></editable>
+              <editable object="person" lens="contact.social.twitter" label="twitter">
+
+        </editable>
+
+              <editable object="person" lens="contact.social.instagram" label="instagram">
+
+        </editable>
+
+              <editable object="person" lens="contact.social.github" label="github">
+
+        </editable>
+
+              <editable object="person" lens="contact.social.pinterest" label="pinterest">
+
+        </editable>
+
+              <editable object="person" lens="contact.social.google_plus" label="google plus">
+
+        </editable>
+
+              <editable object="person" lens="contact.social.linkedin" label="linkedin">
+
+        </editable>
+
+              <editable object="person" lens="contact.social.facebook" label="facebook">
+
+        </editable>
+
+              <editable object="person" lens="contact.social.tumblr" label="tumblr">
+
+        </editable>
+
               <!--Social widgets went in here-->
             </div>
           </div>
@@ -177,110 +287,194 @@
     </div>
 
 
-    <section dissabled-ng-show="person.employee.security_clearances">
+    <section ng-show="isCurrentUser(person) || person.employee.security_clearances">
       <h3>Clearances</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-3"
              ng-repeat="sc in person.employee.security_clearances">
-          <editable object="sc" lens="issuing_body" label="issuing body"></editable>
-          <editable object="sc" lens="level" label="level"></editable>
-          <editable object="sc" lens="expiry" label="expiry"></editable>
+          <editable object="sc" lens="issuing_body" label="issuing body">
+
+        </editable>
+
+          <editable object="sc" lens="level" label="level">
+
+        </editable>
+
+          <editable object="sc" lens="expiry" label="expiry">
+
+        </editable>
+
         </div>
       </div>
     </section>
 
     <div class="row">
-    <section dissabled-ng-show="person.employee.qualifications">
+    <section ng-show="isCurrentUser(person) || person.employee.qualifications">
       <h3>qualifications</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="alert alert-info col-xs-12 col-sm-4 col-md-3"
              ng-repeat="q in person.employee.qualifications">
-          <editable object="q" lens="name" label="name"></editable>
-          <editable object="q" lens="level" label="level"></editable>
-          <editable object="q" lens="institution" label="institution"></editable>
-          <editable object="q" lens="first_year" label="first year" type="number"></editable>
-          <editable object="q" lens="last_year" label="last year" type="number"></editable>
+          <editable object="q" lens="name" label="name">
+
+        </editable>
+
+          <editable object="q" lens="level" label="level">
+
+        </editable>
+
+          <editable object="q" lens="institution" label="institution">
+
+        </editable>
+
+          <editable object="q" lens="first_year" label="first year" type="number">
+
+        </editable>
+
+          <editable object="q" lens="last_year" label="last year" type="number">
+
+        </editable>
+
         </div>
       </div>
     </section>
 
     <div class="row">
       <div class="col-md-4">
-        <section dissabled-ng-show="person.employee.registrations">
+        <section ng-show="isCurrentUser(person) || person.employee.registrations">
           <h3>registrations</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
           <div class="row">
             <div class="alert alert-info col-sm-12 col-md-6"
                  ng-repeat="q in person.employee.registrations">
-              <editable object="person" subobject="q" lens="employee.registrations" sublens="organisation" label="organisation"></editable>
-              <editable object="person" subobject="q" lens="employee.registrations" sublens="registration_number" label="registration number"></editable>
-              <editable object="person" subobject="q" lens="employee.registrations" sublens="state" label="state"></editable>
-              <editable object="person" subobject="q" lens="employee.registrations" sublens="country" label="country"></editable>
-              <editable object="person" subobject="q" lens="employee.registrations" sublens="expiry" label="expiry"></editable>
+              <editable object="person" subobject="q" lens="employee.registrations" sublens="organisation" label="organisation">
+
+        </editable>
+
+              <editable object="person" subobject="q" lens="employee.registrations" sublens="registration_number" label="registration number">
+
+        </editable>
+
+              <editable object="person" subobject="q" lens="employee.registrations" sublens="state" label="state">
+
+        </editable>
+
+              <editable object="person" subobject="q" lens="employee.registrations" sublens="country" label="country">
+
+        </editable>
+
+              <editable object="person" subobject="q" lens="employee.registrations" sublens="expiry" label="expiry">
+
+        </editable>
+
             </div>
           </div>
         </section>
       </div>
 
       <div class="col-md-4">
-        <section dissabled-ng-show="person.employee.memberships">
+        <section ng-show="isCurrentUser(person) || person.employee.memberships">
           <h3>memberships</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
           <div class="row">
             <div class="alert alert-info col-sm-12 col-md-6"
                  ng-repeat="m in person.employee.memberships">
-              <editable object="person" subobject="m" lens="employee.memberships" sublens="organisation" label="organisation"></editable>
-              <editable object="person" subobject="m" lens="employee.memberships" sublens="membership_number" label="membership number"></editable>
-              <editable object="person" subobject="m" lens="employee.memberships" sublens="state" label="state"></editable>
-              <editable object="person" subobject="m" lens="employee.memberships" sublens="country" label="country"></editable>
-              <editable object="person" subobject="m" lens="employee.memberships" sublens="expiry" label="expiry"></editable>
+              <editable object="person" subobject="m" lens="employee.memberships" sublens="organisation" label="organisation">
+
+        </editable>
+
+              <editable object="person" subobject="m" lens="employee.memberships" sublens="membership_number" label="membership number">
+
+        </editable>
+
+              <editable object="person" subobject="m" lens="employee.memberships" sublens="state" label="state">
+
+        </editable>
+
+              <editable object="person" subobject="m" lens="employee.memberships" sublens="country" label="country">
+
+        </editable>
+
+              <editable object="person" subobject="m" lens="employee.memberships" sublens="expiry" label="expiry">
+
+        </editable>
+
             </div>
           </div>
         </section>
       </div>
 
       <div class="col-md-4">
-        <section dissabled-ng-show="person.employee.personal_awards">
+        <section ng-show="isCurrentUser(person) || person.employee.personal_awards">
           <h3>personal awards</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
           <div class="row">
             <div class="alert alert-info col-sm-12 col-md-6"
                  ng-repeat="q in person.employee.personal_awards">
-              <editable object="person" subobject="q" lens="employee.memberships" sublens="name" label="name"></editable>
-              <editable object="person" subobject="q" lens="employee.memberships" sublens="awarding_body" label="awarding body"></editable>
-              <editable object="person" subobject="q" lens="employee.memberships" sublens="description" label="description" type="textarea"></editable>
-              <editable object="person" subobject="q" lens="employee.memberships" sublens="url" label="url" type="url"></editable>
+              <editable object="person" subobject="q" lens="employee.memberships" sublens="name" label="name">
+
+        </editable>
+
+              <editable object="person" subobject="q" lens="employee.memberships" sublens="awarding_body" label="awarding body">
+
+        </editable>
+
+              <editable object="person" subobject="q" lens="employee.memberships" sublens="description" label="description" type="textarea">
+
+        </editable>
+
+              <editable object="person" subobject="q" lens="employee.memberships" sublens="url" label="url" type="url">
+
+        </editable>
+
             </div>
           </div>
         </section>
       </div>
     </div> <!--end row-->
 
-    <section dissabled-ng-show="person.employee.professional_contributions">
+    <section ng-show="isCurrentUser(person) || person.employee.professional_contributions">
       <h3>professional contributions</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.professional_contributions">
-          <editable object="person" subobject="q" lens="employee.professional_contributions" sublens="activity" label="activity"></editable>
-          <editable object="person" subobject="q" lens="employee.professional_contributions" sublens="description" label="description" type="textarea"></editable>
-          <editable object="person" subobject="q" lens="employee.professional_contributions" sublens="url" label="url" type="url"></editable>
+          <editable object="person" subobject="q" lens="employee.professional_contributions" sublens="activity" label="activity">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.professional_contributions" sublens="description" label="description" type="textarea">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.professional_contributions" sublens="url" label="url" type="url">
+
+        </editable>
+
         </div>
       </div>
     </section>
 
-    <section dissabled-ng-show="person.employee.travel">
+    <section ng-show="isCurrentUser(person) || person.employee.travel">
       <h3>travel</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
       <h4>passports</h4>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.travel.passports">
-          <editable object="person" subobject="q" lens="employee.travel.passports" sublens="number" label="number"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.passports" sublens="expiry" label="expiry"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.passports" sublens="issuing_body" label="issuing body"></editable>
+          <editable object="person" subobject="q" lens="employee.travel.passports" sublens="number" label="number">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.travel.passports" sublens="expiry" label="expiry">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.travel.passports" sublens="issuing_body" label="issuing body">
+
+        </editable>
+
         </div>
       </div>
       <h4>frequent flier programs</h4>
@@ -288,13 +482,19 @@
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.travel.frequent_flier_programs">
-          <editable object="person" subobject="q" lens="employee.travel.frequent_flier_programs" sublens="name" label="name"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.frequent_flier_programs" sublens="number" label="number"></editable>
+          <editable object="person" subobject="q" lens="employee.travel.frequent_flier_programs" sublens="name" label="name">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.travel.frequent_flier_programs" sublens="number" label="number">
+
+        </editable>
+
         </div>
       </div>
     </section>
 
-    <section dissabled-ng-show="person.employee.project_experiences">
+    <section ng-show="isCurrentUser(person) || person.employee.project_experiences">
       <h4> experiences (int)</h4>
       <div class="alert alert-warning">coming as soon as we've tied the project
       data to people through the Epicor data. </div>
@@ -302,63 +502,141 @@
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.project_experiences">
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="name" label="name"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="firm" label="firm"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="role" label="role"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="stage" label="stage"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="start_date" label="start date" type="date"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="end_date" label="end date" type="date"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="url" label="url" type="url"></editable>
+          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="name" label="name">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="firm" label="firm">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="role" label="role">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="stage" label="stage">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="start_date" label="start date" type="date">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="end_date" label="end date" type="date">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="url" label="url" type="url">
+
+        </editable>
+
         </div>
       </div>
     </section>
 
-    <section dissabled-ng-show="person.employee.biography">
+    <section ng-show="isCurrentUser(person) || person.employee.biography">
       <h3>Biography</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <editable object="person" lens="employee.biography.one_line_bio" label="one line bio" type="textarea"></editable>
-          <editable object="person" lens="employee.biography.approach" label="approach" type="textarea"></editable>
-          <editable object="person" lens="employee.biography.expertise" label="expertise" type="textarea"></editable>
-          <editable object="person" lens="employee.biography.experience" label="experience" type="textarea"></editable>
-          <editable object="person" lens="employee.biography.achievements" label="achievements" type="textarea"></editable>
-          <editable object="person" lens="employee.biography.value_statement" label="value statement" type="textarea"></editable>
+          <editable object="person" lens="employee.biography.one_line_bio" label="one line bio" type="textarea">
+
+        </editable>
+
+          <editable object="person" lens="employee.biography.approach" label="approach" type="textarea">
+
+        </editable>
+
+          <editable object="person" lens="employee.biography.expertise" label="expertise" type="textarea">
+
+        </editable>
+
+          <editable object="person" lens="employee.biography.experience" label="experience" type="textarea">
+
+        </editable>
+
+          <editable object="person" lens="employee.biography.achievements" label="achievements" type="textarea">
+
+        </editable>
+
+          <editable object="person" lens="employee.biography.value_statement" label="value statement" type="textarea">
+
+        </editable>
+
         </div>
       </div>
     </section>
 
 
-    <section dissabled-ng-show="person.employee.press">
+    <section ng-show="isCurrentUser(person) || person.employee.press">
       <h3>press</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.press.attentions">
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="date" label="date" type="date"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="url" label="url" type="url"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="scan_or_screengrab" label="scan_or screengrab"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="body_text" label="body text"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="body_text" label="body text" type="textarea"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="publication" label="publication"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="reason" label="reason"></editable>
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="date" label="date" type="date">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="url" label="url" type="url">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="scan_or_screengrab" label="scan_or screengrab">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="body_text" label="body text">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="body_text" label="body text" type="textarea">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="publication" label="publication">
+
+        </editable>
+
+          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="reason" label="reason">
+
+        </editable>
+
         </div>
       </div>
     </section>
   </section>
 
-  <section dissabled-ng-show="person.applicant">
+  <section ng-show="isCurrentUser(person) || person.applicant">
     <h3>applicant</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
     <div class="row">
       <div class="alert alert-info col-sm-6 col-md-4"
            ng-repeat="q in person.applicant.applications">
-        <editable object="person" lens="applicant.applications.date" label="date" type="date"></editable>
-        <editable object="person" lens="applicant.applications.covering_letter" label="covering letter"></editable>
-        <editable object="person" lens="applicant.applications.portfolio" label="portfolio"></editable>
-        <editable object="person" lens="applicant.applications.assessment" label="assessment" type="textarea"></editable>
-        <editable object="person" lens="applicant.applications.future_consideration" label="future consideration"></editable>
-        <editable object="person" lens="applicant.applications.skills_and_keywords" label="skills_and keywords"></editable>
+        <editable object="person" lens="applicant.applications.date" label="date" type="date">
+
+        </editable>
+
+        <editable object="person" lens="applicant.applications.covering_letter" label="covering letter">
+
+        </editable>
+
+        <editable object="person" lens="applicant.applications.portfolio" label="portfolio">
+
+        </editable>
+
+        <editable object="person" lens="applicant.applications.assessment" label="assessment" type="textarea">
+
+        </editable>
+
+        <editable object="person" lens="applicant.applications.future_consideration" label="future consideration">
+
+        </editable>
+
+        <editable object="person" lens="applicant.applications.skills_and_keywords" label="skills_and keywords">
+
+        </editable>
+
       </div>
     </div>
   </section>
