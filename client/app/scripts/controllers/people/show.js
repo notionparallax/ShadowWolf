@@ -8,4 +8,8 @@ function($scope, Person, $routeParams, Session, $location) {
   }
   $scope.person = Person.getPerson($routeParams.personId);
   $scope.updatePerson = Person.update;
+
+  $scope.addObject = function(object,property) {
+    object[property].push({});
+  };
 });
