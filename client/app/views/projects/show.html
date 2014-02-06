@@ -6,7 +6,6 @@
       <editable property="description" label="Description" type="textarea">
         This is an internal, easy to understand summary of the project.
       </editable>
-
       <editable property="attribution" label="Attribution">
         This is an internal, easy to understand summary of the project.
       </editable>
@@ -21,92 +20,137 @@
       </editable>
     </editable-group>
 
+    <h2>Location</h2>
+    <editable-group object="project" lens="building.location.geoJSON">
+      <editable property="lat" label="latitude">
+          helpText
+      </editable>
+      <editable property="lon" label="longitude">
+          helpText
+      </editable>
+      <editable property="boundary_points" label="Boundary Points">
+          helpText
+      </editable>
+    </editable-group>
 
-location:
-  fields:[]
-  relation:
-    parent: building
+    <editable-group object="project" lens="building.location.address">
+      <editable property="building_name" label="building name">
+          helpText
+      </editable>
+      <editable property="street_number" label="street number">
+          helpText
+      </editable>
+      <editable property="street" label="street">
+          helpText
+      </editable>
+      <editable property="suburb_area" label="suburb area">
+          helpText
+      </editable>
+      <editable property="state_county" label="state county">
+          helpText
+      </editable>
+      <editable property="country" label="country">
+          helpText
+      </editable>
+      <editable property="postcode" label="postcode">
+          helpText
+      </editable>
+    </editable-group>
 
-geoJSON:
-  fields:
-    - name: lat
-    - name: lon
-    - name: boundary_points
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 
-  relation:
-    parent: location
+    <h2>project_source</h2>
+    <editable-group object="project" lens="building.project_source">
+      <editable property="competition_win" label="competition_win">
+        helpText
+      </editable>
+      <editable property="competition_URL" label="competition_URL">
+        helpText
+      </editable>
+    </editable-group>
+    <h3>referred_by</h3>
+    <editable-group object="project" lens="building.project_source.referred_by">
+      <editable property="BVN_staff_login" label="BVN_staff_login">
+        helpText
+      </editable>
+      <editable property="contact_name" label="contact_name">
+        helpText
+      </editable>
+      <editable property="contact_organisation" label="contact_organisation">
+        helpText
+      </editable>
+    </editable-group>
 
-address:
-  fields:
-    - name: building_name
-    - name: street_number
-    - name: street
-    - name: suburb_area
-    - name: state_county
-    - name: country
-    - name: postcode
-  relation:
-    parent: location
+    <h3>Height</h3>
+    <editable-group object="project" lens="building.dims.height">
+      <editable property="measurement" label="measurement">
+        helpText
+      </editable>
+      <editable property="standard_name" label="standard_name">
+        helpText
+      </editable>
+      <editable property="standard_version" label="standard_version">
+        helpText
+      </editable>
+    </editable-group>
 
-project_source:
-  fields:
-    - name: competition_win
-    - name: competition_URL
-  relation:
-    parent: building
+    <h3>footprint_area</h3>
+    <editable-group object="project" lens="building.dims.footprint_area">
+      <editable property="measurement" label="measurement">
+        helpText
+      </editable>
+      <editable property="standard_name" label="standard_name">
+        helpText
+      </editable>
+      <editable property="standard_version" label="standard_version">
+        helpText
+      </editable>
+    </editable-group>
 
-referred_by:
-  fields:
-    - name: BVN_staff_login
-    - name: contact_name
-    - name: contact_organisation
-  relation:
-    parent: project_source
+    <h3>GBA</h3>
+    <editable-group object="project" lens="building.dims.GBA">
+      <editable property="measurement" label="measurement">
+        helpText
+      </editable>
+      <editable property="standard_name" label="standard_name">
+        helpText
+      </editable>
+      <editable property="standard_version" label="standard_version">
+        helpText
+      </editable>
+    </editable-group>
 
-dims:
-  fields:[]
-  relation:
-    parent: building
+    <h3>GFA</h3>
+    <editable-group object="project" lens="building.dims.GFA">
+      <editable property="measurement" label="measurement">
+        helpText
+      </editable>
+      <editable property="standard_name" label="standard_name">
+        helpText
+      </editable>
+      <editable property="standard_version" label="standard_version">
+        helpText
+      </editable>
+    </editable-group>
 
-height:
-  fields:
-    - name:measurement
-    - name:standard_name
-    - name:standard_version
-  relation:
-    parent: dims
+    <h3>NLA</h3>
+    <editable-group object="project" lens="building.dims.NLA">
+      <editable property="measurement" label="measurement">
+        helpText
+      </editable>
+      <editable property="standard_name" label="standard_name">
+        helpText
+      </editable>
+      <editable property="standard_version" label="standard_version">
+        helpText
+      </editable>
+    </editable-group>
 
-footprint_area:
-  fields:
-    - name:measurement
-    - name:standard_name
-    - name:standard_version
-  relation:
-    parent: dims
-
-GBA:
-  fields:
-    - name:measurement
-    - name:standard_name
-    - name:standard_version
-  relation:
-    parent: dims
-
-GFA:
-  fields:
-    - name:measurement
-    - name:standard_name
-    - name:standard_version
-  relation:
-    parent: dims
-
-NLA:
-  fields:
-    - name:measurement
-    - name:standard_name
-    - name:standard_version
-  relation:
-    parent: dims
 
 client:
   fields:
