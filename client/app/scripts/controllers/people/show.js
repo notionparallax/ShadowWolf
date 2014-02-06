@@ -8,4 +8,8 @@ function($scope, Person, $routeParams, Session, $location) {
   }
   $scope.person = Person.getPerson($routeParams.personId);
   $scope.updatePerson = Person.update;
+
+  $scope.isCurrentUser = function(person) {
+  	return person.id['$oid'] == Session.getPersonId();
+  };
 });
