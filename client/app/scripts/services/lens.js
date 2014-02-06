@@ -27,7 +27,6 @@ angular.module("ShadowWolf")
       }
     } catch (e) {
       object = undefined;
-      console.log("Error accessing " + lens.join('.'), e);
     }
     return object;
   };
