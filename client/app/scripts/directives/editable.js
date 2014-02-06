@@ -6,19 +6,14 @@ angular.module("ShadowWolf")
   return {
     restrict: "E",
     replace: false,
+    transclude: true,
     templateUrl: 'scripts/directives/editable.html',
-    scope: {
-      label: "@",
-      object: "=",
-      objectName: "@object",
-      subobject: "=",
-      lens:  "@",
-      sublens: "@",
-      type: "@",
-      updatePerson: "&"
-    },
+    scope: true,
     link: function (scope, element, attrs) { 
       if (attrs['editDisabled']) editDisabled = true;
+      scope.property = attrs.property;
+      scope.label = attrs.label;
+      scope.type = attrs.type || 'text';
     },
     controller: function($scope) {
       $scope.editableValue= $scope.value;
@@ -40,8 +35,8 @@ angular.module("ShadowWolf")
       $scope.enableEditor = function() {
         if (editDisabled || Session.getPersonId() != $scope.object.id['$oid']) return;
         $scope.editorEnabled = true;
-        $scope.editableValue = $scope.subobject && $scope.sublens
-          ? $scope.subobject[$scope.sublens] : Lens.get($scope.object, $scope.lens);
+        // TODO use ng-model?
+        $scope.editableValue = $scope.subobject[$scope.property];
       };
 
       $scope.disableEditor = function() {
@@ -55,13 +50,15 @@ angular.module("ShadowWolf")
        */
       $scope.save = function() {
         var updateObject;
-        if ($scope.subobject) {
-          $scope.subobject[$scope.sublens] = $scope.editableValue;
-          updateObject = { person: Lens.wrapObject( $scope.lens, $scope.get( $scope.object, $scope.lens ) ) };
-        } else {
-          $scope.set($scope.object, $scope.lens, $scope.editableValue);
-          updateObject = { person: Lens.wrapObject( $scope.lens,  $scope.editableValue ) };
-        }
+
+        // Set the value locally
+        $scope.subobject[$scope.property] = $scope.editableValue;
+
+        // Wrap it for transport
+        var parentObject = Lens.get($scope.object, $scope.lens);
+        updateObject = { person: Lens.wrapObject( $scope.lens,  parentObject ) };
+
+        // Set it back on the server
         $scope.$parent.updatePerson( $scope.object.id['$oid'],
           updateObject,
           function() {
