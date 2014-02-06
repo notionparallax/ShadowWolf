@@ -129,7 +129,7 @@
              ng-repeat="c in person.employee.conditions">
             <ed-group object="person" lens="employee.conditions" subobject="c" >
               <editable sublens="name" label="name">
-                This is the label of this period of your life, it will normally be taken from teh list above.
+                This is the label of this period of your life, it will normally be taken from the list above.
               </editable>
 
               <editable object="person" subobject="c" lens="employee.conditions" sublens="start_date" label="start date" type="date">
@@ -147,44 +147,45 @@
       <div class="row">
         <div class="col-md-4">
           <editable object="person" lens="employee.office_culture.first_aider" label="first aider">
-
-        </editable>
+            If you <em>are</em>a first aider then this should say True, otherwise it should say False.
+          </editable>
 
           <editable object="person" lens="employee.office_culture.fire_warden" label="fire warden">
-
-        </editable>
+            If you <em>are</em>a fire warden then this should say True, otherwise it should say False.
+          </editable>
 
           <editable object="person" lens="employee.office_culture.dietary.requirements" label="requirements">
-
-        </editable>
+            This is a coma separated list of things that you <em>can't</em> eat (for fear of feeling ill, messing up your morals or dying). For example: <em>eggs, gluten, shellfish.</em>.
+          </editable>
 
           <editable object="person" lens="employee.office_culture.dietary.likes" label="likes">
-
-        </editable>
+            This is a coma separated list of things that you <em>really like</em> eating. For example: <em>bacon, pizza, pinaple.</em>.
+          </editable>
 
           <editable object="person" lens="employee.office_culture.dietary.dislikes" label="dislikes">
-
-        </editable>
+            This is a coma separated list of things that you <em>really don't like</em> eating. For example: <em>devon, olives, bread.</em>.
+          </editable>
 
         </div>
         <div class="col-md-8">
           <div class="row">
           <h4>Event Participation</h4>
+          <p class="explantory-text">If you did a thing, this is where it'll be recorded. For example something like the <a href="http://www.msgongride.org.au/" title="The Gong Ride website">Gong ride</a> or <a href="http://www.danceforlife.com.au/"  title="The dance for life website">dance for life.</p>
             <div class="alert alert-info col-sm-6"
                  ng-repeat="ep in person.employee.office_culture.event_participations">
-              <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="date" label="date" type="date">
-
-        </editable>
-
               <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="name" label="name">
+                This is the name of the thing that you did.
+              </editable>
 
-        </editable>
+              <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="date" label="date" type="date">
+                This is the date that you did it.
+              </editable>
 
-              <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="url" label="url" type="url">
+              <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="url" llabel="url" type="url">
+                This is a link to some kind of explanation of the event. It could be the event's website, or it might be to some report that you've published about it.
+              </editable>
 
-        </editable>
-
-              <p><a href="{{ ep.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></div>
+              <p><a href="{{ ep.url }}"><span class="glyphicon glyphicon-link"></span>Go to {{ ep.name }}link.</a></div>
             </div>
           </div>
       </div>
@@ -198,31 +199,31 @@
             <p class="explantory-text">Explanatory text goes in here</p>
             <div class="col-md-6">
               <editable object="person" lens="employee.contact.extension" label="extension">
-
-        </editable>
+                This is your desk phone extension.
+              </editable>
 
               <editable object="person" lens="employee.contact.studio" label="studio">
-
-        </editable>
+                This is the studio that you work in.
+              </editable>
 
               <editable object="person" lens="employee.contact.work_email" label="work email" type="email">
-
-        </editable>
+                This is your ~~~@bvn.com.au email address.
+              </editable>
 
             </div>
             <div class="col-md-6">
               <h4>Mobile</h4>
               <editable object="person" lens="employee.contact.mobile.number" label="number">
-
-        </editable>
+                This is your mobile number.
+              </editable>
 
               <editable object="person" lens="employee.contact.mobile.is_work" label="is work">
-
-        </editable>
+                This is <em>True</em> if BVNDH provides your mobile.
+              </editable>
 
               <editable object="person" lens="employee.contact.mobile.distribute" label="distribute">
-
-        </editable>
+                This is <em>True</em> if it is OK for people give your mobile number out to people.
+              </editable>
 
             </div>
           </div>
@@ -233,52 +234,53 @@
         <section ng-show="isCurrentUser(person) || false && person.contact">
           <div class="row">
             <h3>contact (personal)</h3>
-            <p class="explantory-text">Explanatory text goes in here</p>
             <div class="col-md-6">
               <h4>anti-social</h4>
+              <p class="explantory-text">This information is mainly for getting in touch with you if you leave the company.</p>
               <editable object="person" lens="contact.personal_email" label="personal email" type="email">
-
-        </editable>
+                This is
+              </editable>
 
               <editable object="person" lens="contact.personal_phone" label="personal phone" type="tel">
-
-        </editable>
+                This is
+              </editable>
 
             </div>
             <div class="col-md-6">
               <h4>social</h4>
+              <p class="explantory-text">These are your social media account names. We'll add them to the internal river of feeds, so leave them out if you don't want peopel to see your Pintrest board full of origami shopping trollies.</p>
               <editable object="person" lens="contact.social.twitter" label="twitter">
-
-        </editable>
+                This is your Twitter name. Leave the @ off.
+              </editable>
 
               <editable object="person" lens="contact.social.instagram" label="instagram">
-
-        </editable>
+                This is your Instagram name. Leave the @ off.
+              </editable>
 
               <editable object="person" lens="contact.social.github" label="github">
-
-        </editable>
+                This is your github name.
+              </editable>
 
               <editable object="person" lens="contact.social.pinterest" label="pinterest">
-
-        </editable>
+                This is your pintrest name.
+              </editable>
 
               <editable object="person" lens="contact.social.google_plus" label="google plus">
-
-        </editable>
+                This is your Google+ name. If you have a vanity name then it'll looke like <code>+yourname</code> otherwise it'll just be a long number.
+              </editable>
 
               <editable object="person" lens="contact.social.linkedin" label="linkedin">
-
-        </editable>
+                This is your linkedin link. There isn't an obvious way to get this other than to go to your page and copy the link in the URL bar whiel you are there.
+              </editable>
 
               <editable object="person" lens="contact.social.facebook" label="facebook">
-
-        </editable>
+                This is your Facebook name. If you have a vanity name then it'll looke like <code>yourname</code> otherwise it'll just be a long number.
+              </editable>
 
               <editable object="person" lens="contact.social.tumblr" label="tumblr">
-
-        </editable>
-
+                This is the link to your tumblr. e.g. <a href="http://i-justreally-like-cats-okay.tumblr.com/">http://i-justreally-like-cats-okay.tumblr.com</a>
+              </editable>
+              <!--This will need a bit of tweaking once we know what's going on.-->
               <!--Social widgets went in here-->
             </div>
           </div>
@@ -294,16 +296,16 @@
         <div class="alert alert-info col-sm-6 col-md-3"
              ng-repeat="sc in person.employee.security_clearances">
           <editable object="sc" lens="issuing_body" label="issuing body">
-
-        </editable>
+            This is the organisation that your clearance is with.
+          </editable>
 
           <editable object="sc" lens="level" label="level">
-
-        </editable>
+            What level is your clearance?
+          </editable>
 
           <editable object="sc" lens="expiry" label="expiry">
-
-        </editable>
+            what's the expiry date of your clearance? One day we'll use this to remind you to renew it, but for now this is jsut a place to store this information.
+          </editable>
 
         </div>
       </div>
@@ -312,29 +314,29 @@
     <div class="row">
     <section ng-show="isCurrentUser(person) || person.employee.qualifications">
       <h3>qualifications</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
+      <p class="explantory-text">This sections captures your qualifications. Put in all your qualifications, so if you have a PhD, a degree in Japanese, or a certificate for a short course in Equine nutrition, put it in. Use one box per qualification and add (<i class="icon-plus-sign"></i> Add Qualification) a new box for each additional one.</p>
       <div class="row">
         <div class="alert alert-info col-xs-12 col-sm-4 col-md-3"
              ng-repeat="q in person.employee.qualifications">
           <editable object="q" lens="name" label="name">
-
-        </editable>
+            What is the name of your qualification?
+          </editable>
 
           <editable object="q" lens="level" label="level">
-
-        </editable>
+            What What level is it at? This is a restricted list so that we can make comparisons across different systems.
+          </editable>
 
           <editable object="q" lens="institution" label="institution">
-
-        </editable>
+            What organisation issued your qualification?
+          </editable>
 
           <editable object="q" lens="first_year" label="first year" type="number">
-
-        </editable>
+            When did your course start? We just need a year here.
+          </editable>
 
           <editable object="q" lens="last_year" label="last year" type="number">
-
-        </editable>
+            When did/does it end? We just need a year here.
+          </editable>
 
         </div>
       </div>
@@ -344,30 +346,32 @@
       <div class="col-md-4">
         <section ng-show="isCurrentUser(person) || person.employee.registrations">
           <h3>registrations</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
+      <p class="explantory-text">This sections captures your professional registrations. Use one box per registration and add (<i class="icon-plus-sign"></i>Add Registration) a new box for each additional one.</p>
           <div class="row">
             <div class="alert alert-info col-sm-12 col-md-6"
                  ng-repeat="q in person.employee.registrations">
               <editable object="person" subobject="q" lens="employee.registrations" sublens="organisation" label="organisation">
-
-        </editable>
+                Who is this registration with? NSW board of architects? RIBA?
+              </editable>
 
               <editable object="person" subobject="q" lens="employee.registrations" sublens="registration_number" label="registration number">
-
-        </editable>
+                What's your registration number?
+              </editable>
 
               <editable object="person" subobject="q" lens="employee.registrations" sublens="state" label="state">
-
-        </editable>
+                What state does this registration cover?
+              </editable>
 
               <editable object="person" subobject="q" lens="employee.registrations" sublens="country" label="country">
-
-        </editable>
+                What state is this registration issued in?
+              </editable>
 
               <editable object="person" subobject="q" lens="employee.registrations" sublens="expiry" label="expiry">
-
-        </editable>
-
+                When does this registration expire?
+              </editable>
+              <editable object="person" subobject="q" lens="employee.registrations" sublens="first_issue_date" label="first issue date">
+                When was this this registration first issued?
+              </editable>
             </div>
           </div>
         </section>
@@ -376,29 +380,29 @@
       <div class="col-md-4">
         <section ng-show="isCurrentUser(person) || person.employee.memberships">
           <h3>memberships</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
+      <p class="explantory-text">This sections captures your memberships. Use one box per organisation and add (<i class="icon-plus-sign"></i>Add Membership) a new box for each additional one.</p>
           <div class="row">
             <div class="alert alert-info col-sm-12 col-md-6"
                  ng-repeat="m in person.employee.memberships">
               <editable object="person" subobject="m" lens="employee.memberships" sublens="organisation" label="organisation">
-
-        </editable>
+                Who is this membership with?
+              </editable>
 
               <editable object="person" subobject="m" lens="employee.memberships" sublens="membership_number" label="membership number">
-
-        </editable>
+                What's your membership number?
+              </editable>
 
               <editable object="person" subobject="m" lens="employee.memberships" sublens="state" label="state">
-
-        </editable>
+                What state does this membership cover?
+              </editable>
 
               <editable object="person" subobject="m" lens="employee.memberships" sublens="country" label="country">
-
-        </editable>
+                What state is this membership issued in?
+              </editable>
 
               <editable object="person" subobject="m" lens="employee.memberships" sublens="expiry" label="expiry">
-
-        </editable>
+                When does this membership expire?
+              </editable>
 
             </div>
           </div>
@@ -408,25 +412,26 @@
       <div class="col-md-4">
         <section ng-show="isCurrentUser(person) || person.employee.personal_awards">
           <h3>personal awards</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
+      <p class="explantory-text">This sections captures your awards. This is not for awards that projects that you have worked on have won, but rather projects that you, as a person, have won. Use one box per award and add (<i class="icon-plus-sign"></i>Add Award) a new box for each additional one.</p>
+      <p class="explantory-text">Awards that projects that you worked on will be added soon.</p>
           <div class="row">
             <div class="alert alert-info col-sm-12 col-md-6"
                  ng-repeat="q in person.employee.personal_awards">
-              <editable object="person" subobject="q" lens="employee.memberships" sublens="name" label="name">
+              <editable object="person" subobject="q" lens="employee.personal_awards" sublens="name" label="name">
+                What's the name of this award?
+              </editable>
 
-        </editable>
+              <editable object="person" subobject="q" lens="employee.personal_awards" sublens="awarding_body" label="awarding body">
+                Who awards it?
+              </editable>
 
-              <editable object="person" subobject="q" lens="employee.memberships" sublens="awarding_body" label="awarding body">
+              <editable object="person" subobject="q" lens="employee.personal_awards" sublens="description" label="description" type="textarea">
+                Describe the award and why you got it.
+              </editable>
 
-        </editable>
-
-              <editable object="person" subobject="q" lens="employee.memberships" sublens="description" label="description" type="textarea">
-
-        </editable>
-
-              <editable object="person" subobject="q" lens="employee.memberships" sublens="url" label="url" type="url">
-
-        </editable>
+              <editable object="person" subobject="q" lens="employee.personal_awards" sublens="url" label="url" type="url">
+                Give a link to information about the award and about you getting it if you can.
+              </editable>
 
             </div>
           </div>
