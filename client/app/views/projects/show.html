@@ -86,6 +86,7 @@
       </editable>
     </editable-group>
 
+    <h2>Key Dimensions</h2>
     <h3>Height</h3>
     <editable-group object="project" lens="building.dims.height">
       <editable property="measurement" label="measurement">
@@ -151,6 +152,13 @@
       </editable>
     </editable-group>
 
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
+
 
 client:
   fields:
@@ -159,7 +167,12 @@ client:
     - name:end_user
   relation:
     parent: building
-
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 relationships:
   fields:
     - name:client
@@ -167,7 +180,12 @@ relationships:
     - name:councils
   relation:
     parent: building
-
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 phase:
   fields:
     - name:project_name
@@ -180,11 +198,12 @@ phase:
   relation:
     parent: building  
 
-  fields:
-  relation:
-    parent: phase  
-    fields:
-    - name:description
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
   
   relation:budget:
   fields:
@@ -198,6 +217,12 @@ phase:
     - name:fee_type
   relation:
     parent: phase
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 legacy:
   fields:
     - name:one_line_grab
@@ -209,6 +234,12 @@ legacy:
     - name:security_level
   relation:
     parent: building
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 ESD:
   fields:[]
   relation:
@@ -220,6 +251,12 @@ initiatives:
     - name:description
   relation:
     parent: ESD
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 certifications:
   fields:
     - name:name
@@ -227,33 +264,59 @@ certifications:
     - name:awarding_body
   relation:
     parent: ESD
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 photography:
   fields:
     -name:photographer
   relation:
     parent: legacy
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 awards:
   fields:
     -name:award
     - name:jury
   relation:
     parent: legacy
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 testimonials:
   fields:
     -name:testimonial
     - name:citation
   relation:
     parent: legacy
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 quotes:
   fields:
     -name:quote
     - name:citation
   relation:
     parent: legacy
-press:
-  fields: []
-  relation:
-    parent: building
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 
 attention:
   fields:
@@ -263,13 +326,23 @@ attention:
     - name: reason
   relation:
     parent: press
-
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 campaign:
   fields:
     - name:strategy
   relation:
     parent: press
-
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 press_release:
 
     - name:channel_list
@@ -277,13 +350,23 @@ press_release:
     - name:author_login
   relation:
     parent: campaign
-
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 QA:
   fields:
     - name:notes
   relation:
     parent: building
-
+    <h2>template</h2>
+    <editable-group object="project" lens="building">
+      <editable property="" label="">
+        helpText
+      </editable>
+    </editable-group>
 
   </div>
 
