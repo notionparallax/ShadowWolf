@@ -155,15 +155,15 @@
           </editable>
 
           <editable object="person" lens="employee.office_culture.dietary.requirements" label="requirements">
-            This is a coma separated list of things that you <em>can't</em> eat (for fear of feeling ill, messing up your morals or dying). For example: <em>eggs, gluten, shellfish.</em>.
+            This is a comma separated list of things that you <em>can't</em> eat (for fear of feeling ill, messing up your morals or dying). For example: <em>eggs, gluten, shellfish.</em>.
           </editable>
 
           <editable object="person" lens="employee.office_culture.dietary.likes" label="likes">
-            This is a coma separated list of things that you <em>really like</em> eating. For example: <em>bacon, pizza, pinaple.</em>.
+            This is a comma separated list of things that you <em>really like</em> eating. For example: <em>bacon, pizza, pinaple.</em>.
           </editable>
 
           <editable object="person" lens="employee.office_culture.dietary.dislikes" label="dislikes">
-            This is a coma separated list of things that you <em>really don't like</em> eating. For example: <em>devon, olives, bread.</em>.
+            This is a comma separated list of things that you <em>really don't like</em> eating. For example: <em>devon, olives, bread.</em>.
           </editable>
 
         </div>
@@ -441,21 +441,21 @@
 
     <section ng-show="isCurrentUser(person) || person.employee.professional_contributions">
       <h3>professional contributions</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
+      <p class="explantory-text">This sections captures your professional contributions. Things like teaching, speaking at conferences etc. Use one box per contributions/experience/event and add (<i class="icon-plus-sign"></i>Add) a new box for each additional one.</p>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.professional_contributions">
           <editable object="person" subobject="q" lens="employee.professional_contributions" sublens="activity" label="activity">
-
-        </editable>
+            Give this activity a title.
+          </editable>
 
           <editable object="person" subobject="q" lens="employee.professional_contributions" sublens="description" label="description" type="textarea">
-
-        </editable>
+            Describe what you did
+          </editable>
 
           <editable object="person" subobject="q" lens="employee.professional_contributions" sublens="url" label="url" type="url">
-
-        </editable>
+            Give a URL to some evidence that it happened, or at least to a description of what was going to happen.
+          </editable>
 
         </div>
       </div>
@@ -463,22 +463,22 @@
 
     <section ng-show="isCurrentUser(person) || person.employee.travel">
       <h3>travel</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
+      <p class="explantory-text">This information makes it easy for other people to book travel for you, and also means that if you need this information it's easy to find.</p>
       <h4>passports</h4>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.travel.passports">
           <editable object="person" subobject="q" lens="employee.travel.passports" sublens="number" label="number">
-
-        </editable>
+            What is your passport number?
+          </editable>
 
           <editable object="person" subobject="q" lens="employee.travel.passports" sublens="expiry" label="expiry">
-
-        </editable>
+            When does this passport expire?
+          </editable>
 
           <editable object="person" subobject="q" lens="employee.travel.passports" sublens="issuing_body" label="issuing body">
-
-        </editable>
+            Who issues this passport? It'll be written inside, don't just assume that it is your home country, it might be a sub-agency e.g. a British passport issued in Melbourne.
+          </editable>
 
         </div>
       </div>
@@ -488,52 +488,54 @@
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.travel.frequent_flier_programs">
           <editable object="person" subobject="q" lens="employee.travel.frequent_flier_programs" sublens="name" label="name">
-
-        </editable>
+            This is the name of the programme. E.g. Virgin velocity or One world
+          </editable>
 
           <editable object="person" subobject="q" lens="employee.travel.frequent_flier_programs" sublens="number" label="number">
-
-        </editable>
+            Your number for this programme.
+          </editable>
 
         </div>
       </div>
     </section>
 
     <section ng-show="isCurrentUser(person) || person.employee.project_experiences">
-      <h4> experiences (int)</h4>
-      <div class="alert alert-warning">coming as soon as we've tied the project
-      data to people through the Epicor data. </div>
-      <h4> experiences (ext)</h4>
+      <h4>Project Experience at BVN Donovan Hill</h4>
+      <div class="alert alert-warning"><span class="glyphicon glyphicon-exclamation-sign"></span> Project experience is going to be populated automatically from Epicor to begin with.<br>
+      Hang tight and your history will be here soon for you to review and edit.</div>
+
+      <h4>Project Experience at Other Firms</h4>
       <div class="row">
+      <p class="explantory-text">This sections captures your Project experience prior to working at BVN DH. Use one box per project and add (<i class="icon-plus-sign"></i>Add Registration) a new box for each additional one. If you changed roles, or there was a significant stage change then enter that as a different project.</p>
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.project_experiences">
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="name" label="name">
+          <editable object="person" subobject="q" lens="person.employee.project_experiences" sublens="name" label="name">
+            
+          </editable>
 
-        </editable>
+          <editable object="person" subobject="q" lens="person.employee.project_experiences" sublens="firm" label="firm">
+            
+          </editable>
 
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="firm" label="firm">
+          <editable object="person" subobject="q" lens="person.employee.project_experiences" sublens="role" label="role">
+            
+          </editable>
 
-        </editable>
+          <editable object="person" subobject="q" lens="person.employee.project_experiences" sublens="stage" label="stage">
+            
+          </editable>
 
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="role" label="role">
+          <editable object="person" subobject="q" lens="person.employee.project_experiences" sublens="start_date" label="start date" type="date">
+            
+          </editable>
 
-        </editable>
+          <editable object="person" subobject="q" lens="person.employee.project_experiences" sublens="end_date" label="end date" type="date">
+            
+          </editable>
 
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="stage" label="stage">
-
-        </editable>
-
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="start_date" label="start date" type="date">
-
-        </editable>
-
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="end_date" label="end date" type="date">
-
-        </editable>
-
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="url" label="url" type="url">
-
-        </editable>
+          <editable object="person" subobject="q" lens="person.employee.project_experiences" sublens="url" label="url" type="url">
+            
+          </editable>
 
         </div>
       </div>
@@ -541,32 +543,32 @@
 
     <section ng-show="isCurrentUser(person) || person.employee.biography">
       <h3>Biography</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
+      <p class="explantory-text">We need source material to write pithy and fascinating descriptions of you for CVs. We often need to hit certain subjects, so it'd be great if you could fill out these       boxes. This way of collecting this information makes it easier for someone to construct a good description of you to fit differing briefs.</p>
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <editable object="person" lens="employee.biography.one_line_bio" label="one line bio" type="textarea">
-
-        </editable>
+            This is a one sentence biography of yourself.
+          </editable>
 
           <editable object="person" lens="employee.biography.approach" label="approach" type="textarea">
-
-        </editable>
+            What is your approach to Architecture, to solving problems, to life in general?
+          </editable>
 
           <editable object="person" lens="employee.biography.expertise" label="expertise" type="textarea">
-
-        </editable>
+            What areas do you have specific expertise in?
+          </editable>
 
           <editable object="person" lens="employee.biography.experience" label="experience" type="textarea">
-
-        </editable>
+            What are the key experiences that people should know about? What projects or events have shaped your career?
+          </editable>
 
           <editable object="person" lens="employee.biography.achievements" label="achievements" type="textarea">
-
-        </editable>
+            What achievements have you made that have shaped your career?
+          </editable>
 
           <editable object="person" lens="employee.biography.value_statement" label="value statement" type="textarea">
-
-        </editable>
+            Architects are great at explaining to other architects why they are great - less good at explaining to clients. If you had to sum up what value you could bring to a project, what woudl you say?
+          </editable>
 
         </div>
       </div>
@@ -575,37 +577,33 @@
 
     <section ng-show="isCurrentUser(person) || person.employee.press">
       <h3>press</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
+      <p class="explantory-text">Have you been in the news? This is for <strong>all</strong> media attention that mentions you. Did you win a prize, make a scientific discovery or get arrested for fighting in Kings Cross? It should be recorded here.</p>
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.press.attentions">
           <editable object="person" subobject="q" lens="employee.press.attentions" sublens="date" label="date" type="date">
-
-        </editable>
+            When did you get this press attention?
+          </editable>
 
           <editable object="person" subobject="q" lens="employee.press.attentions" sublens="url" label="url" type="url">
-
-        </editable>
+            Link to the media, e.g. the smh.com.au page for the story
+          </editable>
 
           <editable object="person" subobject="q" lens="employee.press.attentions" sublens="scan_or_screengrab" label="scan_or screengrab">
-
-        </editable>
+            upload a scan or a screen capture of the article, or some film of the footage. We can't rely on the story staying up forever on the main site. This also allows us to see what the acompanying advertising was at the time.
+          </editable>
 
           <editable object="person" subobject="q" lens="employee.press.attentions" sublens="body_text" label="body text">
-
-        </editable>
-
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="body_text" label="body text" type="textarea">
-
-        </editable>
+            Copy or transcribe the text of the article/film.
+          </editable>
 
           <editable object="person" subobject="q" lens="employee.press.attentions" sublens="publication" label="publication">
-
-        </editable>
+            The name of the publication
+          </editable>
 
           <editable object="person" subobject="q" lens="employee.press.attentions" sublens="reason" label="reason">
-
-        </editable>
+            Why did you get this attention? Was it a planned campaign? Did a journalist come to you?
+          </editable>
 
         </div>
       </div>
@@ -619,27 +617,27 @@
       <div class="alert alert-info col-sm-6 col-md-4"
            ng-repeat="q in person.applicant.applications">
         <editable object="person" lens="applicant.applications.date" label="date" type="date">
-
+          Date of application
         </editable>
 
         <editable object="person" lens="applicant.applications.covering_letter" label="covering letter">
-
+          Scan or attachment of the origonal covering letter.
         </editable>
 
         <editable object="person" lens="applicant.applications.portfolio" label="portfolio">
-
+          Attatch the PDF portfolio they submitted.
         </editable>
 
         <editable object="person" lens="applicant.applications.assessment" label="assessment" type="textarea">
-
+          Once this person has been reviwed the reviwer should make comments here for future reference.
         </editable>
 
         <editable object="person" lens="applicant.applications.future_consideration" label="future consideration">
-
+          If <em>True</em> this person will show up in keyword searches. If false they will be stored just for record.
         </editable>
 
         <editable object="person" lens="applicant.applications.skills_and_keywords" label="skills_and keywords">
-
+          This is a comma separated list of skills and keywords that will be useful for finding this person in future. E.g. <em>Health, revit, articulate</em>.
         </editable>
 
       </div>
