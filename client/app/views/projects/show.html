@@ -152,91 +152,107 @@
       </editable>
     </editable-group>
 
-    <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
+    <h2>client</h2>
+    <editable-group object="project" lens="building.client">
+      <editable property="main" label="Main">
+        helpText
+      </editable>
+      <editable property="direct" label="Direct">
+        helpText
+      </editable>
+      <editable property="end_user" label="End_user">
         helpText
       </editable>
     </editable-group>
 
+    <h2>relationships</h2>
+    <editable-group object="project" lens="building.relationships">
+      <editable property="client" label="client">
+        helpText
+      </editable>
+      <editable property="stakeholder" label="stakeholder">
+        helpText
+      </editable>
+      <editable property="councils" label="councils">
+        helpText
+      </editable>
+    </editable-group>
 
-client:
-  fields:
-    - name:main
-    - name:direct
-    - name:end_user
-  relation:
-    parent: building
-    <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
+    <h2>Phase</h2>
+    <editable-group object="project" lens="building.phase">
+      <editable property="project_name" label="project_name">
+        helpText
+      </editable>
+      <editable property="studio" label="studio">
+        helpText
+      </editable>
+      <editable property="client" label="client">
+        helpText
+      </editable>
+      <editable property="services_scope" label="services_scope">
+        helpText
+      </editable>
+      <editable property="delivery_contract" label="delivery_contract">
+        helpText
+      </editable>
+      <editable property="staff_contact_login" label="staff_contact_login">
+        helpText
+      </editable>
+      <editable property="staff_custodian_login" label="staff_custodian_login">
         helpText
       </editable>
     </editable-group>
-relationships:
-  fields:
-    - name:client
-    - name:stakeholder
-    - name:councils
-  relation:
-    parent: building
-    <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
+
+<p>this budget object needs to be inside the phase repeater</p>
+    <h2>budget</h2>
+    <editable-group object="project" lens="building.phase.budget">
+      <editable property="initial_phase_value_total" label="initial_phase_value_total">
+        helpText
+      </editable>
+      <editable property="final_phase_value_total" label="final_phase_value_total">
+        helpText
+      </editable>
+      <editable property="initial_phase_fee_total" label="initial_phase_fee_total">
+        helpText
+      </editable>
+      <editable property="final_phase_fee_total" label="final_phase_fee_total">
+        helpText
+      </editable>
+      <editable property="construction_initial" label="construction_initial">
+        helpText
+      </editable>
+      <editable property="construction_final" label="construction_final">
+        helpText
+      </editable>
+      <editable property="comments" label="comments">
+        helpText
+      </editable>
+      <editable property="fee_type" label="fee_type">
         helpText
       </editable>
     </editable-group>
-phase:
-  fields:
-    - name:project_name
-    - name:studio
-    - name:client
-    - name:services_scope
-    - name:delivery_contract
-    - name:staff_contact_login
-    - name:staff_custodian_login
-  relation:
-    parent: building  
 
     <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
+    <editable-group object="project" lens="building.legacy">
+      <editable property="one_line_grab" label="one_line_grab">
         helpText
       </editable>
-    </editable-group>
-  
-  relation:budget:
-  fields:
-    - name:initial_phase_value_total
-    - name:final_phase_value_total
-    - name:initial_phase_fee_total
-    - name:final_phase_fee_total
-    - name:construction_initial
-    - name:construction_final
-    - name:comments
-    - name:fee_type
-  relation:
-    parent: phase
-    <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
+      <editable property="description_project_sheet" label="description_project_sheet">
         helpText
       </editable>
-    </editable-group>
-legacy:
-  fields:
-    - name:one_line_grab
-    - name:description_project_sheet
-    - name:description_awards_style
-    - name:innovation_client_style
-    - name:interesting_things
-    - name:brief_elements
-    - name:security_level
-  relation:
-    parent: building
-    <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
+      <editable property="description_awards_style" label="description_awards_style">
+        helpText
+      </editable>
+      <editable property="innovation_client_style" label="innovation_client_style">
+        helpText
+      </editable>
+      <editable property="interesting_things" label="interesting_things">
+        helpText
+      </editable>
+      <editable property="brief_elements" label="brief_elements">
+        helpText
+      </editable>
+      <editable property="security_level" label="security_level">
         helpText
       </editable>
     </editable-group>
@@ -252,8 +268,14 @@ initiatives:
   relation:
     parent: ESD
     <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
+    <editable-group object="project" lens="building.legacy.ESD.initiatives">
+      <editable property="title" label="title">
+        helpText
+      </editable>
+      <editable property="reason" label="reason">
+        helpText
+      </editable>
+      <editable property="description" label="description">
         helpText
       </editable>
     </editable-group>
@@ -265,8 +287,17 @@ certifications:
   relation:
     parent: ESD
     <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
+    <editable-group object="project" lens="building.legacy.ESD.certifications">
+      <editable property="name" label="name">
+        helpText
+      </editable>
+      <editable property="ranking" label="ranking">
+        helpText
+      </editable>
+      <editable property="awarding_body" label="awarding_body">
+        helpText
+      </editable>
+      <editable property="expiry_date" label="expiry_date">
         helpText
       </editable>
     </editable-group>
@@ -276,8 +307,11 @@ photography:
   relation:
     parent: legacy
     <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
+    <editable-group object="project" lens="building.legacy.photographer">
+      <editable property="name" label="name">
+        helpText
+      </editable>
+      <editable property="date" label="date">
         helpText
       </editable>
     </editable-group>
