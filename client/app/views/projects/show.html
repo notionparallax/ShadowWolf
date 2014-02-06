@@ -1,0 +1,253 @@
+<article ng-show="project">
+  <h2>{{ project.project_number }}</h2>
+  <div ng-show="project.building">
+    <h1>{{ project.building.address.building_name }}</h1>
+    <editable-group object="project" lens="building">
+      <editable property="description" label="Description" type="textarea">
+        This is an internal, easy to understand summary of the project.
+      </editable>
+
+      <editable property="attribution" label="Attribution">
+        This is an internal, easy to understand summary of the project.
+      </editable>
+      <editable property="BCA_classification" label="BCA Classification">
+        The BCA classification of this project
+      </editable>
+      <editable property="project_catagories" label="Project Catagories">
+        A comma separated list of the catagories that this project is in
+      </editable>
+      <editable property="project_sub-catagories" label="Project Sub-catagories">
+        A comma separated list of the catagories that this project is in. [TODO: why does this exist?]
+      </editable>
+    </editable-group>
+
+
+location:
+  fields:[]
+  relation:
+    parent: building
+
+geoJSON:
+  fields:
+    - name: lat
+    - name: lon
+    - name: boundary_points
+
+  relation:
+    parent: location
+
+address:
+  fields:
+    - name: building_name
+    - name: street_number
+    - name: street
+    - name: suburb_area
+    - name: state_county
+    - name: country
+    - name: postcode
+  relation:
+    parent: location
+
+project_source:
+  fields:
+    - name: competition_win
+    - name: competition_URL
+  relation:
+    parent: building
+
+referred_by:
+  fields:
+    - name: BVN_staff_login
+    - name: contact_name
+    - name: contact_organisation
+  relation:
+    parent: project_source
+
+dims:
+  fields:[]
+  relation:
+    parent: building
+
+height:
+  fields:
+    - name:measurement
+    - name:standard_name
+    - name:standard_version
+  relation:
+    parent: dims
+
+footprint_area:
+  fields:
+    - name:measurement
+    - name:standard_name
+    - name:standard_version
+  relation:
+    parent: dims
+
+GBA:
+  fields:
+    - name:measurement
+    - name:standard_name
+    - name:standard_version
+  relation:
+    parent: dims
+
+GFA:
+  fields:
+    - name:measurement
+    - name:standard_name
+    - name:standard_version
+  relation:
+    parent: dims
+
+NLA:
+  fields:
+    - name:measurement
+    - name:standard_name
+    - name:standard_version
+  relation:
+    parent: dims
+
+client:
+  fields:
+    - name:main
+    - name:direct
+    - name:end_user
+  relation:
+    parent: building
+
+relationships:
+  fields:
+    - name:client
+    - name:stakeholder
+    - name:councils
+  relation:
+    parent: building
+
+phase:
+  fields:
+    - name:project_name
+    - name:studio
+    - name:client
+    - name:services_scope
+    - name:delivery_contract
+    - name:staff_contact_login
+    - name:staff_custodian_login
+  relation:
+    parent: building  
+
+  fields:
+  relation:
+    parent: phase  
+    fields:
+    - name:description
+  
+  relation:budget:
+  fields:
+    - name:initial_phase_value_total
+    - name:final_phase_value_total
+    - name:initial_phase_fee_total
+    - name:final_phase_fee_total
+    - name:construction_initial
+    - name:construction_final
+    - name:comments
+    - name:fee_type
+  relation:
+    parent: phase
+legacy:
+  fields:
+    - name:one_line_grab
+    - name:description_project_sheet
+    - name:description_awards_style
+    - name:innovation_client_style
+    - name:interesting_things
+    - name:brief_elements
+    - name:security_level
+  relation:
+    parent: building
+ESD:
+  fields:[]
+  relation:
+    parent: legacy
+initiatives:
+  fields:
+    - name:title
+    - name:reason
+    - name:description
+  relation:
+    parent: ESD
+certifications:
+  fields:
+    - name:name
+    - name:ranking
+    - name:awarding_body
+  relation:
+    parent: ESD
+photography:
+  fields:
+    -name:photographer
+  relation:
+    parent: legacy
+awards:
+  fields:
+    -name:award
+    - name:jury
+  relation:
+    parent: legacy
+testimonials:
+  fields:
+    -name:testimonial
+    - name:citation
+  relation:
+    parent: legacy
+quotes:
+  fields:
+    -name:quote
+    - name:citation
+  relation:
+    parent: legacy
+press:
+  fields: []
+  relation:
+    parent: building
+
+attention:
+  fields:
+    - name: url
+    - name: scan_or_screengrab
+    - name: publication
+    - name: reason
+  relation:
+    parent: press
+
+campaign:
+  fields:
+    - name:strategy
+  relation:
+    parent: press
+
+press_release:
+
+    - name:channel_list
+    - name:content
+    - name:author_login
+  relation:
+    parent: campaign
+
+QA:
+  fields:
+    - name:notes
+  relation:
+    parent: building
+
+
+  </div>
+
+  <div ng-show="project.non_building">
+  <h1>{{ project.non_building.name }}</h1>
+    <editable object="project" subobject="q" lens="project.non_building.description" label="description" type="textarea">
+      This is an internal, easy to understand summary of the project.
+    </editable>
+  </div>
+
+</article>
