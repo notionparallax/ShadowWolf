@@ -203,7 +203,7 @@
       </editable>
     </editable-group>
 
-<p>this budget object needs to be inside the phase repeater</p>
+    <p>this budget object needs to be inside the phase repeater</p>
     <h2>budget</h2>
     <editable-group object="project" lens="building.phase.budget">
       <editable property="initial_phase_value_total" label="initial_phase_value_total">
@@ -256,18 +256,8 @@
         helpText
       </editable>
     </editable-group>
-ESD:
-  fields:[]
-  relation:
-    parent: legacy
-initiatives:
-  fields:
-    - name:title
-    - name:reason
-    - name:description
-  relation:
-    parent: ESD
-    <h2>template</h2>
+
+    <h2>initiatives</h2>
     <editable-group object="project" lens="building.legacy.ESD.initiatives">
       <editable property="title" label="title">
         helpText
@@ -279,14 +269,8 @@ initiatives:
         helpText
       </editable>
     </editable-group>
-certifications:
-  fields:
-    - name:name
-    - name:ranking
-    - name:awarding_body
-  relation:
-    parent: ESD
-    <h2>template</h2>
+
+    <h2>certifications</h2>
     <editable-group object="project" lens="building.legacy.ESD.certifications">
       <editable property="name" label="name">
         helpText
@@ -301,111 +285,108 @@ certifications:
         helpText
       </editable>
     </editable-group>
-photography:
-  fields:
-    -name:photographer
-  relation:
-    parent: legacy
-    <h2>template</h2>
-    <editable-group object="project" lens="building.legacy.photographer">
-      <editable property="name" label="name">
+
+    <h2>photography</h2>
+    <editable-group object="project" lens="building.legacy.photography">
+      <editable property="photographer" label="photographer">
         helpText
       </editable>
       <editable property="date" label="date">
         helpText
       </editable>
     </editable-group>
-awards:
-  fields:
-    -name:award
-    - name:jury
-  relation:
-    parent: legacy
-    <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
+
+    <h2>awards</h2>
+    <editable-group object="project" lens="building.legacy.awards">
+      <editable property="ward" label="ward">
         helpText
       </editable>
-    </editable-group>
-testimonials:
-  fields:
-    -name:testimonial
-    - name:citation
-  relation:
-    parent: legacy
-    <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
+      <editable property="date" label="date">
         helpText
       </editable>
-    </editable-group>
-quotes:
-  fields:
-    -name:quote
-    - name:citation
-  relation:
-    parent: legacy
-    <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
+      <editable property="jury" label="jury">
         helpText
       </editable>
     </editable-group>
 
-attention:
-  fields:
-    - name: url
-    - name: scan_or_screengrab
-    - name: publication
-    - name: reason
-  relation:
-    parent: press
-    <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
-        helpText
-      </editable>
-    </editable-group>
-campaign:
-  fields:
-    - name:strategy
-  relation:
-    parent: press
-    <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
-        helpText
-      </editable>
-    </editable-group>
-press_release:
 
-    - name:channel_list
-    - name:content
-    - name:author_login
-  relation:
-    parent: campaign
-    <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
+    <h2>testimonials</h2>
+    <editable-group object="project" lens="building.legacy.testimonials">
+      <editable property="testimonial" label="testimonial">
+        helpText
+      </editable>
+      <editable property="citation" label="citation">
+        helpText
+      </editable>
+      <editable property="date" label="date">
         helpText
       </editable>
     </editable-group>
-QA:
-  fields:
-    - name:notes
-  relation:
-    parent: building
-    <h2>template</h2>
-    <editable-group object="project" lens="building">
-      <editable property="" label="">
+
+    <h2>quotes</h2>
+    <editable-group object="project" lens="building.legacy.quotes">
+      <editable property="quote" label="quote">
         helpText
       </editable>
+      <editable property="citation" label="citation">
+        helpText
+      </editable>
+      <editable property="date" label="date">
+        helpText
+      </editable>
+    </editable-group>
+
+    <h2>attention</h2>
+    <editable-group object="project" lens="building.legacy.attention">
+      <editable property="" label="url">
+        helpText
+      </editable>
+      <editable property="" label="scan_or_screengrab">
+        helpText
+      </editable>
+      <editable property="" label="publication">
+        helpText
+      </editable>
+      <editable property="" label="reason">
+        helpText
+      </editable>
+    </editable-group>
+
+    <h2>template</h2>
+    <editable-group object="project" lens="building.legacy.press.campaign">
+      <editable property="strategy" label="strategy">
+        helpText
+      </editable>
+      <editable property="date" label="date">
+        helpText
+      </editable>
+    </editable-group>
+
+    <h2>press_release</h2>
+    <editable-group object="project" lens="building.legacy.press.campaign.press_release">
+      <editable property="channel_list" label="channel_list">
+        helpText
+      </editable>
+      <editable property="content" label="content">
+        helpText
+      </editable>
+      <editable property="author_login" label="author_login">
+        helpText
+      </editable>
+    </editable-group>
+
+    <h2>template</h2>
+    <editable-group object="project" lens="building.QA">
+      <editable property="notes" label="notes">
+        helpText
+      </editable>
+      <p>this section of the model is underdefined</p>
     </editable-group>
 
   </div>
 
   <div ng-show="project.non_building">
-  <h1>{{ project.non_building.name }}</h1>
+    <h1>{{ project.non_building.name }}</h1>
     <editable object="project" subobject="q" lens="project.non_building.description" label="description" type="textarea">
       This is an internal, easy to understand summary of the project.
     </editable>
