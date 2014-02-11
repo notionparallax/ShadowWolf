@@ -1,6 +1,6 @@
 <div>
   <div ng-if="isPlural()">
-    <div ng-repeat="subobject in target()">
+    <div ng-repeat="subobject in target()" class="alert alert-info col-sm-6 col-md-3">
       <div>
         <div ng-transclude></div>
         <a class="btn btn-warn" ng-click="removeObject(subobject)">Remove</a>
