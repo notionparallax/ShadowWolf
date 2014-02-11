@@ -1,9 +1,10 @@
 <div>
-  <div ng-repeat="subobject in objects()">
+  <div ng-show="isPlural()" ng-repeat="subobject in target()">
     <div>
       <div ng-transclude></div>
       <a class="btn btn-warn" ng-click="removeObject(subobject)">Remove</a>
     </div>
   </div>
   <a class="btn btn-primary" ng-click="addObject(person.employee.office_culture, 'event_participations')">Add</a>
+  <div ng-repeat="_ in [1]" ng-hide="isPlural()" ng-transclude></div>
 </div>

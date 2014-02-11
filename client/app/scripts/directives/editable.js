@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("ShadowWolf")
-.directive("editable", function(Lens, Session) {
+.directive("editable", function(Lens, Session, Person) {
   var editDisabled = false;
   return {
     restrict: "E",
@@ -22,7 +22,7 @@ angular.module("ShadowWolf")
       $scope.get = Lens.get;
       $scope.set = Lens.set;
 
-      // Get the name for the laben and input tag
+      // Get the name for the label and input tag
       $scope.getName = function() {
         var name = $scope.objectName;
         var props = $scope.lens.split('.');
@@ -36,7 +36,9 @@ angular.module("ShadowWolf")
         if (editDisabled || Session.getPersonId() != $scope.object.id['$oid']) return;
         $scope.editorEnabled = true;
         // TODO use ng-model?
-        $scope.editableValue = $scope.subobject[$scope.property];
+        $scope.editableValue = $scope.subobject
+          ? $scope.subobject[$scope.property]
+          : $scope.target()[$scope.property];
       };
 
       $scope.disableEditor = function() {
@@ -52,14 +54,19 @@ angular.module("ShadowWolf")
         var updateObject;
 
         // Set the value locally
-        $scope.subobject[$scope.property] = $scope.editableValue;
+        // TODO is this even necessary?
+        if ($scope.subobject) {
+          $scope.subobject[$scope.property] = $scope.editableValue;
+        } else {
+          $scope.target()[$scope.property] = $scope.editableValue;
+        }
 
         // Wrap it for transport
         var parentObject = Lens.get($scope.object, $scope.lens);
         updateObject = { person: Lens.wrapObject( $scope.lens,  parentObject ) };
 
         // Set it back on the server
-        $scope.$parent.updatePerson( $scope.object.id['$oid'],
+        Person.update( $scope.object.id['$oid'],
           updateObject,
           function() {
             console.log("successful update");

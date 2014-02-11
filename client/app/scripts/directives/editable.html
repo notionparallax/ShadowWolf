@@ -6,7 +6,7 @@
       <div ng-hide="editorEnabled"
          class="form-control-static editable editable-text"
          ng-click="enableEditor($event)">
-        <div ng-bind-html="subobject[property]"></div>
+        <div ng-bind-html="subobject[property] || target()[property]"></div>
       </div>
       <div ng-show="editorEnabled" 
            class="input-group">
