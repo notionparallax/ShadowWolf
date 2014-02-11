@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("ShadowWolf")
-.directive("editable", function(Lens, Session, Person) {
+.directive("editable", function(Lens, Session, Person, Flash) {
   var editDisabled = false;
   return {
     restrict: "E",
@@ -24,6 +24,7 @@ angular.module("ShadowWolf")
 
       // Get the name for the label and input tag
       $scope.getName = function() {
+        return '';
         var name = $scope.objectName;
         var props = $scope.lens.split('.');
         for (var prop in props) {
@@ -73,8 +74,10 @@ angular.module("ShadowWolf")
           updateObject,
           function() {
             console.log("successful update");
+            Flash.add({ content: 'Update successful!' });
           }, function() {
             console.log("unsuccessful update");
+            Flash.add({ content: 'Update unsuccessful!' });
             $scope.enableEditor();
           }
         );

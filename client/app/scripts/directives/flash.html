@@ -1,0 +1,4 @@
+<div class="flash alert" ng-repeat="flash in getFlashes()">
+  <div ng-bind-html="flash.content"></div>
+  <a ng-click="dismiss(flash)">Dismiss</a>
+</div>
