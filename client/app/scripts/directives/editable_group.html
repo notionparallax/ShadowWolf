@@ -1,10 +1,12 @@
 <div>
-  <div ng-show="isPlural()" ng-repeat="subobject in target()">
-    <div>
-      <div ng-transclude></div>
-      <a class="btn btn-warn" ng-click="removeObject(subobject)">Remove</a>
+  <div ng-if="isPlural()">
+    <div ng-repeat="subobject in target()">
+      <div>
+        <div ng-transclude></div>
+        <a class="btn btn-warn" ng-click="removeObject(subobject)">Remove</a>
+      </div>
     </div>
+    <a class="btn btn-primary" ng-click="addObject()">Add</a>
   </div>
-  <a class="btn btn-primary" ng-click="addObject()">Add</a>
-  <div ng-repeat="_ in [1]" ng-hide="isPlural()" ng-transclude></div>
+  <div ng-repeat="_ in [1]" ng-if="!isPlural()" ng-transclude></div>
 </div>

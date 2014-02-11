@@ -63,7 +63,10 @@ angular.module("ShadowWolf")
 
         // Wrap it for transport
         var parentObject = Lens.get($scope.object, $scope.lens);
-        updateObject = { person: Lens.wrapObject( $scope.lens,  parentObject ) };
+        updateObject = { 
+          person: Lens.wrapObject( [$scope.lens,'.',$scope.property].join(''),
+            parentObject[$scope.property] )
+        };
 
         // Set it back on the server
         Person.update( $scope.object.id['$oid'],
