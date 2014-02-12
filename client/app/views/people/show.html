@@ -223,33 +223,31 @@
         <section dissabled-ng-show="person.employee.registrations">
           <h3>registrations</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
-          <div class="row">
-            <div class="alert alert-info col-sm-12 col-md-6"
-                 ng-repeat="q in person.employee.registrations">
-              <editable property"organisation"         label="organisation"       ></editable>
-              <editable property="registration_number" label="registration number"></editable>
-              <editable property"state"                label="state"              ></editable>
-              <editable property"country"              label="country"            ></editable>
-              <editable property"expiry"               label="expiry"             ></editable>
-            </div>
-          </div>
+          <editable-group object="person"
+                          lens="employee.registrations"
+                          class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+            <editable property"organisation"         label="organisation"       ></editable>
+            <editable property="registration_number" label="registration number"></editable>
+            <editable property"state"                label="state"              ></editable>
+            <editable property"country"              label="country"            ></editable>
+            <editable property"expiry"               label="expiry"             ></editable>
+          </editable-group>
         </section>
       </div>
 
       <div class="col-md-4">
         <section dissabled-ng-show="person.employee.memberships">
           <h3>memberships</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
-          <div class="row">
-            <div class="alert alert-info col-sm-12 col-md-6"
-                 ng-repeat="m in person.employee.memberships">
-              <editable object="person" subobject="m" lens="employee.memberships" sublens="organisation" label="organisation"></editable>
-              <editable object="person" subobject="m" lens="employee.memberships" sublens="membership_number" label="membership number"></editable>
-              <editable object="person" subobject="m" lens="employee.memberships" sublens="state" label="state"></editable>
-              <editable object="person" subobject="m" lens="employee.memberships" sublens="country" label="country"></editable>
-              <editable object="person" subobject="m" lens="employee.memberships" sublens="expiry" label="expiry"></editable>
-            </div>
-          </div>
+          <p class="explantory-text">Explanatory text goes in here</p>
+          <editable-group object="person"
+                        lens="employee.memberships"
+                        class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+            <editable property="organisation"      label="organisation"     ></editable>
+            <editable property="membership_number" label="membership number"></editable>
+            <editable property="state"             label="state"            ></editable>
+            <editable property="country"           label="country"          ></editable>
+            <editable property="expiry"            label="expiry"           ></editable>
+          </editable-group>
         </section>
       </div>
 
