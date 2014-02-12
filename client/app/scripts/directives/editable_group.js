@@ -7,7 +7,7 @@ angular.module("ShadowWolf")
     replace:         false,
     transclude:      true,
     templateUrl:     "scripts/directives/editable_group.html",
-    scope: {  
+    scope: {
       object  :      "=",
       objectName:    "@object",
       subgroupClass: "@",
