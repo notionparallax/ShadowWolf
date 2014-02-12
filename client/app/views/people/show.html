@@ -197,9 +197,9 @@
         <editable-group object="person"
                         lens="employee.security_clearances"
                         class="alert alert-info col-sm-6 col-md-3">
-          <editable object="sc" lens="issuing_body" label="issuing body"></editable>
-          <editable object="sc" lens="level"        label="level"       ></editable>
-          <editable object="sc" lens="expiry"       label="expiry"      ></editable>
+          <editable property="issuing_body" label="issuing body"></editable>
+          <editable property="level"        label="level"       ></editable>
+          <editable property="expiry"       label="expiry"      ></editable>
         </editable-group>
     </section>
 
@@ -210,11 +210,11 @@
         <editable-group object="person"
                         lens="employee.qualifications"
                         class="alert alert-info col-xs-12 col-sm-4 col-md-3">
-          <editable object="q" lens="name"        label="name"                    ></editable>
-          <editable object="q" lens="level"       label="level"                   ></editable>
-          <editable object="q" lens="institution" label="institution"             ></editable>
-          <editable object="q" lens="first_year"  label="first year" type="number"></editable>
-          <editable object="q" lens="last_year"   label="last year" type="number" ></editable>
+          <editable property="name"        label="name"                    ></editable>
+          <editable property="level"       label="level"                   ></editable>
+          <editable property="institution" label="institution"             ></editable>
+          <editable property="first_year"  label="first year" type="number"></editable>
+          <editable property="last_year"   label="last year"  type="number"></editable>
         </editable-group>
     </section>
 
@@ -226,11 +226,11 @@
           <div class="row">
             <div class="alert alert-info col-sm-12 col-md-6"
                  ng-repeat="q in person.employee.registrations">
-              <editable object="person" subobject="q" lens="employee.registrations" sublens="organisation" label="organisation"></editable>
-              <editable object="person" subobject="q" lens="employee.registrations" sublens="registration_number" label="registration number"></editable>
-              <editable object="person" subobject="q" lens="employee.registrations" sublens="state" label="state"></editable>
-              <editable object="person" subobject="q" lens="employee.registrations" sublens="country" label="country"></editable>
-              <editable object="person" subobject="q" lens="employee.registrations" sublens="expiry" label="expiry"></editable>
+              <editable property"organisation"         label="organisation"       ></editable>
+              <editable property="registration_number" label="registration number"></editable>
+              <editable property"state"                label="state"              ></editable>
+              <editable property"country"              label="country"            ></editable>
+              <editable property"expiry"               label="expiry"             ></editable>
             </div>
           </div>
         </section>
