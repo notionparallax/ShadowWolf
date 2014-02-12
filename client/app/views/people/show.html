@@ -171,14 +171,18 @@
             </div>
             <div class="col-md-6">
               <h4>social</h4>
-              <editable object="person" lens="contact.social.twitter" label="twitter"></editable>
-              <editable object="person" lens="contact.social.instagram" label="instagram"></editable>
-              <editable object="person" lens="contact.social.github" label="github"></editable>
-              <editable object="person" lens="contact.social.pinterest" label="pinterest"></editable>
-              <editable object="person" lens="contact.social.google_plus" label="google plus"></editable>
-              <editable object="person" lens="contact.social.linkedin" label="linkedin"></editable>
-              <editable object="person" lens="contact.social.facebook" label="facebook"></editable>
-              <editable object="person" lens="contact.social.tumblr" label="tumblr"></editable>
+              <editable-group object="person"
+                              lens="contact.social"
+                              subgroupclass="alert alert-info col-sm-6">
+                <editable property="twitter"     label="twitter"    ></editable>
+                <editable property="instagram"   label="instagram"  ></editable>
+                <editable property="github"      label="github"     ></editable>
+                <editable property="pinterest"   label="pinterest"  ></editable>
+                <editable property="google_plus" label="google plus"></editable>
+                <editable property="linkedin"    label="linkedin"   ></editable>
+                <editable property="facebook"    label="facebook"   ></editable>
+                <editable property="tumblr"      label="tumblr"     ></editable>
+              </editable-group>
               <!--Social widgets went in here-->
             </div>
           </div>
