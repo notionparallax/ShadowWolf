@@ -1,14 +1,12 @@
 <div class="row hit-area">
   <div class="form-group show-field">
-
     <label class="col-xs-12 col-sm-3 control-label editable-lable" for="{{ getName() }}">{{ label }}</label>
 
     <div class="col-xs-12 col-sm-9"><!--data area-->
       <div ng-hide="editorEnabled"
          class="form-control-static editable editable-text"
          ng-click="enableEditor($event)">
-        <div ng-hide="subobject && sublens" ng-bind-html="get(object, lens)"></div>
-        <div ng-show="subobject && sublens" ng-bind-html="subobject[sublens]"></div>
+        <div ng-bind-html="subobject[property] || target()[property]"></div>
       </div>
       <div ng-show="editorEnabled"
            class="input-group">

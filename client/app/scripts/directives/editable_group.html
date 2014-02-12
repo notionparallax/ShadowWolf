@@ -1,0 +1,19 @@
+<div ng-if="isPlural()" class="row">
+  <div class="{{ subgroupClass }}" ng-repeat="subobject in target()" >
+    <button type="button"
+            ng-click="removeObject(subobject)"
+            class="close pull-right"
+            aria-hidden="true"
+            title="Remove this">
+      &times;
+    </button>
+    <div ng-transclude></div>
+  </div><!--end ng-repeat-->
+  <a class="btn btn-primary" ng-click="addObject()">Add</a>
+</div>
+
+<div class="{{ subgroupClass }}"
+    ng-repeat="_ in [1]"
+    ng-if="!isPlural()"
+    ng-transclude>
+</div>

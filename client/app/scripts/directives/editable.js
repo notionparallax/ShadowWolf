@@ -1,24 +1,19 @@
 "use strict";
 
 angular.module("ShadowWolf")
-.directive("editable", function(Lens, Session) {
+.directive("editable", function(Lens, Session, Person) {
   var editDisabled = false;
   return {
     restrict: "E",
     replace: false,
+    transclude: true,
     templateUrl: 'scripts/directives/editable.html',
-    scope: {
-      label: "@",
-      object: "=",
-      objectName: "@object",
-      subobject: "=",
-      lens:  "@",
-      sublens: "@",
-      type: "@",
-      updatePerson: "&"
-    },
+    scope: true,
     link: function (scope, element, attrs) { 
       if (attrs['editDisabled']) editDisabled = true;
+      scope.property = attrs.property;
+      scope.label = attrs.label;
+      scope.type = attrs.type || 'text';
     },
     controller: function($scope) {
       $scope.editableValue= $scope.value;
@@ -27,7 +22,7 @@ angular.module("ShadowWolf")
       $scope.get = Lens.get;
       $scope.set = Lens.set;
 
-      // Get the name for the laben and input tag
+      // Get the name for the label and input tag
       $scope.getName = function() {
         var name = $scope.objectName;
         var props = $scope.lens.split('.');
@@ -36,24 +31,14 @@ angular.module("ShadowWolf")
         }
         return name;
       };
-      // Wrap the object for the PATCH update
-      $scope.wrapObject = function(result) {
-        var object = {}, innerObject = object;
-        var props = $scope.lens.split('.');
-        var i;
-        for (i = 0; i <= props.length-2; i++) {
-          innerObject[props[i]] = {};
-          innerObject = innerObject[props[i]];
-        }
-        innerObject[props[i]] = result;
-        return object;
-      };
 
       $scope.enableEditor = function() {
         if (editDisabled || Session.getPersonId() != $scope.object.id['$oid']) return;
         $scope.editorEnabled = true;
-        $scope.editableValue = $scope.subobject && $scope.sublens
-          ? $scope.subobject[$scope.sublens] : Lens.get($scope.object, $scope.lens);
+        // TODO use ng-model?
+        $scope.editableValue = $scope.subobject
+          ? $scope.subobject[$scope.property]
+          : $scope.target()[$scope.property];
       };
 
       $scope.disableEditor = function() {
@@ -67,14 +52,24 @@ angular.module("ShadowWolf")
        */
       $scope.save = function() {
         var updateObject;
+
+        // Set the value locally
+        // TODO is this even necessary?
         if ($scope.subobject) {
-          $scope.subobject[$scope.sublens] = $scope.editableValue;
-          updateObject = { person: $scope.wrapObject( $scope.get( $scope.object, $scope.lens ) ) };
+          $scope.subobject[$scope.property] = $scope.editableValue;
         } else {
-          $scope.set($scope.object, $scope.lens, $scope.editableValue);
-          updateObject = { person: $scope.wrapObject( $scope.editableValue ) };
+          $scope.target()[$scope.property] = $scope.editableValue;
         }
-        $scope.$parent.updatePerson( $scope.object.id['$oid'],
+
+        // Wrap it for transport
+        var parentObject = Lens.get($scope.object, $scope.lens);
+        updateObject = { 
+          person: Lens.wrapObject( [$scope.lens,'.',$scope.property].join(''),
+            parentObject[$scope.property] )
+        };
+
+        // Set it back on the server
+        Person.update( $scope.object.id['$oid'],
           updateObject,
           function() {
             console.log("successful update");

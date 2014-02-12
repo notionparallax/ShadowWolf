@@ -15,7 +15,7 @@ angular.module("ShadowWolf")
    * @returns      The selected property.
    */
   this.get = function(object, lens) {
-    lens = lens.split('.');
+    lens = (lens || '').split('.');
     var i = 0;
     try {
       while (i <= lens.length-1) {
@@ -27,7 +27,6 @@ angular.module("ShadowWolf")
       }
     } catch (e) {
       object = undefined;
-      console.log("Error accessing " + lens.join('.'), e);
     }
     return object;
   };
@@ -51,5 +50,18 @@ angular.module("ShadowWolf")
       }
       object[lens[i]] = value;
     } catch (e) {}
+  };
+
+  // Wrap the object for the PATCH update
+  this.wrapObject = function(lens, result) {
+    var object = {}, innerObject = object;
+    var props = lens.split('.');
+    var i;
+    for (i = 0; i <= props.length-2; i++) {
+      innerObject[props[i]] = {};
+      innerObject = innerObject[props[i]];
+    }
+    innerObject[props[i]] = result;
+    return object;
   };
 });
