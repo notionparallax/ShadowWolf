@@ -122,16 +122,14 @@
         <div class="col-md-8">
           <div class="row">
           <h4>Event Participation</h4>
-            <div class="alert alert-info col-sm-6"
-                 ng-repeat="ep in person.employee.office_culture.event_participations">
-              <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="date" label="date" type="date"></editable>
-              <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="name" label="name"></editable>
-              <editable object="person" subobject="ep" lens="employee.office_culture.event_participations" sublens="url" label="url" type="url"></editable>
-              <a class="btn btn-warn" ng-click="removeObject('employee.office_culture.event_participations', ep)">Remove</a>
-              <p><a href="{{ ep.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></div>
-            </div>
-            <a class="btn btn-primary" ng-click="addObject(person.employee.office_culture, 'event_participations')">Add</a>
-          </div>
+            <editable-group object="person" 
+                            lens="employee.office_culture.event_participations" 
+                            subgroupclass="alert alert-info col-sm-6">
+              <editable property="date" label="date" type="date"></editable>
+              <editable property="name" label="name"></editable>
+              <editable property="url"  label="url" type="url"></editable>
+              <p><a href="{{ person.employee.office_culture.event_participations.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></div>
+            </editable-group>
       </div>
     </section>
 
@@ -187,14 +185,12 @@
     <section dissabled-ng-show="person.employee.security_clearances">
       <h3>Clearances</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
-      <div class="row">
-        <div class="alert alert-info col-sm-6 col-md-3"
-             ng-repeat="sc in person.employee.security_clearances">
+        <editable-group object="person" lens="employee.security_clearances" class="alert alert-info col-sm-6 col-md-3">
+
           <editable object="sc" lens="issuing_body" label="issuing body"></editable>
           <editable object="sc" lens="level" label="level"></editable>
           <editable object="sc" lens="expiry" label="expiry"></editable>
-        </div>
-      </div>
+        </editable-group>
     </section>
 
     <div class="row">
