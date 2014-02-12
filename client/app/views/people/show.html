@@ -198,8 +198,8 @@
                         lens="employee.security_clearances"
                         class="alert alert-info col-sm-6 col-md-3">
           <editable object="sc" lens="issuing_body" label="issuing body"></editable>
-          <editable object="sc" lens="level" label="level"></editable>
-          <editable object="sc" lens="expiry" label="expiry"></editable>
+          <editable object="sc" lens="level"        label="level"       ></editable>
+          <editable object="sc" lens="expiry"       label="expiry"      ></editable>
         </editable-group>
     </section>
 
@@ -207,16 +207,15 @@
     <section dissabled-ng-show="person.employee.qualifications">
       <h3>qualifications</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
-      <div class="row">
-        <div class="alert alert-info col-xs-12 col-sm-4 col-md-3"
-             ng-repeat="q in person.employee.qualifications">
-          <editable object="q" lens="name" label="name"></editable>
-          <editable object="q" lens="level" label="level"></editable>
-          <editable object="q" lens="institution" label="institution"></editable>
-          <editable object="q" lens="first_year" label="first year" type="number"></editable>
-          <editable object="q" lens="last_year" label="last year" type="number"></editable>
-        </div>
-      </div>
+        <editable-group object="person"
+                        lens="employee.qualifications"
+                        class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+          <editable object="q" lens="name"        label="name"                    ></editable>
+          <editable object="q" lens="level"       label="level"                   ></editable>
+          <editable object="q" lens="institution" label="institution"             ></editable>
+          <editable object="q" lens="first_year"  label="first year" type="number"></editable>
+          <editable object="q" lens="last_year"   label="last year" type="number" ></editable>
+        </editable-group>
     </section>
 
     <div class="row">
