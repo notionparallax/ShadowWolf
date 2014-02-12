@@ -194,8 +194,9 @@
     <section dissabled-ng-show="person.employee.security_clearances">
       <h3>Clearances</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
-        <editable-group object="person" lens="employee.security_clearances" class="alert alert-info col-sm-6 col-md-3">
-
+        <editable-group object="person"
+                        lens="employee.security_clearances"
+                        class="alert alert-info col-sm-6 col-md-3">
           <editable object="sc" lens="issuing_body" label="issuing body"></editable>
           <editable object="sc" lens="level" label="level"></editable>
           <editable object="sc" lens="expiry" label="expiry"></editable>
