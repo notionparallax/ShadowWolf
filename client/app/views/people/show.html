@@ -166,8 +166,8 @@
             <p class="explantory-text">Explanatory text goes in here</p>
             <div class="col-md-6">
               <h4>anti-social</h4>
-              <editable object="person" lens="contact.personal_email" label="personal email" type="email"></editable>
-              <editable object="person" lens="contact.personal_phone" label="personal phone" type="tel"></editable>
+              <editable lens="contact.personal_email" label="personal email" type="email"></editable>
+              <editable lens="contact.personal_phone" label="personal phone" type="tel"></editable>
             </div>
             <div class="col-md-6">
               <h4>social</h4>
@@ -254,16 +254,15 @@
       <div class="col-md-4">
         <section dissabled-ng-show="person.employee.personal_awards">
           <h3>personal awards</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
-          <div class="row">
-            <div class="alert alert-info col-sm-12 col-md-6"
-                 ng-repeat="q in person.employee.personal_awards">
-              <editable object="person" subobject="q" lens="employee.memberships" sublens="name" label="name"></editable>
-              <editable object="person" subobject="q" lens="employee.memberships" sublens="awarding_body" label="awarding body"></editable>
-              <editable object="person" subobject="q" lens="employee.memberships" sublens="description" label="description" type="textarea"></editable>
-              <editable object="person" subobject="q" lens="employee.memberships" sublens="url" label="url" type="url"></editable>
-            </div>
-          </div>
+          <p class="explantory-text">Explanatory text goes in here</p>
+          <editable-group object="person"
+                      lens="employee.personal_awards"
+                      class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+            <editable property="name" label="name"></editable>
+            <editable property="awarding_body" label="awarding body"></editable>
+            <editable property="description" label="description" type="textarea"></editable>
+            <editable property="url" label="url" type="url"></editable>
+          </editable-group>
         </section>
       </div>
     </div> <!--end row-->
@@ -274,9 +273,9 @@
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.professional_contributions">
-          <editable object="person" subobject="q" lens="employee.professional_contributions" sublens="activity" label="activity"></editable>
-          <editable object="person" subobject="q" lens="employee.professional_contributions" sublens="description" label="description" type="textarea"></editable>
-          <editable object="person" subobject="q" lens="employee.professional_contributions" sublens="url" label="url" type="url"></editable>
+          <editable property="activity" label="activity"></editable>
+          <editable property="description" label="description" type="textarea"></editable>
+          <editable property="url" label="url" type="url"></editable>
         </div>
       </div>
     </section>
@@ -288,9 +287,9 @@
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.travel.passports">
-          <editable object="person" subobject="q" lens="employee.travel.passports" sublens="number" label="number"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.passports" sublens="expiry" label="expiry"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.passports" sublens="issuing_body" label="issuing body"></editable>
+          <editable property="number" label="number"></editable>
+          <editable property="expiry" label="expiry"></editable>
+          <editable property="issuing_body" label="issuing body"></editable>
         </div>
       </div>
       <h4>frequent flier programs</h4>
@@ -298,8 +297,8 @@
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.travel.frequent_flier_programs">
-          <editable object="person" subobject="q" lens="employee.travel.frequent_flier_programs" sublens="name" label="name"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.frequent_flier_programs" sublens="number" label="number"></editable>
+          <editable property="name" label="name"></editable>
+          <editable property="number" label="number"></editable>
         </div>
       </div>
     </section>
@@ -312,13 +311,13 @@
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.project_experiences">
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="name" label="name"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="firm" label="firm"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="role" label="role"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="stage" label="stage"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="start_date" label="start date" type="date"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="end_date" label="end date" type="date"></editable>
-          <editable object="person" subobject="q" lens="employee.travel.project_experiences" sublens="url" label="url" type="url"></editable>
+          <editable property="name" label="name"></editable>
+          <editable property="firm" label="firm"></editable>
+          <editable property="role" label="role"></editable>
+          <editable property="stage" label="stage"></editable>
+          <editable property="start_date" label="start date" type="date"></editable>
+          <editable property="end_date" label="end date" type="date"></editable>
+          <editable property="url" label="url" type="url"></editable>
         </div>
       </div>
     </section>
@@ -328,12 +327,12 @@
       <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <editable object="person" lens="employee.biography.one_line_bio" label="one line bio" type="textarea"></editable>
-          <editable object="person" lens="employee.biography.approach" label="approach" type="textarea"></editable>
-          <editable object="person" lens="employee.biography.expertise" label="expertise" type="textarea"></editable>
-          <editable object="person" lens="employee.biography.experience" label="experience" type="textarea"></editable>
-          <editable object="person" lens="employee.biography.achievements" label="achievements" type="textarea"></editable>
-          <editable object="person" lens="employee.biography.value_statement" label="value statement" type="textarea"></editable>
+          <editable property="one_line_bio" label="one line bio" type="textarea"></editable>
+          <editable property="approach" label="approach" type="textarea"></editable>
+          <editable property="expertise" label="expertise" type="textarea"></editable>
+          <editable property="experience" label="experience" type="textarea"></editable>
+          <editable property="achievements" label="achievements" type="textarea"></editable>
+          <editable property="value_statement" label="value statement" type="textarea"></editable>
         </div>
       </div>
     </section>
@@ -345,13 +344,13 @@
       <div class="row">
         <div class="alert alert-info col-sm-6 col-md-4"
              ng-repeat="q in person.employee.press.attentions">
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="date" label="date" type="date"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="url" label="url" type="url"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="scan_or_screengrab" label="scan_or screengrab"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="body_text" label="body text"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="body_text" label="body text" type="textarea"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="publication" label="publication"></editable>
-          <editable object="person" subobject="q" lens="employee.press.attentions" sublens="reason" label="reason"></editable>
+          <editable property="date" label="date" type="date"></editable>
+          <editable property="url" label="url" type="url"></editable>
+          <editable property="scan_or_screengrab" label="scan_or screengrab"></editable>
+          <editable property="body_text" label="body text"></editable>
+          <editable property="body_text" label="body text" type="textarea"></editable>
+          <editable property="publication" label="publication"></editable>
+          <editable property="reason" label="reason"></editable>
         </div>
       </div>
     </section>
@@ -363,12 +362,12 @@
     <div class="row">
       <div class="alert alert-info col-sm-6 col-md-4"
            ng-repeat="q in person.applicant.applications">
-        <editable object="person" lens="applicant.applications.date" label="date" type="date"></editable>
-        <editable object="person" lens="applicant.applications.covering_letter" label="covering letter"></editable>
-        <editable object="person" lens="applicant.applications.portfolio" label="portfolio"></editable>
-        <editable object="person" lens="applicant.applications.assessment" label="assessment" type="textarea"></editable>
-        <editable object="person" lens="applicant.applications.future_consideration" label="future consideration"></editable>
-        <editable object="person" lens="applicant.applications.skills_and_keywords" label="skills_and keywords"></editable>
+        <editable property="date" label="date" type="date"></editable>
+        <editable property="covering_letter" label="covering letter"></editable>
+        <editable property="portfolio" label="portfolio"></editable>
+        <editable property="assessment" label="assessment" type="textarea"></editable>
+        <editable property="future_consideration" label="future consideration"></editable>
+        <editable property="skills_and_keywords" label="skills_and keywords"></editable>
       </div>
     </div>
   </section>
