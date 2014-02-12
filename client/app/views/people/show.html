@@ -258,10 +258,10 @@
           <editable-group object="person"
                       lens="employee.personal_awards"
                       class="alert alert-info col-xs-12 col-sm-4 col-md-3">
-            <editable property="name" label="name"></editable>
-            <editable property="awarding_body" label="awarding body"></editable>
-            <editable property="description" label="description" type="textarea"></editable>
-            <editable property="url" label="url" type="url"></editable>
+            <editable property="name"          label="name"                       ></editable>
+            <editable property="awarding_body" label="awarding body"              ></editable>
+            <editable property="description"   label="description" type="textarea"></editable>
+            <editable property="url"           label="url"         type="url"     ></editable>
           </editable-group>
         </section>
       </div>
@@ -270,37 +270,34 @@
     <section dissabled-ng-show="person.employee.professional_contributions">
       <h3>professional contributions</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
-      <div class="row">
-        <div class="alert alert-info col-sm-6 col-md-4"
-             ng-repeat="q in person.employee.professional_contributions">
-          <editable property="activity" label="activity"></editable>
+      <editable-group object="person"
+                      lens="employee.professional_contributions"
+                      class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+          <editable property="activity"    label="activity"                   ></editable>
           <editable property="description" label="description" type="textarea"></editable>
-          <editable property="url" label="url" type="url"></editable>
-        </div>
-      </div>
+          <editable property="url"         label="url"         type="url"     ></editable>
+        </editable-group>
     </section>
 
     <section dissabled-ng-show="person.employee.travel">
       <h3>travel</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
       <h4>passports</h4>
-      <div class="row">
-        <div class="alert alert-info col-sm-6 col-md-4"
-             ng-repeat="q in person.employee.travel.passports">
-          <editable property="number" label="number"></editable>
-          <editable property="expiry" label="expiry"></editable>
-          <editable property="issuing_body" label="issuing body"></editable>
-        </div>
-      </div>
+      <editable-group object="person"
+                      lens="employee.travel.passports"
+                      class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+        <editable property="number"       label="number"      ></editable>
+        <editable property="expiry"       label="expiry"      ></editable>
+        <editable property="issuing_body" label="issuing body"></editable>
+      </editable-group>
       <h4>frequent flier programs</h4>
       <!--it'd be cool to get status updates from somewhere like http://awardwallet.com/ in the future-->
-      <div class="row">
-        <div class="alert alert-info col-sm-6 col-md-4"
-             ng-repeat="q in person.employee.travel.frequent_flier_programs">
-          <editable property="name" label="name"></editable>
-          <editable property="number" label="number"></editable>
-        </div>
-      </div>
+      <editable-group object="person"
+                      lens="employee.travel.frequent_flier_programs"
+                      class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+        <editable property="name"   label="name"  ></editable>
+        <editable property="number" label="number"></editable>
+      </editable-group>
     </section>
 
     <section dissabled-ng-show="person.employee.project_experiences">
@@ -308,42 +305,41 @@
       <div class="alert alert-warning">coming as soon as we've tied the project
       data to people through the Epicor data. </div>
       <h4> experiences (ext)</h4>
-      <div class="row">
-        <div class="alert alert-info col-sm-6 col-md-4"
-             ng-repeat="q in person.employee.project_experiences">
-          <editable property="name" label="name"></editable>
-          <editable property="firm" label="firm"></editable>
-          <editable property="role" label="role"></editable>
-          <editable property="stage" label="stage"></editable>
+      <editable-group object="person"
+                      lens="employee.project_experiences"
+                      class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+          <editable property="name"       label="name"                  ></editable>
+          <editable property="firm"       label="firm"                  ></editable>
+          <editable property="role"       label="role"                  ></editable>
+          <editable property="stage"      label="stage"                 ></editable>
           <editable property="start_date" label="start date" type="date"></editable>
-          <editable property="end_date" label="end date" type="date"></editable>
-          <editable property="url" label="url" type="url"></editable>
-        </div>
-      </div>
+          <editable property="end_date"   label="end date"   type="date"></editable>
+          <editable property="url"        label="url"        type="url" ></editable>
+        </editable-group>
     </section>
 
     <section dissabled-ng-show="person.employee.biography">
       <h3>Biography</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <editable property="one_line_bio" label="one line bio" type="textarea"></editable>
-          <editable property="approach" label="approach" type="textarea"></editable>
-          <editable property="expertise" label="expertise" type="textarea"></editable>
-          <editable property="experience" label="experience" type="textarea"></editable>
-          <editable property="achievements" label="achievements" type="textarea"></editable>
+      <editable-group object="person"
+                      lens="employee.biography"
+                      class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+          <editable property="one_line_bio"    label="one line bio"    type="textarea"></editable>
+          <editable property="approach"        label="approach"        type="textarea"></editable>
+          <editable property="expertise"       label="expertise"       type="textarea"></editable>
+          <editable property="experience"      label="experience"      type="textarea"></editable>
+          <editable property="achievements"    label="achievements"    type="textarea"></editable>
           <editable property="value_statement" label="value statement" type="textarea"></editable>
-        </div>
-      </div>
+        </editable-group>
     </section>
 
 
     <section dissabled-ng-show="person.employee.press">
       <h3>press</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
-      <div class="row">
-        <div class="alert alert-info col-sm-6 col-md-4"
-             ng-repeat="q in person.employee.press.attentions">
+      <editable-group object="person"
+                      lens="employee.press.attentions"
+                      class="alert alert-info col-xs-12 col-sm-4 col-md-3">
           <editable property="date" label="date" type="date"></editable>
           <editable property="url" label="url" type="url"></editable>
           <editable property="scan_or_screengrab" label="scan_or screengrab"></editable>
@@ -351,8 +347,7 @@
           <editable property="body_text" label="body text" type="textarea"></editable>
           <editable property="publication" label="publication"></editable>
           <editable property="reason" label="reason"></editable>
-        </div>
-      </div>
+        </editable-group>
     </section>
   </section>
 
