@@ -10,6 +10,7 @@ angular.module("ShadowWolf")
     scope: {
       object:      "=",
       objectName:  "@object",
+      subgroupClass: "@",
       lens:        "@"
     },
     controller: function($scope) {

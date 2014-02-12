@@ -1,6 +1,7 @@
 <div>
   <div ng-if="isPlural()">
-    <div ng-repeat="subobject in target()" class="alert alert-info col-sm-6 col-md-3">
+    <div class="{{ subgroupClass }}"
+         ng-repeat="subobject in target()" >
       <div class="eg-box">
         <div ng-transclude></div>
         <a class="btn btn-warn" ng-click="removeObject(subobject)">Remove</a>
@@ -15,5 +16,8 @@
     </div>
     <a class="btn btn-primary" ng-click="addObject()">Add</a>
   </div>
-  <div ng-repeat="_ in [1]" ng-if="!isPlural()" ng-transclude></div>
+  <div class="{{ subgroupClass }}"
+      ng-repeat="_ in [1]"
+      ng-if="!isPlural()"
+      ng-transclude></div>
 </div>
