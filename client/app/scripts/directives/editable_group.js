@@ -3,15 +3,15 @@
 angular.module("ShadowWolf")
 .directive("editableGroup", function(Lens, Person) {
   return {
-    restrict:     'E',
-    replace:      false,
-    transclude:   true,
-    templateUrl:  'scripts/directives/editable_group.html',
-    scope: {
-      object:      "=",
-      objectName:  "@object",
+    restrict:        "E",
+    replace:         false,
+    transclude:      true,
+    templateUrl:     "scripts/directives/editable_group.html",
+    scope: {  
+      object  :      "=",
+      objectName:    "@object",
       subgroupClass: "@",
-      lens:        "@"
+      lens:          "@"
     },
     controller: function($scope) {
       $scope.target = function() {
