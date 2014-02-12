@@ -7,6 +7,10 @@ project:
 
 non_building:
   fields:
+  - name: name
+    type: string
+    factory: |
+      { Faker::Company.bs }
   - name: description
     type: text
     factory: |
