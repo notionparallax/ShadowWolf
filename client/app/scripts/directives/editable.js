@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("ShadowWolf")
-.directive("editable", function(Lens, Session, Person) {
+.directive("editable", function(Lens, Session, Person, Flash) {
   var editDisabled = false;
   return {
     restrict: "E",
@@ -24,6 +24,7 @@ angular.module("ShadowWolf")
 
       // Get the name for the label and input tag
       $scope.getName = function() {
+        return '';
         var name = $scope.objectName;
         var props = $scope.lens.split('.');
         for (var prop in props) {
@@ -54,7 +55,6 @@ angular.module("ShadowWolf")
         var updateObject;
 
         // Set the value locally
-        // TODO is this even necessary?
         if ($scope.subobject) {
           $scope.subobject[$scope.property] = $scope.editableValue;
         } else {
@@ -69,12 +69,21 @@ angular.module("ShadowWolf")
         };
 
         // Set it back on the server
+        var flash = {
+          template: '<p>Updating {{flash.label()}}...</p>',
+          label: function() { return $scope.label; }
+        };
+        var handle = Flash.add(flash);
         Person.update( $scope.object.id['$oid'],
           updateObject,
           function() {
-            console.log("successful update");
+            flash.template = '<p>Updated {{flash.label()}}.</p>';
+            flash.css = 'flash-success';
+            handle.timeout(5000);
           }, function() {
-            console.log("unsuccessful update");
+            flash.template = '<p>Update unsuccessful for {{flash.label()}}. You may wish to check your submission.</p>';
+            flash.css = 'flash-fail';
+            handle.timeout(5000);
             $scope.enableEditor();
           }
         );
