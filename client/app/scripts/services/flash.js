@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('ShadowWolf')
-.service('Flash', function($timeout) {
+.service('Flash', function($timeout, $compile) {
   var _flashes = [];
   this.get = function() { return _flashes; };
   this.add = function(flash) {
     var _that = this;
-    _flashes.push(flash);
+    _flashes.splice(0,0,flash);
 
     return {
       timeout: function(duration) {

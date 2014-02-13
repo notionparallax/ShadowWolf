@@ -3,6 +3,6 @@
     <button ng-click="dismiss(flash)" type="button" class="close" aria-hidden="true">
       &times;
     </button>
-    <span ng-bind-html="flash.template"></span>
+    <span class="{{flash.css}}" compile="flash.template"></span>
   </div>
 </div>
