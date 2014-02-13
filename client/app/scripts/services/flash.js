@@ -7,16 +7,19 @@ angular.module('ShadowWolf')
   this.add = function(flash) {
     var _that = this;
     _flashes.push(flash);
-    $timeout( function() {
-      //_that.dismiss( flash );
-    }, flash.timeout || 5000
-    );
+
+    return {
+      timeout: function(duration) {
+        $timeout( function() {
+          _that.dismiss( flash );
+        }, duration || 5000
+        );
+      }
+    };
   };
   this.dismiss = function(flash) {
     var index = _flashes.indexOf(flash);
     if (index == -1) return;
     _flashes.splice(index,1);
   };
-
-  this.add({ content: 'sup' });
 });

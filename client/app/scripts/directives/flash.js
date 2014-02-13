@@ -8,7 +8,7 @@ angular.module('ShadowWolf')
     templateUrl: 'scripts/directives/flash.html',
     controller: function($scope) {
       $scope.getFlashes = Flash.get;
-      //$scope.dismiss = Flash.dismiss;
+      $scope.dismiss = Flash.dismiss;
     }
   };
 });

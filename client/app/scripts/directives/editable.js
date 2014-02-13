@@ -70,14 +70,26 @@ angular.module("ShadowWolf")
         };
 
         // Set it back on the server
+        var flash = {
+          template: '<p>Updating...<a class="btn btn-cancel" ng-click="flash.cancel()">Cancel</a></p>',
+          cancel: function() {
+            alert('Canceled');
+          },
+        };
+        var handle = Flash.add(flash);
         Person.update( $scope.object.id['$oid'],
           updateObject,
           function() {
-            console.log("successful update");
-            Flash.add({ content: 'Update successful!' });
+            flash.template = '<p>Update successful! <a class="btn btn-cancel" ng-click="flash.undo()">Undo</a></p>';
+            flash.undo = function() {
+              alert('Undone');
+            };
+            flash.css = 'flash-success';
+            handle.timeout(5000);
           }, function() {
-            console.log("unsuccessful update");
-            Flash.add({ content: 'Update unsuccessful!' });
+            flash.template = '<p>Update unsuccessful. You may wish to check your submission.</p>';
+            flash.css = 'flash-fail';
+            handle.timeout(5000);
             $scope.enableEditor();
           }
         );
