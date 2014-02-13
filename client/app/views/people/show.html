@@ -108,7 +108,7 @@
       <h3>Conditions</h3>
       <p class="explantory-text">A <em>condition</em>is like a status. At the moment you can either be <em>Active</em>, <em>Retired</em>, <em>Maternity</em>, <em>Leave</em>, <em>Deceased</em>, <em>Applicant</em>, <em>Left</em> or </em>Unknown</em>, but we'll add more as we work out what is needed. The system calculates your current condition by looking at the most recent start date, so it is important to update new conditins as soon as you can. </p>
 
-      <editable-group object="person" lens="conditions" subgroupclass="alert alert-info col-sm-6 col-md-4">
+      <editable-group object="person" lens="conditions" subgroup-class="alert alert-info col-sm-6 col-md-4">
         <editable property="name"       label="name"                  >This is the label of this period of your life, it will normally be taken from the list above.</editable>
         <editable property="start_date" label="start date" type="date">This is the date that this period started. YOu don't need to put in when it ended becasue that is inferred from the start date of the next period.</editable>
       </editable-group>
@@ -119,7 +119,7 @@
       <h3>Office culture</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
-        <editable-group object="person" lens="employee.office_culture" subgroupclass="col-md-4">
+        <editable-group object="person" lens="employee.office_culture" subgroup-class="col-md-4">
           <editable property="first_aider"  label="first aider" >If you are <em>currently</em> a first aider then this should say True, otherwise it should say False.</editable>
           <editable property="fire_warden"  label="fire warden" >If you <em>are</em>a fire warden then this should say True, otherwise it should say False.</editable>
           <editable property="requirements" label="requirements">This is a comma separated list of things that you <em>can't</em> eat (for fear of feeling ill, messing up your morals or dying). For example: <em>eggs, gluten, shellfish.</editable>
@@ -131,7 +131,7 @@
           <h4>Event Participation</h4>
             <editable-group object="person"
                             lens="employee.office_culture.event_participations"
-                            subgroupclass="alert alert-info col-sm-6">
+                            subgroup-class="alert alert-info col-sm-6">
               <editable property="name" label="name"            >This is the name of the thing that you did.</editable>
               <editable property="date" label="date" type="date">This is the date that you did it.</editable>
               <editable property="url"  label="url"  type="url" >This is a link to some kind of explanation of the event. It could be the event's website, or it might be to some report that you've published about it.</editable>
@@ -148,7 +148,7 @@
             <p class="explantory-text">Explanatory text goes in here</p>
             <editable-group object="person"
                             lens="employee.office_culture.event_participations"
-                            subgroupclass="alert alert-info col-sm-6">
+                            subgroup-class="alert alert-info col-sm-6">
               <editable  property="extension" label="extension"  type="number">This is your desk phone extension.</editable>
               <editable  property="studio"    label="studio"                  >This is the studio that you work in.</editable>
               <editable  property="work email"label="work email" type="email" >This is your ~~~@bvn.com.au email address.</editable>
@@ -157,7 +157,7 @@
               <h4>Mobile</h4>
               <editable-group object="person"
                               lens="employee.contact.mobile"
-                              subgroupclass="alert alert-info col-sm-6">
+                              subgroup-class="alert alert-info col-sm-6">
                 <editable property="number"     label="number"    type="number">This is your mobile number.</editable>
                 <editable property="is_work"    label="is work"                >This is <em>True</em> if BVNDH provides your mobile.</editable>
                 <editable property="distribute" label="distribute"             >This is <em>True</em> if it is OK for people give your mobile number out to people.</editable>
@@ -179,7 +179,7 @@
               <h4>social</h4>
               <editable-group object="person"
                               lens="contact.social"
-                              subgroupclass="alert alert-info col-sm-6">
+                              subgroup-class="alert alert-info col-sm-6">
                 <editable property="twitter"     label="twitter"    >This is your Twitter name. Leave the @ off.</editable>
                 <editable property="instagram"   label="instagram"  >This is your Instagram name. Leave the @ off.</editable>
                 <editable property="github"      label="github"     >This is your github name.</editable>
