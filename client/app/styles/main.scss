@@ -81,3 +81,17 @@ body {
   border: none;
   padding-left: 1em;
 }
+
+/* Flash box */
+.flashes {
+  background-color: red;
+  position: absolute;
+  z-index: 9999;
+}
+.flash {
+  background-color: blue;
+}
+
+.flash, .flashes {
+  padding: 1em;
+}

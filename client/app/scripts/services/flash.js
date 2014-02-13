@@ -8,7 +8,7 @@ angular.module('ShadowWolf')
     var _that = this;
     _flashes.push(flash);
     $timeout( function() {
-      _that.dismiss( flash );
+      //_that.dismiss( flash );
     }, flash.timeout || 5000
     );
   };
