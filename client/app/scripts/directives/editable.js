@@ -55,7 +55,6 @@ angular.module("ShadowWolf")
         var updateObject;
 
         // Set the value locally
-        // TODO is this even necessary?
         if ($scope.subobject) {
           $scope.subobject[$scope.property] = $scope.editableValue;
         } else {
@@ -71,22 +70,16 @@ angular.module("ShadowWolf")
 
         // Set it back on the server
         var flash = {
-          template: '<p>Updating {{flash.label()}}...<a class="btn btn-cancel" ng-click="flash.cancel()">Cancel</a></p>',
-          cancel: function() {
-            alert('Canceled');
-          },
+          template: '<p>Updating {{flash.label()}}...</p>',
           label: function() { return $scope.label; }
         };
         var handle = Flash.add(flash);
         Person.update( $scope.object.id['$oid'],
           updateObject,
           function() {
-            flash.template = '<p>Updated {{flash.label()}}. <a class="btn btn-cancel" ng-click="flash.undo()">Undo</a></p>';
-            flash.undo = function() {
-              alert('Undone');
-            };
+            flash.template = '<p>Updated {{flash.label()}}.</p>';
             flash.css = 'flash-success';
-            //handle.timeout(5000);
+            handle.timeout(5000);
           }, function() {
             flash.template = '<p>Update unsuccessful for {{flash.label()}}. You may wish to check your submission.</p>';
             flash.css = 'flash-fail';
