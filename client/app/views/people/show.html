@@ -135,7 +135,7 @@
               <editable property="name" label="name"            >This is the name of the thing that you did.</editable>
               <editable property="date" label="date" type="date">This is the date that you did it.</editable>
               <editable property="url"  label="url"  type="url" >This is a link to some kind of explanation of the event. It could be the event's website, or it might be to some report that you've published about it.</editable>
-              <p><a href="{{ person.employee.office_culture.event_participations.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></div>
+              <p><a href="{{ subobject.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></div>
             </editable-group>
       </div>
     </section>
@@ -270,6 +270,7 @@
             <editable property="awarding_body" label="awarding body"              >Who awards it?</editable>
             <editable property="description"   label="description" type="textarea">Describe the award and why you got it.</editable>
             <editable property="url"           label="url"         type="url"     >Give a link to information about the award and about you getting it if you can.</editable>
+            <p><a href="{{ subobject.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></div>
           </editable-group>
         </section>
       </div>
@@ -284,6 +285,7 @@
           <editable property="activity"    label="activity"                   >Give this activity a title.</editable>
           <editable property="description" label="description" type="textarea">Describe what you did</editable>
           <editable property="url"         label="url"         type="url"     >Give a URL to some evidence that it happened, or at least to a description of what was going to happen.</editable>
+          <p><a href="{{ subobject.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></div>
         </editable-group>
     </section>
 
@@ -355,6 +357,7 @@
           <editable property="body_text"          label="body text"                         >Copy or transcribe the text of the article/film.</editable>
           <editable property="publication"        label="publication"                       >The name of the publication</editable>
           <editable property="reason"             label="reason"                            >Why did you get this attention? Was it a planned campaign? Did a journalist come to you?</editable>
+          <p><a href="{{ subobject.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></div>
         </editable-group>
     </section>
   </section>
