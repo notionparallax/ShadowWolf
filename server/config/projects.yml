@@ -214,7 +214,7 @@ gross_floor_area:
   relation:
     parent: dimension_group
     type: embeds_one
-    synoym: gfa
+    synonym: gfa
 
 net_lettable_area:
   fields:
@@ -301,12 +301,7 @@ phase:
     type: string
     factory: |
       { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
-  relation:
-    parent: building
-    type: embeds_one
-
-key_date:
-  fields:
+  # from key_date
   - name: start_date
     type: date
     factory: |
@@ -315,26 +310,7 @@ key_date:
     type: date
     factory: |
       { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
-  relation:
-    parent: phase
-    type: embeds_one
-
-other_date:
-  fields:
-  - name: date
-    type: date
-    factory: |
-      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
-  - name: description
-    type: string
-    factory: |
-      { Faker::Company.catch_phrase }
-  relation:
-    parent: key_date
-    type: embeds_many
-
-budget:
-  fields:
+  # from budget
   - name: initial_phase_value_total
     type: float
     factory: |
@@ -368,8 +344,75 @@ budget:
     factory: |
       { ["fixed fee", "lump sum", "hourly"].sample }
   relation:
-    parent: phase
-    type: embeds_one
+    parent: building
+    type: embeds_many
+
+#key_date:
+#  fields:
+#  - name: start_date
+#    type: date
+#    factory: |
+#      { (10..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+#  - name: end_date
+#    type: date
+#    factory: |
+#      { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
+#  relation:
+#    parent: phase
+#    type: embeds_one
+
+# TODO support nested plural sub properties
+#other_date:
+#  fields:
+#  - name: date
+#    type: date
+#    factory: |
+#      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+#  - name: description
+#    type: string
+#    factory: |
+#      { Faker::Company.catch_phrase }
+#  relation:
+#    parent: key_date
+#    type: embeds_many
+
+#budget:
+#  fields:
+#  - name: initial_phase_value_total
+#    type: float
+#    factory: |
+#      { (rand*100).floor*1000000 }
+#  - name: final_phase_value_total
+#    type: float
+#    factory: |
+#      { (rand*100).floor*1000000 }
+#  - name: initial_phase_fee_total
+#    type: float
+#    factory: |
+#      { (rand*100).floor*1000000 }
+#  - name: final_phase_fee_total
+#    type: float
+#    factory: |
+#      { (rand*100).floor*1000000 }
+#  - name: construction_initial
+#    type: float
+#    factory: |
+#      { (rand*100).floor*1000000 }
+#  - name: construction_final
+#    type: float
+#    factory: |
+#      { (rand*100).floor*1000000 }
+#  - name: comments
+#    type: text
+#    factory: |
+#      { Faker::Lorem.paragraphs.join('<br>') }
+#  - name: fee_type
+#    type: string
+#    factory: |
+#      { ["fixed fee", "lump sum", "hourly"].sample }
+#  relation:
+#    parent: phase
+#    type: embeds_one
 
 legacy:
   fields:
