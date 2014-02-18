@@ -15,9 +15,11 @@ end if building.client
 json.relationship_description do
   json.partial! "relationship_descriptions/relationship_description.json.jbuilder", relationship_description: building.relationship_description
 end if building.relationship_description
-json.phase do
-  json.partial! "phases/phase.json.jbuilder", phase: building.phase
-end if building.phase
+json.phases do
+  json.array!(building.phases) do |phase|
+    json.partial! "phases/phase.json.jbuilder", phase: phase
+  end
+end
 json.legacy do
   json.partial! "legacies/legacy.json.jbuilder", legacy: building.legacy
 end if building.legacy

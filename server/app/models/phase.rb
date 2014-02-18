@@ -2,14 +2,6 @@ class Phase
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embeds_one :budget
-
-  accepts_nested_attributes_for :budget
-
-  embeds_one :key_date
-
-  accepts_nested_attributes_for :key_date
-
   embedded_in :building
 
   field :project_name, type: String
@@ -19,4 +11,14 @@ class Phase
   field :delivery_contract, type: String
   field :staff_contact_login, type: String
   field :staff_custodian_login, type: String
+  field :start_date, type: Date
+  field :end_date, type: Date
+  field :initial_phase_value_total, type: Float
+  field :final_phase_value_total, type: Float
+  field :initial_phase_fee_total, type: Float
+  field :final_phase_fee_total, type: Float
+  field :construction_initial, type: Float
+  field :construction_final, type: Float
+  field :comments, type: String
+  field :fee_type, type: String
 end

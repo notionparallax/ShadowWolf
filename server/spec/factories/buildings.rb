@@ -7,7 +7,9 @@ FactoryGirl.define do
     end
     building_press { FactoryGirl.build( :building_press ) }
     legacy { FactoryGirl.build( :legacy ) }
-    phase { FactoryGirl.build( :phase ) }
+    after(:build) do |building|
+      FactoryGirl.build_list( :phase, [0,1,2,3,10].sample, building: building )
+    end
     relationship_description { FactoryGirl.build( :relationship_description ) }
     client { FactoryGirl.build( :client ) }
     dims { FactoryGirl.build( :dimension_group ) }

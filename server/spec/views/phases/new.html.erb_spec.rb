@@ -9,7 +9,15 @@ describe "config/projects/new" do
       :services_scope => "MyText",
       :delivery_contract => "MyText",
       :staff_contact_login => "MyString",
-      :staff_custodian_login => "MyString"
+      :staff_custodian_login => "MyString",
+      :initial_phase_value_total => 1.5,
+      :final_phase_value_total => 1.5,
+      :initial_phase_fee_total => 1.5,
+      :final_phase_fee_total => 1.5,
+      :construction_initial => 1.5,
+      :construction_final => 1.5,
+      :comments => "MyText",
+      :fee_type => "MyString"
     ).as_new_record)
   end
 
@@ -25,6 +33,14 @@ describe "config/projects/new" do
       assert_select "textarea#config_project_delivery_contract[name=?]", "config_project[delivery_contract]"
       assert_select "input#config_project_staff_contact_login[name=?]", "config_project[staff_contact_login]"
       assert_select "input#config_project_staff_custodian_login[name=?]", "config_project[staff_custodian_login]"
+      assert_select "input#config_project_initial_phase_value_total[name=?]", "config_project[initial_phase_value_total]"
+      assert_select "input#config_project_final_phase_value_total[name=?]", "config_project[final_phase_value_total]"
+      assert_select "input#config_project_initial_phase_fee_total[name=?]", "config_project[initial_phase_fee_total]"
+      assert_select "input#config_project_final_phase_fee_total[name=?]", "config_project[final_phase_fee_total]"
+      assert_select "input#config_project_construction_initial[name=?]", "config_project[construction_initial]"
+      assert_select "input#config_project_construction_final[name=?]", "config_project[construction_final]"
+      assert_select "textarea#config_project_comments[name=?]", "config_project[comments]"
+      assert_select "input#config_project_fee_type[name=?]", "config_project[fee_type]"
     end
   end
 end

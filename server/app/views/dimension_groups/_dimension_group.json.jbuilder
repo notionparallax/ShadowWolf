@@ -9,9 +9,9 @@ end if dims.footprint_area
 json.gba do
   json.partial! "gross_building_areas/gross_building_area.json.jbuilder", gba: dims.gba
 end if dims.gba
-json.gross_floor_area do
-  json.partial! "gross_floor_areas/gross_floor_area.json.jbuilder", gross_floor_area: dims.gross_floor_area
-end if dims.gross_floor_area
+json.gfa do
+  json.partial! "gross_floor_areas/gross_floor_area.json.jbuilder", gfa: dims.gfa
+end if dims.gfa
 json.nla do
   json.partial! "net_lettable_areas/net_lettable_area.json.jbuilder", nla: dims.nla
 end if dims.nla

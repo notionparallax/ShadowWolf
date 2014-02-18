@@ -14,9 +14,9 @@ class Building
 
   accepts_nested_attributes_for :legacy
 
-  embeds_one :phase
+  embeds_many :phases
 
-  accepts_nested_attributes_for :phase
+  accepts_nested_attributes_for :phases
 
   embeds_one :relationship_description
 

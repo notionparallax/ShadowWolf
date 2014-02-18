@@ -6,9 +6,9 @@ class DimensionGroup
 
   accepts_nested_attributes_for :nla
 
-  embeds_one :gross_floor_area
+  embeds_one :gfa, class_name: 'GrossFloorArea'
 
-  accepts_nested_attributes_for :gross_floor_area
+  accepts_nested_attributes_for :gfa
 
   embeds_one :gba, class_name: 'GrossBuildingArea'
 
