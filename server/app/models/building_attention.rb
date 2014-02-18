@@ -2,7 +2,7 @@ class BuildingAttention
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embedded_in :building_press
+  embedded_in :building_press, inverse_of: :attentions
 
   field :date, type: Date
   field :url, type: String

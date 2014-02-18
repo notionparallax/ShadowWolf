@@ -23,9 +23,11 @@ end
 json.legacy do
   json.partial! "legacies/legacy.json.jbuilder", legacy: building.legacy
 end if building.legacy
-json.building_press do
-  json.partial! "building_presses/building_press.json.jbuilder", building_press: building.building_press
-end if building.building_press
+json.presses do
+  json.array!(building.presses) do |press|
+    json.partial! "building_presses/building_press.json.jbuilder", press: press
+  end
+end
 json.qas do
   json.array!(building.qas) do |qa|
     json.partial! "quality_assurances/quality_assurance.json.jbuilder", qa: qa

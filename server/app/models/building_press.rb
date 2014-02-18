@@ -6,10 +6,10 @@ class BuildingPress
 
   accepts_nested_attributes_for :campaigns
 
-  embeds_many :building_attentions
+  embeds_many :attentions, class_name: 'BuildingAttention'
 
-  accepts_nested_attributes_for :building_attentions
+  accepts_nested_attributes_for :attentions
 
-  embedded_in :building
+  embedded_in :building, inverse_of: :presses
 
 end

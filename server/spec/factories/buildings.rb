@@ -5,7 +5,9 @@ FactoryGirl.define do
     after(:build) do |building|
       FactoryGirl.build_list( :quality_assurance, [0,1,2,3,10].sample, building: building )
     end
-    building_press { FactoryGirl.build( :building_press ) }
+    after(:build) do |building|
+      FactoryGirl.build_list( :building_press, [0,1,2,3,10].sample, building: building )
+    end
     legacy { FactoryGirl.build( :legacy ) }
     after(:build) do |building|
       FactoryGirl.build_list( :phase, [0,1,2,3,10].sample, building: building )

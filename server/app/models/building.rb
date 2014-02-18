@@ -6,9 +6,9 @@ class Building
 
   accepts_nested_attributes_for :qas
 
-  embeds_one :building_press
+  embeds_many :presses, class_name: 'BuildingPress'
 
-  accepts_nested_attributes_for :building_press
+  accepts_nested_attributes_for :presses
 
   embeds_one :legacy
 
