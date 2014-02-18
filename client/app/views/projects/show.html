@@ -115,7 +115,7 @@
 
     <h2>Phase</h2>
     <editable-group object="project"
-                    lens="building.phase"
+                    lens="building.phases"
                     subgroup-class="alert alert-info col-sm-6">
       <editable property="project_name"          label= "project_name"         >helpText</editable>
       <editable property="studio"                label= "studio"               >helpText</editable>
@@ -124,13 +124,7 @@
       <editable property="delivery_contract"     label= "delivery_contract"    >helpText</editable>
       <editable property="staff_contact_login"   label= "staff_contact_login"  >helpText</editable>
       <editable property="staff_custodian_login" label= "staff_custodian_login">helpText</editable>
-    </editable-group>
-
-    <p>this budget object needs to be inside the phase repeater</p>
-    <h2>budget</h2>
-    <editable-group object="project"
-                    lens="building.phases.budget"
-                    subgroup-class="alert alert-info col-sm-6">
+      <h3>Budget</h3>
       <editable property="initial_phase_value_total" label= "initial_phase_value_total">helpText</editable>
       <editable property="final_phase_value_total"   label= "final_phase_value_total"  >helpText</editable>
       <editable property="initial_phase_fee_total"   label= "initial_phase_fee_total"  >helpText</editable>
