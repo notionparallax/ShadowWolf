@@ -567,7 +567,8 @@ building_press:
   fields: []
   relation:
     parent: building
-    type: embeds_one
+    type: embeds_many
+    synonym: press
 
 building_attention:
   fields:
@@ -598,6 +599,7 @@ building_attention:
   relation:
     parent: building_press
     type: embeds_many
+    synonym: attention
 
 campaign:
   fields:
@@ -609,27 +611,28 @@ campaign:
     parent: building_press
     type: embeds_many
 
-building_press_release:
-  fields:
-  - name: date
-    type: date
-    factory: |
-      { (10..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
-  - name: channel_list
-    type: string
-    factory: |
-      { Faker::Company.name + " " + "professional targetted marketing" }
-  - name: content
-    type: text
-    factory: |
-      { Faker::Lorem.paragraphs.join('<br>') }
-  - name: author_login
-    type: string
-    factory: |
-      { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
-  relation:
-    parent: campaign
-    type: embeds_many
+# TODO fix editable
+#building_press_release:
+#  fields:
+#  - name: date
+#    type: date
+#    factory: |
+#      { (10..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+#  - name: channel_list
+#    type: string
+#    factory: |
+#      { Faker::Company.name + " " + "professional targetted marketing" }
+#  - name: content
+#    type: text
+#    factory: |
+#      { Faker::Lorem.paragraphs.join('<br>') }
+#  - name: author_login
+#    type: string
+#    factory: |
+#      { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
+#  relation:
+#    parent: campaign
+#    type: embeds_many
 
 quality_assurance:
   fields:
