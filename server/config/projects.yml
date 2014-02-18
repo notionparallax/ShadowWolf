@@ -51,7 +51,7 @@ location:
     parent: building
     type: embeds_one
 
-geoJSON:
+geo_json:
   fields:
   - name: lat
     type: double
@@ -135,11 +135,12 @@ referred_by:
     parent: project_source
     type: embeds_one
 
-dims:
+dimension_group:
   fields: []
   relation:
     parent: building
     type: embeds_one
+    synonym: dims
 
 height:
   fields:
@@ -156,7 +157,7 @@ height:
     factory: |
       { "V"+(1..5)to_a.sample }
   relation:
-    parent: dims
+    parent: dimension_group
     type: embeds_one
 
 footprint_area:
@@ -174,10 +175,10 @@ footprint_area:
     factory: |
       { "V"+(1..5)to_a.sample }
   relation:
-    parent: dims
+    parent: dimension_group
     type: embeds_one
 
-GBA:
+gross_building_area:
   fields:
   - name: measurement
     type: double
@@ -192,10 +193,11 @@ GBA:
     factory: |
       { "V"+(1..5)to_a.sample }
   relation:
-    parent: dims
+    parent: dimension_group
     type: embeds_one
+    synonym: gba
 
-GFA:
+gross_floor_area:
   fields:
   - name: measurement
     type: double
@@ -210,10 +212,11 @@ GFA:
     factory: |
       { "V"+(1..5)to_a.sample }
   relation:
-    parent: dims
+    parent: dimension_group
     type: embeds_one
+    synoym: gfa
 
-NLA:
+net_lettable_area:
   fields:
   - name: measurement
     type: double
@@ -228,8 +231,9 @@ NLA:
     factory: |
       { "V"+(1..5)to_a.sample }
   relation:
-    parent: dims
+    parent: dimension_group
     type: embeds_one
+    synonym: nla
 
 client:
   fields:
@@ -249,7 +253,7 @@ client:
     parent: building
     type: embeds_one
 
-relationships:
+relationship_description:
   fields:
   - name: client
     type: text
@@ -315,7 +319,7 @@ key_date:
     parent: phase
     type: embeds_one
 
-other_dates:
+other_date:
   fields:
   - name: date
     type: date
@@ -401,13 +405,14 @@ legacy:
     parent: building
     type: embeds_one
 
-ESD:
+environmental_sustainable_design:
   fields: []
   relation:
     parent: legacy
     type: embeds_one
+    synonym: esd
 
-initiatives:
+initiative:
   fields:
   - name: title
     type: string
@@ -422,10 +427,10 @@ initiatives:
     factory: |
       { Faker::Lorem.paragraphs(2).join('<br>') }
   relation:
-    parent: ESD
+    parent: environmental_sustainable_design
     type: embeds_many
 
-certifications:
+certification:
   fields:
   - name: name
     type: string
@@ -444,7 +449,7 @@ certifications:
     factory: |
       { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   relation:
-    parent: ESD
+    parent: environmental_sustainable_design
     type: embeds_many
 
 photography:
@@ -461,7 +466,7 @@ photography:
     parent: legacy
     type: embeds_one
 
-awards:
+award:
   fields:
   - name: award
     type: string
@@ -477,9 +482,9 @@ awards:
       { [Faker::Name.name,Faker::Name.name,Faker::Name.name ,Faker::Name.name].join ', ' }
   relation:
     parent: legacy
-    type: embeds_one
+    type: embeds_many
 
-testimonials:
+testimonial:
   fields:
   - name: testimonial
     type: text
@@ -495,9 +500,9 @@ testimonials:
       { Faker::Name.name  }
   relation:
     parent: legacy
-    type: embeds_one
+    type: embeds_many
 
-quotes:
+quote:
   fields:
   - name: quote
     type: text
@@ -513,7 +518,7 @@ quotes:
       { Faker::Name.name  }
   relation:
     parent: legacy
-    type: embeds_one
+    type: embeds_many
 
 building_press:
   fields: []
@@ -521,7 +526,7 @@ building_press:
     parent: building
     type: embeds_one
 
-attention:
+building_attention:
   fields:
   - name: date
     type: date
@@ -583,7 +588,7 @@ building_press_release:
     parent: campaign
     type: embeds_many
 
-QA:
+quality_assurance:
   fields:
   - name: notes
     type: text
@@ -592,3 +597,4 @@ QA:
   relation:
     parent: building
     type: embeds_many
+    synonym: qa
