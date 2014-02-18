@@ -214,7 +214,7 @@ gross_floor_area:
   relation:
     parent: dimension_group
     type: embeds_one
-    synoym: gfa
+    synonym: gfa
 
 net_lettable_area:
   fields:
@@ -303,7 +303,7 @@ phase:
       { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
   relation:
     parent: building
-    type: embeds_one
+    type: embeds_many
 
 key_date:
   fields:
@@ -525,6 +525,7 @@ building_press:
   relation:
     parent: building
     type: embeds_one
+    synonym: press
 
 building_attention:
   fields:
@@ -555,6 +556,7 @@ building_attention:
   relation:
     parent: building_press
     type: embeds_many
+    synonym: attention
 
 campaign:
   fields:
