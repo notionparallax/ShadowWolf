@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ShadowWolf')
-.service('Person', function($resource, $http, Session, $q, $rootScope, Config) {
+.service('Person', function($resource, $http, Session, Config) {
   $http.defaults.useXDomain = true;
   
   var _Person = $resource(Config.getEndPoint() + '/people/:personId.json?access_token=:accessToken',

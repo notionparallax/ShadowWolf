@@ -1,4 +1,4 @@
-<div class="row hit-area">
+<div class="row hit-area" ng-click="debug()">
   <div class="form-group show-field">
     <label class="col-xs-12 col-sm-3 control-label editable-lable" for="{{ getName() }}">{{ label }}</label>
 
@@ -6,7 +6,8 @@
       <div ng-hide="editorEnabled"
          class="form-control-static editable editable-text"
          ng-click="enableEditor($event)">
-        <div ng-bind-html="subobject[property] || target()[property]"></div>
+        <p ng-if="type == 'number'" ng-bind="subobject[property] || target()[property] | number"></p>
+        <div ng-if="type != 'number'" ng-bind-html="subobject[property] || target()[property]"></div>
       </div>
       <div ng-show="editorEnabled"
            class="input-group">

@@ -16,6 +16,7 @@ angular.module("ShadowWolf")
       scope.type = attrs.type || 'text';
     },
     controller: function($scope) {
+      $scope.debug = function(){var t = $scope.target(), p = t[$scope.property];debugger};
       $scope.editableValue= $scope.value;
       $scope.editorEnabled= false;
 

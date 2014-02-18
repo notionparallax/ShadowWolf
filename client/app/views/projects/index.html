@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-xs-11">
+    <input type="text" 
+           ng-model="searchQuery" 
+           class="filter-box"
+           placeholder="type to search...">
+  </div>
+</div>
+
+<div class="row">
+  <!--start a project/person box as a directive-->
+  <display-box ng-repeat="p in projects() | filter:compareTo(searchQuery)"
+              title-text="{{p.project_number}}"
+              body-text="Some body text"
+              img-src=""
+              more-link="{{ getMoreLink( p.id['$oid'] ) }}">
+    <p>{{ p.project_categories }}</p>
+  </display-box>
+  
+</div>
