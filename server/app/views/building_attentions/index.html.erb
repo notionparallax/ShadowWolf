@@ -1,0 +1,37 @@
+<h1>Listing building_attentions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Url</th>
+      <th>Scan or screengrab</th>
+      <th>Body text</th>
+      <th>Publication</th>
+      <th>Reason</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @building_attentions.each do |building_attention| %>
+      <tr>
+        <td><%= building_attention.date %></td>
+        <td><%= building_attention.url %></td>
+        <td><%= building_attention.scan_or_screengrab %></td>
+        <td><%= building_attention.body_text %></td>
+        <td><%= building_attention.publication %></td>
+        <td><%= building_attention.reason %></td>
+        <td><%= link_to 'Show', building_attention %></td>
+        <td><%= link_to 'Edit', edit_building_attention_path(building_attention) %></td>
+        <td><%= link_to 'Destroy', building_attention, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Building attention', new_building_attention_path %>

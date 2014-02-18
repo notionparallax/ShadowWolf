@@ -1,0 +1,27 @@
+<h1>Listing quality_assurances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Notes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quality_assurances.each do |quality_assurance| %>
+      <tr>
+        <td><%= quality_assurance.notes %></td>
+        <td><%= link_to 'Show', quality_assurance %></td>
+        <td><%= link_to 'Edit', edit_quality_assurance_path(quality_assurance) %></td>
+        <td><%= link_to 'Destroy', quality_assurance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Quality assurance', new_quality_assurance_path %>

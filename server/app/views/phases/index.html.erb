@@ -1,0 +1,39 @@
+<h1>Listing phases</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project name</th>
+      <th>Studio</th>
+      <th>Client</th>
+      <th>Services scope</th>
+      <th>Delivery contract</th>
+      <th>Staff contact login</th>
+      <th>Staff custodian login</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @phases.each do |phase| %>
+      <tr>
+        <td><%= phase.project_name %></td>
+        <td><%= phase.studio %></td>
+        <td><%= phase.client %></td>
+        <td><%= phase.services_scope %></td>
+        <td><%= phase.delivery_contract %></td>
+        <td><%= phase.staff_contact_login %></td>
+        <td><%= phase.staff_custodian_login %></td>
+        <td><%= link_to 'Show', phase %></td>
+        <td><%= link_to 'Edit', edit_phase_path(phase) %></td>
+        <td><%= link_to 'Destroy', phase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Phase', new_phase_path %>

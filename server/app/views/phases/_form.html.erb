@@ -1,0 +1,45 @@
+<%= form_for(@phase) do |f| %>
+  <% if @phase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@phase.errors.count, "error") %> prohibited this phase from being saved:</h2>
+
+      <ul>
+      <% @phase.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :project_name %><br>
+    <%= f.text_field :project_name %>
+  </div>
+  <div class="field">
+    <%= f.label :studio %><br>
+    <%= f.text_field :studio %>
+  </div>
+  <div class="field">
+    <%= f.label :client %><br>
+    <%= f.text_field :client %>
+  </div>
+  <div class="field">
+    <%= f.label :services_scope %><br>
+    <%= f.text_area :services_scope %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_contract %><br>
+    <%= f.text_area :delivery_contract %>
+  </div>
+  <div class="field">
+    <%= f.label :staff_contact_login %><br>
+    <%= f.text_field :staff_contact_login %>
+  </div>
+  <div class="field">
+    <%= f.label :staff_custodian_login %><br>
+    <%= f.text_field :staff_custodian_login %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<h1>Listing key_dates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start date</th>
+      <th>End date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @key_dates.each do |key_date| %>
+      <tr>
+        <td><%= key_date.start_date %></td>
+        <td><%= key_date.end_date %></td>
+        <td><%= link_to 'Show', key_date %></td>
+        <td><%= link_to 'Edit', edit_key_date_path(key_date) %></td>
+        <td><%= link_to 'Destroy', key_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Key date', new_key_date_path %>

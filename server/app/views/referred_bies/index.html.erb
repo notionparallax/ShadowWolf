@@ -1,0 +1,31 @@
+<h1>Listing referred_bies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bvn staff login</th>
+      <th>Contact name</th>
+      <th>Contact organisation</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @referred_bies.each do |referred_by| %>
+      <tr>
+        <td><%= referred_by.BVN_staff_login %></td>
+        <td><%= referred_by.contact_name %></td>
+        <td><%= referred_by.contact_organisation %></td>
+        <td><%= link_to 'Show', referred_by %></td>
+        <td><%= link_to 'Edit', edit_referred_by_path(referred_by) %></td>
+        <td><%= link_to 'Destroy', referred_by, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Referred by', new_referred_by_path %>

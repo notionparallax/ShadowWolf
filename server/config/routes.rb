@@ -1,4 +1,70 @@
 ShadowWolf::Application.routes.draw do
+  resources :quality_assurances
+
+  resources :building_press_releases
+
+  resources :campaigns
+
+  resources :building_attentions
+
+  resources :building_presses
+
+  resources :quotes
+
+  resources :testimonials
+
+  resources :awards
+
+  resources :photographies
+
+  resources :certifications
+
+  resources :initiatives
+
+  resources :environmental_sustainable_designs
+
+  resources :legacies
+
+  resources :budgets
+
+  resources :other_dates
+
+  resources :key_dates
+
+  resources :phases
+
+  resources :relationship_descriptions
+
+  resources :clients
+
+  resources :net_lettable_areas
+
+  resources :gross_floor_areas
+
+  resources :gross_building_areas
+
+  resources :footprint_areas
+
+  resources :heights
+
+  resources :dimension_groups
+
+  resources :referred_bies
+
+  resources :project_sources
+
+  resources :addresses
+
+  resources :geo_jsons
+
+  resources :locations
+
+  resources :buildings
+
+  resources :non_buildings
+
+  resources :projects
+
   devise_for :people, :controllers => { :omniauth_callbacks => "people/omniauth_callbacks" }
   devise_scope :person do
     get "sign_in", :to => "devise/sessions#new"
