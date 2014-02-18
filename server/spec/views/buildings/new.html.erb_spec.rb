@@ -7,7 +7,7 @@ describe "config/projects/new" do
       :attribution => "MyString",
       :BCA_classification => "MyString",
       :project_catagories => "",
-      :project_sub-catagories => ""
+      :project_sub_catagories => ""
     ).as_new_record)
   end
 
@@ -20,7 +20,7 @@ describe "config/projects/new" do
       assert_select "input#config_project_attribution[name=?]", "config_project[attribution]"
       assert_select "input#config_project_BCA_classification[name=?]", "config_project[BCA_classification]"
       assert_select "input#config_project_project_catagories[name=?]", "config_project[project_catagories]"
-      assert_select "input#config_project_project_sub-catagories[name=?]", "config_project[project_sub-catagories]"
+      assert_select "input#config_project_project_sub_catagories[name=?]", "config_project[project_sub_catagories]"
     end
   end
 end

@@ -1,5 +1,5 @@
 json.id building.id
-json.extract! building, :created_at, :updated_at, :description, :attribution, :BCA_classification, :project_catagories, :project_sub-catagories
+json.extract! building, :created_at, :updated_at, :description, :attribution, :BCA_classification, :project_catagories, :project_sub_catagories
 json.location do
   json.partial! "locations/location.json.jbuilder", location: building.location
 end if building.location

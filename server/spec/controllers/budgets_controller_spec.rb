@@ -23,7 +23,7 @@ describe BudgetsController do
   # This should return the minimal set of attributes required to create a valid
   # Budget. As you add validations to Budget, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "initial_phase_value_total" => "" } }
+  let(:valid_attributes) { { "initial_phase_value_total" => "1.5" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -106,8 +106,8 @@ describe BudgetsController do
         # specifies that the Budget created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Budget.any_instance.should_receive(:update).with({ "initial_phase_value_total" => "" })
-        put :update, {:id => budget.to_param, :config_project => { "initial_phase_value_total" => "" }}, valid_session
+        Budget.any_instance.should_receive(:update).with({ "initial_phase_value_total" => "1.5" })
+        put :update, {:id => budget.to_param, :config_project => { "initial_phase_value_total" => "1.5" }}, valid_session
       end
 
       it "assigns the requested config_project as @config_project" do

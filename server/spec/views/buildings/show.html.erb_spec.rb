@@ -7,7 +7,7 @@ describe "config/projects/show" do
       :attribution => "Attribution",
       :BCA_classification => "Bca Classification",
       :project_catagories => "",
-      :project_sub-catagories => ""
+      :project_sub_catagories => ""
     ))
   end
 

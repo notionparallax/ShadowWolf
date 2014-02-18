@@ -8,14 +8,14 @@ describe "config/projects/index" do
         :attribution => "Attribution",
         :BCA_classification => "Bca Classification",
         :project_catagories => "",
-        :project_sub-catagories => ""
+        :project_sub_catagories => ""
       ),
       stub_model(Building,
         :description => "MyText",
         :attribution => "Attribution",
         :BCA_classification => "Bca Classification",
         :project_catagories => "",
-        :project_sub-catagories => ""
+        :project_sub_catagories => ""
       )
     ])
   end

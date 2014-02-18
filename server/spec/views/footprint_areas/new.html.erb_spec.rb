@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "config/projects/new" do
   before(:each) do
     assign(:config_project, stub_model(FootprintArea,
-      :measurement => "",
+      :measurement => 1.5,
       :standard_name => "MyString",
       :standard_version => "MyString"
     ).as_new_record)

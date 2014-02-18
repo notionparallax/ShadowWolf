@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :non_building do
     name { Faker::Company.bs }
-    description { Faker::Lorem.paragraphs[2].join('<br>') }
+    description { Faker::Lorem.paragraphs(2).join('<br>') }
   end
 end

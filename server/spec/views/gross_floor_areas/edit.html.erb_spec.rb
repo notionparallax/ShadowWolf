@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "config/projects/edit" do
   before(:each) do
     @config_project = assign(:config_project, stub_model(GrossFloorArea,
-      :measurement => "",
+      :measurement => 1.5,
       :standard_name => "MyString",
       :standard_version => "MyString"
     ))

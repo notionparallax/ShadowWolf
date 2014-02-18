@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "config/projects/new" do
   before(:each) do
     assign(:config_project, stub_model(GeoJson,
-      :lat => "",
-      :lon => "",
+      :lat => 1.5,
+      :lon => 1.5,
       :boundary_points => ""
     ).as_new_record)
   end

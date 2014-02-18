@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :client do
-    main { Faker::name.name }
-    direct { Faker::name.name  }
-    end_user { Faker::name.name  }
+    main { Faker::Name.name }
+    direct { Faker::Name.name  }
+    end_user { Faker::Name.name  }
   end
 end

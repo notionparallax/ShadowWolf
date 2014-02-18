@@ -4,12 +4,12 @@ describe "config/projects/index" do
   before(:each) do
     assign(:footprint_areas, [
       stub_model(FootprintArea,
-        :measurement => "",
+        :measurement => 1.5,
         :standard_name => "Standard Name",
         :standard_version => "Standard Version"
       ),
       stub_model(FootprintArea,
-        :measurement => "",
+        :measurement => 1.5,
         :standard_name => "Standard Name",
         :standard_version => "Standard Version"
       )
@@ -19,7 +19,7 @@ describe "config/projects/index" do
   it "renders a list of config/projects" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "tr>td", :text => "".to_s, :count => 2
+    assert_select "tr>td", :text => 1.5.to_s, :count => 2
     assert_select "tr>td", :text => "Standard Name".to_s, :count => 2
     assert_select "tr>td", :text => "Standard Version".to_s, :count => 2
   end

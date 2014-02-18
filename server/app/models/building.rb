@@ -44,5 +44,5 @@ class Building
   field :attribution, type: String
   field :BCA_classification, type: String
   field :project_catagories, type: Array
-  field :project_sub-catagories, type: Array
+  field :project_sub_catagories, type: Array
 end

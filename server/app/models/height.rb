@@ -4,7 +4,7 @@ class Height
 
   embedded_in :dimension_group
 
-  field :measurement, type: Double
+  field :measurement, type: Float
   field :standard_name, type: String
   field :standard_version, type: String
 end
