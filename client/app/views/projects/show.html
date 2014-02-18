@@ -125,12 +125,12 @@
       <editable property="staff_contact_login"   label= "staff_contact_login"  >helpText</editable>
       <editable property="staff_custodian_login" label= "staff_custodian_login">helpText</editable>
       <h3>Budget</h3>
-      <editable property="initial_phase_value_total" label= "initial_phase_value_total">helpText</editable>
-      <editable property="final_phase_value_total"   label= "final_phase_value_total"  >helpText</editable>
-      <editable property="initial_phase_fee_total"   label= "initial_phase_fee_total"  >helpText</editable>
-      <editable property="final_phase_fee_total"     label= "final_phase_fee_total"    >helpText</editable>
-      <editable property="construction_initial"      label= "construction_initial"     >helpText</editable>
-      <editable property="construction_final"        label= "construction_final"       >helpText</editable>
+      <editable property="initial_phase_value_total" label= "initial_phase_value_total"type="number">helpText</editable>
+      <editable property="final_phase_value_total"   label= "final_phase_value_total"  type="number">helpText</editable>
+      <editable property="initial_phase_fee_total"   label= "initial_phase_fee_total"  type="number">helpText</editable>
+      <editable property="final_phase_fee_total"     label= "final_phase_fee_total"    type="number">helpText</editable>
+      <editable property="construction_initial"      label= "construction_initial"     type="number">helpText</editable>
+      <editable property="construction_final"        label= "construction_final"       type="number">helpText</editable>
       <editable property="comments"                  label= "comments"                 >helpText</editable>
       <editable property="fee_type"                  label= "fee_type"                 >helpText</editable>
     </editable-group>
@@ -215,7 +215,7 @@
 
     <h2>template</h2>
     <editable-group object="project"
-                    lens="building.legacy.press.campaign"
+                    lens="building.legacy.presses.campaign"
                     subgroup-class="alert alert-info col-sm-6">
       <editable property="strategy" label= "strategy">helpText</editable>
       <editable property="date"     label= "date"    >helpText</editable>
@@ -223,7 +223,7 @@
 
     <h2>press_release</h2>
     <editable-group object="project"
-                    lens="building.legacy.press.campaign.press"
+                    lens="building.legacy.presses.campaign.press"
                     subgroup-class="alert alert-info col-sm-6">
       <editable property="channel_list" label= "channel_list">helpText</editable>
       <editable property="content"      label= "content"     >helpText</editable>
