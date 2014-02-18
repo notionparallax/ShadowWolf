@@ -9,20 +9,20 @@
       <editable property="attribution" label="Attribution">This is an internal, easy to understand summary of the project.</editable>
       <editable property="BCA_classification" label="BCA Classification">The BCA classification of this project</editable>
       <editable property="project_catagories" label="Project Catagories">A comma separated list of the catagories that this project is in</editable>
-      <editable property="project_sub-catagories" label="Project Sub-catagories">A comma separated list of the catagories that this project is in. [TODO: why does this exist?]</editable>
+      <editable property="project_sub_catagories" label="Project Sub-catagories">A comma separated list of the catagories that this project is in. [TODO: why does this exist?]</editable>
     </editable-group>
 
     <h2>Location</h2>
     <editable-group object="project"
-                    lens="building.location.geoJSON"
+                    lens="building.location.geo_json"
                     subgroup-class="alert alert-info col-sm-6">
-      <editable property="lat"             label="latitude"       >helpText</editable>
-      <editable property="lon"             label="longitude"      >helpText</editable>
+      <editable property="lat"             label="latitude"       type="number">helpText</editable>
+      <editable property="lon"             label="longitude"      type="number">helpText</editable>
       <editable property="boundary_points" label="Boundary Points">helpText</editable>
     </editable-group>
 
     <editable-group object="project"
-                    lens="building.location.adess"
+                    lens="building.location.address"
                     subgroup-class="alert alert-info col-sm-6">
        <editable property="building_name" label="building name">helpText</editable>
        <editable property="street_number" label="street number">helpText</editable>
@@ -54,7 +54,7 @@
     <editable-group object="project"
                     lens="building.dims.height"
                     subgroup-class="alert alert-info col-sm-6">
-      <editable property="measurement"      label= "measurement"     >helpText</editable>
+      <editable property="measurement"      label= "measurement"     type="number">helpText</editable>
       <editable property="standard_name"    label= "standard_name"   >helpText</editable>
       <editable property="standard_version" label= "standard_version">helpText</editable>
     </editable-group>
@@ -63,34 +63,34 @@
     <editable-group object="project"
                     lens="building.dims.footprint_area"
                     subgroup-class="alert alert-info col-sm-6">
-      <editable property="measurement"      label= "measurement"     >helpText</editable>
+      <editable property="measurement"      label= "measurement"     type="number">helpText</editable>
       <editable property="standard_name"    label= "standard_name"   >helpText</editable>
       <editable property="standard_version" label= "standard_version">helpText</editable>
     </editable-group>
 
     <h3>GBA</h3>
     <editable-group object="project"
-                    lens="building.dims.GBA"
+                    lens="building.dims.gba"
                     subgroup-class="alert alert-info col-sm-6">
-      <editable property="measurement"      label= "measurement"     >helpText</editable>
+      <editable property="measurement"      label= "measurement"     type="number">helpText</editable>
       <editable property="standard_name"    label= "standard_name"   >helpText</editable>
       <editable property="standard_version" label= "standard_version">helpText</editable>
     </editable-group>
 
     <h3>GFA</h3>
     <editable-group object="project"
-                    lens="building.dims.GFA"
+                    lens="building.dims.gfa"
                     subgroup-class="alert alert-info col-sm-6">
-      <editable property="measurement"      label= "measurement"     >helpText</editable>
+      <editable property="measurement"      label= "measurement"     type="number">helpText</editable>
       <editable property="standard_name"    label= "standard_name"   >helpText</editable>
       <editable property="standard_version" label= "standard_version">helpText</editable>
     </editable-group>
 
     <h3>NLA</h3>
     <editable-group object="project"
-                    lens="building.dims.NLA"
+                    lens="building.dims.nla"
                     subgroup-class="alert alert-info col-sm-6">
-      <editable property="measurement"      label= "measurement"     >helpText</editable>
+      <editable property="measurement"      label= "measurement"     type="number">helpText</editable>
       <editable property="standard_name"    label= "standard_name"   >helpText</editable>
       <editable property="standard_version" label= "standard_version">helpText</editable>
     </editable-group>
@@ -106,7 +106,7 @@
 
     <h2>relationships</h2>
     <editable-group object="project"
-                    lens="building.relationships"
+                    lens="building.relationship_description"
                     subgroup-class="alert alert-info col-sm-6">
       <editable property="client"      label= "client"     >helpText</editable>
       <editable property="stakeholder" label= "stakeholder">helpText</editable>
@@ -129,7 +129,7 @@
     <p>this budget object needs to be inside the phase repeater</p>
     <h2>budget</h2>
     <editable-group object="project"
-                    lens="building.phase.budget"
+                    lens="building.phases.budget"
                     subgroup-class="alert alert-info col-sm-6">
       <editable property="initial_phase_value_total" label= "initial_phase_value_total">helpText</editable>
       <editable property="final_phase_value_total"   label= "final_phase_value_total"  >helpText</editable>
@@ -156,7 +156,7 @@
 
     <h2>initiatives</h2>
     <editable-group object="project"
-                    lens="building.legacy.ESD.initiatives"
+                    lens="building.legacy.esd.initiatives"
                     subgroup-class="alert alert-info col-sm-6">
       <editable property="title"       label= "title"      >helpText</editable>
       <editable property="reason"      label= "reason"     >helpText</editable>
@@ -165,7 +165,7 @@
 
     <h2>certifications</h2>
     <editable-group object="project"
-                    lens="building.legacy.ESD.certifications"
+                    lens="building.legacy.esd.certifications"
                     subgroup-class="alert alert-info col-sm-6">
       <editable property="name"          label= "name"         >helpText</editable>
       <editable property="ranking"       label= "ranking"      >helpText</editable>
@@ -248,9 +248,11 @@
 
   <div ng-show="project.non_building">
     <h1>{{ project.non_building.name }}</h1>
-    <editable object="project" subobject="q"
-                    lens="project.non_building.description" l
+    <editable-group object="project"
+                    lens="project.non_building.description"
                     subgroup-class="alert alert-info col-sm-6">
+      <editable property="description"></editable>
+    </editable-group>
   </div>
 
 </article>
