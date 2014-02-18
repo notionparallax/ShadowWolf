@@ -14,7 +14,7 @@ non_building:
   - name: description
     type: text
     factory: |
-      { Faker::Lorem.paragraphs[2].join('<br>') }
+      { Faker::Lorem.paragraphs(2).join('<br>') }
   relation:
     parent: project
     type: embeds_one
@@ -37,7 +37,7 @@ building:
     type: array
     factory: |
       { Faker::Name.first_name + ", "+Faker::Name.first_name + ", " + Faker::Name.first_name }
-  - name: project_sub-catagories
+  - name: project_sub_catagories
     type: array
     factory: |
       { Faker::Name.first_name + ", "+Faker::Name.first_name + ", " + Faker::Name.first_name }
@@ -54,11 +54,11 @@ location:
 geo_json:
   fields:
   - name: lat
-    type: double
+    type: float
     factory: |
       { (-155..110).to_a.sample + rand }
   - name: lon
-    type: double
+    type: float
     factory: |
       { (-45..-10).to_a.sample + rand }
   - name: boundary_points
@@ -145,7 +145,7 @@ dimension_group:
 height:
   fields:
   - name: measurement
-    type: double
+    type: float
     factory: |
       { rand * 800 }
   - name: standard_name
@@ -155,7 +155,7 @@ height:
   - name: standard_version
     type: string
     factory: |
-      { "V"+(1..5)to_a.sample }
+      { "V"+(1..5).to_a.sample.to_s }
   relation:
     parent: dimension_group
     type: embeds_one
@@ -163,7 +163,7 @@ height:
 footprint_area:
   fields:
   - name: measurement
-    type: double
+    type: float
     factory: |
       { rand * 80000 }
   - name: standard_name
@@ -173,7 +173,7 @@ footprint_area:
   - name: standard_version
     type: string
     factory: |
-      { "V"+(1..5)to_a.sample }
+      { "V"+(1..5).to_a.sample.to_s }
   relation:
     parent: dimension_group
     type: embeds_one
@@ -181,7 +181,7 @@ footprint_area:
 gross_building_area:
   fields:
   - name: measurement
-    type: double
+    type: float
     factory: |
       { rand * 80000  }
   - name: standard_name
@@ -191,7 +191,7 @@ gross_building_area:
   - name: standard_version
     type: string
     factory: |
-      { "V"+(1..5)to_a.sample }
+      { "V"+(1..5).to_a.sample.to_s }
   relation:
     parent: dimension_group
     type: embeds_one
@@ -200,7 +200,7 @@ gross_building_area:
 gross_floor_area:
   fields:
   - name: measurement
-    type: double
+    type: float
     factory: |
       { rand * 80000  }
   - name: standard_name
@@ -210,7 +210,7 @@ gross_floor_area:
   - name: standard_version
     type: string
     factory: |
-      { "V"+(1..5)to_a.sample }
+      { "V"+(1..5).to_a.sample.to_s }
   relation:
     parent: dimension_group
     type: embeds_one
@@ -219,7 +219,7 @@ gross_floor_area:
 net_lettable_area:
   fields:
   - name: measurement
-    type: double
+    type: float
     factory: |
       { rand * 80000  }
   - name: standard_name
@@ -229,7 +229,7 @@ net_lettable_area:
   - name: standard_version
     type: string
     factory: |
-      { "V"+(1..5)to_a.sample }
+      { "V"+(1..5).to_a.sample.to_s }
   relation:
     parent: dimension_group
     type: embeds_one
@@ -240,15 +240,15 @@ client:
   - name: main
     type: string
     factory: |
-      { Faker::name.name }
+      { Faker::Name.name }
   - name: direct
     type: string
     factory: |
-      { Faker::name.name  }
+      { Faker::Name.name  }
   - name: end_user
     type: string
     factory: |
-      { Faker::name.name  }
+      { Faker::Name.name  }
   relation:
     parent: building
     type: embeds_one
@@ -336,27 +336,27 @@ other_date:
 budget:
   fields:
   - name: initial_phase_value_total
-    type: double
+    type: float
     factory: |
       { (rand*100).floor*1000000 }
   - name: final_phase_value_total
-    type: double
+    type: float
     factory: |
       { (rand*100).floor*1000000 }
   - name: initial_phase_fee_total
-    type: double
+    type: float
     factory: |
       { (rand*100).floor*1000000 }
   - name: final_phase_fee_total
-    type: double
+    type: float
     factory: |
       { (rand*100).floor*1000000 }
   - name: construction_initial
-    type: double
+    type: float
     factory: |
       { (rand*100).floor*1000000 }
   - name: construction_final
-    type: double
+    type: float
     factory: |
       { (rand*100).floor*1000000 }
   - name: comments
