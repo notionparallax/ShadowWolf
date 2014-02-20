@@ -4,6 +4,11 @@ project:
     type: string
     factory: |
       { Date.strptime((0..20).to_a.sample.years.ago.to_s,"%Y-%m-%d %H:%M:%S %Z").strftime("%Y%m%d") + "." + (Faker::Base::ULetters.sample)+ (Faker::Base::ULetters.sample)+ (Faker::Base::ULetters.sample)}
+  - name: img
+    type: string
+    factory: |
+      { "http://notionparallax.co.uk/bldg/bld-" + (0..249).to_a.sample.to_s +".jpg" }
+
 
 non_building:
   fields:
