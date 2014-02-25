@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("ShadowWolf")
-.directive("editable", function(Lens, Session, Person, Flash) {
+.directive("editable", function(Lens, Session, Models, Flash) {
   var editDisabled = false;
   return {
     restrict: "E",
@@ -24,6 +24,7 @@ angular.module("ShadowWolf")
 
       // Get the name for the label and input tag
       $scope.getName = function() {
+        // TODO properly get the name
         return '';
         var name = $scope.objectName;
         var props = $scope.lens.split('.');
@@ -34,7 +35,7 @@ angular.module("ShadowWolf")
       };
 
       $scope.enableEditor = function() {
-        if (editDisabled || Session.getPersonId() != $scope.object.id['$oid']) return;
+        //if (editDisabled || Session.getPersonId() != $scope.object.id['$oid']) return;
         $scope.editorEnabled = true;
         // TODO use ng-model?
         $scope.editableValue = $scope.subobject
@@ -63,10 +64,11 @@ angular.module("ShadowWolf")
 
         // Wrap it for transport
         var parentObject = Lens.get($scope.object, $scope.lens);
-        updateObject = { 
-          person: Lens.wrapObject( [$scope.lens,'.',$scope.property].join(''),
-            parentObject[$scope.property] )
-        };
+        updateObject = {}; 
+        updateObject[$scope.objectName] = Lens.wrapObject( 
+            [$scope.lens,'.',$scope.property].join(''),
+            parentObject[$scope.property]
+        );
 
         // Set it back on the server
         var flash = {
@@ -74,7 +76,7 @@ angular.module("ShadowWolf")
           label: function() { return $scope.label; }
         };
         var handle = Flash.add(flash);
-        Person.update( $scope.object.id['$oid'],
+        Models.update($scope.objectName)( $scope.object.id['$oid'],
           updateObject,
           function() {
             flash.template = '<p>Updated {{flash.label()}}.</p>';

@@ -58,8 +58,16 @@ angular.module("ShadowWolf")
     var props = lens.split('.');
     var i;
     for (i = 0; i <= props.length-2; i++) {
-      innerObject[props[i]] = {};
-      innerObject = innerObject[props[i]];
+      var fieldAndMaybeIndex = getFieldAndMaybeIndex(props[i]);
+      if (fieldAndMaybeIndex.index) {
+        innerObject[fieldAndMaybeIndex.field] = {}
+        innerObject = innerObject[fieldAndMaybeIndex.field];
+        innerObject[fieldAndMaybeIndex.index] = {}
+        innerObject = innerObject[fieldAndMaybeIndex.index];
+      } else {
+        innerObject[props[i]] = {};
+        innerObject = innerObject[props[i]];
+      }
     }
     innerObject[props[i]] = result;
     return object;

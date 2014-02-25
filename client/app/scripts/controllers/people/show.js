@@ -7,7 +7,7 @@ function($scope, Person, $routeParams, Session, $location, Lens) {
     $location.path("/people");
   }
   $scope.person = Person.getPerson($routeParams.personId);
-  $scope.updatePerson = Person.update;
+  $scope.updateObject = Person.update;
 
   $scope.addObject = function(parentObject,property) {
     parentObject[property].push({});

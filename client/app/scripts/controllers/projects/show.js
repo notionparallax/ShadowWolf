@@ -7,9 +7,8 @@ function($scope, Project, $routeParams, Session, $location, Lens) {
     $location.path("/projects");
   }
   $scope.project = Project.getProject($routeParams.projectId);
-  $scope.updateProject = Project.update;
+  $scope.updateObject = Project.update;
 
-  window.x = $scope.project;
   // TODO refactor this away in common with PeopleShowController
   $scope.addObject = function(parentObject,property) {
     parentObject[property].push({});

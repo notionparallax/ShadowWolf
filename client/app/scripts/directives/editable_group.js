@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module("ShadowWolf")
-.directive("editableGroup", function(Lens, Person) {
+.directive("editableGroup", function(Lens, Models, Flash) {
   return {
     restrict:        "E",
     replace:         false,
@@ -24,7 +24,26 @@ angular.module("ShadowWolf")
 
       // NB: this function only makes sense if isPlural() == true
       $scope.addObject = function() {
-        $scope.target().push({});
+        var newObject = {};
+        $scope.target().push(newObject);
+
+        // TODO refactor this along with `removeObject`
+        var updateObject = {};
+        updateObject[$scope.objectName] = Lens.wrapObject($scope.lens, $scope.target());
+
+        Models.update($scope.objectName)( $scope.object.id['$oid'],
+          updateObject,
+          function(result){
+          debugger;
+          console.log("successfully created");
+        }, function(){
+          console.log("unsuccessfully created");
+          Flash.add({
+            template: "<p>Unable to create a new object at this time. Please check your connection and try again.</p>",
+            css: "flash-fail"
+          }, 5000);
+          $scope.target().splice($scope.target().indexOf(newObject), 1);
+        });
       };
       // NB: this function only makes sense if isPlural() == true
       $scope.removeObject = function(object) {
@@ -36,10 +55,10 @@ angular.module("ShadowWolf")
         objects.splice(index,1);
 
         // Remove elsewhere
-        var updateObject =
-        { person: Lens.wrapObject($scope.lens, objects) };
+        var updateObject = {};
+        updateObject[$scope.objectName] = Lens.wrapObject($scope.lens, objects);
 
-        Person.update( $scope.object.id['$oid'],
+        Models.update($scope.objectName)( $scope.object.id['$oid'],
           updateObject,
           function(){
           console.log("successfully destroyed");
