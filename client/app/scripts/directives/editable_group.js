@@ -24,7 +24,7 @@ angular.module("ShadowWolf")
 
       // NB: this function only makes sense if isPlural() == true
       $scope.addObject = function() {
-        var newObject = {};
+        var newObject = { id: null };
         $scope.target().push(newObject);
 
         // TODO refactor this along with `removeObject`
@@ -34,6 +34,7 @@ angular.module("ShadowWolf")
         Models.update($scope.objectName)( $scope.object.id['$oid'],
           updateObject,
           function(result){
+          $scope.object = result;
           debugger;
           console.log("successfully created");
         }, function(){
@@ -54,9 +55,11 @@ angular.module("ShadowWolf")
         var index = objects.indexOf(object);
         objects.splice(index,1);
 
+        debugger;
         // Remove elsewhere
         var updateObject = {};
-        updateObject[$scope.objectName] = Lens.wrapObject($scope.lens, objects);
+        updateObject[$scope.objectName] = Lens.wrapObject($scope.lens, [object.id['$oid']]);
+        debugger;
 
         Models.update($scope.objectName)( $scope.object.id['$oid'],
           updateObject,

@@ -13,30 +13,54 @@ class Project
 
   def update_from_params project_params
     puts "LEEEEEEEEEEEEEEERRRRROY JEEEEEEEEEEEEENNNNNNNNNNNNNNNKIIINS"
-    process_object self, project_params
+    puts project_params
+    puts project_params["building"]["phases"].class
+    apply_changes self, project_params
     self.save
   end
 
   private
   # takes an object and a nested hash containing new values for it and applies
   # the changes to the object (without saving).
-  def process_object current_object, new_object
-    # if it's an object it applies any changes necessary and calls
-    #   process_object on its sub objects
-    if new_object.class == Hash
-      new_object.keys.each do |key|
-        process_object current_object.send(key), new_object[key]
+  def apply_changes object, changes
+    puts "Applying changes, #{object.to_s}, #{changes.to_s}"
+    changes.keys.each do |key|
+      subobject, subchange = object.send(key), changes[key]
+      puts "Key: #{key}, #{changes[key].class.to_s}"
+      if changes[key].class == Array
+        puts "array path"
+        array_class = object.class.embedded_relations[key].klass
+        apply_array_changes object, array_class, subobject, subchange
+      elsif changes[key].class == ActionController::Parameters
+        puts "hash path"
+        apply_changes subobject, subchange
+      else
+        puts "prop path"
+        object.send("#{key}=", changes[key])
       end
-    # if it's an array it adds any new objects and calls process_object on the rest
-    elsif new_object.class == Array
-      new_object.each do |sub_object|
-        if sub_object.empty?
-        end
-        process_object current_object, sub_object
+    end
+  end
+
+  # applies changes to array elements, returning
+  def apply_array_changes parent, klass, array, changes
+    puts "Appling array changes, #{parent.to_s}, #{klass.to_s}, #{changes.to_s}"
+    changes.each do |elem|
+      id = elem.class == String ? elem : elem['id']
+      puts "Elem: #{elem.to_s}, id: #{id.to_s}"
+      if id.nil? # create new klass
+        db_elem = klass.create parent.class.to_s.underscore.to_sym => parent
+        puts "Creating new object of class #{klass.to_s}, id: #{db_elem.id}, persited: #{db_elem.persisted?}"
+        puts db_elem
+      else # find element in db
+        db_elem = array.find(id)
       end
-    # if it's a property it applies appropriate changes
-    else
-      current_object.send("#{key}=", new_object)
+      if elem.class == String # destroy
+        puts "Destroying element"
+        db_elem.destroy
+      else # update
+        puts "updating element"
+        apply_changes db_elem, elem.except('id')
+      end
     end
   end
 end
