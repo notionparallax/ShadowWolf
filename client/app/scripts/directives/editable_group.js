@@ -19,7 +19,7 @@ angular.module("ShadowWolf")
       };
 
       $scope.isPlural = function() {
-        return Array.isArray($scope.target());
+        return $scope.lens[$scope.lens.length-1] == ']';
       };
 
       // NB: this function only makes sense if isPlural() == true
@@ -35,7 +35,6 @@ angular.module("ShadowWolf")
           updateObject,
           function(result){
           $scope.object = result;
-          debugger;
           console.log("successfully created");
         }, function(){
           console.log("unsuccessfully created");
@@ -48,6 +47,7 @@ angular.module("ShadowWolf")
       };
       // NB: this function only makes sense if isPlural() == true
       $scope.removeObject = function(object) {
+        debugger;
         if (!confirm("Are you sure you wish to delete this item?")) return;
 
         // Remove locally
@@ -55,11 +55,9 @@ angular.module("ShadowWolf")
         var index = objects.indexOf(object);
         objects.splice(index,1);
 
-        debugger;
         // Remove elsewhere
         var updateObject = {};
         updateObject[$scope.objectName] = Lens.wrapObject($scope.lens, [object.id['$oid']]);
-        debugger;
 
         Models.update($scope.objectName)( $scope.object.id['$oid'],
           updateObject,

@@ -56,18 +56,18 @@ angular.module("ShadowWolf")
         var updateObject;
 
         // Set the value locally
-        if ($scope.subobject) {
-          $scope.subobject[$scope.property] = $scope.editableValue;
-        } else {
-          $scope.target()[$scope.property] = $scope.editableValue;
-        }
+        debugger;
+        var t = $scope.target();
+        var object = $scope.subobject ? $scope.subobject : $scope.target();
+        object[$scope.property] = $scope.editableValue;
 
         // Wrap it for transport
-        var parentObject = Lens.get($scope.object, $scope.lens);
+        var diffObject = { id: object.id['$oid'] };
+        diffObject[$scope.property] = object[$scope.property];
         updateObject = {}; 
         updateObject[$scope.objectName] = Lens.wrapObject( 
-            [$scope.lens,'.',$scope.property].join(''),
-            parentObject[$scope.property]
+            $scope.lens,
+            diffObject
         );
 
         // Set it back on the server
