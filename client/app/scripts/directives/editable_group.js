@@ -47,17 +47,18 @@ angular.module("ShadowWolf")
       };
       // NB: this function only makes sense if isPlural() == true
       $scope.removeObject = function(object) {
-        debugger;
         if (!confirm("Are you sure you wish to delete this item?")) return;
 
         // Remove locally
-        var objects = $scope.target();
+        // assumes $scope.lens ends with an id inside of a []
+        var parentLens = $scope.lens.slice(0,$scope.lens.lastIndexOf('['));
+        var objects = Lens.get($scope.object,parentLens);
         var index = objects.indexOf(object);
         objects.splice(index,1);
 
         // Remove elsewhere
         var updateObject = {};
-        updateObject[$scope.objectName] = Lens.wrapObject($scope.lens, [object.id['$oid']]);
+        updateObject[$scope.objectName] = Lens.wrapObject(parentLens, [object.id['$oid']]);
 
         Models.update($scope.objectName)( $scope.object.id['$oid'],
           updateObject,
@@ -65,7 +66,7 @@ angular.module("ShadowWolf")
           console.log("successfully destroyed");
         }, function(){
           console.log("unsuccessfully destroyed");
-          Lens.get($scope.object, $scope.lens).push(object);
+          objects.push(object);
         });
       };
     }
