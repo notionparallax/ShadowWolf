@@ -3,6 +3,6 @@
 angular.module('ShadowWolf')
 .filter('id',function() {
   return function(input) {
-    return input.id['$oid'];
+    return (input.id ||{ '$oid':''})['$oid'];
   };
 });
