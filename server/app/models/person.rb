@@ -1,6 +1,7 @@
 class Person
   include Mongoid::Document
   include Mongoid::Timestamps
+  include ParamReader
 
   devise :omniauthable, :trackable, omniauth_providers: [:ldap]
 
@@ -37,10 +38,5 @@ class Person
 
   def admin?
     false
-  end
-
-  def update_from_params person_params
-    puts "LEEEEEEEEEEEEEEERRRRROY JEEEEEEEEEEEEENNNNNNNNNNNNNNNKIIINS"
-    puts person_params
   end
 end

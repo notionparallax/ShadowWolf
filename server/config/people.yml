@@ -80,7 +80,7 @@ condition:
       { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   validation: |
     validates_uniqueness_of :start_date, scope: :person
-    validates :name, inclusion: { in: ['Active', 'Retired', 'Maternity', 'Leave', 'Deceased', 'Applicant', 'Left', 'Unknown'] }
+    validates :name, inclusion: { in: ['Active', 'Retired', 'Maternity', 'Leave', 'Deceased', 'Applicant', 'Left', 'Unknown', nil] }
   relation:
     parent: person
     type: embeds_many

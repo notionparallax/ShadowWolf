@@ -6,5 +6,8 @@ function($scope, Person, $routeParams, Session, $location, Lens) {
   if (!Session.getPersonId()) {
     $location.path("/people");
   }
-  $scope.person = Person.get($routeParams.personId);
+  $scope._person = function() { return Person.get($routeParams.personId); };
+  $scope.$watch('_person()', function(newValue) {
+    $scope.person = newValue;
+  });
 });

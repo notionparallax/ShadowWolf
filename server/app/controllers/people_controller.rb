@@ -42,9 +42,9 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1.json
   def update
     respond_to do |format|
-      if @person.update_attributes(person_params)
+      if @person.update_from_params(person_params)
         format.html { redirect_to @person, notice: 'Person was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render partial: 'people/person.json.jbuilder', locals: { person: @person } }
       else
         format.html { render action: 'edit' }
         format.json { render json: @person.errors, status: :unprocessable_entity }
