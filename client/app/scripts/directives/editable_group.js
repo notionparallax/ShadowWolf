@@ -17,6 +17,7 @@ angular.module("ShadowWolf")
       $scope.target = function() {
         return Lens.get($scope.object, $scope.lens);
       };
+      $scope.isLast = function() { return $scope.$parent.$last; };
 
       $scope.isPlural = function() {
         return $scope.lens[$scope.lens.length-1] == ']';

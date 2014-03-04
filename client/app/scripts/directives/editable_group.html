@@ -9,7 +9,7 @@
     </button>
     <div ng-transclude></div>
   </div><!--end ng-repeat-->
-  <!--- <a class="btn btn-primary" ng-click="addObject()">Add</a> -->
+  <a ng-if="isLast()" class="btn btn-primary" ng-click="addObject()">Add</a>
 </div>
 
 <div class="{{ subgroupClass }}"
