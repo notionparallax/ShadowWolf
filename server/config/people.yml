@@ -474,7 +474,7 @@ social:
     parent: person_contact
     type: embeds_one
 
-press:
+employee_press:
   fields: []
   relation:
     parent: employee
@@ -507,7 +507,7 @@ attention:
     factory: |
       { ['reactive', 'planned', 'response to release'].sample }
   relation:
-    parent: press
+    parent: employee_press
     type: embeds_many
 
 preference:
