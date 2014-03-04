@@ -39,25 +39,25 @@ describe TravelsController do
   end
 
   describe "GET show" do
-    it "assigns the requested config_model as @config_model" do
+    it "assigns the requested config_person as @config_person" do
       travel = Travel.create! valid_attributes
       get :show, {:id => travel.to_param}, valid_session
-      assigns(:config_model).should eq(travel)
+      assigns(:config_person).should eq(travel)
     end
   end
 
   describe "GET new" do
-    it "assigns a new config_model as @config_model" do
+    it "assigns a new config_person as @config_person" do
       get :new, {}, valid_session
-      assigns(:config_model).should be_a_new(Travel)
+      assigns(:config_person).should be_a_new(Travel)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested config_model as @config_model" do
+    it "assigns the requested config_person as @config_person" do
       travel = Travel.create! valid_attributes
       get :edit, {:id => travel.to_param}, valid_session
-      assigns(:config_model).should eq(travel)
+      assigns(:config_person).should eq(travel)
     end
   end
 
@@ -65,34 +65,34 @@ describe TravelsController do
     describe "with valid params" do
       it "creates a new Travel" do
         expect {
-          post :create, {:config_model => valid_attributes}, valid_session
+          post :create, {:config_person => valid_attributes}, valid_session
         }.to change(Travel, :count).by(1)
       end
 
-      it "assigns a newly created config_model as @config_model" do
-        post :create, {:config_model => valid_attributes}, valid_session
-        assigns(:config_model).should be_a(Travel)
-        assigns(:config_model).should be_persisted
+      it "assigns a newly created config_person as @config_person" do
+        post :create, {:config_person => valid_attributes}, valid_session
+        assigns(:config_person).should be_a(Travel)
+        assigns(:config_person).should be_persisted
       end
 
-      it "redirects to the created config_model" do
-        post :create, {:config_model => valid_attributes}, valid_session
+      it "redirects to the created config_person" do
+        post :create, {:config_person => valid_attributes}, valid_session
         response.should redirect_to(Travel.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved config_model as @config_model" do
+      it "assigns a newly created but unsaved config_person as @config_person" do
         # Trigger the behavior that occurs when invalid params are submitted
         Travel.any_instance.stub(:save).and_return(false)
-        post :create, {:config_model => {  }}, valid_session
-        assigns(:config_model).should be_a_new(Travel)
+        post :create, {:config_person => {  }}, valid_session
+        assigns(:config_person).should be_a_new(Travel)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Travel.any_instance.stub(:save).and_return(false)
-        post :create, {:config_model => {  }}, valid_session
+        post :create, {:config_person => {  }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe TravelsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested config_model" do
+      it "updates the requested config_person" do
         travel = Travel.create! valid_attributes
         # Assuming there are no other travels in the database, this
         # specifies that the Travel created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Travel.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => travel.to_param, :config_model => { "these" => "params" }}, valid_session
+        put :update, {:id => travel.to_param, :config_person => { "these" => "params" }}, valid_session
       end
 
-      it "assigns the requested config_model as @config_model" do
+      it "assigns the requested config_person as @config_person" do
         travel = Travel.create! valid_attributes
-        put :update, {:id => travel.to_param, :config_model => valid_attributes}, valid_session
-        assigns(:config_model).should eq(travel)
+        put :update, {:id => travel.to_param, :config_person => valid_attributes}, valid_session
+        assigns(:config_person).should eq(travel)
       end
 
-      it "redirects to the config_model" do
+      it "redirects to the config_person" do
         travel = Travel.create! valid_attributes
-        put :update, {:id => travel.to_param, :config_model => valid_attributes}, valid_session
+        put :update, {:id => travel.to_param, :config_person => valid_attributes}, valid_session
         response.should redirect_to(travel)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the config_model as @config_model" do
+      it "assigns the config_person as @config_person" do
         travel = Travel.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Travel.any_instance.stub(:save).and_return(false)
-        put :update, {:id => travel.to_param, :config_model => {  }}, valid_session
-        assigns(:config_model).should eq(travel)
+        put :update, {:id => travel.to_param, :config_person => {  }}, valid_session
+        assigns(:config_person).should eq(travel)
       end
 
       it "re-renders the 'edit' template" do
         travel = Travel.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Travel.any_instance.stub(:save).and_return(false)
-        put :update, {:id => travel.to_param, :config_model => {  }}, valid_session
+        put :update, {:id => travel.to_param, :config_person => {  }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested config_model" do
+    it "destroys the requested config_person" do
       travel = Travel.create! valid_attributes
       expect {
         delete :destroy, {:id => travel.to_param}, valid_session

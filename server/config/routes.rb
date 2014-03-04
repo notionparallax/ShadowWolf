@@ -1,4 +1,6 @@
 ShadowWolf::Application.routes.draw do
+  resources :employee_presses
+
   resources :quality_assurances
 
   resources :building_press_releases

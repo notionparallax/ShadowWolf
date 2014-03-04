@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :employee do
-    press { FactoryGirl.build( :press ) }
+    employee_press { FactoryGirl.build( :employee_press ) }
     biography { FactoryGirl.build( :biography ) }
     after(:build) do |employee|
       FactoryGirl.build_list( :project_experience, [0,1,2,3,10].sample, employee: employee )

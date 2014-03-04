@@ -2,9 +2,9 @@ class Employee
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embeds_one :press
+  embeds_one :employee_press
 
-  accepts_nested_attributes_for :press
+  accepts_nested_attributes_for :employee_press
 
   embeds_one :biography
 

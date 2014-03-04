@@ -39,25 +39,25 @@ describe QualificationsController do
   end
 
   describe "GET show" do
-    it "assigns the requested config_model as @config_model" do
+    it "assigns the requested config_person as @config_person" do
       qualification = Qualification.create! valid_attributes
       get :show, {:id => qualification.to_param}, valid_session
-      assigns(:config_model).should eq(qualification)
+      assigns(:config_person).should eq(qualification)
     end
   end
 
   describe "GET new" do
-    it "assigns a new config_model as @config_model" do
+    it "assigns a new config_person as @config_person" do
       get :new, {}, valid_session
-      assigns(:config_model).should be_a_new(Qualification)
+      assigns(:config_person).should be_a_new(Qualification)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested config_model as @config_model" do
+    it "assigns the requested config_person as @config_person" do
       qualification = Qualification.create! valid_attributes
       get :edit, {:id => qualification.to_param}, valid_session
-      assigns(:config_model).should eq(qualification)
+      assigns(:config_person).should eq(qualification)
     end
   end
 
@@ -65,34 +65,34 @@ describe QualificationsController do
     describe "with valid params" do
       it "creates a new Qualification" do
         expect {
-          post :create, {:config_model => valid_attributes}, valid_session
+          post :create, {:config_person => valid_attributes}, valid_session
         }.to change(Qualification, :count).by(1)
       end
 
-      it "assigns a newly created config_model as @config_model" do
-        post :create, {:config_model => valid_attributes}, valid_session
-        assigns(:config_model).should be_a(Qualification)
-        assigns(:config_model).should be_persisted
+      it "assigns a newly created config_person as @config_person" do
+        post :create, {:config_person => valid_attributes}, valid_session
+        assigns(:config_person).should be_a(Qualification)
+        assigns(:config_person).should be_persisted
       end
 
-      it "redirects to the created config_model" do
-        post :create, {:config_model => valid_attributes}, valid_session
+      it "redirects to the created config_person" do
+        post :create, {:config_person => valid_attributes}, valid_session
         response.should redirect_to(Qualification.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved config_model as @config_model" do
+      it "assigns a newly created but unsaved config_person as @config_person" do
         # Trigger the behavior that occurs when invalid params are submitted
         Qualification.any_instance.stub(:save).and_return(false)
-        post :create, {:config_model => { "name" => "invalid value" }}, valid_session
-        assigns(:config_model).should be_a_new(Qualification)
+        post :create, {:config_person => { "name" => "invalid value" }}, valid_session
+        assigns(:config_person).should be_a_new(Qualification)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Qualification.any_instance.stub(:save).and_return(false)
-        post :create, {:config_model => { "name" => "invalid value" }}, valid_session
+        post :create, {:config_person => { "name" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe QualificationsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested config_model" do
+      it "updates the requested config_person" do
         qualification = Qualification.create! valid_attributes
         # Assuming there are no other qualifications in the database, this
         # specifies that the Qualification created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Qualification.any_instance.should_receive(:update).with({ "name" => "MyString" })
-        put :update, {:id => qualification.to_param, :config_model => { "name" => "MyString" }}, valid_session
+        put :update, {:id => qualification.to_param, :config_person => { "name" => "MyString" }}, valid_session
       end
 
-      it "assigns the requested config_model as @config_model" do
+      it "assigns the requested config_person as @config_person" do
         qualification = Qualification.create! valid_attributes
-        put :update, {:id => qualification.to_param, :config_model => valid_attributes}, valid_session
-        assigns(:config_model).should eq(qualification)
+        put :update, {:id => qualification.to_param, :config_person => valid_attributes}, valid_session
+        assigns(:config_person).should eq(qualification)
       end
 
-      it "redirects to the config_model" do
+      it "redirects to the config_person" do
         qualification = Qualification.create! valid_attributes
-        put :update, {:id => qualification.to_param, :config_model => valid_attributes}, valid_session
+        put :update, {:id => qualification.to_param, :config_person => valid_attributes}, valid_session
         response.should redirect_to(qualification)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the config_model as @config_model" do
+      it "assigns the config_person as @config_person" do
         qualification = Qualification.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Qualification.any_instance.stub(:save).and_return(false)
-        put :update, {:id => qualification.to_param, :config_model => { "name" => "invalid value" }}, valid_session
-        assigns(:config_model).should eq(qualification)
+        put :update, {:id => qualification.to_param, :config_person => { "name" => "invalid value" }}, valid_session
+        assigns(:config_person).should eq(qualification)
       end
 
       it "re-renders the 'edit' template" do
         qualification = Qualification.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Qualification.any_instance.stub(:save).and_return(false)
-        put :update, {:id => qualification.to_param, :config_model => { "name" => "invalid value" }}, valid_session
+        put :update, {:id => qualification.to_param, :config_person => { "name" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested config_model" do
+    it "destroys the requested config_person" do
       qualification = Qualification.create! valid_attributes
       expect {
         delete :destroy, {:id => qualification.to_param}, valid_session

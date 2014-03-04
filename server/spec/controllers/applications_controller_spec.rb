@@ -23,7 +23,7 @@ describe ApplicationsController do
   # This should return the minimal set of attributes required to create a valid
   # Application. As you add validations to Application, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "date" => "2013-12-19" } }
+  let(:valid_attributes) { { "date" => "2014-03-04" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -39,25 +39,25 @@ describe ApplicationsController do
   end
 
   describe "GET show" do
-    it "assigns the requested config_model as @config_model" do
+    it "assigns the requested config_person as @config_person" do
       application = Application.create! valid_attributes
       get :show, {:id => application.to_param}, valid_session
-      assigns(:config_model).should eq(application)
+      assigns(:config_person).should eq(application)
     end
   end
 
   describe "GET new" do
-    it "assigns a new config_model as @config_model" do
+    it "assigns a new config_person as @config_person" do
       get :new, {}, valid_session
-      assigns(:config_model).should be_a_new(Application)
+      assigns(:config_person).should be_a_new(Application)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested config_model as @config_model" do
+    it "assigns the requested config_person as @config_person" do
       application = Application.create! valid_attributes
       get :edit, {:id => application.to_param}, valid_session
-      assigns(:config_model).should eq(application)
+      assigns(:config_person).should eq(application)
     end
   end
 
@@ -65,34 +65,34 @@ describe ApplicationsController do
     describe "with valid params" do
       it "creates a new Application" do
         expect {
-          post :create, {:config_model => valid_attributes}, valid_session
+          post :create, {:config_person => valid_attributes}, valid_session
         }.to change(Application, :count).by(1)
       end
 
-      it "assigns a newly created config_model as @config_model" do
-        post :create, {:config_model => valid_attributes}, valid_session
-        assigns(:config_model).should be_a(Application)
-        assigns(:config_model).should be_persisted
+      it "assigns a newly created config_person as @config_person" do
+        post :create, {:config_person => valid_attributes}, valid_session
+        assigns(:config_person).should be_a(Application)
+        assigns(:config_person).should be_persisted
       end
 
-      it "redirects to the created config_model" do
-        post :create, {:config_model => valid_attributes}, valid_session
+      it "redirects to the created config_person" do
+        post :create, {:config_person => valid_attributes}, valid_session
         response.should redirect_to(Application.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved config_model as @config_model" do
+      it "assigns a newly created but unsaved config_person as @config_person" do
         # Trigger the behavior that occurs when invalid params are submitted
         Application.any_instance.stub(:save).and_return(false)
-        post :create, {:config_model => { "date" => "invalid value" }}, valid_session
-        assigns(:config_model).should be_a_new(Application)
+        post :create, {:config_person => { "date" => "invalid value" }}, valid_session
+        assigns(:config_person).should be_a_new(Application)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Application.any_instance.stub(:save).and_return(false)
-        post :create, {:config_model => { "date" => "invalid value" }}, valid_session
+        post :create, {:config_person => { "date" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe ApplicationsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested config_model" do
+      it "updates the requested config_person" do
         application = Application.create! valid_attributes
         # Assuming there are no other applications in the database, this
         # specifies that the Application created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Application.any_instance.should_receive(:update).with({ "date" => "2013-12-19" })
-        put :update, {:id => application.to_param, :config_model => { "date" => "2013-12-19" }}, valid_session
+        Application.any_instance.should_receive(:update).with({ "date" => "2014-03-04" })
+        put :update, {:id => application.to_param, :config_person => { "date" => "2014-03-04" }}, valid_session
       end
 
-      it "assigns the requested config_model as @config_model" do
+      it "assigns the requested config_person as @config_person" do
         application = Application.create! valid_attributes
-        put :update, {:id => application.to_param, :config_model => valid_attributes}, valid_session
-        assigns(:config_model).should eq(application)
+        put :update, {:id => application.to_param, :config_person => valid_attributes}, valid_session
+        assigns(:config_person).should eq(application)
       end
 
-      it "redirects to the config_model" do
+      it "redirects to the config_person" do
         application = Application.create! valid_attributes
-        put :update, {:id => application.to_param, :config_model => valid_attributes}, valid_session
+        put :update, {:id => application.to_param, :config_person => valid_attributes}, valid_session
         response.should redirect_to(application)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the config_model as @config_model" do
+      it "assigns the config_person as @config_person" do
         application = Application.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Application.any_instance.stub(:save).and_return(false)
-        put :update, {:id => application.to_param, :config_model => { "date" => "invalid value" }}, valid_session
-        assigns(:config_model).should eq(application)
+        put :update, {:id => application.to_param, :config_person => { "date" => "invalid value" }}, valid_session
+        assigns(:config_person).should eq(application)
       end
 
       it "re-renders the 'edit' template" do
         application = Application.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Application.any_instance.stub(:save).and_return(false)
-        put :update, {:id => application.to_param, :config_model => { "date" => "invalid value" }}, valid_session
+        put :update, {:id => application.to_param, :config_person => { "date" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested config_model" do
+    it "destroys the requested config_person" do
       application = Application.create! valid_attributes
       expect {
         delete :destroy, {:id => application.to_param}, valid_session

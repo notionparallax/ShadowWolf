@@ -39,25 +39,25 @@ describe ConditionsController do
   end
 
   describe "GET show" do
-    it "assigns the requested config_model as @config_model" do
+    it "assigns the requested config_person as @config_person" do
       condition = Condition.create! valid_attributes
       get :show, {:id => condition.to_param}, valid_session
-      assigns(:config_model).should eq(condition)
+      assigns(:config_person).should eq(condition)
     end
   end
 
   describe "GET new" do
-    it "assigns a new config_model as @config_model" do
+    it "assigns a new config_person as @config_person" do
       get :new, {}, valid_session
-      assigns(:config_model).should be_a_new(Condition)
+      assigns(:config_person).should be_a_new(Condition)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested config_model as @config_model" do
+    it "assigns the requested config_person as @config_person" do
       condition = Condition.create! valid_attributes
       get :edit, {:id => condition.to_param}, valid_session
-      assigns(:config_model).should eq(condition)
+      assigns(:config_person).should eq(condition)
     end
   end
 
@@ -65,34 +65,34 @@ describe ConditionsController do
     describe "with valid params" do
       it "creates a new Condition" do
         expect {
-          post :create, {:config_model => valid_attributes}, valid_session
+          post :create, {:config_person => valid_attributes}, valid_session
         }.to change(Condition, :count).by(1)
       end
 
-      it "assigns a newly created config_model as @config_model" do
-        post :create, {:config_model => valid_attributes}, valid_session
-        assigns(:config_model).should be_a(Condition)
-        assigns(:config_model).should be_persisted
+      it "assigns a newly created config_person as @config_person" do
+        post :create, {:config_person => valid_attributes}, valid_session
+        assigns(:config_person).should be_a(Condition)
+        assigns(:config_person).should be_persisted
       end
 
-      it "redirects to the created config_model" do
-        post :create, {:config_model => valid_attributes}, valid_session
+      it "redirects to the created config_person" do
+        post :create, {:config_person => valid_attributes}, valid_session
         response.should redirect_to(Condition.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved config_model as @config_model" do
+      it "assigns a newly created but unsaved config_person as @config_person" do
         # Trigger the behavior that occurs when invalid params are submitted
         Condition.any_instance.stub(:save).and_return(false)
-        post :create, {:config_model => { "name" => "invalid value" }}, valid_session
-        assigns(:config_model).should be_a_new(Condition)
+        post :create, {:config_person => { "name" => "invalid value" }}, valid_session
+        assigns(:config_person).should be_a_new(Condition)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Condition.any_instance.stub(:save).and_return(false)
-        post :create, {:config_model => { "name" => "invalid value" }}, valid_session
+        post :create, {:config_person => { "name" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe ConditionsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested config_model" do
+      it "updates the requested config_person" do
         condition = Condition.create! valid_attributes
         # Assuming there are no other conditions in the database, this
         # specifies that the Condition created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Condition.any_instance.should_receive(:update).with({ "name" => "MyString" })
-        put :update, {:id => condition.to_param, :config_model => { "name" => "MyString" }}, valid_session
+        put :update, {:id => condition.to_param, :config_person => { "name" => "MyString" }}, valid_session
       end
 
-      it "assigns the requested config_model as @config_model" do
+      it "assigns the requested config_person as @config_person" do
         condition = Condition.create! valid_attributes
-        put :update, {:id => condition.to_param, :config_model => valid_attributes}, valid_session
-        assigns(:config_model).should eq(condition)
+        put :update, {:id => condition.to_param, :config_person => valid_attributes}, valid_session
+        assigns(:config_person).should eq(condition)
       end
 
-      it "redirects to the config_model" do
+      it "redirects to the config_person" do
         condition = Condition.create! valid_attributes
-        put :update, {:id => condition.to_param, :config_model => valid_attributes}, valid_session
+        put :update, {:id => condition.to_param, :config_person => valid_attributes}, valid_session
         response.should redirect_to(condition)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the config_model as @config_model" do
+      it "assigns the config_person as @config_person" do
         condition = Condition.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Condition.any_instance.stub(:save).and_return(false)
-        put :update, {:id => condition.to_param, :config_model => { "name" => "invalid value" }}, valid_session
-        assigns(:config_model).should eq(condition)
+        put :update, {:id => condition.to_param, :config_person => { "name" => "invalid value" }}, valid_session
+        assigns(:config_person).should eq(condition)
       end
 
       it "re-renders the 'edit' template" do
         condition = Condition.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Condition.any_instance.stub(:save).and_return(false)
-        put :update, {:id => condition.to_param, :config_model => { "name" => "invalid value" }}, valid_session
+        put :update, {:id => condition.to_param, :config_person => { "name" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested config_model" do
+    it "destroys the requested config_person" do
       condition = Condition.create! valid_attributes
       expect {
         delete :destroy, {:id => condition.to_param}, valid_session

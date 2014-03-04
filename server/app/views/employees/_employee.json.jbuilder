@@ -53,6 +53,6 @@ end
 json.biography do
   json.partial! "biographies/biography.json.jbuilder", biography: employee.biography
 end if employee.biography
-json.press do
-  json.partial! "presses/press.json.jbuilder", press: employee.press
-end if employee.press
+json.employee_press do
+  json.partial! "employee_presses/employee_press.json.jbuilder", employee_press: employee.employee_press
+end if employee.employee_press
