@@ -16,7 +16,6 @@ angular.module("ShadowWolf")
       scope.type = attrs.type || 'text';
     },
     controller: function($scope) {
-      $scope.editableValue= $scope.value;
       $scope.editorEnabled= false;
 
       $scope.get = Lens.get;
@@ -37,10 +36,7 @@ angular.module("ShadowWolf")
       $scope.enableEditor = function() {
         //if (editDisabled || Session.getPersonId() != $scope.object.id['$oid']) return;
         $scope.editorEnabled = true;
-        // TODO use ng-model?
-        $scope.editableValue = $scope.subobject
-          ? $scope.subobject[$scope.property]
-          : $scope.target()[$scope.property];
+        $scope.editableValue = $scope.subobject[$scope.property];
       };
 
       $scope.disableEditor = function() {
@@ -53,17 +49,15 @@ angular.module("ShadowWolf")
        * server, otherwise it just sends back the single field.
        */
       $scope.save = function() {
-        var updateObject;
 
         // Set the value locally
-        debugger;
-        var t = $scope.target();
         var object = $scope.subobject ? $scope.subobject : $scope.target();
         object[$scope.property] = $scope.editableValue;
 
         // Wrap it for transport
         var diffObject = { id: object.id['$oid'] };
         diffObject[$scope.property] = object[$scope.property];
+        var updateObject;
         updateObject = {}; 
         updateObject[$scope.objectName] = Lens.wrapObject( 
             $scope.lens,
@@ -82,6 +76,7 @@ angular.module("ShadowWolf")
             flash.template = '<p>Updated {{flash.label()}}.</p>';
             flash.css = 'flash-success';
             handle.timeout(5000);
+            Models.set($scope.objectName)($scope.object);
           }, function() {
             flash.template = '<p>Update unsuccessful for {{flash.label()}}. You may wish to check your submission.</p>';
             flash.css = 'flash-fail';

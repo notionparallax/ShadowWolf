@@ -6,8 +6,8 @@
       <div ng-hide="editorEnabled"
          class="form-control-static editable editable-text"
          ng-click="enableEditor($event)">
-        <p ng-if="type == 'number'" ng-bind="subobject[property] || target()[property] | number"></p>
-        <div ng-if="type != 'number'" ng-bind-html="subobject[property] || target()[property]"></div>
+        <p ng-if="type == 'number'" ng-bind="subobject[property] | number"></p>
+        <div ng-if="type != 'number'" ng-bind-html="subobject[property]"></div>
       </div>
       <div ng-show="editorEnabled"
            class="input-group">

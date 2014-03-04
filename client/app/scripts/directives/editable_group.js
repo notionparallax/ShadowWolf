@@ -17,6 +17,7 @@ angular.module("ShadowWolf")
       $scope.target = function() {
         return Lens.get($scope.object, $scope.lens);
       };
+
       $scope.isLast = function() { return $scope.$parent.$last; };
 
       $scope.isPlural = function() {
@@ -26,16 +27,18 @@ angular.module("ShadowWolf")
       // NB: this function only makes sense if isPlural() == true
       $scope.addObject = function() {
         var newObject = { id: null };
-        $scope.target().push(newObject);
+        var parentLens = $scope.lens.slice(0,$scope.lens.lastIndexOf('['));
+        var objects = Lens.get($scope.object,parentLens);
+        //objects.push(newObject);
 
         // TODO refactor this along with `removeObject`
         var updateObject = {};
-        updateObject[$scope.objectName] = Lens.wrapObject($scope.lens, $scope.target());
+        updateObject[$scope.objectName] = Lens.wrapObject($scope.lens, newObject);
 
         Models.update($scope.objectName)( $scope.object.id['$oid'],
           updateObject,
           function(result){
-          $scope.object = result;
+          Models.set($scope.objectName)(result);
           console.log("successfully created");
         }, function(){
           console.log("unsuccessfully created");

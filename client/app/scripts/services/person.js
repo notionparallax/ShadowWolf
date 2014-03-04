@@ -14,6 +14,15 @@ angular.module('ShadowWolf')
       'remove': {method:'DELETE'},
       'delete': {method:'DELETE'}
     });
-  this.getPerson = function(personId) { return _Person.get({personId: personId}); };
-  this._getPerson = function() { return _Person; };
+  var _person;
+  this.get = function(personId) { 
+    if (!_person) {
+      _person = _Person.get({personId: personId});
+    }
+    return _person;
+  };
+  this.set = function(person) {
+    _person = person;
+  };
+  this._get = function() { return _Person; };
 });

@@ -14,7 +14,6 @@ class Project
   def update_from_params project_params
     puts "LEEEEEEEEEEEEEEERRRRROY JEEEEEEEEEEEEENNNNNNNNNNNNNNNKIIINS"
     puts project_params
-    puts project_params["building"]["phases"].class
     apply_changes self, project_params
     self.save
   end

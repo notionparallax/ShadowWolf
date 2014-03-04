@@ -14,6 +14,15 @@ angular.module('ShadowWolf')
       'remove': {method:'DELETE'},
       'delete': {method:'DELETE'}
     });
-  this.getProject = function(projectId) { return _Project.get({projectId: projectId}); };
-  this._getProject = function() { return _Project; };
+  var _project;
+  this.get = function(projectId) {
+    if (!_project) {
+      _project = _Project.get({projectId: projectId});
+    }
+    return _project;
+  };
+  this.set = function(project) {
+    _project = project;
+  };
+  this._get = function() { return _Project; };
 });
