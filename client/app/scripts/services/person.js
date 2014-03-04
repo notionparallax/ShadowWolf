@@ -15,7 +15,5 @@ angular.module('ShadowWolf')
       'delete': {method:'DELETE'}
     });
   this.getPerson = function(personId) { return _Person.get({personId: personId}); };
-  this.update = function(id,postData,success,error) {
-    return _Person.update({ personId: id }, postData, success, error);
-  };
+  this._getPerson = function() { return _Person; };
 });
