@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "config/models/new" do
+describe "config/people/new" do
   before(:each) do
-    assign(:config_model, stub_model(PersonalAward,
+    assign(:config_person, stub_model(PersonalAward,
       :name => "MyString",
       :awarding_body => "MyString",
       :description => "MyText",
@@ -11,16 +11,16 @@ describe "config/models/new" do
     ).as_new_record)
   end
 
-  it "renders new config_model form" do
+  it "renders new config_person form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", personal_awards_path, "post" do
-      assert_select "input#config_model_name[name=?]", "config_model[name]"
-      assert_select "input#config_model_awarding_body[name=?]", "config_model[awarding_body]"
-      assert_select "textarea#config_model_description[name=?]", "config_model[description]"
-      assert_select "input#config_model_url[name=?]", "config_model[url]"
-      assert_select "input#config_model_year_achieved[name=?]", "config_model[year_achieved]"
+      assert_select "input#config_person_name[name=?]", "config_person[name]"
+      assert_select "input#config_person_awarding_body[name=?]", "config_person[awarding_body]"
+      assert_select "textarea#config_person_description[name=?]", "config_person[description]"
+      assert_select "input#config_person_url[name=?]", "config_person[url]"
+      assert_select "input#config_person_year_achieved[name=?]", "config_person[year_achieved]"
     end
   end
 end

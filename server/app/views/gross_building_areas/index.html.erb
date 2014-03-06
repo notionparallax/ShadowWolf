@@ -1,0 +1,31 @@
+<h1>Listing gross_building_areas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Measurement</th>
+      <th>Standard name</th>
+      <th>Standard version</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gross_building_areas.each do |gross_building_area| %>
+      <tr>
+        <td><%= gross_building_area.measurement %></td>
+        <td><%= gross_building_area.standard_name %></td>
+        <td><%= gross_building_area.standard_version %></td>
+        <td><%= link_to 'Show', gross_building_area %></td>
+        <td><%= link_to 'Edit', edit_gross_building_area_path(gross_building_area) %></td>
+        <td><%= link_to 'Destroy', gross_building_area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gross building area', new_gross_building_area_path %>

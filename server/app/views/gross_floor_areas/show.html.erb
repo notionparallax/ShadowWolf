@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Measurement:</strong>
+  <%= @gross_floor_area.measurement %>
+</p>
+
+<p>
+  <strong>Standard name:</strong>
+  <%= @gross_floor_area.standard_name %>
+</p>
+
+<p>
+  <strong>Standard version:</strong>
+  <%= @gross_floor_area.standard_version %>
+</p>
+
+<%= link_to 'Edit', edit_gross_floor_area_path(@gross_floor_area) %> |
+<%= link_to 'Back', gross_floor_areas_path %>

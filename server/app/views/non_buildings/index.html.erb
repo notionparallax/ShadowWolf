@@ -1,0 +1,29 @@
+<h1>Listing non_buildings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @non_buildings.each do |non_building| %>
+      <tr>
+        <td><%= non_building.name %></td>
+        <td><%= non_building.description %></td>
+        <td><%= link_to 'Show', non_building %></td>
+        <td><%= link_to 'Edit', edit_non_building_path(non_building) %></td>
+        <td><%= link_to 'Destroy', non_building, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Non building', new_non_building_path %>

@@ -1,0 +1,2 @@
+module GrossBuildingAreasHelper
+end

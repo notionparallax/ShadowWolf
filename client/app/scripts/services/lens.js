@@ -22,7 +22,12 @@ angular.module("ShadowWolf")
         var fieldAndMaybeIndex = getFieldAndMaybeIndex(lens[i++]);
         object = object[fieldAndMaybeIndex.field];
         if (fieldAndMaybeIndex.index) {
-         object = object[fieldAndMaybeIndex.index];
+          for (var j=0; j < object.length; j++) {
+            if (fieldAndMaybeIndex.index == object[j].id['$oid']) {
+              object = object[j];
+              j=object.length;
+            }
+          }
         }
       }
     } catch (e) {
@@ -45,7 +50,12 @@ angular.module("ShadowWolf")
         var fieldAndMaybeIndex = getFieldAndMaybeIndex(lens[i++]);
         object = object[fieldAndMaybeIndex.field];
         if (fieldAndMaybeIndex.index) {
-         object = object[fieldAndMaybeIndex.index];
+          for (var j=0; j < object.length; j++) {
+            if (fieldAndMaybeIndex.index == object[j].id['$oid']) {
+              object = object[j];
+              j=object.length;
+            }
+          }
         }
       }
       object[lens[i]] = value;
@@ -56,12 +66,25 @@ angular.module("ShadowWolf")
   this.wrapObject = function(lens, result) {
     var object = {}, innerObject = object;
     var props = lens.split('.');
-    var i;
-    for (i = 0; i <= props.length-2; i++) {
-      innerObject[props[i]] = {};
-      innerObject = innerObject[props[i]];
+    var i, parentObject = object;
+    for (i = 0; i <= props.length-1; i++) {
+      var fieldAndMaybeIndex = getFieldAndMaybeIndex(props[i]);
+      if (fieldAndMaybeIndex.index) {
+        innerObject[fieldAndMaybeIndex.field] = [{}];
+        parentObject = innerObject[fieldAndMaybeIndex.field];
+        innerObject = innerObject[fieldAndMaybeIndex.field][0];
+        innerObject['id'] = fieldAndMaybeIndex.index;
+      } else {
+        innerObject[props[i]] = {};
+        parentObject = innerObject;
+        innerObject = innerObject[props[i]];
+      }
     }
-    innerObject[props[i]] = result;
+    if (Array.isArray(parentObject)) {
+      parentObject[0] = result;
+    } else {
+      parentObject[props[i-1]] = result;
+    }
     return object;
   };
 });

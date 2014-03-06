@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "config/models/edit" do
+describe "config/people/edit" do
   before(:each) do
-    @config_model = assign(:config_model, stub_model(Social,
+    @config_person = assign(:config_person, stub_model(Social,
       :twitter => "MyString",
       :instagram => "MyString",
       :github => "MyString",
@@ -14,19 +14,19 @@ describe "config/models/edit" do
     ))
   end
 
-  it "renders the edit config_model form" do
+  it "renders the edit config_person form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", config_model_path(@config_model), "post" do
-      assert_select "input#config_model_twitter[name=?]", "config_model[twitter]"
-      assert_select "input#config_model_instagram[name=?]", "config_model[instagram]"
-      assert_select "input#config_model_github[name=?]", "config_model[github]"
-      assert_select "input#config_model_pinterest[name=?]", "config_model[pinterest]"
-      assert_select "input#config_model_google_plus[name=?]", "config_model[google_plus]"
-      assert_select "input#config_model_linkedin[name=?]", "config_model[linkedin]"
-      assert_select "input#config_model_facebook[name=?]", "config_model[facebook]"
-      assert_select "input#config_model_tumblr[name=?]", "config_model[tumblr]"
+    assert_select "form[action=?][method=?]", config_person_path(@config_person), "post" do
+      assert_select "input#config_person_twitter[name=?]", "config_person[twitter]"
+      assert_select "input#config_person_instagram[name=?]", "config_person[instagram]"
+      assert_select "input#config_person_github[name=?]", "config_person[github]"
+      assert_select "input#config_person_pinterest[name=?]", "config_person[pinterest]"
+      assert_select "input#config_person_google_plus[name=?]", "config_person[google_plus]"
+      assert_select "input#config_person_linkedin[name=?]", "config_person[linkedin]"
+      assert_select "input#config_person_facebook[name=?]", "config_person[facebook]"
+      assert_select "input#config_person_tumblr[name=?]", "config_person[tumblr]"
     end
   end
 end

@@ -39,25 +39,25 @@ describe DietariesController do
   end
 
   describe "GET show" do
-    it "assigns the requested config_model as @config_model" do
+    it "assigns the requested config_person as @config_person" do
       dietary = Dietary.create! valid_attributes
       get :show, {:id => dietary.to_param}, valid_session
-      assigns(:config_model).should eq(dietary)
+      assigns(:config_person).should eq(dietary)
     end
   end
 
   describe "GET new" do
-    it "assigns a new config_model as @config_model" do
+    it "assigns a new config_person as @config_person" do
       get :new, {}, valid_session
-      assigns(:config_model).should be_a_new(Dietary)
+      assigns(:config_person).should be_a_new(Dietary)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested config_model as @config_model" do
+    it "assigns the requested config_person as @config_person" do
       dietary = Dietary.create! valid_attributes
       get :edit, {:id => dietary.to_param}, valid_session
-      assigns(:config_model).should eq(dietary)
+      assigns(:config_person).should eq(dietary)
     end
   end
 
@@ -65,34 +65,34 @@ describe DietariesController do
     describe "with valid params" do
       it "creates a new Dietary" do
         expect {
-          post :create, {:config_model => valid_attributes}, valid_session
+          post :create, {:config_person => valid_attributes}, valid_session
         }.to change(Dietary, :count).by(1)
       end
 
-      it "assigns a newly created config_model as @config_model" do
-        post :create, {:config_model => valid_attributes}, valid_session
-        assigns(:config_model).should be_a(Dietary)
-        assigns(:config_model).should be_persisted
+      it "assigns a newly created config_person as @config_person" do
+        post :create, {:config_person => valid_attributes}, valid_session
+        assigns(:config_person).should be_a(Dietary)
+        assigns(:config_person).should be_persisted
       end
 
-      it "redirects to the created config_model" do
-        post :create, {:config_model => valid_attributes}, valid_session
+      it "redirects to the created config_person" do
+        post :create, {:config_person => valid_attributes}, valid_session
         response.should redirect_to(Dietary.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved config_model as @config_model" do
+      it "assigns a newly created but unsaved config_person as @config_person" do
         # Trigger the behavior that occurs when invalid params are submitted
         Dietary.any_instance.stub(:save).and_return(false)
-        post :create, {:config_model => { "requirements" => "invalid value" }}, valid_session
-        assigns(:config_model).should be_a_new(Dietary)
+        post :create, {:config_person => { "requirements" => "invalid value" }}, valid_session
+        assigns(:config_person).should be_a_new(Dietary)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Dietary.any_instance.stub(:save).and_return(false)
-        post :create, {:config_model => { "requirements" => "invalid value" }}, valid_session
+        post :create, {:config_person => { "requirements" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe DietariesController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested config_model" do
+      it "updates the requested config_person" do
         dietary = Dietary.create! valid_attributes
         # Assuming there are no other dietaries in the database, this
         # specifies that the Dietary created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Dietary.any_instance.should_receive(:update).with({ "requirements" => "MyText" })
-        put :update, {:id => dietary.to_param, :config_model => { "requirements" => "MyText" }}, valid_session
+        put :update, {:id => dietary.to_param, :config_person => { "requirements" => "MyText" }}, valid_session
       end
 
-      it "assigns the requested config_model as @config_model" do
+      it "assigns the requested config_person as @config_person" do
         dietary = Dietary.create! valid_attributes
-        put :update, {:id => dietary.to_param, :config_model => valid_attributes}, valid_session
-        assigns(:config_model).should eq(dietary)
+        put :update, {:id => dietary.to_param, :config_person => valid_attributes}, valid_session
+        assigns(:config_person).should eq(dietary)
       end
 
-      it "redirects to the config_model" do
+      it "redirects to the config_person" do
         dietary = Dietary.create! valid_attributes
-        put :update, {:id => dietary.to_param, :config_model => valid_attributes}, valid_session
+        put :update, {:id => dietary.to_param, :config_person => valid_attributes}, valid_session
         response.should redirect_to(dietary)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the config_model as @config_model" do
+      it "assigns the config_person as @config_person" do
         dietary = Dietary.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Dietary.any_instance.stub(:save).and_return(false)
-        put :update, {:id => dietary.to_param, :config_model => { "requirements" => "invalid value" }}, valid_session
-        assigns(:config_model).should eq(dietary)
+        put :update, {:id => dietary.to_param, :config_person => { "requirements" => "invalid value" }}, valid_session
+        assigns(:config_person).should eq(dietary)
       end
 
       it "re-renders the 'edit' template" do
         dietary = Dietary.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Dietary.any_instance.stub(:save).and_return(false)
-        put :update, {:id => dietary.to_param, :config_model => { "requirements" => "invalid value" }}, valid_session
+        put :update, {:id => dietary.to_param, :config_person => { "requirements" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested config_model" do
+    it "destroys the requested config_person" do
       dietary = Dietary.create! valid_attributes
       expect {
         delete :destroy, {:id => dietary.to_param}, valid_session

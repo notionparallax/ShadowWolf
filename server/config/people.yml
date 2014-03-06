@@ -80,7 +80,7 @@ condition:
       { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   validation: |
     validates_uniqueness_of :start_date, scope: :person
-    validates :name, inclusion: { in: ['Active', 'Retired', 'Maternity', 'Leave', 'Deceased', 'Applicant', 'Left', 'Unknown'] }
+    validates :name, inclusion: { in: ['Active', 'Retired', 'Maternity', 'Leave', 'Deceased', 'Applicant', 'Left', 'Unknown', nil] }
   relation:
     parent: person
     type: embeds_many
@@ -474,7 +474,7 @@ social:
     parent: person_contact
     type: embeds_one
 
-press:
+employee_press:
   fields: []
   relation:
     parent: employee
@@ -507,7 +507,7 @@ attention:
     factory: |
       { ['reactive', 'planned', 'response to release'].sample }
   relation:
-    parent: press
+    parent: employee_press
     type: embeds_many
 
 preference:

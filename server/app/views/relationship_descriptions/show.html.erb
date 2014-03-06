@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @relationship_description.client %>
+</p>
+
+<p>
+  <strong>Stakeholder:</strong>
+  <%= @relationship_description.stakeholder %>
+</p>
+
+<p>
+  <strong>Councils:</strong>
+  <%= @relationship_description.councils %>
+</p>
+
+<%= link_to 'Edit', edit_relationship_description_path(@relationship_description) %> |
+<%= link_to 'Back', relationship_descriptions_path %>

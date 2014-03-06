@@ -1,20 +1,20 @@
 require 'spec_helper'
 
-describe "config/models/edit" do
+describe "config/people/edit" do
   before(:each) do
-    @config_model = assign(:config_model, stub_model(Preference,
+    @config_person = assign(:config_person, stub_model(Preference,
       :likes => "MyText",
       :dislikes => "MyText"
     ))
   end
 
-  it "renders the edit config_model form" do
+  it "renders the edit config_person form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", config_model_path(@config_model), "post" do
-      assert_select "textarea#config_model_likes[name=?]", "config_model[likes]"
-      assert_select "textarea#config_model_dislikes[name=?]", "config_model[dislikes]"
+    assert_select "form[action=?][method=?]", config_person_path(@config_person), "post" do
+      assert_select "textarea#config_person_likes[name=?]", "config_person[likes]"
+      assert_select "textarea#config_person_dislikes[name=?]", "config_person[dislikes]"
     end
   end
 end

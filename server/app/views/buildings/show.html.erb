@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @building.description %>
+</p>
+
+<p>
+  <strong>Attribution:</strong>
+  <%= @building.attribution %>
+</p>
+
+<p>
+  <strong>Bca classification:</strong>
+  <%= @building.BCA_classification %>
+</p>
+
+<p>
+  <strong>Project catagories:</strong>
+  <%= @building.project_catagories %>
+</p>
+
+<p>
+  <strong>Project sub catagories:</strong>
+  <%= @building.project_sub_catagories %>
+</p>
+
+<%= link_to 'Edit', edit_building_path(@building) %> |
+<%= link_to 'Back', buildings_path %>

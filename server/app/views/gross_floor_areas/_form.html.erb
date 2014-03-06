@@ -1,0 +1,29 @@
+<%= form_for(@gross_floor_area) do |f| %>
+  <% if @gross_floor_area.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gross_floor_area.errors.count, "error") %> prohibited this gross_floor_area from being saved:</h2>
+
+      <ul>
+      <% @gross_floor_area.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :measurement %><br>
+    <%= f.text_field :measurement %>
+  </div>
+  <div class="field">
+    <%= f.label :standard_name %><br>
+    <%= f.text_field :standard_name %>
+  </div>
+  <div class="field">
+    <%= f.label :standard_version %><br>
+    <%= f.text_field :standard_version %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

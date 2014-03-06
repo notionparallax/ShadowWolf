@@ -4,6 +4,11 @@ project:
     type: string
     factory: |
       { Date.strptime((0..20).to_a.sample.years.ago.to_s,"%Y-%m-%d %H:%M:%S %Z").strftime("%Y%m%d") + "." + (Faker::Base::ULetters.sample)+ (Faker::Base::ULetters.sample)+ (Faker::Base::ULetters.sample)}
+  - name: img
+    type: string
+    factory: |
+      { "http://notionparallax.co.uk/bldg/bld-" + (0..249).to_a.sample.to_s +".jpg" }
+
 
 non_building:
   fields:
@@ -14,7 +19,7 @@ non_building:
   - name: description
     type: text
     factory: |
-      { Faker::Lorem.paragraphs[2].join('<br>') }
+      { Faker::Lorem.paragraphs(2).join('<br>') }
   relation:
     parent: project
     type: embeds_one
@@ -37,7 +42,7 @@ building:
     type: array
     factory: |
       { Faker::Name.first_name + ", "+Faker::Name.first_name + ", " + Faker::Name.first_name }
-   - name: project_sub-catagories
+  - name: project_sub_catagories
     type: array
     factory: |
       { Faker::Name.first_name + ", "+Faker::Name.first_name + ", " + Faker::Name.first_name }
@@ -46,19 +51,19 @@ building:
     type: embeds_one
 
 location:
-  fields:[]
+  fields: []
   relation:
     parent: building
     type: embeds_one
 
-geoJSON:
+geo_json:
   fields:
   - name: lat
-    type: double
+    type: float
     factory: |
       { (-155..110).to_a.sample + rand }
   - name: lon
-    type: double
+    type: float
     factory: |
       { (-45..-10).to_a.sample + rand }
   - name: boundary_points
@@ -90,7 +95,7 @@ address:
   - name: state_county
     type: string
     factory: |
-      { ["Ashmore and Cartier Islands","Australian Antarctic Territory","Australian Capital Territory","Christmas Island	Christmas Island","Cocos (Keeling) Islands	Cocos (Keeling) Islands","Coral Sea Islands","Heard Island and McDonald Islands","Jervis Bay Territory","New South Wales","Norfolk Island","Northern Territory","Queensland	Queensland","South Australia","Tasmania","Victoria","Western Australia"].sample }
+      { ["Ashmore and Cartier Islands","Australian Antarctic Territory","Australian Capital Territory","Christmas Island  Christmas Island","Cocos (Keeling) Islands  Cocos (Keeling) Islands","Coral Sea Islands","Heard Island and McDonald Islands","Jervis Bay Territory","New South Wales","Norfolk Island","Northern Territory","Queensland  Queensland","South Australia","Tasmania","Victoria","Western Australia"].sample }
   - name: country
     type: string
     factory: |
@@ -135,131 +140,135 @@ referred_by:
     parent: project_source
     type: embeds_one
 
-dims:
-  fields:[]
+dimension_group:
+  fields: []
   relation:
     parent: building
     type: embeds_one
+    synonym: dims
 
 height:
   fields:
-  - name:measurement
-    type:double
+  - name: measurement
+    type: float
     factory: |
       { rand * 800 }
-  - name:standard_name
-    type:string
+  - name: standard_name
+    type: string
     factory: |
       { ["Highest occupied floor", "top of radio mast"].sample }
-  - name:standard_version
-    type:string
+  - name: standard_version
+    type: string
     factory: |
-      { "V"+(1..5)to_a.sample }
+      { "V"+(1..5).to_a.sample.to_s }
   relation:
-    parent: dims
+    parent: dimension_group
     type: embeds_one
 
 footprint_area:
   fields:
-  - name:measurement
-    type:double
+  - name: measurement
+    type: float
     factory: |
       { rand * 80000 }
-  - name:standard_name
-    type:string
+  - name: standard_name
+    type: string
     factory: |
       { ["BC", "IOS", "RM"].sample +  ["USA", "AU", "UK"].sample}
-  - name:standard_version
-    type:string
+  - name: standard_version
+    type: string
     factory: |
-      { "V"+(1..5)to_a.sample }
+      { "V"+(1..5).to_a.sample.to_s }
   relation:
-    parent: dims
+    parent: dimension_group
     type: embeds_one
 
-GBA:
+gross_building_area:
   fields:
-  - name:measurement
-    type:double
+  - name: measurement
+    type: float
     factory: |
       { rand * 80000  }
-  - name:standard_name
-    type:string
+  - name: standard_name
+    type: string
     factory: |
       { ["BC", "IOS", "RM"].sample +  ["USA", "Au", "UK"].sample}
-  - name:standard_version
-    type:string
+  - name: standard_version
+    type: string
     factory: |
-      { "V"+(1..5)to_a.sample }
+      { "V"+(1..5).to_a.sample.to_s }
   relation:
-    parent: dims
+    parent: dimension_group
     type: embeds_one
+    synonym: gba
 
-GFA:
+gross_floor_area:
   fields:
-  - name:measurement
-    type:double
+  - name: measurement
+    type: float
     factory: |
       { rand * 80000  }
-  - name:standard_name
-    type:string
+  - name: standard_name
+    type: string
     factory: |
       { ["BC", "IOS", "RM"].sample +  ["USA", "Au", "UK"].sample}
-  - name:standard_version
-    type:string
+  - name: standard_version
+    type: string
     factory: |
-      { "V"+(1..5)to_a.sample }
+      { "V"+(1..5).to_a.sample.to_s }
   relation:
-    parent: dims
+    parent: dimension_group
     type: embeds_one
+    synonym: gfa
 
-NLA:
+net_lettable_area:
   fields:
-  - name:measurement
-    type:double
+  - name: measurement
+    type: float
     factory: |
       { rand * 80000  }
-  - name:standard_name
-    type:string
+  - name: standard_name
+    type: string
     factory: |
       { ["BC", "IOS", "RM"].sample +  ["USA", "Au", "UK"].sample}
-  - name:standard_version
-    type:string
+  - name: standard_version
+    type: string
     factory: |
-      { "V"+(1..5)to_a.sample }
+      { "V"+(1..5).to_a.sample.to_s }
   relation:
-    parent: dims
+    parent: dimension_group
     type: embeds_one
+    synonym: nla
 
 client:
   fields:
-  - name:main
-    type:string
+  - name: main
+    type: string
     factory: |
-      { Faker::name.name }
-  - name:direct
-    type:string
+      { Faker::Name.name }
+  - name: direct
+    type: string
     factory: |
-      { Faker::name.name  }
-  - name:end_user
-    type:string
+      { Faker::Name.name  }
+  - name: end_user
+    type: string
     factory: |
-      { Faker::name.name  }
+      { Faker::Name.name  }
   relation:
     parent: building
     type: embeds_one
 
-relationships:
+relationship_description:
   fields:
-  - name:client
+  - name: client
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
-  - name:stakeholder
+  - name: stakeholder
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
-  - name:councils
+  - name: councils
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
@@ -269,259 +278,304 @@ relationships:
 
 phase:
   fields:
-  - name:project_name
-    type:string
+  - name: project_name
+    type: string
     factory: |
       { Faker::Commerce.product_name + " " + ["base", "tower", "building", "Labs"].sample}
-  - name:studio
-    type:string
+  - name: studio
+    type: string
     factory: |
       { ['Brisbane', 'Sydney', 'Canberra', 'Auckland', 'Bangkok', 'London', 'Melbourne', 'Townsville'].sample }
-  - name:client
-    type:string
+  - name: client
+    type: string
     factory: |
       { Faker::Company.name }
-  - name:services_scope
+  - name: services_scope
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
-  - name:delivery_contract
+  - name: delivery_contract
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
-  - name:staff_contact_login
-    type:string
+  - name: staff_contact_login
+    type: string
     factory: |
       { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
-  - name:staff_custodian_login
-    type:string
+  - name: staff_custodian_login
+    type: string
     factory: |
       { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
-  relation:
-    parent: building
-    type: embeds_one
-
-key_date:
-  fields:
-  - name:start_date
-    type:date
+  # from key_date
+  - name: start_date
+    type: date
     factory: |
       { (10..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
-  - name:end_date
-    type:date
+  - name: end_date
+    type: date
     factory: |
       { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
-  relation:
-    parent: phase
-    type: embeds_one
-
-other_dates:
-  fields:
-  - name:date
-    type:date
-    factory: |
-      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
-  - name:description
-    type:string
-    factory: |
-      { Faker::Company.catch_phrase }
-  relation:
-    parent: key_date
-    type: embeds_many
-
-budget:
-  fields:
-  - name:initial_phase_value_total
-    type:double
+  # from budget
+  - name: initial_phase_value_total
+    type: float
     factory: |
       { (rand*100).floor*1000000 }
-  - name:final_phase_value_total
-    type:double
+  - name: final_phase_value_total
+    type: float
     factory: |
       { (rand*100).floor*1000000 }
-  - name:initial_phase_fee_total
-    type:double
+  - name: initial_phase_fee_total
+    type: float
     factory: |
       { (rand*100).floor*1000000 }
-  - name:final_phase_fee_total
-    type:double
+  - name: final_phase_fee_total
+    type: float
     factory: |
       { (rand*100).floor*1000000 }
-  - name:construction_initial
-    type:double
+  - name: construction_initial
+    type: float
     factory: |
       { (rand*100).floor*1000000 }
-  - name:construction_final
-    type:double
+  - name: construction_final
+    type: float
     factory: |
       { (rand*100).floor*1000000 }
-  - name:comments
-    type:text
+  - name: comments
+    type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
-  - name:fee_type
-    type:string
+  - name: fee_type
+    type: string
     factory: |
       { ["fixed fee", "lump sum", "hourly"].sample }
   relation:
-    parent: phase
-    type: embeds_one
+    parent: building
+    type: embeds_many
+
+#key_date:
+#  fields:
+#  - name: start_date
+#    type: date
+#    factory: |
+#      { (10..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+#  - name: end_date
+#    type: date
+#    factory: |
+#      { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
+#  relation:
+#    parent: phase
+#    type: embeds_one
+
+# TODO support nested plural sub properties
+#other_date:
+#  fields:
+#  - name: date
+#    type: date
+#    factory: |
+#      { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+#  - name: description
+#    type: string
+#    factory: |
+#      { Faker::Company.catch_phrase }
+#  relation:
+#    parent: key_date
+#    type: embeds_many
+
+#budget:
+#  fields:
+#  - name: initial_phase_value_total
+#    type: float
+#    factory: |
+#      { (rand*100).floor*1000000 }
+#  - name: final_phase_value_total
+#    type: float
+#    factory: |
+#      { (rand*100).floor*1000000 }
+#  - name: initial_phase_fee_total
+#    type: float
+#    factory: |
+#      { (rand*100).floor*1000000 }
+#  - name: final_phase_fee_total
+#    type: float
+#    factory: |
+#      { (rand*100).floor*1000000 }
+#  - name: construction_initial
+#    type: float
+#    factory: |
+#      { (rand*100).floor*1000000 }
+#  - name: construction_final
+#    type: float
+#    factory: |
+#      { (rand*100).floor*1000000 }
+#  - name: comments
+#    type: text
+#    factory: |
+#      { Faker::Lorem.paragraphs.join('<br>') }
+#  - name: fee_type
+#    type: string
+#    factory: |
+#      { ["fixed fee", "lump sum", "hourly"].sample }
+#  relation:
+#    parent: phase
+#    type: embeds_one
 
 legacy:
   fields:
-  - name:one_line_grab
+  - name: one_line_grab
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
-  - name:description_project_sheet
+  - name: description_project_sheet
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
-  - name:description_awards_style
+  - name: description_awards_style
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
-  - name:innovation_client_style
+  - name: innovation_client_style
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
-  - name:interesting_things
+  - name: interesting_things
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
-  - name:brief_elements
+  - name: brief_elements
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
-  - name:security_level
-    type:string
+  - name: security_level
+    type: string
     factory: |
       { ['Top Secret', 'Licence to Kill', 'Double Secret Probation', 'Baseline'].sample }
   relation:
     parent: building
     type: embeds_one
 
-ESD:
-  fields:[]
+environmental_sustainable_design:
+  fields: []
   relation:
     parent: legacy
     type: embeds_one
+    synonym: esd
 
-initiatives:
+initiative:
   fields:
-  - name:title
-    type:string
+  - name: title
+    type: string
     factory: |
       { ["wind turbine", "magic glass", "green roof"].sample }
-  - name:reason
-    type:string
+  - name: reason
+    type: string
     factory: |
       { Faker::Lorem.sentence }
-  - name:description
-    type:text
+  - name: description
+    type: text
     factory: |
       { Faker::Lorem.paragraphs(2).join('<br>') }
   relation:
-    parent: ESD
+    parent: environmental_sustainable_design
     type: embeds_many
 
-certifications:
+certification:
   fields:
-  - name:name
-    type:string
+  - name: name
+    type: string
     factory: |
       { ["NABERS", "GBCA", "Carbon Buzz"].sample + ["designed", "built", "imagined"].sample}
-  - name:ranking
-    type:string
+  - name: ranking
+    type: string
     factory: |
       { ["***", "****", "******"].sample }
-  - name:awarding_body
-    type:string
+  - name: awarding_body
+    type: string
     factory: |
       { ["NABERS", "GBCA", "Carbon Buzz"].sample }
-  - name:expiry_date
-    type:date
+  - name: expiry_date
+    type: date
     factory: |
       { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   relation:
-    parent: ESD
+    parent: environmental_sustainable_design
     type: embeds_many
 
 photography:
   fields:
-  -name:photographer
-   type:string
-   factory: |
+  - name: photographer
+    type: string
+    factory: |
       { Faker::Name.name  }
-  - name:date
-    type:date
+  - name: date
+    type: date
     factory: |
       { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
   relation:
     parent: legacy
     type: embeds_one
 
-awards:
+award:
   fields:
-  -name:award
-   type:string
-   factory: |
+  - name: award
+    type: string
+    factory: |
       { Faker::Company.catch_phrase }
-  - name:date
-    type:date
+  - name: date
+    type: date
     factory: |
       { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
-  - name:jury
-    type:array
+  - name: jury
+    type: array
     factory: |
       { [Faker::Name.name,Faker::Name.name,Faker::Name.name ,Faker::Name.name].join ', ' }
   relation:
     parent: legacy
-    type: embeds_one
+    type: embeds_many
 
-testimonials:
+testimonial:
   fields:
-  -name:testimonial
-   type:text
-   factory: |
+  - name: testimonial
+    type: text
+    factory: |
       { Faker::Lorem.paragraphs.join('<br>')  }
-  - name:date
-    type:date
+  - name: date
+    type: date
     factory: |
       { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
-  - name:citation
-    type:string
+  - name: citation
+    type: string
     factory: |
       { Faker::Name.name  }
   relation:
     parent: legacy
-    type: embeds_one
+    type: embeds_many
 
-quotes:
+quote:
   fields:
-  -name:quote
-   type: text
+  - name: quote
+    type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
-  - name:date
-    type:date
+  - name: date
+    type: date
     factory: |
       { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
-  - name:citation
-    type:string
+  - name: citation
+    type: string
     factory: |
       { Faker::Name.name  }
   relation:
     parent: legacy
-    type: embeds_one
+    type: embeds_many
 
-press:
+building_press:
   fields: []
   relation:
     parent: building
-    type: embeds_one
+    type: embeds_many
+    synonym: press
 
-attention:
+building_attention:
   fields:
   - name: date
     type: date
@@ -548,46 +602,50 @@ attention:
     factory: |
       { ['reactive', 'planned', 'response to release'].sample }
   relation:
-    parent: press
+    parent: building_press
     type: embeds_many
+    synonym: attention
 
 campaign:
   fields:
-  - name:strategy
+  - name: strategy
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
   relation:
-    parent: press
+    parent: building_press
     type: embeds_many
 
-press_release:
-  - name:date
-    type:date
-    factory: |
-      { (10..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
-  - name:channel_list
-    type:string
-    factory: |
-      { Faker::Company.name + " " + "professional targetted marketing" }
-  - name:content
-    type: text
-    factory: |
-      { Faker::Lorem.paragraphs.join('<br>') }
-  - name:author_login
-    type:string
-    factory: |
-      { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
-  relation:
-    parent: campaign
-    type: embeds_many
+# TODO fix editable
+#building_press_release:
+#  fields:
+#  - name: date
+#    type: date
+#    factory: |
+#      { (10..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+#  - name: channel_list
+#    type: string
+#    factory: |
+#      { Faker::Company.name + " " + "professional targetted marketing" }
+#  - name: content
+#    type: text
+#    factory: |
+#      { Faker::Lorem.paragraphs.join('<br>') }
+#  - name: author_login
+#    type: string
+#    factory: |
+#      { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
+#  relation:
+#    parent: campaign
+#    type: embeds_many
 
-QA:
+quality_assurance:
   fields:
-  - name:notes
+  - name: notes
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
   relation:
     parent: building
     type: embeds_many
+    synonym: qa

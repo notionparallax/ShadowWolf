@@ -39,25 +39,25 @@ describe MembershipsController do
   end
 
   describe "GET show" do
-    it "assigns the requested config_model as @config_model" do
+    it "assigns the requested config_person as @config_person" do
       membership = Membership.create! valid_attributes
       get :show, {:id => membership.to_param}, valid_session
-      assigns(:config_model).should eq(membership)
+      assigns(:config_person).should eq(membership)
     end
   end
 
   describe "GET new" do
-    it "assigns a new config_model as @config_model" do
+    it "assigns a new config_person as @config_person" do
       get :new, {}, valid_session
-      assigns(:config_model).should be_a_new(Membership)
+      assigns(:config_person).should be_a_new(Membership)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested config_model as @config_model" do
+    it "assigns the requested config_person as @config_person" do
       membership = Membership.create! valid_attributes
       get :edit, {:id => membership.to_param}, valid_session
-      assigns(:config_model).should eq(membership)
+      assigns(:config_person).should eq(membership)
     end
   end
 
@@ -65,34 +65,34 @@ describe MembershipsController do
     describe "with valid params" do
       it "creates a new Membership" do
         expect {
-          post :create, {:config_model => valid_attributes}, valid_session
+          post :create, {:config_person => valid_attributes}, valid_session
         }.to change(Membership, :count).by(1)
       end
 
-      it "assigns a newly created config_model as @config_model" do
-        post :create, {:config_model => valid_attributes}, valid_session
-        assigns(:config_model).should be_a(Membership)
-        assigns(:config_model).should be_persisted
+      it "assigns a newly created config_person as @config_person" do
+        post :create, {:config_person => valid_attributes}, valid_session
+        assigns(:config_person).should be_a(Membership)
+        assigns(:config_person).should be_persisted
       end
 
-      it "redirects to the created config_model" do
-        post :create, {:config_model => valid_attributes}, valid_session
+      it "redirects to the created config_person" do
+        post :create, {:config_person => valid_attributes}, valid_session
         response.should redirect_to(Membership.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved config_model as @config_model" do
+      it "assigns a newly created but unsaved config_person as @config_person" do
         # Trigger the behavior that occurs when invalid params are submitted
         Membership.any_instance.stub(:save).and_return(false)
-        post :create, {:config_model => { "organisation" => "invalid value" }}, valid_session
-        assigns(:config_model).should be_a_new(Membership)
+        post :create, {:config_person => { "organisation" => "invalid value" }}, valid_session
+        assigns(:config_person).should be_a_new(Membership)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Membership.any_instance.stub(:save).and_return(false)
-        post :create, {:config_model => { "organisation" => "invalid value" }}, valid_session
+        post :create, {:config_person => { "organisation" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe MembershipsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested config_model" do
+      it "updates the requested config_person" do
         membership = Membership.create! valid_attributes
         # Assuming there are no other memberships in the database, this
         # specifies that the Membership created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Membership.any_instance.should_receive(:update).with({ "organisation" => "MyString" })
-        put :update, {:id => membership.to_param, :config_model => { "organisation" => "MyString" }}, valid_session
+        put :update, {:id => membership.to_param, :config_person => { "organisation" => "MyString" }}, valid_session
       end
 
-      it "assigns the requested config_model as @config_model" do
+      it "assigns the requested config_person as @config_person" do
         membership = Membership.create! valid_attributes
-        put :update, {:id => membership.to_param, :config_model => valid_attributes}, valid_session
-        assigns(:config_model).should eq(membership)
+        put :update, {:id => membership.to_param, :config_person => valid_attributes}, valid_session
+        assigns(:config_person).should eq(membership)
       end
 
-      it "redirects to the config_model" do
+      it "redirects to the config_person" do
         membership = Membership.create! valid_attributes
-        put :update, {:id => membership.to_param, :config_model => valid_attributes}, valid_session
+        put :update, {:id => membership.to_param, :config_person => valid_attributes}, valid_session
         response.should redirect_to(membership)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the config_model as @config_model" do
+      it "assigns the config_person as @config_person" do
         membership = Membership.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Membership.any_instance.stub(:save).and_return(false)
-        put :update, {:id => membership.to_param, :config_model => { "organisation" => "invalid value" }}, valid_session
-        assigns(:config_model).should eq(membership)
+        put :update, {:id => membership.to_param, :config_person => { "organisation" => "invalid value" }}, valid_session
+        assigns(:config_person).should eq(membership)
       end
 
       it "re-renders the 'edit' template" do
         membership = Membership.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Membership.any_instance.stub(:save).and_return(false)
-        put :update, {:id => membership.to_param, :config_model => { "organisation" => "invalid value" }}, valid_session
+        put :update, {:id => membership.to_param, :config_person => { "organisation" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested config_model" do
+    it "destroys the requested config_person" do
       membership = Membership.create! valid_attributes
       expect {
         delete :destroy, {:id => membership.to_param}, valid_session

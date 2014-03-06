@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @building_attention.date %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @building_attention.url %>
+</p>
+
+<p>
+  <strong>Scan or screengrab:</strong>
+  <%= @building_attention.scan_or_screengrab %>
+</p>
+
+<p>
+  <strong>Body text:</strong>
+  <%= @building_attention.body_text %>
+</p>
+
+<p>
+  <strong>Publication:</strong>
+  <%= @building_attention.publication %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @building_attention.reason %>
+</p>
+
+<%= link_to 'Edit', edit_building_attention_path(@building_attention) %> |
+<%= link_to 'Back', building_attentions_path %>

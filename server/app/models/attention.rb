@@ -2,7 +2,7 @@ class Attention
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embedded_in :press
+  embedded_in :employee_press
 
   field :date, type: Date
   field :url, type: String

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Competition win:</strong>
+  <%= @project_source.competition_win %>
+</p>
+
+<p>
+  <strong>Competition url:</strong>
+  <%= @project_source.competition_URL %>
+</p>
+
+<%= link_to 'Edit', edit_project_source_path(@project_source) %> |
+<%= link_to 'Back', project_sources_path %>

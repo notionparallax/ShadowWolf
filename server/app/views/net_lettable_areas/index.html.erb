@@ -1,0 +1,31 @@
+<h1>Listing net_lettable_areas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Measurement</th>
+      <th>Standard name</th>
+      <th>Standard version</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @net_lettable_areas.each do |net_lettable_area| %>
+      <tr>
+        <td><%= net_lettable_area.measurement %></td>
+        <td><%= net_lettable_area.standard_name %></td>
+        <td><%= net_lettable_area.standard_version %></td>
+        <td><%= link_to 'Show', net_lettable_area %></td>
+        <td><%= link_to 'Edit', edit_net_lettable_area_path(net_lettable_area) %></td>
+        <td><%= link_to 'Destroy', net_lettable_area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Net lettable area', new_net_lettable_area_path %>

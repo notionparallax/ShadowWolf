@@ -9,20 +9,20 @@
       <editable property="attribution" label="Attribution">This is an internal, easy to understand summary of the project.</editable>
       <editable property="BCA_classification" label="BCA Classification">The BCA classification of this project</editable>
       <editable property="project_catagories" label="Project Catagories">A comma separated list of the catagories that this project is in</editable>
-      <editable property="project_sub-catagories" label="Project Sub-catagories">A comma separated list of the catagories that this project is in. [TODO: why does this exist?]</editable>
+      <editable property="project_sub_catagories" label="Project Sub-catagories">A comma separated list of the catagories that this project is in. [TODO: why does this exist?]</editable>
     </editable-group>
 
     <h2>Location</h2>
     <editable-group object="project"
-                    lens="building.location.geoJSON"
+                    lens="building.location.geo_json"
                     subgroup-class="alert alert-info col-sm-6">
-      <editable property="lat"             label="latitude"       >helpText</editable>
-      <editable property="lon"             label="longitude"      >helpText</editable>
+      <editable property="lat"             label="latitude"       type="number">helpText</editable>
+      <editable property="lon"             label="longitude"      type="number">helpText</editable>
       <editable property="boundary_points" label="Boundary Points">helpText</editable>
     </editable-group>
 
     <editable-group object="project"
-                    lens="building.location.adess"
+                    lens="building.location.address"
                     subgroup-class="alert alert-info col-sm-6">
        <editable property="building_name" label="building name">helpText</editable>
        <editable property="street_number" label="street number">helpText</editable>
@@ -54,7 +54,7 @@
     <editable-group object="project"
                     lens="building.dims.height"
                     subgroup-class="alert alert-info col-sm-6">
-      <editable property="measurement"      label= "measurement"     >helpText</editable>
+      <editable property="measurement"      label= "measurement"     type="number">helpText</editable>
       <editable property="standard_name"    label= "standard_name"   >helpText</editable>
       <editable property="standard_version" label= "standard_version">helpText</editable>
     </editable-group>
@@ -63,34 +63,34 @@
     <editable-group object="project"
                     lens="building.dims.footprint_area"
                     subgroup-class="alert alert-info col-sm-6">
-      <editable property="measurement"      label= "measurement"     >helpText</editable>
+      <editable property="measurement"      label= "measurement"     type="number">helpText</editable>
       <editable property="standard_name"    label= "standard_name"   >helpText</editable>
       <editable property="standard_version" label= "standard_version">helpText</editable>
     </editable-group>
 
     <h3>GBA</h3>
     <editable-group object="project"
-                    lens="building.dims.GBA"
+                    lens="building.dims.gba"
                     subgroup-class="alert alert-info col-sm-6">
-      <editable property="measurement"      label= "measurement"     >helpText</editable>
+      <editable property="measurement"      label= "measurement"     type="number">helpText</editable>
       <editable property="standard_name"    label= "standard_name"   >helpText</editable>
       <editable property="standard_version" label= "standard_version">helpText</editable>
     </editable-group>
 
     <h3>GFA</h3>
     <editable-group object="project"
-                    lens="building.dims.GFA"
+                    lens="building.dims.gfa"
                     subgroup-class="alert alert-info col-sm-6">
-      <editable property="measurement"      label= "measurement"     >helpText</editable>
+      <editable property="measurement"      label= "measurement"     type="number">helpText</editable>
       <editable property="standard_name"    label= "standard_name"   >helpText</editable>
       <editable property="standard_version" label= "standard_version">helpText</editable>
     </editable-group>
 
     <h3>NLA</h3>
     <editable-group object="project"
-                    lens="building.dims.NLA"
+                    lens="building.dims.nla"
                     subgroup-class="alert alert-info col-sm-6">
-      <editable property="measurement"      label= "measurement"     >helpText</editable>
+      <editable property="measurement"      label= "measurement"     type="number">helpText</editable>
       <editable property="standard_name"    label= "standard_name"   >helpText</editable>
       <editable property="standard_version" label= "standard_version">helpText</editable>
     </editable-group>
@@ -106,7 +106,7 @@
 
     <h2>relationships</h2>
     <editable-group object="project"
-                    lens="building.relationships"
+                    lens="building.relationship_description"
                     subgroup-class="alert alert-info col-sm-6">
       <editable property="client"      label= "client"     >helpText</editable>
       <editable property="stakeholder" label= "stakeholder">helpText</editable>
@@ -114,32 +114,29 @@
     </editable-group>
 
     <h2>Phase</h2>
-    <editable-group object="project"
-                    lens="building.phase"
-                    subgroup-class="alert alert-info col-sm-6">
-      <editable property="project_name"          label= "project_name"         >helpText</editable>
-      <editable property="studio"                label= "studio"               >helpText</editable>
-      <editable property="client"                label= "client"               >helpText</editable>
-      <editable property="services_scope"        label= "services_scope"       >helpText</editable>
-      <editable property="delivery_contract"     label= "delivery_contract"    >helpText</editable>
-      <editable property="staff_contact_login"   label= "staff_contact_login"  >helpText</editable>
-      <editable property="staff_custodian_login" label= "staff_custodian_login">helpText</editable>
-    </editable-group>
-
-    <p>this budget object needs to be inside the phase repeater</p>
-    <h2>budget</h2>
-    <editable-group object="project"
-                    lens="building.phase.budget"
-                    subgroup-class="alert alert-info col-sm-6">
-      <editable property="initial_phase_value_total" label= "initial_phase_value_total">helpText</editable>
-      <editable property="final_phase_value_total"   label= "final_phase_value_total"  >helpText</editable>
-      <editable property="initial_phase_fee_total"   label= "initial_phase_fee_total"  >helpText</editable>
-      <editable property="final_phase_fee_total"     label= "final_phase_fee_total"    >helpText</editable>
-      <editable property="construction_initial"      label= "construction_initial"     >helpText</editable>
-      <editable property="construction_final"        label= "construction_final"       >helpText</editable>
-      <editable property="comments"                  label= "comments"                 >helpText</editable>
-      <editable property="fee_type"                  label= "fee_type"                 >helpText</editable>
-    </editable-group>
+    <div ng-repeat="phase in project.building.phases">
+      <editable-group object="project"
+                      lens="building.phases[{{phase|id}}]"
+                      is-plural="true"
+                      subgroup-class="alert alert-info col-sm-6">
+        <editable property="project_name"          label= "project_name"         >helpText</editable>
+        <editable property="studio"                label= "studio"               >helpText</editable>
+        <editable property="client"                label= "client"               >helpText</editable>
+        <editable property="services_scope"        label= "services_scope"       >helpText</editable>
+        <editable property="delivery_contract"     label= "delivery_contract"    >helpText</editable>
+        <editable property="staff_contact_login"   label= "staff_contact_login"  >helpText</editable>
+        <editable property="staff_custodian_login" label= "staff_custodian_login">helpText</editable>
+        <h3>Budget</h3>
+        <editable property="initial_phase_value_total" label= "initial_phase_value_total"type="number">helpText</editable>
+        <editable property="final_phase_value_total"   label= "final_phase_value_total"  type="number">helpText</editable>
+        <editable property="initial_phase_fee_total"   label= "initial_phase_fee_total"  type="number">helpText</editable>
+        <editable property="final_phase_fee_total"     label= "final_phase_fee_total"    type="number">helpText</editable>
+        <editable property="construction_initial"      label= "construction_initial"     type="number">helpText</editable>
+        <editable property="construction_final"        label= "construction_final"       type="number">helpText</editable>
+        <editable property="comments"                  label= "comments"                 >helpText</editable>
+        <editable property="fee_type"                  label= "fee_type"                 >helpText</editable>
+      </editable-group>
+    </div>
 
     <h2>template</h2>
     <editable-group object="project"
@@ -155,17 +152,19 @@
     </editable-group>
 
     <h2>initiatives</h2>
-    <editable-group object="project"
-                    lens="building.legacy.ESD.initiatives"
-                    subgroup-class="alert alert-info col-sm-6">
-      <editable property="title"       label= "title"      >helpText</editable>
-      <editable property="reason"      label= "reason"     >helpText</editable>
-      <editable property="description" label= "description">helpText</editable>
-    </editable-group>
+    <div ng-repeat="initiaive in project.building.legacy.initiavies">
+      <editable-group object="project"
+                      lens="building.legacy.esd.initiatives[{{initiative|id}}]"
+                      subgroup-class="alert alert-info col-sm-6">
+        <editable property="title"       label= "title"      >helpText</editable>
+        <editable property="reason"      label= "reason"     >helpText</editable>
+        <editable property="description" label= "description">helpText</editable>
+      </editable-group>
+    </div>
 
     <h2>certifications</h2>
     <editable-group object="project"
-                    lens="building.legacy.ESD.certifications"
+                    lens="building.legacy.esd.certifications"
                     subgroup-class="alert alert-info col-sm-6">
       <editable property="name"          label= "name"         >helpText</editable>
       <editable property="ranking"       label= "ranking"      >helpText</editable>
@@ -182,8 +181,9 @@
     </editable-group>
 
     <h2>awards</h2>
+    <div ng-repeat="award in project.building.legacy.awards">
     <editable-group object="project"
-                    lens="building.legacy.awards"
+                    lens="building.legacy.awards[{{award|id}}]"
                     subgroup-class="alert alert-info col-sm-6">
       <editable property="award" label="award">helpText</editable>
       <editable property="date"  label="date" >helpText</editable>
@@ -192,65 +192,58 @@
 
 
     <h2>testimonials</h2>
-    <editable-group object="project"
-                    lens="building.legacy.testimonials"
-                    subgroup-class="alert alert-info col-sm-6">
-      <editable property="testimonial" label= "testimonial">helpText</editable>
-      <editable property="citation"    label= "citation"   >helpText</editable>
-      <editable property="date"        label= "date"       >helpText</editable>
-    </editable-group>
+    <div ng-repeat="testimonial in project.building.legacy.testimonials">
+      <editable-group object="project"
+                      lens="building.legacy.testimonials[{{testimonial|id}}]"
+                      subgroup-class="alert alert-info col-sm-6">
+        <editable property="testimonial" label= "testimonial">helpText</editable>
+        <editable property="citation"    label= "citation"   >helpText</editable>
+        <editable property="date"        label= "date"       >helpText</editable>
+      </editable-group>
+    </div>
 
     <h2>quotes</h2>
-    <editable-group object="project"
-                    lens="building.legacy.quotes"
-                    subgroup-class="alert alert-info col-sm-6">
-      <editable property="quote"    label= "quote"   >helpText</editable>
-      <editable property="citation" label= "citation">helpText</editable>
-      <editable property="date"     label= "date"    >helpText</editable>
-    </editable-group>
+    <div ng-repeat="quote in project.building.legacy.quotes">
+      <editable-group object="project"
+                      lens="building.legacy.quotes[{{quote|id}}]"
+                      subgroup-class="alert alert-info col-sm-6">
+        <editable property="quote"    label= "quote"   >helpText</editable>
+        <editable property="citation" label= "citation">helpText</editable>
+        <editable property="date"     label= "date"    >helpText</editable>
+      </editable-group>
+    </div>
 
-    <h2>attention</h2>
-    <editable-group object="project"
-                    lens="building.legacy.attention"
-                    subgroup-class="alert alert-info col-sm-6">
-      <editable property="url"                label="url"               >helpText</editable>
-      <editable property="scan_or_screengrab" label="scan_or_screengrab">helpText</editable>
-      <editable property="publication"        label="publication"       >helpText</editable>
-      <editable property="reason"             label="reason"            >helpText</editable>
-    </editable-group>
+    <h2>Press</h2>
+    <div ng-repeat="press in project.building.presses">
+      <h3>Attentions</h3> 
+      <editable-group object="project"
+                      ng-repeat="attention in press.attentions"
+                      lens="building.presses[{{press|id}}].attentions[{{attention|id}}]"
+                      subgroup-class="alert alert-info col-sm-6">
+        <editable property="url"                label="url"               >helpText</editable>
+        <editable property="scan_or_screengrab" label="scan_or_screengrab">helpText</editable>
+        <editable property="publication"        label="publication"       >helpText</editable>
+        <editable property="reason"             label="reason"            >helpText</editable>
+      </editable-group>
 
-    <h2>template</h2>
-    <editable-group object="project"
-                    lens="building.legacy.press.campaign"
-                    subgroup-class="alert alert-info col-sm-6">
-      <editable property="strategy" label= "strategy">helpText</editable>
-      <editable property="date"     label= "date"    >helpText</editable>
-    </editable-group>
-
-    <h2>press_release</h2>
-    <editable-group object="project"
-                    lens="building.legacy.press.campaign.press"
-                    subgroup-class="alert alert-info col-sm-6">
-      <editable property="channel_list" label= "channel_list">helpText</editable>
-      <editable property="content"      label= "content"     >helpText</editable>
-      <editable property="author_login" label= "author_login">helpText</editable>
-    </editable-group>
-
-    <h2>template</h2>
-    <editable-group object="project"
-                    lens="building.QA"
-                    subgroup-class="alert alert-info col-sm-6">
-      <editable property="notes" label="notes">helpText</editable>
-      <p>this section of the model is underdefined</p>
-    </editable-group>
+      <h3>Campaigns</h3> 
+      <editable-group object="project"
+                      ng-repeat="campaign in press.campaigns"
+                      lens="building.presses[{{press|id}}].campaigns[{{campaign|id}}]"
+                      subgroup-class="alert alert-info col-sm-6">
+        <editable property="strategy"     label="strategy">helpText</editable>
+      </editable-group>
+    </div>
 
   </div>
 
   <div ng-show="project.non_building">
     <h1>{{ project.non_building.name }}</h1>
-    <editable object="project" subobject="q"
-                    lens="project.non_building.description" l
+    <editable-group object="project"
+                    lens="project.non_building.description"
                     subgroup-class="alert alert-info col-sm-6">
+      <editable property="description" label="Description"></editable>
+    </editable-group>
   </div>
 
 </article>

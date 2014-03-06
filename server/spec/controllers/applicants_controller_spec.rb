@@ -39,25 +39,25 @@ describe ApplicantsController do
   end
 
   describe "GET show" do
-    it "assigns the requested config_model as @config_model" do
+    it "assigns the requested config_person as @config_person" do
       applicant = Applicant.create! valid_attributes
       get :show, {:id => applicant.to_param}, valid_session
-      assigns(:config_model).should eq(applicant)
+      assigns(:config_person).should eq(applicant)
     end
   end
 
   describe "GET new" do
-    it "assigns a new config_model as @config_model" do
+    it "assigns a new config_person as @config_person" do
       get :new, {}, valid_session
-      assigns(:config_model).should be_a_new(Applicant)
+      assigns(:config_person).should be_a_new(Applicant)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested config_model as @config_model" do
+    it "assigns the requested config_person as @config_person" do
       applicant = Applicant.create! valid_attributes
       get :edit, {:id => applicant.to_param}, valid_session
-      assigns(:config_model).should eq(applicant)
+      assigns(:config_person).should eq(applicant)
     end
   end
 
@@ -65,34 +65,34 @@ describe ApplicantsController do
     describe "with valid params" do
       it "creates a new Applicant" do
         expect {
-          post :create, {:config_model => valid_attributes}, valid_session
+          post :create, {:config_person => valid_attributes}, valid_session
         }.to change(Applicant, :count).by(1)
       end
 
-      it "assigns a newly created config_model as @config_model" do
-        post :create, {:config_model => valid_attributes}, valid_session
-        assigns(:config_model).should be_a(Applicant)
-        assigns(:config_model).should be_persisted
+      it "assigns a newly created config_person as @config_person" do
+        post :create, {:config_person => valid_attributes}, valid_session
+        assigns(:config_person).should be_a(Applicant)
+        assigns(:config_person).should be_persisted
       end
 
-      it "redirects to the created config_model" do
-        post :create, {:config_model => valid_attributes}, valid_session
+      it "redirects to the created config_person" do
+        post :create, {:config_person => valid_attributes}, valid_session
         response.should redirect_to(Applicant.last)
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved config_model as @config_model" do
+      it "assigns a newly created but unsaved config_person as @config_person" do
         # Trigger the behavior that occurs when invalid params are submitted
         Applicant.any_instance.stub(:save).and_return(false)
-        post :create, {:config_model => {  }}, valid_session
-        assigns(:config_model).should be_a_new(Applicant)
+        post :create, {:config_person => {  }}, valid_session
+        assigns(:config_person).should be_a_new(Applicant)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Applicant.any_instance.stub(:save).and_return(false)
-        post :create, {:config_model => {  }}, valid_session
+        post :create, {:config_person => {  }}, valid_session
         response.should render_template("new")
       end
     end
@@ -100,50 +100,50 @@ describe ApplicantsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      it "updates the requested config_model" do
+      it "updates the requested config_person" do
         applicant = Applicant.create! valid_attributes
         # Assuming there are no other applicants in the database, this
         # specifies that the Applicant created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Applicant.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => applicant.to_param, :config_model => { "these" => "params" }}, valid_session
+        put :update, {:id => applicant.to_param, :config_person => { "these" => "params" }}, valid_session
       end
 
-      it "assigns the requested config_model as @config_model" do
+      it "assigns the requested config_person as @config_person" do
         applicant = Applicant.create! valid_attributes
-        put :update, {:id => applicant.to_param, :config_model => valid_attributes}, valid_session
-        assigns(:config_model).should eq(applicant)
+        put :update, {:id => applicant.to_param, :config_person => valid_attributes}, valid_session
+        assigns(:config_person).should eq(applicant)
       end
 
-      it "redirects to the config_model" do
+      it "redirects to the config_person" do
         applicant = Applicant.create! valid_attributes
-        put :update, {:id => applicant.to_param, :config_model => valid_attributes}, valid_session
+        put :update, {:id => applicant.to_param, :config_person => valid_attributes}, valid_session
         response.should redirect_to(applicant)
       end
     end
 
     describe "with invalid params" do
-      it "assigns the config_model as @config_model" do
+      it "assigns the config_person as @config_person" do
         applicant = Applicant.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Applicant.any_instance.stub(:save).and_return(false)
-        put :update, {:id => applicant.to_param, :config_model => {  }}, valid_session
-        assigns(:config_model).should eq(applicant)
+        put :update, {:id => applicant.to_param, :config_person => {  }}, valid_session
+        assigns(:config_person).should eq(applicant)
       end
 
       it "re-renders the 'edit' template" do
         applicant = Applicant.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Applicant.any_instance.stub(:save).and_return(false)
-        put :update, {:id => applicant.to_param, :config_model => {  }}, valid_session
+        put :update, {:id => applicant.to_param, :config_person => {  }}, valid_session
         response.should render_template("edit")
       end
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested config_model" do
+    it "destroys the requested config_person" do
       applicant = Applicant.create! valid_attributes
       expect {
         delete :destroy, {:id => applicant.to_param}, valid_session

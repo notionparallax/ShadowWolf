@@ -1,6 +1,7 @@
-<div ng-if="isPlural()" class="row">
-  <div class="{{ subgroupClass }}" ng-repeat="subobject in target()" >
-    <button type="button"
+<div class="row">
+  <div class="{{ subgroupClass }}" ng-repeat="subobject in [target()]">
+    <button ng-if="isPlural()"
+            type="button"
             ng-click="removeObject(subobject)"
             class="close pull-right"
             aria-hidden="true"
@@ -8,13 +9,6 @@
       &times;
     </button>
     <div ng-transclude></div>
-  </div><!--end ng-repeat-->
-  <a class="btn btn-primary" ng-click="addObject()">Add</a>
-</div>
-
-<div ng-if="!isPlural()" class="row">
-  <div class="{{ subgroupClass }}"
-      ng-repeat="_ in [1]"
-      ng-transclude>
   </div>
+  <a ng-if="isPlural() && isLast()" class="btn btn-primary" ng-click="addObject()">Add</a>
 </div>

@@ -108,56 +108,102 @@
       <h3>Conditions</h3>
       <p class="explantory-text">A <em>condition</em>is like a status. At the moment you can either be <em>Active</em>, <em>Retired</em>, <em>Maternity</em>, <em>Leave</em>, <em>Deceased</em>, <em>Applicant</em>, <em>Left</em> or <em>Unknown</em>, but we'll add more as we work out what is needed. The system calculates your current condition by looking at the most recent start date, so it is important to update new conditions as soon as you can. </p>
 
-      <editable-group object="person" lens="conditions" subgroup-class="alert alert-info col-sm-6 col-md-4">
-        <editable property="name"       label="name"                  >This is the label of this period of your life, it will normally be taken from the list above.</editable>
-        <editable property="start_date" label="start date" type="date">This is the date that this period started. YOu don't need to put in when it ended becasue that is inferred from the start date of the next period.</editable>
-      </editable-group>
+      <div ng-repeat="condition in person.conditions">
+        <editable-group object="person" lens="conditions[{{condition|id}}]" subgroup-class="alert alert-info col-sm-6 col-md-4">
+          <editable property="name"       label="name"                  >This is the label of this period of your life, it will normally be taken from the list above.</editable>
+          <editable property="start_date" label="start date" type="date">This is the date that this period started. YOu don't need to put in when it ended becasue that is inferred from the start date of the next period.</editable>
+        </editable-group>
+      </div>
+
     </section>
 
     <section ng-show="isCurrentUser(person) || person.employee.office_culture">
       <h3>Office culture</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
-      <editable-group object="person"
-                      lens="employee.office_culture"
-                      subgroup-class="col-md-4">
-        <editable property="first_aider"  label="first aider" >If you are <em>currently</em> a first aider then this should say True, otherwise it should say False.</editable>
-        <editable property="fire_warden"  label="fire warden" >If you <em>are</em>a fire warden then this should say True, otherwise it should say False.</editable>
-        <editable property="requirements" label="requirements">This is a comma separated list of things that you <em>can't</em> eat (for fear of feeling ill, messing up your morals or dying). For example: <em>eggs, gluten, shellfish.</em></editable>
-        <editable property="likes"        label="likes"       >This is a comma separated list of things that you <em>really like</em> eating. For example: <em>bacon, pizza, pinaple.</em></editable>
-        <editable property="dislikes"     label="dislikes"    >This is a comma separated list of things that you <em>really don't like</em> eating. For example: <em>devon, olives, bread.</em>.</editable>
-      </editable-group>
-
-      <h4>Event Participation</h4>
-      <editable-group object="person"
-                      lens="employee.office_culture.event_participations"
-                      subgroup-class="alert alert-info col-sm-6 col-md-4">
-        <editable property="name" label="name"            >This is the name of the thing that you did.</editable>
-        <editable property="date" label="date" type="date">This is the date that you did it.</editable>
-        <editable property="url"  label="url"  type="url" >This is a link to some kind of explanation of the event. It could be the event's website, or it might be to some report that you've published about it.</editable>
-        <p><a href="{{ subobject.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></p>
-      </editable-group>
+      <div class="row">
+        <editable-group object="person" lens="employee.office_culture" subgroup-class="col-md-4">
+          <editable property="first_aider"  label="first aider" >If you are <em>currently</em> a first aider then this should say True, otherwise it should say False.</editable>
+          <editable property="fire_warden"  label="fire warden" >If you <em>are</em>a fire warden then this should say True, otherwise it should say False.</editable>
+          <editable property="requirements" label="requirements">This is a comma separated list of things that you <em>can't</em> eat (for fear of feeling ill, messing up your morals or dying). For example: <em>eggs, gluten, shellfish.</editable>
+          <editable property="likes"        label="likes"       >This is a comma separated list of things that you <em>really like</em> eating. For example: <em>bacon, pizza, pinaple.</editable>
+          <editable property="dislikes"     label="dislikes"    >This is a comma separated list of things that you <em>really don't like</em> eating. For example: <em>devon, olives, bread.</em>.</editable>
+        </editable-group>
+        <div class="col-md-8">
+          <div class="row">
+          <h4>Event Participation</h4>
+          <div ng-repeat="ep in person.employee.office_culture.event_participations">
+            <editable-group object="person"
+                            lens="employee.office_culture.event_participations[{{ep|id}}]"
+                            subgroup-class="alert alert-info col-sm-6">
+              <editable property="name" label="name"            >This is the name of the thing that you did.</editable>
+              <editable property="date" label="date" type="date">This is the date that you did it.</editable>
+              <editable property="url"  label="url"  type="url" >This is a link to some kind of explanation of the event. It could be the event's website, or it might be to some report that you've published about it.</editable>
+              <p><a href="{{ subobject.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></div>
+            </editable-group>
+          </div>
+      </div>
     </section>
 
-    <section ng-show="isCurrentUser(person) || false && person.employee.contact">
-      <h3>contact (office)</h3>
-      <p class="explantory-text">Explanatory text goes in here</p>
-      <editable-group object="person"
-                      lens="employee.office_culture.event_participations"
-                      subgroup-class="alert alert-info col-sm-6 col-md-4">
-        <editable  property="extension" label="extension"  type="number">This is your desk phone extension.</editable>
-        <editable  property="studio"    label="studio"                  >This is the studio that you work in.</editable>
-        <editable  property="work email"label="work email" type="email" >This is your ~~~@bvn.com.au email address.</editable>
-      </editable-group>
+    <div class="row">
+      <div class="col-md-6">
+        <section ng-show="isCurrentUser(person) || person.employee.contact">
+          <div class="row">
+            <h3>contact (office)</h3>
+            <p class="explantory-text">Explanatory text goes in here</p>
+            <editable-group object="person"
+                            lens="employee.contact"
+                            subgroup-class="alert alert-info col-sm-6">
+              <editable  property="extension" label="extension"  type="number">This is your desk phone extension.</editable>
+              <editable  property="studio"    label="studio"                  >This is the studio that you work in.</editable>
+              <editable  property="work_email" label="work email" type="email" >This is your ~~~@bvn.com.au email address.</editable>
+            </editable-group>
+            <div class="col-md-6">
+              <h4>Mobile</h4>
+              <editable-group object="person"
+                              lens="employee.contact.mobile"
+                              subgroup-class="alert alert-info col-sm-6">
+                <editable property="number"     label="number"    type="number">This is your mobile number.</editable>
+                <editable property="is_work"    label="is work"                >This is <em>True</em> if BVNDH provides your mobile.</editable>
+                <editable property="distribute" label="distribute"             >This is <em>True</em> if it is OK for people give your mobile number out to people.</editable>
+              </editable-group>
+          </div>
+        </section>
+      </div>
 
-      <h4>Mobile</h4>
-      <editable-group object="person"
-                      lens="employee.contact.mobile"
-                      subgroup-class="alert alert-info col-sm-6 col-md-4">
-        <editable property="number"     label="number"    type="number">This is your mobile number.</editable>
-        <editable property="is_work"    label="is work"                >This is <em>True</em> if BVNDH provides your mobile.</editable>
-        <editable property="distribute" label="distribute"             >This is <em>True</em> if it is OK for people give your mobile number out to people.</editable>
-      </editable-group>
-    </section>
+      <div class="col-md-6">
+        <section ng-show="isCurrentUser(person) || false && person.contact">
+          <div class="row">
+            <h3>contact (personal)</h3>
+            <div class="col-md-6">
+              <h4>anti-social</h4>
+              <editable-group object="person"
+                              lens="contact"
+                              subgroup-class="alert alert-info col-sm-6">
+                <editable lens="contact.personal_email" label="personal email" type="email">This is</editable>
+                <editable lens="contact.personal_phone" label="personal phone" type="tel">This is</editable>
+              </editable-group>
+            </div>
+            <div class="col-md-6">
+              <h4>social</h4>
+              <editable-group object="person"
+                              lens="contact.social"
+                              subgroup-class="alert alert-info col-sm-6">
+                <editable property="twitter"     label="twitter"    >This is your Twitter name. Leave the @ off.</editable>
+                <editable property="instagram"   label="instagram"  >This is your Instagram name. Leave the @ off.</editable>
+                <editable property="github"      label="github"     >This is your github name.</editable>
+                <editable property="pinterest"   label="pinterest"  >This is your pintrest name.</editable>
+                <editable property="google_plus" label="google plus">This is your Google+ name. If you have a vanity name then it'll looke like <code>+yourname</code> otherwise it'll just be a long number.</editable>
+                <editable property="linkedin"    label="linkedin"   >This is your linkedin link. There isn't an obvious way to get this other than to go to your page and copy the link in the URL bar whiel you are there.</editable>
+                <editable property="facebook"    label="facebook"   >This is your Facebook name. If you have a vanity name then it'll looke like <code>yourname</code> otherwise it'll just be a long number.</editable>
+                <editable property="tumblr"      label="tumblr"     >This is the link to your tumblr. e.g. <a href="http://i-justreally-like-cats-okay.tumblr.com/">http://i-justreally-like-cats-okay.tumblr.com</a></editable>
+                <!--This will need a bit of tweaking once we know what's going on.-->
+              </editable-group>
+              <!--Social widgets went in here-->
+            </div>
+          </div>
+        </section>
+     </div>
+    </div>
 
     <section ng-show="isCurrentUser(person) || false && person.contact">
       <h3>Contact (personal)</h3>

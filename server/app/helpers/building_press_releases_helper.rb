@@ -1,0 +1,2 @@
+module BuildingPressReleasesHelper
+end

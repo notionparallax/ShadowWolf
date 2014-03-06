@@ -1,0 +1,31 @@
+<h1>Listing relationship_descriptions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Stakeholder</th>
+      <th>Councils</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relationship_descriptions.each do |relationship_description| %>
+      <tr>
+        <td><%= relationship_description.client %></td>
+        <td><%= relationship_description.stakeholder %></td>
+        <td><%= relationship_description.councils %></td>
+        <td><%= link_to 'Show', relationship_description %></td>
+        <td><%= link_to 'Edit', edit_relationship_description_path(relationship_description) %></td>
+        <td><%= link_to 'Destroy', relationship_description, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Relationship description', new_relationship_description_path %>

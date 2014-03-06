@@ -1,0 +1,17 @@
+<%= form_for(@dimension_group) do |f| %>
+  <% if @dimension_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dimension_group.errors.count, "error") %> prohibited this dimension_group from being saved:</h2>
+
+      <ul>
+      <% @dimension_group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

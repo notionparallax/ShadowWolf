@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @building_press_release.date %>
+</p>
+
+<p>
+  <strong>Channel list:</strong>
+  <%= @building_press_release.channel_list %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @building_press_release.content %>
+</p>
+
+<p>
+  <strong>Author login:</strong>
+  <%= @building_press_release.author_login %>
+</p>
+
+<%= link_to 'Edit', edit_building_press_release_path(@building_press_release) %> |
+<%= link_to 'Back', building_press_releases_path %>
