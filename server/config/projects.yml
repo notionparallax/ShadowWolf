@@ -54,7 +54,7 @@ location:
   fields: []
   relation:
     parent: building
-    type: embeds_one
+    type: embeds_many
 
 geo_json:
   fields:
@@ -106,7 +106,7 @@ address:
       { Faker::Address.postcode}
   relation:
     parent: location
-    type: embeds_one
+    type: embeds_many
 
 project_source:
   fields:
@@ -141,7 +141,11 @@ referred_by:
     type: embeds_one
 
 dimension_group:
-  fields: []
+  fields:
+  - name: dirty_size
+    type: string
+    factory: |
+      "one thousand metres squared"
   relation:
     parent: building
     type: embeds_one
@@ -278,6 +282,10 @@ relationship_description:
 
 phase:
   fields:
+  - name: dirty_members
+    type: string
+    factory: |
+      { [Faker::Name.first_name,Faker::Name.first_name,Faker::Name.first_name].join ', ' }
   - name: project_name
     type: string
     factory: |
@@ -306,6 +314,10 @@ phase:
     type: string
     factory: |
       { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
+  - name: dirty_date
+    type: string
+    factory: |
+      "Projected completion 2005"
   # from key_date
   - name: start_date
     type: date
