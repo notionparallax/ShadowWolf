@@ -7,7 +7,7 @@ project:
   - name: img
     type: string
     factory: |
-      { "http://notionparallax.co.uk/bldg/bld-" + (0..249).to_a.sample.to_s +".jpg" }
+      { "http://notionparallax.co.uk/bldg/bld-" + (0..248).to_a.sample.to_s +".jpg" }
 
 
 non_building:
