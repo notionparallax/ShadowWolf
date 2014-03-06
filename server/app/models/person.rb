@@ -39,4 +39,8 @@ class Person
   def admin?
     false
   end
+
+  def self.update_from_params person_params
+    puts person_params
+  end
 end
