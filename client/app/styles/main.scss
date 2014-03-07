@@ -14,11 +14,17 @@ html, body {
 }
 
 body {
-    background: rgba(128, 128, 128, 0.75);;
+    background: rgba(255, 255, 255, 1);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding-top: 0;
 }
-
+h3{
+  width:90%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4)
+}
+.row{/*helper, delete in production*/
+  border:1px dashed red;
+}
 .container{
   width:100%;
   /*This overrides the media queries so that it has a full width layout all the time*/
@@ -69,7 +75,7 @@ body {
 }
 
 .explantory-text {
-  color: antiquewhite;
+  color: orange;
   max-width: 600px;
 }
 
