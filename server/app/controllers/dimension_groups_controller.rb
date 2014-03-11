@@ -69,6 +69,6 @@ class DimensionGroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dimension_group_params
-      params[:dimension_group]
+      params.require(:dimension_group).permit(:dirty_size)
     end
 end

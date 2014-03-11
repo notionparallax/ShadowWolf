@@ -22,7 +22,7 @@ FactoryGirl.define do
     description { Faker::Lorem.paragraphs.join('<br>') }
     attribution { "TODO: I don't remember why this field  exists" }
     BCA_classification { "Class " + ["1","1A","1B","2","3","4","5","6","7","8","9","9A","9B","9C","10","10A","10B"].sample }
-    project_catagories { Faker::Name.first_name + ", "+Faker::Name.first_name + ", " + Faker::Name.first_name }
+    project_categories { Faker::Name.first_name + ", "+Faker::Name.first_name + ", " + Faker::Name.first_name }
     project_sub_catagories { Faker::Name.first_name + ", "+Faker::Name.first_name + ", " + Faker::Name.first_name }
   end
 end

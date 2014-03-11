@@ -1,5 +1,5 @@
 json.id building.id
-json.extract! building, :created_at, :updated_at, :description, :attribution, :BCA_classification, :project_catagories, :project_sub_catagories
+json.extract! building, :created_at, :updated_at, :description, :attribution, :BCA_classification, :project_categories, :project_sub_catagories
 json.locations do
   json.array!(building.locations) do |location|
     json.partial! "locations/location.json.jbuilder", location: location

@@ -6,7 +6,7 @@ describe "config/projects/edit" do
       :description => "MyText",
       :attribution => "MyString",
       :BCA_classification => "MyString",
-      :project_catagories => "",
+      :project_categories => "",
       :project_sub_catagories => ""
     ))
   end
@@ -19,7 +19,7 @@ describe "config/projects/edit" do
       assert_select "textarea#config_project_description[name=?]", "config_project[description]"
       assert_select "input#config_project_attribution[name=?]", "config_project[attribution]"
       assert_select "input#config_project_BCA_classification[name=?]", "config_project[BCA_classification]"
-      assert_select "input#config_project_project_catagories[name=?]", "config_project[project_catagories]"
+      assert_select "input#config_project_project_categories[name=?]", "config_project[project_categories]"
       assert_select "input#config_project_project_sub_catagories[name=?]", "config_project[project_sub_catagories]"
     end
   end

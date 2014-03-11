@@ -6,7 +6,7 @@ describe "config/projects/show" do
       :description => "MyText",
       :attribution => "Attribution",
       :BCA_classification => "Bca Classification",
-      :project_catagories => "",
+      :project_categories => "",
       :project_sub_catagories => ""
     ))
   end
