@@ -1,13 +1,16 @@
 def index_and_row_to_location index, row, building
   lo = Location.new building: building
   geo = GeoJson.new location: lo
-  geo.lat = row[index+4].split(',')[0].tr('(','')
-  geo.long = row[index+4].split(',')[1].tr(')','')
+  if row[index+4]
+    puts row[0]
+    geo.lat = row[index+4].split(',')[0].tr('(','')
+    geo.lon = row[index+4].split(',')[1].tr(')','')
+  end
   ad = Address.new location: lo
   ad.building_name = row[index]
   ad.postcode = row[index+1]
-  ad.state_county = row[index+2] + ' ' + row[index+3] # TODO check
-  ad.county = row[index+3]
+  ad.state_county = row[index+2]
+  ad.country = row[index+3]
   ad.street = row[index+5]
   ad.suburb_area = row[index+5]
   lo
@@ -16,10 +19,10 @@ end
 def row_to_project row
   p = Project.new
   p.project_number = row[0]
-  p.project_categories = row[16]
 
   b = Building.new project: p
   b.description = row[10]
+  b.project_categories = row[16]
 
   ph = Phase.new building: b
   ph.studio = row[1]
@@ -30,9 +33,10 @@ def row_to_project row
   ph.delivery_contract = row[14]
   ph.dirty_members = row[17]
 
-  ph.dirty_budget = row[6]
-  ph.comments = row[7]
-  ph.initial_phase_value_total = row[9]
+  bud = Budget.new phase: ph
+  bud.dirty_budget = row[6]
+  bud.comments = row[7]
+  bud.initial_phase_value_total = row[9]
 
   dims = DimensionGroup.new building: b
   dims.dirty_size = row[15]
@@ -46,15 +50,16 @@ def row_to_project row
 
   l = Location.new building: b
   a = Address.new location: l
-  a.state_country = row[18]
+  a.state_county = row[18]
 
   le = Legacy.new building: b
   aw = Award.new legacy: le
   aw.award = row[19]
 
-  b.locations << index_and_row_to_location 21, row, b
-  b.locations << index_and_row_to_location 30, row, b
-  b.locations << index_and_row_to_location 39, row, b
+  b.locations << l
+  b.locations << index_and_row_to_location( 21, row, b)
+  b.locations << index_and_row_to_location( 30, row, b)
+  b.locations << index_and_row_to_location( 39, row, b)
 
   p
 end
