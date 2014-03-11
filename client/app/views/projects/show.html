@@ -126,7 +126,12 @@
         <editable property="delivery_contract"     label= "delivery_contract"    >helpText</editable>
         <editable property="staff_contact_login"   label= "staff_contact_login"  >helpText</editable>
         <editable property="staff_custodian_login" label= "staff_custodian_login">helpText</editable>
-        <h3>Budget</h3>
+      </editable-group>
+      <h3>Budget</h3>
+      <editable-group object="project"
+                      lens="building.phases[{{phase|id}}].budget"
+                      is-plural="true"
+                      subgroup-class="alert alert-info col-sm-6">
         <editable property="initial_phase_value_total" label= "initial_phase_value_total"type="number">helpText</editable>
         <editable property="final_phase_value_total"   label= "final_phase_value_total"  type="number">helpText</editable>
         <editable property="initial_phase_fee_total"   label= "initial_phase_fee_total"  type="number">helpText</editable>
