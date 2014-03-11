@@ -22,9 +22,13 @@ h3{
   width:90%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4)
 }
-.row{/*helper, delete in production*/
-  /*border:1px dashed red;*/
+
+/* helper, delete in production*/
+/*.row{
+  border:1px dashed red;
 }
+*/
+
 .container{
   width:100%;
   /*This overrides the media queries so that it has a full width layout all the time*/

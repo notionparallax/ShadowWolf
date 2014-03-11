@@ -12,7 +12,7 @@
   <display-box ng-repeat="p in projects() | filter:compareTo(searchQuery)"
               title-text="{{p.project_number}}"
               body-text="Some body text"
-              img-src=""
+              img-src="{{p.img}}"
               more-link="{{ getMoreLink( p.id['$oid'] ) }}">
     <p>{{ p.project_categories }}</p>
   </display-box>

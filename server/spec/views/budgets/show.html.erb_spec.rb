@@ -10,7 +10,8 @@ describe "config/projects/show" do
       :construction_initial => 1.5,
       :construction_final => 1.5,
       :comments => "MyText",
-      :fee_type => "Fee Type"
+      :fee_type => "Fee Type",
+      :dirty_budget => "Dirty Budget"
     ))
   end
 
@@ -25,5 +26,6 @@ describe "config/projects/show" do
     rendered.should match(/1.5/)
     rendered.should match(/MyText/)
     rendered.should match(/Fee Type/)
+    rendered.should match(/Dirty Budget/)
   end
 end

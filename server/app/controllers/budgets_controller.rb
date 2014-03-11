@@ -69,6 +69,6 @@ class BudgetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def budget_params
-      params.require(:budget).permit(:initial_phase_value_total, :final_phase_value_total, :initial_phase_fee_total, :final_phase_fee_total, :construction_initial, :construction_final, :comments, :fee_type)
+      params.require(:budget).permit(:initial_phase_value_total, :final_phase_value_total, :initial_phase_fee_total, :final_phase_fee_total, :construction_initial, :construction_final, :comments, :fee_type, :dirty_budget)
     end
 end

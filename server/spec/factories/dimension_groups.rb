@@ -7,5 +7,6 @@ FactoryGirl.define do
     gba { FactoryGirl.build( :gross_building_area ) }
     footprint_area { FactoryGirl.build( :footprint_area ) }
     height { FactoryGirl.build( :height ) }
+    dirty_size "one thousand metres squared"
   end
 end

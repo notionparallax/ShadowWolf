@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Dirty members:</strong>
+  <%= @phase.dirty_members %>
+</p>
+
+<p>
   <strong>Project name:</strong>
   <%= @phase.project_name %>
 </p>
@@ -36,53 +41,8 @@
 </p>
 
 <p>
-  <strong>Start date:</strong>
-  <%= @phase.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @phase.end_date %>
-</p>
-
-<p>
-  <strong>Initial phase value total:</strong>
-  <%= @phase.initial_phase_value_total %>
-</p>
-
-<p>
-  <strong>Final phase value total:</strong>
-  <%= @phase.final_phase_value_total %>
-</p>
-
-<p>
-  <strong>Initial phase fee total:</strong>
-  <%= @phase.initial_phase_fee_total %>
-</p>
-
-<p>
-  <strong>Final phase fee total:</strong>
-  <%= @phase.final_phase_fee_total %>
-</p>
-
-<p>
-  <strong>Construction initial:</strong>
-  <%= @phase.construction_initial %>
-</p>
-
-<p>
-  <strong>Construction final:</strong>
-  <%= @phase.construction_final %>
-</p>
-
-<p>
-  <strong>Comments:</strong>
-  <%= @phase.comments %>
-</p>
-
-<p>
-  <strong>Fee type:</strong>
-  <%= @phase.fee_type %>
+  <strong>Dirty date:</strong>
+  <%= @phase.dirty_date %>
 </p>
 
 <%= link_to 'Edit', edit_phase_path(@phase) %> |

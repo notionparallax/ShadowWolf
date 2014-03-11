@@ -40,5 +40,10 @@
   <%= @budget.fee_type %>
 </p>
 
+<p>
+  <strong>Dirty budget:</strong>
+  <%= @budget.dirty_budget %>
+</p>
+
 <%= link_to 'Edit', edit_budget_path(@budget) %> |
 <%= link_to 'Back', budgets_path %>

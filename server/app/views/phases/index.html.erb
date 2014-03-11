@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Dirty members</th>
       <th>Project name</th>
       <th>Studio</th>
       <th>Client</th>
@@ -10,16 +11,7 @@
       <th>Delivery contract</th>
       <th>Staff contact login</th>
       <th>Staff custodian login</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Initial phase value total</th>
-      <th>Final phase value total</th>
-      <th>Initial phase fee total</th>
-      <th>Final phase fee total</th>
-      <th>Construction initial</th>
-      <th>Construction final</th>
-      <th>Comments</th>
-      <th>Fee type</th>
+      <th>Dirty date</th>
       <th></th>
       <th></th>
       <th></th>
@@ -29,6 +21,7 @@
   <tbody>
     <% @phases.each do |phase| %>
       <tr>
+        <td><%= phase.dirty_members %></td>
         <td><%= phase.project_name %></td>
         <td><%= phase.studio %></td>
         <td><%= phase.client %></td>
@@ -36,16 +29,7 @@
         <td><%= phase.delivery_contract %></td>
         <td><%= phase.staff_contact_login %></td>
         <td><%= phase.staff_custodian_login %></td>
-        <td><%= phase.start_date %></td>
-        <td><%= phase.end_date %></td>
-        <td><%= phase.initial_phase_value_total %></td>
-        <td><%= phase.final_phase_value_total %></td>
-        <td><%= phase.initial_phase_fee_total %></td>
-        <td><%= phase.final_phase_fee_total %></td>
-        <td><%= phase.construction_initial %></td>
-        <td><%= phase.construction_final %></td>
-        <td><%= phase.comments %></td>
-        <td><%= phase.fee_type %></td>
+        <td><%= phase.dirty_date %></td>
         <td><%= link_to 'Show', phase %></td>
         <td><%= link_to 'Edit', edit_phase_path(phase) %></td>
         <td><%= link_to 'Destroy', phase, method: :delete, data: { confirm: 'Are you sure?' } %></td>

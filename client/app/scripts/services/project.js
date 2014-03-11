@@ -16,7 +16,7 @@ angular.module('ShadowWolf')
     });
   var _project;
   this.get = function(projectId) {
-    if (!_project) {
+    if (!_project || projectId != _project.id.$oid) {
       _project = _Project.get({projectId: projectId});
     }
     return _project;

@@ -10,7 +10,8 @@ describe "config/projects/edit" do
       :construction_initial => 1.5,
       :construction_final => 1.5,
       :comments => "MyText",
-      :fee_type => "MyString"
+      :fee_type => "MyString",
+      :dirty_budget => "MyString"
     ))
   end
 
@@ -27,6 +28,7 @@ describe "config/projects/edit" do
       assert_select "input#config_project_construction_final[name=?]", "config_project[construction_final]"
       assert_select "textarea#config_project_comments[name=?]", "config_project[comments]"
       assert_select "input#config_project_fee_type[name=?]", "config_project[fee_type]"
+      assert_select "input#config_project_dirty_budget[name=?]", "config_project[dirty_budget]"
     end
   end
 end

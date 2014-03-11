@@ -34,15 +34,15 @@ class Building
 
   accepts_nested_attributes_for :project_source
 
-  embeds_one :location
+  embeds_many :locations
 
-  accepts_nested_attributes_for :location
+  accepts_nested_attributes_for :locations
 
   embedded_in :project
 
   field :description, type: String
   field :attribution, type: String
   field :BCA_classification, type: String
-  field :project_catagories, type: Array
+  field :project_categories, type: Array
   field :project_sub_catagories, type: Array
 end

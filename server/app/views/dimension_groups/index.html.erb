@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Dirty size</th>
       <th></th>
       <th></th>
       <th></th>
@@ -12,6 +13,7 @@
   <tbody>
     <% @dimension_groups.each do |dimension_group| %>
       <tr>
+        <td><%= dimension_group.dirty_size %></td>
         <td><%= link_to 'Show', dimension_group %></td>
         <td><%= link_to 'Edit', edit_dimension_group_path(dimension_group) %></td>
         <td><%= link_to 'Destroy', dimension_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>

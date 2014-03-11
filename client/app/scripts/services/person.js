@@ -16,7 +16,7 @@ angular.module('ShadowWolf')
     });
   var _person;
   this.get = function(personId) { 
-    if (!_person) {
+    if (!_person || personId != _person.id.$oid) {
       _person = _Person.get({personId: personId});
     }
     return _person;
