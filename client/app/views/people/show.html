@@ -1,40 +1,115 @@
 <article ng-show="isCurrentUser(person) || person">
 
   <section ng-show="isCurrentUser(person) || person.name">
-    <h1>Check out {{ person.name.preferred_first }}'s Page!!</h1>
+    <div class="page-header">
+      <h1>{{ person.name.preferred_first }} {{ person.name.preferred_last }} <small>{{person.employee.position}} - {{person.employee.contact.extension}}</small></h1>
+    </div>
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Culture</a></li>
+      <li><a href="#">Bio</a></li>
+      <li><a href="#">Culture</a></li>
+      <li><a href="#">Status</a></li>
+      <li><a href="#">Travel</a></li>
+      <li><a href="#">Membershit</a></li>
+    </ul>
+
     <div class="row">
-      <div class="col-md-4">
-        <p>{{ person.name.prefix }} {{ person.name.first }} {{ person.name.middle }} {{ person.name.last }} {{ person.name.suffix }} prefers to be called {{ person.name.preferred_first }} {{ person.name.preferred_last }}.</p>
+
+      <div class="col-md-6">
+        <div class="row">
+          <h3>Passport Name</h3>
+          <div class="col-md-6">
+            <p class="explantory-text">This is your name as it appears in your passport. We sometimes need this for legal documents.</p>
+          </div>
+          <div class="col-md-6">
+            <editable-group object="person" 
+                            lens="name">
+              <editable property="prefix" label="prefix">A name prefix is usually something like Miss, Ms, Mr, or it could be Dr Admiral or Archbishop.</editable>
+              <editable property="first"  label="first" >This is your first name as it appears on your passport.</editable>
+              <editable property="middle" label="middle">This is your middle name or names as they appear on your passport. (If you don't have a middle name just leave it blank.)</editable>
+              <editable property="prefix" label="prefix">This is your last name as it appears on your passport.</editable>
+              <editable property="suffix" label="suffix">A name suffix is usually something like Jr, PhD, OA etc.</editable>
+            </editable-group>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4">
-        <h3>Passport Name</h3>
-        <p class="explantory-text">This is your name as it appears in your passport. We sometimes need this for legal documents.</p>
-        <editable-group object="person" lens="name">
-          <editable property="prefix" label="prefix">A name prefix is usually something like Miss, Ms, Mr, or it could be Dr Admiral or Archbishop.</editable>
-          <editable property="first"  label="first" >This is your first name as it appears on your passport.</editable>
-          <editable property="middle" label="middle">This is your middle name or names as they appear on your passport. (If you don't have a middle name just leave it blank.)</editable>
-          <editable property="prefix" label="prefix">This is your last name as it appears on your passport.</editable>
-          <editable property="suffix" label="suffix">A name suffix is usually something like Jr, PhD, OA etc.</editable>
-        </editable-group>
+
+      <div class="col-md-6">
+        <div class="row">
+          <h3>Preferred Name</h3>
+          <div class="col-md-6">
+            <p class="explantory-text">Often people are called something other than their<em>official</em> name. This is where you tell us what you'd prefer to be know as.</p>
+          </div>
+          <div class="col-md-6">
+            <editable-group object="person" 
+                            lens="name">
+              <editable property="preferred_first" label="preferred first">This is the first name that you prefer to be known by. This is what you'll be called in sumbissions and on your business card. [TODO: is this true? Do we need ANOTHER field for casual name?]</editable>
+              <editable property="preferred_last"  label="preferred last" >This is the last name that you prefer to be known by. For example, this would be different to your passport name if you have changed your name legally, but still use your old name professionally.</editable>
+            </editable-group>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4">
-        <h3>Preferred Name</h3>
-        <p class="explantory-text">Often people are called something other than their<em>official</em> name. This is where you tell us what you'd prefer to be know as.</p>
-        <editable-group object="person" lens="name">
-          <editable property="preferred_first" label="preferred first">This is the first name that you prefer to be known by. This is what you'll be called in sumbissions and on your business card. [TODO: is this true? Do we need ANOTHER field for casual name?]</editable>
-          <editable property="preferred_last"  label="preferred last" >This is the last name that you prefer to be known by. For example, this would be different to your passport name if you have changed your name legally, but still use your old name professionally.</editable>
-        </editable-group>
-      </div>
+
     </div><!--end row-->
   </section>
 
   <section ng-show="isCurrentUser(person) || person.employee">
-    <h2>Employee details</h2>
+
+    <section ng-show="isCurrentUser(person) || person.employee.photo">
+     <h3>Photos</h3>
+      <div class="row">
+       <div class="col-sm-3">
+         <p class="explantory-text">Often people are called something other than their<em>official</em> name. This is where you tell us what you'd prefer to be know as.</p>
+       </div>
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <img class=""
+                 ng-src="{{ person.employee.photo.bw }}"
+                 itemprop="image"
+                 title="This photo is used in submissions and on the public facing website."
+                 alt="A black and white photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
+            <div class="caption">
+              <h4>Serious B&W Photo</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <img class=""
+                 ng-src="{{ person.employee.photo.colour }}"
+                 itemprop="image"
+                 title="This photo is used in submissions and on the public facing website."
+                 alt="A colour photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
+            <div class="caption">
+              <h4>Serious Colour Photo</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <img class=""
+                 ng-src="{{ person.employee.photo.fun }}"
+                 itemprop="image"
+                 title="This photo is used internally and won't be show to the public."
+                 alt="A fun, colour photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
+            <div class="caption">
+              <h4>Fun Photo</h4>
+            </div>
+          </div>
+        </div>
+      </div><!--end row-->
+    </section>
 
     <section ng-show="isCurrentUser(person) || person.employee.position">
       <h3>Position</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
-      <editable-group object="person" lens="employee">
+      <editable-group object="person"
+                      lens="employee">
         <editable property="position" label="position">
           This is your Position/Title.
         </editable>
@@ -58,61 +133,22 @@
       </div>
     </section>
 
-    <section ng-show="isCurrentUser(person) || person.employee.photo">
-      <h3>Photos</h3>
-
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img class=""
-                 ng-src="{{ person.employee.photo.bw }}"
-                 itemprop="image"
-                 title="This photo is used in submissions and on the public facing website."
-                 alt="A black and white photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
-            <div class="caption">
-              <h3>Serious B&W Photo</h3>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img class=""
-                 ng-src="{{ person.employee.photo.colour }}"
-                 itemprop="image"
-                 title="This photo is used in submissions and on the public facing website."
-                 alt="A colour photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
-            <div class="caption">
-              <h3>Serious Colour Photo</h3>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img class=""
-                 ng-src="{{ person.employee.photo.fun }}"
-                 itemprop="image"
-                 title="This photo is used internally and won't be show to the public."
-                 alt="A fun, colour photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
-            <div class="caption">
-              <h3>Fun Photo</h3>
-            </div>
-          </div>
-        </div>
-      </div><!--end row-->
-    </section>
 
     <section dissabled-ng-show="person.conditions">
       <!--One day this might show up as a pretty timeline or somethign like that!-->
       <h3>Conditions</h3>
-      <p class="explantory-text">A <em>condition</em>is like a status. At the moment you can either be <em>Active</em>, <em>Retired</em>, <em>Maternity</em>, <em>Leave</em>, <em>Deceased</em>, <em>Applicant</em>, <em>Left</em> or <em>Unknown</em>, but we'll add more as we work out what is needed. The system calculates your current condition by looking at the most recent start date, so it is important to update new conditions as soon as you can. </p>
-
-      <div ng-repeat="condition in person.conditions">
-        <editable-group object="person" lens="conditions[{{condition|id}}]" subgroup-class="alert alert-info col-sm-6 col-md-4">
-          <editable property="name"       label="name"                  >This is the label of this period of your life, it will normally be taken from the list above.</editable>
-          <editable property="start_date" label="start date" type="date">This is the date that this period started. YOu don't need to put in when it ended becasue that is inferred from the start date of the next period.</editable>
-        </editable-group>
+      <div class="row">
+        <div class="col-md-3">
+          <p class="explantory-text">A <em>condition</em>is like a status. At the moment you can either be <em>Active</em>, <em>Retired</em>, <em>Maternity</em>, <em>Leave</em>, <em>Deceased</em>, <em>Applicant</em>, <em>Left</em> or <em>Unknown</em>, but we'll add more as we work out what is needed. The system calculates your current condition by looking at the most recent start date, so it is important to update new conditions as soon as you can. </p>
+        </div>
+        <div ng-repeat="condition in person.conditions" class="col-md-3">
+          <editable-group object="person"
+                          lens="conditions[{{condition|id}}]"
+                          subgroup-class="alert alert-info">
+            <editable property="name"       label="name"                  >This is the label of this period of your life, it will normally be taken from the list above.</editable>
+            <editable property="start_date" label="start date" type="date">This is the date that this period started. YOu don't need to put in when it ended becasue that is inferred from the start date of the next period.</editable>
+          </editable-group>
+        </div>
       </div>
 
     </section>
@@ -121,7 +157,9 @@
       <h3>Office culture</h3>
       <p class="explantory-text">Explanatory text goes in here</p>
       <div class="row">
-        <editable-group object="person" lens="employee.office_culture" subgroup-class="col-md-4">
+        <editable-group object="person" 
+                        lens="employee.office_culture"
+                        subgroup-class="col-md-4">
           <editable property="first_aider"  label="first aider" >If you are <em>currently</em> a first aider then this should say True, otherwise it should say False.</editable>
           <editable property="fire_warden"  label="fire warden" >If you <em>are</em>a fire warden then this should say True, otherwise it should say False.</editable>
           <editable property="requirements" label="requirements">This is a comma separated list of things that you <em>can't</em> eat (for fear of feeling ill, messing up your morals or dying). For example: <em>eggs, gluten, shellfish.</editable>
