@@ -56,10 +56,10 @@ def row_to_project row
   aw = Award.new legacy: le
   aw.award = row[19]
 
-  b.locations << l
-  b.locations << index_and_row_to_location( 21, row, b)
-  b.locations << index_and_row_to_location( 30, row, b)
-  b.locations << index_and_row_to_location( 39, row, b)
+  l
+  index_and_row_to_location( 21, row, b)
+  index_and_row_to_location( 30, row, b)
+  index_and_row_to_location( 39, row, b)
 
   p
 end
