@@ -11,5 +11,5 @@ class Project
 
   accepts_nested_attributes_for :non_building
   field :project_number, type: String
-
+  field :img, type: String
 end

@@ -1,5 +1,5 @@
 json.id dims.id
-json.extract! dims, :created_at, :updated_at
+json.extract! dims, :created_at, :updated_at, :dirty_size
 json.height do
   json.partial! "heights/height.json.jbuilder", height: dims.height
 end if dims.height

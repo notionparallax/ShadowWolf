@@ -23,7 +23,7 @@ describe DimensionGroupsController do
   # This should return the minimal set of attributes required to create a valid
   # DimensionGroup. As you add validations to DimensionGroup, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {  } }
+  let(:valid_attributes) { { "dirty_size" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe DimensionGroupsController do
       it "assigns a newly created but unsaved config_project as @config_project" do
         # Trigger the behavior that occurs when invalid params are submitted
         DimensionGroup.any_instance.stub(:save).and_return(false)
-        post :create, {:config_project => {  }}, valid_session
+        post :create, {:config_project => { "dirty_size" => "invalid value" }}, valid_session
         assigns(:config_project).should be_a_new(DimensionGroup)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         DimensionGroup.any_instance.stub(:save).and_return(false)
-        post :create, {:config_project => {  }}, valid_session
+        post :create, {:config_project => { "dirty_size" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe DimensionGroupsController do
         # specifies that the DimensionGroup created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        DimensionGroup.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => dimension_group.to_param, :config_project => { "these" => "params" }}, valid_session
+        DimensionGroup.any_instance.should_receive(:update).with({ "dirty_size" => "MyString" })
+        put :update, {:id => dimension_group.to_param, :config_project => { "dirty_size" => "MyString" }}, valid_session
       end
 
       it "assigns the requested config_project as @config_project" do
@@ -128,7 +128,7 @@ describe DimensionGroupsController do
         dimension_group = DimensionGroup.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         DimensionGroup.any_instance.stub(:save).and_return(false)
-        put :update, {:id => dimension_group.to_param, :config_project => {  }}, valid_session
+        put :update, {:id => dimension_group.to_param, :config_project => { "dirty_size" => "invalid value" }}, valid_session
         assigns(:config_project).should eq(dimension_group)
       end
 
@@ -136,7 +136,7 @@ describe DimensionGroupsController do
         dimension_group = DimensionGroup.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         DimensionGroup.any_instance.stub(:save).and_return(false)
-        put :update, {:id => dimension_group.to_param, :config_project => {  }}, valid_session
+        put :update, {:id => dimension_group.to_param, :config_project => { "dirty_size" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

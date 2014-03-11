@@ -34,9 +34,9 @@ class Building
 
   accepts_nested_attributes_for :project_source
 
-  embeds_one :location
+  embeds_many :locations
 
-  accepts_nested_attributes_for :location
+  accepts_nested_attributes_for :locations
 
   embedded_in :project
 

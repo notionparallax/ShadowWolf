@@ -23,7 +23,7 @@ describe PhasesController do
   # This should return the minimal set of attributes required to create a valid
   # Phase. As you add validations to Phase, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "project_name" => "MyString" } }
+  let(:valid_attributes) { { "dirty_members" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe PhasesController do
       it "assigns a newly created but unsaved config_project as @config_project" do
         # Trigger the behavior that occurs when invalid params are submitted
         Phase.any_instance.stub(:save).and_return(false)
-        post :create, {:config_project => { "project_name" => "invalid value" }}, valid_session
+        post :create, {:config_project => { "dirty_members" => "invalid value" }}, valid_session
         assigns(:config_project).should be_a_new(Phase)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Phase.any_instance.stub(:save).and_return(false)
-        post :create, {:config_project => { "project_name" => "invalid value" }}, valid_session
+        post :create, {:config_project => { "dirty_members" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe PhasesController do
         # specifies that the Phase created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Phase.any_instance.should_receive(:update).with({ "project_name" => "MyString" })
-        put :update, {:id => phase.to_param, :config_project => { "project_name" => "MyString" }}, valid_session
+        Phase.any_instance.should_receive(:update).with({ "dirty_members" => "MyString" })
+        put :update, {:id => phase.to_param, :config_project => { "dirty_members" => "MyString" }}, valid_session
       end
 
       it "assigns the requested config_project as @config_project" do
@@ -128,7 +128,7 @@ describe PhasesController do
         phase = Phase.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Phase.any_instance.stub(:save).and_return(false)
-        put :update, {:id => phase.to_param, :config_project => { "project_name" => "invalid value" }}, valid_session
+        put :update, {:id => phase.to_param, :config_project => { "dirty_members" => "invalid value" }}, valid_session
         assigns(:config_project).should eq(phase)
       end
 
@@ -136,7 +136,7 @@ describe PhasesController do
         phase = Phase.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Phase.any_instance.stub(:save).and_return(false)
-        put :update, {:id => phase.to_param, :config_project => { "project_name" => "invalid value" }}, valid_session
+        put :update, {:id => phase.to_param, :config_project => { "dirty_members" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

@@ -23,7 +23,7 @@ describe KeyDatesController do
   # This should return the minimal set of attributes required to create a valid
   # KeyDate. As you add validations to KeyDate, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "start_date" => "2014-02-18" } }
+  let(:valid_attributes) { { "start_date" => "2014-03-11" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -106,8 +106,8 @@ describe KeyDatesController do
         # specifies that the KeyDate created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        KeyDate.any_instance.should_receive(:update).with({ "start_date" => "2014-02-18" })
-        put :update, {:id => key_date.to_param, :config_project => { "start_date" => "2014-02-18" }}, valid_session
+        KeyDate.any_instance.should_receive(:update).with({ "start_date" => "2014-03-11" })
+        put :update, {:id => key_date.to_param, :config_project => { "start_date" => "2014-03-11" }}, valid_session
       end
 
       it "assigns the requested config_project as @config_project" do

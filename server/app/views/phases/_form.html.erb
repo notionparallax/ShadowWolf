@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :dirty_members %><br>
+    <%= f.text_field :dirty_members %>
+  </div>
+  <div class="field">
     <%= f.label :project_name %><br>
     <%= f.text_field :project_name %>
   </div>
@@ -40,44 +44,8 @@
     <%= f.text_field :staff_custodian_login %>
   </div>
   <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.date_select :end_date %>
-  </div>
-  <div class="field">
-    <%= f.label :initial_phase_value_total %><br>
-    <%= f.text_field :initial_phase_value_total %>
-  </div>
-  <div class="field">
-    <%= f.label :final_phase_value_total %><br>
-    <%= f.text_field :final_phase_value_total %>
-  </div>
-  <div class="field">
-    <%= f.label :initial_phase_fee_total %><br>
-    <%= f.text_field :initial_phase_fee_total %>
-  </div>
-  <div class="field">
-    <%= f.label :final_phase_fee_total %><br>
-    <%= f.text_field :final_phase_fee_total %>
-  </div>
-  <div class="field">
-    <%= f.label :construction_initial %><br>
-    <%= f.text_field :construction_initial %>
-  </div>
-  <div class="field">
-    <%= f.label :construction_final %><br>
-    <%= f.text_field :construction_final %>
-  </div>
-  <div class="field">
-    <%= f.label :comments %><br>
-    <%= f.text_area :comments %>
-  </div>
-  <div class="field">
-    <%= f.label :fee_type %><br>
-    <%= f.text_field :fee_type %>
+    <%= f.label :dirty_date %><br>
+    <%= f.text_field :dirty_date %>
   </div>
   <div class="actions">
     <%= f.submit %>

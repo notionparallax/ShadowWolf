@@ -24,4 +24,5 @@ class DimensionGroup
 
   embedded_in :building, inverse_of: :dims
 
+  field :dirty_size, type: String
 end
