@@ -1,5 +1,18 @@
 <article ng-show="project">
-  <h2>{{ project.project_number }}</h2>
+  <div class="page-header">
+      <h1>The Project Name <small>{{ project.project_number }}</small></h1>
+    </div>
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Culture</a></li>
+      <li><a href="#">Bio</a></li>
+      <li><a href="#">Culture</a></li>
+      <li><a href="#">Status</a></li>
+      <li><a href="#">Travel</a></li>
+      <li><a href="#">Membershit</a></li>
+    </ul>
   <div ng-show="project.building">
     <h1>{{ project.building.address.building_name }}</h1>
     <editable-group object="project"
