@@ -2,9 +2,9 @@ class Phase
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embeds_many :budgets
+  embeds_one :budget
 
-  accepts_nested_attributes_for :budgets
+  accepts_nested_attributes_for :budget
 
   embeds_many :key_dates
 

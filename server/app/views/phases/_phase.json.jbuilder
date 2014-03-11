@@ -5,8 +5,6 @@ json.key_dates do
     json.partial! "key_dates/key_date.json.jbuilder", key_date: key_date
   end
 end
-json.budgets do
-  json.array!(phase.budgets) do |budget|
-    json.partial! "budgets/budget.json.jbuilder", budget: budget
-  end
-end
+json.budget do
+  json.partial! "budgets/budget.json.jbuilder", budget: phase.budget
+end if phase.budget

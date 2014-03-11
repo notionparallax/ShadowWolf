@@ -2,9 +2,7 @@
 
 FactoryGirl.define do
   factory :phase do
-    after(:build) do |phase|
-      FactoryGirl.build_list( :budget, [0,1,2,3,10].sample, phase: phase )
-    end
+    budget { FactoryGirl.build( :budget ) }
     after(:build) do |phase|
       FactoryGirl.build_list( :key_date, [0,1,2,3,10].sample, phase: phase )
     end

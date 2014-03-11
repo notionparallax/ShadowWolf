@@ -7,7 +7,7 @@ project:
   - name: img
     type: string
     factory: |
-      { "http://notionparallax.co.uk/bldg/bld-" + (0..248).to_a.sample.to_s +".jpg" }
+      { "http://notionparallax.co.uk/bldg/bld-" + (0..248).to_a.sample.to_s + ".jpg" }
 
 
 non_building:
@@ -372,7 +372,7 @@ budget:
       { ["fixed fee", "lump sum", "hourly"].sample }
   relation:
     parent: phase
-    type: embeds_many
+    type: embeds_one
 
 legacy:
   fields:
