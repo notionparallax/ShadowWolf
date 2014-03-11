@@ -12,26 +12,31 @@
       <editable property="project_sub_catagories" label="Project Sub-catagories">A comma separated list of the catagories that this project is in. [TODO: why does this exist?]</editable>
     </editable-group>
 
-    <h2>Location</h2>
-    <editable-group object="project"
-                    lens="building.location.geo_json"
-                    subgroup-class="alert alert-info col-sm-6">
-      <editable property="lat"             label="latitude"       type="number">helpText</editable>
-      <editable property="lon"             label="longitude"      type="number">helpText</editable>
-      <editable property="boundary_points" label="Boundary Points">helpText</editable>
-    </editable-group>
+    <h2>Locations</h2>
+    <div ng-repeat="location in project.building.locations">
+      <editable-group object="project"
+                      lens="building.locations[{{location|id}}].geo_json"
+                      subgroup-class="alert alert-info col-sm-6">
+        <editable property="lat"             label="latitude"       type="number">helpText</editable>
+        <editable property="lon"             label="longitude"      type="number">helpText</editable>
+        <editable property="boundary_points" label="Boundary Points">helpText</editable>
+      </editable-group>
 
-    <editable-group object="project"
-                    lens="building.location.address"
-                    subgroup-class="alert alert-info col-sm-6">
-       <editable property="building_name" label="building name">helpText</editable>
-       <editable property="street_number" label="street number">helpText</editable>
-       <editable property="street"        label="street"       >helpText</editable>
-       <editable property="suburb_area"   label="suburb area"  >helpText</editable>
-       <editable property="state_county"  label="state county" >helpText</editable>
-       <editable property="country"       label="country"      >helpText</editable>
-       <editable property="postcode"      label="postcode"     >helpText</editable>
-    </editable-group>
+      <div ng-repeat="address in location.addresses">
+        <editable-group object="project"
+                        lens="building.locations[{{location|id}}].addresses[{{address|id}}]"
+                        subgroup-class="alert alert-info col-sm-6">
+           <editable property="building_name" label="building name">helpText</editable>
+           <editable property="street_number" label="street number">helpText</editable>
+           <editable property="street"        label="street"       >helpText</editable>
+           <editable property="suburb_area"   label="suburb area"  >helpText</editable>
+           <editable property="state_county"  label="state county" >helpText</editable>
+           <editable property="country"       label="country"      >helpText</editable>
+           <editable property="postcode"      label="postcode"     >helpText</editable>
+        </editable-group>
+      </div>
+    </div>
+
 
     <h2>project_source</h2>
     <editable-group object="project"
