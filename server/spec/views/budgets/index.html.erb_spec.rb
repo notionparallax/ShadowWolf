@@ -11,7 +11,8 @@ describe "config/projects/index" do
         :construction_initial => 1.5,
         :construction_final => 1.5,
         :comments => "MyText",
-        :fee_type => "Fee Type"
+        :fee_type => "Fee Type",
+        :dirty_budget => "Dirty Budget"
       ),
       stub_model(Budget,
         :initial_phase_value_total => 1.5,
@@ -21,7 +22,8 @@ describe "config/projects/index" do
         :construction_initial => 1.5,
         :construction_final => 1.5,
         :comments => "MyText",
-        :fee_type => "Fee Type"
+        :fee_type => "Fee Type",
+        :dirty_budget => "Dirty Budget"
       )
     ])
   end
@@ -37,5 +39,6 @@ describe "config/projects/index" do
     assert_select "tr>td", :text => 1.5.to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "Fee Type".to_s, :count => 2
+    assert_select "tr>td", :text => "Dirty Budget".to_s, :count => 2
   end
 end

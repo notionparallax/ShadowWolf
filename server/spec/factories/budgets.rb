@@ -10,5 +10,6 @@ FactoryGirl.define do
     construction_final { (rand*100).floor*1000000 }
     comments { Faker::Lorem.paragraphs.join('<br>') }
     fee_type { ["fixed fee", "lump sum", "hourly"].sample }
+    dirty_budget "a cool mil"
   end
 end

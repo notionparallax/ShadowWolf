@@ -370,6 +370,10 @@ budget:
     type: string
     factory: |
       { ["fixed fee", "lump sum", "hourly"].sample }
+  - name: dirty_budget
+    type: string
+    factory: |
+      "a cool mil"
   relation:
     parent: phase
     type: embeds_one

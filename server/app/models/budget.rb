@@ -12,4 +12,5 @@ class Budget
   field :construction_final, type: Float
   field :comments, type: String
   field :fee_type, type: String
+  field :dirty_budget, type: String
 end
