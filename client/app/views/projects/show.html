@@ -17,7 +17,7 @@
     <h1>{{ project.building.address.building_name }}</h1>
     <editable-group object="project"
                     lens="building"
-                    subgroup-class="alert alert-info col-sm-6">
+                    subgroup-class="alert alert-info col-sm-12">
       <editable property="description" label="Description" type="textarea">This is an internal, easy to understand summary of the project.</editable>
       <editable property="attribution" label="Attribution">This is an internal, easy to understand summary of the project.</editable>
       <editable property="BCA_classification" label="BCA Classification">The BCA classification of this project</editable>
@@ -25,20 +25,22 @@
       <editable property="project_sub_catagories" label="Project Sub-catagories">A comma separated list of the catagories that this project is in. [TODO: why does this exist?]</editable>
     </editable-group>
 
-    <h2>Locations</h2>
-    <div ng-repeat="location in project.building.locations">
+    <div class="row">
+      <h2>Location</h2>
+    <div ng-repeat="location in project.building.locations" class="col-md-6">
       <editable-group object="project"
                       lens="building.locations[{{location|id}}].geo_json"
-                      subgroup-class="alert alert-info col-sm-6">
+                      subgroup-class="alert alert-info col-sm-12">
         <editable property="lat"             label="latitude"       type="number">helpText</editable>
         <editable property="lon"             label="longitude"      type="number">helpText</editable>
         <editable property="boundary_points" label="Boundary Points">helpText</editable>
+        <img src="http://www.albury.net.au/regional/albury/map/albury.gif" title="interactive maps coming soon" class="temp-map" />
       </editable-group>
 
       <div ng-repeat="address in location.addresses">
         <editable-group object="project"
                         lens="building.locations[{{location|id}}].addresses[{{address|id}}]"
-                        subgroup-class="alert alert-info col-sm-6">
+                        subgroup-class="alert alert-info col-sm-12">
            <editable property="building_name" label="building name">helpText</editable>
            <editable property="street_number" label="street number">helpText</editable>
            <editable property="street"        label="street"       >helpText</editable>

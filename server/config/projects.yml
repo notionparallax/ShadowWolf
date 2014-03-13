@@ -106,7 +106,7 @@ address:
       { Faker::Address.postcode}
   relation:
     parent: location
-    type: embeds_many
+    type: embeds_one
 
 project_source:
   fields:
