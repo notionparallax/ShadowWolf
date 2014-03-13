@@ -3,7 +3,7 @@
 angular.module('ShadowWolf')
 .controller('ProjectsIndexController',
 function($scope, Projects, Session, Search) {
-  var _searchResults, _searchIncrement = 10;
+  var _searchResults, _searchIncrement = 21;
   Projects.getProjects().$promise.then(function(projects) {
     _searchResults = projects.slice(0,projects.length); // make a copy
     $scope.visibleSearchResults = _searchResults.splice(0,_searchIncrement);
