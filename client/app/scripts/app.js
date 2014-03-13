@@ -6,7 +6,8 @@ angular.module('ShadowWolf', ['infinite-scroll','ngResource','ngRoute', 'ngSanit
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        //templateUrl: 'views/main.html',
+        redirectTo: '/people/'
       })
       .when('/people', {
         templateUrl: 'views/people/index.html',
@@ -29,6 +30,6 @@ angular.module('ShadowWolf', ['infinite-scroll','ngResource','ngRoute', 'ngSanit
         controller: 'CallbackController'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/people/'
       });
   });
