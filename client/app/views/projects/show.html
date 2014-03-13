@@ -70,6 +70,13 @@
     </editable-group>
 
     <h2>Key Dimensions</h2>
+    <h3>Dirty size</h3>
+    <editable-group object="project"
+                    lens="building.dims"
+                    subgroup-class="alert alert-info col-sm-6">
+      <editable property="dirty_size"      label="dirty size">This is the size from the project library, if you are the project custodian, or you think you know enough about this project, then you should move this number into the appropriate field.</editable>
+    </editable-group>
+
     <h3>Height</h3>
     <editable-group object="project"
                     lens="building.dims.height"
@@ -146,12 +153,24 @@
         <editable property="delivery_contract"     label="delivery contract"    >helpText</editable>
         <editable property="staff_contact_login"   label="staffcontact login"  >helpText</editable>
         <editable property="staff_custodian_login" label="staff custodian login">helpText</editable>
+        <editable property="dirty_date"            label="dirty date" type="date">Some date or other from teh project library, lets get rid of this as soon as we can!</editable>
       </editable-group>
+
+      <h3>Members</h3>
+      <editable-group object="project"
+                      lens="building.phases[{{phase|id}}]"
+                      is-plural="true"
+                      subgroup-class="alert alert-info col-sm-6">
+        <editable property="dirty_members" label="dirty team members">This data came from the project library, it should be replaced by the data provided by Epicor. If you are project custodian you should check that the team that is automatically generated is correct and then empty this field out.</editable>
+      </editable-group>
+    </div>
+
       <h3>Budget</h3>
       <editable-group object="project"
                       lens="building.phases[{{phase|id}}].budget"
                       is-plural="true"
                       subgroup-class="alert alert-info col-sm-6">
+        <editable property="dirty_budget"              label="dirty budget"type="number">Dirty value!</editable>
         <editable property="initial_phase_value_total" label="initial phase value total"type="number">helpText</editable>
         <editable property="final_phase_value_total"   label="final phase value total"  type="number">helpText</editable>
         <editable property="initial_phase_fee_total"   label="initial phase fee total"  type="number">helpText</editable>
