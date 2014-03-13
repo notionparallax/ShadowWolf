@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ShadowWolf')
-.controller('NavbarController', function($scope, Session, Config) {
+.controller('NavbarController', function($scope, Session, Config, $location) {
   $scope.loggedIn = function() { return !!Session.getAccessToken(); };
   $scope.logout = function() { console.log('logout'); Session.logout(); };
 
@@ -12,5 +12,9 @@ angular.module('ShadowWolf')
           Config.getReturnPoint()
           + '/#/callback'
         )
+  };
+
+  $scope.isActive = function(viewLocation) {
+    return viewLocation == $location.path();
   };
 });
