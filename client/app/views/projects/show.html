@@ -1,5 +1,6 @@
 <article ng-show="project">
-  <h2>{{ project.project_number }}</h2>
+  <h2>{{ project.building.phases[0].project_name }}</h2>
+  <p><b>Project number:</b> {{ project.project_number }}</p>
   <div ng-show="project.building">
     <h1>{{ project.building.address.building_name }}</h1>
     <editable-group object="project"
