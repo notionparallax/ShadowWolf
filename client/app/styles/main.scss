@@ -87,9 +87,13 @@ h3{
   width: 100%;
   margin-bottom: 1em;
   font-size: 3em;
-  /*border-radius: 1em;*/
+  /*border-radius: 0.25em;*/
   border: none;
   padding-left: 1em;
+  border: 1px solid silver;
+  &:focus{
+    border: 1px solid orange;
+  }
 }
 
 /* Flash box */
@@ -117,4 +121,16 @@ h3{
 
 .login-btn {
   margin: 8px;
+  .btn{
+      margin-right: 8px;
+  }
+}
+
+.temp-map{
+  width:100%;
+}
+
+button.close{
+  position: absolute;
+  right: 1em;
 }
