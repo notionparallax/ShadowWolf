@@ -7,9 +7,9 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row" infinite-scroll="loadMoreResults()">
   <!--start a project/person box as a directive-->
-  <display-box ng-repeat="p in people() | filter:compareTo(searchQuery)"
+  <display-box ng-repeat="p in visibleSearchResults"
               title-text="{{p.name.preferred_first}} {{p.name.preferred_last}}"
               body-text="Some body text"
               img-src="{{p.employee.photo.bw}}"

@@ -7,12 +7,12 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row" infinite-scroll="loadMoreResults()">
   <!--start a project/person box as a directive-->
-  <display-box ng-repeat="p in projects() | filter:compareTo(searchQuery)"
+  <display-box ng-repeat="p in visibleSearchResults"
               title-text="{{ p.project_name || p.project_number }}"
               body-text="Some body text"
-              img-src="{{p.img}}"
+              img-src="{{p.img || getKittenImage($index) }}"
               more-link="{{ getMoreLink( p.id['$oid'] ) }}">
     <p>{{ p.project_categories }}</p>
   </display-box>
