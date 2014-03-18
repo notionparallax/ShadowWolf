@@ -20,6 +20,7 @@ body {
     /*border:1px dashed blue;*/
     overflow: hidden;
     top: 0;
+    background-size: cover;
 }
 
 .details {
@@ -67,13 +68,6 @@ body {
 .title-drawer-out {
     top: 0;
     color: rgba(255, 255, 255, 0.9);
-}
-
-.box-image {
-    /*this works for portrait images, 
-      seems to freak out on landscape*/
-    max-width: 100%;
-    width: 100%;
 }
 
 .info-button {
