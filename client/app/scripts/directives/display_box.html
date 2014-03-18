@@ -3,8 +3,8 @@
   <div class="info-box"
        ng-mouseenter="setDrawerState('drawer-out')"
        ng-mouseleave="setDrawerState('drawer-in')"
-       ng-click     ="setDrawerState('click')">
-    <img ng-src="{{imgSrc}}" class="box-image">
+       ng-click     ="setDrawerState('click')"
+       style="background-image: url({{imgSrc}});">
     <div class="details {{state}}">
       <h1 class="title title-{{state}}">{{titleText}}</h1>
       <a ng-show="moreLink" class="btn btn-info info-button" href="{{moreLink}}">more</a>
