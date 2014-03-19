@@ -18,11 +18,11 @@ docs.remove("131021__PlantBank_building_info.docx")#this doc is an article
 # In[12]:
 
 def isShaded(aRun):
-    
+
     try:
         xml = aRun._r.xml.encode('ascii', 'replace')
         #print xml
-        if u"<w:shd w:fill" in xml or u"<w:highlight" in xml:            
+        if u"<w:shd w:fill" in xml or u"<w:highlight" in xml:
             return aRun.text
         else:
             return ""
@@ -53,7 +53,7 @@ for fileName in docs:
 
                         text = text.strip()              #remove padding whitespace
 
-                        text = text.upper()             #make it all uppercase                        
+                        text = text.upper()             #make it all uppercase
 
                         text = text.replace(u":"," ")      #remove colons
                         text = text.replace(u"\u2013","-") #remove em dashes
@@ -72,7 +72,7 @@ for fileName in docs:
                         text = text.replace(u"MASTERPLAN OPTION","")
                         text = text.replace(u"DESUBG","DESIGN")      #seems like a typo
                         text = text.replace(u"REFEREECURRENT","REFEREE CURRENT")
-                        text = text.replace(u"E.G. CONFIDENTIAL","") 
+                        text = text.replace(u"E.G. CONFIDENTIAL","")
                         text = text.replace(u"PLEASE REFER TO THE COMMUNICATIONS MANUAL FOR IMAGE REQUIREMENTS","")
                         text = text.replace(u"PLEASE TICK.","")
 
@@ -105,11 +105,11 @@ for fileName in docs:
                                     shadedCat = isShaded(r).strip()
                                     if len(shadedCat) > 0:
                                         value += u"{},".format(shadedCat)
-                                    
+
                                 #print value
                             else:
                                 value += u"<p>{}</p>".format(p.text.strip())
-                        
+
                         row[key]= value
                         row["numCols"] = 2
 
@@ -146,7 +146,7 @@ duffCols = [u"PROMOTIONAL SUMMARYTO BE USED FOR THE INSTITUTE'S WEBSITE AND IN A
             u'TO',u"TTW",u"CC", u'CUNDALLS',u"COCKRAM CONSTRUCTION",
             u"FROM",u"SANDRICK",u"NJM DESIGN",
             u"ELIZABETH HUGHES",u"IRELAND BROWN CONSTRUCTIONS",
-            
+
             #single value columns - These will need to be manually investigated later on
             u"/ VALUE OUTCOME",
             u"ALL STAFF WORKSHOP",
@@ -244,9 +244,9 @@ colList = projects.columns.tolist()
 for duffCol in duffCols:
     if duffCol in colList:
         projects = projects.drop(duffCol, axis=1)
-        #print "DROP WIN!!! " + duffCol 
+        #print "DROP WIN!!! " + duffCol
     else:
-        print "couldn't drop " + duffCol 
+        print "couldn't drop " + duffCol
 
 
 # In[25]:
