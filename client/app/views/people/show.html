@@ -27,10 +27,11 @@
             </div>
             <div class="col-md-8">
               <editable-group object="person"
-                              lens="name">
+                              lens="name" help-text-display="ht.name">
                 <editable property="preferred_first" label="preferred first">This is the first name that you prefer to be known by. This is what you'll be called in sumbissions and on your business card. [TODO: is this true? Do we need ANOTHER field for casual name?]</editable>
                 <editable property="preferred_last"  label="preferred last" >This is the last name that you prefer to be known by. For example, this would be different to your passport name if you have changed your name legally, but still use your old name professionally.</editable>
               </editable-group>
+              <div ng-bind="ht.name"></div>
             </div>
           </div>
         </div>
