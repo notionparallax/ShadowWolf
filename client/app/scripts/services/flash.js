@@ -18,7 +18,7 @@ angular.module('ShadowWolf')
         timeout: function(duration) {
           $timeout( function() {
             _that.dismiss( flash );
-          }, duration || 5000
+          }, duration || 5000*10
           );
         }
       };

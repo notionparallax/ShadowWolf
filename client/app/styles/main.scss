@@ -115,9 +115,18 @@ h3{
   border-color: rgba(200,200,200,1);
   border-radius: 6px;
   padding:8px;
+
+  -moz-transition: border-color 0.25s;
+  -webkit-transition: border-color 0.25s;
+  -o-transition: border-color 0.25s;
+  transition: border-color 0.25s;
 }
-.flash-fail {}
-.flash-success {}
+.flash-fail {
+  border-color: rgba(255,0,0,1);
+}
+.flash-success {
+  border-color: rgba(0,255,0,1);
+}
 
 .login-btn {
   margin: 8px;
