@@ -256,6 +256,10 @@ registration:
     type: date
     factory: |
       { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+  - name: first_granted
+    type: date
+    factory: |
+      { (5..40).to_a.sample.years.ago + (1..345).to_a.sample.days }
   relation:
     parent: employee
     type: embeds_many
