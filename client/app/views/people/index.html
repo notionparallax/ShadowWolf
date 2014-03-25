@@ -10,11 +10,10 @@
 <div class="row" infinite-scroll="loadMoreResults()">
   <!--start a project/person box as a directive-->
   <display-box ng-repeat="p in visibleSearchResults"
-              title-text="{{p.name.preferred_first}} {{p.name.preferred_last}}"
+              title-text="{{p.name.preferred_first}} {{p.name.preferred_last}} - {{ p.employee.contact.extension }}"
               body-text="Some body text"
               img-src="{{p.employee.photo.bw}}"
               more-link="{{ getMoreLink( p.id['$oid'] ) }}">
-    <p>{{ p.employee.contact.extension }}</p>
     <p>{{ p.employee.contact.studio }}</p>
   </display-box>
   
