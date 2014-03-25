@@ -1,0 +1,15 @@
+<section ng-show="isCurrentUser(person) || person.employee.press">
+  <h3>press</h3>
+  <p class="explantory-text">Have you been in the news? This is for <strong>all</strong> media attention that mentions you. Did you win a prize, make a scientific discovery or get arrested for fighting in Kings Cross? It should be recorded here.</p>
+  <editable-group object="person"
+                  lens="employee.press.attentions"
+                  subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+      <editable property="date"               label="date"               type="date"    >When did you get this press attention?</editable>
+      <editable property="url"                label="url"                type="url"     >Link to the media, e.g. the smh.com.au page for the story</editable>
+      <editable property="scan_or_screengrab" label="scan_or screengrab"                >upload a scan or a screen capture of the article, or some film of the footage. We can't rely on the story staying up forever on the main site. This also allows us to see what the acompanying advertising was at the time.</editable>
+      <editable property="body_text"          label="body text"                         >Copy or transcribe the text of the article/film.</editable>
+      <editable property="publication"        label="publication"                       >The name of the publication</editable>
+      <editable property="reason"             label="reason"                            >Why did you get this attention? Was it a planned campaign? Did a journalist come to you?</editable>
+      <p><a href="{{ subobject.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></p>
+    </editable-group>
+</section>

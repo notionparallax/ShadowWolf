@@ -1,0 +1,18 @@
+<section dissabled-ng-show="person.employee.project_experiences">
+  <h4> experiences (int)</h4>
+  <div class="alert alert-warning">coming as soon as we've tied the project
+  data to people through the Epicor data. </div>
+
+  <h4> Project Experience at Other Firms</h4>
+  <editable-group object="person"
+                  lens="employee.project_experiences"
+                  subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+      <editable property="name"       label="name"                  ></editable>
+      <editable property="firm"       label="firm"                  ></editable>
+      <editable property="role"       label="role"                  ></editable>
+      <editable property="stage"      label="stage"                 ></editable>
+      <editable property="start_date" label="start date" type="date"></editable>
+      <editable property="end_date"   label="end date"   type="date"></editable>
+      <editable property="url"        label="url"        type="url" ></editable>
+    </editable-group>
+</section>

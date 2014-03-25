@@ -3,7 +3,7 @@
   <div class="page-header">
       <h1>The Project Name <small>{{ project.project_number }}</small></h1>
     </div>
-<!--
+
     <ul class="nav nav-tabs">
       <li class="active"><a href="#">Home</a></li>
       <li><a href="#">Basics</a></li>
@@ -12,7 +12,7 @@
       <li><a href="#">Phases</a></li>
       <li><a href="#">Project Sheet source</a></li>
     </ul>
-    -->
+
 
   <div ng-show="project.building">
     <h1>{{ project.building.address.building_name }}</h1>
@@ -35,7 +35,9 @@
         <editable property="lat"             label="latitude"       type="number">helpText</editable>
         <editable property="lon"             label="longitude"      type="number">helpText</editable>
         <editable property="boundary_points" label="Boundary Points">helpText</editable>
-        <img src="http://www.albury.net.au/regional/albury/map/albury.gif" title="interactive maps coming soon" class="temp-map" />
+
+       <iframe class="temp-map" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{'https://maps.google.com.au/?ie=UTF8&amp;ll='+subobject.lat+','+subobject.lon+'&amp;spn=0.016839,0.031629&amp;t=h&amp;z=9&amp;output=embed' | trustMaplink}}"></iframe><!--Zoom would be 16 over land, but random coords and all that-->
+
       </editable-group>
 
       <div ng-repeat="address in location.addresses">

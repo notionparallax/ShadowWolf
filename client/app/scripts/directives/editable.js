@@ -75,12 +75,12 @@ angular.module("ShadowWolf")
           function() {
             flash.template = '<p>Updated {{flash.label()}}.</p>';
             flash.css = 'flash-success';
-            handle.timeout(5000);
+            handle.timeout(5000*100);
             Models.set($scope.objectName)($scope.object);
           }, function() {
             flash.template = '<p>Update unsuccessful for {{flash.label()}}. You may wish to check your submission.</p>';
-            flash.css = 'flash-fail';
-            handle.timeout(5000);
+            flash.css = 'flash-failure';
+            handle.timeout(5000*100);
             $scope.enableEditor();
           }
         );

@@ -1,0 +1,148 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="row">
+      <h3>Preferred Name</h3>
+      <div class="col-md-4">
+        <p class="explantory-text">Often people are called something other than their<em>official</em> name. This is where you tell us what you'd prefer to be know as.</p>
+      </div>
+      <div class="col-md-8">
+        <editable-group object="person"
+                        lens="name" help-text-display="ht.name">
+          <editable property="preferred_first" label="preferred first">This is the first name that you prefer to be known by. This is what you'll be called in sumbissions and on your business card. [TODO: is this true? Do we need ANOTHER field for casual name?]</editable>
+          <editable property="preferred_last"  label="preferred last" >This is the last name that you prefer to be known by. For example, this would be different to your passport name if you have changed your name legally, but still use your old name professionally.</editable>
+        </editable-group>
+        <div ng-bind="ht.name"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="row">
+      <h3>Position</h3>
+      <div class="col-md-4">
+        <p class="explantory-text">Explanatory text goes in here</p>
+      </div>
+      <div class="col-md-8">
+        <editable-group object="person"
+                  lens="employee">
+          <editable property="position" label="position">
+            This is your Position/Title.
+          </editable>
+        </editable-group>
+      </div>
+    </div>
+  </div>
+
+</div><!--end row-->
+
+<h3>Photos</h3>
+<div class="row">
+ <div class="col-sm-3">
+   <p class="explantory-text">Often people are called something other than their<em>official</em> name. This is where you tell us what you'd prefer to be know as.</p>
+ </div>
+  <div class="col-sm-3">
+    <div class="thumbnail">
+      <img class=""
+           ng-src="{{ person.employee.photo.bw }}"
+           itemprop="image"
+           title="This photo is used in submissions and on the public facing website."
+           alt="A black and white photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
+      <div class="caption">
+        <h4>Serious B&W Photo</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="thumbnail">
+      <img class=""
+           ng-src="{{ person.employee.photo.colour }}"
+           itemprop="image"
+           title="This photo is used in submissions and on the public facing website."
+           alt="A colour photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
+      <div class="caption">
+        <h4>Serious Colour Photo</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="thumbnail">
+      <img class=""
+           ng-src="{{ person.employee.photo.fun }}"
+           itemprop="image"
+           title="This photo is used internally and won't be show to the public."
+           alt="A fun, colour photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
+      <div class="caption">
+        <h4>Fun Photo</h4>
+      </div>
+    </div>
+  </div>
+</div><!--end row-->
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="row">
+      <h3>Passport Name</h3>
+      <div class="col-md-6">
+        <p class="explantory-text">This is your name as it appears in your passport. We sometimes need this for legal documents.</p>
+      </div>
+      <div class="col-md-6">
+        <editable-group object="person"
+                        lens="name">
+          <editable property="prefix" label="prefix">A name prefix is usually something like Miss, Ms, Mr, or it could be Dr Admiral or Archbishop.</editable>
+          <editable property="first"  label="first" >This is your first name as it appears on your passport.</editable>
+          <editable property="middle" label="middle">This is your middle name or names as they appear on your passport. (If you don't have a middle name just leave it blank.)</editable>
+          <editable property="prefix" label="prefix">This is your last name as it appears on your passport.</editable>
+          <editable property="suffix" label="suffix">A name suffix is usually something like Jr, PhD, OA etc.</editable>
+        </editable-group>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="row">
+      <h3>Fixed details</h3>
+      <p class="explantory-text">These aren't editable because these are the values that identify you to the databases that we use.</p>
+      <div class="col-md-4">
+        <div class="row">
+          <h3>login</h3>
+          <div class="col-md-6">
+            <p class="explantory-text">This is your login for the computer system, and also how <a href="http://en.wikipedia.org/wiki/Active_directory" title="Wikipedia: Active Directory">Active Directory</a> and <a href="http://en.wikipedia.org/wiki/Epicor" title="Wikipedia: Epicor">Epicor</a> identifies you. Only you have this login.</p><!--non editable, primary DB key-->
+          </div>
+          <div class="col-md-6">
+            <p><span class="field-name">login</span>
+               <span class="ang-inserted">{{person.employee.login}}</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <h3>finance</h3>
+          <div class="col-md-6">
+            <p class="explantory-text">This is your identifier in <a href="http://en.wikipedia.org/wiki/Sage_MicrOpay" title="Wikipedia: MicrOpay">MicrOpay</a>.</p><!--non editable, primary DB key-->
+          </div>
+          <div class="col-md-6">
+            <p><span class="field-name">employee code</span>
+               <span class="ang-inserted">{{person.employee.finance.employee_code}}</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h3>Conditions</h3><!--One day this might show up as a pretty timeline or somethign like that!-->
+<div class="row">
+  <div class="col-md-3">
+    <p class="explantory-text">A <em>condition</em> is like a status. At the moment you can either be <em>Active</em>, <em>Retired</em>, <em>Maternity</em>, <em>Leave</em>, <em>Deceased</em>, <em>Applicant</em>, <em>Left</em> or <em>Unknown</em>, but we'll add more as we work out what is needed. The system calculates your current condition by looking at the most recent start date, so it is important to update new conditions as soon as you can. </p>
+  </div>
+  <div ng-repeat="condition in person.conditions" class="col-md-3">
+    <editable-group object="person"
+                    lens="conditions[{{condition|id}}]"
+                    subgroup-class="alert alert-info">
+      <editable property="name"       label="name"                  >This is the label of this period of your life, it will normally be taken from the list above.</editable>
+      <editable property="start_date" label="start date" type="date">This is the date that this period started. YOu don't need to put in when it ended becasue that is inferred from the start date of the next period.</editable>
+    </editable-group>
+  </div>
+</div>

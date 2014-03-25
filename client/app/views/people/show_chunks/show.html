@@ -1,0 +1,58 @@
+<article ng-show="isCurrentUser(person) || person">
+  <div class="page-header">
+    <h1>{{ person.name.preferred_first }} {{ person.name.preferred_last }} <small>{{person.employee.position}} - {{person.employee.contact.extension}}</small></h1>
+  </div>
+
+  <ul class="nav nav-tabs">
+     <li class="active"><a href="#/name"       data-toggle="tab">{{person.name.preferred_first }}</a></li>
+     <li               ><a href="#/culture"    data-toggle="tab">Culture</a></li>
+     <li               ><a href="#/contact"    data-toggle="tab">Contact</a></li>
+     <li               ><a href="#/reg"        data-toggle="tab">Membershit</a></li>
+     <li               ><a href="#/travel"     data-toggle="tab">Travel</a></li>
+     <li               ><a href="#/experience" data-toggle="tab">Experience</a></li>
+     <li               ><a href="#/bio"        data-toggle="tab">Bio</a></li>
+     <li               ><a href="#/press"      data-toggle="tab">Press</a></li>
+     <li               ><a href="#/applicant"  data-toggle="tab">Applicant</a></li>
+  </ul>
+
+  <div class="tab-content">
+
+    <div class="tab-pane fade in active" id="name">
+      include "name_.html"
+    </div> <!--end of first name tab-->
+
+    <div class="tab-pane fade" id="culture">
+      include "culture_.html"
+    </div> <!--end of culture tab-->
+
+    <div class="tab-pane fade" id="contact">
+      include "contact_.html"
+    </div> <!--end of contact tab-->
+
+    <div class="tab-pane fade" id="reg">
+      include "reg_.html"
+    </div> <!--end of reg tab-->
+
+    <div class="tab-pane fade" id="travel">
+      include "travel_.html"
+    </div> <!--end of travel tab-->
+
+    <div class="tab-pane fade" id="experience">
+      include "experience_.html"
+    </div> <!--end of experience tab-->
+
+    <div class="tab-pane fade" id="bio">
+      include "bio_.html"
+    </div> <!--end of bio tab-->
+
+    <div class="tab-pane fade" id="press">
+      include "press_.html"
+    </div> <!--end of press tab-->
+
+    <div class="tab-pane fade" id="applicant">
+      include "applicant_.html"
+    </div> <!--end of applicant tab-->
+
+  </div><!--end tab-content-->
+
+</article>
