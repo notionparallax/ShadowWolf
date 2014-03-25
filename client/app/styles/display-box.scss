@@ -53,6 +53,7 @@ body {
 
 .title {
     position: relative;
+    width: 200px;
     margin: 0;
     -moz-transition: top 0.25s, color 0.25s;
     -webkit-transition: top 0.25s, color 0.25s;
@@ -71,5 +72,7 @@ body {
 }
 
 .info-button {
-    float: right;
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
 }
