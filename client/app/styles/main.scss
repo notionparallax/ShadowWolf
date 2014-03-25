@@ -141,5 +141,11 @@ h3{
 
 button.close{
   position: absolute;
-  right: 1em;
+  right: -1em;
+  top: -1em;
+  background-color: #bce8f1;
+  border-radius: 24px;
+  padding: 10px;
+  border: 2px solid #00D2FC;
+  padding-top: 5px;
 }
