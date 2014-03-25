@@ -24,11 +24,3 @@ angular.module('ShadowWolf').config(function($sceDelegateProvider) {
    // Allow loading from our assets domain.  Notice the difference between * and **.
    'https://maps.google.com.au/**']);
  });
-
-
-// ["https://maps.google.com.au/?ie=UTF8",
-//     "ll=" + subobject.lat + "," + subobject.lon,
-//     "spn=0.016839,0.031629",
-//     "t=h",
-//     "z=" + "9",
-//     "output=embed"].join("&amp;")
