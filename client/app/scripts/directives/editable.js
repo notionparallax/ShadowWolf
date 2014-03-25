@@ -1,6 +1,38 @@
 "use strict";
 
 angular.module("ShadowWolf")
+.directive('ngEnter', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.which === 13) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                    console.log('rtn pressed');
+                });
+
+                event.preventDefault();
+            }
+        });
+    };
+});
+
+angular.module("ShadowWolf")
+.directive('ngEscape', function () {
+    return function (scope, element, attrs) {
+        element.bind("keydown keypress", function (event) {
+            if(event.keyCode === 27) {
+                scope.$apply(function (){
+                    scope.$eval(attrs.ngEnter);
+                    console.log('esc pressed');
+                });
+
+                event.preventDefault();
+            }
+        });
+    };
+});
+
+angular.module("ShadowWolf")
 .directive("editable", function(Lens, Session, Models, Flash) {
   var editDisabled = false;
   return {
@@ -49,7 +81,7 @@ angular.module("ShadowWolf")
        * server, otherwise it just sends back the single field.
        */
       $scope.save = function() {
-
+        console.log('save called');
         // Set the value locally
         var object = $scope.subobject ? $scope.subobject : $scope.target();
         object[$scope.property] = $scope.editableValue;
