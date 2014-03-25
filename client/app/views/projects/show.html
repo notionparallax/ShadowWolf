@@ -35,9 +35,8 @@
         <editable property="lat"             label="latitude"       type="number">helpText</editable>
         <editable property="lon"             label="longitude"      type="number">helpText</editable>
         <editable property="boundary_points" label="Boundary Points">helpText</editable>
-        <!--<img src="http://www.albury.net.au/regional/albury/map/albury.gif" title="interactive maps coming soon" class="temp-map"/>-->
-<small>{{ subobject.lat }},{{ subobject.lon }}&larr;Frustrating, this renders here but not in the iframe link - <a href="https://github.com/angular/angular.js/issues/3679">see here for explanation</a></small>
-       <iframe class="temp-map" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="https://maps.google.com.au/?ie=UTF8&amp;ll={{ subobject.lat }},{{ subobject.lon }}&amp;spn=0.016839,0.031629&amp;t=h&amp;z=9&amp;output=embed"></iframe><!--Zoom would be 16 over land, but random coords and all that-->
+
+       <iframe class="temp-map" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{'https://maps.google.com.au/?ie=UTF8&amp;ll='+subobject.lat+','+subobject.lon+'&amp;spn=0.016839,0.031629&amp;t=h&amp;z=9&amp;output=embed' | trustMaplink}}"></iframe><!--Zoom would be 16 over land, but random coords and all that-->
 
       </editable-group>
 
