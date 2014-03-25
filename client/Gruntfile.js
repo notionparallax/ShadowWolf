@@ -20,6 +20,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-typescript');
   grunt.loadNpmTasks('grunt-cucumber');
   grunt.loadNpmTasks('grunt-ng-constant');
+  grunt.loadNpmTasks('grunt-includes');
 
   // configurable paths
   var yeomanConfig = {
@@ -32,6 +33,20 @@ module.exports = function (grunt) {
   } catch (e) {}
 
   grunt.initConfig({
+    // Build the site using grunt-includes
+    includes: {
+      build: {
+        cwd: 'app/views/people/show_chunks',
+        src: [ 'show.html' ],
+        dest: 'app/views/people',
+        flatten: false,
+        options: {
+          includePath: '',
+          banner: '<!--included-->'
+        }
+      }
+    },
+
     yeoman: yeomanConfig,
     watch: {
       coffee: {
@@ -409,6 +424,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'ngconstant:development',
+      'includes',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -429,6 +445,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'ngconstant:production',
     'useminPrepare',
+    'includes',
     'concurrent:dist',
     'autoprefixer',
     'concat',
