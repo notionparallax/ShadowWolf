@@ -1,0 +1,7 @@
+FROM paintedfox/ruby
+RUN apt-get install -y git
+RUN gem install bundler rails
+WORKDIR /ShadowWolf-server
+ADD Gemfile /ShadowWolf-server/Gemfile
+ADD Gemfile.lock /ShadowWolf-server/Gemfile.lock
+RUN bundle install
