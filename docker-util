@@ -1,0 +1,89 @@
+#!/bin/bash
+
+read -r -d '' USAGE <<HERE
+Usage: $0 <command> <target> [args]
+Try '$0 help' for more info.
+HERE
+read -r -d '' HELP <<HERE
+Usage: $0 <command> <target> [args]
+
+Commands:
+  install (No targets) Ensures you have the ShadowWolf-dev docker image.
+  dev     Development commands like \`rails s\` and \`grunt server\`.
+  build   Build docker images.
+  help    Print this text.
+
+Targets:
+  client  Angular frontend.
+  server  Rails backend.
+  mongo   (Dev only) Mongodb service.
+
+Arguments:
+  (Dev only) Pass custom commands.
+HERE
+SHARED_VOLUME=`pwd`:/ShadowWolf/
+
+case "$1" in
+  install)
+    rm Dockerfile
+    ln -s development.docker Dockerfile
+    sudo docker build -t ShadowWolf-dev .
+    rm Dockerfile
+    ln -s mongo.docker Dockerfile
+    sudo docker build -t ShadowWolf-mongo .
+    ;;
+  dev)
+    case "$2" in
+      client)
+        run_command="grunt server"
+        shift 2
+        [[ -n "$*" ]] && run_command="$*"
+        # 9000 for grunt server and 35729 for live-reload
+        sudo docker run -t -i -v $SHARED_VOLUME -w /ShadowWolf/client -p 35729:35729 -p 9000:9000 ShadowWolf-dev $run_command
+        ;;
+      server)
+        run_command="grunt server"
+        shift 2
+        [[ -n "$*" ]] && run_command="$*"
+        # rails uses 3000
+        sudo docker run -t -i -v $SHARED_VOLUME -w /ShadowWolf/server -p 3000:3000 ShadowWolf-dev $run_command
+        ;;
+      mongo)
+        run_command="mongo"
+        shift 2
+        [[ -n "$*" ]] && run_command="$*"
+        echo To be implemented.
+        #sudo docker run -t -i ShadowWolf-mongo $run_command
+        ;;
+      *)
+        echo "$USAGE"
+        ;;
+    esac
+    ;;
+  build)
+    CONTAINER_NAME="ShadowWolf-deploy"
+    case "$2" in
+      client)
+        rm Dockerfile
+        ln -s production-client.docker Dockerfile
+        CONTAINER_NAME="$CONTAINER_NAME"-client
+        ;;
+      server)
+        rm Dockerfile
+        ln -s production-server.docker Dockerfile
+        CONTAINER_NAME="$CONTAINER_NAME"-server
+        ;;
+      *)
+        echo "$USAGE"
+        exit 1
+        ;;
+    esac
+    sudo docker build -t $CONTAINER_NAME .
+    ;;
+  help)
+    echo "$HELP"
+    ;;
+  *)
+    echo "$USAGE"
+    ;;
+esac

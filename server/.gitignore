@@ -18,4 +18,3 @@ pickle-email-*.html
 config/local_env.yml
 
 nohup.out
-Dockerfile

@@ -1,0 +1,5 @@
+FROM ShadowWolf-dev
+ADD client /ShadowWolf/client/.
+RUN cd client && grunt build
+WORKDIR /ShadowWolf/client/
+CMD ["python", "-m", "http.server"]
