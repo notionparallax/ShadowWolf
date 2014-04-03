@@ -86,7 +86,7 @@ case "$1" in
     ;;
   run)
     shift
-    sudo docker run -i $DEFAULT_ARGS ShadowWolf-dev $*
+    sudo docker run -i -t -v $SHARED_VOLUME ShadowWolf-dev $*
     ;;
   help)
     echo "$HELP"
