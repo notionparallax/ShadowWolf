@@ -16,10 +16,12 @@ Commands:
   help    Print this text.
 
 Targets:
-  client  Angular frontend.
-  server  Rails backend.
-  console Rails console.
+  client  Angular frontend. Also starts the server.
+  server  Rails backend. Also starts mongo.
   mongo   (Dev only) Mongodb service.
+  console Rails console. Assumes mongo.
+
+Run '$0 dev client' do get a full working environment.
 HERE
 
 SHARED_VOLUME=`pwd`:/ShadowWolf/
