@@ -21,7 +21,7 @@ Targets:
   mongo   (Dev only) Mongodb service.
   console Rails console. Assumes mongo.
 
-Run '$0 dev client' do get a full working environment.
+Run '$0 dev client' to get a full working environment.
 HERE
 
 SHARED_VOLUME=`pwd`:/ShadowWolf/
