@@ -13,3 +13,5 @@ RUN apt-get -y install mongodb-10gen
 
 # where the mongo data lives by default
 RUN mkdir -p /data/db
+
+EXPOSE 27017

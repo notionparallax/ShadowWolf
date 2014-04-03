@@ -5,29 +5,32 @@ Usage: $0 <command> <target> [args]
 Try '$0 help' for more info.
 HERE
 read -r -d '' HELP <<HERE
-Usage: $0 <command> <target> [args]
+Usage: $0 <command> <target>
 
 Commands:
   install (No targets) Ensures you have the ShadowWolf-dev docker image.
   dev     Development commands like \`rails s\` and \`grunt server\`.
   build   Build docker images.
+  run     (No targets) Runs whatever commands are passed to it in the
+          container.
   help    Print this text.
 
 Targets:
   client  Angular frontend.
   server  Rails backend.
   mongo   (Dev only) Mongodb service.
-
-Arguments:
-  (Dev only) Pass custom commands.
 HERE
-SHARED_VOLUME=`pwd`:/ShadowWolf/
 
+SHARED_VOLUME=`pwd`:/ShadowWolf/
+DEFAULT_ARGS="-d -t -v $SHARED_VOLUME "
 case "$1" in
   install)
     rm Dockerfile
     ln -s development.docker Dockerfile
     sudo docker build -t ShadowWolf-dev .
+    rm Dockerfile
+    ln -s development-server.docker Dockerfile
+    sudo docker build -t ShadowWolf-dev-server .
     rm Dockerfile
     ln -s mongo.docker Dockerfile
     sudo docker build -t ShadowWolf-mongo .
@@ -35,25 +38,17 @@ case "$1" in
   dev)
     case "$2" in
       client)
-        run_command="grunt server"
-        shift 2
-        [[ -n "$*" ]] && run_command="$*"
         # 9000 for grunt server and 35729 for live-reload
-        sudo docker run -t -i -v $SHARED_VOLUME -w /ShadowWolf/client -p 35729:35729 -p 9000:9000 ShadowWolf-dev $run_command
+        [[ -z `sudo docker ps | grep sw-server` ]] && $0 dev server
+        sudo docker run --name sw-client --link sw-server:server $DEFAULT_ARGS -p 9000:9000 -p 35729:35729 -w /ShadowWolf/client/ ShadowWolf-dev grunt server
         ;;
       server)
-        run_command="grunt server"
-        shift 2
-        [[ -n "$*" ]] && run_command="$*"
         # rails uses 3000
-        sudo docker run -t -i -v $SHARED_VOLUME -w /ShadowWolf/server -p 3000:3000 ShadowWolf-dev $run_command
+        [[ -z `sudo docker ps | grep sw-mongo` ]] && $0 dev mongo
+        sudo docker run -p 3000 --name sw-server --link sw-mongo:mongo $DEFAULT_ARGS -w /ShadowWolf/server/ ShadowWolf-dev-server rails server
         ;;
       mongo)
-        run_command="mongo"
-        shift 2
-        [[ -n "$*" ]] && run_command="$*"
-        echo To be implemented.
-        #sudo docker run -t -i ShadowWolf-mongo $run_command
+        sudo docker run -p 27017 --name sw-mongo $DEFAULT_ARGS ShadowWolf-mongo mongod
         ;;
       *)
         echo "$USAGE"
@@ -79,6 +74,10 @@ case "$1" in
         ;;
     esac
     sudo docker build -t $CONTAINER_NAME .
+    ;;
+  run)
+    shift
+    sudo docker run -i $DEFAULT_ARGS ShadowWolf-dev $*
     ;;
   help)
     echo "$HELP"
