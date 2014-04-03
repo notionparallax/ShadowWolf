@@ -18,6 +18,7 @@ Commands:
 Targets:
   client  Angular frontend.
   server  Rails backend.
+  console Rails console.
   mongo   (Dev only) Mongodb service.
 HERE
 
@@ -48,6 +49,9 @@ case "$1" in
         [[ -z `sudo docker ps | grep -e "sw-mongo[^/]"` ]] && $0 dev mongo
         sudo docker kill sw-server && sudo docker rm sw-server
         sudo docker run -d -p 3000 --name sw-server --link sw-mongo:mongo $DEFAULT_ARGS -w /ShadowWolf/server/ ShadowWolf-dev-server rails server
+        ;;
+      console)
+        sudo docker run -i -t -v $SHARED_VOLUME --link sw-mongo:mongo -w /ShadowWolf/server/ ShadowWolf-dev rails console
         ;;
       mongo)
         sudo docker kill sw-mongo && sudo docker rm sw-mongo
