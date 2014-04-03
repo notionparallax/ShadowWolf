@@ -39,16 +39,19 @@ case "$1" in
     case "$2" in
       client)
         # 9000 for grunt server and 35729 for live-reload
-        [[ -z `sudo docker ps | grep sw-server` ]] && $0 dev server
+        [[ -z `sudo docker ps | grep -e "sw-server[^/]"` ]] && $0 dev server
+        sudo docker kill sw-client && sudo docker rm sw-client
         sudo docker run --name sw-client --link sw-server:server $DEFAULT_ARGS -p 9000:9000 -p 35729:35729 -w /ShadowWolf/client/ ShadowWolf-dev grunt server
         ;;
       server)
         # rails uses 3000
-        [[ -z `sudo docker ps | grep sw-mongo` ]] && $0 dev mongo
-        sudo docker run -p 3000 --name sw-server --link sw-mongo:mongo $DEFAULT_ARGS -w /ShadowWolf/server/ ShadowWolf-dev-server rails server
+        [[ -z `sudo docker ps | grep -e "sw-mongo[^/]"` ]] && $0 dev mongo
+        sudo docker kill sw-server && sudo docker rm sw-server
+        sudo docker run -d -p 3000 --name sw-server --link sw-mongo:mongo $DEFAULT_ARGS -w /ShadowWolf/server/ ShadowWolf-dev-server rails server
         ;;
       mongo)
-        sudo docker run -p 27017 --name sw-mongo $DEFAULT_ARGS ShadowWolf-mongo mongod
+        sudo docker kill sw-mongo && sudo docker rm sw-mongo
+        sudo docker run -d -p 27017 --name sw-mongo $DEFAULT_ARGS ShadowWolf-mongo mongod
         ;;
       *)
         echo "$USAGE"

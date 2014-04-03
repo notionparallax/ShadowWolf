@@ -80,7 +80,10 @@ module.exports = function (grunt) {
     },
     ngconstant: {
       options: {
-        space: '  '
+        space: '  ',
+        constants: {
+          ENDPOINT: "http://" + process.env.SERVER_PORT_3000_TCP_ADDR + ":" + process.env.SERVER_PORT_3000_TCP_PORT
+        }
       },
 
       production: {
