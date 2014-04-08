@@ -9,3 +9,7 @@ WORKDIR /ShadowWolf/
 ADD server/Gemfile /ShadowWolf/server/Gemfile
 ADD server/Gemfile.lock /ShadowWolf/server/Gemfile.lock
 RUN cd server && bundle install
+ADD client/package.json /ShadowWolf/client/package.json
+ADD client/bower.json /ShadowWolf/client/bower.json
+RUN cd client && npm install 
+RUN cd client && bower install --allow-root
