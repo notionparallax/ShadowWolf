@@ -17,7 +17,6 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-typescript');
   grunt.loadNpmTasks('grunt-cucumber');
   grunt.loadNpmTasks('grunt-ng-constant');
   grunt.loadNpmTasks('grunt-includes');
@@ -49,14 +48,6 @@ module.exports = function (grunt) {
 
     yeoman: yeomanConfig,
     watch: {
-      coffee: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
-        tasks: ['coffee:dist']
-      },
-      coffeeTest: {
-        files: ['test/spec/{,*/}*.coffee'],
-        tasks: ['coffee:test']
-      },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
@@ -181,42 +172,6 @@ module.exports = function (grunt) {
         'Gruntfile.js',
         '<%= yeoman.app %>/scripts/{,*/}*.js'
       ]
-    },
-    coffee: {
-      options: {
-        sourceMap: true,
-        sourceRoot: ''
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/scripts',
-          src: '{,*/}*.coffee',
-          dest: '.tmp/scripts',
-          ext: '.js'
-        }]
-      },
-      test: {
-        files: [{
-          expand: true,
-          cwd: 'test/spec',
-          src: '{,*/}*.coffee',
-          dest: '.tmp/spec',
-          ext: '.js'
-        }]
-      }
-    },
-    typescript: {
-      base: {
-        src: ['app/scripts/*/*.ts', 'app/scripts/**/*.ts'],
-        dest: 'app/scripts',
-        options: {
-          base_path: 'app/scripts',
-          sourcemap: true,
-          fullSourceMapPath: true,
-          declaration: true
-        }
-      }
     },
     compass: {
       options: {
@@ -366,25 +321,19 @@ module.exports = function (grunt) {
     },
     concurrent: {
       server: [
-        'coffee:dist',
         'compass:server',
         'copy:styles',
-        'typescript'
       ],
       test: [
-        'coffee',
         'compass',
         'copy:styles',
-        'typescript'
       ],
       dist: [
-        'coffee',
         'compass:dist',
         'copy:styles',
         'imagemin',
         'svgmin',
         'htmlmin',
-        'typescript'
       ]
     },
     karma: {
