@@ -25,7 +25,8 @@ Run '$0 dev client' do get a full working environment.
 HERE
 
 SHARED_VOLUME=`pwd`:/ShadowWolf/
-DEFAULT_ARGS="-d -t -v $SHARED_VOLUME "
+BASE_ARGS="-t -v $SHARED_VOLUME "
+DEFAULT_ARGS="-d $BASE_ARGS "
 case "$1" in
   install)
     rm Dockerfile
@@ -40,6 +41,14 @@ case "$1" in
     ;;
   dev)
     case "$2" in
+      test)
+        [[ -z `sudo docker ps | grep -e "sw-client[^/]"` ]] && $0 dev client
+        sudo docker kill sw-webdriver && sudo docker rm sw-webdriver
+        sudo docker run --name sw-webdriver $DEFAULT_ARGS -p 4444 -w /ShadowWolf/client/ ShadowWolf-dev-testing webdriver-manager start
+
+        sudo docker kill sw-testing && sudo docker rm sw-testing
+        sudo docker run --name sw-testing -i $BASE_ARGS --link sw-webdriver:webdriver --link sw-client:client -w /ShadowWolf/client/ ShadowWolf-dev-testing protractor Protractor.js
+        ;;
       client)
         # 9000 for grunt server and 35729 for live-reload
         [[ -z `sudo docker ps | grep -e "sw-server[^/]"` ]] && $0 dev server
@@ -86,7 +95,7 @@ case "$1" in
     ;;
   run)
     shift
-    sudo docker run -i $DEFAULT_ARGS ShadowWolf-dev $*
+    sudo docker run -i -t -v $SHARED_VOLUME ShadowWolf-dev $*
     ;;
   help)
     echo "$HELP"
