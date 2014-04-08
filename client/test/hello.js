@@ -1,18 +1,20 @@
-describe('stuff',function(){
-  it('more stuff', function(){
-    var b = browser.get('http://172.17.0.5:9000/#/people');
-    b.then(function(){
-      var navbar = element(by.id('bs-example-navbar-collapse-1'));
-      console.log("async0");
-      console.log(navbar);
-      return navbar.getInnerHtml();
-    }).then(function(navbar){
-      console.log("async");
-      console.log(navbar);
+describe('initial tests',function(){
+  function visit(path) {
+    var url = 'http://'
+      + process.env['CLIENT_PORT_9000_TCP_ADDR']
+      + ':'
+      + process.env['CLIENT_PORT_9000_TCP_PORT']
+      + '/#/'
+      + path;
+    return browser.get(url);
+  }
+  it('login button exists', function(){
+    visit('people').then(function(){
+      return element(by.css('.login-btn a'));
+    }).then(function(login){
+      return login.getInnerHtml();
+    }).then(function(loginText) {
+      expect(loginText).toBe('Log In');
     });
-    var navbar = element(by.id('bs-example-navbar-collapse-1'));
-    console.log(navbar.getInnerHtml());
-    console.log("hello");
-    expect(false);
   });
 });
