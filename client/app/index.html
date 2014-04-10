@@ -52,10 +52,12 @@
           <div class="nav navbar-nav navbar-right login-btn"><!-- /.navbar-collapse -->
             <a ng-if="!loggedIn()" 
                class="btn btn-success" 
-               href="{{ getLogInLink() }}">Log In</a>
+               href="{{ getLogInLink() }}"
+               id="LogIn">Log In</a>
             <a ng-if="loggedIn()" 
                class="btn btn-primary" 
-               ng-click="logout()">Log Out</a>
+               ng-click="logout()"
+               id="LogOut">Log Out</a>
           </div><!-- login/out button -->
         </div>
       </div><!-- /.container-fluid -->

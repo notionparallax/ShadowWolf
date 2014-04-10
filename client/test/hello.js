@@ -1,4 +1,6 @@
-describe('initial tests',function(){
+var mockPerson = require("./mockPerson.js").ben;
+
+describe('initial tests:',function(){
   function visit(path) {
     var url = 'http://'
       + process.env['CLIENT_PORT_9000_TCP_ADDR']
@@ -51,6 +53,7 @@ describe('initial tests',function(){
         expect(peopleHtml.length).toBe(people.length);
       });
     });
+
   });
 
   describe('projects pages', function(){
