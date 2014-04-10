@@ -73,3 +73,9 @@ We had a bit of a spike at the beginning to get things going, but we are about r
 
 We are using PhantomJS and Selenium to do end to end tests to get started, and we'll introduce unit testing etc. once end to end is working nicely.
 
+To run the tests
+
+```
+git push origin add-testing
+```
+
