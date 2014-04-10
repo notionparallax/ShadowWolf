@@ -45,7 +45,7 @@ Which starts up the three containers in daemon mode. You can then go to `http://
 #####  Populating the DB with sample data #####
 The DB is empty when you start it, so to fill it with sample data:
 ```
-$ ./docker-util console
+$ ./docker-util dev console
 > FactoryGirl.create_list :person, 20
 > FactoryGirl.create_list :project, 20
 ```
