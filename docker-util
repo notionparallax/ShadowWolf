@@ -39,6 +39,9 @@ case "$1" in
     rm Dockerfile
     ln -s mongo.docker Dockerfile
     sudo docker build -t ShadowWolf-mongo .
+    rm Dockerfile
+    ln -s development-testing.docker Dockerfile
+    sudo docker build -t ShadowWolf-dev-testing .
     ;;
   dev)
     case "$2" in
