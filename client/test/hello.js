@@ -39,18 +39,36 @@ describe('initial tests',function(){
   });
 
   describe('people pages', function(){
-    var people = [{ name: { 'preferred_last': 'Test Person' } }];
+    var people = [
+    { 
+      name: { 'preferred_last': 'Test Person' },
+      id: { $oid: 'test-id' }
+    }];
     beforeEach(function() {
       mockBackend({'people.json' : people});
     });
 
-    it('people are listed on /people', function(){
+    it('should list people at /people', function(){
       visit('people').then(function(){
         return element.all(by.css('.info-box'));
       }).then(function(peopleHtml){
         expect(peopleHtml.length).toBe(people.length);
       });
     });
+
+    it('should show a "more" link when hovering on a person\'s tile', function(){
+      visit('people').then(function(){
+        return element(by.css('.info-box'));
+      }).then(function(personBox){
+        var moreButton = personBox.findElement(by.css('.info-button'));;
+        return moreButton;
+      }).then(function(button){
+        return button.getAttribute('href');
+      }).then(function(href) {
+        expect(href).toMatch(people[0].id.$oid);
+      });
+    });
+
   });
 
   describe('projects pages', function(){
