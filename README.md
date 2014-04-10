@@ -15,8 +15,48 @@ The name comes from another [group of trackers](http://en.wikipedia.org/wiki/Sha
 ## Demo ##
 You can see a live version, with dummy data [here](http://notionparallax.co.uk/ShadowWolf/client/dist/index.html#/people) (This is pretty out of date, but will be updated soon as we've got a whole new deployment mechanism.)
 
-## Getting involved ##
+## Contributing ##
 We're probably not ready for anyone to get involved in a big way as we're changing too much stuff, but if there are any features that you would like to see, or bugs that you think we should fix, then feel free to open an issue.
+
+### Development environment ###
+
+ShadowWolf is 3 main components which currently live inside docker containers.
+  1. A MongoDB database
+  2. An Angular front end
+  3. A rails back end
+
+#### Installing ####
+To install the environment for the first time:
+```
+cd Projects/ShadowWolf/
+./docker-util install
+```
+This will build the images.
+
+####Starting a development session####
+To save you from having to start these independently you can just run:
+
+```
+cd Projects/ShadowWolf/
+./docker-util dev client
+```
+Which starts up the three containers in daemon mode. You can then go to `http://localhost:9000/#/people` to see everything in action.
+
+#### useful docker commands ####
+ * `docker ps` - list all active docker containers
+ * `docker kill` - kills a docker container
+ * `./docker-util console` - opens a rails console connected to the Mongo database
+ * `./docker-util run [bash]` - this takes a command and runs it inside the dev environment container. This lacks port forwarding and linking (e.g. no access to the DB). So it is useful for testing specific things in the environment.
+
+
+ `./docker-util` is a very light wrapper around docker. If you want to do something that  `./docker-util` doesn't support then just read the [docker docs](http://docs.docker.io/en/latest/) and get on with it!
+
+#### Stack ####
+
+The Mongo back end uses the [MongoidModelMaker](https://github.com/Dawil/MongoidModelMaker) gem to build out the data models.
+
+Rails really only works to control the database, flicking chunks of JSON at the angular client.
+
 
 ### Testing ###
 [![Build Status](https://travis-ci.org/notionparallax/ShadowWolf.png)](https://travis-ci.org/notionparallax/ShadowWolf)
@@ -25,12 +65,3 @@ We had a bit of a spike at the beginning to get things going, but we are about r
 
 We are using PhantomJS and Selenium to do end to end tests to get started, and we'll introduce unit testing etc. once end to end is working nicely.
 
-### Stack ###
-ShadowWolf is 3 main components which currently live inside docker containers.
-  1. A MongoDB database
-  2. An Angular front end
-  3. A rails back end
-
-The Mongo back end uses the [MongoidModelMaker](https://github.com/Dawil/MongoidModelMaker) gem to build out the data models.
-
-Rails really only works to control the database, flicking chunks of JSON at the angular client.
