@@ -66,8 +66,7 @@ The Mongo back end uses the [MongoidModelMaker](https://github.com/Dawil/Mongoid
 Rails really only works to control the database, flicking chunks of JSON at the angular client.
 
 
-### Testing ###
-[![Build Status](https://travis-ci.org/notionparallax/ShadowWolf.png)](https://travis-ci.org/notionparallax/ShadowWolf)
+### Testing ###  
 
 We had a bit of a spike at the beginning to get things going, but we are about ready to hook in Travis so that natty little icon will hopefully go green soon.
 
@@ -78,4 +77,6 @@ To run the tests
 ```
 git push origin add-testing
 ```
+
+<!--[![Build Status](https://travis-ci.org/notionparallax/ShadowWolf.png)](https://travis-ci.org/notionparallax/ShadowWolf)-->
 
