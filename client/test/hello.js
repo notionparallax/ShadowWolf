@@ -8,6 +8,25 @@ describe('initial tests',function(){
       + path;
     return browser.get(url);
   }
+  function mockBackend(mappings) {
+    var httpBackendMock = function(){
+      angular.module('httpBackendMock', ['ShadowWolf', 'ngMockE2E'])
+      .run(function($httpBackend) {
+        // UGLY
+        for (var regex in mappings) {
+          $httpBackend.whenGET(new RegExp(regex))
+            .respond(mappings[regex]);
+        }
+        $httpBackend.whenGET(/.*/).passThrough();
+      });
+    };
+
+    var httpBackendMockString = '(' + httpBackendMock.toString()
+      .replace('// UGLY', 'var mappings = ' + JSON.stringify(mappings) + ';')
+      .replace(/\s+/g,' ') + '())';
+    ptor = protractor.getInstance();
+    ptor.addMockModule('httpBackendMock', httpBackendMockString);
+  }
 
   it('login button exists', function(){
     visit('people').then(function(){
@@ -19,33 +38,35 @@ describe('initial tests',function(){
     });
   });
 
-  describe('mocks data', function(){
-    var httpBackendMock = function(){
-      console.log("hellohello");
-      angular.module('httpBackendMock', ['ShadowWolf', 'ngMockE2E'])
-      .run(function($httpBackend) {
-        var person = { name: { 'preferred_last': 'gvhbjn' } };
-        $httpBackend.whenGET(/people.json/).respond([person]);
-        $httpBackend.whenGET(/.*/).passThrough();
-      });
-    };
-    ptor = protractor.getInstance();
-    ptor.addMockModule('httpBackendMock', httpBackendMock);
+  describe('people pages', function(){
+    var people = [{ name: { 'preferred_last': 'Test Person' } }];
+    beforeEach(function() {
+      mockBackend({'people.json' : people});
+    });
 
     it('people are listed on /people', function(){
       visit('people').then(function(){
-        return element.all(by.css('.test'));
-      }).then(function(rows){
-        console.log(rows);
-        rows[0].getInnerHtml().then(function(html){
-          console.log("async");
-          console.log(html);
-        });
-        expect(false);
-        expect(rows.length).toBeGreaterThan(0);
+        return element.all(by.css('.info-box'));
+      }).then(function(peopleHtml){
+        expect(peopleHtml.length).toBe(people.length);
       });
     });
   });
 
+  describe('projects pages', function(){
+    var projects = [{ 'project_name': 'Test Project' },{ 'project_name': 'Test Project' }];
+    beforeEach(function() {
+      mockBackend({'projects.json' : projects});
+    });
+
+    it('projects are listed on /projects', function(){
+      visit('projects').then(function(){
+        return element.all(by.css('.info-box'));
+      }).then(function(projectsHtml){
+        //projectsHtml[0].getInnerHtml().then(console.log);
+        expect(projectsHtml.length).toBe(projects.length);
+      });
+    });
+  });
 
 });
