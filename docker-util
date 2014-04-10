@@ -17,6 +17,7 @@ Commands:
 
 Targets:
   client  Angular frontend. Also starts the server.
+  test    Runs protractor tests in phantomjs container.
   server  Rails backend. Also starts mongo.
   mongo   (Dev only) Mongodb service.
   console Rails console. Assumes mongo.
@@ -38,16 +39,22 @@ case "$1" in
     rm Dockerfile
     ln -s mongo.docker Dockerfile
     sudo docker build -t ShadowWolf-mongo .
+    rm Dockerfile
+    ln -s development-testing.docker Dockerfile
+    sudo docker build -t ShadowWolf-dev-testing .
     ;;
   dev)
     case "$2" in
       test)
         [[ -z `sudo docker ps | grep -e "sw-client[^/]"` ]] && $0 dev client
-        sudo docker kill sw-webdriver && sudo docker rm sw-webdriver
-        sudo docker run --name sw-webdriver $DEFAULT_ARGS -p 4444 -w /ShadowWolf/client/ ShadowWolf-dev-testing webdriver-manager start
+        [[ -z `sudo docker ps | grep -e "sw-webdriver[^/]"` ]] && $0 dev webdriver
 
         sudo docker kill sw-testing && sudo docker rm sw-testing
         sudo docker run --name sw-testing -i $BASE_ARGS --link sw-webdriver:webdriver --link sw-client:client -w /ShadowWolf/client/ ShadowWolf-dev-testing protractor Protractor.js
+        ;;
+      webdriver)
+        sudo docker kill sw-webdriver && sudo docker rm sw-webdriver
+        sudo docker run --name sw-webdriver $DEFAULT_ARGS -p 4444 -w /ShadowWolf/client/ ShadowWolf-dev-testing webdriver-manager start
         ;;
       client)
         # 9000 for grunt server and 35729 for live-reload

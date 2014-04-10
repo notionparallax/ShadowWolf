@@ -2,6 +2,10 @@ exports.config = {
   capabilities: {
     'browserName': 'phantomjs'
   },
-  seleniumAddress: 'http://172.17.0.6:4444/wd/hub',
+  seleniumAddress: 'http://'
+  					+ process.env['WEBDRIVER_PORT_4444_TCP_ADDR']
+  					+ ':'
+  					+ process.env['WEBDRIVER_PORT_4444_TCP_PORT']
+  					+ '/wd/hub',
   specs: ['test/hello.js']
 }
