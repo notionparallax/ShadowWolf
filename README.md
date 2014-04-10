@@ -42,6 +42,14 @@ cd Projects/ShadowWolf/
 ```
 Which starts up the three containers in daemon mode. You can then go to `http://localhost:9000/#/people` to see everything in action.
 
+#####  Populating the DB with sample data #####
+The DB is empty when you start it, so to fill it with sample data:
+```
+$ ./docker-util console
+> FactoryGirl.create_list :person, 20
+> FactoryGirl.create_list :project, 20
+```
+
 #### useful docker commands ####
  * `docker ps` - list all active docker containers
  * `docker kill` - kills a docker container
