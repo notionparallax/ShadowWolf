@@ -145,4 +145,24 @@ describe('initial tests:',function(){
     });
   });
 
+describe('people page tests:', function(){
+
+    xit("should be able to see the Preferred Name section", function() {
+        visit('people/bdoherty').then(function(){ //will fail becasue we don't have pretty urls, and because we don't have a magic people setup function yet
+        return element.all(by.css('div > h3'));
+      }).then(function(header){
+        expect(projectsHtml.length).not.toBeUndefined());
+      });
+      });
+  });
+
+  xit("should show the culture tab when it's clicked", function() {
+        visit('people/bdoherty').then(function(){ //will fail becasue we don't have pretty urls, and because we don't have a magic people setup function yet
+        return element.all(by.css('body > div.container.ng-scope > article > ul > li:nth-child(2) > a'));
+      }).then(function(header){
+        expect(/*there to be something on the page that is cultury*/).not.toBeUndefined());
+      });
+      });
+  });
+
 });
