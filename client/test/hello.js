@@ -90,5 +90,16 @@ describe('initial tests:',function(){
       });
     });
   });
+  
+  describe('editable tests', function(){
+    xit("should show help text when a label is hovered", function() {
+      //Where helptext container is called `x`
+      magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
+      $('label.editable-lable"').trigger('mouseover');
+      expect($('#helptext-for-x')).toBeHidden();
+      $('label.editable-lable"').trigger('mouseout');
+      expect($('#helptext-for-x')).toBeShown();
+    });
+  });
 
 });
