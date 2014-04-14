@@ -121,6 +121,26 @@ describe('initial tests:',function(){
       }).then(function(){
         expect($('div.form-control-static.editable.editable-text')).not.toMatch("I'm typing, pretty cool eh!");
       });
+      
+      xit("should NOT allow 'conditions' not on the list", function() {
+      magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
+      magicalEditable_gotoEditMode('selector.of.editable.we.want').then(function(edInput){
+        edInput.clear();
+        edInput.sendKeys("poopy fart face")
+        ptor.actions().sendKeys(protractor.Key.ENTER).perform();
+      }).then(function(){
+        expect("the server to tell us that it's not happy"); //#92
+      });
+      
+      xit("should allow 'conditions' on the list", function() {
+      magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
+      magicalEditable_gotoEditMode('selector.of.editable.we.want').then(function(edInput){
+        edInput.clear();
+        edInput.sendKeys("active")
+        ptor.actions().sendKeys(protractor.Key.ENTER).perform();
+      }).then(function(){
+        expect("the server to tell us that it is happy"); //#92
+      });
 
     });
   });
