@@ -40,7 +40,7 @@ To save you from having to start these independently you can just run:
 cd Projects/ShadowWolf/
 ./docker-util dev client
 ```
-Which starts up the three containers in daemon mode. You can then go to `http://localhost:9000/#/people` to see everything in action.
+Which starts up the three containers in daemon mode. You can then go to [http://localhost:9000/#/people](http://localhost:9000/#/people) to see everything in action.
 
 #####  Populating the DB with sample data #####
 The DB is empty when you start it, so to fill it with sample data:
