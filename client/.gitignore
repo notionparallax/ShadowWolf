@@ -7,3 +7,4 @@ nohup.out
 app/scripts/config.js
 app/views/people/show.html
 phantomjsdriver.log
+npm-debug.log
