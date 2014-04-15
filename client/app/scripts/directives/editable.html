@@ -14,7 +14,9 @@
         <input ng-show="type != 'textarea'"
                type="{{ type }}"
                ng-model="editableValue"
-               class="form-control" />
+               class="form-control" 
+               ng-escape="cancel()"
+               ng-enter="save()"/>
         <textarea ng-show="type == 'textarea'"
                   ng-model="editableValue">
         </textarea>
