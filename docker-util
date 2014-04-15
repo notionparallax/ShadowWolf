@@ -102,7 +102,9 @@ case "$1" in
     ;;
   run)
     shift
-    sudo docker run -i -t -v $SHARED_VOLUME ShadowWolf-dev $*
+    COMMAND="bash"
+    [[ -n "$*" ]] && COMMAND="$*"
+    sudo docker run -i -t -v $SHARED_VOLUME ShadowWolf-dev $COMMAND
     ;;
   help)
     echo "$HELP"
