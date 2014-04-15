@@ -13,6 +13,7 @@ function($scope, People, Session, Search) {
     $scope.visibleSearchResults = _searchResults.splice(0,_searchIncrement);
   });
   $scope.loadMoreResults = function() {
+    return _searchResults;
     $scope.visibleSearchResults =
       $scope.visibleSearchResults.concat( _searchResults.splice(0,_searchIncrement) );
   };
