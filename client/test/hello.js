@@ -187,6 +187,16 @@ describe('initial tests:',function(){
         expect(headerText).toMatch(/Preferred Name/);
       });
     });
+    
+    it("should be able to see the photos section", function() {
+        visit('people/test-id').then(function(){
+        return elements(by.css('.thumbnail'));
+      }).then(function(thumbDivs){
+        return thumbDivs.length;
+      }).then(function(numThumbs){
+        expect(numThumbs).toBe(3);//this is brittle, but probably fine
+      });
+    });
 
    it("should show the culture tab when it's clicked", function() {
         visit('people/test-id').then(function(){
