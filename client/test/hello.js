@@ -195,7 +195,10 @@ describe('initial tests:',function(){
         var cultureTab = navTabs[1];
         return cultureTab.click();
       }).then(function(){
-        return element(by.css('div > h3'));
+        return element.all(by.css('.tab-pane'));
+      }).then(function(tabPanes){
+        var tabPane = tabPanes[1];
+        return tabPane.findElement(by.css('h3'));
       }).then(function(header){
         return header.getText();
       }).then(function(headerText){

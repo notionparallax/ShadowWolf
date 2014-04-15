@@ -56,6 +56,10 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['copy:styles', 'autoprefixer']
       },
+      viewincludes: {
+        files: ['<%= yeoman.app %>/views/{,*/}*.html'],
+        tasks: ['includes']
+      },
       livereload: {
         options: {
           livereload: LIVERELOAD_PORT
@@ -387,6 +391,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
+    'includes',
     'concurrent:test',
     'autoprefixer',
     'connect:test',
