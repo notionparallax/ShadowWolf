@@ -189,7 +189,7 @@ describe('initial tests:',function(){
     });
 
    it("should show the culture tab when it's clicked", function() {
-        visit('people/test-id').then(function(){ //will fail becasue we don't have pretty urls, and because we don't have a magic people setup function yet
+        visit('people/test-id').then(function(){
         return element.all(by.css('.nav-tabs li a'));
       }).then(function(navTabs){
         var cultureTab = navTabs[1];
