@@ -31,6 +31,15 @@ describe('initial tests:',function(){
     ptor = protractor.getInstance();
     ptor.addMockModule('httpBackendMock', httpBackendMockString);
   }
+  function getMoreLinkHref(pageName) {
+    return visit(pageName).then(function(){
+      return element(by.css('.info-box'));
+    }).then(function(displayBox){
+      return displayBox.findElement(by.css('.more-button'));
+    }).then(function(moreButton){
+      return moreButton.getAttribute('href');
+    });
+  }
 
   it('login button exists', function(){
     visit('people').then(function(){
@@ -60,15 +69,8 @@ describe('initial tests:',function(){
       });
     });
 
-    it('should show a "more" link when hovering on a person\'s tile', function(){
-      visit('people').then(function(){
-        return element(by.css('.info-box'));
-      }).then(function(personBox){
-        var moreButton = personBox.findElement(by.css('.info-button'));;
-        return moreButton;
-      }).then(function(button){
-        return button.getAttribute('href');
-      }).then(function(href) {
+    it('should show a "more" link for a person', function(){
+      getMoreLinkHref('people').then(function(href) {
         expect(href).toMatch(people[0].id.$oid);
       });
     });
@@ -76,7 +78,10 @@ describe('initial tests:',function(){
   });
 
   describe('projects pages', function(){
-    var projects = [{ 'project_name': 'Test Project' },{ 'project_name': 'Test Project' }];
+    var projects = [
+      { 'project_name': 'Test Project', id: { $oid: 'TheProjectId' } },
+      { 'project_name': 'Test Project' }
+    ];
     beforeEach(function() {
       mockBackend({'projects.json' : projects});
     });
@@ -89,6 +94,13 @@ describe('initial tests:',function(){
         expect(projectsHtml.length).toBe(projects.length);
       });
     });
+
+    it('should show a "more" link for a project', function(){
+      getMoreLinkHref('projects').then(function(href) {
+        expect(href).toMatch(projects[0].id.$oid);
+      });
+    });
+
   });
   
   describe('editable tests', function(){

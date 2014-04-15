@@ -18,9 +18,7 @@ function($scope, People, Session, Search) {
   };
 
   $scope.getMoreLink = function(personId) {
-    if (Session.getPersonId()) {
-      return "#/people/" + personId;
-    }
+    return "#/people/" + personId;
   };
 
   $scope.compareTo = function(query) {
