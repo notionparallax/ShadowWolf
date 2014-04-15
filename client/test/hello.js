@@ -51,7 +51,7 @@ describe('initial tests:',function(){
     });
   });
 
-  describe('people pages', function(){
+  describe('people index page', function(){
     var people = [
     {
       name: { 'preferred_last': 'Test Person' },
@@ -123,8 +123,9 @@ describe('initial tests:',function(){
       }).then(function(){
         expect($('div.form-control-static.editable.editable-text')).toMatch("I'm typing, pretty cool eh!");
       });
+    });
       
-      xit("should NOT save the text entered if ENTER is pressed", function() {
+    xit("should NOT save the text entered if ENTER is pressed", function() {
       magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
       magicalEditable_gotoEditMode('selector.of.editable.we.want').then(function(edInput){
         edInput.clear();
@@ -133,8 +134,9 @@ describe('initial tests:',function(){
       }).then(function(){
         expect($('div.form-control-static.editable.editable-text')).not.toMatch("I'm typing, pretty cool eh!");
       });
+    });
       
-      xit("should NOT allow 'conditions' not on the list", function() {
+    xit("should NOT allow 'conditions' not on the list", function() {
       magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
       magicalEditable_gotoEditMode('selector.of.editable.we.want').then(function(edInput){
         edInput.clear();
@@ -143,8 +145,9 @@ describe('initial tests:',function(){
       }).then(function(){
         expect("the server to tell us that it's not happy"); //#92
       });
+    });
       
-      xit("should allow 'conditions' on the list", function() {
+    xit("should allow 'conditions' on the list", function() {
       magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
       magicalEditable_gotoEditMode('selector.of.editable.we.want').then(function(edInput){
         edInput.clear();
@@ -153,28 +156,44 @@ describe('initial tests:',function(){
       }).then(function(){
         expect("the server to tell us that it is happy"); //#92
       });
-
     });
+
   });
 
-  describe('people page tests:', function(){
+  describe('person show page', function(){
+    var people = [
+    {
+      name: { 'preferred_last': 'Test Person' },
+      id: { $oid: 'test-id' }
+    }];
+    beforeEach(function() {
+      mockBackend({'people.json' : people});
+    });
+
+    it('should not redirect when viewing a person\'s show page', function(){
+      visit('people/test-id').then(function(){
+        return browser.getCurrentUrl();
+      }).then(function(url){
+        expect(url).toMatch('people/test-id');
+      });
+    });
 
     xit("should be able to see the Preferred Name section", function() {
         visit('people/bdoherty').then(function(){ //will fail becasue we don't have pretty urls, and because we don't have a magic people setup function yet
         return element.all(by.css('div > h3'));
       }).then(function(header){
-        expect(projectsHtml.length).not.toBeUndefined());
+        expect(projectsHtml.length).not.toBeUndefined();
       });
-      });
-  });
+    });
 
   xit("should show the culture tab when it's clicked", function() {
         visit('people/bdoherty').then(function(){ //will fail becasue we don't have pretty urls, and because we don't have a magic people setup function yet
         return element.all(by.css('body > div.container.ng-scope > article > ul > li:nth-child(2) > a'));
       }).then(function(header){
-        expect(/*there to be something on the page that is cultury*/).not.toBeUndefined());
+        expect(/*there to be something on the page that is cultury*/).not.toBeUndefined();
       });
-      });
+    });
+
   });
 
 });
