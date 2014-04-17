@@ -31,39 +31,48 @@ describe('initial tests:',function(){
     ptor = protractor.getInstance();
     ptor.addMockModule('httpBackendMock', httpBackendMockString);
   }
-  function getMoreLinkHref(pageName) {
-    visit(pageName);
-    var displayBox = element(by.css('.info-box'));
-    var moreButton = displayBox.findElement(by.css('.more-button'));
-    var href = moreButton.getAttribute('href');
-    return href;
-  }
 
+  function LoginButton() {
+    var _button = element(by.css('.login-btn a'));
+    this.click = _button.click;
+    this.getText = _button.getInnerHtml;
+  }
   it('login button exists', function(){
     visit('people');
-    var loginBtn = element(by.css('.login-btn a'));
-    expect(loginBtn.getInnerHtml()).toBe('Log In');
+    var loginBtn = new LoginButton();
+    expect(loginBtn.getText()).toBe('Log In');
   });
 
+  function DisplayBoxes() {
+    var _tiles = element.all(by.css('.info-box'));
+    this.count = _tiles.count;
+    this.get = _tiles.get;
+  }
+  function DisplayBox(box) {
+    this.moreButton = box.findElement(by.css('.more-button'));
+  }
   describe('people index page', function(){
     var people = [
-    {
-      name: { 'preferred_last': 'Test Person' },
-      id: { $oid: 'test-id' }
-    }];
+      {
+        name: { 'preferred_last': 'Test Person' },
+        id: { $oid: 'test-id' }
+      }
+    ];
+    var peopleTiles;
     beforeEach(function() {
       mockBackend({'people.json' : people});
+      visit('people');
+      peopleTiles = new DisplayBoxes();
     });
 
     it('should list people at /people', function(){
-      visit('people');
-      var peopleTiles = element.all(by.css('.info-box'));
       expect(peopleTiles.count()).toBe(people.length);
     });
 
     it('should show a "more" link for a person', function(){
-      var moreButtonHref = getMoreLinkHref('people');
-      expect(moreButtonHref).toMatch(people[0].id.$oid);
+      var firstPeopleTile = new DisplayBox(peopleTiles.get(0));
+      var moreButton = firstPeopleTile.moreButton;
+      expect(moreButton.getAttribute('href')).toMatch(people[0].id.$oid);
     });
 
   });
@@ -72,20 +81,22 @@ describe('initial tests:',function(){
     var projects = [
       { 'project_name': 'Test Project', id: { $oid: 'TheProjectId' } },
       { 'project_name': 'Test Project' }
-    ];
+    ],
+        projectTiles;
     beforeEach(function() {
       mockBackend({'projects.json' : projects});
+      visit('projects');
+      projectTiles = new DisplayBoxes();
     });
 
     it('projects are listed on /projects', function(){
-      visit('projects');
-      var projectTiles = element.all(by.css('.info-box'));
       expect(projectTiles.count()).toBe(projects.length);
     });
 
     it('should show a "more" link for a project', function(){
-      var moreButtonHref = getMoreLinkHref('projects');
-      expect(moreButtonHref).toMatch(projects[0].id.$oid);
+      var firstProjectTile = new DisplayBox(projectTiles.get(0));
+      var moreButton = firstProjectTile.moreButton;
+      expect(moreButton.getAttribute('href')).toMatch(projects[0].id.$oid);
     });
 
   });
@@ -155,28 +166,25 @@ describe('initial tests:',function(){
     }];
     beforeEach(function() {
       mockBackend({'people.json' : people});
+      visit('people/test-id');
     });
 
     it('should not redirect when viewing a person\'s show page', function(){
-      visit('people/test-id');
       var currentUrl = browser.getCurrentUrl();
       expect(currentUrl).toMatch('people/test-id');
     });
 
     it("should be able to see the Preferred Name section", function() {
-      visit('people/test-id');
       var header = element(by.css('div > h3'));
       expect(header.getText()).toMatch(/Preferred Name/);
     });
     
     it("should be able to see the photos section", function() {
-      visit('people/test-id')
       var thumbnails = element.all(by.css('.thumbnail'));
       expect(thumbnails.count()).toBe(3);
     });
 
    it("should show the culture tab when it's clicked", function() {
-      visit('people/test-id');
       var cultureTab = element(by.css('.nav-tabs li:nth-child(2) a'));
       cultureTab.click();
       var cultureTabPane = element(by.css('.tab-pane:nth-child(2)'));
