@@ -7,7 +7,8 @@
          class="form-control-static editable editable-text"
          ng-click="enableEditor($event)">
         <p ng-if="type == 'number'" ng-bind="subobject[property] | number"></p>
-        <div ng-if="type != 'number'" ng-bind-html="subobject[property]"></div>
+        <!-- See #239 for why the " + '' " exists below. -->
+        <div ng-if="type != 'number'" ng-bind-html="subobject[property] +''"></div>
       </div>
       <div ng-show="editorEnabled"
            class="input-group">
