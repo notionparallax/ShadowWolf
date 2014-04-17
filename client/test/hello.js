@@ -32,23 +32,17 @@ describe('initial tests:',function(){
     ptor.addMockModule('httpBackendMock', httpBackendMockString);
   }
   function getMoreLinkHref(pageName) {
-    return visit(pageName).then(function(){
-      return element(by.css('.info-box'));
-    }).then(function(displayBox){
-      return displayBox.findElement(by.css('.more-button'));
-    }).then(function(moreButton){
-      return moreButton.getAttribute('href');
-    });
+    visit(pageName);
+    var displayBox = element(by.css('.info-box'));
+    var moreButton = displayBox.findElement(by.css('.more-button'));
+    var href = moreButton.getAttribute('href');
+    return href;
   }
 
   it('login button exists', function(){
-    visit('people').then(function(){
-      return element(by.css('.login-btn a'));
-    }).then(function(login){
-      return login.getInnerHtml();
-    }).then(function(loginText) {
-      expect(loginText).toBe('Log In');
-    });
+    visit('people');
+    var loginBtn = element(by.css('.login-btn a'));
+    expect(loginBtn.getInnerHtml()).toBe('Log In');
   });
 
   describe('people index page', function(){
@@ -62,17 +56,14 @@ describe('initial tests:',function(){
     });
 
     it('should list people at /people', function(){
-      visit('people').then(function(){
-        return element.all(by.css('.info-box'));
-      }).then(function(peopleHtml){
-        expect(peopleHtml.length).toBe(people.length);
-      });
+      visit('people');
+      var peopleTiles = element.all(by.css('.info-box'));
+      expect(peopleTiles.count()).toBe(people.length);
     });
 
     it('should show a "more" link for a person', function(){
-      getMoreLinkHref('people').then(function(href) {
-        expect(href).toMatch(people[0].id.$oid);
-      });
+      var moreButtonHref = getMoreLinkHref('people');
+      expect(moreButtonHref).toMatch(people[0].id.$oid);
     });
 
   });
@@ -87,18 +78,14 @@ describe('initial tests:',function(){
     });
 
     it('projects are listed on /projects', function(){
-      visit('projects').then(function(){
-        return element.all(by.css('.info-box'));
-      }).then(function(projectsHtml){
-        //projectsHtml[0].getInnerHtml().then(console.log);
-        expect(projectsHtml.length).toBe(projects.length);
-      });
+      visit('projects');
+      var projectTiles = element.all(by.css('.info-box'));
+      expect(projectTiles.count()).toBe(projects.length);
     });
 
     it('should show a "more" link for a project', function(){
-      getMoreLinkHref('projects').then(function(href) {
-        expect(href).toMatch(projects[0].id.$oid);
-      });
+      var moreButtonHref = getMoreLinkHref('projects');
+      expect(moreButtonHref).toMatch(projects[0].id.$oid);
     });
 
   });
@@ -171,49 +158,30 @@ describe('initial tests:',function(){
     });
 
     it('should not redirect when viewing a person\'s show page', function(){
-      visit('people/test-id').then(function(){
-        return browser.getCurrentUrl();
-      }).then(function(url){
-        expect(url).toMatch('people/test-id');
-      });
+      visit('people/test-id');
+      var currentUrl = browser.getCurrentUrl();
+      expect(currentUrl).toMatch('people/test-id');
     });
 
     it("should be able to see the Preferred Name section", function() {
-        visit('people/test-id').then(function(){
-        return element(by.css('div > h3'));
-      }).then(function(header){
-        return header.getText();
-      }).then(function(headerText){
-        expect(headerText).toMatch(/Preferred Name/);
-      });
+      visit('people/test-id');
+      var header = element(by.css('div > h3'));
+      expect(header.getText()).toMatch(/Preferred Name/);
     });
     
     it("should be able to see the photos section", function() {
-        visit('people/test-id').then(function(){
-        return element.all(by.css('.thumbnail'));
-      }).then(function(thumbDivs){
-        return thumbDivs.length;
-      }).then(function(numThumbs){
-        expect(numThumbs).toBe(3);
-      });
+      visit('people/test-id')
+      var thumbnails = element.all(by.css('.thumbnail'));
+      expect(thumbnails.count()).toBe(3);
     });
 
    it("should show the culture tab when it's clicked", function() {
-        visit('people/test-id').then(function(){
-        return element.all(by.css('.nav-tabs li a'));
-      }).then(function(navTabs){
-        var cultureTab = navTabs[1];
-        return cultureTab.click();
-      }).then(function(){
-        return element.all(by.css('.tab-pane'));
-      }).then(function(tabPanes){
-        var tabPane = tabPanes[1];
-        return tabPane.findElement(by.css('h3'));
-      }).then(function(header){
-        return header.getText();
-      }).then(function(headerText){
-        expect(headerText).toMatch(/Office Culture/);
-      });
+      visit('people/test-id');
+      var cultureTab = element(by.css('.nav-tabs li:nth-child(2) a'));
+      cultureTab.click();
+      var cultureTabPane = element(by.css('.tab-pane:nth-child(2)'));
+      var header = cultureTabPane.findElement(by.css('h3'));
+      expect(header.getText()).toMatch(/Office Culture/);
     });
 
   });
