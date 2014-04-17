@@ -190,11 +190,11 @@ describe('initial tests:',function(){
     
     it("should be able to see the photos section", function() {
         visit('people/test-id').then(function(){
-        return elements(by.css('.thumbnail'));
+        return element.all(by.css('.thumbnail'));
       }).then(function(thumbDivs){
         return thumbDivs.length;
       }).then(function(numThumbs){
-        expect(numThumbs).toBe(3);//this is brittle, but probably fine
+        expect(numThumbs).toBe(3);
       });
     });
 
