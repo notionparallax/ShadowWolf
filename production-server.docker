@@ -1,4 +1,4 @@
-FROM ShadowWolf-dev
+FROM shadowwolf-dev
 ADD . /ShadowWolf/server/.
 CMD ["server","-e","production"]
 ENTRYPOINT ["rails"]

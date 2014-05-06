@@ -8,7 +8,7 @@ read -r -d '' HELP <<HERE
 Usage: $0 <command> <target>
 
 Commands:
-  install (No targets) Ensures you have the ShadowWolf-dev docker image.
+  install (No targets) Ensures you have the shadowwolf-dev docker image.
   dev     Development commands like \`rails s\` and \`grunt server\`.
   build   Build docker images.
   run     (No targets) Runs whatever commands are passed to it in the
@@ -32,16 +32,16 @@ case "$1" in
   install)
     rm Dockerfile
     ln -s development.docker Dockerfile
-    sudo docker build -t ShadowWolf-dev .
+    sudo docker build -t shadowwolf-dev .
     rm Dockerfile
     ln -s development-server.docker Dockerfile
-    sudo docker build -t ShadowWolf-dev-server .
+    sudo docker build -t shadowwolf-dev-server .
     rm Dockerfile
     ln -s mongo.docker Dockerfile
-    sudo docker build -t ShadowWolf-mongo .
+    sudo docker build -t shadowwolf-mongo .
     rm Dockerfile
     ln -s development-testing.docker Dockerfile
-    sudo docker build -t ShadowWolf-dev-testing .
+    sudo docker build -t shadowwolf-dev-testing .
     ;;
   dev)
     case "$2" in
@@ -50,30 +50,30 @@ case "$1" in
         [[ -z `sudo docker ps | grep -e "sw-webdriver[^/]"` ]] && $0 dev webdriver
 
         sudo docker kill sw-testing && sudo docker rm sw-testing
-        sudo docker run --name sw-testing -i $BASE_ARGS --link sw-webdriver:webdriver --link sw-client:client -w /ShadowWolf/client/ ShadowWolf-dev-testing protractor Protractor.js
+        sudo docker run --name sw-testing -i $BASE_ARGS --link sw-webdriver:webdriver --link sw-client:client -w /ShadowWolf/client/ shadowwolf-dev-testing protractor Protractor.js
         ;;
       webdriver)
         sudo docker kill sw-webdriver && sudo docker rm sw-webdriver
-        sudo docker run --name sw-webdriver $DEFAULT_ARGS -p 4444 -w /ShadowWolf/client/ ShadowWolf-dev-testing webdriver-manager start
+        sudo docker run --name sw-webdriver $DEFAULT_ARGS -p 4444 -w /ShadowWolf/client/ shadowwolf-dev-testing webdriver-manager start
         ;;
       client)
         # 9000 for grunt server and 35729 for live-reload
         [[ -z `sudo docker ps | grep -e "sw-server[^/]"` ]] && $0 dev server
         sudo docker kill sw-client && sudo docker rm sw-client
-        sudo docker run --name sw-client --link sw-server:server $DEFAULT_ARGS -p 9000:9000 -p 35729:35729 -w /ShadowWolf/client/ ShadowWolf-dev grunt server
+        sudo docker run --name sw-client --link sw-server:server $DEFAULT_ARGS -p 9000:9000 -p 35729:35729 -w /ShadowWolf/client/ shadowwolf-dev grunt server
         ;;
       server)
         # rails uses 3000
         [[ -z `sudo docker ps | grep -e "sw-mongo[^/]"` ]] && $0 dev mongo
         sudo docker kill sw-server && sudo docker rm sw-server
-        sudo docker run -d -p 3000 --name sw-server --link sw-mongo:mongo $DEFAULT_ARGS -w /ShadowWolf/server/ ShadowWolf-dev-server rails server
+        sudo docker run -d -p 3000 --name sw-server --link sw-mongo:mongo $DEFAULT_ARGS -w /ShadowWolf/server/ shadowwolf-dev-server rails server
         ;;
       console)
-        sudo docker run -i -t -v $SHARED_VOLUME --link sw-mongo:mongo -w /ShadowWolf/server/ ShadowWolf-dev rails console
+        sudo docker run -i -t -v $SHARED_VOLUME --link sw-mongo:mongo -w /ShadowWolf/server/ shadowwolf-dev rails console
         ;;
       mongo)
         sudo docker kill sw-mongo && sudo docker rm sw-mongo
-        sudo docker run -d -p 27017 --name sw-mongo $DEFAULT_ARGS ShadowWolf-mongo mongod
+        sudo docker run -d -p 27017 --name sw-mongo $DEFAULT_ARGS shadowwolf-mongo mongod
         ;;
       *)
         echo "$USAGE"
@@ -81,7 +81,7 @@ case "$1" in
     esac
     ;;
   build)
-    CONTAINER_NAME="ShadowWolf-deploy"
+    CONTAINER_NAME="shadowwolf-deploy"
     case "$2" in
       client)
         rm Dockerfile
@@ -104,7 +104,7 @@ case "$1" in
     shift
     COMMAND="bash"
     [[ -n "$*" ]] && COMMAND="$*"
-    sudo docker run -i -t -v $SHARED_VOLUME ShadowWolf-dev $COMMAND
+    sudo docker run -i -t -v $SHARED_VOLUME shadowwolf-dev $COMMAND
     ;;
   help)
     echo "$HELP"

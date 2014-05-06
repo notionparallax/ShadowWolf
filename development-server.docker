@@ -1,2 +1,2 @@
-FROM ShadowWolf-dev
+FROM shadowwolf-dev
 EXPOSE 3000
