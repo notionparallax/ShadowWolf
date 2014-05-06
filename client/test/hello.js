@@ -1,6 +1,11 @@
 var mockPerson = require("./mockPerson.js").ben;
 
 describe('initial tests:',function(){
+  afterEach(function(){
+    ptor = protractor.getInstance();
+    ptor.clearMockModules();
+  });
+
   function visit(path) {
     var url = 'http://'
       + process.env['CLIENT_PORT_9000_TCP_ADDR']
@@ -159,33 +164,42 @@ describe('initial tests:',function(){
   });
 
   describe('person show page', function(){
-    var people = [
-    {
-      name: { 'preferred_last': 'Test Person' },
-      id: { $oid: 'test-id' }
-    }];
     beforeEach(function() {
-      mockBackend({'people.json' : people});
-      visit('people/test-id');
+        mockBackend({'people/test' : mockPerson});
+        visit('people/test-id');
     });
 
     describe('editables in show page', function(){
-      function Editable(property){
+      function Editable(element){
+        this.getValue = function(){
+          var output = element.findElement(by.css('.editable-text-display'));
+          return output.getInnerHtml();
+        };
+        this.getHtml = function(){
+          return element.getOuterHtml();
+        };
       }
       function EditableGroup(lens){
-        var _element = element(by.css('editable-group'));
-        _element.getOuterHtml(function(x){
-          console.log(_element);
-        });
-      }
-      var preferredFirstEditable;
-      beforeEach(function(){
-        // find an editable
-      });
+        var _element = element(by.css('editable-group[lens="' + lens + '"]'));
+        var _elements = _element.findElements(by.css('editable'));
 
-      it("should save the text entered if ENTER is pressed", function() {
-        var nameGroup = new EditableGroup('name');
-        expect(false).toBe(true);
+        this.getEditable = function(prop) {
+          var editable = _element.findElement(by.css('editable[property="' + prop + '"]'));
+          return new Editable(editable);
+        };
+        this.getHtml = function() {
+          return _element.getOuterHtml();
+        };
+      }
+
+      it("should display correct values for textual properties", function() {
+        var nameEditableGroup = new EditableGroup('name');
+        var preferedFirstEditable = nameEditableGroup.getEditable('preferred_first');
+        expect(preferedFirstEditable.getValue()).toBe('Ben');
+        var preferedLastEditable = nameEditableGroup.getEditable('preferred_last');
+        expect(preferedLastEditable.getValue()).toBe('Doherty');
+      });
+      //it("should save the text entered if ENTER is pressed", function() {
         /*
         magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
         magicalEditable_gotoEditMode('selector.of.editable.we.want').then(function(edInput){
@@ -196,7 +210,6 @@ describe('initial tests:',function(){
           expect($('div.form-control-static.editable.editable-text')).toMatch("I'm typing, pretty cool eh!");
         });
         */
-      });
 
     });
 
