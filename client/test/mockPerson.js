@@ -1,6 +1,6 @@
 var ben = {
     "id": {
-        "$oid": "52a008138bcb1e0144000099"
+        "$oid": "test-id"
     },
     "created_at": "2013-12-05T04:58:59.842Z",
     "updated_at": "2014-03-28T00:35:39.630Z",
@@ -205,4 +205,4 @@ var ben = {
     }
 };
 
-module.exports.ben;
+module.exports.ben = ben;
