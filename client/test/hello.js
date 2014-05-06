@@ -169,6 +169,37 @@ describe('initial tests:',function(){
       visit('people/test-id');
     });
 
+    describe('editables in show page', function(){
+      function Editable(property){
+      }
+      function EditableGroup(lens){
+        var _element = element(by.css('editable-group'));
+        _element.getOuterHtml(function(x){
+          console.log(_element);
+        });
+      }
+      var preferredFirstEditable;
+      beforeEach(function(){
+        // find an editable
+      });
+
+      it("should save the text entered if ENTER is pressed", function() {
+        var nameGroup = new EditableGroup('name');
+        expect(false).toBe(true);
+        /*
+        magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
+        magicalEditable_gotoEditMode('selector.of.editable.we.want').then(function(edInput){
+          edInput.clear();
+          edInput.sendKeys("I'm typing, pretty cool eh!")
+          ptor.actions().sendKeys(protractor.Key.ENTER).perform(); //http://stackoverflow.com/questions/19914915/how-to-make-protractor-press-the-enter-key
+        }).then(function(){
+          expect($('div.form-control-static.editable.editable-text')).toMatch("I'm typing, pretty cool eh!");
+        });
+        */
+      });
+
+    });
+
     it('should not redirect when viewing a person\'s show page', function(){
       var currentUrl = browser.getCurrentUrl();
       expect(currentUrl).toMatch('people/test-id');
