@@ -178,6 +178,20 @@ describe('initial tests:',function(){
         this.getHtml = function(){
           return element.getOuterHtml();
         };
+        this.click = function(){
+          element.findElement(by.css('.editable-output'))
+                 .click();
+        };
+        this.isInputMode = function(){
+          return element.findElement(by.css('.editable-input'))
+            .then(function()   {return true; },
+                  function(err){return false;});
+        };
+        this.isOutputMode = function(){
+          return element.findElement(by.css('.editable-output'))
+            .then(function()   {return true; },
+                  function(err){return false;});
+        };
       }
       function EditableGroup(lens){
         var _element = element(by.css('editable-group[lens="' + lens + '"]'));
@@ -194,12 +208,30 @@ describe('initial tests:',function(){
 
       it("should display correct values for textual properties", function() {
         var nameEditableGroup = new EditableGroup('name');
+
         var preferedFirstEditable = nameEditableGroup.getEditable('preferred_first');
         expect(preferedFirstEditable.getValue()).toBe('Ben');
+
         var preferedLastEditable = nameEditableGroup.getEditable('preferred_last');
         expect(preferedLastEditable.getValue()).toBe('Doherty');
       });
-      //it("should save the text entered if ENTER is pressed", function() {
+
+      it("should go to editable mode if clicked", function(){
+        var nameEditableGroup = new EditableGroup('name');
+        var preferedFirstEditable = nameEditableGroup.getEditable('preferred_first');
+        preferedFirstEditable.click();
+        expect(preferedFirstEditable.isInputMode()).toBe(true);
+      });
+
+      xit("should save the text entered if ENTER is pressed", function() {
+        var nameEditableGroup = new EditableGroup('name');
+        var preferedFirstEditable = nameEditableGroup.getEditable('preferred_first');
+        preferedFirstEditable.click();
+        preferedFirstEditable.sendKeys("Benjamin");
+        preferedFirstEditable.clickOK();
+
+        expect(personService.save).toHaveBeenCalled();
+      });
         /*
         magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
         magicalEditable_gotoEditMode('selector.of.editable.we.want').then(function(edInput){
