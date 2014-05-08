@@ -63,9 +63,9 @@ case "$1" in
         sudo docker run --name sw-client --link sw-server:server $DEFAULT_ARGS -p 9000:9000 -p 35729:35729 -w /ShadowWolf/client/ shadowwolf-dev grunt server
         ;;
       server)
-        # rails uses 3000
         [[ -z `sudo docker ps | grep -e "sw-mongo[^/]"` ]] && $0 dev mongo
-        sudo docker kill sw-server && sudo docker rm sw-server
+        sudo docker kill sw-server && sudo docker rm sw-server && sudo rm server/tmp/pids/server.pid
+        # rails uses 3000
         sudo docker run -d -p 3000 --name sw-server --link sw-mongo:mongo $DEFAULT_ARGS -w /ShadowWolf/server/ shadowwolf-dev-server rails server
         ;;
       console)
