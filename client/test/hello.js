@@ -106,9 +106,10 @@ describe('initial tests:',function(){
 
   });
   
+  /*
   describe('editable tests', function(){
 
-    xit("should show help text when a label is hovered", function() {
+    it("should show help text when a label is hovered", function() {
       //Where helptext container is called `x`
       magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
       $('label.editable-lable"').trigger('mouseover');
@@ -117,7 +118,7 @@ describe('initial tests:',function(){
       expect($('#helptext-for-x')).toBeShown();
     });
 
-    xit("should save the text entered if ENTER is pressed", function() {
+    it("should save the text entered if ENTER is pressed", function() {
       magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
       magicalEditable_gotoEditMode('selector.of.editable.we.want').then(function(edInput){
         edInput.clear();
@@ -128,7 +129,7 @@ describe('initial tests:',function(){
       });
     });
       
-    xit("should NOT save the text entered if ENTER is pressed", function() {
+    it("should NOT save the text entered if ENTER is pressed", function() {
       magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
       magicalEditable_gotoEditMode('selector.of.editable.we.want').then(function(edInput){
         edInput.clear();
@@ -139,7 +140,7 @@ describe('initial tests:',function(){
       });
     });
       
-    xit("should NOT allow 'conditions' not on the list", function() {
+    it("should NOT allow 'conditions' not on the list", function() {
       magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
       magicalEditable_gotoEditMode('selector.of.editable.we.want').then(function(edInput){
         edInput.clear();
@@ -150,7 +151,7 @@ describe('initial tests:',function(){
       });
     });
       
-    xit("should allow 'conditions' on the list", function() {
+    it("should allow 'conditions' on the list", function() {
       magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
       magicalEditable_gotoEditMode('selector.of.editable.we.want').then(function(edInput){
         edInput.clear();
@@ -162,6 +163,7 @@ describe('initial tests:',function(){
     });
 
   });
+  */
 
   describe('person show page', function(){
     beforeEach(function() {
@@ -192,6 +194,15 @@ describe('initial tests:',function(){
             .then(function()   {return true; },
                   function(err){return false;});
         };
+        this.sendKeys = function(){
+          // TODO throw an error if not in InputMode
+          // TODO make it work for textareas as well
+          var inputElement = element.findElement(by.css('input'));
+          return inputElement.apply(this, arguments);
+        };
+        this.getInputElement = function() {
+          return element.findElement(by.css('input'));
+        };
       }
       function EditableGroup(lens){
         var _element = element(by.css('editable-group[lens="' + lens + '"]'));
@@ -216,21 +227,26 @@ describe('initial tests:',function(){
         expect(preferedLastEditable.getValue()).toBe('Doherty');
       });
 
-      it("should go to editable mode if clicked", function(){
+      it("should go to InputMode if clicked in OutputMode", function(){
         var nameEditableGroup = new EditableGroup('name');
         var preferedFirstEditable = nameEditableGroup.getEditable('preferred_first');
+
         preferedFirstEditable.click();
         expect(preferedFirstEditable.isInputMode()).toBe(true);
+
+        var editableInputElement = preferedFirstEditable.getInputElement();
+        var activeElement = ptor.driver.switchTo().activeElement();
+        expect(activeElement.getOuterHtml()).toBe(editableInputElement.getOuterHtml());
       });
 
-      xit("should save the text entered if ENTER is pressed", function() {
+      it("should go to OutputMode if ENTER is pressed in InputMode", function() {
         var nameEditableGroup = new EditableGroup('name');
         var preferedFirstEditable = nameEditableGroup.getEditable('preferred_first');
+        expect(preferedFirstEditable.isOutputMode()).toBe(true);
         preferedFirstEditable.click();
-        preferedFirstEditable.sendKeys("Benjamin");
-        preferedFirstEditable.clickOK();
-
-        expect(personService.save).toHaveBeenCalled();
+        expect(preferedFirstEditable.isInputMode()).toBe(true);
+        ptor.actions().sendKeys(protractor.Key.ENTER).perform();
+        expect(preferedFirstEditable.isOutputMode()).toBe(true);
       });
         /*
         magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
