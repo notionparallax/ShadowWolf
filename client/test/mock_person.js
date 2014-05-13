@@ -205,4 +205,4 @@ var ben = {
     }
 };
 
-module.exports.ben = ben;
+module.exports.mockPerson = ben;
