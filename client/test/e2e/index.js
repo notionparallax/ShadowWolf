@@ -11,12 +11,6 @@ var mockPerson = require("../mock_person.js").mockPerson;
 describe('index pages',function(){
   setup();
 
-  it('login button exists', function(){
-    visit('people');
-    var loginBtn = new LoginButton();
-    expect(loginBtn.getText()).toBe('Log In');
-  });
-
   describe('people page', function(){
     var people = [
       {
