@@ -28,7 +28,12 @@ ShadowWolf is 3 main components which currently live inside docker containers.
 #### Installing ####
 To install the environment for the first time:
 ```
-cd Projects/ShadowWolf/
+mkdir Projects
+cd Projects
+git clone https://github.com/notionparallax/ShadowWolf.git
+cd ShadowWolf
+docker -d #this might not be necesary for you
+
 ./docker-util install
 ```
 This will build the images.
