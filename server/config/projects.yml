@@ -76,6 +76,10 @@ geo_json:
 
 address:
   fields:
+  - name: dirty_location
+    type: string
+    factory: |
+      { "<p>West End, Brisbane QLD</p>"}
   - name: building_name
     type: string
     factory: |
