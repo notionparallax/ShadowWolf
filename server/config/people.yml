@@ -46,6 +46,10 @@ employee:
     type: string
     factory: |
       { Faker::Name.title }
+  - name: skillsUpdateLink
+    type: string
+    factory: |
+      { 'https://www.youtube.com/watch?v=qb_hqexKkw8' }
   relation:
     parent: person
     type: embeds_one
