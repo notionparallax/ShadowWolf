@@ -388,6 +388,10 @@ legacy:
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
+  - name: description_200_500_words
+    type: text
+    factory: |
+      { Faker::Lorem.paragraphs.join('<br>') }
   - name: description_awards_style
     type: text
     factory: |
