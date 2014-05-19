@@ -33,7 +33,7 @@ building:
   - name: attribution
     type: string
     factory: |
-      { "TODO: I don't remember why this field  exists" }
+      { ["BVN","Donovan Hill","BVN Donovan Hill"].sample }
   - name: BCA_classification
     type: string
     factory: |
