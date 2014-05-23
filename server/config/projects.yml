@@ -33,7 +33,7 @@ building:
   - name: attribution
     type: string
     factory: |
-      { "TODO: I don't remember why this field  exists" }
+      { ["BVN","Donovan Hill","BVN Donovan Hill"].sample }
   - name: BCA_classification
     type: string
     factory: |
@@ -76,6 +76,10 @@ geo_json:
 
 address:
   fields:
+  - name: dirty_location
+    type: string
+    factory: |
+      { "<p>West End, Brisbane QLD</p>"}
   - name: building_name
     type: string
     factory: |
@@ -385,6 +389,10 @@ legacy:
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
   - name: description_project_sheet
+    type: text
+    factory: |
+      { Faker::Lorem.paragraphs.join('<br>') }
+  - name: description_200_500_words
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
