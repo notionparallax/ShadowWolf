@@ -10,6 +10,7 @@ Usage: $0 <command> <target>
 Commands:
   install (No targets) Ensures you have the shadowwolf-dev docker image.
   dev     Development commands like \`rails s\` and \`grunt server\`.
+  prod    Production environment, currently only supports console.
   build   Build docker images.
   deploy  Push images to the BVN server and start them up.
   run     (No targets) Runs whatever commands are passed to it in the
@@ -103,7 +104,7 @@ case "$1" in
         exit 1
         ;;
     esac
-    docker build -t $CONTAINER_NAME .
+    sudo docker build -t $CONTAINER_NAME .
     ;;
   deploy)
     if [[ -z $BVN_SERVER ]]
@@ -134,6 +135,20 @@ case "$1" in
         "
         ssh $USER@$BVN_SERVER $remote_script
         ;;
+    esac
+    ;;
+  prod)
+    if [[ -z $BVN_SERVER ]]
+    then
+      read -p "BVN_SERVER is not defined for this environment, please enter the address for BVN_SERVER: " BVN_SERVER
+    fi
+    case "$2" in
+      console)
+        remote_script="
+          docker run -i -t --link sw-mongo:mongo $BVN_SERVER:5000/shadowwolf-deploy-server console -e production;
+        "
+        ssh $USER@$BVN_SERVER $remote_script
+      ;;
     esac
     ;;
   run)
