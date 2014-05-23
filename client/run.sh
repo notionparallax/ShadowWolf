@@ -7,4 +7,4 @@ angular.module('ShadowWolf')
 .constant('ENDPOINT', "$ENDPOINT");
 EOF
 sed -ibak 's@</body>@<script src="scripts/endpoint.js"></script></body>@' dist/index.html
-grunt connect:dist:keepalive
+exec grunt connect:dist:keepalive
