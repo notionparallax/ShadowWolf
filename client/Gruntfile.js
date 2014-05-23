@@ -92,7 +92,8 @@ module.exports = function (grunt) {
         name: 'config',
         constants: {
           ENV: 'development',
-          ENDPOINT: "http://" + process.env.SERVER_PORT_3000_TCP_ADDR + ":" + process.env.SERVER_PORT_3000_TCP_PORT
+          ENDPOINT: "http://" + process.env.SERVER_PORT_3000_TCP_ADDR + ":" + process.env.SERVER_PORT_3000_TCP_PORT,
+          RETURNPOINT: "http://" + process.env.SERVER_PORT_3000_TCP_ADDR + ":" + 9000
         }
       }]
     },
