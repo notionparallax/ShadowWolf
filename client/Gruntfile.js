@@ -75,10 +75,7 @@ module.exports = function (grunt) {
     },
     ngconstant: {
       options: {
-        space: '  ',
-        constants: {
-          ENDPOINT: "http://" + process.env.SERVER_PORT_3000_TCP_ADDR + ":" + process.env.SERVER_PORT_3000_TCP_PORT
-        }
+        space: '  '
       },
 
       production: {
@@ -94,7 +91,8 @@ module.exports = function (grunt) {
         wrap: '"use strict";\n\n <%= __ngModule %>;',
         name: 'config',
         constants: {
-          ENV: 'development'
+          ENV: 'development',
+          ENDPOINT: "http://" + process.env.SERVER_PORT_3000_TCP_ADDR + ":" + process.env.SERVER_PORT_3000_TCP_PORT
         }
       }]
     },
