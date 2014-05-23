@@ -11,6 +11,7 @@ Commands:
   install (No targets) Ensures you have the shadowwolf-dev docker image.
   dev     Development commands like \`rails s\` and \`grunt server\`.
   build   Build docker images.
+  deploy  Push images to the BVN server and start them up.
   run     (No targets) Runs whatever commands are passed to it in the
           container.
   help    Print this text.
@@ -32,52 +33,52 @@ case "$1" in
   install)
     rm Dockerfile
     ln -s development.docker Dockerfile
-    sudo docker build -t shadowwolf-dev .
+    docker build -t shadowwolf-dev .
     rm Dockerfile
     ln -s development-server.docker Dockerfile
-    sudo docker build -t shadowwolf-dev-server .
+    docker build -t shadowwolf-dev-server .
     rm Dockerfile
     ln -s mongo.docker Dockerfile
-    sudo docker build -t shadowwolf-mongo .
+    docker build -t shadowwolf-mongo .
     rm Dockerfile
     ln -s development-testing.docker Dockerfile
-    sudo docker build -t shadowwolf-dev-testing .
+    docker build -t shadowwolf-dev-testing .
     ;;
   dev)
     case "$2" in
       test)
-        [[ -z `sudo docker ps | grep -e "sw-client[^/]"` ]] && $0 dev client
-        [[ -z `sudo docker ps | grep -e "sw-webdriver[^/]"` ]] && $0 dev webdriver
+        [[ -z `docker ps | grep -e "sw-client[^/]"` ]] && $0 dev client
+        [[ -z `docker ps | grep -e "sw-webdriver[^/]"` ]] && $0 dev webdriver
         SUITE="all"
         if [[ -n "$3" ]];
         then SUITE="$3"
         fi
 
-        sudo docker kill sw-testing && sudo docker rm sw-testing
-        sudo docker run --name sw-testing -i $BASE_ARGS --link sw-webdriver:webdriver --link sw-client:client -w /ShadowWolf/client/ shadowwolf-dev-testing protractor Protractor.js --suite $SUITE && notify-send "ShadowWolf Tests" Done || notify-send "ShadowWolf Tests" Fail
+        docker kill sw-testing && docker rm sw-testing
+        docker run --name sw-testing -i $BASE_ARGS --link sw-webdriver:webdriver --link sw-client:client -w /ShadowWolf/client/ shadowwolf-dev-testing protractor Protractor.js --suite $SUITE && notify-send "ShadowWolf Tests" Done || notify-send "ShadowWolf Tests" Fail
         ;;
       webdriver)
-        sudo docker kill sw-webdriver && sudo docker rm sw-webdriver
-        sudo docker run --name sw-webdriver $DEFAULT_ARGS -p 4444 -w /ShadowWolf/client/ shadowwolf-dev-testing webdriver-manager start
+        docker kill sw-webdriver && docker rm sw-webdriver
+        docker run --name sw-webdriver $DEFAULT_ARGS -p 4444 -w /ShadowWolf/client/ shadowwolf-dev-testing webdriver-manager start
         ;;
       client)
         # 9000 for grunt server and 35729 for live-reload
-        [[ -z `sudo docker ps | grep -e "sw-server[^/]"` ]] && $0 dev server
-        sudo docker kill sw-client && sudo docker rm sw-client
-        sudo docker run --name sw-client --link sw-server:server $DEFAULT_ARGS -p 9000:9000 -p 35729:35729 -w /ShadowWolf/client/ shadowwolf-dev grunt server
+        [[ -z `docker ps | grep -e "sw-server[^/]"` ]] && $0 dev server
+        docker kill sw-client && docker rm sw-client
+        docker run --name sw-client --link sw-server:server $DEFAULT_ARGS -p 9000:9000 -p 35729:35729 -w /ShadowWolf/client/ shadowwolf-dev grunt server
         ;;
       server)
-        [[ -z `sudo docker ps | grep -e "sw-mongo[^/]"` ]] && $0 dev mongo
-        sudo docker kill sw-server && sudo docker rm sw-server && sudo rm server/tmp/pids/server.pid
+        [[ -z `docker ps | grep -e "sw-mongo[^/]"` ]] && $0 dev mongo
+        docker kill sw-server && docker rm sw-server && sudo rm server/tmp/pids/server.pid
         # rails uses 3000
-        sudo docker run -d -p 3000 --name sw-server --link sw-mongo:mongo $DEFAULT_ARGS -w /ShadowWolf/server/ shadowwolf-dev-server rails server
+        docker run -d -p 3000 --name sw-server --link sw-mongo:mongo $DEFAULT_ARGS -w /ShadowWolf/server/ shadowwolf-dev-server rails server
         ;;
       console)
-        sudo docker run -i -t -v $SHARED_VOLUME --link sw-mongo:mongo -w /ShadowWolf/server/ shadowwolf-dev rails console
+        docker run -i -t -v $SHARED_VOLUME --link sw-mongo:mongo -w /ShadowWolf/server/ shadowwolf-dev rails console
         ;;
       mongo)
-        sudo docker kill sw-mongo && sudo docker rm sw-mongo
-        sudo docker run -d -p 27017 --name sw-mongo $DEFAULT_ARGS shadowwolf-mongo mongod
+        docker kill sw-mongo && docker rm sw-mongo
+        docker run -d -p 27017 --name sw-mongo $DEFAULT_ARGS shadowwolf-mongo mongod
         ;;
       *)
         echo "$USAGE"
@@ -102,13 +103,44 @@ case "$1" in
         exit 1
         ;;
     esac
-    sudo docker build -t $CONTAINER_NAME .
+    docker build -t $CONTAINER_NAME .
+    ;;
+  deploy)
+    if [[ -z $BVN_SERVER ]]
+    then
+      read -p "BVN_SERVER is not defined for this environment, please enter the address for BVN_SERVER: " BVN_SERVER
+    fi
+    case "$2" in
+      client)
+        image=`docker images | egrep '^shadowwolf-deploy-client' | grep latest | awk '{print $3}'`
+        docker tag $image $BVN_SERVER:5000/shadowwolf-deploy-client
+        docker push $BVN_SERVER:5000/shadowwolf-deploy-client
+        remote_script="
+        docker pull $BVN_SERVER:5000/shadowwolf-deploy-client > /dev/null;
+        docker rm -f sw-client;
+        docker run -d --name sw-client --link sw-server:server -p 9000:9000 -e SERVER_PORT_3000_TCP_ADDR=$BVN_SERVER $BVN_SERVER:5000/shadowwolf-deploy-client;
+        "
+        ssh $USER@$BVN_SERVER $remote_script
+        ;;
+      server)
+        image=`docker images | egrep '^shadowwolf-deploy-server' | grep latest | awk '{print $3}'`
+        docker tag $image $BVN_SERVER:5000/shadowwolf-deploy-server
+        docker push $BVN_SERVER:5000/shadowwolf-deploy-server
+        remote_script="
+        docker pull $BVN_SERVER:5000/shadowwolf-deploy-server > /dev/null;
+        docker rm -f sw-client && docker rm -f sw-server;
+        docker run -d --name sw-server --link sw-mongo:mongo -p 3000:3000 $BVN_SERVER:5000/shadowwolf-deploy-server;
+        docker run -d --name sw-client --link sw-server:server -p 9000:9000 -e SERVER_PORT_3000_TCP_ADDR=$BVN_SERVER $BVN_SERVER:5000/shadowwolf-deploy-client;
+        "
+        ssh $USER@$BVN_SERVER $remote_script
+        ;;
+    esac
     ;;
   run)
     shift
     COMMAND="bash"
     [[ -n "$*" ]] && COMMAND="$*"
-    sudo docker run -i -t -v $SHARED_VOLUME shadowwolf-dev $COMMAND
+    docker run -i -t -v $SHARED_VOLUME shadowwolf-dev $COMMAND
     ;;
   help)
     echo "$HELP"
