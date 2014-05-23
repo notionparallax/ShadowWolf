@@ -1,4 +1,6 @@
 FROM shadowwolf-dev
-ADD . /ShadowWolf/server/.
+ADD ./server/ /ShadowWolf/server/.
 CMD ["server","-e","production"]
+WORKDIR /ShadowWolf/server/
 ENTRYPOINT ["rails"]
+EXPOSE 3000

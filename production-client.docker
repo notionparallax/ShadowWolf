@@ -1,5 +1,5 @@
 FROM shadowwolf-dev
-ADD client /ShadowWolf/client/.
+ADD ./client/ /ShadowWolf/client/
 RUN cd client && grunt build
 WORKDIR /ShadowWolf/client/
-CMD ["python", "-m", "http.server"]
+CMD ["grunt","connect:dist:keepalive"]
