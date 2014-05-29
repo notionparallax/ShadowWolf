@@ -12,8 +12,8 @@
           <editable  property="work_email" label="work email" type="email" >This is your ~~~@bvn.com.au email address.</editable>
         </editable-group>
 
-        <div class="col-md-6">
-          <h4>Mobile</h4>
+        <div ng-if="isCurrentUser()" class="col-md-6">
+          <h4 id="mobile">Mobile</h4>
           <editable-group object="person"
                           lens="employee.contact.mobile"
                           subgroup-class="alert alert-info col-sm-6">

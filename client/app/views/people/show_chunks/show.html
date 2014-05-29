@@ -22,7 +22,7 @@
       include "reg_.html"
     </tab>
 
-    <tab heading="Travel">
+    <tab ng-if="isCurrentUser()" heading="Travel">
       include "travel_.html"
     </tab>
 
@@ -38,7 +38,7 @@
       include "press_.html"
     </tab>
 
-    <tab heading="Applicant">
+    <tab ng-if="isCurentUser()" heading="Applicant">
       include "applicant_.html"
     </tab>
 
