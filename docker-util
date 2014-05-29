@@ -34,16 +34,16 @@ case "$1" in
   install)
     rm Dockerfile
     ln -s development.docker Dockerfile
-    docker build -t shadowwolf-dev .
+    sudo docker build -t shadowwolf-dev .
     rm Dockerfile
     ln -s development-server.docker Dockerfile
-    docker build -t shadowwolf-dev-server .
+    sudo docker build -t shadowwolf-dev-server .
     rm Dockerfile
     ln -s mongo.docker Dockerfile
-    docker build -t shadowwolf-mongo .
+    sudo docker build -t shadowwolf-mongo .
     rm Dockerfile
     ln -s development-testing.docker Dockerfile
-    docker build -t shadowwolf-dev-testing .
+    sudo docker build -t shadowwolf-dev-testing .
     ;;
   dev)
     case "$2" in
