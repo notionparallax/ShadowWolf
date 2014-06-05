@@ -25,11 +25,16 @@ function mockBackend(mappings, personId, accessToken) {
       
   var httpBackendMock = function(){
     angular.module('httpBackendMock', ['ShadowWolf', 'ngMockE2E'])
-    .run(function($httpBackend) {
+    .run(function($httpBackend, $document) {
+      function log(msg) {
+        var logTag = angular.element('<p class="log">' + msg + '</p>');
+        document.body.appendChild(logTag[0]);
+      }
       // UGLY
       for (var regex in mappings) {
         $httpBackend.whenGET(new RegExp(regex))
           .respond(function(method, url, data, headers){
+            log(['request',method,url].join(' '));
             if (personId && accessToken) {
               var params = {};
               for (var param in url.split('?')[1].split('&')) {
@@ -37,6 +42,7 @@ function mockBackend(mappings, personId, accessToken) {
               }
               var personIdMatch = personId === params.person_id,
                   accessTokenMatch = accessToken === params.access_token;
+                return [200,mappings[regex]];
               if (personIdMatch && accessTokenMatch) {
                 return mappings[regex].me;
               } else if (accessTokenMatch) {
@@ -49,6 +55,11 @@ function mockBackend(mappings, personId, accessToken) {
             }
           });
       }
+      $httpBackend.when('PATCH',/.*/)
+      .respond(function(method, url, data, headers){
+        log(JSON.parse(data).person.name.preferred_first);
+        return [200,{}];
+      });
       $httpBackend.whenGET(/.*/).passThrough();
     });
   };

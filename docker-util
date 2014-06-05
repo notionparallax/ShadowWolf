@@ -145,7 +145,7 @@ case "$1" in
     case "$2" in
       console)
         remote_script="
-          docker run -i -t --link sw-mongo:mongo $BVN_SERVER:5000/shadowwolf-deploy-server console -e production;
+          docker run -i -t --rm --link sw-mongo:mongo $BVN_SERVER:5000/shadowwolf-deploy-server console -e production;
         "
         ssh $USER@$BVN_SERVER $remote_script
       ;;

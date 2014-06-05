@@ -37,8 +37,11 @@ function Editable(element){
     // TODO throw an error if not in InputMode
     // TODO make it work for textareas as well
     var inputElement = element.findElement(by.css('input'));
-    return inputElement.apply(this, arguments);
+    return inputElement.sendKeys.apply(this, arguments);
   };
+  this.submit = function() {
+    element.findElement(by.css('.save-btn')).click();
+  }
   this.getInputElement = function() {
     return element.findElement(by.css('input'));
   };
