@@ -16,6 +16,7 @@ angular.module("ShadowWolf")
       scope.type = attrs.type || 'text';
     },
     controller: function($scope) {
+      $scope.editable = {};
       $scope.editorEnabled= false;
 
       $scope.get = Lens.get;
@@ -36,7 +37,7 @@ angular.module("ShadowWolf")
       $scope.enableEditor = function() {
         //if (editDisabled || Session.getPersonId() != $scope.object.id['$oid']) return;
         $scope.editorEnabled = true;
-        $scope.editableValue = $scope.subobject[$scope.property];
+        $scope.editable.value = $scope.subobject[$scope.property];
       };
 
       $scope.disableEditor = function() {
@@ -53,6 +54,7 @@ angular.module("ShadowWolf")
         // Set the value locally
         var object = $scope.subobject ? $scope.subobject : $scope.target();
         object[$scope.property] = $scope.editableValue;
+        console.log($scope.editableValue);
 
         // Wrap it for transport
         var diffObject = { id: object.id['$oid'] };

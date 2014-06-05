@@ -75,6 +75,8 @@ describe('editables in show page', function(){
     preferedFirstEditable.click();
     var inputE = preferedFirstEditable.getInputElement();
     preferedFirstEditable.sendKeys('OK');
+    expect(inputE.getOuterHtml()).toBe('input html');
+    expect(inputE.getAttribute('value')).toBe('input value');
     // submit
     preferedFirstEditable.submit();
     expect(preferedFirstEditable.getHtml()).toBe('editable html')

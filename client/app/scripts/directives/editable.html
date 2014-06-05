@@ -15,10 +15,10 @@
            class="input-group editable-input">
         <input ng-show="type != 'textarea'"
                type="{{ type }}"
-               ng-model="editableValue"
+               ng-model="editable.value"
                class="form-control" />
         <textarea ng-show="type == 'textarea'"
-                  ng-model="editableValue">
+                  ng-model="editable.value">
         </textarea>
         <span class="save-btn" class="input-group-addon" ng-click="save()">
           <span class="glyphicon glyphicon-ok"
