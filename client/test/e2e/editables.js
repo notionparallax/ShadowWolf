@@ -1,5 +1,6 @@
 var pageObjects = require("../page_objects.js");
 var EditableGroup = pageObjects.EditableGroup;
+var BackEndLogs = pageObjects.BackEndLogs;
 var Utils = require("../utils.js");
 var setup = Utils.setup;
 var visit = Utils.visit;
@@ -48,58 +49,23 @@ describe('editables in show page', function(){
   });
 
   it("should PATCH data to the server when a field is changed", function() {
-    // mock stuff
-//    ptor = protractor.getInstance();
-//    ptor.addMockModule('httpBackendMock', function(){
-//      angular.module('httpBackendMock', ['ShadowWolf','ngMockE2E'])
-//      .run(function($httpBackend, $document) {
-//        function log(msg) {
-//          $document.append('<p class="log">' + msg + '</p>');
-//        }
-//        $httpBackend.whenGET(/people/)
-//          .respond({person: mockPerson});
-//        $httpBackend.whenGET(/.*/)
-//        .respond(function(method,url,data,headers){
-//          if (data.name.preferred_first == 'OK') {
-//            log('success');
-//          } else {
-//            log('fail');
-//          }
-//        });
-//      });
-//    });
-
-    // enter data
+    // enter data and submit
     var nameEditableGroup = new EditableGroup('name');
     var preferedFirstEditable = nameEditableGroup.getEditable('preferred_first');
     preferedFirstEditable.click();
-    var inputE = preferedFirstEditable.getInputElement();
-    preferedFirstEditable.sendKeys('OK');
-    expect(inputE.getOuterHtml()).toBe('input html');
-    expect(inputE.getAttribute('value')).toBe('input value');
-    // submit
+    preferedFirstEditable.sendKeys('\b\b\bOK');
     preferedFirstEditable.submit();
-    expect(preferedFirstEditable.getHtml()).toBe('editable html')
+    expect(preferedFirstEditable.getValue()).toBe('OK');
     // verify success
-    element.all(by.css('.log'))
-      .then(function(logs){
-        for (var log in logs) {
-          expect(logs[log].getInnerHtml()).toBe('log' + log);
-        }
-      });
-    browser.manage().logs().get('browser').then(function(browserLog) {
-        console.log('log: ' + require('util').inspect(browserLog));
+    var logs = new BackEndLogs().fetchRequests();
+    var match = function(log) {
+      return log.method == 'PATCH' &&
+        JSON.parse(log.data)
+          .person.name.preferred_first == 'OK';
+    };
+    logs.then(function(logs){
+      expect(logs.some(match)).toBe(true);
     });
   });
-    /*
-    magicalEditableSetupFunction(someJSON, someHelpText, more, args, that, we, will, need);
-    magicalEditable_gotoEditMode('selector.of.editable.we.want').then(function(edInput){
-      edInput.clear();
-      edInput.sendKeys("I'm typing, pretty cool eh!")
-      ptor.actions().sendKeys(protractor.Key.ENTER).perform(); //http://stackoverflow.com/questions/19914915/how-to-make-protractor-press-the-enter-key
-    }).then(function(){
-      expect($('div.form-control-static.editable.editable-text')).toMatch("I'm typing, pretty cool eh!");
-    });
-    */
 
 });

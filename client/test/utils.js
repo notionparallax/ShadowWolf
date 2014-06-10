@@ -4,6 +4,9 @@ function setup(){
   afterEach(function(){
     ptor = protractor.getInstance();
     ptor.clearMockModules();
+    browser.manage().logs().get('browser').then(function(browserLog) {
+        console.log('log: ' + require('util').inspect(browserLog));
+    });
   });
 }
 function visit(path) {
@@ -26,15 +29,26 @@ function mockBackend(mappings, personId, accessToken) {
   var httpBackendMock = function(){
     angular.module('httpBackendMock', ['ShadowWolf', 'ngMockE2E'])
     .run(function($httpBackend, $document) {
+      var logsTag = angular.element('<div style="display:none" class="logs"></div>')[0];
+      document.body.appendChild(logsTag);
       function log(msg) {
-        var logTag = angular.element('<p class="log">' + msg + '</p>');
-        document.body.appendChild(logTag[0]);
+        var logTag = angular.element('<p class="log">' + msg + '</p>')[0];
+        logsTag.appendChild(logTag);
+      }
+      function logRequest(method,url,data){
+        var log = angular.element('<div class="log request"></div>')[0];
+        var method = angular.element('<p class="method">' + method + '</p>')[0];
+        var url = angular.element('<p class="url">' + url + '</p>')[0];
+        var data = angular.element('<div class="data">' + data + '</div>')[0];
+        log.appendChild( method );
+        log.appendChild( url );
+        log.appendChild( data );
+        logsTag.appendChild(log);
       }
       // UGLY
       for (var regex in mappings) {
         $httpBackend.whenGET(new RegExp(regex))
           .respond(function(method, url, data, headers){
-            log(['request',method,url].join(' '));
             if (personId && accessToken) {
               var params = {};
               for (var param in url.split('?')[1].split('&')) {
@@ -57,7 +71,7 @@ function mockBackend(mappings, personId, accessToken) {
       }
       $httpBackend.when('PATCH',/.*/)
       .respond(function(method, url, data, headers){
-        log(JSON.parse(data).person.name.preferred_first);
+        logRequest(method,url,data);
         return [200,{}];
       });
       $httpBackend.whenGET(/.*/).passThrough();

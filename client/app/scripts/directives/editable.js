@@ -53,8 +53,7 @@ angular.module("ShadowWolf")
 
         // Set the value locally
         var object = $scope.subobject ? $scope.subobject : $scope.target();
-        object[$scope.property] = $scope.editableValue;
-        console.log($scope.editableValue);
+        object[$scope.property] = $scope.editable.value;
 
         // Wrap it for transport
         var diffObject = { id: object.id['$oid'] };
