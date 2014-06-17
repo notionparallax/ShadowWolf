@@ -37,13 +37,13 @@
 
 
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-6">
     <div class="row">
       <h3>Passport Name</h3>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <p class="explantory-text">This is your name as it appears in your passport. We sometimes need this for legal documents.</p>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-8">
         <editable-group object="person"
                         lens="name">
           <editable property="prefix" label="Prefix">A name prefix is usually something like Miss, Ms, Mr, or it could be Dr, Admiral or Archbishop.</editable>
@@ -55,25 +55,25 @@
       </div>
     </div>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-6">
     <div class="row">
       <h3>Fixed details</h3>
       <p class="explantory-text">These aren't editable because these are the values that identify you to the databases that we use.</p>
-      <div class="col-md-6">
+      <div class="col-md-5">
         <div class="row">
-          <h3>login</h3>
-          <div class="col-md-4">
+          <h4>login</h4>
+          <div class="col-md-6">
             <p class="explantory-text">This is your login for the computer system, and also how <a href="http://en.wikipedia.org/wiki/Active_directory" title="Wikipedia: Active Directory">Active Directory</a> and <a href="http://en.wikipedia.org/wiki/Epicor" title="Wikipedia: Epicor">Epicor</a> identifies you. Only you have this login.</p><!--non editable, primary DB key-->
           </div>
-          <div class="col-md-8">
+          <div class="col-md-6">
             <p><span class="field-name">login</span>
                <span class="ang-inserted">{{person.employee.login}}</span></p>
           </div>
         </div>
       </div>
-      <div ng-if="isCurrentUser()" class="col-md-6">
+      <div ng-if="isCurrentUser()" class="col-md-5">
         <div class="row">
-          <h3 id="finance">finance</h3>
+          <h4 id="finance">finance</h4>
           <div class="col-md-4">
             <p class="explantory-text">This is your identifier in <a href="http://en.wikipedia.org/wiki/Sage_MicrOpay" title="Wikipedia: MicrOpay">MicrOpay</a>.</p><!--non editable, primary DB key-->
           </div>
@@ -88,12 +88,12 @@
 </div>
 
 
-<h3>Conditions</h3><!--One day this might show up as a pretty timeline or somethign like that!-->
 <div class="row">
+  <h3>Conditions</h3><!--One day this might show up as a pretty timeline or somethign like that!-->
   <div class="col-md-3">
     <p class="explantory-text">A <em>condition</em> is like a status. At the moment you can either be <em>Active</em>, <em>Retired</em>, <em>Maternity</em>, <em>Leave</em>, <em>Deceased</em>, <em>Applicant</em>, <em>Left</em> or <em>Unknown</em>, but we'll add more as we work out what is needed. The system calculates your current condition by looking at the most recent start date, so it is important to update new conditions as soon as you can. </p>
   </div>
-  <div ng-repeat="condition in person.conditions" class="col-md-3">
+  <div ng-repeat="condition in person.conditions" class="col-sm-4 col-md-3 col-lg-2">
     <editable-group object="person"
                     lens="conditions[{{condition|id}}]"
                     subgroup-class="alert alert-info">
