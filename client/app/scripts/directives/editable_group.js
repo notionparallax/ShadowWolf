@@ -51,6 +51,14 @@ angular.module("ShadowWolf")
       };
       // NB: this function only makes sense if isPlural() == true
       $scope.removeObject = function(object) {
+        if ($scope.$parent.$last && $scope.$parent.$first) {
+          // abort
+          Flash.add({
+            css: 'flash-fail',
+            template: '<p>You must have at least one condition.</p>'
+          }, 5000);
+          return;
+        }
         if (!confirm("Are you sure you wish to delete this item?")) return;
 
         // Remove locally
