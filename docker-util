@@ -96,6 +96,7 @@ case "$1" in
         ;;
       server)
         rm Dockerfile
+        sudo rm server/tmp/pids/server.pid
         ln -s production-server.docker Dockerfile
         CONTAINER_NAME="$CONTAINER_NAME"-server
         ;;
