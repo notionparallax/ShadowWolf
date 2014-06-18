@@ -10,7 +10,7 @@ class People::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, :kind => "LDAP") if is_navigational_format?
     else
       session["devise.ldap_data"] = auth_login
-      redirect_to '/'
+      redirect_to "#{params[:redirect_uri]}?message=You%20are%20not%20in%20our%20database%20even%20though%20you%20should%20be.%20Please%20contact%20us%20or%20wait%20until%20we%20correct%20our%20database."
     end
   end
 
