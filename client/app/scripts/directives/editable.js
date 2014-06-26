@@ -14,6 +14,7 @@ angular.module("ShadowWolf")
       scope.property = attrs.property;
       scope.label = attrs.label;
       scope.type = attrs.type || 'text';
+      scope.rootElement = element[0];
     },
     controller: function($scope) {
       $scope.editable = {};
@@ -47,6 +48,14 @@ angular.module("ShadowWolf")
         }
         $scope.editorEnabled = true;
         $scope.editable.value = $scope.subobject[$scope.property];
+        var input = $scope.rootElement.getElementsByTagName('input');
+        if (input.length == 0) {
+          input = $scope.rootElement.getElementsByTagName('textarea');
+        }
+        input = input[0];
+        setTimeout(function(){
+          input.focus();
+        }, 0);
       };
 
       $scope.disableEditor = function() {
