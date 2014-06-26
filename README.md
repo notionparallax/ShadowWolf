@@ -64,7 +64,7 @@ $ ./docker-util dev console
 
  `./docker-util` is a very light wrapper around docker. If you want to do something that  `./docker-util` doesn't support then just read the [docker docs](http://docs.docker.io/en/latest/) and get on with it!
 
-docker-util is run from your local machine, it then does the work of `ssh`ing into the container for you. E.g.
+*Note:* docker-util is run from your local machine, it then does the work of `ssh`ing into the container for you. E.g.
 
     $ ~/Projects/ShadowWolf$ ./docker-util prod console
 
