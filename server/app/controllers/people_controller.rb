@@ -66,6 +66,8 @@ class PeopleController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_person
       @person = Person.find(params[:id])
+      name = "#{@person.employee.login}, #{@person.name.first} #{@person.name.last}"
+      logger.info "Set person: #{name}"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -80,5 +82,6 @@ class PeopleController < ApplicationController
       elsif request.method == 'POST'
         render status: :forbidden unless apiKey and apiKey.person == @person
       end
+      logger.info "Authorized: #{apiKey.person.employee.login}, #{apiKey.person.name.first} #{apiKey.person.name.last}" if apiKey
     end
 end
