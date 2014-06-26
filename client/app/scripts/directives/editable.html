@@ -14,10 +14,11 @@
       <div ng-show="editorEnabled"
            class="input-group editable-input">
         <input ng-if="type != 'textarea'"
+               typeahead="{{ typeahead }}"
                type="{{ type }}"
                ng-model="editable.value"
                class="form-control" />
-        <textarea ng-if="type == 'textarea'"
+        <textarea ng-show="type == 'textarea'"
                   ng-model="editable.value">
         </textarea>
         <span class="save-btn input-group-addon" ng-click="save()">

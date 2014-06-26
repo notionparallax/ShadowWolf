@@ -14,4 +14,6 @@ function($scope, Person, $routeParams, Session, $location, Lens, Flash) {
   $scope.isCurrentUser = function() {
     return Session.getPersonId() == $routeParams.personId;
   };
+
+  $scope.conditions = ["Active","Retired","Maternity","Leave","Deceased","Applicant","Left","Unknown"]; 
 });

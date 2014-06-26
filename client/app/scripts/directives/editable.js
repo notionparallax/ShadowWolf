@@ -15,6 +15,9 @@ angular.module("ShadowWolf")
       scope.label = attrs.label;
       scope.type = attrs.type || 'text';
       scope.rootElement = element[0];
+      if (attrs.extra) {
+        scope.typeahead = attrs.extra;
+      }
     },
     controller: function($scope) {
       $scope.editable = {};
