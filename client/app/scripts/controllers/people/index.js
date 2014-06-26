@@ -3,20 +3,13 @@
 angular.module('ShadowWolf')
 .controller('PeopleIndexController',
 function($scope, People, Session, Search) {
-  var _searchResults, _searchIncrement = 21;
+  $scope.searchResults = [];
   People.getPeople().$promise.then(function(people) {
-    _searchResults = people.slice(0,people.length); // make a copy
-    $scope.visibleSearchResults = _searchResults.splice(0,_searchIncrement);
+    $scope.searchResults = people;
   });
   $scope.$watch('searchQuery', function(newValue) {
-    _searchResults = People.getPeople().filter($scope.compareTo(newValue));
-    $scope.visibleSearchResults = _searchResults.splice(0,_searchIncrement);
+    $scope.searchResults = People.getPeople().filter($scope.compareTo(newValue));
   });
-  $scope.loadMoreResults = function() {
-    return _searchResults;
-    $scope.visibleSearchResults =
-      $scope.visibleSearchResults.concat( _searchResults.splice(0,_searchIncrement) );
-  };
 
   $scope.getMoreLink = function(personId) {
     return "#/people/" + personId;

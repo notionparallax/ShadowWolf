@@ -40,44 +40,58 @@ describe('show pages',function(){
   });
 
   describe('Permissions:', function(){
+    beforeEach(function(){
+      mockBackend(
+        {
+          'people/test-id' :
+            {
+              guest: mockPerson
+            }
+        }, 'test-id', 'test-token');
+      visit('people/test-id');
+    });
+
     describe('Guest:',function(){
-      beforeEach(function(){
-        mockBackend(
-          {
-            'people/test-id' :
-              {
-                guest: mockPerson
-              }
-          }, 'test-id', 'test-token');
-        visit('people/test-id');
-      });
       it('should not show the mobile number', function(){
-        element(by.linkText('Contact')).click()
-        //var mobileEditable = new EditableGroup('employee.contact.mobile');
-        expect(false).toBe(true);
+        element(by.linkText('Contact')).click();
+        var mobileDiv = element(by.id('mobile'));
+        expect(mobileDiv.isPresent()).toBe(false);
       });
-      xit('should not show the finance info', function(){
-        expect(false).toBe(true);
+      it('should not show the finance info', function(){
+        var financeHeader = element(by.css('h3#finance'));
+        expect(financeHeader.isPresent()).toBe(false);
       });
-      xit('should not show the travel tab', function(){
-        expect(false).toBe(true);
+      it('should not show the travel tab', function(){
+        var travelTab = element(by.linkText('Travel'));
+        expect(travelTab.isPresent()).toBe(false);
       });
-      xit('should not show the applicant tab', function(){
-        expect(false).toBe(true);
+      it('should not show the applicant tab', function(){
+        var applicantTab = element(by.linkText('Applicant'));
+        expect(applicantTab.isPresent()).toBe(false);
       });
     });
     describe('Logged in different user',function(){
-      xit('should not show the mobile number', function(){
-        expect(false).toBe(true);
+      beforeEach(function(){
+        // log in as different user to one whose page we're using
+        visit('callback?access_token=test-token&person_id=not-test-id');
+        visit('people/test-id');
       });
-      xit('should not show the finance info', function(){
-        expect(false).toBe(true);
+      it('should not show the mobile number', function(){
+        element(by.linkText('Contact')).click();
+        var mobileDiv = element(by.id('mobile'));
+        expect(mobileDiv.isPresent()).toBe(true);
       });
-      xit('should not show the travel tab', function(){
-        expect(false).toBe(true);
+      it('should not show the finance info', function(){
+        var financeHeader = element(by.css('h3#finance'));
+        expect(financeHeader.isPresent()).toBe(false);
       });
-      xit('should not show the applicant tab', function(){
-        expect(false).toBe(true);
+      it('should not show the travel tab', function(){
+        var travelTab = element(by.linkText('Travel'));
+        expect(travelTab.isPresent()).toBe(false);
+      });
+      it('should not show the applicant tab', function(){
+        var applicantTab = element(by.linkText('Applicant'));
+        expect(applicantTab.isPresent()).toBe(false);
       });
     });
   });

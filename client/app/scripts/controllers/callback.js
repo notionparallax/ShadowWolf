@@ -9,8 +9,8 @@ function($scope, $location, Session, Flash) {
     Flash.add({
       template: '<p>You have failed to login: {{ flash.message }}</p>',
       message: message,
-      css: 'flash-failure'
-    }, 5000);
+      css: 'flash-fail'
+    }, 15000);
   } else {
     Flash.add({
       template: '<p>You have successfully logged in.</p>',

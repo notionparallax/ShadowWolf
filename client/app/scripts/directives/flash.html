@@ -1,8 +1,8 @@
 <div class="flashes">
-  <div class="flash" ng-repeat="flash in getFlashes()">
+  <div class="flash {{flash.css}}" ng-repeat="flash in getFlashes()">
     <button ng-click="dismiss(flash)" type="button" class="close" aria-hidden="true">
       &times;
     </button>
-    <span class="{{flash.css}}" compile="flash.template"></span>
+    <span compile="flash.template"></span>
   </div>
 </div>

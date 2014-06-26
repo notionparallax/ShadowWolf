@@ -34,16 +34,16 @@ case "$1" in
   install)
     rm Dockerfile
     ln -s development.docker Dockerfile
-    docker build -t shadowwolf-dev .
+    sudo docker build -t shadowwolf-dev .
     rm Dockerfile
     ln -s development-server.docker Dockerfile
-    docker build -t shadowwolf-dev-server .
+    sudo docker build -t shadowwolf-dev-server .
     rm Dockerfile
     ln -s mongo.docker Dockerfile
-    docker build -t shadowwolf-mongo .
+    sudo docker build -t shadowwolf-mongo .
     rm Dockerfile
     ln -s development-testing.docker Dockerfile
-    docker build -t shadowwolf-dev-testing .
+    sudo docker build -t shadowwolf-dev-testing .
     ;;
   dev)
     case "$2" in
@@ -96,6 +96,7 @@ case "$1" in
         ;;
       server)
         rm Dockerfile
+        sudo rm server/tmp/pids/server.pid
         ln -s production-server.docker Dockerfile
         CONTAINER_NAME="$CONTAINER_NAME"-server
         ;;
@@ -145,7 +146,7 @@ case "$1" in
     case "$2" in
       console)
         remote_script="
-          docker run -i -t --link sw-mongo:mongo $BVN_SERVER:5000/shadowwolf-deploy-server console -e production;
+          docker run -i -t --rm --link sw-mongo:mongo $BVN_SERVER:5000/shadowwolf-deploy-server console -e production;
         "
         ssh $USER@$BVN_SERVER $remote_script
       ;;

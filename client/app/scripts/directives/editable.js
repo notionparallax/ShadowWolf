@@ -16,6 +16,7 @@ angular.module("ShadowWolf")
       scope.type = attrs.type || 'text';
     },
     controller: function($scope) {
+      $scope.editable = {};
       $scope.editorEnabled= false;
 
       $scope.get = Lens.get;
@@ -34,9 +35,18 @@ angular.module("ShadowWolf")
       };
 
       $scope.enableEditor = function() {
-        //if (editDisabled || Session.getPersonId() != $scope.object.id['$oid']) return;
+        // only works for editables on person page
+        if (editDisabled || Session.getPersonId() != $scope.object.id['$oid']) {
+          var name;
+          try { name = $scope.object.name.preferred_first }
+          catch (e) { name = 'this page\'s user'; }
+          Flash.add({
+            template: '<p>You need to be logged in as ' + name + ' to change fields.</p>'
+          }, 5000);
+          return;
+        }
         $scope.editorEnabled = true;
-        $scope.editableValue = $scope.subobject[$scope.property];
+        $scope.editable.value = $scope.subobject[$scope.property];
       };
 
       $scope.disableEditor = function() {
@@ -52,7 +62,7 @@ angular.module("ShadowWolf")
 
         // Set the value locally
         var object = $scope.subobject ? $scope.subobject : $scope.target();
-        object[$scope.property] = $scope.editableValue;
+        object[$scope.property] = $scope.editable.value;
 
         // Wrap it for transport
         var diffObject = { id: object.id['$oid'] };
