@@ -64,6 +64,73 @@ $ ./docker-util dev console
 
  `./docker-util` is a very light wrapper around docker. If you want to do something that  `./docker-util` doesn't support then just read the [docker docs](http://docs.docker.io/en/latest/) and get on with it!
 
+*Note:* docker-util is run from your local machine, it then does the work of `ssh`ing into the container for you. E.g.
+
+    $ ~/Projects/ShadowWolf$ ./docker-util prod console
+
+#### In Summary ####
+
+docker-util can:
+
+* build images for local use
+* run local servers
+* connect a console to local rails server (to create fake data)
+* observe logs of local servers
+* build images for production use
+* deploy images to production
+
+#### In detail ####
+
+If the docker images do not exist on your machine:
+(only needed once, takes the longest)
+
+    ./docker-util install
+
+To get the dev server running locally:
+(only needed once per development session or on change to show files)
+
+    ./docker-util dev client
+
+To populate the local database with test users:
+(only needed once per dev session)
+
+    ./docker-util dev console
+    # The following commands are in the ruby console
+    p = FactoryGirl.create_list( :person, 10 ).first
+    p.current_condition.name = 'Active' # make sure it's visible
+    p.employee.login = 'bdoherty' # make sure it can log in via ActiveDirectory
+    p.save
+
+To re-run the build scripts after modifying any of the show pages:
+(as mentioned above, only when show files change)
+
+    ./docker-util dev client # same as above
+
+yeah, apparently it works already. It may sometimes take a moment or two past when the docker-util script exists. So...
+
+To look inside the local server and see when it finishes building:
+(only when curious about ongoings of container)
+
+    docker logs -f sw-client # the f is for follow
+
+To build an image for deployment (asks for sudo password):
+(only for predeployment)
+
+    ./docker-util build client
+
+To deploy an image (asks for BVN IP and server login):
+(only for deployment)
+
+    ./docker-util deploy client
+
+You can always look inside the docker-util file to see how a command works under the hood. The script is just a handful of nested cases to match against arguments. Each matched command is usually a call to docker who's commands a documented with
+
+    docker help
+    docker [command] --help
+
+Although if things work then you should theoretically be able to do without.
+
+
 #### Stack ####
 
 The Mongo back end uses the [MongoidModelMaker](https://github.com/Dawil/MongoidModelMaker) gem to build out the data models.
@@ -82,6 +149,8 @@ To run the tests
 ```
 git push origin add-testing
 ```
+
+
 
 <!--[![Build Status](https://travis-ci.org/notionparallax/ShadowWolf.png)](https://travis-ci.org/notionparallax/ShadowWolf)-->
 
