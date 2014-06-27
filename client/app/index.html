@@ -51,13 +51,15 @@
           </ul>
           <div class="nav navbar-nav navbar-right login-btn"><!-- /.navbar-collapse -->
             <a ng-if="!loggedIn()" 
-               class="btn btn-success" 
+               class="btn btn-success blink-me" 
                href="{{ getLogInLink() }}"
-               id="LogIn">Log In</a>
+               id="LogIn"
+               title="If you aren't logged in then you won't be able to edit.">Log In</a>
             <a ng-if="loggedIn()" 
                class="btn btn-primary" 
                ng-click="logout()"
-               id="LogOut">Log Out</a>
+               id="LogOut"
+               title="Click to logout - who would have thought?!">Log Out</a>
           </div><!-- login/out button -->
         </div>
       </div><!-- /.container-fluid -->

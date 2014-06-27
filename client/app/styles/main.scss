@@ -154,3 +154,31 @@ button.close {
 .alert-info {
   margin-right: 10px;
 }
+
+a#LogIn{
+  font-size: 4em;
+}
+
+.blink-me {
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    animation-name: blinker;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes blinker {
+    0%   { opacity: 1.0; }
+    50%  { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes blinker {
+    0%   { opacity: 1.0; }
+    50%  { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}
