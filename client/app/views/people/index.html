@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-12">
-    <input type="text" 
-           ng-model="searchQuery" 
+    <input type="text"
+           ng-model="searchQuery"
            class="filter-box"
            placeholder="type to search...">
   </div>
@@ -10,11 +10,12 @@
 <div class="row" >
   <!--start a project/person box as a directive-->
   <display-box ng-repeat="p in searchResults | orderBy:sortFunctions"
-              title-text="{{p.name.preferred_first}} {{p.name.preferred_last}} - {{ p.employee.contact.extension }}"
+              title-text="{{p.name.preferred_first}} {{p.name.preferred_last}}"
               body-text="Some body text"
               img-src="{{p.employee.photo.bw}}"
+              condition='{{p.current_condition_name}}'
               more-link="{{ getMoreLink( p.id['$oid'] ) }}">
-    <p>{{ p.employee.contact.studio }}</p>
+    <p ng-transclude>{{ p.employee.contact.extension }}</p>
   </display-box>
-  
+
 </div>
