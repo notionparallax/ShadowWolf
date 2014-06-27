@@ -3,7 +3,7 @@
     <label class="col-xs-12 col-sm-3 control-label editable-lable" for="{{ getName() }}">{{ label }}</label>
 
     <div class="col-xs-12 col-sm-9"><!--data area-->
-      <div ng-if="!editorEnabled"
+      <div ng-show="!editorEnabled"
          class="form-control-static editable editable-text editable-output"
          ng-click="enableEditor($event)">
         <p ng-if="type == 'number'" ng-bind="subobject[property] | number"></p>
@@ -11,9 +11,10 @@
         <div class="editable-text-display" ng-if="type != 'number'" ng-bind-html="subobject[property] +''"></div>
       </div>
 
-      <div ng-if="editorEnabled"
+      <div ng-show="editorEnabled"
            class="input-group editable-input">
-        <input ng-show="type != 'textarea'"
+        <input ng-if="type != 'textarea'"
+               typeahead="{{ typeahead }}"
                type="{{ type }}"
                ng-model="editable.value"
                class="form-control" />

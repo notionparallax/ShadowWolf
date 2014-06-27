@@ -14,4 +14,5 @@ function($scope, Person, $routeParams, Session, $location, Lens, Flash) {
   $scope.isCurrentUser = function() {
     return Session.getPersonId() == $routeParams.personId;
   };
+
 });
