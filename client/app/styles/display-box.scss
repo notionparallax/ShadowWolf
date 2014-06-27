@@ -2,17 +2,14 @@ body {
     padding-top: 50px;
     position: relative;
 }
-
 .demo {
     /*border:1px dashed red;*/
     padding: 0;
 }
-
 .square {
     width: 100%;
     visibility: hidden;
 }
-
 .info-box {
     position: absolute;
     width: 100%;
@@ -22,7 +19,6 @@ body {
     top: 0;
     background-size: cover;
 }
-
 .details {
     color: white;
     background-color: rgba(0, 0, 0, 0.8);
@@ -32,25 +28,20 @@ body {
     padding-left: 0.5em;
     padding-right: 0.5em;
     border-radius: 0 15px 0 0;
-
-    
     -moz-transition: top 0.25s;
     -webkit-transition: top 0.25s;
     -o-transition: top 0.25s;
     transition: top 0.25s;
-    h1{
+    h1 {
         font-size: 24px;
     }
 }
-
 .drawer-in {
     top: 100%;
 }
-
 .drawer-out {
     top: 50%;
 }
-
 .title {
     position: relative;
     width: 200px;
@@ -60,19 +51,41 @@ body {
     -o-transition: top 0.25s, color 0.25s;
     transition: top 0.25s, color 0.25s;
 }
-
 .title-drawer-in {
     top: -40px;
     color: rgba(200, 54, 54, 0.9);
 }
-
 .title-drawer-out {
     top: 0;
     color: rgba(255, 255, 255, 0.9);
 }
-
 .more-button {
     position: absolute;
     right: 1em;
     bottom: 1em;
+}
+/*condition styling*/
+.Active {
+    border: 1px solid red;
+}
+.Retired {
+    border: 1px solid blue;
+}
+.Maternity {
+    border: 1px solid pink;
+}
+.Leave {
+    border: 1px solid green;
+}
+.Deceased {
+    border: 1px solid orange;
+}
+.Applicant {
+    border: 1px solid silver;
+}
+.Left {
+    border: 1px solid teal;
+}
+.Unknown {
+    border: 1px solid aqua;
 }
