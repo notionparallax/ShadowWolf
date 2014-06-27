@@ -66,26 +66,32 @@ body {
 }
 /*condition styling*/
 .Active {
-    border: 1px solid red;
+    /*this is the default, leave it blank for the moment*/
 }
 .Retired {
-    border: 1px solid blue;
+    background-color: blue;
+    background-blend-mode: multiply;
 }
 .Maternity {
-    border: 1px solid pink;
+    background-color: pink;
+    background-blend-mode: multiply;
 }
 .Leave {
-    border: 1px solid green;
+    border: 2px solid orange;
 }
 .Deceased {
-    border: 1px solid orange;
+    opacity:0.2;
 }
 .Applicant {
-    border: 1px solid silver;
+    background-color: green;
+    background-blend-mode: multiply;
 }
 .Left {
-    border: 1px solid teal;
+    opacity: 0.5;
+    background-color: orange;
+    background-blend-mode: multiply;
 }
 .Unknown {
-    border: 1px solid aqua;
+    background-color: red;
+    background-blend-mode: multiply;
 }
