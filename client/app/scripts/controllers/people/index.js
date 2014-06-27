@@ -26,4 +26,22 @@ function($scope, People, Session, Search) {
       return Search.search(query, matchAgainst);
     };
   };
+  // Sort by condition then shuffle
+  $scope.sortFunctions = [
+    function(person) {
+      var priority = 9; // Lower is more important
+      switch (person.current_condition_name) {
+        case  'Active':     priority--;
+        case  'Leave':      priority--;
+        case  'Maternity':  priority--;
+        case  'Left':       priority--;
+        case  'Retired':    priority--;
+        case  'Deceased':   priority--;
+        case  'Unknown':    priority--;
+        case  'Applicant':  priority--;
+      }
+      return priority;
+    },
+    'random_number'
+  ];
 });

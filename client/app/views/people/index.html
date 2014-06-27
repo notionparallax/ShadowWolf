@@ -9,7 +9,7 @@
 
 <div class="row" >
   <!--start a project/person box as a directive-->
-  <display-box ng-repeat="p in searchResults"
+  <display-box ng-repeat="p in searchResults | orderBy:sortFunctions"
               title-text="{{p.name.preferred_first}} {{p.name.preferred_last}}"
               body-text="Some body text"
               img-src="{{p.employee.photo.bw}}"
