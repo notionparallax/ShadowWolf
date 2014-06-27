@@ -1,8 +1,13 @@
-json.array!(@people.find_all { |p| p.current_condition and p.current_condition.name.eql? 'Active' }) do |person|
+json.array!(@people) do |person|
   json.id person.id
   json.name do
     json.partial! "person_names/person_name.json.jbuilder", name: person.name
   end if person.name
+  if person.current_condition
+    json.current_condition_name person.current_condition.name
+  else
+    json.current_condition_name 'Unknown'
+  end
   json.employee do
     json.contact do
       json.partial! "employee_contacts/employee_contact.json.jbuilder", contact: person.employee.contact
