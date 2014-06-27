@@ -12,6 +12,7 @@ angular.module('ShadowWolf')
           imgSrc:    "@",
           moreLink:  "@",
           isCurrentUser: "@"
+          condition: "@"
         },
         link: function (scope, element, attrs) {}, 
         controller: function($scope) {

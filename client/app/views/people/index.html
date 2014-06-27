@@ -13,6 +13,7 @@
               title-text="{{p.name.preferred_first}} {{p.name.preferred_last}}"
               body-text="Some body text"
               img-src="{{p.employee.photo.bw}}"
+              condition='{{p.current_condition_name}}'
               more-link="{{ getMoreLink( p.id['$oid'] ) }}">
     <p ng-transclude>{{ p.employee.contact.extension }}</p>
   </display-box>
