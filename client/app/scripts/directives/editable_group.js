@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module("ShadowWolf")
-.directive("editableGroup", function(Lens, Models, Flash) {
+.directive("editableGroup", function(Lens, Models, Flash, Session) {
   return {
     restrict:        "E",
     replace:         false,
@@ -26,6 +26,13 @@ angular.module("ShadowWolf")
 
       // NB: this function only makes sense if isPlural() == true
       $scope.addObject = function() {
+        if (Session.getPersonId() != $scope.object.id.$oid) {
+          var name = $scope.object.name.preferred_first || $scope.name.first;
+          Flash.add({
+            template: '<p>You need to be logged in as ' + name + ' to create new conditions.</p>'
+          }, 5000);
+          return;
+        }
         var newObject = { id: null };
         var parentLens = $scope.lens.slice(0,$scope.lens.lastIndexOf('['));
         var objects = Lens.get($scope.object,parentLens);
@@ -51,6 +58,13 @@ angular.module("ShadowWolf")
       };
       // NB: this function only makes sense if isPlural() == true
       $scope.removeObject = function(object) {
+        if (Session.getPersonId() != $scope.object.id.$oid) {
+          var name = $scope.object.name.preferred_first || $scope.name.first;
+          Flash.add({
+            template: '<p>You need to be logged in as ' + name + ' to remove conditions.</p>'
+          }, 5000);
+          return;
+        }
         if ($scope.$parent.$last && $scope.$parent.$first) {
           // abort
           Flash.add({
