@@ -3,6 +3,7 @@ json.array!(@people) do |person|
   json.name do
     json.partial! "person_names/person_name.json.jbuilder", name: person.name
   end if person.name
+  json.random_number rand
   if person.current_condition
     json.current_condition_name person.current_condition.name
   else

@@ -42,6 +42,6 @@ function($scope, People, Session, Search) {
       }
       return priority;
     },
-    function(person) { return Math.random(); }
+    'random_number'
   ];
 });
