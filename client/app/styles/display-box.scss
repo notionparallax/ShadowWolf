@@ -69,29 +69,23 @@ body {
     /*this is the default, leave it blank for the moment*/
 }
 .Retired {
-    background-color: blue;
-    background-blend-mode: multiply;
+    border-bottom: 5px solid blue;
 }
 .Maternity {
-    background-color: pink;
-    background-blend-mode: multiply;
+    border-bottom: 5px solid pink;
 }
 .Leave {
-    border: 2px solid orange;
+    border-bottom: 5px solid orange;
 }
 .Deceased {
     opacity:0.2;
 }
 .Applicant {
-    background-color: green;
-    background-blend-mode: multiply;
+    border-bottom: 5px solid green;
 }
 .Left {
-    opacity: 0.5;
-    background-color: orange;
-    background-blend-mode: multiply;
+    border-bottom: 5px solid orange;
 }
 .Unknown {
-    background-color: red;
-    background-blend-mode: multiply;
+    border-bottom: 5px solid red;
 }
