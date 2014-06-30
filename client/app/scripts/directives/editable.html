@@ -17,8 +17,10 @@
                typeahead="{{ typeahead }}"
                type="{{ type }}"
                ng-model="editable.value"
+               ng-keyup="maybeEscapeOrSave($event)"
                class="form-control" />
         <textarea ng-show="type == 'textarea'"
+                  ng-keyup="maybeEscapeOrSave($event)"
                   ng-model="editable.value">
         </textarea>
         <span class="save-btn input-group-addon" ng-click="save()">

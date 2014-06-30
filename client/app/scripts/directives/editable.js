@@ -38,6 +38,13 @@ angular.module("ShadowWolf")
         return name;
       };
 
+      $scope.maybeEscapeOrSave = function($event) {
+        switch ($event.which) {
+          case 13: $scope.save(); break;
+          case 27: $scope.disableEditor(); break;
+        }
+      };
+
       $scope.enableEditor = function() {
         // only works for editables on person page
         if (editDisabled || Session.getPersonId() != $scope.object.id['$oid']) {
