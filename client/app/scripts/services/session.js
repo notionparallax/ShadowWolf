@@ -12,7 +12,7 @@ angular.module('ShadowWolf')
   this.setPersonId = function(personId) { $cookieStore.put(_personId, personId); };
 
   this.logout = function() {
-    $cookieStore.put(_accessToken, undefined);
-    $cookieStore.put(_personId, undefined);
+    $cookieStore.put(_accessToken, '');
+    $cookieStore.put(_personId, '');
   };
 });
