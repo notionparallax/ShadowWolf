@@ -12,7 +12,6 @@ angular.module("ShadowWolf")
     link: function (scope, element, attrs,ctrl,transclude) { 
       transclude(scope, function(cloneElement){
         scope.tooltipText = cloneElement[0].innerHTML;
-        debugger;
       });
       if (attrs['editDisabled']) editDisabled = true;
       scope.property = attrs.property;
