@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('ShadowWolf', ['ngResource','ngRoute', 'ngSanitize', 'ngCookies','config', 'ui.bootstrap'])
-  .config(function ($routeProvider, $httpProvider) {
+angular.module('ShadowWolf', ['ngResource','ngRoute', 'ngSanitize', 'ngCookies','config', 'ui.bootstrap','angulartics','angulartics.google.analytics'])
+  .config(function ($routeProvider, $httpProvider, $analyticsProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
     $routeProvider
@@ -32,4 +32,10 @@ angular.module('ShadowWolf', ['ngResource','ngRoute', 'ngSanitize', 'ngCookies',
       .otherwise({
         redirectTo: '/people/'
       });
+  })
+  .run(function(ENV){
+    switch (ENV) {
+      case 'development': ga('create', 'UA-93352-16','auto'); break;
+      case 'production': ga('create', 'UA-93352-17','auto'); break;
+    }
   });
