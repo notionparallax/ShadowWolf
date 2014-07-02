@@ -95,7 +95,7 @@
   <div class="col-md-3">
     <p class="explantory-text">A <em>condition</em> is like a status. At the moment you can either be <em>Active</em>, <em>Retired</em>, <em>Maternity</em>, <em>Leave</em>, <em>Deceased</em>, <em>Applicant</em>, <em>Left</em> or <em>Unknown</em>, but we'll add more as we work out what is needed. The system calculates your current condition by looking at the most recent start date, so it is important to update new conditions as soon as you can. </p>
   </div>
-  <div ng-repeat="condition in person.conditions | orderBy:'start_date':true" class="col-sm-4 col-md-3 col-lg-2">
+  <div ng-repeat="condition in person.conditions | orderBy:'start_date':true" class="col-sm-12 col-md-6 col-lg-4">
     <editable-group object="person"
                     lens="conditions[{{condition|id}}]"
                     subgroup-class="alert alert-{{ $first ? 'success' : 'info'}}">
