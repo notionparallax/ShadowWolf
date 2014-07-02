@@ -1,3 +1,5 @@
+<!-- All of these are 'add'able so they get a whole row to themselves-->
+
 <section ng-show="isCurrentUser(person) || person.employee.qualifications">
   <h3>Qualifications / education</h3>
   <p class="explantory-text">This sections captures your qualifications. Put in all your qualifications, so if you have a PhD, a degree in Japanese, or a certificate for a short course in Equine nutrition, put it in. Use one box per qualification and add a new box for each additional one.</p>
@@ -17,20 +19,20 @@
 
 <section ng-show="isCurrentUser(person) || person.employee.registrations">
   <h3>Registrations</h3>
-  <p class="explantory-text">Explanatory text goes in here</p>
+  <p class="explantory-text">Are you a registered architect? A registered aromatherapist? Where and when are you registered?</p>
   <editable-group object="person"
                   lens="employee.registrations"
                   subgroup-class="alert alert-info
                                   col-xs-12
                                   col-sm-6
                                   col-md-4">
-    <editable property="organisation"         label="organisation"       >Who is this registration with? NSW board of architects? RIBA?</editable>
+    <editable property="organisation"        label="organisation"       >Who is this registration with? NSW board of architects? RIBA?</editable>
     <editable property="registration_number" label="registration number">What's your registration number?</editable>
-    <editable property="state"                label="state"              >What state does this registration cover?</editable>
-    <editable property="country"              label="country"            >What state is this registration issued in?</editable>
-    <editable property="expiry"               label="expiry"             >When does this registration expire?</editable>
-    <editable property="first_granted"        label="first granted"      >When was this registration first granted?</editable>
-    <editable property="first_issue_date"     label="first_issue_date"   >When was this this registration first issued?</editable>
+    <editable property="state"               label="state"              >What state does this registration cover?</editable>
+    <editable property="country"             label="country"            >What state is this registration issued in?</editable>
+    <editable property="expiry"              label="expiry"             >When does this registration expire?</editable>
+    <editable property="first_granted"       label="first granted"      >When was this registration first granted?</editable>
+    <editable property="first_issue_date"    label="first_issue_date"   >When was this this registration first issued?</editable>
 </section>
 
 <section ng-show="isCurrentUser(person) || person.employee.memberships">
