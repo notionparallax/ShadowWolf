@@ -3,12 +3,16 @@
        tooltip-html-unsafe="{{ tooltipText }}"
        tooltip-trigger="mouseenter"
        class="form-group show-field">
-    <label              class="col-xs-12 col-sm-3 control-label editable-lable" for="{{ getName() }}">{{ label }}</label>
+    <label class="col-xs-12 col-sm-3 control-label editable-lable" for="{{ getName() }}">{{ label }}</label>
 
     <div class="col-xs-12 col-sm-9"><!--data area-->
       <div ng-show="!editorEnabled"
          class="form-control-static editable editable-text editable-output"
-         ng-click="enableEditor($event)">
+         ng-click="enableEditor($event)"
+         analytics-on="click"
+         analytics-event="editable enabled"
+         analytics-label="{{ label }}"
+         analytics-category="editable-buttons">
         <p ng-if="type == 'number'" ng-bind="subobject[property] | number"></p>
         <!-- See #239 for why the " + '' " exists below. -->
         <div class="editable-text-display" ng-if="type != 'number'" ng-bind-html="subobject[property] +''"></div>
@@ -28,11 +32,21 @@
         </textarea>
         <span class="save-btn input-group-addon" ng-click="save()">
           <span class="glyphicon glyphicon-ok"
-                title="save"></span>
+                title="save"
+                analytics-on="click"
+                analytics-event="editable ok clicked"
+                analytics-label="{{ label }}"
+                analytics-category="editable-buttons"
+                ></span>
         </span>
         <span class="input-group-addon" ng-click="cancel()">
           <span class="glyphicon glyphicon-remove"
-                title="cancel"></span>
+                title="cancel"
+                analytics-on="click"
+                analytics-event="editable cancel clicked"
+                analytics-label="{{ label }}"
+                analytics-category="editable-buttons"
+                ></span>
         </span>
       </div><!--end editorEnabled-->
     </div>  <!--end data area-->
