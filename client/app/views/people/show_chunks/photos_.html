@@ -12,11 +12,17 @@
            alt="A black and white photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
       <div class="caption">
         <h4>Serious B&W Photo</h4>
+        <editable-group object="person"
+                        lens="employee.photo">
+          <editable property="bw" 
+                    label="B&W photo URL">
+            This is classy black and white photo that gets used in submissions.
+          </editable>
+        </editable-group>
       </div>
     </div>
   </div>
 
-  <!--
   <div class="col-sm-3">
     <div class="thumbnail">
       <img class=""
@@ -26,6 +32,13 @@
            alt="A colour photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
       <div class="caption">
         <h4>Serious Colour Photo</h4>
+        <editable-group object="person"
+                        lens="employee.photo">
+          <editable property="colour"
+                    label="colour photo URL">
+            This is classy colour photo that gets used in submissions.
+          </editable>
+        </editable-group>
       </div>
     </div>
   </div>
@@ -35,12 +48,19 @@
       <img class=""
            ng-src="{{ person.employee.photo.fun }}"
            itemprop="image"
-           title="This photo is used internally and won't be show to the public."
+           title="This photo is used internally and won't be shown to the public."
            alt="A fun, colour photo of {{ person.name.preferred_first }} {{ person.name.preferred_last }}"/>
       <div class="caption">
         <h4>Fun Photo</h4>
+        <editable-group object="person"
+                        lens="employee.photo">
+          <editable property="fun"
+                    label="fun photo URL">
+            This is fun photo, because monochrome is so boring!.
+          </editable>
+        </editable-group>
       </div>
     </div>
   </div>
-  -->
+
 </div>
