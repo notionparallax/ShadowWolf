@@ -1,20 +1,12 @@
-<section ng-show="isCurrentUser(person) || person.employee.security_clearances">
-  <h3>Clearances</h3>
-  <editable-group object="person"
-                  lens="employee.security_clearances"
-                  subgroup-class="alert alert-info col-sm-6 col-md-4">
-    <editable property="issuing_body" label="issuing body">This is the organisation that your clearance is with.</editable>
-    <editable property="level"        label="level"       >What level is your clearance?</editable>
-    <editable property="expiry"       label="expiry"      >what's the expiry date of your clearance? One day we'll use this to remind you to renew it, but for now this is jsut a place to store this information.</editable>
-  </editable-group>
-</section>
-
 <section ng-show="isCurrentUser(person) || person.employee.qualifications">
-  <h3>Qualifications</h3>
+  <h3>Qualifications / education</h3>
   <p class="explantory-text">This sections captures your qualifications. Put in all your qualifications, so if you have a PhD, a degree in Japanese, or a certificate for a short course in Equine nutrition, put it in. Use one box per qualification and add a new box for each additional one.</p>
   <editable-group object="person"
                   lens="employee.qualifications"
-                  subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+                  subgroup-class="alert alert-info
+                                  col-xs-12
+                                  col-sm-6
+                                  col-md-4">
     <editable property="name"        label="name"                    >What is the name of your qualification?</editable>
     <editable property="level"       label="level"                   >What What level is it at? This is a restricted list so that we can make comparisons across different systems.</editable>
     <editable property="institution" label="institution"             >What organisation issued your qualification?</editable>
@@ -28,14 +20,17 @@
   <p class="explantory-text">Explanatory text goes in here</p>
   <editable-group object="person"
                   lens="employee.registrations"
-                  subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
-    <editable property"organisation"         label="organisation"       >Who is this registration with? NSW board of architects? RIBA?</editable>
+                  subgroup-class="alert alert-info
+                                  col-xs-12
+                                  col-sm-6
+                                  col-md-4">
+    <editable property="organisation"         label="organisation"       >Who is this registration with? NSW board of architects? RIBA?</editable>
     <editable property="registration_number" label="registration number">What's your registration number?</editable>
-    <editable property"state"                label="state"              >What state does this registration cover?</editable>
-    <editable property"country"              label="country"            >What state is this registration issued in?</editable>
-    <editable property"expiry"               label="expiry"             >When does this registration expire?</editable>
-    <editable property"first_granted"        label="first granted"      >When was this registration first granted?</editable>
-    <editable property"first_issue_date"     label="first_issue_date"   >When was this this registration first issued?</editable>
+    <editable property="state"                label="state"              >What state does this registration cover?</editable>
+    <editable property="country"              label="country"            >What state is this registration issued in?</editable>
+    <editable property="expiry"               label="expiry"             >When does this registration expire?</editable>
+    <editable property="first_granted"        label="first granted"      >When was this registration first granted?</editable>
+    <editable property="first_issue_date"     label="first_issue_date"   >When was this this registration first issued?</editable>
 </section>
 
 <section ng-show="isCurrentUser(person) || person.employee.memberships">
@@ -43,7 +38,10 @@
   <p class="explantory-text">Explanatory text goes in here</p>
   <editable-group object="person"
                   lens="employee.memberships"
-                  subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+                  subgroup-class="alert alert-info
+                                  col-xs-12
+                                  col-sm-6
+                                  col-md-4">
     <editable property="organisation"      label="organisation"     >Who is this membership with?</editable>
     <editable property="membership_number" label="membership number">What's your membership number?</editable>
     <editable property="state"             label="state"            >What state does this membership cover?</editable>
@@ -52,13 +50,32 @@
   </editable-group>
 </section>
 
+<section ng-show="isCurrentUser(person) || person.employee.security_clearances">
+  <h3>Clearances</h3>
+  <p class="explantory-text">Do you have special security clearance? This would be a good place to record that.</p>
+  <editable-group object="person"
+                  lens="employee.security_clearances"
+                  subgroup-class="alert alert-info
+                                  col-xs-12
+                                  col-sm-6
+                                  col-md-4">
+
+    <editable property="issuing_body" label="issuing body">This is the organisation that your clearance is with.</editable>
+    <editable property="level"        label="level"       >What level is your clearance?</editable>
+    <editable property="expiry"       label="expiry"      >what's the expiry date of your clearance? One day we'll use this to remind you to renew it, but for now this is jsut a place to store this information.</editable>
+  </editable-group>
+</section>
+
 <section ng-show="isCurrentUser(person) || person.employee.personal_awards">
   <h3>Personal awards</h3>
-  <p class="explantory-text">This sections captures your awards. This is not for awards that projects that you have worked on have won, but rather projects that you, as a person, have won. Use one box per award and add (<i class="icon-plus-sign"></i>Add Award) a new box for each additional one.</p>
+  <p class="explantory-text">This sections captures your awards. This is not for awards that projects that you have worked on have won, but rather projects that you, as a person, have won. Use one box per award and add  a new box for each additional one.</p>
   <p class="explantory-text">Awards that projects that you worked on will be added soon.</p>
   <editable-group object="person"
                   lens="employee.personal_awards"
-                  subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+                  subgroup-class="alert alert-info
+                                  col-xs-12
+                                  col-sm-6
+                                  col-md-4">
     <editable property="name"          label="name"                       >What's the name of this award?</editable>
     <editable property="awarding_body" label="awarding body"              >Who awards it?</editable>
     <editable property="description"   label="description" type="textarea">Describe the award and why you got it.</editable>
@@ -68,11 +85,14 @@
 </section>
 
 <section ng-show="isCurrentUser(person) || person.employee.professional_contributions">
-  <h3>professional contributions</h3>
-  <p class="explantory-text">This sections captures your professional contributions. Things like teaching, speaking at conferences etc. Use one box per contributions/experience/event and add (<i class="icon-plus-sign"></i>Add) a new box for each additional one.</p>
+  <h3>Professional contributions</h3>
+  <p class="explantory-text">This sections captures your professional contributions. Things like teaching, speaking at conferences etc. Use one box per contributions/experience/event and add a new box for each additional one.</p>
   <editable-group object="person"
                   lens="employee.professional_contributions"
-                  subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+                  subgroup-class="alert alert-info
+                                  col-xs-12
+                                  col-sm-6
+                                  col-md-4">
       <editable property="activity"    label="activity"                   >Give this activity a title.</editable>
       <editable property="description" label="description" type="textarea">Describe what you did</editable>
       <editable property="url"         label="url"         type="url"     >Give a URL to some evidence that it happened, or at least to a description of what was going to happen.</editable>
