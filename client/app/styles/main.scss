@@ -158,3 +158,8 @@ button.close {
 a#LogIn{
   font-size: 4em;
 }
+
+editable-group[lens="employee.photo"] div.editable-text-display {
+  word-wrap: break-word;
+  padding-right: 2em;
+}
