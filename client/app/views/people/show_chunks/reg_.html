@@ -10,7 +10,7 @@
 </section>
 
 <section ng-show="isCurrentUser(person) || person.employee.qualifications">
-  <h3>qualifications</h3>
+  <h3>Qualifications</h3>
   <p class="explantory-text">This sections captures your qualifications. Put in all your qualifications, so if you have a PhD, a degree in Japanese, or a certificate for a short course in Equine nutrition, put it in. Use one box per qualification and add a new box for each additional one.</p>
   <editable-group object="person"
                   lens="employee.qualifications"
@@ -24,7 +24,7 @@
 </section>
 
 <section ng-show="isCurrentUser(person) || person.employee.registrations">
-  <h3>registrations</h3>
+  <h3>Registrations</h3>
   <p class="explantory-text">Explanatory text goes in here</p>
   <editable-group object="person"
                   lens="employee.registrations"
@@ -39,26 +39,26 @@
 </section>
 
 <section ng-show="isCurrentUser(person) || person.employee.memberships">
-  <h3>memberships</h3>
+  <h3>Memberships</h3>
   <p class="explantory-text">Explanatory text goes in here</p>
   <editable-group object="person"
-                lens="employee.memberships"
-                subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+                  lens="employee.memberships"
+                  subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
     <editable property="organisation"      label="organisation"     >Who is this membership with?</editable>
     <editable property="membership_number" label="membership number">What's your membership number?</editable>
     <editable property="state"             label="state"            >What state does this membership cover?</editable>
-    <editable property="country"           label="country"          >What state is this membership issued in?</editable>
-    <editable property="expiry"            label="expiry"           >When does this membership expire?</editable>
+    <editable property="country"           label="country"          >What country is this membership issued in?</editable>
+    <editable property="expiry"            label="expiry"           >When does this membership expire? Memberships can lapse so we need both ends of the time period to put it on the timeline.</editable>
   </editable-group>
 </section>
 
 <section ng-show="isCurrentUser(person) || person.employee.personal_awards">
-  <h3>personal awards</h3>
+  <h3>Personal awards</h3>
   <p class="explantory-text">This sections captures your awards. This is not for awards that projects that you have worked on have won, but rather projects that you, as a person, have won. Use one box per award and add (<i class="icon-plus-sign"></i>Add Award) a new box for each additional one.</p>
   <p class="explantory-text">Awards that projects that you worked on will be added soon.</p>
   <editable-group object="person"
-              lens="employee.personal_awards"
-              subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+                  lens="employee.personal_awards"
+                  subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
     <editable property="name"          label="name"                       >What's the name of this award?</editable>
     <editable property="awarding_body" label="awarding body"              >Who awards it?</editable>
     <editable property="description"   label="description" type="textarea">Describe the award and why you got it.</editable>
