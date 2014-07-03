@@ -146,9 +146,7 @@ Rails really only works to control the database, flicking chunks of JSON at the 
 
 ### Testing ###
 
-We had a bit of a spike at the beginning to get things going, but we are about ready to hook in Travis so that natty little icon will hopefully go green soon.
-
-We are using PhantomJS and Selenium to do end to end tests to get started, and we'll introduce unit testing etc. once end to end is working nicely.
+We had a bit of a spike at the beginning to get things going, but are starting to add end to end tests. We are using PhantomJS and Selenium to get started, and we'll introduce unit testing etc. once end to end is working nicely.
 
 To run the tests
 
