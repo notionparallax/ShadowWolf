@@ -1,10 +1,10 @@
-ShadowWolf 
+ShadowWolf
 ==========
 <img src="http://notionparallax.co.uk/img/Shadow_wolf_logo.png" align="right" >
 
 A mini ERP type app to capture people, projects and their relationships.
 
-It is being built in house at [BVN DH](https://bvn.com.au) as a way to pull together all our data sources. 
+It is being built in house at [BVN DH](https://bvn.com.au) as a way to pull together all our data sources.
 
 Currently it's main focus is on collecting data from disparate historical sources (all the spreadsheets that have been made in the past as problem hacks). Most of this data is incomplete and dirty, so the other thing that it does is allow people who have knowledge to go and edit the data themselves.
 
@@ -32,7 +32,7 @@ mkdir Projects
 cd Projects
 git clone https://github.com/notionparallax/ShadowWolf.git
 cd ShadowWolf
-docker -d #this might not be necesary for you
+docker -d #this might not be necessary for you
 
 ./docker-util install
 ```
@@ -123,6 +123,12 @@ To deploy an image (asks for BVN IP and server login):
 
     ./docker-util deploy client
 
+So to do a full deployment you can:
+
+    ./docker-util build client && ./docker-util build server && ./docker-util deploy client && ./docker-util deploy server
+
+If you add the server IP to your `.bashrc` file then you can put a password in at the beginning and then leave it while you have a cup of tea!
+
 You can always look inside the docker-util file to see how a command works under the hood. The script is just a handful of nested cases to match against arguments. Each matched command is usually a call to docker who's commands a documented with
 
     docker help
@@ -138,11 +144,9 @@ The Mongo back end uses the [MongoidModelMaker](https://github.com/Dawil/Mongoid
 Rails really only works to control the database, flicking chunks of JSON at the angular client.
 
 
-### Testing ###  
+### Testing ###
 
-We had a bit of a spike at the beginning to get things going, but we are about ready to hook in Travis so that natty little icon will hopefully go green soon.
-
-We are using PhantomJS and Selenium to do end to end tests to get started, and we'll introduce unit testing etc. once end to end is working nicely.
+We had a bit of a spike at the beginning to get things going, but are starting to add end to end tests. We are using PhantomJS and Selenium to get started, and we'll introduce unit testing etc. once end to end is working nicely.
 
 To run the tests
 

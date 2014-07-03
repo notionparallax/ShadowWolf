@@ -4,14 +4,14 @@
     <div class="row">
       <h3>Office Culture</h3>
       <div class="col-md-4">
-        <p class="explantory-text">Explanatory text goes in here</p>
+        <p class="explantory-text">There are some things that we need to know about you that help the office run. It might even mean that you never need to eat <em>that</em> kind of sandwich in meetings again!</p>
       </div>
       <div class="col-md-8">
         <editable-group object="person"
                   lens="employee.office_culture"
                   subgroup-class="">
-          <editable property="first_aider"  label="first aider" >If you are <em>currently</em> a first aider then this should say True, otherwise it should say False.</editable>
-          <editable property="fire_warden"  label="fire warden" >If you <em>are</em>a fire warden then this should say True, otherwise it should say False.</editable>
+          <editable property="first_aider"  label="first aider" >If you are <em>currently</em> a first aider then this should be ticked, otherwise it should be blank.</editable>
+          <editable property="fire_warden"  label="fire warden" >If you <em>are</em>a fire warden then this should be ticked, otherwise it should be blank.</editable>
           <editable property="requirements" label="requirements">This is a comma separated list of things that you <em>can't</em> eat (for fear of feeling ill, messing up your morals or dying). For example: <em>eggs, gluten, shellfish</em>.</editable>
           <editable property="likes"        label="likes"       >This is a comma separated list of things that you <em>really like</em> eating. For example: <em>bacon, pizza, pinaple</em>.</editable>
           <editable property="dislikes"     label="dislikes"    >This is a comma separated list of things that you <em>really don't like</em> eating. For example: <em>devon, olives, bread.</em>.</editable>
@@ -24,7 +24,7 @@
     <div class="row">
       <h3>Event Participation</h3>
       <div class="col-md-4">
-        <p class="explantory-text">Explanatory text goes in here</p>
+        <p class="explantory-text">It's nice to know what you've been up to. One way this will all be a part of your beautiful timeline.</p>
       </div>
       <div class="col-md-8">
         <div ng-repeat="ep in person.employee.office_culture.event_participations" class="col-md-12">
