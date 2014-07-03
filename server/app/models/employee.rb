@@ -62,4 +62,5 @@ class Employee
 
   field :login, type: String
   field :position, type: String
+  field :skills_update_link, type: String
 end

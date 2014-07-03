@@ -4,7 +4,8 @@ describe "config/people/edit" do
   before(:each) do
     @config_person = assign(:config_person, stub_model(Employee,
       :login => "MyString",
-      :position => "MyString"
+      :position => "MyString",
+      :skills_update_link => "MyString"
     ))
   end
 
@@ -15,6 +16,7 @@ describe "config/people/edit" do
     assert_select "form[action=?][method=?]", config_person_path(@config_person), "post" do
       assert_select "input#config_person_login[name=?]", "config_person[login]"
       assert_select "input#config_person_position[name=?]", "config_person[position]"
+      assert_select "input#config_person_skills_update_link[name=?]", "config_person[skills_update_link]"
     end
   end
 end

@@ -32,5 +32,6 @@ FactoryGirl.define do
     photo { FactoryGirl.build( :photo ) }
     login { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
     position { Faker::Name.title }
+    skills_update_link { 'https://www.youtube.com/watch?v=qb_hqexKkw8' }
   end
 end

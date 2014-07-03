@@ -7,5 +7,6 @@ FactoryGirl.define do
     state { ['NSW', 'NT', 'ACT', 'VIC', 'WA'].sample }
     country { ['Australia', 'Iceland', 'Luxemburg'].sample }
     expiry { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+    first_granted { (5..40).to_a.sample.years.ago + (1..345).to_a.sample.days }
   end
 end
