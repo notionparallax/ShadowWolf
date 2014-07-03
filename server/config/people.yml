@@ -46,7 +46,7 @@ employee:
     type: string
     factory: |
       { Faker::Name.title }
-  - name: skillsUpdateLink
+  - name: skills_update_link
     type: string
     factory: |
       { 'https://www.youtube.com/watch?v=qb_hqexKkw8' }
@@ -108,7 +108,7 @@ event_participation:
   - name: name
     type: string
     factory: |
-      { ['gong', 'beach', 'charlie', 'Biggest',     'very posh', 'shark island', 'extreme', 'nuts and berries'].sample + ' '+ ['ride', 'walk','party','fund raiser', 'gala', 'swim', 'bake off', 'trail'].sample  }
+      { ['gong', 'beach', 'charlie', 'Biggest', 'very posh', 'shark island', 'extreme', 'nuts and berries'].sample + ' '+ ['ride', 'walk','party','fund raiser', 'gala', 'swim', 'bake off', 'trail'].sample  }
   - name: date
     type: date
     factory: |
