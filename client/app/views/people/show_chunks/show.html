@@ -7,6 +7,7 @@
 
     <tab heading="Name">
       include "name_.html"
+      include "conditions_.html"
       include "photos_.html"
     </tab>
 
@@ -51,11 +52,11 @@
     </tab>
     -->
 
-    <!--
-    <tab heading="Skills">
-      xnclude "skill_.html"
+    
+    <tab heading="Skills" ng-show="isCurrentUser(person)">
+      include "skill_.html"
     </tab>
-    -->
+    
 
   </tabset>
 
