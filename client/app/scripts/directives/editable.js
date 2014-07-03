@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("ShadowWolf")
-.directive("editable", function(Lens, Session, Models, Flash) {
+.directive("editable", function(Lens, Session, Models, Flash, GA) {
   var editDisabled = false;
   return {
     restrict: "E",
@@ -41,10 +41,10 @@ angular.module("ShadowWolf")
         return name;
       };
 
-      $scope.maybeEscapeOrSave = function($event) {
+      $scope.maybeCancelOrSave = function($event) {
         switch ($event.which) {
           case 13: $scope.save(); break;
-          case 27: $scope.disableEditor(); break;
+          case 27: $scope.cancel(); break;
         }
       };
 
@@ -81,6 +81,8 @@ angular.module("ShadowWolf")
        * server, otherwise it just sends back the single field.
        */
       $scope.save = function() {
+        // Report to GA
+        GA.sendEvent('editable-buttons', 'save', $scope.property + ": " + $scope.subobject[$scope.property] + " ---> " + $scope.editable.value);
 
         // Set the value locally
         var object = $scope.subobject ? $scope.subobject : $scope.target();
@@ -119,6 +121,9 @@ angular.module("ShadowWolf")
         $scope.disableEditor();
       };
       $scope.cancel = function() {
+        // Report to GA
+        GA.sendEvent('editable-buttons', 'cancel', $scope.property + ": " + $scope.subobject[$scope.property] + " -X-> " + $scope.editable.value);
+
         $scope.disableEditor();
       };
     }
