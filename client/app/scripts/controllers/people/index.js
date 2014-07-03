@@ -2,7 +2,7 @@
 
 angular.module('ShadowWolf')
 .controller('PeopleIndexController',
-function($scope, People, Session, Search) {
+function($scope, People, Session, Search, GA) {
   $scope.searchResults = [];
   People.getPeople().$promise.then(function(people) {
     $scope.searchResults = people;
@@ -13,6 +13,12 @@ function($scope, People, Session, Search) {
 
   $scope.getMoreLink = function(personId) {
     return "#/people/" + personId;
+  };
+  $scope.logKey = function($event) {
+    var category = 'search',
+        action = 'keydown',
+        label = $scope.searchQuery + ", " + GA.charCodeToLabel($event.which);
+    GA.sendEvent(category,action,label);
   };
 
   $scope.compareTo = function(query) {
