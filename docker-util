@@ -130,9 +130,10 @@ case "$1" in
         docker push $BVN_SERVER:5000/shadowwolf-deploy-server
         remote_script="
         docker pull $BVN_SERVER:5000/shadowwolf-deploy-server > /dev/null;
-        docker rm -f sw-client && docker rm -f sw-server;
+        docker rm -f sw-client ; docker rm -f sw-server;
         docker run -d --name sw-server --link sw-mongo:mongo -p 3000:3000 $BVN_SERVER:5000/shadowwolf-deploy-server;
         docker run -d --name sw-client --link sw-server:server -p 9000:9000 -e SERVER_PORT_3000_TCP_ADDR=$BVN_SERVER $BVN_SERVER:5000/shadowwolf-deploy-client;
+        TZ='Australia/Sydney' nohup docker logs -f sw-server > /home/dave/logs/`date --iso-8601=minutes` &;
         "
         ssh $USER@$BVN_SERVER $remote_script
         ;;
