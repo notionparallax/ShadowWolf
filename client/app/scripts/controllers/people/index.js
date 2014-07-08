@@ -3,6 +3,7 @@
 angular.module('ShadowWolf')
 .controller('PeopleIndexController',
 function($scope, People, Session, Search, GA) {
+  $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
   $scope.searchResults = [];
   People.getPeople().$promise.then(function(people) {
     $scope.searchResults = people;

@@ -18,6 +18,7 @@ function($scope, $location, Session, Flash) {
     }, 5000);
     Session.setAccessToken($location.search().access_token);
     Session.setPersonId($location.search().person_id);
+    Session.setPersonLogin($location.search().login);
   }
   $location.search('');
   $location.path("/people");

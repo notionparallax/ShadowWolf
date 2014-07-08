@@ -30,12 +30,12 @@ class People::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def login_and_redirect person
     apiKey = ApiKey.create person: person
     sign_in person
-    redirect_to  add_params(params[:redirect_uri], apiKey.access_token, person.id), status: 303
+    redirect_to  add_params(params[:redirect_uri], apiKey.access_token, person.id, person.employee.login || nil), status: 303
     set_flash_message(:notice, :success, :kind => "LDAP") if is_navigational_format?
   end
 
-  def add_params(url, token, person_id)
-    "#{url}?access_token=#{token}&person_id=#{person_id}"
+  def add_params(url, token, person_id, login)
+    "#{url}?access_token=#{token}&person_id=#{person_id}" + ( login ? "&login=#{login}" : "")
   end
 
   def auth_hash
