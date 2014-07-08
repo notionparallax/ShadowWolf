@@ -1,0 +1,16 @@
+<div class="row">
+  <h3>Conditions</h3><!--One day this might show up as a pretty timeline or something like that!-->
+  <div class="col-md-3">
+    <p class="explantory-text">A <em>condition</em> is like a status. At the moment you can either be <em>Active</em>, <em>Retired</em>, <em>Maternity</em>, <em>Leave</em>, <em>Deceased</em>, <em>Applicant</em>, <em>Left</em> or <em>Unknown</em>, but we'll add more as we work out what is needed. The system calculates your current condition by looking at the most recent start date, so it is important to update new conditions as soon as you can. </p>
+  </div>
+  <div class="col-sm-12 col-md-9">
+    <div ng-repeat="condition in person.conditions | orderBy:'start_date':true" class="col-sm-12 col-md-12 col-lg-6">
+      <editable-group object="person"
+                      lens="conditions[{{condition|id}}]"
+                      subgroup-class="alert alert-{{ $first ? 'success' : 'info'}}">
+        <editable property="name"       label="name"                    editable-typeahead="condition for condition in ['Active','Retired','Maternity','Leave','Deceased','Applicant','Left','Unknown'] | filter:$viewValue">This is the label of this period of your life, it will normally be taken from the list above.</editable>
+        <editable property="start_date" label="start date" type="date">This is the date that this period started. You don't need to put in when it ended becasue that is inferred from the start date of the next period.</editable>
+      </editable-group>
+    </div>
+  </div>
+</div>

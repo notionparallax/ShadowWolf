@@ -8,7 +8,7 @@
                         lens="employee.contact"
                         subgroup-class="alert alert-info col-sm-10 col-md-10">
           <editable  property="extension" label="extension"  type="number">This is your desk phone extension.</editable>
-          <editable  property="studio"    label="studio"                  >This is the studio that you work in.</editable>
+          <editable  property="studio"    label="studio"     editable-typeahead="place for place in ['Sydney','Melbourne','Brisbane','Bangkok','Baku','Toronto','London','Darlinghurst'] | filter:$viewValue"                >This is the studio that you work in.</editable>
           <editable  property="work_email" label="work email" type="email">This is your ~~~@bvn.com.au email address.</editable>
         </editable-group>
 

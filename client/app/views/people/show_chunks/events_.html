@@ -1,0 +1,20 @@
+<div class="col-md-6">
+    <div class="row">
+      <h3>Event Participation</h3>
+      <div class="col-md-4">
+        <p class="explantory-text">It's nice to know what you've been up to. One way this will all be a part of your beautiful timeline.</p>
+      </div>
+      <div class="col-md-8">
+        <div ng-repeat="ep in person.employee.office_culture.event_participations" class="col-md-12">
+          <editable-group object="person"
+                          lens="employee.office_culture.event_participations[{{ep|id}}]"
+                          subgroup-class="alert alert-info">
+            <editable property="name" label="name"            >This is the name of the thing that you did.</editable>
+            <editable property="date" label="date" type="date">This is the date that you did it.</editable>
+            <editable property="url"  label="url"  type="url" >This is a link to some kind of explanation of the event. It could be the event's website, or it might be to some report that you've published about it.</editable>
+            <p><a href="{{ subobject.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></p>
+          </editable-group>
+        </div>
+      </div>
+    </div>
+  </div>

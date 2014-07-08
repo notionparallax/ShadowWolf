@@ -7,14 +7,10 @@
 
     <tab heading="Name">
       include "name_.html"
+      include "conditions_.html"
       include "photos_.html"
     </tab>
 
-    <!--
-    <tab heading="Culture">
-      xnclude "culture_.html"
-    </tab>
-    -->
 
     <tab heading="Contact">
       include "contact_.html"
@@ -41,6 +37,14 @@
       include "bio_.html"
     </tab>
 
+    <!-- Events is not prepared yet -->
+    <!-- <tab heading="Culture">
+      <div class="row">
+        xnclude "officeculture_.html"
+        xnclude "events_.html"
+      </div>
+    </tab> -->
+
     <!--
     <tab heading="Press">
       xnclude "press_.html"
@@ -51,11 +55,10 @@
     </tab>
     -->
 
-    <!--
-    <tab heading="Skills">
-      xnclude "skill_.html"
+    <tab heading="Skills" ng-show="isCurrentUser(person)">
+      include "skill_.html"
     </tab>
-    -->
+
 
   </tabset>
 

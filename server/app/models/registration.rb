@@ -9,4 +9,5 @@ class Registration
   field :state, type: String
   field :country, type: String
   field :expiry, type: Date
+  field :first_granted, type: Date
 end
