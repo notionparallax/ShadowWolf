@@ -2,9 +2,9 @@ class Location
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embeds_many :addresses
+  embeds_one :address
 
-  accepts_nested_attributes_for :addresses
+  accepts_nested_attributes_for :address
 
   embeds_one :geo_json
 

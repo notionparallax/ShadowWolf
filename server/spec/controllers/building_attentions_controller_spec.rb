@@ -23,7 +23,7 @@ describe BuildingAttentionsController do
   # This should return the minimal set of attributes required to create a valid
   # BuildingAttention. As you add validations to BuildingAttention, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "date" => "2014-03-11" } }
+  let(:valid_attributes) { { "date" => "2014-07-09" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -106,8 +106,8 @@ describe BuildingAttentionsController do
         # specifies that the BuildingAttention created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        BuildingAttention.any_instance.should_receive(:update).with({ "date" => "2014-03-11" })
-        put :update, {:id => building_attention.to_param, :config_project => { "date" => "2014-03-11" }}, valid_session
+        BuildingAttention.any_instance.should_receive(:update).with({ "date" => "2014-07-09" })
+        put :update, {:id => building_attention.to_param, :config_project => { "date" => "2014-07-09" }}, valid_session
       end
 
       it "assigns the requested config_project as @config_project" do

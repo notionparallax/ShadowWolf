@@ -3,8 +3,9 @@
 <table>
   <thead>
     <tr>
-      <th>Start date</th>
-      <th>End date</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Description</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,8 +15,9 @@
   <tbody>
     <% @key_dates.each do |key_date| %>
       <tr>
-        <td><%= key_date.start_date %></td>
-        <td><%= key_date.end_date %></td>
+        <td><%= key_date.date %></td>
+        <td><%= key_date.name %></td>
+        <td><%= key_date.description %></td>
         <td><%= link_to 'Show', key_date %></td>
         <td><%= link_to 'Edit', edit_key_date_path(key_date) %></td>
         <td><%= link_to 'Destroy', key_date, method: :delete, data: { confirm: 'Are you sure?' } %></td>

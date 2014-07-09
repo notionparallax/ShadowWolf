@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Dirty location</th>
       <th>Building name</th>
       <th>Street number</th>
       <th>Street</th>
@@ -19,6 +20,7 @@
   <tbody>
     <% @addresses.each do |address| %>
       <tr>
+        <td><%= address.dirty_location %></td>
         <td><%= address.building_name %></td>
         <td><%= address.street_number %></td>
         <td><%= address.street %></td>

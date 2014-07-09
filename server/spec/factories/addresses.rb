@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :address do
+    dirty_location { "<p>West End, Brisbane QLD</p>"}
     building_name { Faker::Name.first_name + " Building"}
     street_number { Faker::Address.building_number }
     street { Faker::Address.street_name + " " + Faker::Address.street_suffix}

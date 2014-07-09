@@ -69,6 +69,6 @@ class KeyDatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def key_date_params
-      params.require(:key_date).permit(:start_date, :end_date)
+      params.require(:key_date).permit(:date, :name, :description)
     end
 end

@@ -8,6 +8,10 @@ project:
     type: string
     factory: |
       { "http://notionparallax.co.uk/bldg/bld-" + (0..248).to_a.sample.to_s + ".jpg" }
+  - name: value
+    type: string
+    factory: |
+      { "About tree fiddy" }
 
 
 non_building:
@@ -322,20 +326,32 @@ phase:
     type: string
     factory: |
       "Projected completion 2005"
+  - name: referee
+    type: string
+    factory: |
+      { "Pierluigi Collina" }
+  - name: dirty_finish
+    type: string
+    factory: |
+      { 'Around ' + 1.day.ago.to_s }
   relation:
     parent: building
     type: embeds_many
 
 key_date:
   fields:
-  - name: start_date
+  - name: date
     type: date
     factory: |
       { (10..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
-  - name: end_date
-    type: date
+  - name: name
+    type: string
     factory: |
-      { (0..10).to_a.sample.years.ago + (1..345).to_a.sample.days }
+      { ["opening","incident","closing","collapse","demolition"].sample }
+  - name: description
+    type: text
+    factory: |
+      { "Disastrous" }
   relation:
     parent: phase
     type: embeds_many

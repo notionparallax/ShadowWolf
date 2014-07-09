@@ -4,6 +4,7 @@ class KeyDate
 
   embedded_in :phase
 
-  field :start_date, type: Date
-  field :end_date, type: Date
+  field :date, type: Date
+  field :name, type: String
+  field :description, type: String
 end

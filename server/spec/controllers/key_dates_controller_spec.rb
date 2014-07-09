@@ -23,7 +23,7 @@ describe KeyDatesController do
   # This should return the minimal set of attributes required to create a valid
   # KeyDate. As you add validations to KeyDate, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "start_date" => "2014-03-11" } }
+  let(:valid_attributes) { { "date" => "2014-07-09" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe KeyDatesController do
       it "assigns a newly created but unsaved config_project as @config_project" do
         # Trigger the behavior that occurs when invalid params are submitted
         KeyDate.any_instance.stub(:save).and_return(false)
-        post :create, {:config_project => { "start_date" => "invalid value" }}, valid_session
+        post :create, {:config_project => { "date" => "invalid value" }}, valid_session
         assigns(:config_project).should be_a_new(KeyDate)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         KeyDate.any_instance.stub(:save).and_return(false)
-        post :create, {:config_project => { "start_date" => "invalid value" }}, valid_session
+        post :create, {:config_project => { "date" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe KeyDatesController do
         # specifies that the KeyDate created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        KeyDate.any_instance.should_receive(:update).with({ "start_date" => "2014-03-11" })
-        put :update, {:id => key_date.to_param, :config_project => { "start_date" => "2014-03-11" }}, valid_session
+        KeyDate.any_instance.should_receive(:update).with({ "date" => "2014-07-09" })
+        put :update, {:id => key_date.to_param, :config_project => { "date" => "2014-07-09" }}, valid_session
       end
 
       it "assigns the requested config_project as @config_project" do
@@ -128,7 +128,7 @@ describe KeyDatesController do
         key_date = KeyDate.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         KeyDate.any_instance.stub(:save).and_return(false)
-        put :update, {:id => key_date.to_param, :config_project => { "start_date" => "invalid value" }}, valid_session
+        put :update, {:id => key_date.to_param, :config_project => { "date" => "invalid value" }}, valid_session
         assigns(:config_project).should eq(key_date)
       end
 
@@ -136,7 +136,7 @@ describe KeyDatesController do
         key_date = KeyDate.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         KeyDate.any_instance.stub(:save).and_return(false)
-        put :update, {:id => key_date.to_param, :config_project => { "start_date" => "invalid value" }}, valid_session
+        put :update, {:id => key_date.to_param, :config_project => { "date" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

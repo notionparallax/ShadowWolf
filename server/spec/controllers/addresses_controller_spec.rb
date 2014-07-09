@@ -23,7 +23,7 @@ describe AddressesController do
   # This should return the minimal set of attributes required to create a valid
   # Address. As you add validations to Address, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "building_name" => "MyString" } }
+  let(:valid_attributes) { { "dirty_location" => "MyString" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe AddressesController do
       it "assigns a newly created but unsaved config_project as @config_project" do
         # Trigger the behavior that occurs when invalid params are submitted
         Address.any_instance.stub(:save).and_return(false)
-        post :create, {:config_project => { "building_name" => "invalid value" }}, valid_session
+        post :create, {:config_project => { "dirty_location" => "invalid value" }}, valid_session
         assigns(:config_project).should be_a_new(Address)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Address.any_instance.stub(:save).and_return(false)
-        post :create, {:config_project => { "building_name" => "invalid value" }}, valid_session
+        post :create, {:config_project => { "dirty_location" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe AddressesController do
         # specifies that the Address created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Address.any_instance.should_receive(:update).with({ "building_name" => "MyString" })
-        put :update, {:id => address.to_param, :config_project => { "building_name" => "MyString" }}, valid_session
+        Address.any_instance.should_receive(:update).with({ "dirty_location" => "MyString" })
+        put :update, {:id => address.to_param, :config_project => { "dirty_location" => "MyString" }}, valid_session
       end
 
       it "assigns the requested config_project as @config_project" do
@@ -128,7 +128,7 @@ describe AddressesController do
         address = Address.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Address.any_instance.stub(:save).and_return(false)
-        put :update, {:id => address.to_param, :config_project => { "building_name" => "invalid value" }}, valid_session
+        put :update, {:id => address.to_param, :config_project => { "dirty_location" => "invalid value" }}, valid_session
         assigns(:config_project).should eq(address)
       end
 
@@ -136,7 +136,7 @@ describe AddressesController do
         address = Address.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Address.any_instance.stub(:save).and_return(false)
-        put :update, {:id => address.to_param, :config_project => { "building_name" => "invalid value" }}, valid_session
+        put :update, {:id => address.to_param, :config_project => { "dirty_location" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
