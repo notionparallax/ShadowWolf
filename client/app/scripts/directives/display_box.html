@@ -9,7 +9,7 @@
 
        analytics-on="mouseenter"
        analytics-event="see-me-rolling"
-       analytics-label="{{titleText}}"
+       analytics-label="{{getCurrentUserLogin()}} rolled {{titleText}}"
        analytics-category="wyld stallyons rule!!!!">
 
     <div class="details {{state}}">
@@ -19,7 +19,7 @@
          href="{{moreLink}}"
 
          analytics-on="click"
-         analytics-event="more button clicked"
+         analytics-event="{{getCurrentUserLogin()}} clicked 'more' button"
          analytics-label="{{titleText}}"
          analytics-category="buttonism">more</a>
       <div ng-transclude></div>

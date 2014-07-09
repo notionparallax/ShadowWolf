@@ -10,7 +10,7 @@
          class="form-control-static editable editable-text editable-output"
          ng-click="enableEditor($event)"
          analytics-on="click"
-         analytics-event="editable enabled"
+         analytics-event="editable enabled by {{getCurrentUserLogin()}}"
          analytics-label="{{ label }}"
          analytics-category="editable-buttons">
         <p ng-if="type == 'number'" ng-bind="subobject[property] | number"></p>
@@ -34,7 +34,7 @@
           <span class="glyphicon glyphicon-ok"
                 title="save"
                 analytics-on="click"
-                analytics-event="editable ok clicked"
+                analytics-event="editable ok clicked by {{getCurrentUserLogin()}}"
                 analytics-label="{{ label }}"
                 analytics-category="editable-buttons"
                 ></span>
@@ -43,7 +43,7 @@
           <span class="glyphicon glyphicon-remove"
                 title="cancel"
                 analytics-on="click"
-                analytics-event="editable cancel clicked"
+                analytics-event="editable cancel clicked by {{getCurrentUserLogin()}}"
                 analytics-label="{{ label }}"
                 analytics-category="editable-buttons"
                 ></span>
