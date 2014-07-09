@@ -23,6 +23,8 @@ angular.module("ShadowWolf")
       }
     },
     controller: function($scope) {
+      $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
+      
       $scope.editable = {};
       $scope.editorEnabled= false;
 

@@ -16,6 +16,8 @@ angular.module('ShadowWolf')
         },
         link: function (scope, element, attrs) {},
         controller: function($scope) {
+            $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
+
             $scope.state = "drawer-in";
             $scope.setDrawerState=function(state){
               if(state!='click'){
