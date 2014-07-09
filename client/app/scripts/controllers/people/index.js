@@ -18,7 +18,7 @@ function($scope, People, Session, Search, GA) {
   $scope.logKey = function($event) {
     var category = 'search',
         action = 'keydown',
-        label = $scope.searchQuery + ", " + GA.charCodeToLabel($event.which);
+        label = $scope.getCurrentUserLogin() + ", " + $scope.searchQuery + ", " + GA.charCodeToLabel($event.which);
     GA.sendEvent(category,action,label);
   };
 

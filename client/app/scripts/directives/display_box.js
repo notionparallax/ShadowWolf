@@ -15,7 +15,7 @@ angular.module('ShadowWolf')
           condition: "@"
         },
         link: function (scope, element, attrs) {},
-        controller: function($scope) {
+        controller: function($scope, Session) {
             $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
 
             $scope.state = "drawer-in";
