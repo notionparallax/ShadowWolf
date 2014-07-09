@@ -1,0 +1,361 @@
+{
+ "building": {
+    "BCA_classification": "Class 5",
+   "attribution": "TODO: I don't remember why this field  exists",
+    "client": {
+    "direct": "Rita Herzog",
+      "end_user": "Talon Ward",
+      "main": "Braden Berge",
+   },
+   "description": "Illo at tempora dicta saepe. Modi delectus neque nihil voluptatem sequi. Quis rerum aut. Commodi rem",
+    "dims": {
+    "dirty_size": "one thousand metres squared",
+      "footprint_area": {
+      "measurement": 38144.79754680613,
+        "standard_name": "BCAU",
+        "standard_version": "V3",
+     },
+      "gba": {
+      "measurement": 78401.67347753224,
+        "standard_name": "BCAu",
+        "standard_version": "V5",
+     },
+      "gfa": {
+      "measurement": 51601.38432194795,
+        "standard_name": "RMAu",
+        "standard_version": "V4",
+     },
+      "height": {
+      "measurement": 694.4989053278003,
+        "standard_name": "top of radio mast",
+        "standard_version": "V1",
+     },
+      "nla": {
+      "measurement": 66564.26894273538,
+        "standard_name": "IOSUSA",
+        "standard_version": "V4",
+     },
+   },
+    "legacy": {
+     "awards": [
+        {
+         "award": "Enterprise-wide didactic core",
+         "date": "2010-11-12",
+          "jury": "Nya Schiller, Deion Casper, Bria Jacobson, Ms. Elvera Kuhic",
+       },
+        {
+         "award": "Public-key foreground support",
+         "date": "2009-02-11",
+          "jury": "Abagail Jones, Aletha Moore, Dr. Dimitri Schuppe, Reva Denesik",
+       }
+      ],
+      "brief_elements": "Voluptatibus natus autem ullam ratione corporis. Ad aut voluptas sint sit qui officia. Ullam cumque ",
+     "description_awards_style": "Suscipit eveniet accusantium cumque necessitatibus et id mollitia. Aut corporis aspernatur. Quaerat ",
+      "description_project_sheet": "Earum voluptatem consequatur ab aut. Porro est et eum aliquid suscipit. Rerum provident amet sint. E",
+      "esd": {
+       "certifications": [
+          {
+           "awarding_body": "NABERS",
+           "expiry_date": "2002-02-25",
+            "name": "GBCAdesigned",
+            "ranking": "****",
+         },
+          {
+           "awarding_body": "NABERS",
+           "expiry_date": "2008-12-20",
+            "name": "GBCAdesigned",
+            "ranking": "******",
+         }
+        ],
+       "initiatives": [
+          {
+          "description": "Facilis deleniti recusandae nobis molestias unde quo. Porro nobis illo fugit. Porro recusandae volup",
+            "reason": "Quidem quo reiciendis ea.",
+            "title": "green roof",
+         },
+          {
+          "description": "Non vel cupiditate voluptas ut. Qui quo dolore similique. Hic aut assumenda. Eum ducimus natus paria",
+            "reason": "Quidem nemo aperiam quis dolorem sapiente assumenda.",
+            "title": "green roof",
+         }
+        ],
+     },
+      "innovation_client_style": "Natus et qui ducimus molestias rerum. Sed earum voluptate repellendus dicta voluptates. Id voluptatu",
+      "interesting_things": "Ipsa sint deleniti ut et. Id iusto aut. Autem aut non tenetur ipsa sed expedita asperiores. Inventor",
+      "one_line_grab": "Dolores est reiciendis cumque est. Quia ullam eum. In doloribus eligendi illo et. Eos cumque volupta",
+      "photography": {
+      "date": "2012-08-16",
+        "photographer": "Dakota Stiedemann",
+     },
+      "quotes": [
+        {
+         "citation": "Durward Bauch",
+         "date": "2011-05-27",
+          "quote": "Deleniti eos et natus facere porro quia perferendis. In a nulla quis. Eos est et rerum consequatur a",
+       },
+        {
+         "citation": "Elise Kirlin",
+         "date": "1996-11-19",
+          "quote": "Optio eum fugiat amet repellat aliquam facere cupiditate. Eaque voluptatem omnis dicta optio. Dicta ",
+       }
+      ],
+      "security_level": "Top Secret",
+      "testimonials": [
+        {
+         "citation": "Carroll Hahn",
+         "date": "2013-03-04",
+          "testimonial": "Mollitia totam non soluta sunt ducimus eius enim. Ipsa voluptatem autem est sed occaecati quia deser",
+       },
+        {
+         "citation": "Ayla Weimann",
+         "date": "2009-11-27",
+          "testimonial": "Ut dicta velit impedit non nulla alias. Animi nihil laboriosam. Distinctio doloremque harum est. Nis",
+       }
+      ],
+   },
+    "locations": [
+      {
+       "addresses": [
+          {
+           "building_name": "Mozell Building",
+            "country": "Austria",
+           "postcode": "28691-0722",
+            "state_county": "Western Australia",
+            "street": "Wiley Court Inlet",
+            "street_number": "44560",
+            "suburb_area": "Englorie Park",
+         },
+          {
+           "building_name": "Selmer Building",
+            "country": "Netherlands Antilles",
+           "postcode": "39643",
+            "state_county": "Victoria",
+            "street": "Alessandra Village Junction",
+            "street_number": "752",
+            "suburb_area": "Earlwood",
+         }
+        ],
+       "geo_json": {
+         "boundary_points": [
+            [
+              -5.883028796573264,
+              -38.451608500678844
+            ],
+            [
+              34.80975424772794,
+              -30.86309616948964
+            ],
+            [
+              -3.5916612775086896,
+              -27.89132430052153
+            ],
+            [
+              -64.13482037678031,
+              -32.92705100027334
+            ]
+          ],
+         "lat": 34.933066866343815,
+          "lon": -10.024452421795784,
+       },
+     },
+      {
+       "addresses": [
+          {
+           "building_name": "Marilou Building",
+            "country": "Algeria",
+           "postcode": "94115-4362",
+            "state_county": "Northern Territory",
+            "street": "Larson Parks Bridge",
+            "street_number": "7730",
+            "suburb_area": "Emu Plains",
+         },
+          {
+           "building_name": "Elisabeth Building",
+            "country": "Croatia",
+           "postcode": "42008-7053",
+            "state_county": "Northern Territory",
+            "street": "Wilderman Ridges Springs",
+            "street_number": "8300",
+            "suburb_area": "Elderslie",
+         }
+        ],
+       "geo_json": {
+         "boundary_points": [
+            [
+              -38.95200464245874,
+              -22.978286703782167
+            ],
+            [
+              -124.65434960651905,
+              -30.30206557309449
+            ],
+            [
+              105.35435702335076,
+              -31.152860027721985
+            ],
+            [
+              99.35361574040401,
+              -43.00967825694831
+            ]
+          ],
+         "lat": 95.88032122195784,
+          "lon": -34.07373897589868,
+       },
+     }
+    ],
+    "phases": [
+      {
+       "budget": {
+         "comments": "Odio nostrum omnis corrupti tenetur. Voluptates sed odit sed et harum. Necessitatibus recusandae est",
+          "construction_final": 77000000.0,
+          "construction_initial": 71000000.0,
+         "dirty_budget": "a cool mil",
+          "fee_type": "lump sum",
+          "final_phase_fee_total": 26000000.0,
+          "final_phase_value_total": 98000000.0,
+          "initial_phase_fee_total": 40000000.0,
+          "initial_phase_value_total": 21000000.0,
+       },
+        "client": "Wolf-Lynch",
+       "delivery_contract": "Sequi quibusdam vero enim laudantium. Fugiat ut minus et aut. Rerum ipsum cupiditate quia. Incidunt ",
+        "dirty_date": "Projected completion 2005",
+        "dirty_members": "Lizzie, Nash, Aiyana",
+        "key_dates": [
+          {
+          "end_date": "2012-10-07",
+            "start_date": "1999-08-31",
+         },
+          {
+          "end_date": "2006-08-21",
+            "start_date": "1995-07-11",
+         }
+        ],
+        "project_name": "Small Plastic Computer building",
+        "services_scope": "Dolores reprehenderit ut alias qui vitae expedita in. Minus perferendis incidunt nisi est sint. Dolo",
+        "staff_contact_login": "ao'kon",
+        "staff_custodian_login": "kyundt",
+        "studio": "Melbourne",
+     },
+      {
+       "budget": {
+         "comments": "Impedit error illum. Voluptatem enim excepturi aut. Non autem eveniet tenetur. Provident culpa dicta",
+          "construction_final": 6000000.0,
+          "construction_initial": 69000000.0,
+         "dirty_budget": "a cool mil",
+          "fee_type": "fixed fee",
+          "final_phase_fee_total": 15000000.0,
+          "final_phase_value_total": 75000000.0,
+          "initial_phase_fee_total": 7000000.0,
+          "initial_phase_value_total": 57000000.0,
+       },
+        "client": "Walter-Ebert",
+       "delivery_contract": "Explicabo ut voluptate natus quo facere dolorem. Eveniet quia incidunt sit. Dolores recusandae exped",
+        "dirty_date": "Projected completion 2005",
+        "dirty_members": "Stephon, Andreanne, Keegan",
+        "key_dates": [
+          {
+          "end_date": "2012-02-28",
+            "start_date": "2004-07-12",
+         },
+          {
+          "end_date": "2011-10-03",
+            "start_date": "2000-02-02",
+         }
+        ],
+        "project_name": "Small Granite Hat building",
+        "services_scope": "Sed occaecati assumenda et cupiditate aspernatur. Praesentium consequatur magnam. Possimus rerum aut",
+        "staff_contact_login": "mkertzmann",
+        "staff_custodian_login": "gemard",
+        "studio": "Townsville",
+     }
+    ],
+    "presses": [
+      {
+       "attentions": [
+          {
+           "body_text": "Molestias ut pariatur delectus. Occaecati beatae voluptas. Ut repudiandae voluptatibus tempore vel o",
+           "date": "2014-04-20",
+            "publication": "implement compelling infomediaries weekly",
+            "reason": "response to release",
+            "scan_or_screengrab": "http://spinka.net/images/88888078494702028888screencap.jpg",
+           "url": "http://steuberpurdy.org/stories/style_section"
+          },
+          {
+           "body_text": "Atque delectus provident totam minima nihil facilis dicta. Pariatur deserunt eveniet qui asperiores ",
+           "date": "2015-06-11",
+            "publication": "architect end-to-end interfaces weekly",
+            "reason": "planned",
+            "scan_or_screengrab": "http://schultzwyman.info/images/88827937117458788888screencap.jpg",
+           "url": "http://andersonpouros.org/stories/theatre"
+          }
+        ],
+        "campaigns": [
+          {
+          "strategy": "Est ad laborum eaque harum dolorem. Rerum numquam ut. Esse nam et. Rerum voluptatem quia.<br>Quia ve",
+         },
+          {
+          "strategy": "Repellat voluptatem pariatur non. Et est quam omnis repellat dolorum fugit dolor. Non et sit debitis",
+         }
+        ],
+    },
+      {
+       "attentions": [
+          {
+           "body_text": "Veniam reprehenderit id corporis et. Et amet eligendi. Nulla autem facere omnis dolor mollitia. Quis",
+           "date": "2007-09-11",
+            "publication": "seize front-end vortals weekly",
+            "reason": "planned",
+            "scan_or_screengrab": "http://schaden.biz/images/88839575991174348888screencap.jpg",
+           "url": "http://hagenes.org/stories/style_section"
+          },
+          {
+           "body_text": "Et aliquid ut illum deserunt perspiciatis facilis. Quos hic qui minus molestiae. Aliquid facere veni",
+           "date": "2011-09-16",
+            "publication": "engineer visionary applications weekly",
+            "reason": "planned",
+            "scan_or_screengrab": "http://gerlachquigley.org/images/33356615183502003333screencap.jpg",
+           "url": "http://muller.com/stories/business"
+          }
+        ],
+        "campaigns": [
+          {
+          "strategy": "Veniam officia ut autem reprehenderit iusto et est. Facilis velit consequatur et ut porro in quia. E",
+         },
+          {
+          "strategy": "Qui laudantium et. Eos suscipit optio expedita. Temporibus maxime non at pariatur. Maiores dolorem a",
+         }
+        ],
+    }
+    ],
+    "project_categories": "Claudia, Ayla, Monte",
+    "project_source": {
+     "competition_URL": "http://kunde.com/project-offers/",
+      "competition_win": false,
+     "referred_by": {
+        "BVN_staff_login": "kkoss",
+       "contact_name": "Mr. Brenda Schaden",
+        "contact_organisation": "Bill RennerInstitute",
+    },
+   },
+    "project_sub_catagories": "Boris, Heath, Sam",
+    "qas": [
+      {
+      "notes": "Sed nihil ipsam et. Cum aut similique quia. Harum ea quisquam sed voluptatibus hic. Quia quia sunt d",
+     },
+      {
+      "notes": "Quo accusamus illum maxime omnis id quis. Fugiat tempora explicabo nostrum ut quaerat nisi ducimus. ",
+     }
+    ],
+    "relationship_description": {
+     "client": "Eaque ut ipsum esse. Et est numquam architecto. Voluptas iste commodi sunt soluta.<br>Autem qui sequ",
+      "councils": "Aut maiores consectetur deserunt. Cupiditate quas blanditiis aliquid. Natus molestiae est est repell",
+     "stakeholder": "Id quaerat quos rerum qui animi non. Debitis quam esse. Et nam fugiat natus voluptas et dolor.<br>Cu",
+   },
+ },
+ "img": "http://notionparallax.co.uk/bldg/bld-90.jpg",
+  "non_building": {
+  "description": "Corporis ut necessitatibus eaque est animi architecto. Quo dicta itaque labore optio enim rerum. Off",
+    "name": "revolutionize compelling networks",
+ },
+  "project_number": "19960708.ZFV",
+}
