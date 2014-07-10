@@ -22,7 +22,9 @@ angular.module("ShadowWolf")
         scope.typeahead = attrs['editableTypeahead'];
       }
     },
-    controller: function($scope) {
+    controller: function($scope, Session) {
+      $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
+      
       $scope.editable = {};
       $scope.editorEnabled= false;
 
