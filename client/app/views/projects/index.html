@@ -9,7 +9,7 @@
 
 <div class="row" infinite-scroll="loadMoreResults()">
   <!--start a project/person box as a directive-->
-  <display-box ng-repeat="p in visibleSearchResults"
+  <display-box ng-repeat="p in searchResults"
               title-text="{{ p.project_name || p.project_number }}"
               body-text="Some body text"
               img-src="{{p.img || getKittenImage($index) }}"
