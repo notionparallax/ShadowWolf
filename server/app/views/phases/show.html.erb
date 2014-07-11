@@ -45,5 +45,15 @@
   <%= @phase.dirty_date %>
 </p>
 
+<p>
+  <strong>Referee:</strong>
+  <%= @phase.referee %>
+</p>
+
+<p>
+  <strong>Dirty finish:</strong>
+  <%= @phase.dirty_finish %>
+</p>
+
 <%= link_to 'Edit', edit_phase_path(@phase) %> |
 <%= link_to 'Back', phases_path %>

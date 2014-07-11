@@ -15,5 +15,7 @@ FactoryGirl.define do
     staff_contact_login { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
     staff_custodian_login { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
     dirty_date "Projected completion 2005"
+    referee { "Pierluigi Collina" }
+    dirty_finish { '' }
   end
 end

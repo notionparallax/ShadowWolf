@@ -12,6 +12,8 @@
       <th>Staff contact login</th>
       <th>Staff custodian login</th>
       <th>Dirty date</th>
+      <th>Referee</th>
+      <th>Dirty finish</th>
       <th></th>
       <th></th>
       <th></th>
@@ -30,6 +32,8 @@
         <td><%= phase.staff_contact_login %></td>
         <td><%= phase.staff_custodian_login %></td>
         <td><%= phase.dirty_date %></td>
+        <td><%= phase.referee %></td>
+        <td><%= phase.dirty_finish %></td>
         <td><%= link_to 'Show', phase %></td>
         <td><%= link_to 'Edit', edit_phase_path(phase) %></td>
         <td><%= link_to 'Destroy', phase, method: :delete, data: { confirm: 'Are you sure?' } %></td>

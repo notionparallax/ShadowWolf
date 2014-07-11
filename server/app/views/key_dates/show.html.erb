@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Start date:</strong>
-  <%= @key_date.start_date %>
+  <strong>Date:</strong>
+  <%= @key_date.date %>
 </p>
 
 <p>
-  <strong>End date:</strong>
-  <%= @key_date.end_date %>
+  <strong>Name:</strong>
+  <%= @key_date.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @key_date.description %>
 </p>
 
 <%= link_to 'Edit', edit_key_date_path(@key_date) %> |

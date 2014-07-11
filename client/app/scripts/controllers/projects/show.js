@@ -6,7 +6,7 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash) {
   if (!Session.getPersonId()) {
     Flash.add({
       template: '<p>You must be logged in to view that page.</p>',
-      css: 'flash-failure'
+      css: 'flash-fail'
     }, 5000);
     $location.path("/projects");
   }

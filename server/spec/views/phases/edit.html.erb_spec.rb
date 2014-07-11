@@ -11,7 +11,9 @@ describe "config/projects/edit" do
       :delivery_contract => "MyText",
       :staff_contact_login => "MyString",
       :staff_custodian_login => "MyString",
-      :dirty_date => "MyString"
+      :dirty_date => "MyString",
+      :referee => "MyString",
+      :dirty_finish => "MyString"
     ))
   end
 
@@ -29,6 +31,8 @@ describe "config/projects/edit" do
       assert_select "input#config_project_staff_contact_login[name=?]", "config_project[staff_contact_login]"
       assert_select "input#config_project_staff_custodian_login[name=?]", "config_project[staff_custodian_login]"
       assert_select "input#config_project_dirty_date[name=?]", "config_project[dirty_date]"
+      assert_select "input#config_project_referee[name=?]", "config_project[referee]"
+      assert_select "input#config_project_dirty_finish[name=?]", "config_project[dirty_finish]"
     end
   end
 end

@@ -4,6 +4,7 @@ describe "config/projects/index" do
   before(:each) do
     assign(:addresses, [
       stub_model(Address,
+        :dirty_location => "Dirty Location",
         :building_name => "Building Name",
         :street_number => "Street Number",
         :street => "Street",
@@ -13,6 +14,7 @@ describe "config/projects/index" do
         :postcode => "Postcode"
       ),
       stub_model(Address,
+        :dirty_location => "Dirty Location",
         :building_name => "Building Name",
         :street_number => "Street Number",
         :street => "Street",
@@ -27,6 +29,7 @@ describe "config/projects/index" do
   it "renders a list of config/projects" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
+    assert_select "tr>td", :text => "Dirty Location".to_s, :count => 2
     assert_select "tr>td", :text => "Building Name".to_s, :count => 2
     assert_select "tr>td", :text => "Street Number".to_s, :count => 2
     assert_select "tr>td", :text => "Street".to_s, :count => 2

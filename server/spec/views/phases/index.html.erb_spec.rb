@@ -12,7 +12,9 @@ describe "config/projects/index" do
         :delivery_contract => "MyText",
         :staff_contact_login => "Staff Contact Login",
         :staff_custodian_login => "Staff Custodian Login",
-        :dirty_date => "Dirty Date"
+        :dirty_date => "Dirty Date",
+        :referee => "Referee",
+        :dirty_finish => "Dirty Finish"
       ),
       stub_model(Phase,
         :dirty_members => "Dirty Members",
@@ -23,7 +25,9 @@ describe "config/projects/index" do
         :delivery_contract => "MyText",
         :staff_contact_login => "Staff Contact Login",
         :staff_custodian_login => "Staff Custodian Login",
-        :dirty_date => "Dirty Date"
+        :dirty_date => "Dirty Date",
+        :referee => "Referee",
+        :dirty_finish => "Dirty Finish"
       )
     ])
   end
@@ -40,5 +44,7 @@ describe "config/projects/index" do
     assert_select "tr>td", :text => "Staff Contact Login".to_s, :count => 2
     assert_select "tr>td", :text => "Staff Custodian Login".to_s, :count => 2
     assert_select "tr>td", :text => "Dirty Date".to_s, :count => 2
+    assert_select "tr>td", :text => "Referee".to_s, :count => 2
+    assert_select "tr>td", :text => "Dirty Finish".to_s, :count => 2
   end
 end

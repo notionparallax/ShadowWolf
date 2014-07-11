@@ -26,6 +26,7 @@ class Legacy
 
   field :one_line_grab, type: String
   field :description_project_sheet, type: String
+  field :description_200_500_words, type: String
   field :description_awards_style, type: String
   field :innovation_client_style, type: String
   field :interesting_things, type: String

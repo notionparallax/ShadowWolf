@@ -11,7 +11,9 @@ describe "config/projects/show" do
       :delivery_contract => "MyText",
       :staff_contact_login => "Staff Contact Login",
       :staff_custodian_login => "Staff Custodian Login",
-      :dirty_date => "Dirty Date"
+      :dirty_date => "Dirty Date",
+      :referee => "Referee",
+      :dirty_finish => "Dirty Finish"
     ))
   end
 
@@ -27,5 +29,7 @@ describe "config/projects/show" do
     rendered.should match(/Staff Contact Login/)
     rendered.should match(/Staff Custodian Login/)
     rendered.should match(/Dirty Date/)
+    rendered.should match(/Referee/)
+    rendered.should match(/Dirty Finish/)
   end
 end

@@ -4,6 +4,7 @@ class Address
 
   embedded_in :location
 
+  field :dirty_location, type: String
   field :building_name, type: String
   field :street_number, type: String
   field :street, type: String

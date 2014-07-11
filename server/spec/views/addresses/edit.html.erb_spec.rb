@@ -3,6 +3,7 @@ require 'spec_helper'
 describe "config/projects/edit" do
   before(:each) do
     @config_project = assign(:config_project, stub_model(Address,
+      :dirty_location => "MyString",
       :building_name => "MyString",
       :street_number => "MyString",
       :street => "MyString",
@@ -18,6 +19,7 @@ describe "config/projects/edit" do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", config_project_path(@config_project), "post" do
+      assert_select "input#config_project_dirty_location[name=?]", "config_project[dirty_location]"
       assert_select "input#config_project_building_name[name=?]", "config_project[building_name]"
       assert_select "input#config_project_street_number[name=?]", "config_project[street_number]"
       assert_select "input#config_project_street[name=?]", "config_project[street]"

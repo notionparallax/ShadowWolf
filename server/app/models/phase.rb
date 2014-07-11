@@ -21,4 +21,6 @@ class Phase
   field :staff_contact_login, type: String
   field :staff_custodian_login, type: String
   field :dirty_date, type: String
+  field :referee, type: String
+  field :dirty_finish, type: String
 end
