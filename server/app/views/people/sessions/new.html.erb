@@ -9,9 +9,9 @@
 
   <form method="post" action="<%= callback_path + '?redirect_uri=' + (CGI.escape request.params['redirect_uri'] || "") %>" novalidate="noValidate">
     <div class="form-group">
+      <p>This is your windows login, not your email address.</p>
     	<label for="username">Username</label>
     	<input type="text" class="form-control" id="Username" name="username" placeholder="Enter Username">
-    	<p>This is your windows login, not your email address.</p>
     </div>
 
 	<div class="form-group">
