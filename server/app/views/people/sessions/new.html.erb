@@ -2,14 +2,37 @@
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
+<style type="text/css" media="screen">
+  #login-box{
+    margin: 100px auto;
+    width: 300px;
+    height: inherit;
+    text-align: center;
+    padding-top: 30px;
+    border: 1px solid grey;
+    padding: 2em;
+    border-radius: 1em;
+    
+    -webkit-transform-origin: top;
+    -webkit-transform: scale(2);
 
+    -o-transform-origin: top;
+    -o-transform: scale(2);
 
-<div style="margin: 100px auto; background-color: gray; width: 300px; height: 250px; text-align: center; padding-top: 30px">
+    -moz-transform-origin: top;
+    -moz-transform: scale(2);
+
+    transform-origin: top;
+    transform: scale(2);
+  }
+</style>
+
+<div id="login-box" >
   <h2>Sign in</h2>
 
   <form method="post" action="<%= callback_path + '?redirect_uri=' + (CGI.escape request.params['redirect_uri'] || "") %>" novalidate="noValidate">
     <div class="form-group">
-      <p>This is your windows login, not your email address.</p>
+      <p>This is your windows login &amp; password, not your email address.</p>
     	<label for="username">Username</label>
     	<input type="text" class="form-control" id="Username" name="username" placeholder="Enter Username">
     </div>
