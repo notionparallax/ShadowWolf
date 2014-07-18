@@ -30,6 +30,9 @@ angular.module('ShadowWolf')
                  $scope.state = 'drawer-in';
               }
             };
+            $scope.randomNumber=function(){
+              return Math.random();
+            };
         }
     };
 });
