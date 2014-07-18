@@ -38,9 +38,18 @@ Person.all.each{|p|
 #add photo stubs to each person
 Person.all.each{|p|
     if p.employee.photo == nil
-        puts p.employee.login
+        puts p.employee.login + " got a photo stub"
         phot = Photo.new
         p.employee.photo = phot
+        p.save
+    end
+
+    if p.contact.social == nil
+        puts p.employee.login + " got social contact"
+        socialStub = Social.new
+        p.contact.social = socialStub
+        p.contact.social.twitter = "psy_oppa"
+        p.contact.social.instagram = "tonyabbottmhr"
         p.save
     end
 }
