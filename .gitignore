@@ -6,4 +6,4 @@
 Dockerfile
 
 #sublime
-.sublime-*
+*.[sublime]*
