@@ -5,8 +5,7 @@
        ng-mouseleave="setDrawerState('drawer-in')"
        ng-click     ="setDrawerState('click')"
 
-       style="/*background-color: hsla(180, 100%, {{randomNumber()*100}}%,1);*/
-              background-image: url({{imgSrc}});"
+       style="background-image: url({{imgSrc}});"
 
        analytics-on="mouseenter"
        analytics-event="see-me-rolling"
@@ -15,6 +14,7 @@
 
     <div class="details {{state}}">
       <h1 class="title title-{{state}}">{{titleText}}</h1>
+      <p class="person-body">{{bodyText}}</p>
       <a ng-show="moreLink"
          class="btn btn-info more-button"
          href="{{moreLink}}"
