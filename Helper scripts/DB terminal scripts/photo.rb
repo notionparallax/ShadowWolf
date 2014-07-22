@@ -41,6 +41,16 @@ Person.all.each{|p|
     end
 }
 
+Person.all.each{|p|
+    if p.name.preferred_last == ""
+        puts p.employee.login
+        p.employee.login = ""
+        puts p.employee.login
+        p.save
+    end
+}
+
+
 #
 # Person.all.each{|p|
 #     if leftPeople.include?(p.employee.login)
