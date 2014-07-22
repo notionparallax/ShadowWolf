@@ -1,3 +1,6 @@
+#copy and paste these at the terminal as needed
+
+#no surprises here, a list of pictures of muppets
 muppets = ["http://img4.wikia.nocookie.net/__cb20101015151246/muppet/images/0/05/Beaker.jpg",
            "http://www.doriabiddle.com/images/bunsen.gif",
            "http://www.aceshowbiz.com/images/still/the-muppets-pic07.jpg",
@@ -7,9 +10,11 @@ muppets = ["http://img4.wikia.nocookie.net/__cb20101015151246/muppet/images/0/05
            "http://i2.cdn.turner.com/cnn/dam/assets/130704041649-sesame-street-muppet-elmo-horizontal-gallery.jpg",
            "http://www.aceshowbiz.com/images/still/the-muppets-pic08.jpg"]
 
-blankPeople = [""]
-#add photo stubs to each person
+#a list of logins of people who don't have photos
+blankPeople = ["",""]
+
 Person.all.each{|p|
+    #add photo stubs to each person
     if p.employee.photo == nil or blankPeople.include? p.employee.login
         puts p.employee.login + " got a photo stub"
         phot = Photo.new
@@ -18,6 +23,7 @@ Person.all.each{|p|
         p.save
     end
 
+    #add social stubs to each person
     if p.contact.social == nil
         puts p.employee.login + " got social contact"
         socialStub = Social.new
@@ -28,9 +34,10 @@ Person.all.each{|p|
     end
 }
 
-
+# if people have left, set their status to 'left'
+leftPeople = ["",""]
 Person.all.each{|p|
-    if [""].include? p.employee.login
+    if leftPeople.include? p.employee.login
         puts p.employee.login
         puts "left"
         newCondition = Condition.new
@@ -41,6 +48,7 @@ Person.all.each{|p|
     end
 }
 
+# change someone's login
 Person.all.each{|p|
     if p.name.preferred_last == ""
         puts p.employee.login
@@ -51,35 +59,35 @@ Person.all.each{|p|
 }
 
 
-#
-# Person.all.each{|p|
-#     if leftPeople.include?(p.employee.login)
-#         puts p.employee.login
-#         puts "left"
-#         newCondition = Condition.new
-#         newCondition.name = "Left"
-#         newCondition.start_date = DateTime.now
-#         p.conditions << newCondition
-#         p.save
-#     end
+# goes through 3 lists and sets people accordingly
+Person.all.each{|p|
+    if leftPeople.include?(p.employee.login)
+        puts p.employee.login
+        puts "left"
+        newCondition = Condition.new
+        newCondition.name = "Left"
+        newCondition.start_date = DateTime.now
+        p.conditions << newCondition
+        p.save
+    end
 
-#     if leavePeople.include?(p.employee.login)
-#         puts p.employee.login
-#         puts "leave"
-#         newCondition = Condition.new
-#         newCondition.name = "Leave"
-#         newCondition.start_date = DateTime.now
-#         p.conditions << newCondition
-#         p.save
-#     end
+    if leavePeople.include?(p.employee.login)
+        puts p.employee.login
+        puts "leave"
+        newCondition = Condition.new
+        newCondition.name = "Leave"
+        newCondition.start_date = DateTime.now
+        p.conditions << newCondition
+        p.save
+    end
 
-#     if maternityPeople.include?(p.employee.login)
-#         puts "maternity"
-#         puts p.employee.login
-#         newCondition = Condition.new
-#         newCondition.name = "Maternity"
-#         newCondition.start_date = DateTime.now
-#         p.conditions << newCondition
-#         p.save
-#     end
-# }
+    if maternityPeople.include?(p.employee.login)
+        puts "maternity"
+        puts p.employee.login
+        newCondition = Condition.new
+        newCondition.name = "Maternity"
+        newCondition.start_date = DateTime.now
+        p.conditions << newCondition
+        p.save
+    end
+}
