@@ -136,6 +136,11 @@ You can always look inside the docker-util file to see how a command works under
 
 Although if things work then you should theoretically be able to do without.
 
+If you need to edit the production database you can use:
+
+    ./docker-util dev console
+    
+and then use ruby commands. Some examples are shown in `ShadowWolf / Helper scripts / DB terminal scripts / photo.rb` 
 
 #### Stack ####
 
