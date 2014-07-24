@@ -4,9 +4,9 @@ function setup(){
   afterEach(function(){
     ptor = protractor.getInstance();
     ptor.clearMockModules();
-    browser.manage().logs().get('browser').then(function(browserLog) {
-        console.log('log: ' + require('util').inspect(browserLog));
-    });
+    //browser.manage().logs().get('browser').then(function(browserLog) {
+    //    console.log('log: ' + require('util').inspect(browserLog));
+    //});
   });
 }
 function visit(path) {

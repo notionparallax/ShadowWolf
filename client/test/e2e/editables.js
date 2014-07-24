@@ -16,7 +16,7 @@ describe('editables in show page', function(){
       visit('people/test-id');
   });
 
-  xit("should display correct values for textual properties", function() {
+  it("should display correct values for textual properties", function() {
     var nameEditableGroup = new EditableGroup('name');
 
     var preferedFirstEditable = nameEditableGroup.getEditable('preferred_first');
@@ -26,7 +26,7 @@ describe('editables in show page', function(){
     expect(preferedLastEditable.getValue()).toBe('Doherty');
   });
 
-  xit("should go to InputMode if clicked in OutputMode", function(){
+  it("should go to InputMode if clicked in OutputMode", function(){
     var nameEditableGroup = new EditableGroup('name');
     var preferedFirstEditable = nameEditableGroup.getEditable('preferred_first');
 
@@ -38,7 +38,7 @@ describe('editables in show page', function(){
     expect(activeElement.getOuterHtml()).toBe(editableInputElement.getOuterHtml());
   });
 
-  xit("should go to OutputMode if ENTER is pressed in InputMode", function() {
+  it("should go to OutputMode if ENTER is pressed in InputMode", function() {
     var nameEditableGroup = new EditableGroup('name');
     var preferedFirstEditable = nameEditableGroup.getEditable('preferred_first');
     expect(preferedFirstEditable.isOutputMode()).toBe(true);

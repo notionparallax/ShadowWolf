@@ -24,7 +24,7 @@ var ben = {
         },
         "created_at" : null,
         "updated_at" : null,
-        "login"      : "bdoherty",
+        "login"      : "test-login",
         "position"   : "Computation Specialist",
         "photo"      : {
             "id": {
