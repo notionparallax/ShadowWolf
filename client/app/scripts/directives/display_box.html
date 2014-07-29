@@ -1,4 +1,4 @@
-<div class="demo col-xs-6 col-sm-4 col-md-3 col-lg-2">
+<div class="demo col-xs-6 col-sm-4 col-md-3 col-lg-1">
   <img src="http://placekitten.com/g/5/5" class="square">
   <div class="info-box {{condition}}"
        ng-mouseenter="setDrawerState('drawer-out')"
@@ -14,6 +14,7 @@
 
     <div class="details {{state}}">
       <h1 class="title title-{{state}}">{{titleText}}</h1>
+      <p class="person-body">{{bodyText}}</p>
       <a ng-show="moreLink"
          class="btn btn-info more-button"
          href="{{moreLink}}"
@@ -22,7 +23,7 @@
          analytics-event="{{getCurrentUserLogin()}} clicked 'more' button"
          analytics-label="{{titleText}}"
          analytics-category="buttonism">more</a>
-      <div ng-transclude></div>
+      <!-- <div ng-transclude></div> -->
     </div>
 
   </div>

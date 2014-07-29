@@ -1,85 +1,93 @@
-photos = {
-    "vhey"        => "http://blogs.bvn.com.au/tropos/files/2014/07/Victoria_Hey.jpg",
-    "dsams"       => "http://blogs.bvn.com.au/tropos/files/2014/07/Dimity_Sams.jpg",
-    "agholami"    => "http://blogs.bvn.com.au/tropos/files/2014/07/Amir_Gholami.jpg",
-    "jgrissmann"  => "http://blogs.bvn.com.au/tropos/files/2014/07/Johannes_Grissmann.jpg",
-    "kwithnell"   => "http://blogs.bvn.com.au/tropos/files/2014/07/Katherine_Withnell.jpg",
-    "swiskers"    => "http://blogs.bvn.com.au/tropos/files/2014/07/Steven_Wiskers.jpg",
-    "sarief"      => "http://blogs.bvn.com.au/tropos/files/2014/07/Saskia_Arief.jpg",
-    "mhine"       => "http://blogs.bvn.com.au/tropos/files/2014/07/Marc_Hine.jpg",
-    "yzhang"      => "http://blogs.bvn.com.au/tropos/files/2014/07/Yilun_Zhang.jpg",
-    "ptyppo"      => "http://blogs.bvn.com.au/tropos/files/2014/07/Patrik_Typpo.jpg",
-    "bcantor"     => "http://blogs.bvn.com.au/tropos/files/2014/07/Barry_Cantor.jpg",
-    "spellegrini" => "http://blogs.bvn.com.au/tropos/files/2014/07/Sara_Pellegrini.jpg",
-    "dmcparland"  => "http://blogs.bvn.com.au/tropos/files/2014/07/Danielle_McParland.jpg",
-    "ssweeney"    => "http://blogs.bvn.com.au/tropos/files/2014/07/Sam_Sweeney.jpg",
-    "mfranklin"   => "http://blogs.bvn.com.au/tropos/files/2014/07/Monique_Franklin.jpg",
-    "krees"       => "http://blogs.bvn.com.au/tropos/files/2014/07/Kirby_Rees2.jpg",
-    "mmicuta"     => "http://blogs.bvn.com.au/tropos/files/2014/07/Marc_Micuta.jpg",
-    "mbaker"      => "http://blogs.bvn.com.au/tropos/files/2014/07/Michael_Baker.jpg"
-}
+#copy and paste these at the terminal as needed
+
+#no surprises here, a list of pictures of muppets
+muppets = ["http://img4.wikia.nocookie.net/__cb20101015151246/muppet/images/0/05/Beaker.jpg",
+           "http://www.doriabiddle.com/images/bunsen.gif",
+           "http://www.aceshowbiz.com/images/still/the-muppets-pic07.jpg",
+           "http://media.timeout.com/blogimages/wp-content/uploads/2014/03/muppets3.jpg",
+           "http://sironaconsulting.com/images/old/6a00d8341c761a53ef011571ab8c64970b-pi.jpg",
+           "http://spinoff.comicbookresources.com/wp-content/uploads/2011/11/muppets-walter.jpg",
+           "http://i2.cdn.turner.com/cnn/dam/assets/130704041649-sesame-street-muppet-elmo-horizontal-gallery.jpg",
+           "http://www.aceshowbiz.com/images/still/the-muppets-pic08.jpg"]
+
+#a list of logins of people who don't have photos
+blankPeople = ["",""]
 
 Person.all.each{|p|
-    photos.each do |login, photoURL|
-        if p.employee.login==login
-            puts "#{login}"
-            # puts photoURL
-
-            phot = Photo.new
-            phot.bw = photoURL
-
-            puts ""
-            p.employee.photo = phot
-            p.save
-        end
-    end
-}
-
-#add photo stubs to each person
-Person.all.each{|p|
-    if p.employee.photo == nil
-        puts p.employee.login
+    #add photo stubs to each person
+    if p.employee.photo == nil or blankPeople.include? p.employee.login
+        puts p.employee.login + " got a photo stub"
         phot = Photo.new
+        phot.bw = muppets.sample
         p.employee.photo = phot
+        p.save
+    end
+
+    #add social stubs to each person
+    if p.contact.social == nil
+        puts p.employee.login + " got social contact"
+        socialStub = Social.new
+        p.contact.social = socialStub
+        p.contact.social.twitter = "psy_oppa"
+        p.contact.social.instagram = "tonyabbottmhr"
         p.save
     end
 }
 
+# if people have left, set their status to 'left'
+leftPeople = ["",""]
 Person.all.each{|p|
-    puts p.employee.photo.bw
+    if leftPeople.include? p.employee.login
+        puts p.employee.login
+        puts "left"
+        newCondition = Condition.new
+        newCondition.name = "Left"
+        newCondition.start_date = DateTime.now
+        p.conditions << newCondition
+        p.save
+    end
+}
+
+# change someone's login
+Person.all.each{|p|
+    if p.name.preferred_last == ""
+        puts p.employee.login
+        p.employee.login = ""
+        puts p.employee.login
+        p.save
+    end
 }
 
 
+# goes through 3 lists and sets people accordingly
+Person.all.each{|p|
+    if leftPeople.include?(p.employee.login)
+        puts p.employee.login
+        puts "left"
+        newCondition = Condition.new
+        newCondition.name = "Left"
+        newCondition.start_date = DateTime.now
+        p.conditions << newCondition
+        p.save
+    end
 
-#
-# Person.all.each{|p|
-#     if leftPeople.include?(p.employee.login)
-#         puts p.employee.login
-#         puts "left"
-#         newCondition = Condition.new
-#         newCondition.name = "Left"
-#         newCondition.start_date = DateTime.now
-#         p.conditions << newCondition
-#         p.save
-#     end
+    if leavePeople.include?(p.employee.login)
+        puts p.employee.login
+        puts "leave"
+        newCondition = Condition.new
+        newCondition.name = "Leave"
+        newCondition.start_date = DateTime.now
+        p.conditions << newCondition
+        p.save
+    end
 
-#     if leavePeople.include?(p.employee.login)
-#         puts p.employee.login
-#         puts "leave"
-#         newCondition = Condition.new
-#         newCondition.name = "Leave"
-#         newCondition.start_date = DateTime.now
-#         p.conditions << newCondition
-#         p.save
-#     end
-
-#     if maternityPeople.include?(p.employee.login)
-#         puts "maternity"
-#         puts p.employee.login
-#         newCondition = Condition.new
-#         newCondition.name = "Maternity"
-#         newCondition.start_date = DateTime.now
-#         p.conditions << newCondition
-#         p.save
-#     end
-# }
+    if maternityPeople.include?(p.employee.login)
+        puts "maternity"
+        puts p.employee.login
+        newCondition = Condition.new
+        newCondition.name = "Maternity"
+        newCondition.start_date = DateTime.now
+        p.conditions << newCondition
+        p.save
+    end
+}

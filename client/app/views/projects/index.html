@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-11">
-    <input type="text" 
-           ng-model="searchQuery" 
+    <input type="text"
+           ng-model="searchQuery"
            class="filter-box"
            placeholder="type to search...">
   </div>
@@ -10,11 +10,11 @@
 <div class="row" infinite-scroll="loadMoreResults()">
   <!--start a project/person box as a directive-->
   <display-box ng-repeat="p in searchResults"
-              title-text="{{ p.project_name || p.project_number }}"
-              body-text="Some body text"
+              title-text="{{ p.project_name || p.project_number + ' (no project name)'}}"
+              body-text="{{p.project_number}}"
               img-src="{{p.img || getKittenImage($index) }}"
               more-link="{{ getMoreLink( p.id['$oid'] ) }}">
     <p>{{ p.project_categories }}</p>
   </display-box>
-  
+
 </div>

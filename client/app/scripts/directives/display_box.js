@@ -2,7 +2,7 @@
 angular.module('ShadowWolf')
 .directive("displayBox", function() {
     return {
-        transclude: true,
+        // transclude: true,
         restrict: "E",
         replace: true,
         templateUrl: 'scripts/directives/display_box.html',
