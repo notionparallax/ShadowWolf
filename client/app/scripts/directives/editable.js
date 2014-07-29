@@ -11,7 +11,9 @@ angular.module("ShadowWolf")
     scope: true,
     link: function (scope, element, attrs,ctrl,transclude) { 
       transclude(scope, function(cloneElement){
-        scope.tooltipText = cloneElement[0].innerHTML;
+        if (cloneElement[0] && cloneElement[0].innerHTML) {
+          scope.tooltipText = cloneElement[0].innerHTML;
+        }
       });
       if (attrs['editDisabled']) editDisabled = true;
       scope.property = attrs.property;
@@ -20,9 +22,11 @@ angular.module("ShadowWolf")
       scope.rootElement = element[0];
       if (attrs['editableTypeahead']) {
         scope.typeahead = attrs['editableTypeahead'];
+      } else { // non-error default
+        scope.typeahead = 'nothing for nothing in []';
       }
     },
-    controller: function($scope, Session) {
+    controller: function($scope) {
       $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
       
       $scope.editable = {};
