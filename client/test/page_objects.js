@@ -11,56 +11,56 @@ function DisplayBoxes() {
 function DisplayBox(box) {
   this.moreButton = box.findElement(by.css('.more-button'));
 }
-function Editable(element){
+function Editable(editable){
   this.getValue = function(){
-    var output = element.findElement(by.css('.editable-text-display'));
+    var output = editable.element(by.css('.editable-text-display'));
     return output.then(function(output){
       return output.getInnerHtml();
     }, function(noOutput){
-      return element.findElement(by.css('input'))
+      return editable.element(by.css('input'))
         .getAttribute('value');
     });
   };
   this.getHtml = function(){
-    return element.getOuterHtml();
+    return editable.getOuterHtml();
   };
   this.click = function(){
-    element.findElement(by.css('.editable-output'))
+    editable.element(by.css('.editable-output'))
            .click();
   };
   this.isInputMode = function(){
-    return element.findElement(by.css('.editable-input'))
+    return editable.element(by.css('.editable-input'))
       .then(function()   {return true; },
             function(err){return false;});
   };
   this.isOutputMode = function(){
-    return element.findElement(by.css('.editable-output'))
+    return editable.element(by.css('.editable-output'))
       .then(function()   {return true; },
             function(err){return false;});
   };
   this.sendKeys = function(){
     // TODO throw an error if not in InputMode
     // TODO make it work for textareas as well
-    var inputElement = element.findElement(by.css('input'));
+    var inputElement = editable.element(by.css('input'));
     return inputElement.sendKeys.apply(this, arguments);
   };
   this.submit = function() {
-    return element.findElement(by.css('.save-btn')).click();
+    return editable.element(by.css('.save-btn')).click();
   }
   this.getInputElement = function() {
-    return element.findElement(by.css('input'));
+    return editable.element(by.css('input'));
   };
 }
 function EditableGroup(lens){
-  var _element = element(by.css('editable-group[lens="' + lens + '"]'));
-  var _elements = _element.findElements(by.css('editable'));
+  var _group = element.all(by.css('editable-group[lens="' + lens + '"]')).first();
+  var _editables = _group.all(by.css('editable'));
 
   this.getEditable = function(prop) {
-    var editable = _element.findElement(by.css('editable[property="' + prop + '"]'));
+    var editable = _group.element(by.css('editable[property="' + prop + '"]'));
     return new Editable(editable);
   };
   this.getHtml = function() {
-    return _element.getOuterHtml();
+    return _group.getOuterHtml();
   };
 }
 function BackEndLogs(){
@@ -69,9 +69,9 @@ function BackEndLogs(){
     return element.all(by.css('.logs .log.request')).then(function(logsElement){
       return protractor.promise.all(logsElement.map(function(logElement){
         return protractor.promise.all([
-            logElement.findElement(by.css('.method')).getInnerHtml(),
-            logElement.findElement(by.css('.url')).getInnerHtml(),
-            logElement.findElement(by.css('.data')).getInnerHtml()
+            logElement.element(by.css('.method')).getInnerHtml(),
+            logElement.element(by.css('.url')).getInnerHtml(),
+            logElement.element(by.css('.data')).getInnerHtml()
         ]).then(function(log) {
           return { 
             method: log[0],

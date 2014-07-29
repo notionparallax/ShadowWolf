@@ -59,6 +59,14 @@ var ben = {
             "id": {
                 "$oid": "52a008138bcb1e01440000a5"
             },
+            "mobile"     : {
+              "id"         : {
+                "$oid": "dammit"
+              },
+              "number"     : "345",
+              "is_work"    : true,
+              "distribute" : false
+            },
             "created_at" : null,
             "updated_at" : null,
             "extension"  : "441",

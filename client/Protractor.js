@@ -1,6 +1,8 @@
 exports.config = {
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'chrome',
+    'chromeOptions': {
+    }
   },
   seleniumAddress: 'http://'
             + process.env['WEBDRIVER_PORT_4444_TCP_ADDR']
