@@ -1,12 +1,15 @@
-<section dissabled-ng-show="person.employee.project_experiences">
+<section dissabled-ng-show="person.employee.project_experiences" class="row">
   <h4> Experience at BVN DH</h4>
   <div class="alert alert-warning">coming as soon as we've tied the project
   data to people through the Epicor data. </div>
+</section>
 
+<section dissabled-ng-show="person.employee.project_experiences" class="row">
   <h4> Project Experience at Other Firms</h4>
-  <editable-group object="person"
-                  lens="employee.project_experiences"
-                  subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+  <div ng-repeat="exp in person.employee.project_experiences | orderBy:'end_date':true" class="col-xs-12 col-sm-6 col-md-4">
+    <editable-group object="person"
+                    lens="employee.project_experiences[{{exp|id}}]"
+                    subgroup-class="alert alert-info">
       <editable property="name"       label="name"                  ></editable>
       <editable property="firm"       label="firm"                  ></editable>
       <editable property="role"       label="role"                  ></editable>
@@ -15,4 +18,5 @@
       <editable property="end_date"   label="end date"   type="date"></editable>
       <editable property="url"        label="url"        type="url" ></editable>
     </editable-group>
+  </div>
 </section>
