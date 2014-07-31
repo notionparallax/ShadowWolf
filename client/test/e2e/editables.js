@@ -105,7 +105,7 @@ describe('editables in show page', function(){
     var employeeContact = new EditableGroup('employee.contact.mobile');
     var number = employeeContact.getEditable('number');
     number.click();
-    number.sendKeys('(+61) 444-222');
+    number.sendKeys('\b\b\b(+61) 444-222');
     number.submit();
     expect(number.getValue()).toBe('(+61) 444-222');
     Utils.checkPatchData(function(data){ return data.
@@ -119,11 +119,18 @@ describe('editables in show page', function(){
     var startDate = employeeContact.getEditable('start_date');
     ptor.executeScript('window.scrollTo(0,500);');
     startDate.click();
-    startDate.sendKeys('10');
+    startDate.sendKeys('\b\b10');
     startDate.submit();
-    expect(startDate.getValue()).toBe('2010-10-02');
+    expect(startDate.getValue()).toBe('2010-05-10');
     Utils.checkPatchData(function(data) { return data.
-      person.conditions[0].start_date === '2010-10-02';
+      person.conditions[0].start_date === '2010-05-10';
     });
+  });
+
+  it('should not print "null" when the value is null', function(){
+    Utils.selectTab('Bio');
+    var biographyGroup = new EditableGroup('employee.biography');
+    var approach = biographyGroup.getEditable('approach');
+    expect(approach.getValue()).not.toBe('null');
   });
 });
