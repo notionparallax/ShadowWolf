@@ -2,7 +2,7 @@ body {
     padding-top: 50px;
     position: relative;
 }
-.flex-container{
+.flex-container {
     display: flex;
     flex-flow: row wrap;
 }
@@ -15,6 +15,7 @@ body {
     position: relative;
     height: 200px;
     // width: 200px;
+
 }
 .info-box {
     position: absolute;
@@ -72,6 +73,7 @@ body {
     bottom: 1em;
 }
 /*condition styling*/
+
 .Active {
     /*this is the default, leave it blank for the moment*/
 }
@@ -85,7 +87,7 @@ body {
     border-bottom: 5px solid orange;
 }
 .Deceased {
-    opacity:0.2;
+    opacity: 0.2;
 }
 .Applicant {
     border-bottom: 5px solid green;
@@ -95,4 +97,40 @@ body {
 }
 .Unknown {
     border-bottom: 5px solid red;
+}
+@media screen and (orientation: portrait) and (max-width: 520px) {
+    .demo {
+        height: 80px;
+    }
+    .more-button {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 0;
+        border: none;
+        width: 5em;
+    }
+    .details {
+        color: white;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        border-radius: 0 15px 0 0;
+        -webkit-transition: top 0.25s;
+        transition: top 0.25s;
+        p, h1 {
+            display: inline;
+        }
+    }
+    .drawer-out, .drawer-in, .title-drawer-out, .title-drawer-in {
+        top: 0;
+    }
+    [ng-model="searchQuery"] {
+        margin: 0;
+    }
 }

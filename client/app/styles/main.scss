@@ -10,7 +10,7 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 /* Put your CSS here */
 html, body {
-  margin: 20px;
+  margin: 0;
 }
 
 body {
@@ -164,4 +164,10 @@ a#LogIn{
 editable-group[lens="employee.photo"] div.editable-text-display {
   word-wrap: break-word;
   padding-right: 2em;
+}
+
+@media screen and (orientation:portrait) and (max-width: 520px){
+  .col-xs-12{
+    padding: 0;
+  }
 }
