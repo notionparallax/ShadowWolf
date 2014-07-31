@@ -99,8 +99,10 @@ body {
     border-bottom: 5px solid red;
 }
 @media screen and (orientation: portrait) and (max-width: 520px) {
+
     .demo {
         height: 80px;
+        flex-basis: 300px;
     }
     .more-button {
         position: absolute;

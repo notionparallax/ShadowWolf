@@ -52,7 +52,7 @@ function Editable(editable){
   };
 }
 function EditableGroup(lens){
-  var _group = element.all(by.css('editable-group[lens="' + lens + '"]')).first();
+  var _group = element.all(by.css('editable-group[lens*="' + lens + '"]')).first();
   var _editables = _group.all(by.css('editable'));
 
   this.getEditable = function(prop) {

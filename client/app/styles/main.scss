@@ -9,16 +9,15 @@ $iconSpritePath:"../images/glyphicons-halflings.png";
 /*editable starts here*/
 
 @import "editable";
-
 /* Put your CSS here */
 
 html, body {
     margin: 0;
+    padding-top: 0;
 }
 body {
     background: rgba(255, 255, 255, 1);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    padding-top: 0;
 }
 h3 {
     width: 90%;
@@ -27,16 +26,11 @@ h3 {
 article {
     margin-bottom: 10em;
 }
-/* helper, delete in production*/
-
-/*.row{
-  border:1px dashed red;
-}
-*/
-
 .container {
     width: 100%;
     /*This overrides the media queries so that it has a full width layout all the time*/
+    margin-bottom: 20em;
+    padding: 0 4em;
 }
 .hero-unit {
     margin: 50px auto 0 auto;
@@ -96,8 +90,8 @@ article {
         border: 1px solid orange;
     }
 }
-/* Flash box */
 
+/* Flash box */
 .flashes {
     position: fixed;
     top: 0;
@@ -164,5 +158,8 @@ editable-group[lens="employee.photo"] div.editable-text-display {
     }
     .filter-box {
         margin: 0;
+    }
+    .container{
+        padding: 0;
     }
 }

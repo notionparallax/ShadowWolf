@@ -17,128 +17,120 @@ describe('editables in show page', function(){
     visit('people/test-id');
   });
 
-   it("should display correct values for textual properties", function() {
-    var nameEditableGroup = new EditableGroup('name');
+  it("should display correct values for textual properties", function() {
+    var nameGroup = new EditableGroup('name');
 
-    var preferedFirstEditable = nameEditableGroup.getEditable('preferred_first');
-    expect(preferedFirstEditable.getValue()).toBe('Ben');
+    var preferedFirst = nameGroup.getEditable('preferred_first');
+    expect(preferedFirst.getValue()).toBe('Ben');
 
-    var preferedLastEditable = nameEditableGroup.getEditable('preferred_last');
-    expect(preferedLastEditable.getValue()).toBe('Doherty');
+    var preferedLast = nameGroup.getEditable('preferred_last');
+    expect(preferedLast.getValue()).toBe('Doherty');
   });
 
-   it("should go to InputMode if clicked in OutputMode", function(){
-    var nameEditableGroup = new EditableGroup('name');
-    var preferedFirstEditable = nameEditableGroup.getEditable('preferred_first');
+  it("should go to InputMode if clicked in OutputMode", function(){
+    var nameGroup = new EditableGroup('name');
+    var preferedFirst = nameGroup.getEditable('preferred_first');
 
-    preferedFirstEditable.click();
-    expect(preferedFirstEditable.isInputMode()).toBe(true);
+    preferedFirst.click();
+    expect(preferedFirst.isInputMode()).toBe(true);
 
-    var editableInputElement = preferedFirstEditable.getInputElement();
+    var editableInputElement = preferedFirst.getInputElement();
     var activeElement = ptor.driver.switchTo().activeElement();
     expect(activeElement.getOuterHtml()).toBe(editableInputElement.getOuterHtml());
   });
 
-   it("should go to OutputMode if ENTER is pressed in InputMode", function() {
-    var nameEditableGroup = new EditableGroup('name');
-    var preferedFirstEditable = nameEditableGroup.getEditable('preferred_first');
-    expect(preferedFirstEditable.isOutputMode()).toBe(true);
-    preferedFirstEditable.click();
-    expect(preferedFirstEditable.isInputMode()).toBe(true);
+  it("should go to OutputMode if ENTER is pressed in InputMode", function() {
+    var nameGroup = new EditableGroup('name');
+    var preferedFirst = nameGroup.getEditable('preferred_first');
+    expect(preferedFirst.isOutputMode()).toBe(true);
+    preferedFirst.click();
+    expect(preferedFirst.isInputMode()).toBe(true);
     ptor.actions().sendKeys(protractor.Key.ENTER).perform();
-    expect(preferedFirstEditable.isOutputMode()).toBe(true);
+    expect(preferedFirst.isOutputMode()).toBe(true);
   });
 
-   it("should PATCH data to the server when a field is changed", function() {
-    // enter data and submit
-    var nameEditableGroup = new EditableGroup('name');
-    var preferedFirstEditable = nameEditableGroup.getEditable('preferred_first');
-    preferedFirstEditable.click();
-    preferedFirstEditable.sendKeys('\b\b\bOK');
-    preferedFirstEditable.submit();
-    expect(preferedFirstEditable.getValue()).toBe('OK');
-    // verify success
-    var logs = new BackEndLogs().fetchRequests();
-    var match = function(log) {
-      return log.method == 'PATCH' &&
-        JSON.parse(log.data)
-          .person.name.preferred_first == 'OK';
-    };
-    logs.then(function(logs){
-      expect(logs.some(match)).toBe(true);
+  it("should PATCH data to the server when a field is changed", function() {
+    var nameGroup = new EditableGroup('name');
+    var preferedFirst = nameGroup.getEditable('preferred_first');
+    preferedFirst.click();
+    preferedFirst.sendKeys('\b\b\bOK');
+    preferedFirst.submit();
+    expect(preferedFirst.getValue()).toBe('OK');
+    Utils.checkPatchData(function(data) { return data.
+      person.name.preferred_first == 'OK';
     });
   });
 
   it('should properly set when type=tel', function(){
-    element(by.cssContainingText('a','Contact')).click();
+    Utils.selectTab('Contact');
     var employeeContact = new EditableGroup('employee.contact.mobile');
     var number = employeeContact.getEditable('number');
     number.click();
     number.sendKeys('\b\b\b456');
     number.submit();
     expect(number.getValue()).toBe('456');
-    // verify success
-    var logs = new BackEndLogs().fetchRequests();
-    var match = function(log) {
-      return log.method == 'PATCH' &&
-        JSON.parse(log.data)
-          .person.employee.contact.mobile.number === '456';
-    };
-    logs.then(function(logs){
-      expect(logs.some(match)).toBe(true);
+    Utils.checkPatchData(function(data) { return data.
+      person.employee.contact.mobile.number === '456';
     });
   });
+
   it('should properly set when type=number', function(){
-    element(by.cssContainingText('a','Contact')).click();
+    Utils.selectTab('Contact');
     var employeeContact = new EditableGroup('employee.contact');
     var extension = employeeContact.getEditable('extension');
     extension.click();
     extension.sendKeys('\b\b\b456');
     extension.submit();
     expect(extension.getValue()).toBe('456');
-    // verify success
-    var logs = new BackEndLogs().fetchRequests();
-    var match = function(log) {
-      return log.method == 'PATCH' &&
-        JSON.parse(log.data)
-          .person.employee.contact.extension === 456;
-    };
-    logs.then(function(logs){
-      expect(logs.some(match)).toBe(true);
+    Utils.checkPatchData(function(data) { return data.
+      person.employee.contact.extension === 456;
     });
   });
 
   it('should properly set when type=boolean', function(){
-    element(by.cssContainingText('a','Contact')).click();
+    Utils.selectTab('Contact');
     var employeeContact = new EditableGroup('employee.contact.mobile');
     var isWork = employeeContact.getEditable('is_work');
     isWork.click();
     isWork.sendKeys(protractor.Key.SPACE);
     isWork.submit();
     expect(isWork.getValue()).toBe('No');
-    // verify success
-    var logs = new BackEndLogs().fetchRequests();
-    var match = function(log) {
-      return log.method == 'PATCH' &&
-        JSON.parse(log.data)
-          .person.employee.contact.mobile.is_work === false;
-    };
-    logs.then(function(logs){
-      expect(logs.some(match)).toBe(true);
+    Utils.checkPatchData(function(data) { return data.
+      person.employee.contact.mobile.is_work === false;
     });
   });
 
-});
-describe('editables on projects show page', function(){
-  setup();
-  beforeEach(function(){
-    mockBackend(
-      {
-        'people/test' : mockPerson,
-        'projects/test' : mockProject
-      },
-      'test-id', 'test-token');
-    visit('callback?person_id=test-id&access_token=test-token');
-    visit('projects/test-id');
+  it('type=tel should accept +, space, - and ()', function(){
+    Utils.selectTab('Contact');
+    var employeeContact = new EditableGroup('employee.contact.mobile');
+    var number = employeeContact.getEditable('number');
+    number.click();
+    number.sendKeys('\b\b\b(+61) 444-222');
+    number.submit();
+    expect(number.getValue()).toBe('(+61) 444-222');
+    Utils.checkPatchData(function(data){ return data.
+      person.employee.contact.mobile.number === '(+61) 444-222';
+    });
+  });
+
+  it('should properly set when type=date', function(){
+    Utils.selectTab('Name');
+    var employeeContact = new EditableGroup('conditions');
+    var startDate = employeeContact.getEditable('start_date');
+    ptor.executeScript('window.scrollTo(0,500);');
+    startDate.click();
+    startDate.sendKeys('\b\b10');
+    startDate.submit();
+    expect(startDate.getValue()).toBe('2010-05-10');
+    Utils.checkPatchData(function(data) { return data.
+      person.conditions[0].start_date === '2010-05-10';
+    });
+  });
+
+  it('should not print "null" when the value is null', function(){
+    Utils.selectTab('Bio');
+    var biographyGroup = new EditableGroup('employee.biography');
+    var approach = biographyGroup.getEditable('approach');
+    expect(approach.getValue()).not.toBe('null');
   });
 });

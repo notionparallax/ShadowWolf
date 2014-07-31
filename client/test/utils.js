@@ -1,8 +1,9 @@
 var LoginButton = require("./page_objects.js").LoginButton;
+var BackEndLogs = require("./page_objects.js").BackEndLogs;
 
 function setup(){
+  ptor = protractor.getInstance();
   afterEach(function(){
-    ptor = protractor.getInstance();
     ptor.clearMockModules();
     //browser.manage().logs().get('browser').then(function(browserLog) {
     //    console.log('log: ' + require('util').inspect(browserLog));
@@ -89,10 +90,25 @@ function mockBackend(mappings, personId, accessToken) {
 function logIn(personId,accessToken){
   visit('callback?person_id=' + personId + '&access_token=' + accessToken);
 }
+function checkPatchData(predicate) {
+  return new BackEndLogs().fetchRequests()
+    .then(function(logs){
+      expect(logs.some(function(log) {
+        return log.method === 'PATCH'
+          && predicate(JSON.parse(log.data));
+      })).toBe(true);
+    });
+}
+
+function selectTab(tabName) {
+  return element(by.cssContainingText('a',tabName)).click();
+}
 
 module.exports = {
   setup: setup,
   visit: visit,
   mockBackend: mockBackend,
-  logIn: logIn
+  logIn: logIn,
+  checkPatchData: checkPatchData,
+  selectTab: selectTab
 }
