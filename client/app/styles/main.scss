@@ -8,11 +8,6 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 @import "editable";
 
 
-/* Put your CSS here */
-html, body {
-  margin: 20px;
-}
-
 body {
     background: rgba(255, 255, 255, 1);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -32,6 +27,8 @@ h3{
 .container{
   width:100%;
   /*This overrides the media queries so that it has a full width layout all the time*/
+  margin-bottom: 20em;
+  padding: 0 4em;
 }
 
 .hero-unit {
@@ -85,7 +82,7 @@ h3{
 
 .filter-box{
   width: 100%;
-  margin-bottom: 1em;
+  margin: 1em 0;
   font-size: 3em;
   /*border-radius: 0.25em;*/
   border: none;
