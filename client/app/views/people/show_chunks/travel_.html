@@ -2,8 +2,9 @@
   <h3>Travel</h3>
   <p class="explantory-text">This information makes it easy for other people to book travel for you, and also means that if you need this information it's easy to find.</p>
   <h4>passports</h4>
-  <editable-group object="person"
-                  lens="employee.travel.passports"
+  <editable-group ng-repeat="passport in person.employee.travel.passports"
+                  object="person"
+                  lens="employee.travel.passports[{{passport|id}}]"
                   subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
     <editable property="number"       label="number"      >What is your passport number?</editable>
     <editable property="expiry"       label="expiry"      >When does this passport expire?</editable>
@@ -11,8 +12,9 @@
   </editable-group>
   <h4>Frequent flier programs</h4>
   <!--it'd be cool to get status updates from somewhere like http://awardwallet.com/ in the future-->
-  <editable-group object="person"
-                  lens="employee.travel.frequent_flier_programs"
+  <editable-group ng-repeat="ffp in person.employee.travel.frequent_flier_programs"
+                  object="person"
+                  lens="employee.travel.frequent_flier_programs[{{ffp|id}}]"
                   subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
     <editable property="name"   label="name"  >This is the name of the programme. E.g. Virgin velocity or One world</editable>
     <editable property="number" label="number">Your number for this programme.</editable>
