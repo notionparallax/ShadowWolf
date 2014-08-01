@@ -1,0 +1,8 @@
+<div ng-show="project.non_building">
+    <h1>{{ project.non_building.name }}</h1>
+    <editable-group object="project"
+                    lens="project.non_building.description"
+                    subgroup-class="alert alert-info col-sm-6">
+      <editable property="description" label="Description"></editable>
+    </editable-group>
+</div>

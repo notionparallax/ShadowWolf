@@ -5,15 +5,24 @@
       <p class="explantory-text">There are some things that we need to know about you that help the office run. It might even mean that you never need to eat <em>that</em> kind of sandwich in meetings again!</p>
     </div>
     <div class="col-md-8">
+
       <editable-group object="person"
                 lens="employee.office_culture"
                 subgroup-class="">
         <editable property="first_aider"  label="first aider" type="checkbox">If you are currently  a first aider then this should be ticked, otherwise it should be blank.</editable>
         <editable property="fire_warden"  label="fire warden" type="checkbox">If you are a fire warden then this should be ticked, otherwise it should be blank.</editable>
-        <editable property="requirements" label="requirements">This is a comma separated list of things that you can't  eat (for fear of feeling ill, messing up your morals or dying). For example: eggs, gluten, shellfish.</editable>
-        <editable property="likes"        label="likes"       >This is a comma separated list of things that you really like  eating. For example: bacon, pizza, pinaple.</editable>
-        <editable property="dislikes"     label="dislikes"    >This is a comma separated list of things that you really don't like  eating. For example: devon, olives, bread..</editable>
       </editable-group>
+
+      <editable-group object="person"
+                lens="employee.office_culture.dietary"
+                subgroup-class="">
+        <editable property="requirements" label="Requirements">This is a comma separated list of things that you can't  eat (for fear of feeling ill, messing up your morals or dying). For example: eggs, gluten, shellfish.</editable>
+        <editable property="likes"        label="Likes"       >This is a comma separated list of things that you really like  eating. For example: bacon, pizza, pinaple.</editable>
+        <editable property="dislikes"     label="Dislikes"    >This is a comma separated list of things that you really don't like  eating. For example: devon, olives, bread..</editable>
+      </editable-group>
+
     </div>
   </div>
 </div>
+
+

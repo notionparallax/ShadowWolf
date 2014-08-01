@@ -1,0 +1,8 @@
+<h2>initiatives</h2>
+<div ng-repeat="initiaive in project.building.legacy.initiavies">
+    <editable-group object="project" lens="building.legacy.esd.initiatives[{{initiative|id}}]" subgroup-class="alert alert-info col-sm-6">
+        <editable property="title"       label="title"      >helpText</editable>
+        <editable property="reason"      label="reason"     >helpText</editable>
+        <editable property="description" label="description">helpText</editable>
+    </editable-group>
+</div>

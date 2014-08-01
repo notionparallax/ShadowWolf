@@ -1,0 +1,17 @@
+<section ng-show="isCurrentUser(person) || person.employee.memberships" class="row">
+  <h3>Memberships</h3>
+  <p class="explantory-text">Explanatory text goes in here</p>
+
+  <div ng-repeat="mem in person.employee.memberships | orderBy:'expiry':true" class="col-xs-12 col-sm-6 col-md-4">
+    <editable-group object="person"
+                    lens="employee.memberships[{{mem|id}}]"
+                    subgroup-class="alert alert-info">
+      <editable property="organisation"      label="organisation"     >Who is this membership with?</editable>
+      <editable property="membership_number" label="membership number">What's your membership number?</editable>
+      <editable property="state"             label="state"            >What state does this membership cover?</editable>
+      <editable property="country"           label="country"          >What country is this membership issued in?</editable>
+      <editable property="expiry"            label="expiry"           >When does this membership expire? Memberships can lapse so we need both ends of the time period to put it on the timeline.</editable>
+    </editable-group>
+  </div>
+
+</section>

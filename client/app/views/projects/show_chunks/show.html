@@ -1,0 +1,37 @@
+<article>
+
+    <div class="page-header">
+        <h1>{building.phases[0].project_name}
+            <small>{{ project.project_number }}</small>
+        </h1>
+    </div>
+
+    <tabset>
+        <tab heading="Summary">
+            include "summary_.html"
+        </tab>
+        <tab heading="Location">
+            include "location_.html"
+        </tab>
+        <tab heading="Size">
+            include "dims_.html"
+        </tab>
+        <tab heading="People">
+            include "relationships_.html"
+            include "client_.html"
+        </tab>
+        <tab heading="Phases">
+            include "phase_.html"
+        </tab>
+        <tab heading="Legacy">
+            include "testimonials_.html"
+            include "template_.html"
+            include "quotes_.html"
+            include "press_.html"
+            include "photography_.html"
+            include "initiatives_.html"
+            include "certifications_.html"
+            include "awards_.html"
+        </tab>
+    </tabset>
+</article>

@@ -1,0 +1,16 @@
+<section ng-show="isCurrentUser(person) || person.employee.professional_contributions" class="row">
+  <h3>Professional contributions</h3>
+  <p class="explantory-text">This sections captures your professional contributions. Things like teaching, speaking at conferences etc. Use one box per contributions/experience/event and add a new box for each additional one.</p>
+
+  <div ng-repeat="cont in person.employee.professional_contributions" class="col-xs-12 col-sm-6 col-md-4">
+  <editable-group object="person"
+                  lens="employee.professional_contributions[{{cont|id}}]"
+                  subgroup-class="alert alert-info">
+      <editable property="activity"    label="activity"                   >Give this activity a title.</editable>
+      <editable property="description" label="description" type="textarea">Describe what you did</editable>
+      <editable property="url"         label="url"         type="url"     >Give a URL to some evidence that it happened, or at least to a description of what was going to happen.</editable>
+      <p><a href="{{ subobject.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></p>
+    </editable-group>
+  </div>
+
+</section>

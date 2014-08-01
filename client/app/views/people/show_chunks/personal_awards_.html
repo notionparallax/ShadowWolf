@@ -1,0 +1,18 @@
+<section ng-show="isCurrentUser(person) || person.employee.personal_awards" class="row">
+  <h3>Personal awards</h3>
+  <p class="explantory-text">This sections captures your awards. This is not for awards that projects that you have worked on have won, but rather projects that you, as a person, have won. Use one box per award and add  a new box for each additional one.</p>
+  <p class="explantory-text">Awards that projects that you worked on will be added soon.</p>
+
+  <div ng-repeat="award in person.employee.personal_awards | orderBy:'expiry':true" class="col-xs-12 col-sm-6 col-md-4">
+    <editable-group object="person"
+                    lens="employee.personal_awards[{{award|id}}]"
+                    subgroup-class="alert alert-info">
+      <editable property="name"          label="name"                       >What's the name of this award?</editable>
+      <editable property="awarding_body" label="awarding body"              >Who awards it?</editable>
+      <editable property="description"   label="description" type="textarea">Describe the award and why you got it.</editable>
+      <editable property="url"           label="url"         type="url"     >Give a link to information about the award and about you getting it if you can.</editable>
+      <p><a href="{{ subobject.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></p>
+    </editable-group>
+  </div>
+
+</section>
