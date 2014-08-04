@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div class="row" >
+<div class="row flex-container" >
   <!--start a project/person box as a directive-->
   <display-box ng-repeat="p in searchResults | orderBy:sortFunctions"
               title-text="{{p.name.preferred_first}} {{p.name.preferred_last}}"
