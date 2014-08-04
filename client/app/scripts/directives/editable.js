@@ -55,13 +55,10 @@ angular.module("ShadowWolf")
       };
 
       $scope.enableEditor = function() {
-        // only works for editables on person page
-        if (editDisabled || Session.getPersonId() != $scope.object.id['$oid']) {
-          var name;
-          try { name = $scope.object.name.preferred_first }
-          catch (e) { name = 'this page\'s user'; }
+        var attemptAuthorize = Session.authorize($scope.object);
+        if (!attemptAuthorize.success) {
           Flash.add({
-            template: '<p>You need to be logged in as ' + name + ' to change fields.</p>'
+            template: attemptAuthorize.errorMessage
           }, 5000);
           return;
         }

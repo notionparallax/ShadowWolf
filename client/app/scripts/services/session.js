@@ -20,4 +20,11 @@ angular.module('ShadowWolf')
     $cookieStore.put(_personId, '');
     $cookieStore.put(_login, '');
   };
+
+  this.authorize = function() {
+    return {
+      success: false,
+      errorMessage: '<p>You don\'t have permission to do that.</p>'
+    };
+  };
 });
