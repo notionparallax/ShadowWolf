@@ -34,10 +34,20 @@ module.exports = function (grunt) {
   grunt.initConfig({
     // Build the site using grunt-includes
     includes: {
-      build: {
+      person: {
         cwd: 'app/views/people/show_chunks',
         src: [ 'show.html' ],
         dest: 'app/views/people',
+        flatten: false,
+        options: {
+          includePath: '',
+          banner: '<!--included-->'
+        }
+      },
+      project: {
+        cwd: 'app/views/projects/show_chunks',
+        src: [ 'show.html' ],
+        dest: 'app/views/projects',
         flatten: false,
         options: {
           includePath: '',

@@ -1,0 +1,16 @@
+<section ng-show="isCurrentUser(person) || person.employee.security_clearances" class="row">
+  <h3>Clearances</h3>
+  <p class="explantory-text">Do you have special security clearance? This would be a good place to record that.</p>
+
+  <div ng-repeat="sec in person.employee.security_clearances | orderBy:'expiry':true" class="col-xs-12 col-sm-6 col-md-4">
+    <editable-group object="person"
+                    lens="employee.security_clearances[{{sec|id}}]"
+                    subgroup-class="alert alert-info">
+
+      <editable property="issuing_body" label="issuing body">This is the organisation that your clearance is with.</editable>
+      <editable property="level"        label="level"       >What level is your clearance?</editable>
+      <editable property="expiry"       label="expiry"      >what's the expiry date of your clearance? One day we'll use this to remind you to renew it, but for now this is jsut a place to store this information.</editable>
+    </editable-group>
+  </div>
+
+</section>

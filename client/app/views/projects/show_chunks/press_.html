@@ -1,0 +1,15 @@
+<h2>Press</h2>
+<div ng-repeat="press in project.building.presses">
+    <h3>Attentions</h3>
+    <editable-group object="project" ng-repeat="attention in press.attentions" lens="building.presses[{{press|id}}].attentions[{{attention|id}}]" subgroup-class="alert alert-info col-sm-6">
+        <editable property="url" label="url">helpText</editable>
+        <editable property="scan_or_screengrab" label="scan or screengrab">helpText</editable>
+        <editable property="publication" label="publication">helpText</editable>
+        <editable property="reason" label="reason">helpText</editable>
+    </editable-group>
+
+    <h3>Campaigns</h3>
+    <editable-group object="project" ng-repeat="campaign in press.campaigns" lens="building.presses[{{press|id}}].campaigns[{{campaign|id}}]" subgroup-class="alert alert-info col-sm-6">
+        <editable property="strategy" label="strategy">helpText</editable>
+    </editable-group>
+</div>

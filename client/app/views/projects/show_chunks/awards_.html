@@ -1,0 +1,8 @@
+<h2>awards</h2>
+<div ng-repeat="award in project.building.legacy.awards">
+    <editable-group object="project" lens="building.legacy.awards[{{award|id}}]" subgroup-class="alert alert-info col-sm-6">
+        <editable property="award" label="award">helpText</editable>
+        <editable property="date"  label="date" >helpText</editable>
+        <editable property="jury"  label="jury" >helpText</editable>
+    </editable-group>
+</div>
