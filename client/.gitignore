@@ -6,5 +6,6 @@ app/bower_components
 nohup.out
 app/scripts/config.js
 app/views/people/show.html
+app/views/projects/show.html
 phantomjsdriver.log
 npm-debug.log
