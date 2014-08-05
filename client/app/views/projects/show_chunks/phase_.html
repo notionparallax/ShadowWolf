@@ -1,14 +1,14 @@
 <h2>Phase</h2>
 <div ng-repeat="phase in project.building.phases">
     <editable-group object="project" lens="building.phases[{{phase|id}}]" subgroup-class="alert alert-info col-sm-6">
-        <editable property="project_name" label="project name">helpText</editable>
-        <editable property="studio" label="studio">helpText</editable>
-        <editable property="client" label="client">helpText</editable>
-        <editable property="services_scope" label="services scope">helpText</editable>
-        <editable property="delivery_contract" label="delivery contract">helpText</editable>
-        <editable property="staff_contact_login" label="staffcontact login">helpText</editable>
-        <editable property="staff_custodian_login" label="staff custodian login">helpText</editable>
-        <editable property="dirty_date" label="dirty date" type="date">Some date or other from teh project library, lets get rid of this as soon as we can!</editable>
+        <editable property="project_name"          label="project name"          >What was the project called? More details about this in the phases</editable>
+        <editable property="studio"                label="studio"                >Where did the bulk of the work get done? (This usually matches up with the first letter of the project number)</editable>
+        <editable property="client"                label="client"                >Who was this project for? More details about this in the phases.</editable>
+        <editable property="services_scope"        label="services scope"        >What did we do on this project?  More details about this in the phases.</editable>
+        <editable property="delivery_contract"     label="delivery contract"     >What was the contract?  More details about this in the phases.</editable>
+        <editable property="staff_contact_login"   label="staffcontact login"    >Who is the go to person for this project? Usually the project director (unless they've left!)</editable>
+        <editable property="staff_custodian_login" label="staff custodian login" >Who is responsible for maintaining this page?</editable>
+        <editable property="dirty_date"            label="dirty date" type="date">Some date or other from the project library, lets get rid of this as soon as we can! If you are project custodian you should check that the date automatically generated is correct and then empty this field out.</editable>
     </editable-group>
 
     <h3>Members</h3>
@@ -18,14 +18,14 @@
 
   <h3>Budget</h3>
   <editable-group object="project" lens="building.phases[{{phase|id}}].budget" subgroup-class="alert alert-info col-sm-6">
-      <editable property="dirty_budget" label="dirty budget" type="number">Dirty value!</editable>
+      <editable property="dirty_budget"              label="dirty budget"              type="number">Dirty value! Lets get rid of this as soon as we can! If you are project custodian you should check that the date automatically generated is correct and then empty this field out.</editable>
       <editable property="initial_phase_value_total" label="initial phase value total" type="number">helpText</editable>
-      <editable property="final_phase_value_total" label="final phase value total" type="number">helpText</editable>
-      <editable property="initial_phase_fee_total" label="initial phase fee total" type="number">helpText</editable>
-      <editable property="final_phase_fee_total" label="final phase fee total" type="number">helpText</editable>
-      <editable property="construction_initial" label="construction initial" type="number">helpText</editable>
-      <editable property="construction_final" label="construction final" type="number">helpText</editable>
-      <editable property="comments" label="comments">helpText</editable>
-      <editable property="fee_type" label="fee type">helpText</editable>
+      <editable property="final_phase_value_total"   label="final phase value total"   type="number">helpText</editable>
+      <editable property="initial_phase_fee_total"   label="initial phase fee total"   type="number">helpText</editable>
+      <editable property="final_phase_fee_total"     label="final phase fee total"     type="number">helpText</editable>
+      <editable property="construction_initial"      label="construction initial"      type="number">helpText</editable>
+      <editable property="construction_final"        label="construction final"        type="number">helpText</editable>
+      <editable property="comments"                  label="comments"                               >helpText</editable>
+      <editable property="fee_type"                  label="fee type"                               >helpText</editable>
   </editable-group>
 </div>
