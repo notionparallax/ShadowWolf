@@ -1,8 +1,9 @@
 <h2>quotes</h2>
 <div ng-repeat="quote in project.building.legacy.quotes">
     <editable-group object="project" lens="building.legacy.quotes[{{quote|id}}]" subgroup-class="alert alert-info col-sm-6">
-        <editable property="quote"    label="quote"   >helpText</editable>
-        <editable property="citation" label="citation">helpText</editable>
-        <editable property="date"     label="date"    >helpText</editable>
+        <editable property="quote"    label="quote"   >What did someone say?</editable>
+        <editable property="citation" label="citation">Who said it?</editable>
+        <!--TODO make a context property <editable property="context" label="Context">Where did they say it? In a chat? In the Financial Review?</editable>-->
+        <editable property="date"     label="date"    >What was the context?</editable>
     </editable-group>
 </div>
