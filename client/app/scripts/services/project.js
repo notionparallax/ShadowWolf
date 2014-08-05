@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ShadowWolf')
-.service('Project', function($resource, $http, Session, Config) {
+.service('Project', function($resource, $http, Session, Config, Projects) {
   $http.defaults.useXDomain = true;
 
   var _Project = $resource(Config.getEndPoint() + '/projects/:projectId.json?access_token=:accessToken',
@@ -23,6 +23,7 @@ angular.module('ShadowWolf')
         _Project.get({projectId: projectId, 'refresh_hero_image': true},
           function(project) {
             _project = project;
+            Projects.updateProjectImage(project);
           });
       });
     }
