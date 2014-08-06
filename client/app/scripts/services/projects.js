@@ -13,4 +13,12 @@ angular.module('ShadowWolf')
       }
     }
   };
+  this.updateProjectImage = function(project) {
+    for (var index in _projects) {
+      if (_projects[index].project_number === project.project_number) {
+        _projects[index].img = project.img;
+        return;
+      }
+    }
+  };
 });

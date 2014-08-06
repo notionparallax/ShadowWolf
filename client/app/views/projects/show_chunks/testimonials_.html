@@ -1,8 +1,8 @@
 <h2>testimonials</h2>
 <div ng-repeat="testimonial in project.building.legacy.testimonials">
     <editable-group object="project" lens="building.legacy.testimonials[{{testimonial|id}}]" subgroup-class="alert alert-info col-sm-6">
-        <editable property="testimonial" label="testimonial">helpText</editable>
-        <editable property="citation"    label="citation"   >helpText</editable>
-        <editable property="date"        label="date"       >helpText</editable>
+        <editable property="testimonial" label="testimonial">Someone like the project? What did they say?</editable>
+        <editable property="citation"    label="citation"   >Who said it?</editable>
+        <editable property="date"        label="date"       >When did they say it?</editable>
     </editable-group>
 </div>
