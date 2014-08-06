@@ -1,4 +1,4 @@
-<section ng-show="isCurrentUser(person) || person.employee.press" class="row">
+<section  class="row"><!-- ng-show="isCurrentUser(person) || person.employee.press" -->
   <h3>Press</h3>
   <p class="explantory-text">Have you been in the news? This is for <strong>all</strong> media attention that mentions you. Did you win a prize, make a scientific discovery or get arrested for fighting in Kings Cross? It should be recorded here.</p>
   <div ng-repeat="att in person.employee.employee_press.attentions | orderBy:'end_date':true" class="col-xs-12 col-sm-6 col-md-4">

@@ -2,10 +2,10 @@
   <h3>Clearances</h3>
   <p class="explantory-text">Do you have special security clearance? This would be a good place to record that.</p>
 
-  <div ng-repeat="sec in person.employee.security_clearances | orderBy:'expiry':true" class="col-xs-12 col-sm-6 col-md-4">
+  <div ng-repeat="sec in person.employee.security_clearances | orderBy:'expiry':true">
     <editable-group object="person"
                     lens="employee.security_clearances[{{sec|id}}]"
-                    subgroup-class="alert alert-info">
+                    subgroup-class="alert alert-warning col-xs-12 col-sm-6 col-md-4">
 
       <editable property="issuing_body" label="issuing body">This is the organisation that your clearance is with.</editable>
       <editable property="level"        label="level"       >What level is your clearance?</editable>

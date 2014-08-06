@@ -1,6 +1,6 @@
-<section ng-show="isCurrentUser(person) || person.employee.memberships" class="row">
+<section class="row"><!-- ng-show="isCurrentUser(person) || person.employee.memberships" -->
   <h3>Memberships</h3>
-  <p class="explantory-text">Explanatory text goes in here</p>
+  <p class="explantory-text">What bodies, clubs or societies are you a member of?</p>
 
   <div ng-repeat="mem in person.employee.memberships | orderBy:'expiry':true" class="col-xs-12 col-sm-6 col-md-4">
     <editable-group object="person"

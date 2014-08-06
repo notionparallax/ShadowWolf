@@ -1,11 +1,11 @@
+<h3>Travel</h3>
+<p class="explantory-text">This information makes it easy for other people to book travel for you, and also means that if you need this information it's easy to find.</p>
 <section ng-show="isCurrentUser(person) || person.employee.travel">
-  <h3>Travel</h3>
-  <p class="explantory-text">This information makes it easy for other people to book travel for you, and also means that if you need this information it's easy to find.</p>
-  <h4>passports</h4>
+  <h4>Passports</h4>
   <editable-group ng-repeat="passport in person.employee.travel.passports"
                   object="person"
                   lens="employee.travel.passports[{{passport|id}}]"
-                  subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+                  subgroup-class="alert alert-warning col-xs-12 col-sm-4 col-md-3">
     <editable property="number"       label="number"      >What is your passport number?</editable>
     <editable property="expiry"       label="expiry"      >When does this passport expire?</editable>
     <editable property="issuing_body" label="issuing body">Who issues this passport? It'll be written inside, don't just assume that it is your home country, it might be a sub-agency e.g. a British passport issued in Melbourne.</editable>
@@ -15,7 +15,7 @@
   <editable-group ng-repeat="ffp in person.employee.travel.frequent_flier_programs"
                   object="person"
                   lens="employee.travel.frequent_flier_programs[{{ffp|id}}]"
-                  subgroup-class="alert alert-info col-xs-12 col-sm-4 col-md-3">
+                  subgroup-class="alert alert-warning col-xs-12 col-sm-4 col-md-3">
     <editable property="name"   label="name"  >This is the name of the programme. E.g. Virgin velocity or One world</editable>
     <editable property="number" label="number">Your number for this programme.</editable>
   </editable-group>

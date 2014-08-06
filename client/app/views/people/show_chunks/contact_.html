@@ -16,7 +16,7 @@
           <h4 id="mobile">Mobile</h4>
           <editable-group object="person"
                           lens="employee.contact.mobile"
-                          subgroup-class="alert alert-info col-sm-10 col-md-10">
+                          subgroup-class="alert alert-warning col-sm-10 col-md-10">
             <editable property="number"     label="number"     type="tel">This is your mobile number.</editable>
             <editable property="is_work"    label="is work"    type="checkbox">This is <em>True</em> if BVNDH provides your mobile.</editable>
             <editable property="distribute" label="distribute" type="checkbox">This is <em>True</em> if it is OK for people give your mobile number out to people.</editable>
@@ -33,13 +33,14 @@
       <h4>anti-social</h4>
       <editable-group object="person"
                       lens="contact"
-                      subgroup-class="alert alert-info col-sm-10 col-md-10">
+                      subgroup-class="alert alert-warning col-sm-10 col-md-10">
         <editable property="personal_email" label="personal email" type="email">This is a way of contacting you by email if we aren't using your  ~~~@bvn.com.au email address. This is useful if you leave and people want to ask you questions. (Or just say hi!)</editable>
         <editable property="personal_phone" label="personal phone" type="tel"  >This is a way of contacting you by phone if you aren't at work.</editable>
       </editable-group>
+    </section>
 
-
-      <h4>social</h4>
+    <section>
+      <h4>Social</h4>
       <editable-group object="person"
                       lens="contact.social"
                       subgroup-class="alert alert-info col-sm-10 col-md-10">
@@ -59,10 +60,11 @@
                 scrolling="no"
                 marginheight="0"
                 marginwidth="0"
-                ng-src="{{'http://instagram.com/'+subobject.instagram | trustMaplink}}">Instagram <em>should</em> be showing here!</iframe>
+                ng-src="{{'http://instagram.com/'+subobject.instagram | trustMaplink}}">
+                  Instagram <em>should</em> be showing here!
+              </iframe>
         -->
       </editable-group>
-          <!--Social widgets went in here-->
     </section>
   </div>
 </div>
