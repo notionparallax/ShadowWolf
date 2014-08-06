@@ -19,12 +19,12 @@
   <h3>Budget</h3>
   <editable-group object="project" lens="building.phases[{{phase|id}}].budget" subgroup-class="alert alert-info col-sm-6">
       <editable property="dirty_budget"              label="dirty budget"                           >Dirty value! Lets get rid of this as soon as we can! If you are project custodian you should check that the date automatically generated is correct and then empty this field out.</editable>
-      <editable property="initial_phase_value_total" label="initial phase value total" type="number">What did we think that the total value was when we started this phase?</editable>
-      <editable property="final_phase_value_total"   label="final phase value total"   type="number">What was the total at the end of the phase?</editable>
-      <editable property="initial_phase_fee_total"   label="initial phase fee total"   type="number">helpText</editable>
-      <editable property="final_phase_fee_total"     label="final phase fee total"     type="number">helpText</editable>
-      <editable property="construction_initial"      label="construction initial"      type="number">helpText</editable>
-      <editable property="construction_final"        label="construction final"        type="number">helpText</editable>
+      <editable property="initial_phase_value_total" label="initial phase value total" type="number">What did we think that the total value was when we started this phase? In whole dollars e.g. 3000000 not $3M</editable>
+      <editable property="final_phase_value_total"   label="final phase value total"   type="number">What was the total at the end of the phase? In whole dollars e.g. 3000000 not $3M</editable>
+      <editable property="initial_phase_fee_total"   label="initial phase fee total"   type="number">helpText. In whole dollars e.g. 3000000 not $3M</editable>
+      <editable property="final_phase_fee_total"     label="final phase fee total"     type="number">helpText. In whole dollars e.g. 3000000 not $3M</editable>
+      <editable property="construction_initial"      label="construction initial"      type="number">helpText. In whole dollars e.g. 3000000 not $3M</editable>
+      <editable property="construction_final"        label="construction final"        type="number">helpText. In whole dollars e.g. 3000000 not $3M</editable>
       <editable property="comments"                  label="comments"                               >Make some comments about this budget. Why was this type of fee chosen? Why did it go over/under? What advice would you leave for future generations?</editable>
       <editable property="fee_type"                  label="fee type"                               >helpText</editable>
   </editable-group>
