@@ -1,5 +1,6 @@
 <h2>Awards</h2>
-<p class="explantory-text">Explanatory text goes in here</p>
+<p class="explantory-text">Has this project won any awards? If it has they should be recorded here!</p>
+<p class="data-parent-text">Previously this lived in a spreadsheet managed by Stella, and that data will be migrated across soon.</p>
 <div ng-repeat="award in project.building.legacy.awards">
     <editable-group object="project" lens="building.legacy.awards[{{award|id}}]" subgroup-class="alert alert-info col-sm-6">
         <editable property="award" label="award">What is the name of this award?</editable>

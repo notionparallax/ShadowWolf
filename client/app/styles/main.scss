@@ -148,6 +148,17 @@ button.close {
 a#LogIn {
     font-size: 4em;
 }
+.data-parent-text{
+    color:silver;
+    font-size: 90%;
+}
+.data-question-text{
+    color: orange;
+    &:before{
+        content:'A question for everyone:';
+    }
+}
+
 editable-group[lens="employee.photo"] div.editable-text-display {
     word-wrap: break-word;
     padding-right: 2em;
