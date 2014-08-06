@@ -1,12 +1,14 @@
 <h2>Project source</h2>
+<!--TODO this feel like it needs much more richness.-->
 <editable-group object="project" lens="building.project_source" subgroup-class="alert alert-info col-sm-6">
-    <editable property="competition_win" label="competition win">helpText</editable>
-    <editable property="competition_URL" label="competition URL">helpText</editable>
+    <editable property="competition_win" label="competition win">Was this project the result of a competition win or was it found through other methods?</editable>
+    <editable property="competition_URL" label="competition URL">If it was, put a link to the competition website here.</editable>
+    <p><a href="{{ subobject.competition_URL }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></p>
 </editable-group>
 
 <h3>Referred by</h3>
 <editable-group object="project" lens="building.project_source.referred_by" subgroup-class="alert alert-info col-sm-6">
-     <editable property="BVN_staff_login"      label="BVNstaff login"      >helpText</editable>
-     <editable property="contact_name"         label="contact name"        >helpText</editable>
-     <editable property="contact_organisation" label="contact organisation">helpText</editable>
+     <editable property="BVN_staff_login"      label="BVNstaff login"      >This is the login of the person that found the project.</editable>
+     <editable property="contact_name"         label="contact name"        >Who is the person to talk to at the commissioning organisation?</editable>
+     <editable property="contact_organisation" label="contact organisation">What organisation is commissioning this job?</editable>
 </editable-group>
