@@ -8,7 +8,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.all.query.select(img: 1,'building.phases.project_name'.to_sym => 'project_name', project_number: 1)
+    render json: @projects
   end
 
   # GET /projects/1
