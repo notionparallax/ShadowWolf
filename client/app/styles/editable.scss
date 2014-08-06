@@ -6,7 +6,7 @@
 .editable-text{
 	padding-left:12px;
 	overflow-wrap: break-word;/*stop long links etc from poking out of the container*/
-	word-break:break-all;/*this might be overkill*/
+	//word-break:break-all;/*this might be overkill*/
 	min-height:2em;/*makes sure that empty fields are clickable*/
 }
 .editable-lable{
