@@ -19,12 +19,6 @@
 	}
 }
 
-@media (max-width: 767px){
-	.editable-lable{
-		text-align: left;
-	}
-}
-
 .editable-input textarea {
   width:400px;
   height: 200px;
@@ -32,4 +26,14 @@
 
 .editable-output:hover {
   background-color: rgba(0,0,0,0.05);
+}
+
+.tooltip{
+    overflow-wrap:break-word;
+}
+
+@media (max-width: 767px){
+	.editable-lable{
+		text-align: left;
+	}
 }
