@@ -1,27 +1,35 @@
 <h2>Location</h2>
 <p class="explantory-text">This is a way of finding the address of the project, also where the front door is, and eventually a nice boundary drawing too. This will eventually feed to the public website so that people can find the projects.</p>
-<p class="explantory-text">The addresses were preloaded by <a href="http://blogs.bvn.com.au/tropos/2013/09/24/artificial-artificial-intelligence/">Mechanical turks. As people with domain knowledge, your job is to collate their attempts into one canonical adress/location box.</a></p>
+<p class="explantory-text">The addresses were preloaded by <a href="http://blogs.bvn.com.au/tropos/2013/09/24/artificial-artificial-intelligence/">Mechanical turks</a>. As people with domain knowledge, your job is to collate their attempts into one canonical address/location box. Once there is a good address for this project we'll remove the others.</p>
 <div ng-repeat="location in project.building.locations"
-     class="col-md-6">
-    <editable-group object="project"
-                    lens="building.locations[{{location|id}}].geo_json" subgroup-class="alert alert-info col-sm-12">
-          <editable property="lat"             label="latitude"  type="number">This is the latitude  of the front door of the project.</editable>
-          <editable property="lon"             label="longitude" type="number">This is the longitude of the front door of the project.</editable>
-          <editable property="boundary_points" label="Boundary Points">This is a list of lat-lon pairs. You won't be able to see these soon as they'll live in the map.</editable>
+     class="row col-sm-12 alert alert-info">
+     <!--<editable-group object="project"
+                        lens="building.locations[{{location|id}}]"
+                        subgroup-class="col-sm-12">
+    </editable-group>-->
+    <div class="col-sm-6">
+        <editable-group object="project"
+                        lens="building.locations[{{location|id}}].geo_json"
+                        subgroup-class="col-sm-12">
+              <editable property="lat"             label="latitude"  type="number">This is the latitude  of the front door of the project.</editable>
+              <editable property="lon"             label="longitude" type="number">This is the longitude of the front door of the project.</editable>
+              <editable property="boundary_points" label="Boundary Points">This is a list of lat-lon pairs. You won't be able to see these soon as they'll live in the map.</editable>
 
-        <iframe class="temp-map" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{'https://maps.google.com.au/?ie=UTF8&amp;ll='+subobject.lat+','+subobject.lon+'&amp;spn=0.015,0.030&amp;t=h&amp;z=16&amp;output=embed' | trustMaplink}}"></iframe>
-    </editable-group>
-
-    <editable-group object="project"
-                    lens="building.locations[{{location|id}}].addresses"
-                    subgroup-class="alert alert-info col-sm-12">
-         <editable property="building_name" label="building                      name">helpText</editable>
-         <editable property="street_number" label="street                        number">helpText</editable>
-         <editable property="street"        label="street">helpText</editable>
-         <editable property="suburb_area"   label="suburb                        area">helpText</editable>
-         <editable property="state_county"  label="state                         county">helpText</editable>
-         <editable property="country"       label="country">helpText</editable>
-         <editable property="postcode"      label="postcode">helpText</editable>
-    </editable-group>
-
+            <iframe class="temp-map" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{'https://maps.google.com.au/?ie=UTF8&amp;ll='+subobject.lat+','+subobject.lon+'&amp;spn=0.015,0.030&amp;t=h&amp;z=16&amp;output=embed' | trustMaplink}}"></iframe>
+        </editable-group>
+    </div>
+    <div class="col-sm-6">
+        <editable-group object="project"
+                        lens="building.locations[{{location|id}}].address"
+                        subgroup-class="col-sm-12">
+             <editable property="dirty_location" label="Dirty Location">This is what we have on file. Some of these addresses are pretty good, others are pitiful.</editable>
+             <editable property="building_name"  label="building name" >helpText</editable>
+             <editable property="street_number"  label="street number" >helpText</editable>
+             <editable property="street"         label="street"        >helpText</editable>
+             <editable property="suburb_area"    label="suburb area"   >helpText</editable>
+             <editable property="state_county"   label="state county"  >helpText</editable>
+             <editable property="country"        label="country"       >helpText</editable>
+             <editable property="postcode"       label="postcode"      >helpText</editable>
+        </editable-group>
+    </div>
 </div>
