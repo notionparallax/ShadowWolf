@@ -8,14 +8,16 @@ describe "config/projects/index" do
         :attribution => "Attribution",
         :BCA_classification => "Bca Classification",
         :project_categories => "",
-        :project_sub_catagories => ""
+        :project_sub_catagories => "",
+        :source_information_filepath => "Source Information Filepath"
       ),
       stub_model(Building,
         :description => "MyText",
         :attribution => "Attribution",
         :BCA_classification => "Bca Classification",
         :project_categories => "",
-        :project_sub_catagories => ""
+        :project_sub_catagories => "",
+        :source_information_filepath => "Source Information Filepath"
       )
     ])
   end
@@ -28,5 +30,6 @@ describe "config/projects/index" do
     assert_select "tr>td", :text => "Bca Classification".to_s, :count => 2
     assert_select "tr>td", :text => "".to_s, :count => 2
     assert_select "tr>td", :text => "".to_s, :count => 2
+    assert_select "tr>td", :text => "Source Information Filepath".to_s, :count => 2
   end
 end

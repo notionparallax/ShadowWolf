@@ -7,7 +7,8 @@ describe "config/projects/show" do
       :attribution => "Attribution",
       :BCA_classification => "Bca Classification",
       :project_categories => "",
-      :project_sub_catagories => ""
+      :project_sub_catagories => "",
+      :source_information_filepath => "Source Information Filepath"
     ))
   end
 
@@ -19,5 +20,6 @@ describe "config/projects/show" do
     rendered.should match(/Bca Classification/)
     rendered.should match(//)
     rendered.should match(//)
+    rendered.should match(/Source Information Filepath/)
   end
 end

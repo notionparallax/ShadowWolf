@@ -45,4 +45,5 @@ class Building
   field :BCA_classification, type: String
   field :project_categories, type: Array
   field :project_sub_catagories, type: Array
+  field :source_information_filepath, type: String
 end

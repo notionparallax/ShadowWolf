@@ -69,6 +69,6 @@ class LegaciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def legacy_params
-      params.require(:legacy).permit(:one_line_grab, :description_project_sheet, :description_200_500_words, :description_awards_style, :innovation_client_style, :interesting_things, :brief_elements, :security_level)
+      params.require(:legacy).permit(:one_line_grab, :dirty_pictures, :dirty_testimonial, :description_project_sheet, :description_200_500_words, :description_awards_style, :dirty_awards, :innovation_client_style, :innovation_value_add, :interesting_things, :brief_elements, :security_level)
     end
 end

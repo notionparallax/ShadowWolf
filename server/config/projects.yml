@@ -50,6 +50,10 @@ building:
     type: array
     factory: |
       { Faker::Name.first_name + ", "+Faker::Name.first_name + ", " + Faker::Name.first_name }
+  - name: source_information_filepath
+    type: string
+    factory: |
+      { '/file/name.docx' }
   relation:
     parent: project
     type: embeds_one
@@ -404,6 +408,14 @@ legacy:
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
+  - name: dirty_pictures
+    type: text
+    factory: |
+      { 'nick knight took some pics on tuesday' }
+  - name: dirty_testimonial
+    type: text
+    factory: |
+      { 'blocks out the sun<br>--neighbours' }
   - name: description_project_sheet
     type: text
     factory: |
@@ -416,10 +428,18 @@ legacy:
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
+  - name: dirty_awards
+    type: string
+    factory: |
+      { 'this project won an award for being good' }
   - name: innovation_client_style
     type: text
     factory: |
       { Faker::Lorem.paragraphs.join('<br>') }
+  - name: innovation_value_add
+    type: text
+    factory: |
+        { 'innovative use of things' }
   - name: interesting_things
     type: text
     factory: |

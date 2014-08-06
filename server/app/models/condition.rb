@@ -7,6 +7,6 @@ validates :name, inclusion: { in: ['Active', 'Retired', 'Maternity', 'Leave', 'D
 
   embedded_in :person
 
-  field :name, type: String, default: 'Unknown'
-  field :start_date, type: Date, default: DateTime.now
+  field :name, type: String
+  field :start_date, type: Date
 end

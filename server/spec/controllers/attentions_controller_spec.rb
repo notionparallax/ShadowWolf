@@ -23,7 +23,7 @@ describe AttentionsController do
   # This should return the minimal set of attributes required to create a valid
   # Attention. As you add validations to Attention, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "date" => "2014-07-03" } }
+  let(:valid_attributes) { { "date" => "2014-08-06" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -106,8 +106,8 @@ describe AttentionsController do
         # specifies that the Attention created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Attention.any_instance.should_receive(:update).with({ "date" => "2014-07-03" })
-        put :update, {:id => attention.to_param, :config_person => { "date" => "2014-07-03" }}, valid_session
+        Attention.any_instance.should_receive(:update).with({ "date" => "2014-08-06" })
+        put :update, {:id => attention.to_param, :config_person => { "date" => "2014-08-06" }}, valid_session
       end
 
       it "assigns the requested config_person as @config_person" do

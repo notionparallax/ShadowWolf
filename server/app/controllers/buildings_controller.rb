@@ -69,6 +69,6 @@ class BuildingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def building_params
-      params.require(:building).permit(:description, :attribution, :BCA_classification, :project_categories, :project_sub_catagories)
+      params.require(:building).permit(:description, :attribution, :BCA_classification, :project_categories, :project_sub_catagories, :source_information_filepath)
     end
 end
