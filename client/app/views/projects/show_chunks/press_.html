@@ -1,6 +1,7 @@
 <h2>Press</h2>
 <div ng-repeat="press in project.building.presses">
     <h3>Attentions</h3>
+    <p class="explantory-text">Explanatory text goes in here</p>
     <editable-group object="project" ng-repeat="attention in press.attentions" lens="building.presses[{{press|id}}].attentions[{{attention|id}}]" subgroup-class="alert alert-info col-sm-6">
         <editable property="url"                label="url"               >Is there a place that we can link to that we can read this bit of press?</editable>
         <editable property="scan_or_screengrab" label="scan or screengrab">Press is transient, attatch an image of the page.</editable>
@@ -9,6 +10,7 @@
     </editable-group>
 
     <h3>Campaigns</h3>
+    <p class="explantory-text">Explanatory text goes in here</p>
     <editable-group object="project" ng-repeat="campaign in press.campaigns" lens="building.presses[{{press|id}}].campaigns[{{campaign|id}}]" subgroup-class="alert alert-info col-sm-6">
         <editable property="strategy" label="strategy">Describe the campain</editable>
     </editable-group>
