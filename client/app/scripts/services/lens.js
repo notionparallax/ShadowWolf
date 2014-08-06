@@ -15,7 +15,8 @@ angular.module("ShadowWolf")
    * @returns      The selected property.
    */
   this.get = function(object, lens) {
-    lens = (lens || '').split('.');
+    if (!lens) return object;
+    lens = lens.split('.');
     var i = 0;
     try {
       while (i <= lens.length-1) {
