@@ -12,7 +12,7 @@ module ParamReader
       if changes[key].class == Array
         array_class = object.class.embedded_relations[key].klass
         apply_array_changes object, array_class, subobject, subchange
-      elsif changes[key].class == ActionController::Parameters
+      elsif changes[key].class.ancestors.include? ActiveSupport::HashWithIndifferentAccess
         apply_changes subobject, subchange
       else
         object.send("#{key}=", changes[key])
