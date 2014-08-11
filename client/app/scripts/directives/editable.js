@@ -21,17 +21,10 @@ angular.module("ShadowWolf")
       scope.type = attrs.type || 'text';
       scope.rootElement = element[0];
       if (attrs['editableTypeahead'] == 'true') {
-        scope.getUniquePossibilities = function(){
-          return $http.get(Config.getEndPoint()+ "/typeahead_results.json",
-            {params: {"lens": scope.lens +"."+ scope.property}});
-          // return ["Oxford Brookes University",
-          //         "University of East London",
-          //         "USYD"];
-        };
-        scope.typeahead = 
-         'possibility for possibility in getUniquePossibilities($viewValue)'
-        +' | filter:$viewValue'
-        +' | limitTo:8';
+        scope.possibilities = [];
+        scope.typeahead =  'possibility for possibility in possibilities'
+                          +' | filter:$viewValue'
+                          +' | limitTo:8';
       } else if (attrs['editableTypeahead']) {
         scope.typeahead = attrs['editableTypeahead'];
       } else { // non-error default
@@ -73,6 +66,21 @@ angular.module("ShadowWolf")
             template: attemptAuthorize.errorMessage
           }, 5000);
           return;
+        }
+
+        // Get typeahead autocomplete possibilities
+        if ($scope.possibilities.length == 0) {
+          var fullLens = $scope.objectName + '.' + $scope.lens + '.' + $scope.property;
+          var query = $http.get(Config.getEndPoint() + '/typeahead_results.json',
+            { params: { 'lens' : fullLens } });
+          query.then(function(results) {
+            console.log(results);
+            $scope.possibilities = results;
+            throw new Error(JSON.stringify(results));
+          }, function(error) {
+            console.log(error);
+            throw new Error(error)
+          });
         }
         $scope.editorEnabled = true;
         $scope.editable.value = $scope.subobject[$scope.property];
