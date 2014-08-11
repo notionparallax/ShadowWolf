@@ -1,17 +1,22 @@
-var pageObjects = require("../page_objects.js");
-var EditableGroup = pageObjects.EditableGroup;
-var BackEndLogs = pageObjects.BackEndLogs;
-var Utils = require("../utils.js");
-var setup = Utils.setup;
-var visit = Utils.visit;
-var mockBackend = Utils.mockBackend;
-var mockPerson = require("../mock_person.js").mockPerson;
-var mockProject = require("../mock_project.js").mockProject;
+var pageObjects     = require("../page_objects.js");
+var EditableGroup   = pageObjects.EditableGroup;
+var BackEndLogs     = pageObjects.BackEndLogs;
+var Utils           = require("../utils.js");
+var typaheadResults = require("../typeahead_results.js").results;
+var setup           = Utils.setup;
+var visit           = Utils.visit;
+var mockBackend     = Utils.mockBackend;
+var mockPerson      = require("../mock_person.js").mockPerson;
+var mockProject     = require("../mock_project.js").mockProject;
 
 describe('editables in show page', function(){
   setup();
   beforeEach(function(){
-    mockBackend({'people/test' : mockPerson },
+    mockBackend(
+      {
+        'people/test-id/typeahead_results' : typaheadResults,
+        'people/test' : mockPerson
+      },
       'test-id', 'test-token');
     visit('callback?person_id=test-id&access_token=test-token&login=test-login');
     visit('people/test-id');
@@ -133,4 +138,17 @@ describe('editables in show page', function(){
     var approach = biographyGroup.getEditable('approach');
     expect(approach.getValue()).not.toBe('null');
   });
+
+  it('should fill in the editable from the typahead', function(){
+    Utils.selectTab('Reg');
+    var qualificationGroup = new EditableGroup('employee.qualifications');
+    var institution = qualificationGroup.getEditable('institution');
+    institution.click();
+    institution.sendKeys('\box');
+    browser.actions().sendKeys(protractor.Key.TAB).perform();
+    browser.actions().sendKeys(protractor.Key.ENTER).perform();
+
+    expect(institution.getValue()).toBe(typaheadResults[0]);//"Oxford Brookes University"
+  });
+
 });
