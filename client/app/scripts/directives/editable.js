@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module("ShadowWolf")
-.directive("editable", function(Lens, Session, Models, Flash, GA) {
+.directive("editable", function(Lens, Session, Models, Flash, GA, $http, Config) {
   var editDisabled = false;
   return {
     restrict: "E",
@@ -9,7 +9,7 @@ angular.module("ShadowWolf")
     transclude: true,
     templateUrl: 'scripts/directives/editable.html',
     scope: true,
-    link: function (scope, element, attrs,ctrl,transclude) { 
+    link: function (scope, element, attrs,ctrl,transclude) {
       transclude(scope, function(cloneElement){
         if (cloneElement[0] && cloneElement[0].innerHTML) {
           scope.tooltipText = cloneElement[0].innerHTML;
@@ -20,7 +20,19 @@ angular.module("ShadowWolf")
       scope.label = attrs.label;
       scope.type = attrs.type || 'text';
       scope.rootElement = element[0];
-      if (attrs['editableTypeahead']) {
+      if (attrs['editableTypeahead'] == 'true') {
+        scope.getUniquePossibilities = function(){
+          return $http.get(Config.getEndPoint()+ "/typeahead_results.json",
+            {params: {"lens": scope.lens +"."+ scope.property}});
+          // return ["Oxford Brookes University",
+          //         "University of East London",
+          //         "USYD"];
+        };
+        scope.typeahead = 
+         'possibility for possibility in getUniquePossibilities($viewValue)'
+        +' | filter:$viewValue'
+        +' | limitTo:8';
+      } else if (attrs['editableTypeahead']) {
         scope.typeahead = attrs['editableTypeahead'];
       } else { // non-error default
         scope.typeahead = 'nothing for nothing in []';
@@ -28,7 +40,7 @@ angular.module("ShadowWolf")
     },
     controller: function($scope) {
       $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
-      
+
       $scope.editable = {};
       $scope.editorEnabled= false;
 
@@ -95,8 +107,8 @@ angular.module("ShadowWolf")
         var diffObject = { id: object.id['$oid'] };
         diffObject[$scope.property] = object[$scope.property];
         var updateObject;
-        updateObject = {}; 
-        updateObject[$scope.objectName] = Lens.wrapObject( 
+        updateObject = {};
+        updateObject[$scope.objectName] = Lens.wrapObject(
             $scope.lens,
             diffObject
         );

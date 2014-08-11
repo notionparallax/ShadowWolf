@@ -6,11 +6,11 @@
     <editable-group object="person"
                     lens="employee.qualifications[{{qual|id}}]"
                     subgroup-class="alert alert-info">
-      <editable property="name"        label="name"                    >What is the name of your qualification?</editable>
-      <editable property="level"       label="level"                   >What What level is it at? This is a restricted list so that we can make comparisons across different systems.</editable>
-      <editable property="institution" label="institution"             >What organisation issued your qualification?</editable>
-      <editable property="first_year"  label="first year" type="number">When did your course start? We just need a year here.</editable>
-      <editable property="last_year"   label="last year"  type="number">When did/does it end? We just need a year here.</editable>
+      <editable property="name"        label="name"        editable-typeahead="true" >What is the name of your qualification?</editable>
+      <editable property="level"       label="level"       editable-typeahead="true" >What What level is it at? This is a restricted list so that we can make comparisons across different systems.</editable>
+      <editable property="institution" label="institution" editable-typeahead="true" >What organisation issued your qualification?</editable>
+      <editable property="first_year"  label="first year"  type="number"             >When did your course start? We just need a year here.</editable>
+      <editable property="last_year"   label="last year"   type="number"             >When did/does it end? We just need a year here.</editable>
     </editable-group>
   </div>
 

@@ -14,7 +14,7 @@ describe('editables in show page', function(){
   beforeEach(function(){
     mockBackend(
       {
-        'people/test-id/typeahead_results' : typaheadResults,
+        'typeahead_results' : typaheadResults,
         'people/test' : mockPerson
       },
       'test-id', 'test-token');
