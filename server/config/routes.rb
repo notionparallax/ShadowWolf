@@ -1,4 +1,5 @@
 ShadowWolf::Application.routes.draw do
+  get "typeahead_results" => 'typeahead_results#fetch'
   resources :employee_presses
 
   resources :quality_assurances

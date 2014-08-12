@@ -1,0 +1,2 @@
+module TypeaheadResultsHelper
+end
