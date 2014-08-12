@@ -5,9 +5,9 @@ function setup(){
   ptor = protractor.getInstance();
   afterEach(function(){
     ptor.clearMockModules();
-    //browser.manage().logs().get('browser').then(function(browserLog) {
-    //    console.log('log: ' + require('util').inspect(browserLog));
-    //});
+    browser.manage().logs().get('browser').then(function(browserLog) {
+        console.log('log: ' + require('util').inspect(browserLog));
+    });
   });
 }
 function visit(path) {
@@ -50,6 +50,7 @@ function mockBackend(mappings, personId, accessToken) {
       for (var regex in mappings) {
         $httpBackend.whenGET(new RegExp(regex))
           .respond(function(method, url, data, headers){
+            logRequest(method,url,data);
             if (personId && accessToken) {
               var params = {};
               for (var param in url.split('?')[1].split('&')) {

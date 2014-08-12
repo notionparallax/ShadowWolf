@@ -82,31 +82,9 @@ var ben = {
             "updated_at"  : null,
             "name"        : "MSc Architecture: Computing and Design",
             "level"       : "Postgraduate degree",
-            "institution" : "University of East London",
+            "institution" : "",
             "first_year"  : 2006,
             "last_year"   : 2007
-        }, {
-            "id": {
-                "$oid": "52a008138bcb1e01440000a3"
-            },
-            "created_at": null,
-            "updated_at": null,
-            "name": "DipArch",
-            "level": "Postgraduate degree",
-            "institution": "Oxford Brookes University",
-            "first_year": 2007,
-            "last_year": 2010
-        }, {
-            "id": {
-                "$oid": "52a008138bcb1e01440000a4"
-            },
-            "created_at"  : null,
-            "updated_at"  : null,
-            "name"        : "BA Arch",
-            "level"       : "Undergraduate degree",
-            "institution" : "Oxford Brookes University",
-            "first_year"  : 2002,
-            "last_year"   : 2005
         }],
         "registrations": [],
         "memberships": [],

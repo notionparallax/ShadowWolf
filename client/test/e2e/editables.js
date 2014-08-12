@@ -14,15 +14,15 @@ describe('editables in show page', function(){
   beforeEach(function(){
     mockBackend(
       {
-        'typeahead_results' : typaheadResults,
-        'people/test' : mockPerson
+        'people/test' : mockPerson,
+        'typeahead_results' : typaheadResults
       },
       'test-id', 'test-token');
     visit('callback?person_id=test-id&access_token=test-token&login=test-login');
     visit('people/test-id');
   });
 
-  it("should display correct values for textual properties", function() {
+ xit("should display correct values for textual properties", function() {
     var nameGroup = new EditableGroup('name');
 
     var preferedFirst = nameGroup.getEditable('preferred_first');
@@ -32,7 +32,7 @@ describe('editables in show page', function(){
     expect(preferedLast.getValue()).toBe('Doherty');
   });
 
-  it("should go to InputMode if clicked in OutputMode", function(){
+ xit("should go to InputMode if clicked in OutputMode", function(){
     var nameGroup = new EditableGroup('name');
     var preferedFirst = nameGroup.getEditable('preferred_first');
 
@@ -44,7 +44,7 @@ describe('editables in show page', function(){
     expect(activeElement.getOuterHtml()).toBe(editableInputElement.getOuterHtml());
   });
 
-  it("should go to OutputMode if ENTER is pressed in InputMode", function() {
+ xit("should go to OutputMode if ENTER is pressed in InputMode", function() {
     var nameGroup = new EditableGroup('name');
     var preferedFirst = nameGroup.getEditable('preferred_first');
     expect(preferedFirst.isOutputMode()).toBe(true);
@@ -54,7 +54,7 @@ describe('editables in show page', function(){
     expect(preferedFirst.isOutputMode()).toBe(true);
   });
 
-  it("should PATCH data to the server when a field is changed", function() {
+ xit("should PATCH data to the server when a field is changed", function() {
     var nameGroup = new EditableGroup('name');
     var preferedFirst = nameGroup.getEditable('preferred_first');
     preferedFirst.click();
@@ -66,7 +66,7 @@ describe('editables in show page', function(){
     });
   });
 
-  it('should properly set when type=tel', function(){
+ xit('should properly set when type=tel', function(){
     Utils.selectTab('Contact');
     var employeeContact = new EditableGroup('employee.contact.mobile');
     var number = employeeContact.getEditable('number');
@@ -79,7 +79,7 @@ describe('editables in show page', function(){
     });
   });
 
-  it('should properly set when type=number', function(){
+ xit('should properly set when type=number', function(){
     Utils.selectTab('Contact');
     var employeeContact = new EditableGroup('employee.contact');
     var extension = employeeContact.getEditable('extension');
@@ -92,7 +92,7 @@ describe('editables in show page', function(){
     });
   });
 
-  it('should properly set when type=boolean', function(){
+ xit('should properly set when type=boolean', function(){
     Utils.selectTab('Contact');
     var employeeContact = new EditableGroup('employee.contact.mobile');
     var isWork = employeeContact.getEditable('is_work');
@@ -105,7 +105,7 @@ describe('editables in show page', function(){
     });
   });
 
-  it('type=tel should accept +, space, - and ()', function(){
+ xit('type=tel should accept +, space, - and ()', function(){
     Utils.selectTab('Contact');
     var employeeContact = new EditableGroup('employee.contact.mobile');
     var number = employeeContact.getEditable('number');
@@ -118,7 +118,7 @@ describe('editables in show page', function(){
     });
   });
 
-  it('should properly set when type=date', function(){
+ xit('should properly set when type=date', function(){
     Utils.selectTab('Name');
     var employeeContact = new EditableGroup('conditions');
     var startDate = employeeContact.getEditable('start_date');
@@ -132,23 +132,27 @@ describe('editables in show page', function(){
     });
   });
 
-  it('should not print "null" when the value is null', function(){
+ xit('should not print "null" when the value is null', function(){
     Utils.selectTab('Bio');
     var biographyGroup = new EditableGroup('employee.biography');
     var approach = biographyGroup.getEditable('approach');
     expect(approach.getValue()).not.toBe('null');
   });
 
-  it('should fill in the editable from the typahead', function(){
+ it('should fill in the editable from the typahead', function(){
+    browser.sleep(2000);
     Utils.selectTab('Reg');
+    browser.sleep(2000);
     var qualificationGroup = new EditableGroup('employee.qualifications');
     var institution = qualificationGroup.getEditable('institution');
     institution.click();
-    institution.sendKeys('\box');
+    browser.sleep(2000);
+    institution.sendKeys('ox');
     browser.actions().sendKeys(protractor.Key.TAB).perform();
     browser.actions().sendKeys(protractor.Key.ENTER).perform();
 
     expect(institution.getValue()).toBe(typaheadResults[0]);//"Oxford Brookes University"
+    expect(element(by.css('.logs')).getInnerHtml()).toBe('');
   });
 
 });
