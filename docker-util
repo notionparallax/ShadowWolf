@@ -34,16 +34,16 @@ case "$1" in
   install)
     rm Dockerfile
     ln -s development.docker Dockerfile
-    sudo docker build -t shadowwolf-dev .
+    docker build -t shadowwolf-dev .
     rm Dockerfile
     ln -s development-server.docker Dockerfile
-    sudo docker build -t shadowwolf-dev-server .
+    docker build -t shadowwolf-dev-server .
     rm Dockerfile
     ln -s mongo.docker Dockerfile
-    sudo docker build -t shadowwolf-mongo .
+    docker build -t shadowwolf-mongo .
     rm Dockerfile
     ln -s development-testing.docker Dockerfile
-    sudo docker build -t shadowwolf-dev-testing .
+    docker build -t shadowwolf-dev-testing .
     ;;
   dev)
     case "$2" in
@@ -70,7 +70,7 @@ case "$1" in
         ;;
       server)
         [[ -z `docker ps | grep -e "sw-mongo[^/]"` ]] && $0 dev mongo
-        docker kill sw-server && docker rm sw-server && sudo rm server/tmp/pids/server.pid
+        docker kill sw-server && docker rm sw-server && rm server/tmp/pids/server.pid
         # rails uses 3000
         docker run -d -p 3000 --name sw-server --link sw-mongo:mongo $DEFAULT_ARGS -w /ShadowWolf/server/ shadowwolf-dev-server rails server
         ;;
@@ -96,7 +96,7 @@ case "$1" in
         ;;
       server)
         rm Dockerfile
-        sudo rm server/tmp/pids/server.pid
+        rm server/tmp/pids/server.pid
         ln -s production-server.docker Dockerfile
         CONTAINER_NAME="$CONTAINER_NAME"-server
         ;;
@@ -105,7 +105,7 @@ case "$1" in
         exit 1
         ;;
     esac
-    sudo docker build -t $CONTAINER_NAME .
+    docker build -t $CONTAINER_NAME .
     ;;
   deploy)
     if [[ -z $BVN_SERVER ]]
