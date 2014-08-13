@@ -25,12 +25,18 @@
 
       <div ng-show="editorEnabled"
            class="input-group editable-input">
-        <input ng-if="type != 'textarea'"
+        <input ng-if="type != 'textarea' && type != 'year'"
                typeahead="{{ typeahead }}"
                type="{{ type }}"
                ng-model="editable.value"
                ng-keyup="maybeCancelOrSave($event)"
-               class="form-control" 
+               class="form-control"
+               name="{{ getName() }}"/>
+        <input ng-if="type == 'year'"
+               type="text" pattern="\d\d\d\d"
+               ng-model="editable.value"
+               ng-keyup="maybeCancelOrSave($event)"
+               class="form-control"
                name="{{ getName() }}"/>
         <textarea ng-show="type == 'textarea'"
                   ng-keyup="maybeCancelOrSave($event)"
