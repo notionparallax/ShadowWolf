@@ -233,7 +233,7 @@ Devise.setup do |config|
     :host => ENV['LDAP_HOST'],
     :port => ENV['LDAP_PORT'].to_i,
     :base => ENV['LDAP_BASE'],
-    :method => ENV['LDAP_METHOD'].to_sym,
+    :method => ('' || ENV['LDAP_METHOD']).to_sym,
     :bind_dn => ENV['LDAP_BIND_DN'],
     :password => ENV['LDAP_PASSWORD'],
     :uid => ENV['LDAP_UID'],
