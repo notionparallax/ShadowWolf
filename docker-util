@@ -32,16 +32,16 @@ BASE_ARGS="-t -v $SHARED_VOLUME "
 DEFAULT_ARGS="-d $BASE_ARGS "
 case "$1" in
   install)
-    rm Dockerfile
+    rm -f Dockerfile
     ln -s development.docker Dockerfile
     docker build -t shadowwolf-dev .
-    rm Dockerfile
+    rm -f Dockerfile
     ln -s development-server.docker Dockerfile
     docker build -t shadowwolf-dev-server .
-    rm Dockerfile
+    rm -f Dockerfile
     ln -s mongo.docker Dockerfile
     docker build -t shadowwolf-mongo .
-    rm Dockerfile
+    rm -f Dockerfile
     ln -s development-testing.docker Dockerfile
     docker build -t shadowwolf-dev-testing .
     ;;
