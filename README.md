@@ -1,6 +1,7 @@
 ShadowWolf
 ==========
-<img src="https://circleci.com/gh/notionparallax/ShadowWolf.png?circle-token=badge">
+
+![build status](https://circleci.com/gh/notionparallax/ShadowWolf.png?circle-token=badge)
 
 <img src="http://notionparallax.co.uk/img/Shadow_wolf_logo.png" align="right" >
 A mini ERP type app to capture people, projects and their relationships.
