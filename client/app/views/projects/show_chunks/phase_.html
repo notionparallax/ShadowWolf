@@ -3,14 +3,14 @@
   <tab ng-repeat="phase in project.building.phases" heading="{{$index}}">
     <p class="explantory-text">Explanatory text goes in here</p>
     <editable-group object="project" lens="building.phases[{{phase|id}}]" subgroup-class="alert alert-info col-sm-6">
-        <editable property="project_name"          label="project name"          >What was the project called? More details about this in the phases</editable>
-        <editable property="studio"                label="studio"                >Where did the bulk of the work get done? (This usually matches up with the first letter of the project number)</editable>
-        <editable property="client"                label="client"                >Who was this project for? More details about this in the phases.</editable>
-        <editable property="services_scope"        label="services scope"        >What did we do on this project?  More details about this in the phases.</editable>
-        <editable property="delivery_contract"     label="delivery contract"     >What was the contract?  More details about this in the phases.</editable>
-        <editable property="staff_contact_login"   label="staff contact login"   >Who is the go to person for this project? Usually the project director (unless they've left!)</editable>
-        <editable property="staff_custodian_login" label="staff custodian login" >Who is responsible for maintaining this page?</editable>
-        <editable property="dirty_date"            label="dirty date" type="date">Some date or other from the project library, lets get rid of this as soon as we can! If you are project custodian you should check that the date automatically generated is correct and then empty this field out.</editable>
+        <editable property="project_name"          label="project name"                                  >What was the project called? More details about this in the phases</editable>
+        <editable property="studio"                label="studio"                editable-typahead="true">Where did the bulk of the work get done? (This usually matches up with the first letter of the project number)</editable>
+        <editable property="client"                label="client"                editable-typahead="true">Who was this project for? More details about this in the phases.</editable>
+        <editable property="services_scope"        label="services scope"        editable-typahead="true">What did we do on this project?  More details about this in the phases.</editable>
+        <editable property="delivery_contract"     label="delivery contract"     editable-typahead="true">What was the contract?  More details about this in the phases.</editable>
+        <editable property="staff_contact_login"   label="staff contact login"   editable-typahead="true">Who is the go to person for this project? Usually the project director (unless they've left!)</editable>
+        <editable property="staff_custodian_login" label="staff custodian login" editable-typahead="true">Who is responsible for maintaining this page?</editable>
+        <editable property="dirty_date"            label="dirty date" type="date"                        >Some date or other from the project library, lets get rid of this as soon as we can! If you are project custodian you should check that the date automatically generated is correct and then empty this field out.</editable>
     </editable-group>
 
     <h3>Members</h3>
@@ -28,7 +28,7 @@
         <editable property="construction_initial"      label="construction initial"      type="number">helpText. In whole dollars e.g. 3000000 not $3M</editable>
         <editable property="construction_final"        label="construction final"        type="number">helpText. In whole dollars e.g. 3000000 not $3M</editable>
         <editable property="comments"                  label="comments"                               >Make some comments about this budget. Why was this type of fee chosen? Why did it go over/under? What advice would you leave for future generations?</editable>
-        <editable property="fee_type"                  label="fee type"                               >helpText</editable>
+        <editable property="fee_type"                  label="fee type"       editable-typahead="true">helpText</editable>
     </editable-group>
   </tab>
 </tabset>
