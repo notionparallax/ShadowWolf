@@ -20,8 +20,9 @@ angular.module("ShadowWolf")
       scope.label = attrs.label;
       scope.type = attrs.type || 'text';
       scope.rootElement = element[0];
+      scope.possibilities = [];
       if (attrs['editableTypeahead'] == 'true') {
-        scope.possibilities = [];
+        scope.typeaheadEnabled = true;
         scope.typeahead =  'possibility for possibility in possibilities'
                           +' | filter:$viewValue'
                           +' | limitTo:8';
@@ -69,17 +70,12 @@ angular.module("ShadowWolf")
         }
 
         // Get typeahead autocomplete possibilities
-        if ($scope.possibilities.length == 0) {
-          var fullLens = $scope.objectName + '.' + $scope.lens + '.' + $scope.property;
+        if ($scope.typeaheadEnabled && $scope.possibilities.length == 0) {
           var query = $http.get(Config.getEndPoint() + '/typeahead_results.json',
-            { params: { 'lens' : fullLens } });
+            { params: { 'lens' : $scope.lens + '.' + $scope.property, 'class_name' : $scope.objectName } });
           query.then(function(results) {
-            console.log(results);
-            $scope.possibilities = results;
-            throw new Error(JSON.stringify(results));
+            $scope.possibilities = results.data.possibilities;
           }, function(error) {
-            console.log(error);
-            throw new Error(error)
           });
         }
         $scope.editorEnabled = true;

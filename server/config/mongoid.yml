@@ -67,7 +67,7 @@ test:
     default:
       database: shadow_wolf_test
       hosts:
-        - localhost:27017
+        - <%= "#{ENV['MONGO_PORT_27017_TCP_ADDR']}:#{ENV['MONGO_PORT_27017_TCP_PORT']}" %>
       options:
         consistency: :strong
         # In the test environment we lower the retries and retry interval to
