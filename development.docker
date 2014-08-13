@@ -2,8 +2,7 @@ FROM paintedfox/ruby
 RUN apt-get install -y git python-software-properties make python g++
 RUN add-apt-repository -y ppa:chris-lea/node.js && apt-get update
 RUN apt-get install -y nodejs
-RUN gem update rdoc
-RUN gem install bundler rails compass
+RUN gem install --no-document bundler rails compass
 RUN npm update
 RUN npm install -g grunt-cli bower phantomjs protractor
 WORKDIR /ShadowWolf/
