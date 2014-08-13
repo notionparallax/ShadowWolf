@@ -30,7 +30,8 @@
                type="{{ type }}"
                ng-model="editable.value"
                ng-keyup="maybeCancelOrSave($event)"
-               class="form-control" />
+               class="form-control" 
+               name="{{ getName() }}"/>
         <textarea ng-show="type == 'textarea'"
                   ng-keyup="maybeCancelOrSave($event)"
                   ng-model="editable.value">

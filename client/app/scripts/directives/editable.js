@@ -43,14 +43,7 @@ angular.module("ShadowWolf")
 
       // Get the name for the label and input tag
       $scope.getName = function() {
-        // TODO properly get the name
-        return '';
-        var name = $scope.objectName;
-        var props = $scope.lens.split('.');
-        for (var prop in props) {
-          name += "[" + props[prop] + "]";
-        }
-        return name;
+        return $scope.property + $scope.$id;
       };
 
       $scope.maybeCancelOrSave = function($event) {
