@@ -6,13 +6,19 @@
     </div>
     <tabset>
         <tab heading="Name">
-            include "name_.html" 
-            include "conditions_.html" 
+            include "name_.html"
+            include "conditions_.html"
             include "photos_.html"
         </tab>
 
+        <span ng-if="getPersonLogin() =='bdoherty' || getPersonLogin() =='mblair'">
+        <tab heading="Business Card">
+            include "biz-card_.html"
+        </tab>
+        </span>
+
         <tab heading="Contact">
-            include "contact_.html" 
+            include "contact_.html"
             include "social_out_.html"
         </tab>
 
@@ -47,13 +53,13 @@
         <tab heading="Press">
             include "press_.html"
         </tab>
+
         <tab ng-if="isCurentUser()" heading="Applicant">
             include "applicant_.html"
         </tab>
 
-        <tab heading="Skills" ng-show="isCurrentUser(person)">
+        <tab ng-if="isCurentUser()" heading="Skills">
             include "skill_.html"
         </tab>
-
     </tabset>
 </article>

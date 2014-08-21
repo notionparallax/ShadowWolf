@@ -8,9 +8,7 @@
       <div class="col-md-8">
         <editable-group object="person"
                         lens="name" help-text-display="ht.name">
-          <editable property="preferred_first" label="preferred first">
-          This is the first name that you prefer to be known by. This is what you'll be called in sumbissions and on your business card. <span class="temp-note">Question for everyone: is this true? Do we need ANOTHER field for casual name?</span>
-          </editable>
+          <editable property="preferred_first" label="preferred first">This is the first name that you prefer to be known by. This is what you'll be called in sumbissions and on your business card. <span class="temp-note">Question for everyone: is this true? Do we need ANOTHER field for casual name?</span></editable>
           <editable property="preferred_last"  label="preferred last" >This is the last name that you prefer to be known by. For example, this would be different to your passport name if you have changed your name legally, but still use your old name professionally.</editable>
         </editable-group>
         <div ng-bind="ht.name"></div>
@@ -27,9 +25,7 @@
       <div class="col-md-8">
         <editable-group object="person"
                   lens="employee">
-          <editable property="position" label="position">
-            This is your Position/Title.
-          </editable>
+          <editable property="position" label="position" editable-typahead="true">This is your Position/Title.</editable>
         </editable-group>
       </div>
     </div>
@@ -51,7 +47,7 @@
           <editable property="prefix" label="Prefix">A name prefix is usually something like Miss, Ms, Mr, or it could be Dr, Admiral or Archbishop.</editable>
           <editable property="first"  label="First" >This is your first name as it appears on your passport.</editable>
           <editable property="middle" label="Middle">This is your middle name or names as they appear on your passport. (If you don't have a middle name just leave it blank.)</editable>
-          <editable property="last" label="Last">This is your last name as it appears on your passport.</editable>
+          <editable property="last"   label="Last"  >This is your last name as it appears on your passport.</editable>
           <editable property="suffix" label="Suffix">A name suffix is usually something like Jr, PhD, OA etc.</editable>
         </editable-group>
       </div>

@@ -37,3 +37,14 @@
 		text-align: left;
 	}
 }
+
+input:invalid {
+  border: 3px solid red;
+}
+input:valid {
+  border: 2px solid green;
+}
+input:invalid + textarea + .save-btn{
+   opacity: 0.3;
+   pointer-events: none;
+}

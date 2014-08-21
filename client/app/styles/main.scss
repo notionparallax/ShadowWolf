@@ -174,3 +174,43 @@ editable-group[lens="employee.photo"] div.editable-text-display {
         padding: 0;
     }
 }
+
+
+#business-card{
+    p {
+        font-family: 'Dosis', sans-serif;
+        font-size: 5pt;
+        line-height: 110%;
+        padding: 0;
+        margin: 0;
+    }
+    .name,
+    .role,
+    .address {
+        text-transform: uppercase;
+    }
+    .no-break {
+        white-space: nowrap;
+    }
+    .name {
+        font-size: 7pt;
+    }
+    .meta,
+    .address {
+        margin-bottom: 1.2pt;
+    }
+    .contact {
+        margin-bottom: 2pt;
+    }
+    .card-border {
+        opacity: 0.3;
+        fill: white;
+        stroke: silver;
+        stroke-width: 0.5;
+    }
+    .logo {
+        fill: black;
+        fill-rule: nonzero;
+        stroke: none;
+    }
+}

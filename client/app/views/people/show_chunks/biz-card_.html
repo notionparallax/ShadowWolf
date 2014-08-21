@@ -1,0 +1,43 @@
+<svg xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet" version="1.1" viewBox="0 0 256 147.5" id="business-card">
+
+    <!-- <image y="-0.13748452" x="-0.56432009" " xlink:href="file:///home/ben/Desktop/business%20card%20template1.png" height="148.33734" width="255.9864" /> -->
+    <rect width="256" height="147.5" x="0" y="-147.5" transform="scale(1,-1)" class="card-border" />
+    <g transform="matrix(1,0,0,-1,17.2,95.7)">
+        <path d="m 0,0 0,-23.187 42.52,0 L 42.52,0 0,0 z m 38.813,-14.7 -6.662,10.993 6.662,0 0,-10.993 z m -1.437,-4.78 -6.663,0 0,10.993 6.663,-10.993 z m -13.857,15.773 -3.504,-13.634 -3.52,13.634 7.024,0 z m -16.798,0 c 1.662,-0.005 3.014,-1.359 3.014,-3.016 0,-1.661 -1.351,-3.014 -3.008,-3.017 l -3.02,0 0,6.033 3.014,0 z m -3.014,-15.773 0,6.033 3.014,0 c 1.662,-0.005 3.014,-1.359 3.014,-3.017 0,-1.66 -1.351,-3.013 -3.008,-3.016 l -3.02,0 z m 9.016,0 c 0.459,0.908 0.719,1.932 0.719,3.016 0,1.913 -0.808,3.642 -2.099,4.868 1.291,1.227 2.099,2.957 2.099,4.873 0,0.005 -10e-4,0.01 -10e-4,0.015 l 3.298,-12.772 -4.016,0 z m 14.284,14.453 0,-14.453 -3.715,0 3.715,14.453 z" class="logo" />
+    </g>
+    <foreignObject width="200" height="92" x="16.5" y="9.5">
+        <div>
+            <p class="name">
+                {{ person.name.preferred_first }} {{ person.name.preferred_last }}
+            </p>
+            <p class="meta">
+                <span class="role"  >{{person.employee.position}}</span>,
+                <span class="suffix">{{person.name.suffix}}</span>
+            </p>
+            <p class="contact">
+                <span class="no-break">
+                    <span ng-if="person.employee.studio === 'Bangkok'"  ><!-- No landline --></span>
+                    <span ng-if="person.employee.studio === 'Sydney'"   ><span class="bold">T</span>+61 2 8297 7200</span>
+                    <span ng-if="person.employee.studio === 'Melbourne'"><span class="bold">T</span>+61 2 8297 7200</span>
+                    <span ng-if="person.employee.studio === 'Brisbane'" ><span class="bold">T</span>+61 2 8297 7200</span>
+                    <span ng-if="person.employee.studio === 'London'"   ><span class="bold">T</span>+61 2 8297 7200</span>
+                    <span ng-if="person.employee.studio === 'Canada'"   ><span class="bold">T</span>+61 2 8297 7200</span>
+                    <span ng-if="person.employee.studio === 'Canberra'" ><span class="bold">T</span>+61 2 8297 7200</span>
+                <span ng-if="person.employee.contact.mobile.distribute" class="no-break">
+                    <span class="bold">M</span>{{person.employee.contact.mobile.number}}</span>
+                <span class="no-break">
+                    <span class="bold">E</span>{{person.employee.contact.work_email}}</span>
+            </p>
+            <p class="address">
+                <span ng-if="person.employee.studio === 'Bangkok'">NEW AUSTRALIAN EMBASSY SITE / WIRELESS ROAD / LUMPINI PHATHUMWAN BANGKOK 10330</span>
+                <span ng-if="person.employee.studio === 'Sydney'">255 PITT STREET / SYDNEY 2000 AUSTRALIA</span>
+                <span ng-if="person.employee.studio === 'Melbourne'">NEW AUSTRALIAN EMBASSY SITE / WIRELESS ROAD / LUMPINI PHATHUMWAN BANGKOK 10330</span>
+                <span ng-if="person.employee.studio === 'Brisbane'">NEW AUSTRALIAN EMBASSY SITE / WIRELESS ROAD / LUMPINI PHATHUMWAN BANGKOK 10330</span>
+                <span ng-if="person.employee.studio === 'London'">NEW AUSTRALIAN EMBASSY SITE / WIRELESS ROAD / LUMPINI PHATHUMWAN BANGKOK 10330</span>
+                <span ng-if="person.employee.studio === 'Canada'">NEW AUSTRALIAN EMBASSY SITE / WIRELESS ROAD / LUMPINI PHATHUMWAN BANGKOK 10330</span>
+                <span ng-if="person.employee.studio === 'Canberra'">18 NATIONAL CIRCUIT / CANBERRA 2600 AUSTRALIA</span>
+
+                / BVN.COM.AU</p>
+        </div>
+    </foreignObject>
+</svg>
