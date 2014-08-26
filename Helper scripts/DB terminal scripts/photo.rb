@@ -59,6 +59,8 @@ Person.all.each{|p|
 }
 
 
+
+
 # goes through 3 lists and sets people accordingly
 Person.all.each{|p|
     if leftPeople.include?(p.employee.login)
@@ -88,6 +90,28 @@ Person.all.each{|p|
         newCondition.name = "Maternity"
         newCondition.start_date = DateTime.now
         p.conditions << newCondition
+        p.save
+    end
+}
+
+
+Person.all.each{|p|
+    if p.employee.office_culture.dietary == nil
+        puts p.employee.login + " added a new dietary"
+        d= Dietary.new
+        p.employee.office_culture.dietary = d
+        p.save
+    end
+}
+
+# stub dietary preference
+Person.all.each{|p|
+    unless p.employee.office_culture.dietary.preference
+        puts p.employee.login
+        dp = Preference.new
+        dp.likes = "cakes"
+        dp.dislikes = "dirt"
+        p.employee.office_culture.dietary.preference = dp
         p.save
     end
 }
