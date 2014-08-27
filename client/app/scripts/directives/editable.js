@@ -73,11 +73,10 @@ angular.module("ShadowWolf")
         }
         $scope.editorEnabled = true;
         $scope.editable.value = $scope.subobject[$scope.property];
-        var input = $scope.rootElement.getElementsByTagName('input');
-        if (input.length == 0) {
-          input = $scope.rootElement.getElementsByTagName('textarea');
-        }
-        input = input[0];
+        var input = $scope.rootElement.querySelector('input')
+          || $scope.rootElement.querySelector('textarea')
+          || $scope.rootElement.querySelector('div[contenteditable]');
+        
         setTimeout(function(){
           input.focus();
         }, 0);
