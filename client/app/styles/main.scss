@@ -184,10 +184,16 @@ editable-group[lens="employee.photo"] div.editable-text-display {
         padding: 0;
         margin: 0;
     }
+    .bold {
+        font-weight: bold;
+    }
     .name,
     .role,
     .address {
         text-transform: uppercase;
+    }
+    .email{
+        text-transform: lowercase;
     }
     .no-break {
         white-space: nowrap;

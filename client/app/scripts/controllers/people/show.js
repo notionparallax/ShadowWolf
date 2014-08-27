@@ -5,16 +5,30 @@ angular.module('ShadowWolf')
 function($scope, Person, $routeParams, Session, $location, Lens, Flash) {
   $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
   $scope._person = function() { return Person.get($routeParams.personId); };
+  $scope._person().$promise.then(function(person) {
+    $scope.slides = [{image: person.employee.photo.bw,    text:""},
+                    {image: person.employee.photo.colour, text:""},
+                    {image: person.employee.photo.fun,    text:""}];
+  });
   $scope.$watch('_person()', function(newValue) {
     $scope.person = newValue;
+    $scope.slides = [{image: newValue.employee.photo.bw,    text:""},
+                    {image: newValue.employee.photo.colour, text:""},
+                    {image: newValue.employee.photo.fun,    text:""}];
   });
+
+  $scope.slides = function() {
+    return slideValues;
+  };
 
   $scope.isUser = function() {
     return !!Session.getPersonId();
   };
+
   $scope.isCurrentUser = function() {
     return Session.getPersonId() == $routeParams.personId;
   };
+
   Session.authorize = function(person) {
     var authorized = Session.getPersonId() == person.id.$oid;
     if (authorized) { return { success: true }; }
