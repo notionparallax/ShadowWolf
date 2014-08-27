@@ -1,7 +1,13 @@
 "use strict";
 
 angular.module("ShadowWolf")
-.directive("editable", function(Lens, Session, Models, Flash, GA, $http, Config) {
+.directive("editable", function(Lens,
+                                Session,
+                                Models,
+                                Flash,
+                                GA,
+                                $http,
+                                Config) {
   var editDisabled = false;
   return {
     restrict: "E",
@@ -12,7 +18,10 @@ angular.module("ShadowWolf")
     link: function (scope, element, attrs,ctrl,transclude) {
       transclude(scope, function(cloneElement){
         if (cloneElement[0] && cloneElement[0].innerHTML) {
-          scope.tooltipText = cloneElement[0].innerHTML;
+          scope.tooltipText = '';
+          for (var element in cloneElement) {
+            scope.tooltipText += cloneElement[element].outerHTML || '';
+          }
         }
       });
       if (attrs['editDisabled']) editDisabled = true;
@@ -76,7 +85,7 @@ angular.module("ShadowWolf")
         var input = $scope.rootElement.querySelector('input')
           || $scope.rootElement.querySelector('textarea')
           || $scope.rootElement.querySelector('div[contenteditable]');
-        
+
         setTimeout(function(){
           input.focus();
         }, 0);

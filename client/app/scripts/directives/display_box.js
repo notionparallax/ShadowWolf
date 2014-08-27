@@ -16,11 +16,8 @@ angular.module('ShadowWolf')
         },
         link: function (scope, element, attrs) {},
         controller: function($scope, Session, $location) {
-            $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
-
-            $scope.redirect = function(pid){
-              //alert('#/people/' + pid);
-              $location.path('#/people/' + pid);
+            $scope.getCurrentUserLogin = function() {
+              return Session.getPersonLogin();
             };
 
             $scope.state = "drawer-in";
