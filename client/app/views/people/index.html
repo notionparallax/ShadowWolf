@@ -10,7 +10,9 @@
 
 <div class="row flex-container" >
   <!--start a project/person box as a directive-->
-  <display-box ng-repeat="p in searchResults | orderBy:sortFunctions"
+  <display-box
+              ng-repeat="p in searchResults | orderBy:sortFunctions"
+              class="{{stormtrooperClass}}"
               title-text="{{p.name.preferred_first}} {{p.name.preferred_last}}"
               body-text="{{ p.employee.contact.extension }}"
               img-src="{{p.employee.photo.bw}}"
