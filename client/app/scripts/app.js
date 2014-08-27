@@ -6,7 +6,8 @@ angular.module('ShadowWolf', ['ngResource',
                               'ngCookies','config',
                               'ui.bootstrap',
                               'angulartics',
-                              'angulartics.google.analytics'])
+                              'angulartics.google.analytics',
+                              'contenteditable'])
   .config(function ($routeProvider, $httpProvider, $analyticsProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
