@@ -1,22 +1,31 @@
+div[contenteditable="true"]{
+    background-color: white;
+    border: 1px solid silver;
+    padding: 0.5em;
+}
+div.editable-text-display {
+    max-height: 6em;
+}
+
 .editable-lable, .editable-text{
-	line-height:20px;
-	padding-top:6px;
-	padding-bottom:6px;
+    line-height:20px;
+    padding-top:6px;
+    padding-bottom:6px;
 }
 .editable-text{
-	padding-left:12px;
-	overflow-wrap: break-word;/*stop long links etc from poking out of the container*/
-	//word-break:break-all;/*this might be overkill*/
-	min-height:2em;/*makes sure that empty fields are clickable*/
+    padding-left:12px;
+    overflow-wrap: break-word;/*stop long links etc from poking out of the container*/
+    //word-break:break-all;/*this might be overkill*/
+    min-height:2em;/*makes sure that empty fields are clickable*/
 }
 .editable-lable{
-	text-align: right;
+    text-align: right;
 }
 .hit-area{
-	border: 1px dashed rgba(255, 255, 255, 0.2); /*temporary way to show what's an editable and what isn't*/
-	&:hover{
-		background:rgba(255, 255, 255, 0.2);
-	}
+    border: 1px dashed rgba(255, 255, 255, 0.2); /*temporary way to show what's an editable and what isn't*/
+    &:hover{
+        background:rgba(255, 255, 255, 0.2);
+    }
 }
 
 .editable-input textarea {
@@ -33,9 +42,9 @@
 }
 
 @media (max-width: 767px){
-	.editable-lable{
-		text-align: left;
-	}
+    .editable-lable{
+        text-align: left;
+    }
 }
 
 input:invalid {
