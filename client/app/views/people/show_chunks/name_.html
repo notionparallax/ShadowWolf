@@ -25,7 +25,9 @@
       <div class="col-md-8">
         <editable-group object="person"
                   lens="employee">
-          <editable property="position" label="position" editable-typahead="true">This is your Position/Title.</editable>
+          <editable property="position" label="position"
+          editable-typeahead='pos for pos in ["Accounts","Accounts Manager","Administration Manager ","Administrative Assistant ","Architect ","Architectural Graduate ","Architectural Technician","Associate ","BIM/CAD Manager","BIM/CAD Support","Commercial Director","Communications Coordinator","Computation Specialist","Design Technology Director","Desktop Support","Desktop Support","Graphic Designer ","Information Systems Manager","Infrastructure Manager","Interior Designer","International Projects Manager ","IT Director","IT Manager","Librarian ","National Director ","NSW Studio Director ","Office Assistant ","Operations Manager ","Personal Assistant ","Practice Director","Principal ","Programmer","Project Administrator","Project Secretary","Public Relations Manager","QLD Studio Director ","Receptionist","Registered Architect Country","Revit Specialist","Senior Associate ","Senior Health Architect","Senior Interior Designer ","Senior Practice Director","Student of Architecture ","Technical Standards Manager","VIC Studio Director ","National Communications,Culture and Design Manager","Codebook Specialist","Computation Specialist","Practice Director,Information & Design Technology","Software Developer","Design Technology Analyst","IT Infrastructure & Operations Manager","Document Controller","IT Support Analyst","IT Support Manager","IT Project Manager","Model Manager"] | filter:$viewValue'
+          >This is your Position/Title.</editable>
         </editable-group>
       </div>
     </div>
@@ -48,7 +50,9 @@
           <editable property="first"  label="First" >This is your first name as it appears on your passport.</editable>
           <editable property="middle" label="Middle">This is your middle name or names as they appear on your passport. (If you don't have a middle name just leave it blank.)</editable>
           <editable property="last"   label="Last"  >This is your last name as it appears on your passport.</editable>
-          <editable property="suffix" label="Suffix">A name suffix is usually something like Jr, PhD, OA etc.</editable>
+          <editable property="suffix" label="Suffix"
+          editable-typeahead="qual for qual in ['PhD(Arch)','MArch(Hons)','MArch','BArchSt(Hons)','BArch(Hons)','BArch','MSc(ConsLaw)','BSc(Arch)','BSc','BbeArch','BPD(Arch)','Dr Ing Arch','Dipl Ing Arch','Dipl Ing Arch(FH)','Arch DPLG M Urbanism (Paris VIII)','Arch DPLG (Paris)','DipArch','DipArchTech','GradDipArch','GradCertDesSc','BApSc(BltEnv)','BBltEnv(IntDes)','BA(EnvDes)','BA(IntDes)','BA(Hons)','BA','MBA','BIntArch(Hons)','MDesSc(Sustainable Design)','BDes(Arch)','BDes(IntDes)Hons','BDes(IntDes)','BDes(Theatre) NIDA','BDes','BMgmt(Mktg)','BNurs','Cert in Nursing','DipArts','DipHort(Landscape)','GC(Innovation)','RAIA','RIBA','FRAIA','FDIA','FCSD']"
+          >A name suffix is usually something like Jr, PhD, OA etc. We also use this section to fee the letters after your name on your business card.</editable>
         </editable-group>
       </div>
     </div>

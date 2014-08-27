@@ -5,17 +5,30 @@
         </h1>
     </div>
     <tabset>
+        <tab heading="Summary">
+            <div class="row">
+            <div class="col-sm-6">
+                include "biz-card_.html"
+            </div>
+            <div class="col-sm-6">
+              <div style="height: 305px">
+                <carousel interval="3000">
+                  <slide ng-repeat="slide in slides"
+                         active="slide.active">
+                    <img ng-src="{{slide.image}}"
+                         style="margin:auto;">
+                  </slide>
+                </carousel>
+              </div>
+            </div>
+            </div><!-- end row -->
+        </tab>
+
         <tab heading="Name">
             include "name_.html"
             include "conditions_.html"
             include "photos_.html"
         </tab>
-
-        <span ng-if="getPersonLogin() =='bdoherty' || getPersonLogin() =='mblair'">
-        <tab heading="Business Card">
-            include "biz-card_.html"
-        </tab>
-        </span>
 
         <tab heading="Contact">
             include "contact_.html"
