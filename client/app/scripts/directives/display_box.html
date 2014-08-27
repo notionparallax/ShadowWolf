@@ -1,30 +1,21 @@
 <div class="demo">
+  <a ng-href="{{'#/people/' + personId}}"
+     analytics-on="click"
+     analytics-event="open a person"
+     analytics-label="{{getCurrentUserLogin()}} clicked {{titleText}}"
+     >
 
-  <div class        ="info-box {{condition}}"
-       ng-mouseenter="setDrawerState('drawer-out')"
-       ng-mouseleave="setDrawerState('drawer-in')"
-       ng-click     ="setDrawerState('click')"
+    <div class        ="info-box {{condition}}"
+         ng-mouseenter="setDrawerState('drawer-out')"
+         ng-mouseleave="setDrawerState('drawer-in')"
+         style="background-image: url({{imgSrc}}) , url(images/fb_stormtrooper.jpg);"
+         >
 
-       style="background-image: url({{imgSrc}}) , url(images/fb_stormtrooper.jpg);"
+      <div class="details {{state}}">
+        <h1 class="title title-{{state}}">{{titleText}}</h1>
+        <p class="person-body">{{bodyText}}</p>
+      </div>
 
-       analytics-on="click"
-       analytics-event="spazz-clicking"
-       analytics-label="{{getCurrentUserLogin()}} clicked {{titleText}}"
-       analytics-category="odd things">
-
-    <div class="details {{state}}">
-      <h1 class="title title-{{state}}">{{titleText}}</h1>
-      <p class="person-body">{{bodyText}}</p>
-      <a ng-show="moreLink"
-         class="btn btn-info more-button"
-         href="{{moreLink}}"
-
-         analytics-on="click"
-         analytics-event="{{getCurrentUserLogin()}} clicked 'more' button"
-         analytics-label="{{titleText}}"
-         analytics-category="buttonism">more</a>
-      <!-- <div ng-transclude></div> -->
     </div>
-
-  </div>
+  </a>
 </div>

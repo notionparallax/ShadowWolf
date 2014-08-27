@@ -17,7 +17,7 @@
               body-text="{{ p.employee.contact.extension }}"
               img-src="{{p.employee.photo.bw}}"
               condition='{{p.current_condition_name}}'
-              more-link="{{ getMoreLink( p.id['$oid'] ) }}">
+              person-id="{{ p.id['$oid'] }}">
     <!-- <p ng-transclude></p> -->
   </display-box>
 

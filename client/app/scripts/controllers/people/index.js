@@ -32,10 +32,6 @@ function($scope, People, Session, Search, GA) {
     if ($scope.searchQuery === undefined) return;
     $scope.searchResults = People.getPeople().filter($scope.compareTo(newValue));
   });
-
-  $scope.getMoreLink = function(personId) {
-    return "#/people/" + personId;
-  };
   $scope.logKey = function($event) {
     var category = 'search',
         action = 'keydown',

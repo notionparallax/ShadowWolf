@@ -10,15 +10,21 @@ angular.module('ShadowWolf')
           titleText: "@",
           bodyText:  "@",
           imgSrc:    "@",
-          moreLink:  "@",
+          personId:  "@",
           isCurrentUser: "@",
           condition: "@"
         },
         link: function (scope, element, attrs) {},
-        controller: function($scope, Session) {
+        controller: function($scope, Session, $location) {
             $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
 
+            $scope.redirect = function(pid){
+              //alert('#/people/' + pid);
+              $location.path('#/people/' + pid);
+            };
+
             $scope.state = "drawer-in";
+
             $scope.setDrawerState=function(state){
               if(state!='click'){
                 $scope.state = state;
