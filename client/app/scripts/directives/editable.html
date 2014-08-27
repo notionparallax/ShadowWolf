@@ -38,10 +38,14 @@
                ng-keyup="maybeCancelOrSave($event)"
                class="form-control"
                name="{{ getName() }}"/>
-        <textarea ng-show="type == 'textarea'"
+        <div contenteditable="true"
+             ng-show="type == 'textarea'"
+             ng-model="editable.value">
+        </div>
+        <!-- <textarea ng-show="type == 'textarea'"
                   ng-keyup="maybeCancelOrSave($event)"
                   ng-model="editable.value">
-        </textarea>
+        </textarea> -->
         <span class="save-btn input-group-addon" ng-click="save()">
           <span class="glyphicon glyphicon-ok"
                 title="save"
