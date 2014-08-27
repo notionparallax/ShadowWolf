@@ -1,6 +1,12 @@
 'use strict';
 
-angular.module('ShadowWolf', ['ngResource','ngRoute', 'ngSanitize', 'ngCookies','config', 'ui.bootstrap','angulartics','angulartics.google.analytics'])
+angular.module('ShadowWolf', ['ngResource',
+                              'ngRoute',
+                              'ngSanitize',
+                              'ngCookies','config',
+                              'ui.bootstrap',
+                              'angulartics',
+                              'angulartics.google.analytics'])
   .config(function ($routeProvider, $httpProvider, $analyticsProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
