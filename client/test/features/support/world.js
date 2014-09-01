@@ -1,7 +1,7 @@
-var Zombie = require('zombie');
+var browser = require('protractor').getInstance();
 var World = function(callback) {
-  this.browser = new Zombie();
-
+  this.browser = browser;
+  this.x = require('protractor');
   callback();
 };
 exports.World = World;
