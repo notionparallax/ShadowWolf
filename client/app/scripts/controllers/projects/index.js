@@ -11,9 +11,6 @@ function($scope, Projects, Session, Search) {
     $scope.searchResults = Projects.getProjects().filter($scope.compareTo(newValue));
   });
 
-  $scope.getMoreLink = function(projectId) {
-    return "#/projects/" + projectId;
-  };
   $scope.getKittenImage = function(i) {
     return "http://placekitten.com/g/270/24" + (i%10);
   };
