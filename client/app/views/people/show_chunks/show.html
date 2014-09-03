@@ -7,26 +7,33 @@
     <tabset>
         <tab heading="Summary">
             <div class="row">
-            <div class="col-sm-6">
-                include "biz-card_.html"
+                <div class="col-sm-6">
+                    include "biz-card_.html"
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            include "carousel_.html"
+                        </div>
+                        <div class="col-sm-12"> <!-- ng-if="person.contact.social.twitter" -->
+                            <a class="twitter-timeline"
+                               href="https://twitter.com/{{person.contact.social.twitter}}"
+                               data-widget-id="385978847612530688"
+                               data-screen-name="{{person.contact.social.twitter}}"
+                               data-show-replies="true"
+                              >Tweets by @{{person.contact.social.twitter}}</a>
+                        </div>
+                    </div><!-- end row -->
+                </div>
             </div>
-            <div class="col-sm-6">
-              <div style="height: 305px">
-                <carousel interval="3000">
-                  <slide ng-repeat="slide in slides"
-                         active="slide.active">
-                    <img ng-src="{{slide.image}}"
-                         style="margin:auto;">
-                  </slide>
-                </carousel>
-              </div>
-            </div>
-            </div><!-- end row -->
         </tab>
 
         <tab heading="Name">
             include "name_.html"
             include "conditions_.html"
+        </tab>
+
+        <tab heading="Photos">
             include "photos_.html"
         </tab>
 
