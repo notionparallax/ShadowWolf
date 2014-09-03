@@ -10,7 +10,7 @@ angular.module('ShadowWolf')
           titleText: "@",
           bodyText:  "@",
           imgSrc:    "@",
-          personId:  "@",
+          redirectLink:  "@",
           isCurrentUser: "@",
           condition: "@"
         },
