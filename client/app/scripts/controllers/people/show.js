@@ -12,6 +12,7 @@ function($scope, Person, $routeParams, Session, $location, Lens, Flash) {
   });
   $scope.$watch('_person()', function(newValue) {
     $scope.person = newValue;
+    if (!$scope.person.employee) $scope.person.employee = { photo : {} };
     $scope.slides = [{image: newValue.employee.photo.bw,    text:""},
                     {image: newValue.employee.photo.colour, text:""},
                     {image: newValue.employee.photo.fun,    text:""}];
