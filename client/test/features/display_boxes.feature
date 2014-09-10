@@ -14,13 +14,13 @@ Feature: Display Box
     And   the person is not active
     When  I hover my mouse over it
     Then  I should be able to see their extension
-    And   their current condition
+    And   I should be able to see their current condition
 
   Scenario: Mouse hover on project's box
     Given there is a projects display box
     When  I hover my mouse over it
-    Then  I should be able to see it's project name
-    And   I should be able to see it's project number
+    Then  I should be able to see its project name
+    And   I should be able to see its project number
 
   Scenario: Clicking a display box
     Given there is a people display box

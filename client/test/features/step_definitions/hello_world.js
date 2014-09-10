@@ -43,8 +43,24 @@ function helloWorldWrapper() {
 
   this.Then(/the person\'s name should be visible/, function(next) {
     var personsName = element.all(By.css('[ng-repeat] a h1')).first();
-    expect(personsName.isDisplayed()).to.eventually.equal(true)
-    .and.notify(next);
+    function testIfDisplayed(el) {
+      return el.isDisplayed()
+        .thenCatch(function(staleElement){
+          return browser.sleep(1000).then(function(){
+            return testIfDisplayed(el);
+          });
+        });
+    }
+    testIfDisplayed(personsName).then(function(){
+      expect(personsName.isDisplayed()).to.eventually.equal(true)
+      .and.notify(next);
+    });
+  });
+  
+  var person;
+  this.Given(/^the person is not active$/, function (next) {
+    person = element.all(By.css('.info-box:not(.Active)')).first();
+    person.then(next);
   });
 
   this.Then(/^the displayed (.*) should change accordingly$/, function(whatever, next) {
@@ -62,15 +78,44 @@ function helloWorldWrapper() {
 
   var redirectUrl;
   this.When(/^I click on a person$/, function(next) {
-    element.all(By.css('div[ng-repeat] a'))
-    .then(function(displayBoxes){
-      var displayBox = displayBoxes[0];
-      displayBox.getAttribute('ng-href').then(function(href) {
-        redirectUrl = href;
-        displayBox.click()
-        .then(next);
+    browser.sleep(2000).then(function(){
+      element.all(By.css('div[ng-repeat] a')).first()
+      .then(function(displayBox){
+        displayBox.getAttribute('ng-href').then(function(href) {
+          redirectUrl = href;
+          displayBox.click()
+          .then(next);
+        });
       });
     });
+  });
+
+  this.When(/^I hover my mouse over it$/, function(next) {
+    browser.sleep(2000).then(function(){
+      var it = element.all(By.css('.info-box')).first();
+      browser.actions().mouseMove(it).perform().then(next);
+    });
+  });
+
+  this.Then(/^I should be able to see its project (.*)$/, function (thing, next) {
+    next.pending();
+    var visible = element.all(By.css('.info-box')).first()
+      .element(By.css('.details')).isDisplayed();
+    next.pending();
+    //expect(visible).to.eventually.equal(true).and.notify(next);
+  });
+
+  this.Then(/^I should be able to see their current condition$/, function (next) {
+    var visible = element.all(By.css('.info-box')).first()
+      .element(By.css('.details')).isDisplayed();
+    next.pending();
+    //expect(visible).to.eventually.equal(true).and.notify(next);
+  });
+
+  this.Then(/^I should be able to see their extension$/, function (next) {
+    var visible = element.all(By.css('.info-box')).first()
+      .element(By.css('.details')).isDisplayed();
+    expect(visible).to.eventually.equal(true).and.notify(next);
   });
 
   this.Then(/^I should be redirected to the person\'s summary page$/, function(next) {
