@@ -1,5 +1,5 @@
 $iconSpritePath:"../images/glyphicons-halflings.png";
- $iconWhiteSpritePath:"../images/glyphicons-halflings-white.png";
+$iconWhiteSpritePath:"../images/glyphicons-halflings-white.png";
 @import "bootstrap-sass/lib/bootstrap";
 
 /*display-box starts here*/
@@ -11,13 +11,23 @@ $iconSpritePath:"../images/glyphicons-halflings.png";
 @import "editable";
 /* Put your CSS here */
 
+@font-face {
+    font-family: 'BlenderMedium';
+    src: url('http://syd-dc.bvn.com.au/practice/Research/Ben/BL-14-070-Fontorder/Font/Blender%20OTF/blender-medium.eot');
+    src: 
+         url('http://syd-dc.bvn.com.au/practice/Research/Ben/BL-14-070-Fontorder/Font/Blender%20OTF/blender-medium.ttf')               format('truetype'),
+         url('http://syd-dc.bvn.com.au/practice/Research/Ben/BL-14-070-Fontorder/Font/Blender%20OTF/blender-medium.svg#BlenderMedium') format('svg');
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p,html, body{
+    font-family: "BlenderMedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 html, body {
     margin: 0;
     padding-top: 0;
 }
 body {
     background: rgba(255, 255, 255, 1);
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 180%;
 }
 h3 {
     width: 90%;
@@ -178,7 +188,7 @@ editable-group[lens="employee.photo"] div.editable-text-display {
 
 #business-card{
     p {
-        font-family: 'Dosis', sans-serif;
+        font-family: 'BlenderMedium', sans-serif;
         font-size: 5pt;
         line-height: 110%;
         padding: 0;

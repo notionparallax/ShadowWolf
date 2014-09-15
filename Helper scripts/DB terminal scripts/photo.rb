@@ -115,3 +115,27 @@ Person.all.each{|p|
         p.save
     end
 }
+
+
+photosAndPeople = [
+    {:login => 'login',     :photo => 'aPhoto.imagefile'},
+    {:login => 'login',      :photo => 'aPhoto.imagefile'},
+    {:login => 'login', :photo => 'aPhoto.imagefile'},
+    {:login => 'login',      :photo => 'aPhoto.imagefile'},
+    {:login => 'login', :photo => 'aPhoto.imagefile'},
+    {:login => 'login',     :photo => 'aPhoto.imagefile'},
+    {:login => 'login',     :photo => 'aPhoto.imagefile'},
+    {:login => 'login',      :photo => 'aPhoto.imagefile'},
+    {:login => 'login',    :photo => 'aPhoto.imagefile'}]
+
+photosAndPeople.each{|ppp|
+    Person.all.each{|p|
+       if ppp[:login] == p.employee.login
+        puts ppp[:photo]
+        p.employee.photo.bw = ppp[:photo]
+        p.save
+        puts p.employee.photo.bw
+        puts ""
+       end
+    }
+}

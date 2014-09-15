@@ -15,14 +15,14 @@
                 <span class="suffix">{{person.name.suffix}}</span>
             </p>
             <p class="contact">
-                <span class="no-break">
+                <span class="">
                     <span ng-if="person.employee.contact.studio === 'Bangkok'"  ><!-- No landline --></span>
                     <span ng-if="person.employee.contact.studio === 'Sydney'"   ><span class="bold">T</span>&nbsp;+61 2 8297 7200</span>
-                    <span ng-if="person.employee.contact.studio === 'Melbourne'"><span class="bold">T</span>&nbsp;+61 2 8297 7200</span>
+                    <span ng-if="person.employee.contact.studio === 'Melbourne'"><span class="bold">T</span>&nbsp;+61 3 9639 9199</span>
                     <span ng-if="person.employee.contact.studio === 'Brisbane'" ><span class="bold">T</span>&nbsp;+61 2 8297 7200</span>
-                    <span ng-if="person.employee.contact.studio === 'London'"   ><span class="bold">T</span>&nbsp;+61 2 8297 7200</span>
-                    <span ng-if="person.employee.contact.studio === 'Canada'"   ><span class="bold">T</span>&nbsp;+61 2 8297 7200</span>
-                    <span ng-if="person.employee.contact.studio === 'Canberra'" ><span class="bold">T</span>&nbsp;+61 2 8297 7200</span>
+                    <span ng-if="person.employee.contact.studio === 'London'"   ><!-- No landline --></span>
+                    <span ng-if="person.employee.contact.studio === 'Canada'"   ><!-- No landline --></span>
+                    <span ng-if="person.employee.contact.studio === 'Canberra'" ><span class="bold">T</span>&nbsp;+61 7 3852 2525</span>
                 <span class="no-break" ng-if="person.employee.contact.mobile.distribute">
                     <span class="bold">M</span>&nbsp;{{person.employee.contact.mobile.number}}</span>
                 <span class="no-break">
@@ -30,13 +30,27 @@
                 </span>
             </p>
             <p class="address">
-                <span ng-if="person.employee.contact.studio === 'Bangkok'"  >NEW AUSTRALIAN EMBASSY SITE / WIRELESS ROAD / LUMPINI PHATHUMWAN BANGKOK 10330</span>
-                <span ng-if="person.employee.contact.studio === 'Sydney'"   >255 PITT STREET / SYDNEY 2000 AUSTRALIA</span>
-                <span ng-if="person.employee.contact.studio === 'Melbourne'">MELBOURNE CENTRAL TOWER / 360 ELIZABETH STREET/ MELBOURNE/ 3000 AUSTRALIA</span>
-                <span ng-if="person.employee.contact.studio === 'Brisbane'" >109 ALFRED STREET/ FORTITUDE VALLEY</span>
-                <span ng-if="person.employee.contact.studio === 'London'"   >The queen's house</span>
-                <span ng-if="person.employee.contact.studio === 'Canada'"   >Maple leaf cottage</span>
-                <span ng-if="person.employee.contact.studio === 'Canberra'" >18 NATIONAL CIRCUIT / CANBERRA 2600 AUSTRALIA</span>
+                <span ng-if="person.employee.contact.studio === 'Bangkok'"  >
+                    New Australian Embassy Site / Wireless Road / Lumpini Phathumwan Bangkok 10330
+                </span>
+                <span ng-if="person.employee.contact.studio === 'Sydney'"   >
+                    255 Pitt Street / Sydney 2000 Australia
+                </span>
+                <span ng-if="person.employee.contact.studio === 'Melbourne'">
+                    Melbourne Central Tower / 360 Elizabeth Street/ Melbourne 3000 Australia
+                </span>
+                <span ng-if="person.employee.contact.studio === 'Brisbane'" >
+                    Level 4 / 12 Creek Street / Brisbane 4000 Australia
+                </span>
+                <span ng-if="person.employee.contact.studio === 'London'"   >
+                    The Queen's house
+                </span>
+                <span ng-if="person.employee.contact.studio === 'Canada'"   >
+                    Maple leaf cottage
+                </span>
+                <span ng-if="person.employee.contact.studio === 'Canberra'" >
+                    18 National Circuit / Canberra 2600 Australia
+                </span>
                 / BVN.COM.AU</p>
         </div>
     </foreignObject>
