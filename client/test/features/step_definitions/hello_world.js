@@ -17,6 +17,23 @@ function helloWorldWrapper() {
     });
   });
 
+  this.Given(/^I am on the (.*) index$/, function(modelType, next) {
+    browser.get(baseUrl + '#/' + modelType)
+    .then(next);
+  });
+
+  this.When(/^the page first loads$/, function(next) {
+    next();
+  });
+
+  this.Then(/^the search bar should have focus$/, function(next) {
+    element(By.css('.filter-box')).getAttribute('id')
+    .then(function(searchBarId){
+      var activeElementId = browser.driver.switchTo().activeElement().getAttribute('id');
+      expect(activeElementId).to.eventually.equal(searchBarId).and.notify(next);
+    });
+  });
+
   this.Given(/^I am on the (.*) index$/, function(indexName, next) {
     browser.get(baseUrl + '#/' + indexName)
     .then(function(){
