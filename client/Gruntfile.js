@@ -108,8 +108,10 @@ module.exports = function (grunt) {
       }]
     },
     cucumberjs: {
-      files: 'test/features',
-      options: 'test/features/step_definitions'
+      src: 'test/features',
+      options: {
+        steps: 'test/features/step_definitions'
+      }
     },
     autoprefixer: {
       options: ['last 1 version'],
