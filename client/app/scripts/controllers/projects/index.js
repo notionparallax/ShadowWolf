@@ -3,6 +3,7 @@
 angular.module('ShadowWolf')
 .controller('ProjectsIndexController',
 function($scope, Projects, Session, Search) {
+  searchBar.focus();
   $scope.searchResults = [];
   Projects.getProjects().$promise.then(function(projects) {
     $scope.searchResults = projects; // make a copy

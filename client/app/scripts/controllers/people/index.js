@@ -4,6 +4,7 @@ angular.module('ShadowWolf')
 .controller('PeopleIndexController',
 function($scope, People, Session, Search, GA) {
   $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
+  searchBar.focus();
   function getDefaultSearchResults() {
     var  results = [];
     for (var i = 0; i < 30; i++) {
