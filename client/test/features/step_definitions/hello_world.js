@@ -5,6 +5,7 @@ var expect = chai.expect;
 var baseUrl = 'http://localhost:9000/';
 
 function helloWorldWrapper() {
+  function pass(next) { next(); }
   browser.ignoreSynchronization = true;
   this.after = (function(end){
     browser.manage().logs().get('browser').then(function(browserLogs) {
@@ -17,9 +18,21 @@ function helloWorldWrapper() {
     });
   });
 
+  this.Given(/^I am an average user$/, pass);
   this.Given(/^I am on the (.*) index$/, function(modelType, next) {
     browser.get(baseUrl + '#/' + modelType)
     .then(next);
+  });
+
+  this.Then(/^I should see (.*) photos within 2 seconds$/, function(modelType, next) {
+    // localstorage should contain people
+    setTimeout(function() {
+      browser.executeScript('return window.localStorage.' + modelType)
+        .then(function(result){
+          expect(JSON.parse(result).length).to.be.above(0);
+          next();
+        });
+    }, 2000);
   });
 
   this.When(/^the page first loads$/, function(next) {

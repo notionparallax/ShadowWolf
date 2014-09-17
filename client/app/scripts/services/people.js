@@ -9,7 +9,6 @@ angular.module('ShadowWolf')
       localStorage.people = angular.toJson(people);
     });
     if (localStorage.people) {
-      console.log('a');
       return { $promise:
         { then: function(handler) {
             return handler(angular.fromJson(localStorage.people));
@@ -17,7 +16,6 @@ angular.module('ShadowWolf')
         }
       };
     } else {
-      console.log('b');
       return peoplePromise;
     }
   }
