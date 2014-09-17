@@ -11,3 +11,8 @@ Feature: Project Index
     And   the database contains certain projects
     When  I type into the search bar
     Then  the displayed projects should change accordingly
+
+  Scenario: Seeing things quickly
+    Given I am a average user
+    When  I visit the Project Page
+    Then  I should see Photos within 2 seconds

@@ -10,3 +10,8 @@ Feature: People Index
     And   the database contains certain people
     When  I type into the search bar
     Then  the displayed people should change accordingly
+
+  Scenario: Seeing things quickly
+    Given I am a average user
+    When  I visit the People Page
+    Then  I should see Photos within 2 seconds
