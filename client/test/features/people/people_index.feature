@@ -12,6 +12,6 @@ Feature: People Index
     Then  the displayed people should change accordingly
 
   Scenario: Seeing things quickly
-    Given I am a average user
-    When  I visit the People Page
-    Then  I should see Photos within 2 seconds
+    Given I am an average user
+    When  I am on the people index
+    Then  I should see people photos within 2 seconds

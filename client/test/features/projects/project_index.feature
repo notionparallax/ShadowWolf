@@ -13,6 +13,6 @@ Feature: Project Index
     Then  the displayed projects should change accordingly
 
   Scenario: Seeing things quickly
-    Given I am a average user
-    When  I visit the Project Page
-    Then  I should see Photos within 2 seconds
+    Given I am an average user
+    When  I am on the projects index
+    Then  I should see projects photos within 2 seconds
