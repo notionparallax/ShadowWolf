@@ -31,7 +31,9 @@ function($scope, People, Session, Search, GA) {
 
   $scope.$watch('searchQuery', function(newValue) {
     if ($scope.searchQuery === undefined) return;
-    $scope.searchResults = People.getPeople().filter($scope.compareTo(newValue));
+    People.getPeople().$promise.then(function(people) {
+      $scope.searchResults = people.filter($scope.compareTo(newValue));
+    });
   });
   $scope.logKey = function($event) {
     var category = 'search',
