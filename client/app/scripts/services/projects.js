@@ -5,12 +5,12 @@ angular.module('ShadowWolf')
   function initProjects() {
     var projectsPromise = _Projects.query();
     projectsPromise.$promise.then(function(projects) {
-      localStorage.projects = angular.toJson(projects);
+      localStorage.projects = JSON.stringify(projects);
     });
     if (localStorage.projects) {
       return { $promise:
         { then: function(handler) {
-            return handler(angular.fromJson(localStorage.projects));
+            return handler(JSON.parse(localStorage.projects));
           }
         }
       };

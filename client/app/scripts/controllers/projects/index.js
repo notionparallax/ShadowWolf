@@ -9,7 +9,9 @@ function($scope, Projects, Session, Search) {
     $scope.searchResults = projects; // make a copy
   });
   $scope.$watch('searchQuery', function(newValue) {
-    $scope.searchResults = Projects.getProjects().filter($scope.compareTo(newValue));
+    Projects.getProjects().$promise.then(function(projects) {
+      $scope.searchResults = projects.filter($scope.compareTo(newValue));
+    });
   });
 
   $scope.getKittenImage = function(i) {

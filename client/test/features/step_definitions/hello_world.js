@@ -24,14 +24,35 @@ function helloWorldWrapper() {
     .then(next);
   });
 
-  this.Then(/^I should see (.*) photos within 2 seconds$/, function(modelType, next) {
-    // localstorage should contain people
-    setTimeout(function() {
-      browser.executeScript('return window.localStorage.' + modelType)
-        .then(function(result){
+  this.Given(/^I have already visited the (.*) index$/, function(model,next) {
+    browser.get(baseUrl + '#/' + model)
+    .then(next);
+  });
+
+  this.When(/^I refresh the page$/, function(next) {
+    browser.navigate().refresh()
+      .then(function(){
+        next();
+      });
+  });
+
+  this.Then(/^the localstorage should be set with (.*) in it$/, function(model,next) {
+    browser.executeScript('return window.localStorage.' + model)
+      .then(function(result){
           expect(JSON.parse(result).length).to.be.above(0);
+          expect(JSON.parse(result)[0].id).to.not.equal(undefined);
+          expect(JSON.stringify(JSON.parse(result)[0].id)).to.not.equal("{}");
           next();
         });
+  });
+
+  this.Then(/^I should see (.*) photos within 2 seconds$/, function(modelType, next) {
+    setTimeout(function() {
+      element.all(By.css('.info-box h1')).first()
+        .getText().then(function(title) {
+            expect(title).to.not.equal('');
+            next();
+          });
     }, 2000);
   });
 

@@ -12,7 +12,12 @@ Feature: Project Index
     When  I type into the search bar
     Then  the displayed projects should change accordingly
 
-  Scenario: Seeing things quickly
+  Scenario: Setting localStorage
     Given I am an average user
-    When  I am on the projects index
+    And   I am on the projects index
+    Then  the localstorage should be set with projects in it
+
+  Scenario: Seeing things quickly
+    Given I have already visited the people index
+    When  I refresh the page
     Then  I should see projects photos within 2 seconds

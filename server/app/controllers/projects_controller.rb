@@ -9,6 +9,8 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all.query.select(img: 1,'building.phases.project_name'.to_sym => 'project_name', project_number: 1)
+    # rename _id to id to conform with people route
+    @projects = @projects.map { |p| h = p.as_json; h["id"] = h.delete "_id" ; h}
     render json: @projects
   end
 
