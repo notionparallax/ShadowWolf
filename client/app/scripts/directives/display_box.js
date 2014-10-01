@@ -7,12 +7,14 @@ angular.module('ShadowWolf')
         replace: true,
         templateUrl: 'scripts/directives/display_box.html',
         scope: {
-          titleText: "@",
-          bodyText:  "@",
-          imgSrc:    "@",
-          redirectLink:  "@",
-          isCurrentUser: "@",
-          condition: "@"
+          titleText:    "@",
+          bodyText:     "@",
+          imgSrc:       "@",
+          redirectLink: "@",
+          isCurrentUser:"@",
+          email:        "@",
+          firstName:    "@",
+          condition:    "@"
         },
         link: function (scope, element, attrs) {},
         controller: function($scope, Session, $location) {

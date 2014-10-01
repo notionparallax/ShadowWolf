@@ -18,7 +18,9 @@
               body-text="{{ p.employee.contact.extension }}"
               img-src="{{p.employee.photo.bw}}"
               condition='{{p.current_condition_name}}'
-              redirect-link="#/people/{{ p.id['$oid'] }}">
+              redirect-link="#/people/{{ p.id['$oid'] }}"
+              email="{{p.employee.contact.work_email}}"
+              first-name="{{p.name.preferred_first}}">
     <!-- <p ng-transclude></p> -->
   </display-box>
 
