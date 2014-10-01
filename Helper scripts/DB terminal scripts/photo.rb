@@ -34,14 +34,13 @@ Person.all.each{|p|
     end
 }
 
-# if people have left, set their status to 'left'
-leftPeople = ["",""]
+# if people have left, set their status
+leftPeople = [""]
 Person.all.each{|p|
     if leftPeople.include? p.employee.login
-        puts p.employee.login
-        puts "left"
+        puts p.employee.login + " Active"
         newCondition = Condition.new
-        newCondition.name = "Left"
+        newCondition.name = "Active"
         newCondition.start_date = DateTime.now
         p.conditions << newCondition
         p.save
@@ -57,6 +56,27 @@ Person.all.each{|p|
         p.save
     end
 }
+
+# change a studio
+bkkpeople = ["",""]
+Person.all.each{|p|
+    if bkkpeople.include? p.employee.login
+        puts p.employee.login + " bkk"
+        p.employee.contact.studio = "Bangkok"
+        p.save
+    end
+}
+
+
+destroyPeople = [""]
+Person.all.each{|p|
+    if (destroyPeople.include? p.employee.login) and (p.employee.photo.bw == "http://www.doriabiddle.com/images/bunsen.gif")
+        puts p.employee.login + " destroy"
+        p.destroy
+    end
+}
+
+
 
 
 
@@ -118,15 +138,15 @@ Person.all.each{|p|
 
 
 photosAndPeople = [
-    {:login => 'login',     :photo => 'aPhoto.imagefile'},
-    {:login => 'login',      :photo => 'aPhoto.imagefile'},
-    {:login => 'login', :photo => 'aPhoto.imagefile'},
-    {:login => 'login',      :photo => 'aPhoto.imagefile'},
-    {:login => 'login', :photo => 'aPhoto.imagefile'},
-    {:login => 'login',     :photo => 'aPhoto.imagefile'},
-    {:login => 'login',     :photo => 'aPhoto.imagefile'},
-    {:login => 'login',      :photo => 'aPhoto.imagefile'},
-    {:login => 'login',    :photo => 'aPhoto.imagefile'}]
+    {:login => 'login' , :photo => 'aPhoto.imagefile'},
+    {:login => 'login' , :photo => 'aPhoto.imagefile'},
+    {:login => 'login' , :photo => 'aPhoto.imagefile'},
+    {:login => 'login' , :photo => 'aPhoto.imagefile'},
+    {:login => 'login' , :photo => 'aPhoto.imagefile'},
+    {:login => 'login' , :photo => 'aPhoto.imagefile'},
+    {:login => 'login' , :photo => 'aPhoto.imagefile'},
+    {:login => 'login' , :photo => 'aPhoto.imagefile'},
+    {:login => 'login' , :photo => 'aPhoto.imagefile'}]
 
 photosAndPeople.each{|ppp|
     Person.all.each{|p|
@@ -138,4 +158,13 @@ photosAndPeople.each{|ppp|
         puts ""
        end
     }
+}
+
+Person.all.each{|p|
+   if 'BCANTOR' == p.employee.login
+    p.employee.photo.bw = "http://blogs.bvn.com.au/tropos/files/2014/07/Barry_Cantor.jpg"
+    p.save
+    puts p.employee.photo.bw
+    puts ""
+   end
 }
