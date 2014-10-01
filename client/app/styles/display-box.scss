@@ -79,10 +79,14 @@ body {
     top: 0;
     color: rgba(255, 255, 255, 0.9);
 }
-.more-button {
+.problem-btn {
     position: absolute;
-    right: 1em;
-    bottom: 1em;
+    right: 2px;
+    top: 2px;
+    z-index: 1000;
+    background-color: rgba(255,255,255,0.2);
+    color: wheat;
+    border: none;
 }
 /*condition styling*/
 
