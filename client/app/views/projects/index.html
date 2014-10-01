@@ -14,7 +14,7 @@
               title-text="{{ p.building.phases[0].project_name || p.project_number + ' (no project name)'}}"
               body-text="{{p.project_number}}"
               img-src="{{p.img || getKittenImage($index) }}"
-              redirect-link="#/projects/{{ p._id.$oid }}">
+              redirect-link="#/projects/{{ p.id.$oid }}">
     <p>{{ p.project_categories }}</p>
   </display-box>
 
