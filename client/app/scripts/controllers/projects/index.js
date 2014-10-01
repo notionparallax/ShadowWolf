@@ -3,6 +3,8 @@
 angular.module('ShadowWolf')
 .controller('ProjectsIndexController',
 function($scope, Projects, Session, Search) {
+  $scope.limit = 60;
+  $scope.searchQuery = '';
   searchBar.focus();
   $scope.searchResults = [];
   Projects.getProjects().$promise.then(function(projects) {
@@ -27,5 +29,13 @@ function($scope, Projects, Session, Search) {
             ];
       return Search.search(query, matchAgainst);
     };
+  };
+  $scope.showMore = function() { // boolean
+    var x = $scope.searchQuery == '' && $scope.searchResults.length > $scope.limit;
+    console.log(x, $scope.searchQuery, $scope.searchResults.length, $scope.limit);
+    return x;
+  };
+  $scope.showAll = function() { // side effect
+    $scope.limit = $scope.searchResults.length;
   };
 });

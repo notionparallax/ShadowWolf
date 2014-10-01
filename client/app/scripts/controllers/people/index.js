@@ -3,6 +3,8 @@
 angular.module('ShadowWolf')
 .controller('PeopleIndexController',
 function($scope, People, Session, Search, GA) {
+  $scope.limit = 60;
+  $scope.searchQuery = '';
   $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
   searchBar.focus();
   function getDefaultSearchResults() {
@@ -71,4 +73,12 @@ function($scope, People, Session, Search, GA) {
     },
     'random_number'
   ];
+  $scope.showMore = function() { // boolean
+    var x = $scope.searchQuery == '' && $scope.searchResults.length > $scope.limit;
+    console.log(x, $scope.searchQuery, $scope.searchResults.length, $scope.limit);
+    return x;
+  };
+  $scope.showAll = function() { // side effect
+    $scope.limit = $scope.searchResults.length;
+  };
 });

@@ -12,7 +12,7 @@
 <div class="row flex-container" >
   <!--start a project/person box as a directive-->
   <display-box
-              ng-repeat="p in searchResults | orderBy:sortFunctions"
+              ng-repeat="p in searchResults | limitTo:limit track by $id(p)"
               class="{{stormtrooperClass}}"
               title-text="{{p.name.preferred_first}} {{p.name.preferred_last}}"
               body-text="{{ p.employee.contact.extension }}"
@@ -24,4 +24,7 @@
     <!-- <p ng-transclude></p> -->
   </display-box>
 
+</div>
+<div>
+  <a class="center-block btn" ng-if="showMore()" ng-click="showAll()">Show all</a>
 </div>
