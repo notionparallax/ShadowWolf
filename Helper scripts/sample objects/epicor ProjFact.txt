@@ -1,0 +1,551 @@
+ProjFact
+['SYSProjectOutlineID', 'SYSProjectOutlineSourceID', 'SYSTimeTypeID', 'SYSTimeTypeSourceID', 'SYSExpenseID', 'SYSExpenseSourceID', 'SYSMaterialID', 'SYSMaterialSourceID', 'SYSActivityID', 'SYSActivitySourceID', 'SYSTransID', 'SYSTransSourceID', 'SYSTransGroupID', 'SYSTransGroupSourceID', 'SYSResourceID', 'SYSResourceSourceID', 'SYSCustomerID', 'SYSCustomerSourceID', 'SYSTimeID', 'SYSFiscalSourceID', 'SYSOrganizationID', 'SYSOrganizationSourceID', 'SYSResourceCategoryID', 'SYSResourceCategorySourceID', 'BillAmount', 'PlanHours', 'PlanStdCostAmount', 'PlanStdChargeAmount', 'PlanAdjCostAmount', 'PlanNegChargeAmount', 'ActualHours', 'ActualStdCostAmount', 'ActualStdChargeAmount', 'ActualAdjCostAmount', 'ActualNegChargeAmount', 'ActualAdjustmentAmount', 'RecognizeRevenue', 'RecognizeCost', 'ETCDeltaHours', 'Quantity', 'PlannedDuration', 'PlannedValueHours', 'PossibleSlipDays', 'AvailableHours', 'SYSCreateDate']
+(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1, 13, 1, 2, 1, 1, 1, 8238, 1, 0, 1, 864, 1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0.0, 0, 8.0, datetime.datetime(2014, 9, 16, 1, 10, 25, 780000))
+(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1, 13, 1, 2, 1, 1, 1, 8239, 1, 0, 1, 864, 1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0.0, 0, 8.0, datetime.datetime(2014, 9, 16, 1, 10, 25, 780000))
+(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1, 13, 1, 2, 1, 1, 1, 8240, 1, 0, 1, 864, 1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0.0, 0, 8.0, datetime.datetime(2014, 9, 16, 1, 10, 25, 780000))
+(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1, 13, 1, 2, 1, 1, 1, 8241, 1, 0, 1, 864, 1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0.0, 0, 8.0, datetime.datetime(2014, 9, 16, 1, 10, 25, 780000))
+(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1, 13, 1, 2, 1, 1, 1, 8246, 1, 0, 1, 864, 1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0.0, 0, 8.0, datetime.datetime(2014, 9, 16, 1, 10, 25, 780000))
+(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1, 13, 1, 2, 1, 1, 1, 8247, 1, 0, 1, 864, 1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0.0, 0, 8.0, datetime.datetime(2014, 9, 16, 1, 10, 25, 780000))
+(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1, 13, 1, 2, 1, 1, 1, 8248, 1, 0, 1, 864, 1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0.0, 0, 8.0, datetime.datetime(2014, 9, 16, 1, 10, 25, 780000))
+(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1, 13, 1, 2, 1, 1, 1, 8249, 1, 0, 1, 864, 1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0.0, 0, 0.0, datetime.datetime(2014, 9, 16, 1, 10, 25, 780000))
+(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1, 13, 1, 2, 1, 1, 1, 8254, 1, 0, 1, 864, 1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0.0, 0, 8.0, datetime.datetime(2014, 9, 16, 1, 10, 25, 780000))
+(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 1, 13, 1, 2, 1, 1, 1, 8255, 1, 0, 1, 864, 1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0.0, 0, 8.0, datetime.datetime(2014, 9, 16, 1, 10, 25, 780000))
+
+dtproperties
+['id', 'objectid', 'property', 'value', 'uvalue', 'lvalue', 'version']
+
+CRMOpportunityDimension
+['SYSOpportunityID', 'SYSSourceID', 'OpportunityID', 'OpportunityName', 'OrganizationID', 'ExpectedWinDate', 'TeamCode', 'SalesAreaCode', 'SalesAreaDesc', 'SYSCreateDate']
+
+ECSTimeDimension
+['SYSTimeID', 'calendar_date', 'calendar_day', 'calendar_month', 'calendar_month_name', 'calendar_quarter', 'calendar_year', 'day_of_year', 'week_of_year', 'year_month', 'dimension_base_date', 'SYSCreateDate']
+(1, datetime.datetime(1900, 1, 1, 0, 0), 1, 1, 'N/A', 1, 1900, 'N/A', 'N/A', 'N/A', datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 2, 177000))
+(2, datetime.datetime(2005, 1, 1, 0, 0), 1, 1, 'January', 1, 2005, '1', '1', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 9, 20000))
+(3, datetime.datetime(2005, 1, 2, 0, 0), 2, 1, 'January', 1, 2005, '2', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 9, 20000))
+(4, datetime.datetime(2005, 1, 3, 0, 0), 3, 1, 'January', 1, 2005, '3', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 9, 20000))
+(5, datetime.datetime(2005, 1, 4, 0, 0), 4, 1, 'January', 1, 2005, '4', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 9, 20000))
+(6, datetime.datetime(2005, 1, 5, 0, 0), 5, 1, 'January', 1, 2005, '5', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 9, 20000))
+(7, datetime.datetime(2005, 1, 6, 0, 0), 6, 1, 'January', 1, 2005, '6', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 9, 20000))
+(8, datetime.datetime(2005, 1, 7, 0, 0), 7, 1, 'January', 1, 2005, '7', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 9, 20000))
+(9, datetime.datetime(2005, 1, 8, 0, 0), 8, 1, 'January', 1, 2005, '8', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 9, 20000))
+(10, datetime.datetime(2005, 1, 9, 0, 0), 9, 1, 'January', 1, 2005, '9', '3', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 9, 20000))
+
+ECSTimeFiscalDimension
+['SYSFiscalID', 'SYSSourceID', 'SYSTimeID', 'fiscal_period', 'fiscal_year', 'period_start_date', 'period_end_date', 'year_start_date', 'year_end_date', 'apply_date', 'SYSCreateDate']
+(1, 1, 1, 'N/A', 'N/A', datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 2, 270000))
+(2, 1, 457, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 8, 317000))
+(3, 1, 458, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 2, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 8, 317000))
+(4, 1, 459, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 3, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 8, 317000))
+(5, 1, 460, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 4, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 8, 317000))
+(6, 1, 461, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 5, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 8, 317000))
+(7, 1, 462, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 6, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 8, 317000))
+(8, 1, 463, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 7, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 8, 317000))
+(9, 1, 464, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 8, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 8, 317000))
+(10, 1, 465, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 9, 0, 0), datetime.datetime(2014, 9, 16, 5, 0, 8, 317000))
+
+ECSSalesAreaDimension
+['SYSSalesAreaID', 'SYSSourceID', 'SalesAreaCode', 'SalesAreaDesc', 'SalesMgrSalesPersonID', 'ActiveFlag', 'SalesAreaTypeCode', 'SalesAreaTypeDesc', 'SYSCreateDate']
+(1, 1, 'N/A', 'N/A', 'N/A', 0, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 5, 0, 2, 647000))
+
+CRMSalesAreaDimension
+['SYSSalesAreaID', 'SYSSourceID', 'SalesAreaCode', 'SalesAreaDesc', 'SalesMgrSalesPersonID', 'ActiveFlag', 'SalesAreaTypeCode', 'SalesAreaTypeDesc', 'SYSCreateDate']
+(1, 1, 'N/A', 'N/A', 'N/A', 0, 'N/A', 'N/A', datetime.datetime(2009, 5, 14, 6, 0, 8, 17000))
+
+FB_Source_XREF
+['source_id', 'source_legacy_id', 'source_description', 'batch_id', 'create_date', 'update_date']
+(1, 'Initial Load', 'Initial Load', 0, datetime.datetime(2014, 9, 16, 1, 58, 23, 460000), datetime.datetime(2014, 9, 16, 1, 58, 23, 460000))
+
+FB_Seg2_Dimension
+['seg2_id', 'source_id', 'seg2_code', 'seg2_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 2, 0, 2, 923000), datetime.datetime(2014, 9, 16, 2, 0, 2, 923000))
+(2, 1, '00', 'Corporate', datetime.datetime(2014, 9, 16, 1, 58, 23, 957000), datetime.datetime(2014, 9, 16, 1, 58, 23, 957000))
+(3, 1, '01', 'Brisbane', datetime.datetime(2014, 9, 16, 1, 58, 23, 957000), datetime.datetime(2014, 9, 16, 1, 58, 23, 957000))
+(4, 1, '02', 'Sydney', datetime.datetime(2014, 9, 16, 1, 58, 23, 957000), datetime.datetime(2014, 9, 16, 1, 58, 23, 957000))
+(5, 1, '03', 'Canberra', datetime.datetime(2014, 9, 16, 1, 58, 23, 957000), datetime.datetime(2014, 9, 16, 1, 58, 23, 957000))
+(6, 1, '04', 'Melbourne', datetime.datetime(2014, 9, 16, 1, 58, 23, 957000), datetime.datetime(2014, 9, 16, 1, 58, 23, 957000))
+
+FB_Home_Dimension
+['home_id', 'source_id', 'home_currency', 'home_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 2, 0, 3, 97000), datetime.datetime(2014, 9, 16, 2, 0, 3, 97000))
+(2, 1, 'AUD', 'Australian Dollars', datetime.datetime(2014, 9, 16, 1, 58, 24, 97000), datetime.datetime(2014, 9, 16, 1, 58, 24, 97000))
+
+CRMContactDimension
+['SYSContactID', 'SYSSourceID', 'OpportunityID', 'BusinessEntityID', 'ContactID', 'PrimaryFlag', 'LastName', 'FirstName', 'Phone', 'Fax', 'EmailAddr', 'ActiveFlag', 'ResourceID', 'SYSCreateDate']
+(1, 1, 'N/A', 0, 0, 0, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 0, 'N/A', datetime.datetime(2009, 5, 14, 6, 0, 8, 250000))
+
+FB_Time_Fiscal_Dimension
+['fiscal_id', 'source_id', 'fiscal_period', 'fiscal_year', 'period_start_date', 'period_end_date', 'year_start_date', 'year_end_date', 'apply_date', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 2, 0, 3, 110000), datetime.datetime(2014, 9, 16, 2, 0, 3, 110000))
+(2, 1, 'Jul', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2005, 7, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 7, 31, 0, 0), datetime.datetime(2014, 9, 16, 2, 0, 3, 267000), datetime.datetime(2014, 9, 16, 2, 0, 3, 267000))
+(3, 1, 'Aug', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 8, 1, 0, 0), datetime.datetime(2005, 8, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 8, 31, 0, 0), datetime.datetime(2014, 9, 16, 2, 0, 3, 267000), datetime.datetime(2014, 9, 16, 2, 0, 3, 267000))
+(4, 1, 'Sep', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 9, 1, 0, 0), datetime.datetime(2005, 9, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 9, 30, 0, 0), datetime.datetime(2014, 9, 16, 2, 0, 3, 283000), datetime.datetime(2014, 9, 16, 2, 0, 3, 283000))
+(5, 1, 'Oct', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 10, 1, 0, 0), datetime.datetime(2005, 10, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 10, 31, 0, 0), datetime.datetime(2014, 9, 16, 2, 0, 3, 283000), datetime.datetime(2014, 9, 16, 2, 0, 3, 283000))
+(6, 1, 'Nov', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 11, 1, 0, 0), datetime.datetime(2005, 11, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 11, 30, 0, 0), datetime.datetime(2014, 9, 16, 2, 0, 3, 283000), datetime.datetime(2014, 9, 16, 2, 0, 3, 283000))
+(7, 1, 'Dec', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 12, 1, 0, 0), datetime.datetime(2005, 12, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 12, 31, 0, 0), datetime.datetime(2014, 9, 16, 2, 0, 3, 283000), datetime.datetime(2014, 9, 16, 2, 0, 3, 283000))
+(8, 1, 'Jan', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 1, 1, 0, 0), datetime.datetime(2006, 1, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 1, 31, 0, 0), datetime.datetime(2014, 9, 16, 2, 0, 3, 283000), datetime.datetime(2014, 9, 16, 2, 0, 3, 283000))
+(9, 1, 'Feb', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 2, 1, 0, 0), datetime.datetime(2006, 2, 28, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 2, 28, 0, 0), datetime.datetime(2014, 9, 16, 2, 0, 3, 300000), datetime.datetime(2014, 9, 16, 2, 0, 3, 300000))
+(10, 1, 'Mar', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 3, 1, 0, 0), datetime.datetime(2006, 3, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 3, 31, 0, 0), datetime.datetime(2014, 9, 16, 2, 0, 3, 300000), datetime.datetime(2014, 9, 16, 2, 0, 3, 300000))
+
+FB_Book_Dimension
+['book_id', 'source_id', 'book_name', 'book_code', 'book_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 2, 0, 3, 127000), datetime.datetime(2014, 9, 16, 2, 0, 3, 127000))
+(2, 1, 'Actual', 'Actual', 'Actual', datetime.datetime(2014, 9, 16, 2, 0, 3, 143000), datetime.datetime(2014, 9, 16, 2, 0, 3, 143000))
+(3, 1, 'Budget', 'Budg0607Oct', ' ', datetime.datetime(2014, 9, 16, 1, 58, 24, 223000), datetime.datetime(2014, 9, 16, 1, 58, 24, 223000))
+(4, 1, 'Budget', 'Bris 0607 test', 'Bris 0607 test', datetime.datetime(2014, 9, 16, 1, 58, 24, 223000), datetime.datetime(2014, 9, 16, 1, 58, 24, 223000))
+(5, 1, 'Budget', 'Bris0607 test', 'Brisbane 0607 test', datetime.datetime(2014, 9, 16, 1, 58, 24, 223000), datetime.datetime(2014, 9, 16, 1, 58, 24, 223000))
+(6, 1, 'Budget', 'Budget0607Oct', 'Budget 0607 October Reforecast', datetime.datetime(2014, 9, 16, 1, 58, 24, 223000), datetime.datetime(2014, 9, 16, 1, 58, 24, 223000))
+(7, 1, 'Budget', 'Budget', 'Budget 0607 Original', datetime.datetime(2014, 9, 16, 1, 58, 24, 223000), datetime.datetime(2014, 9, 16, 1, 58, 24, 223000))
+(8, 1, 'Budget', 'Buidg0607', 'Budget 0607 Original', datetime.datetime(2014, 9, 16, 1, 58, 24, 223000), datetime.datetime(2014, 9, 16, 1, 58, 24, 223000))
+(9, 1, 'Budget', 'Budget0607Feb', 'Budget0607 February Reforecast', datetime.datetime(2014, 9, 16, 1, 58, 24, 223000), datetime.datetime(2014, 9, 16, 1, 58, 24, 223000))
+(10, 1, 'Budget', 'Budget0708Jan', 'Budget0708 Jan Reforecast', datetime.datetime(2014, 9, 16, 1, 58, 24, 223000), datetime.datetime(2014, 9, 16, 1, 58, 24, 223000))
+
+FB_Seg3_Dimension
+['seg3_id', 'source_id', 'seg3_code', 'seg3_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 2, 0, 3, 360000), datetime.datetime(2014, 9, 16, 2, 0, 3, 360000))
+(2, 1, '00', 'Domestic', datetime.datetime(2014, 9, 16, 1, 58, 24, 393000), datetime.datetime(2014, 9, 16, 1, 58, 24, 393000))
+(3, 1, '01', 'Domestic IT', datetime.datetime(2014, 9, 16, 1, 58, 24, 393000), datetime.datetime(2014, 9, 16, 1, 58, 24, 393000))
+(4, 1, '02', 'Domestic BD', datetime.datetime(2014, 9, 16, 1, 58, 24, 393000), datetime.datetime(2014, 9, 16, 1, 58, 24, 393000))
+(5, 1, '10', 'International', datetime.datetime(2014, 9, 16, 1, 58, 24, 393000), datetime.datetime(2014, 9, 16, 1, 58, 24, 393000))
+(6, 1, '11', 'International IT', datetime.datetime(2014, 9, 16, 1, 58, 24, 393000), datetime.datetime(2014, 9, 16, 1, 58, 24, 393000))
+(7, 1, '12', 'International BD', datetime.datetime(2014, 9, 16, 1, 58, 24, 393000), datetime.datetime(2014, 9, 16, 1, 58, 24, 393000))
+
+FB_Seg1_Dimension
+['seg1_id', 'source_id', 'seg1_code', 'seg1_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 2, 0, 3, 457000), datetime.datetime(2014, 9, 16, 2, 0, 3, 457000))
+(2, 1, '00', 'Consolidation Entity', datetime.datetime(2014, 9, 16, 1, 58, 24, 457000), datetime.datetime(2014, 9, 16, 1, 58, 24, 457000))
+(3, 1, '01', 'BVN Architecture Pty Ltd', datetime.datetime(2014, 9, 16, 1, 58, 24, 457000), datetime.datetime(2014, 9, 16, 1, 58, 24, 457000))
+(4, 1, '02', 'BVN Architecture Service Trust', datetime.datetime(2014, 9, 16, 1, 58, 24, 457000), datetime.datetime(2014, 9, 16, 1, 58, 24, 457000))
+
+ProjCompSiteDimension
+['SYSCompSiteID', 'SiteURN', 'SiteName', 'SiteDesc', 'SiteURL', 'CountryCode', 'SICCode', 'CompanyURN', 'CompanyName', 'ParentCompanyURN', 'HomeCurrencyCode', 'OperationalCurrencyCode', 'ChartOfAcct', 'GLAccountCode', 'SYSCreateDate']
+(1, 'Initial Load', 'Initial Load', 'Project Initial Load', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 0, 58, 48, 767000))
+
+FB_Oper_Dimension
+['oper_id', 'source_id', 'oper_currency', 'oper_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 2, 0, 3, 707000), datetime.datetime(2014, 9, 16, 2, 0, 3, 707000))
+(2, 1, 'AUD', 'Australian Dollars', datetime.datetime(2014, 9, 16, 1, 58, 24, 707000), datetime.datetime(2014, 9, 16, 1, 58, 24, 707000))
+
+ProjOrganizationDimension
+['SYSOrganizationID', 'SYSCompSiteID', 'SYSParentOrgID', 'OrganizationID', 'OrganizationName', 'ActiveFlag', 'SYSCreateDate']
+(0, 1, 0, 'N/A', 'N/A', 0, datetime.datetime(2014, 9, 16, 1, 0, 5, 783000))
+(1, 1, 1, 'BVNG', 'BVN Group', 1, datetime.datetime(2014, 9, 16, 1, 0, 5, 953000))
+(2, 1, 1, 'BVN', 'Bligh Voller Nield Pty Ltd', 1, datetime.datetime(2014, 9, 16, 1, 0, 5, 953000))
+
+CRMPipelineFact
+['SYSOpportunityID', 'SYSOpportunitySourceID', 'SYSCustomerID', 'SYSCustomerSourceID', 'SYSCompetitorID', 'SYSCompetitorSourceID', 'SYSSalesAreaID', 'SYSSalesAreaSourceID', 'SYSSalesCycleID', 'SYSSalesCycleSourceID', 'SYSMilestoneID', 'SYSMilestoneSourceID', 'SYSTimeID', 'SYSFiscalSourceID', 'SYSContactID', 'SYSContactSourceID', 'EstimatedRevenue', 'EstimatedProductGrossRevenue', 'EstimatedServiceGrossRevenue', 'EstimatedProductDiscount', 'EstimatedServiceDiscount', 'EstimatedProductNetRevenue', 'EstimatedServiceNetRevenue', 'EstimatedProductCost', 'EstimatedServiceCost', 'EstimatedProductProfit', 'EstimatedServiceProfit', 'ExpectedRevenue', 'ExpectedProductGrossRevenue', 'ExpectedServiceGrossRevenue', 'ExpectedProductDiscount', 'ExpectedServiceDiscount', 'ExpectedProductNetRevenue', 'ExpectedServiceNetRevenue', 'ExpectedProductCost', 'ExpectedServiceCost', 'ExpectedProductProfit', 'ExpectedServiceProfit', 'BestForecastProductGrossRevenue', 'BestForecastServiceGrossRevenue', 'BestForecastProductDiscount', 'BestForecastServiceDiscount', 'BestForecastProductNetRevenue', 'BestForecastServiceNetRevenue', 'BestForecastProductCost', 'BestForecastServiceCost', 'BestForecastProductProfit', 'BestForecastServiceProfit', 'LikelyForecastProductGrossRevenue', 'LikelyForecastServiceGrossRevenue', 'LikelyForecastProductDiscount', 'LikelyForecastServiceDiscount', 'LikelyForecastProductNetRevenue', 'LikelyForecastServiceNetRevenue', 'LikelyForecastProductCost', 'LikelyForecastServiceCost', 'LikelyForecastProductProfit', 'LikelyForecastServiceProfit', 'WorstForecastProductGrossRevenue', 'WorstForecastServiceGrossRevenue', 'WorstForecastProductDiscount', 'WorstForecastServiceDiscount', 'WorstForecastProductNetRevenue', 'WorstForecastServiceNetRevenue', 'WorstForecastProductCost', 'WorstForecastServiceCost', 'WorstForecastProductProfit', 'WorstForecastServiceProfit', 'TotalProductAmount', 'TotalServiceAmount', 'TotalBilledProductAmount', 'TotalBilledServiceAmount', 'SYSCreateDate']
+
+FB_Account_Dimension
+['account_id', 'source_id', 'report_type', 'report_group', 'group_type', 'account_type_group', 'account_type', 'type_description', 'account_code', 'account_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', 'N/A', 'N/A', 0, 'N/A', 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 2, 0, 3, 860000), datetime.datetime(2014, 9, 16, 2, 0, 3, 860000))
+(2, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000000530010', 'CON Crp Dom CARecbleTradeDebtors', datetime.datetime(2014, 9, 16, 1, 58, 24, 840000), datetime.datetime(2014, 9, 16, 1, 58, 24, 840000))
+(3, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000000530210', 'CON Crp Dom DefSales', datetime.datetime(2014, 9, 16, 1, 58, 24, 840000), datetime.datetime(2014, 9, 16, 1, 58, 24, 840000))
+(4, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000000530220', 'CON Crp Dom DefSalesPrebill', datetime.datetime(2014, 9, 16, 1, 58, 24, 840000), datetime.datetime(2014, 9, 16, 1, 58, 24, 840000))
+(5, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000010530210', 'CON Crp Int DefSales', datetime.datetime(2014, 9, 16, 1, 58, 24, 840000), datetime.datetime(2014, 9, 16, 1, 58, 24, 840000))
+(6, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000010530220', 'CON Crp Int DefSalesPrebill', datetime.datetime(2014, 9, 16, 1, 58, 24, 840000), datetime.datetime(2014, 9, 16, 1, 58, 24, 840000))
+(7, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000100530210', 'CON Bri Dom DefSales', datetime.datetime(2014, 9, 16, 1, 58, 24, 840000), datetime.datetime(2014, 9, 16, 1, 58, 24, 840000))
+(8, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000100530220', 'CON Bri Dom DefSalesPrebill', datetime.datetime(2014, 9, 16, 1, 58, 24, 840000), datetime.datetime(2014, 9, 16, 1, 58, 24, 840000))
+(9, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000110530210', 'CON Bri Int DefSales', datetime.datetime(2014, 9, 16, 1, 58, 24, 840000), datetime.datetime(2014, 9, 16, 1, 58, 24, 840000))
+(10, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000110530220', 'CON Bri Int DefSalesPrebill', datetime.datetime(2014, 9, 16, 1, 58, 24, 840000), datetime.datetime(2014, 9, 16, 1, 58, 24, 840000))
+
+ECSSalesFact
+['SYSCustomerID', 'SYSCustomerSourceID', 'SYSProductID', 'SYSProductSourceID', 'SYSSalesAreaID', 'SYSSalesAreaSourceID', 'SYSSalesPersonID', 'SYSSalesPersonSourceID', 'SYSTimeID', 'SYSFiscalSourceID', 'SalesOrderQty', 'ShippedQty', 'HomeUnitPrice', 'OperUnitPrice', 'HomePriceAmt', 'OperPriceAmt', 'HomeCustomsValue', 'OperCustomsValue', 'HomeDiscount', 'OperDiscount', 'HomeExtendedPrice', 'OperExtendedPrice', 'HomeExtendedNet', 'OperExtendedNet', 'SYSCreateDate']
+
+ProjExpenseDimension
+['SYSExpenseID', 'SYSCompSiteID', 'ExpenseTypeCode', 'ExpenseTypeDesc', 'CommentText', 'UnitBasedFlag', 'ActiveFlag', 'ChargeableFlag', 'PaymentMethodCode', 'SYSCreateDate']
+(1, 1, 'N/A', 'N/A', None, 'U', 'U', 'U', 'N/A', datetime.datetime(2014, 9, 16, 1, 0, 5, 813000))
+(2, 1, 'ACCOM', 'Accommodation', None, 'N', 'Y', 'Y', None, datetime.datetime(2014, 9, 16, 1, 0, 5, 890000))
+(3, 1, 'AIRFA', 'Airfares', None, 'N', 'Y', 'Y', None, datetime.datetime(2014, 9, 16, 1, 0, 5, 890000))
+(4, 1, 'ENTER', 'Entertainment', None, 'N', 'Y', 'Y', None, datetime.datetime(2014, 9, 16, 1, 0, 5, 890000))
+(5, 1, 'LEGAL', 'Legal / Tax / Accounting', None, 'N', 'Y', 'Y', None, datetime.datetime(2014, 9, 16, 1, 0, 5, 890000))
+(6, 1, 'MEALS', 'Meals', None, 'N', 'Y', 'Y', None, datetime.datetime(2014, 9, 16, 1, 0, 5, 890000))
+(7, 1, 'MILE01', 'Mileage-to 1600cc', None, 'Y', 'Y', 'Y', None, datetime.datetime(2014, 9, 16, 1, 0, 5, 890000))
+(8, 1, 'MILE02', 'Mileage-1601 to 2600cc', None, 'Y', 'Y', 'Y', None, datetime.datetime(2014, 9, 16, 1, 0, 5, 890000))
+(9, 1, 'MILE03', 'Mileage-over 2601cc', None, 'Y', 'Y', 'Y', None, datetime.datetime(2014, 9, 16, 1, 0, 5, 890000))
+(10, 1, 'OTHER', 'Other Expenses', 'Please enter comment', 'N', 'Y', 'Y', None, datetime.datetime(2014, 9, 16, 1, 0, 5, 890000))
+
+FB_Seg4_Dimension
+['seg4_id', 'source_id', 'seg4_code', 'seg4_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 2, 0, 3, 893000), datetime.datetime(2014, 9, 16, 2, 0, 3, 893000))
+(2, 1, '101010', 'Invoiced', datetime.datetime(2014, 9, 16, 1, 58, 24, 893000), datetime.datetime(2014, 9, 16, 1, 58, 24, 893000))
+(3, 1, '101015', 'Invoiced', datetime.datetime(2014, 9, 16, 1, 58, 24, 893000), datetime.datetime(2014, 9, 16, 1, 58, 24, 893000))
+(4, 1, '101017', 'Invoiced', datetime.datetime(2014, 9, 16, 1, 58, 24, 893000), datetime.datetime(2014, 9, 16, 1, 58, 24, 893000))
+(5, 1, '101020', 'WIP Movement', datetime.datetime(2014, 9, 16, 1, 58, 24, 893000), datetime.datetime(2014, 9, 16, 1, 58, 24, 893000))
+(6, 1, '101030', 'General', datetime.datetime(2014, 9, 16, 1, 58, 24, 893000), datetime.datetime(2014, 9, 16, 1, 58, 24, 893000))
+(7, 1, '101040', 'Misc income', datetime.datetime(2014, 9, 16, 1, 58, 24, 893000), datetime.datetime(2014, 9, 16, 1, 58, 24, 893000))
+(8, 1, '101050', 'Disbursements Invoiced', datetime.datetime(2014, 9, 16, 1, 58, 24, 893000), datetime.datetime(2014, 9, 16, 1, 58, 24, 893000))
+(9, 1, '101080', 'Consultants Recoverable Invoiced', datetime.datetime(2014, 9, 16, 1, 58, 24, 893000), datetime.datetime(2014, 9, 16, 1, 58, 24, 893000))
+(10, 1, '120050', 'Interest', datetime.datetime(2014, 9, 16, 1, 58, 24, 893000), datetime.datetime(2014, 9, 16, 1, 58, 24, 893000))
+
+ProjTimeTypeDimension
+['SYSTimeTypeID', 'SYSCompSiteID', 'TimeTypeCode', 'TimeTypeDesc', 'RateTypeInd', 'ActiveFlag', 'SYSCreateDate']
+(1, 1, 'N/A', 'N/A', 'U', 'U', datetime.datetime(2014, 9, 16, 1, 0, 5, 847000))
+
+FBFact
+['account_id', 'account_source', 'book_id', 'book_source', 'seg1_id', 'seg1_source', 'seg2_id', 'seg2_source', 'seg3_id', 'seg3_source', 'seg4_id', 'seg4_source', 'home_id', 'home_source', 'oper_id', 'oper_source', 'fiscal_id', 'fiscal_source', 'period_end_date', 'home_beginning_balance', 'home_net_change', 'home_ending_balance', 'oper_beginning_balance', 'oper_net_change', 'oper_ending_balance', 'unit_of_measure', 'quantity', 'ytd_quantity', 'create_date', 'update_date']
+(7545, 1, 2, 1, 4, 1, 6, 1, 7, 1, 140, 1, 2, 1, 2, 1, 7, 1, datetime.datetime(2005, 12, 31, 0, 0), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 'N/A', 0.0, 0.0, datetime.datetime(2014, 9, 16, 2, 3, 32, 70000), datetime.datetime(2014, 9, 16, 2, 3, 32, 70000))
+(1755, 1, 2, 1, 3, 1, 3, 1, 2, 1, 138, 1, 2, 1, 2, 1, 67, 1, datetime.datetime(2010, 12, 31, 0, 0), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 'N/A', 0.0, 0.0, datetime.datetime(2014, 9, 16, 2, 3, 32, 70000), datetime.datetime(2014, 9, 16, 2, 3, 32, 70000))
+(3278, 1, 2, 1, 3, 1, 5, 1, 4, 1, 99, 1, 2, 1, 2, 1, 42, 1, datetime.datetime(2008, 11, 30, 0, 0), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 'N/A', 0.0, 0.0, datetime.datetime(2014, 9, 16, 2, 3, 32, 70000), datetime.datetime(2014, 9, 16, 2, 3, 32, 70000))
+(5755, 1, 2, 1, 4, 1, 4, 1, 2, 1, 236, 1, 2, 1, 2, 1, 45, 1, datetime.datetime(2009, 2, 28, 0, 0), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 'N/A', 0.0, 0.0, datetime.datetime(2014, 9, 16, 2, 3, 32, 70000), datetime.datetime(2014, 9, 16, 2, 3, 32, 70000))
+(6512, 1, 2, 1, 4, 1, 5, 1, 3, 1, 225, 1, 2, 1, 2, 1, 111, 1, datetime.datetime(2014, 8, 31, 0, 0), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 'N/A', 0.0, 0.0, datetime.datetime(2014, 9, 16, 2, 3, 32, 70000), datetime.datetime(2014, 9, 16, 2, 3, 32, 70000))
+(1684, 1, 2, 1, 3, 1, 2, 1, 7, 1, 239, 1, 2, 1, 2, 1, 29, 1, datetime.datetime(2007, 10, 31, 0, 0), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 'N/A', 0.0, 0.0, datetime.datetime(2014, 9, 16, 2, 3, 32, 70000), datetime.datetime(2014, 9, 16, 2, 3, 32, 70000))
+(4888, 1, 2, 1, 4, 1, 2, 1, 6, 1, 255, 1, 2, 1, 2, 1, 49, 1, datetime.datetime(2009, 6, 30, 0, 0), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 'N/A', 0.0, 0.0, datetime.datetime(2014, 9, 16, 2, 3, 32, 70000), datetime.datetime(2014, 9, 16, 2, 3, 32, 70000))
+(6291, 1, 2, 1, 4, 1, 4, 1, 7, 1, 228, 1, 2, 1, 2, 1, 29, 1, datetime.datetime(2007, 10, 31, 0, 0), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 'N/A', 0.0, 0.0, datetime.datetime(2014, 9, 16, 2, 3, 32, 70000), datetime.datetime(2014, 9, 16, 2, 3, 32, 70000))
+(8774, 1, 2, 1, 4, 1, 4, 1, 2, 1, 117, 1, 2, 1, 2, 1, 2, 1, datetime.datetime(2005, 7, 31, 0, 0), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 'N/A', 0.0, 0.0, datetime.datetime(2014, 9, 16, 2, 3, 32, 70000), datetime.datetime(2014, 9, 16, 2, 3, 32, 70000))
+(3586, 1, 2, 1, 3, 1, 5, 1, 7, 1, 80, 1, 2, 1, 2, 1, 69, 1, datetime.datetime(2011, 2, 28, 0, 0), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 'N/A', 0.0, 0.0, datetime.datetime(2014, 9, 16, 2, 3, 32, 70000), datetime.datetime(2014, 9, 16, 2, 3, 32, 70000))
+
+ProjActivityDimension
+['SYSActivityID', 'SYSCompSiteID', 'ActivityCode', 'ActivityDesc', 'DefaultChargeFlag', 'ActiveFlag', 'InternalFlag', 'CalendarCode', 'SYSCreateDate']
+(1,  1, 'N/A',  'N/A',            'U',         'U',          'N/A',      'N/A',      datetime.datetime(2014, 9,                      16,                     1,                      0,     5,                      877000))
+(2,  1, 'AD01', 'Administration', 'N',         'Y',          'Internal', 'ADM',      datetime.datetime(2014, 9,                      16,                     1,                      0,     5,                      970000))
+(3,  1, 'AD02', 'General          Business     Development', 'N',        'Y',        'Internal',             'GBD',                  datetime.datetime(2014, 9,                      16,    1,                      0,       5,       970000))
+(4,  1, 'AD03', 'Training',       'N',         'N',          'Internal', 'TRN',      datetime.datetime(2014, 9,                      16,                     1,                      0,     5,                      970000))
+(5,  1, 'AD04', 'IT               Management', 'N',          'Y',        'Internal', 'ITM',                  datetime.datetime(2014, 9,                      16,                     1,     0,                      5,       970000))
+(6,  1, 'AD05', 'QA',             'N',         'Y',          'Internal', 'QAS',      datetime.datetime(2014, 9,                      16,                     1,                      0,     5,                      970000))
+(7,  1, 'AD06', 'Overtime',       'N',         'Y',          'Internal', 'OVT',      datetime.datetime(2014, 9,                      16,                     1,                      0,     5,                      970000))
+(8,  1, 'AD07', 'Overtime - Time In Lieu Earned',                'N',                    'Y',                    'Internal',             'OTI', datetime.datetime(2014, 9,       16,      1,       0,       5, 970000))
+(9,  1, 'AD10', 'Sick             Leave        -             Illness',   'N',        'Y',                    'Internal',             'SKL',                  datetime.datetime(2014, 9,     16,                     1,       0,       5,       970000))
+(10, 1, 'AD11', 'Annual           Leave',      'N',          'Y',        'Internal', 'ANL',                  datetime.datetime(2014, 9,                      16,                     1,     0,                      5,       970000))
+
+ProjMaterialDimension
+['SYSMaterialID', 'SYSCompSiteID', 'MaterialID', 'MaterialLineNum', 'PartID', 'PartRefID', 'PartDesc', 'ProductLineCode', 'SYSCreateDate']
+(1, 1, 0, 0, 'N/A', 'N/A', 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 1, 0, 6, 283000))
+
+FT_Source_XREF
+['source_id', 'source_legacy_id', 'source_description', 'batch_id', 'create_date', 'update_date']
+(1, 'Initial Load', 'Initial Load', 0, datetime.datetime(2014, 9, 16, 2, 58, 0, 213000), datetime.datetime(2014, 9, 16, 2, 58, 0, 213000))
+
+ProjProjectOutlineDimension
+['SYSProjectOutlineID', 'SYSCompSiteID', 'SYSParentOutlineID', 'ProjectCode', 'RevisionNum', 'TaskUID', 'TaskName', 'StatusCode', 'RevisionStatusCode', 'ProjectGroupDesc', 'ProjectClassificationDesc', 'SICCode', 'ProjectTypeCode', 'OrganizationID', 'OrganizationName', 'WorkType', 'IndustryType', 'StartDate', 'EndDate', 'CompleteFlag', 'SYSCreateDate']
+(0, 1, 0, 'N/A', 0, 0, 'N/A', 'N/A', '0', 'N/A', 'N/A', 'N/A', 'U', 'N/A', 'N/A', 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 1, 0, 6, 597000), datetime.datetime(2014, 9, 16, 1, 0, 6, 597000), 0, datetime.datetime(2014, 9, 16, 1, 0, 6, 597000))
+(1, 1, 1, '[InternalProject]', 0, 0, 'InternalProject', 'N/A', '0', 'InternalProject', 'InternalProject', 'N/A', 'U', 'N/A', 'N/A', 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 1, 0, 6, 690000), datetime.datetime(2014, 9, 16, 1, 0, 6, 690000), 0, datetime.datetime(2014, 9, 16, 1, 0, 20, 143000))
+(2, 1, 2, 'B00606057', 0, 0, 'West Kowloon Cultural District', 'I', 'A', 'Public Buildings', 'Business Development - Int.', 'N/A', 'P', 'BVN', 'Bligh Voller Nield Pty Ltd', 'General Work', 'International - All', datetime.datetime(2006, 6, 13, 0, 0), datetime.datetime(2007, 6, 12, 0, 0), 0, datetime.datetime(2014, 9, 16, 1, 0, 20, 143000))
+(3, 1, 2, 'B00606057', 0, 2, 'Business Development', 'I', 'A', 'Public Buildings', 'Business Development - Int.', 'N/A', 'P', 'BVN', 'Bligh Voller Nield Pty Ltd', 'General Work', 'International - All', datetime.datetime(2006, 6, 13, 0, 0), datetime.datetime(2007, 6, 12, 0, 0), 0, datetime.datetime(2014, 9, 16, 1, 0, 20, 143000))
+(4, 1, 2, 'B00606057', 0, 10, 'Subconsultants', 'I', 'A', 'Public Buildings', 'Business Development - Int.', 'N/A', 'P', 'BVN', 'Bligh Voller Nield Pty Ltd', 'General Work', 'International - All', datetime.datetime(2006, 6, 13, 0, 0), datetime.datetime(2007, 6, 12, 0, 0), 0, datetime.datetime(2014, 9, 16, 1, 0, 20, 143000))
+(5, 1, 4, 'B00606057', 0, 12, 'Recoverable Subcons', 'I', 'A', 'Public Buildings', 'Business Development - Int.', 'N/A', 'P', 'BVN', 'Bligh Voller Nield Pty Ltd', 'General Work', 'International - All', datetime.datetime(2006, 6, 13, 0, 0), datetime.datetime(2007, 6, 12, 0, 0), 0, datetime.datetime(2014, 9, 16, 1, 0, 20, 143000))
+(6, 1, 4, 'B00606057', 0, 13, 'Nonrecoverable Subcons', 'I', 'A', 'Public Buildings', 'Business Development - Int.', 'N/A', 'P', 'BVN', 'Bligh Voller Nield Pty Ltd', 'General Work', 'International - All', datetime.datetime(2006, 6, 13, 0, 0), datetime.datetime(2007, 6, 12, 0, 0), 0, datetime.datetime(2014, 9, 16, 1, 0, 20, 143000))
+(7, 1, 2, 'B00606057', 0, 11, 'Disbursements', 'I', 'A', 'Public Buildings', 'Business Development - Int.', 'N/A', 'P', 'BVN', 'Bligh Voller Nield Pty Ltd', 'General Work', 'International - All', datetime.datetime(2006, 6, 13, 0, 0), datetime.datetime(2007, 6, 12, 0, 0), 0, datetime.datetime(2014, 9, 16, 1, 0, 20, 143000))
+(8, 1, 7, 'B00606057', 0, 14, 'Recoverable Disbursements', 'I', 'A', 'Public Buildings', 'Business Development - Int.', 'N/A', 'P', 'BVN', 'Bligh Voller Nield Pty Ltd', 'General Work', 'International - All', datetime.datetime(2006, 6, 13, 0, 0), datetime.datetime(2007, 6, 12, 0, 0), 0, datetime.datetime(2014, 9, 16, 1, 0, 20, 143000))
+(9, 1, 7, 'B00606057', 0, 15, 'Nonrecoverable Disbursements', 'I', 'A', 'Public Buildings', 'Business Development - Int.', 'N/A', 'P', 'BVN', 'Bligh Voller Nield Pty Ltd', 'General Work', 'International - All', datetime.datetime(2006, 6, 13, 0, 0), datetime.datetime(2007, 6, 12, 0, 0), 0, datetime.datetime(2014, 9, 16, 1, 0, 20, 143000))
+
+FT_Home_Dimension
+['home_id', 'source_id', 'home_currency', 'home_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 3, 0, 2, 357000), datetime.datetime(2014, 9, 16, 3, 0, 2, 357000))
+(2, 1, 'AUD', 'Australian Dollars', datetime.datetime(2014, 9, 16, 2, 58, 0, 883000), datetime.datetime(2014, 9, 16, 2, 58, 0, 883000))
+
+FT_Seg2_Dimension
+['seg2_id', 'source_id', 'seg2_code', 'seg2_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 3, 0, 2, 370000), datetime.datetime(2014, 9, 16, 3, 0, 2, 370000))
+(2, 1, '00', 'Corporate', datetime.datetime(2014, 9, 16, 2, 58, 0, 917000), datetime.datetime(2014, 9, 16, 2, 58, 0, 917000))
+(3, 1, '01', 'Brisbane', datetime.datetime(2014, 9, 16, 2, 58, 0, 917000), datetime.datetime(2014, 9, 16, 2, 58, 0, 917000))
+(4, 1, '02', 'Sydney', datetime.datetime(2014, 9, 16, 2, 58, 0, 917000), datetime.datetime(2014, 9, 16, 2, 58, 0, 917000))
+(5, 1, '03', 'Canberra', datetime.datetime(2014, 9, 16, 2, 58, 0, 917000), datetime.datetime(2014, 9, 16, 2, 58, 0, 917000))
+(6, 1, '04', 'Melbourne', datetime.datetime(2014, 9, 16, 2, 58, 0, 917000), datetime.datetime(2014, 9, 16, 2, 58, 0, 917000))
+
+FT_Reference_Dimension
+['reference_id', 'source_id', 'reference_type', 'type_description', 'reference_code', 'reference_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 3, 0, 2, 403000), datetime.datetime(2014, 9, 16, 3, 0, 2, 403000))
+
+FT_Time_Fiscal_Dimension
+['fiscal_id', 'source_id', 'time_id', 'fiscal_period', 'fiscal_year', 'period_start_date', 'period_end_date', 'year_start_date', 'year_end_date', 'apply_date', 'create_date', 'update_date']
+(1, 1, 0, 'N/A', 'N/A', datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 2, 403000), datetime.datetime(2014, 9, 16, 3, 0, 2, 403000))
+(2, 1, 182, 'Jul', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2005, 7, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 13, 683000), datetime.datetime(2014, 9, 16, 3, 0, 13, 683000))
+(3, 1, 183, 'Jul', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2005, 7, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 7, 2, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 13, 683000), datetime.datetime(2014, 9, 16, 3, 0, 13, 683000))
+(4, 1, 184, 'Jul', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2005, 7, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 7, 3, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 13, 683000), datetime.datetime(2014, 9, 16, 3, 0, 13, 683000))
+(5, 1, 185, 'Jul', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2005, 7, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 7, 4, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 13, 683000), datetime.datetime(2014, 9, 16, 3, 0, 13, 683000))
+(6, 1, 186, 'Jul', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2005, 7, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 7, 5, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 13, 683000), datetime.datetime(2014, 9, 16, 3, 0, 13, 683000))
+(7, 1, 187, 'Jul', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2005, 7, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 7, 6, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 13, 683000), datetime.datetime(2014, 9, 16, 3, 0, 13, 683000))
+(8, 1, 188, 'Jul', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2005, 7, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 7, 7, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 13, 700000), datetime.datetime(2014, 9, 16, 3, 0, 13, 700000))
+(9, 1, 189, 'Jul', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2005, 7, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 7, 8, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 13, 700000), datetime.datetime(2014, 9, 16, 3, 0, 13, 700000))
+(10, 1, 190, 'Jul', 'Fiscal Year End 2006-6 -30', datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2005, 7, 31, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2005, 7, 9, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 13, 700000), datetime.datetime(2014, 9, 16, 3, 0, 13, 700000))
+
+FT_Time_Dimension
+['time_id', 'calendar_date', 'calendar_day', 'calendar_month', 'calendar_month_name', 'calendar_quarter', 'calendar_year', 'day_of_year', 'week_of_year', 'year_month', 'dimension_base_date', 'create_date', 'update_date']
+(1, datetime.datetime(2005, 1, 1, 0, 0), 1, 1, 'January', 1, 2005, '1', '1', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 3, 653000), datetime.datetime(2014, 9, 16, 3, 0, 3, 653000))
+(2, datetime.datetime(2005, 1, 2, 0, 0), 2, 1, 'January', 1, 2005, '2', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 3, 670000), datetime.datetime(2014, 9, 16, 3, 0, 3, 670000))
+(3, datetime.datetime(2005, 1, 3, 0, 0), 3, 1, 'January', 1, 2005, '3', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 3, 670000), datetime.datetime(2014, 9, 16, 3, 0, 3, 670000))
+(4, datetime.datetime(2005, 1, 4, 0, 0), 4, 1, 'January', 1, 2005, '4', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 3, 670000), datetime.datetime(2014, 9, 16, 3, 0, 3, 670000))
+(5, datetime.datetime(2005, 1, 5, 0, 0), 5, 1, 'January', 1, 2005, '5', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 3, 670000), datetime.datetime(2014, 9, 16, 3, 0, 3, 670000))
+(6, datetime.datetime(2005, 1, 6, 0, 0), 6, 1, 'January', 1, 2005, '6', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 3, 670000), datetime.datetime(2014, 9, 16, 3, 0, 3, 670000))
+(7, datetime.datetime(2005, 1, 7, 0, 0), 7, 1, 'January', 1, 2005, '7', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 3, 670000), datetime.datetime(2014, 9, 16, 3, 0, 3, 670000))
+(8, datetime.datetime(2005, 1, 8, 0, 0), 8, 1, 'January', 1, 2005, '8', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 3, 683000), datetime.datetime(2014, 9, 16, 3, 0, 3, 683000))
+(9, datetime.datetime(2005, 1, 9, 0, 0), 9, 1, 'January', 1, 2005, '9', '3', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 3, 683000), datetime.datetime(2014, 9, 16, 3, 0, 3, 683000))
+(10, datetime.datetime(2005, 1, 10, 0, 0), 10, 1, 'January', 1, 2005, '10', '3', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 3, 0, 3, 683000), datetime.datetime(2014, 9, 16, 3, 0, 3, 683000))
+
+FT_Nat_Dimension
+['nat_id', 'source_id', 'nat_currency', 'nat_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 3, 0, 2, 763000), datetime.datetime(2014, 9, 16, 3, 0, 2, 763000))
+(2, 1, 'AUD', 'Australian Dollars', datetime.datetime(2014, 9, 16, 2, 58, 1, 190000), datetime.datetime(2014, 9, 16, 2, 58, 1, 190000))
+(3, 1, 'EUR', 'Euro', datetime.datetime(2014, 9, 16, 2, 58, 1, 190000), datetime.datetime(2014, 9, 16, 2, 58, 1, 190000))
+(4, 1, 'GBP', 'Great Britain Pounds', datetime.datetime(2014, 9, 16, 2, 58, 1, 190000), datetime.datetime(2014, 9, 16, 2, 58, 1, 190000))
+(5, 1, 'NZD', 'New Zealand Dollars', datetime.datetime(2014, 9, 16, 2, 58, 1, 190000), datetime.datetime(2014, 9, 16, 2, 58, 1, 190000))
+(6, 1, 'USD', 'US Dollars', datetime.datetime(2014, 9, 16, 2, 58, 1, 190000), datetime.datetime(2014, 9, 16, 2, 58, 1, 190000))
+
+FT_Seg3_Dimension
+['seg3_id', 'source_id', 'seg3_code', 'seg3_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 3, 0, 2, 793000), datetime.datetime(2014, 9, 16, 3, 0, 2, 793000))
+(2, 1, '00', 'Domestic', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+(3, 1, '01', 'Domestic IT', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+(4, 1, '02', 'Domestic BD', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+(5, 1, '10', 'International', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+(6, 1, '11', 'International IT', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+(7, 1, '12', 'International BD', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+
+ProjResourceDimension
+['SYSResourceID', 'SYSCompSiteID', 'ResourceID', 'LoginID', 'SupervisorID', 'LastName', 'MiddleName', 'FirstName', 'Initials', 'LongName', 'ShortName', 'Address', 'City', 'StateCode', 'PostalCode', 'CountryCode', 'OfficePhone', 'EmailAddr', 'Fax', 'OrganizationID', 'OrganizationName', 'ResourceTypeCode', 'ResourceTypeDesc', 'EmploymentStartDate', 'EmploymentEndDate', 'SYSCreateDate']
+(1, 1, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'U', 'N/A', None, None, datetime.datetime(2014, 9, 16, 1, 0, 6, 597000))
+(2, 1, 'AANDRIJIC', None, 'BDOWZER', 'Andrijic', None, 'Angie', 'aa', 'Andrijic, Angie', 'aandrijic', None, 'Sydney', 'NSW', None, 'XAU', None, 'angie_andrijic@bvn.com.au', None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'R', 'Regular', datetime.datetime(2010, 7, 19, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 7, 737000))
+(3, 1, 'ABAHRAM', None, 'BDOWZER', 'Bahram', None, 'Annika', 'AB', 'Bahram, Annika', 'abahram', None, 'Sydney', None, None, 'XAU', None, 'annika_bahram@bvn.com.au', None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'R', 'Regular', datetime.datetime(2007, 11, 19, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 7, 737000))
+(4, 1, 'ABELGIORNO', 'ABELGIORNO', 'BDOWZER', 'Belgiorno-Nettis', None, 'Alessandro', 'ab', 'Belgiorno-Nettis, Alessandro', 'abelgiorno', None, 'Sydney', None, None, 'XAU', None, 'sandro_belgiono@bvn.com.au', None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'R', 'Regular', datetime.datetime(2010, 11, 30, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 7, 737000))
+(5, 1, 'ABENN', None, 'BDOWZER', 'Benn', None, 'Andrew', 'ab', 'Benn, Andrew', 'abenn', None, 'Sydney', None, None, 'XAU', None, 'andrew_benn@bvn.com.au', None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'R', 'Regular', datetime.datetime(2007, 8, 13, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 7, 737000))
+(6, 1, 'ABENNETT', None, 'NTITCHKOSKY', 'Bennett', None, 'Alysia', 'AB', 'Bennett, Alysia', 'ABENNETT', 'BVN Melbourne', 'Melbourne', None, '3000', 'XAU', None, 'alysia_bennett@bvn.com.au', None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'R', 'Regular', datetime.datetime(2012, 1, 16, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 7, 737000))
+(7, 1, 'ABLANCHARD', None, 'BDOWZER', 'Blanchard', None, 'Alexandre', 'ab', 'Blanchard, Alexandre', 'ablanchard', None, 'SYDNEY', None, None, 'XAU', None, 'alexandre_blanchard@bvn.com.au', None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'R', 'Regular', datetime.datetime(2006, 1, 1, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 7, 737000))
+(8, 1, 'ABOUNDS', 'ABOUNDS', 'BDOWZER', 'Bounds', None, 'Allison', 'ab', 'Bounds, Allison', 'abounds', None, 'Sydney', 'NSW', None, 'AUS', None, 'allison_bounds@bvn.com.au', None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'R', 'Regular', datetime.datetime(2010, 1, 11, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 7, 737000))
+(9, 1, 'ABRIVIO', None, 'DKELLY', 'Brivio', None, 'Andrea', 'AB', 'Brivio, Andrea', 'abrivio', None, 'Brisbane', None, None, 'XAU', None, 'andrea_brivio@bvn.com.au', None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'R', 'Regular', datetime.datetime(2009, 11, 23, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 7, 737000))
+(10, 1, 'ABUCHANAN', 'ABUCHANAN', 'BDOWZER', 'Buchanan', None, 'Andrew', 'AB', 'Buchanan, Andrew', 'ABUCHANAN', None, 'Sydney', 'NSW', None, 'AUS', None, 'andrew_buchanan@bvn.com.au', None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'R', 'Regular', datetime.datetime(2009, 7, 13, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 7, 737000))
+
+FT_JNType_Dimension
+['journal_id', 'source_id', 'journal_type', 'journal_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 3, 0, 2, 793000), datetime.datetime(2014, 9, 16, 3, 0, 2, 793000))
+(2, 1, 'AM', 'Asset Management', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+(3, 1, 'AP', 'Accounts Payable', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+(4, 1, 'AR', 'Accounts Receivable', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+(5, 1, 'CM', 'Cash Management', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+(6, 1, 'E4SE', 'E4SE Journals', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+(7, 1, 'GJ', 'General Journal', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+(8, 1, 'GJR', 'Reversing Journal', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+(9, 1, 'IO', 'Inter-Organisation', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+(10, 1, 'IV', 'Inventory', datetime.datetime(2014, 9, 16, 2, 58, 1, 220000), datetime.datetime(2014, 9, 16, 2, 58, 1, 220000))
+
+CRMSourceXREF
+['SYSSourceID', 'SourceLegacyID', 'SourceDescription', 'SYSBatchID', 'SYSCreateDate']
+(1, 'Initial Load', 'Initial Load', 0, datetime.datetime(2009, 5, 14, 6, 0, 4, 157000))
+
+ProjResourceCategoryDimension
+['SYSResourceCategoryID', 'SYSCompSiteID', 'ResourceCategoryCode', 'ResourceCategoryDesc', 'ResourceID', 'ResourceName', 'EffectiveDate', 'EndDate', 'SYSCreateDate']
+(1, 1, 'N/A', 'N/A', 'N/A', 'N/A', None, None, datetime.datetime(2014, 9, 16, 1, 0, 6, 673000))
+(2, 1, 'ADMIN', 'Administration', 'ABENNETT', 'ABENNETT', datetime.datetime(2012, 1, 16, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 8, 847000))
+(3, 1, 'ADMIN', 'Administration', 'ADMIN', 'Admin', datetime.datetime(2008, 7, 6, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 8, 847000))
+(4, 1, 'ADMIN', 'Administration', 'AHAINDL', 'AHAINDL', datetime.datetime(2014, 7, 2, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 8, 847000))
+(5, 1, 'ADMIN', 'Administration', 'AHILL', 'ahill', datetime.datetime(2011, 2, 21, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 8, 847000))
+(6, 1, 'ADMIN', 'Administration', 'ALEARMONTH', 'alearmonth', datetime.datetime(2007, 1, 8, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 8, 847000))
+(7, 1, 'ADMIN', 'Administration', 'AMCINTOSH', 'amcintosh', datetime.datetime(2006, 1, 1, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 8, 847000))
+(8, 1, 'ADMIN', 'Administration', 'AMURPHY', 'amurphy', datetime.datetime(2008, 11, 3, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 8, 847000))
+(9, 1, 'ADMIN', 'Administration', 'APRIEST', 'APRIEST', datetime.datetime(2008, 9, 1, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 8, 847000))
+(10, 1, 'ADMIN', 'Administration', 'ASEWTER', 'ASEWTER', datetime.datetime(2007, 3, 5, 0, 0), None, datetime.datetime(2014, 9, 16, 1, 0, 8, 847000))
+
+CRMTimeFiscalDimension
+['SYSFiscalID', 'SYSSourceID', 'SYSTimeID', 'fiscal_period', 'fiscal_year', 'period_start_date', 'period_end_date', 'year_start_date', 'year_end_date', 'apply_date', 'SYSCreateDate']
+(1, 1, 1, 'N/A', 'N/A', datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 6, 17000))
+(2, 1, 457, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 423000))
+(3, 1, 458, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 2, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 423000))
+(4, 1, 459, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 3, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 423000))
+(5, 1, 460, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 4, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 423000))
+(6, 1, 461, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 5, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 423000))
+(7, 1, 462, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 6, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 423000))
+(8, 1, 463, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 7, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 423000))
+(9, 1, 464, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 8, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 423000))
+(10, 1, 465, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 9, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 423000))
+
+FT_Seg1_Dimension
+['seg1_id', 'source_id', 'seg1_code', 'seg1_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 3, 0, 3, 183000), datetime.datetime(2014, 9, 16, 3, 0, 3, 183000))
+(2, 1, '00', 'Consolidation Entity', datetime.datetime(2014, 9, 16, 2, 58, 1, 610000), datetime.datetime(2014, 9, 16, 2, 58, 1, 610000))
+(3, 1, '01', 'BVN Architecture Pty Ltd', datetime.datetime(2014, 9, 16, 2, 58, 1, 610000), datetime.datetime(2014, 9, 16, 2, 58, 1, 610000))
+(4, 1, '02', 'BVN Architecture Service Trust', datetime.datetime(2014, 9, 16, 2, 58, 1, 610000), datetime.datetime(2014, 9, 16, 2, 58, 1, 610000))
+
+ProjCustomerDimension
+['SYSCustomerID', 'SYSCompSiteID', 'ProjectCode', 'CustomerID', 'CustomerName', 'CustRefID', 'CustCreditLimit', 'CreditRating', 'PaymentTermsCode', 'TransferPointNum', 'FreightAccount', 'ResaleNum', 'CustomerTypeCode', 'CustomerTypeDesc', 'ActiveFlag', 'Marketplace', 'CarrierCode', 'ServiceLevelCode', 'BillToID', 'CustomerGroupCode', 'CustomerGroupDesc', 'LocationDesc', 'SICCode', 'DUNSNum', 'OrganizationID', 'OrganizationName', 'CountryCode', 'StateCode', 'City', 'PostalCode', 'SYSCreateDate']
+(1, 1, 'N/A', 'N/A', 'N/A', 'N/A', 0.0, 'N/A', 0, 0, 'N/A', 'N/A', 'N/A', 'N/A', 0, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 1, 0, 23, 830000))
+(2, 1, 'TMP_SYD_BUSDEV_AU', '*CHOOSE*', 'Choose Customer', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, None, None, 'N/A', None, None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'AUS', None, None, None, datetime.datetime(2014, 9, 16, 1, 0, 24, 987000))
+(3, 1, 'S1406504', '*CHOOSE*', 'Choose Customer', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, None, None, 'N/A', None, None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'AUS', None, None, None, datetime.datetime(2014, 9, 16, 1, 0, 24, 987000))
+(4, 1, 'S1407517', '*CHOOSE*', 'Choose Customer', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, None, None, 'N/A', None, None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'AUS', None, None, None, datetime.datetime(2014, 9, 16, 1, 0, 24, 987000))
+(5, 1, 'TMP_BRI_BUSDEV_AU', '*CHOOSE*', 'Choose Customer', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, None, None, 'N/A', None, None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'AUS', None, None, None, datetime.datetime(2014, 9, 16, 1, 0, 24, 987000))
+(6, 1, 'S1405505', '*CHOOSE*', 'Choose Customer', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, None, None, 'N/A', None, None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'AUS', None, None, None, datetime.datetime(2014, 9, 16, 1, 0, 24, 987000))
+(7, 1, 'S1405506', '*CHOOSE*', 'Choose Customer', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, None, None, 'N/A', None, None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'AUS', None, None, None, datetime.datetime(2014, 9, 16, 1, 0, 24, 987000))
+(8, 1, 'S1406501', '*CHOOSE*', 'Choose Customer', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, None, None, 'N/A', None, None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'AUS', None, None, None, datetime.datetime(2014, 9, 16, 1, 0, 24, 987000))
+(9, 1, 'S1308516', '*CHOOSE*', 'Choose Customer', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, None, None, 'N/A', None, None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'AUS', None, None, None, datetime.datetime(2014, 9, 16, 1, 0, 24, 987000))
+(10, 1, 'S1401511', '*CHOOSE*', 'Choose Customer', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, None, None, 'N/A', None, None, 'BVN', 'Bligh Voller Nield Pty Ltd', 'AUS', None, None, None, datetime.datetime(2014, 9, 16, 1, 0, 24, 987000))
+
+CRMSalesCycleDimension
+['SYSSalesCycleID', 'SYSSourceID', 'OpportunityID', 'SalesCycleClassCode', 'SalesCycleClassDesc', 'SalesCyclePhaseCode', 'SalesCyclePhaseDesc', 'SYSCreateDate']
+(1, 1, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', datetime.datetime(2009, 5, 14, 6, 0, 6, 80000))
+
+FT_Seg4_Dimension
+['seg4_id', 'source_id', 'seg4_code', 'seg4_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 3, 0, 3, 200000), datetime.datetime(2014, 9, 16, 3, 0, 3, 200000))
+(2, 1, '101010', 'Invoiced', datetime.datetime(2014, 9, 16, 2, 58, 1, 627000), datetime.datetime(2014, 9, 16, 2, 58, 1, 627000))
+(3, 1, '101015', 'Invoiced', datetime.datetime(2014, 9, 16, 2, 58, 1, 627000), datetime.datetime(2014, 9, 16, 2, 58, 1, 627000))
+(4, 1, '101017', 'Invoiced', datetime.datetime(2014, 9, 16, 2, 58, 1, 627000), datetime.datetime(2014, 9, 16, 2, 58, 1, 627000))
+(5, 1, '101020', 'WIP Movement', datetime.datetime(2014, 9, 16, 2, 58, 1, 627000), datetime.datetime(2014, 9, 16, 2, 58, 1, 627000))
+(6, 1, '101030', 'General', datetime.datetime(2014, 9, 16, 2, 58, 1, 627000), datetime.datetime(2014, 9, 16, 2, 58, 1, 627000))
+(7, 1, '101040', 'Misc income', datetime.datetime(2014, 9, 16, 2, 58, 1, 627000), datetime.datetime(2014, 9, 16, 2, 58, 1, 627000))
+(8, 1, '101050', 'Disbursements Invoiced', datetime.datetime(2014, 9, 16, 2, 58, 1, 627000), datetime.datetime(2014, 9, 16, 2, 58, 1, 627000))
+(9, 1, '101080', 'Consultants Recoverable Invoiced', datetime.datetime(2014, 9, 16, 2, 58, 1, 627000), datetime.datetime(2014, 9, 16, 2, 58, 1, 627000))
+(10, 1, '120050', 'Interest', datetime.datetime(2014, 9, 16, 2, 58, 1, 627000), datetime.datetime(2014, 9, 16, 2, 58, 1, 627000))
+
+FT_Account_Dimension
+['account_id', 'source_id', 'report_type', 'report_group', 'group_type', 'account_type_group', 'account_type', 'type_description', 'account_code', 'account_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', 'N/A', 'N/A', 0, 'N/A', 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 3, 0, 3, 277000), datetime.datetime(2014, 9, 16, 3, 0, 3, 277000))
+(2, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000000530010', 'CON Crp Dom CARecbleTradeDebtors', datetime.datetime(2014, 9, 16, 2, 58, 1, 767000), datetime.datetime(2014, 9, 16, 2, 58, 1, 767000))
+(3, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000000530210', 'CON Crp Dom DefSales', datetime.datetime(2014, 9, 16, 2, 58, 1, 767000), datetime.datetime(2014, 9, 16, 2, 58, 1, 767000))
+(4, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000000530220', 'CON Crp Dom DefSalesPrebill', datetime.datetime(2014, 9, 16, 2, 58, 1, 767000), datetime.datetime(2014, 9, 16, 2, 58, 1, 767000))
+(5, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000010530210', 'CON Crp Int DefSales', datetime.datetime(2014, 9, 16, 2, 58, 1, 767000), datetime.datetime(2014, 9, 16, 2, 58, 1, 767000))
+(6, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000010530220', 'CON Crp Int DefSalesPrebill', datetime.datetime(2014, 9, 16, 2, 58, 1, 767000), datetime.datetime(2014, 9, 16, 2, 58, 1, 767000))
+(7, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000100530210', 'CON Bri Dom DefSales', datetime.datetime(2014, 9, 16, 2, 58, 1, 767000), datetime.datetime(2014, 9, 16, 2, 58, 1, 767000))
+(8, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000100530220', 'CON Bri Dom DefSalesPrebill', datetime.datetime(2014, 9, 16, 2, 58, 1, 767000), datetime.datetime(2014, 9, 16, 2, 58, 1, 767000))
+(9, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000110530210', 'CON Bri Int DefSales', datetime.datetime(2014, 9, 16, 2, 58, 1, 767000), datetime.datetime(2014, 9, 16, 2, 58, 1, 767000))
+(10, 1, 'Balance Sheet', 'Assets', 'Current Assets', 'Accounts Receivables', 110, 'Accounts Receivable', '000110530220', 'CON Bri Int DefSalesPrebill', datetime.datetime(2014, 9, 16, 2, 58, 1, 767000), datetime.datetime(2014, 9, 16, 2, 58, 1, 767000))
+
+FT_Org_Dimension
+['org_id', 'source_id', 'org_code', 'org_name', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 3, 0, 3, 497000), datetime.datetime(2014, 9, 16, 3, 0, 3, 497000))
+
+FT_Oper_Dimension
+['oper_id', 'source_id', 'oper_currency', 'oper_description', 'create_date', 'update_date']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 3, 0, 3, 513000), datetime.datetime(2014, 9, 16, 3, 0, 3, 513000))
+(2, 1, 'AUD', 'Australian Dollars', datetime.datetime(2014, 9, 16, 2, 58, 1, 970000), datetime.datetime(2014, 9, 16, 2, 58, 1, 970000))
+
+CRMMilestoneDimension
+['SYSMilestoneID', 'SYSSourceID', 'Milestone', 'MilestoneDesc', 'ConfidenceFactor', 'SYSCreateDate']
+(1, 1, 'D', 'Disqualified', 0, datetime.datetime(2009, 5, 14, 6, 0, 6, 127000))
+(2, 1, 'L', 'Lost', 0, datetime.datetime(2009, 5, 14, 6, 0, 6, 127000))
+(3, 1, 'N', 'No Decision', 0, datetime.datetime(2009, 5, 14, 6, 0, 6, 127000))
+(4, 1, 'N/A', 'N/A', 0, datetime.datetime(2009, 5, 14, 6, 0, 6, 127000))
+(5, 1, 'Q', 'Qualified Out', 0, datetime.datetime(2009, 5, 14, 6, 0, 6, 127000))
+(6, 1, 'W', 'Won', 99, datetime.datetime(2009, 5, 14, 6, 0, 6, 127000))
+
+FT_Time_Dimension_Error
+['td_error_id', 'td_error_msg', 'as_of_date']
+
+CRMTimeDimension
+['SYSTimeID', 'calendar_date', 'calendar_day', 'calendar_month', 'calendar_month_name', 'calendar_quarter', 'calendar_year', 'day_of_year', 'week_of_year', 'year_month', 'dimension_base_date', 'SYSCreateDate']
+(1, datetime.datetime(1900, 1, 1, 0, 0), 1, 1, 'N/A', 1, 1900, 'N/A', 'N/A', 'N/A', datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 6, 190000))
+(2, datetime.datetime(2005, 1, 1, 0, 0), 1, 1, 'January', 1, 2005, '1', '1', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 910000))
+(3, datetime.datetime(2005, 1, 2, 0, 0), 2, 1, 'January', 1, 2005, '2', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 910000))
+(4, datetime.datetime(2005, 1, 3, 0, 0), 3, 1, 'January', 1, 2005, '3', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 910000))
+(5, datetime.datetime(2005, 1, 4, 0, 0), 4, 1, 'January', 1, 2005, '4', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 910000))
+(6, datetime.datetime(2005, 1, 5, 0, 0), 5, 1, 'January', 1, 2005, '5', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 910000))
+(7, datetime.datetime(2005, 1, 6, 0, 0), 6, 1, 'January', 1, 2005, '6', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 910000))
+(8, datetime.datetime(2005, 1, 7, 0, 0), 7, 1, 'January', 1, 2005, '7', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 910000))
+(9, datetime.datetime(2005, 1, 8, 0, 0), 8, 1, 'January', 1, 2005, '8', '2', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 910000))
+(10, datetime.datetime(2005, 1, 9, 0, 0), 9, 1, 'January', 1, 2005, '9', '3', '1       ', datetime.datetime(2005, 1, 1, 0, 0), datetime.datetime(2009, 5, 14, 6, 0, 17, 910000))
+
+FTFact
+['account_id', 'account_source', 'org_id', 'org_source', 'reference_id', 'reference_source', 'journal_id', 'journal_source', 'time_id', 'fiscal_source', 'seg1_id', 'seg1_source', 'seg2_id', 'seg2_source', 'seg3_id', 'seg3_source', 'seg4_id', 'seg4_source', 'nat_id', 'nat_source', 'home_id', 'home_source', 'oper_id', 'oper_source', 'period_end_date', 'date_applied', 'trx_type', 'nat_cur_code', 'nat_balance', 'home_cur_code', 'home_balance', 'oper_cur_code', 'oper_balance', 'post_status', 'journal_ctrl_num', 'sequence_id', 'create_date', 'update_date']
+(126, 1, 1, 1, 1, 1, 3, 1, 1725, 1, 4, 1, 2, 1, 2, 1, 264, 1, 2, 1, 2, 1, 2, 1, datetime.datetime(2009, 9, 30, 0, 0), datetime.datetime(2009, 9, 21, 0, 0), 4111, 'AUD', -3516.36, 'AUD', -3516.36, 'AUD', -3516.36, 1, 'JRNL00044566', 180, datetime.datetime(2014, 9, 16, 3, 0, 47, 280000), datetime.datetime(2014, 9, 16, 3, 0, 47, 280000))
+(355, 1, 1, 1, 1, 1, 3, 1, 3413, 1, 4, 1, 2, 1, 2, 1, 349, 1, 2, 1, 2, 1, 2, 1, datetime.datetime(2014, 5, 31, 0, 0), datetime.datetime(2014, 5, 6, 0, 0), 4091, 'AUD', 54.0, 'AUD', 54.0, 'AUD', 54.0, 1, 'JRNL00105176', 4, datetime.datetime(2014, 9, 16, 3, 0, 47, 280000), datetime.datetime(2014, 9, 16, 3, 0, 47, 280000))
+(2623, 1, 1, 1, 1, 1, 3, 1, 3407, 1, 3, 1, 4, 1, 4, 1, 101, 1, 2, 1, 2, 1, 2, 1, datetime.datetime(2014, 4, 30, 0, 0), datetime.datetime(2014, 4, 30, 0, 0), 4091, 'AUD', 400.0, 'AUD', 400.0, 'AUD', 400.0, 1, 'JRNL00104288', 8, datetime.datetime(2014, 9, 16, 3, 0, 47, 280000), datetime.datetime(2014, 9, 16, 3, 0, 47, 280000))
+(7033, 1, 1, 1, 1, 1, 3, 1, 2861, 1, 4, 1, 6, 1, 2, 1, 186, 1, 2, 1, 2, 1, 2, 1, datetime.datetime(2012, 10, 31, 0, 0), datetime.datetime(2012, 10, 31, 0, 0), 4091, 'AUD', 2422.75, 'AUD', 2422.75, 'AUD', 2422.75, 1, 'JRNL00087326', 4, datetime.datetime(2014, 9, 16, 3, 0, 47, 280000), datetime.datetime(2014, 9, 16, 3, 0, 47, 280000))
+(179, 1, 1, 1, 1, 1, 3, 1, 942, 1, 3, 1, 2, 1, 2, 1, 284, 1, 2, 1, 2, 1, 2, 1, datetime.datetime(2007, 7, 31, 0, 0), datetime.datetime(2007, 7, 31, 0, 0), 4091, 'AUD', 8.0, 'AUD', 8.0, 'AUD', 8.0, 1, 'JRNL00013358', 54, datetime.datetime(2014, 9, 16, 3, 0, 47, 280000), datetime.datetime(2014, 9, 16, 3, 0, 47, 280000))
+(5991, 1, 1, 1, 1, 1, 3, 1, 1263, 1, 4, 1, 4, 1, 5, 1, 65, 1, 2, 1, 2, 1, 2, 1, datetime.datetime(2008, 6, 30, 0, 0), datetime.datetime(2008, 6, 16, 0, 0), 4091, 'AUD', 113.0, 'AUD', 113.0, 'AUD', 113.0, 1, 'JRNL00025614', 1, datetime.datetime(2014, 9, 16, 3, 0, 47, 280000), datetime.datetime(2014, 9, 16, 3, 0, 47, 280000))
+(118, 1, 1, 1, 1, 1, 3, 1, 2933, 1, 3, 1, 2, 1, 2, 1, 264, 1, 2, 1, 2, 1, 2, 1, datetime.datetime(2013, 1, 31, 0, 0), datetime.datetime(2013, 1, 11, 0, 0), 4111, 'AUD', -60.0, 'AUD', -60.0, 'AUD', -60.0, 1, 'JRNL00089537', 10, datetime.datetime(2014, 9, 16, 3, 0, 47, 280000), datetime.datetime(2014, 9, 16, 3, 0, 47, 280000))
+(5733, 1, 1, 1, 1, 1, 3, 1, 3468, 1, 4, 1, 4, 1, 2, 1, 204, 1, 2, 1, 2, 1, 2, 1, datetime.datetime(2014, 6, 30, 0, 0), datetime.datetime(2014, 6, 30, 0, 0), 4091, 'AUD', 23.25, 'AUD', 23.25, 'AUD', 23.25, 1, 'JRNL00106322', 76, datetime.datetime(2014, 9, 16, 3, 0, 47, 280000), datetime.datetime(2014, 9, 16, 3, 0, 47, 280000))
+(310, 1, 1, 1, 1, 1, 3, 1, 784, 1, 3, 1, 2, 1, 2, 1, 339, 1, 2, 1, 2, 1, 2, 1, datetime.datetime(2007, 2, 28, 0, 0), datetime.datetime(2007, 2, 23, 0, 0), 4111, 'AUD', 3245.0, 'AUD', 3245.0, 'AUD', 3245.0, 1, 'JRNL00007358', 38, datetime.datetime(2014, 9, 16, 3, 0, 47, 280000), datetime.datetime(2014, 9, 16, 3, 0, 47, 280000))
+(333, 1, 1, 1, 1, 1, 3, 1, 1643, 1, 3, 1, 2, 1, 2, 1, 349, 1, 2, 1, 2, 1, 2, 1, datetime.datetime(2009, 7, 31, 0, 0), datetime.datetime(2009, 7, 1, 0, 0), 4091, 'AUD', 14.28, 'AUD', 14.28, 'AUD', 14.28, 1, 'JRNL00042065', 12, datetime.datetime(2014, 9, 16, 3, 0, 47, 280000), datetime.datetime(2014, 9, 16, 3, 0, 47, 280000))
+
+CRMCustomerDimension
+['SYSCustomerID', 'SYSSourceID', 'SYSParentCustomerID', 'CustomerID', 'ParentCustomerID', 'CustomerFlag', 'CustomerName', 'CustomerType', 'CustomerClass', 'CreditRating', 'Marketplace', 'DunBradstreetRating', 'CountryCode', 'StateCode', 'City', 'PostalCode', 'Phone', 'Fax', 'InternetReference', 'SmallBusCode', 'SICCode', 'DUNSNum', 'SalesPersonID', 'SalesPersonName', 'LineSplitPct', 'SYSCreateDate']
+(1, 1, 1, 'N/A', 'N/A', 0, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 0.0, datetime.datetime(2009, 5, 14, 6, 0, 6, 923000))
+(2, 1, 2, '*CHOOSE*', '*CHOOSE*', 1, 'Choose Customer', 'CUSTOMER', 'N/A', 'N/A', 'N/A', 'N/A', 'AUS', 'N/A', 'N/A', 'N/A', '07 3852 2525', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 0.0, datetime.datetime(2009, 5, 14, 6, 0, 10, 17000))
+(3, 1, 3, 'AAASSN20', 'AAASSN20', 1, 'Australian Architects Assn', 'CUSTOMER', 'N/A', 'N/A', 'N/A', 'N/A', 'AUS', 'NSW', 'Sydney', '2000', '000', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 0.0, datetime.datetime(2009, 5, 14, 6, 0, 10, 17000))
+(4, 1, 4, 'ABACUS10', 'ABACUS10', 1, 'Abacus Property', 'CUSTOMER', 'N/A', 'N/A', 'N/A', 'N/A', 'AUS', 'N/A', 'N/A', 'N/A', '07', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 0.0, datetime.datetime(2009, 5, 14, 6, 0, 10, 17000))
+(5, 1, 5, 'ABCBNE10', 'ABCBNE10', 1, 'ABC', 'CUSTOMER', 'N/A', 'N/A', 'N/A', 'N/A', 'AUS', 'N/A', 'Brisbnae', 'N/A', '07', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 0.0, datetime.datetime(2009, 5, 14, 6, 0, 10, 17000))
+(6, 1, 6, 'ABIGRP10', 'ABIGRP10', 1, 'Abi Group', 'CUSTOMER', 'N/A', 'N/A', 'N/A', 'N/A', 'AUS', 'N/A', 'N/A', 'N/A', '07 3391 7311', '07 33917414', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 0.0, datetime.datetime(2009, 5, 14, 6, 0, 10, 17000))
+(7, 1, 7, 'ABMAMR40', 'ABMAMR40', 1, 'ABN Amro', 'CUSTOMER', 'N/A', 'N/A', 'N/A', 'N/A', 'AUS', 'N/A', 'South Bank', 'N/A', '0396846111', '0396823586', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 0.0, datetime.datetime(2009, 5, 14, 6, 0, 10, 17000))
+(8, 1, 8, 'ABNAMR10', 'ABNAMR10', 1, 'ABN AMRO', 'CUSTOMER', 'N/A', 'N/A', 'N/A', 'N/A', 'AUS', 'N/A', 'Melbourne', '3000', '0396121366', '0396121419', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 0.0, datetime.datetime(2009, 5, 14, 6, 0, 10, 17000))
+(9, 1, 9, 'ABSTAT30', 'ABSTAT30', 1, 'Australian Bureau Of Statistics', 'CUSTOMER', 'N/A', 'N/A', 'N/A', 'N/A', 'AUS', 'ACT', 'Belconnen', '2616', '000', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 0.0, datetime.datetime(2009, 5, 14, 6, 0, 10, 17000))
+(10, 1, 10, 'ACAQLD10', 'ACAQLD10', 1, 'ACA Qld Branch', 'CUSTOMER', 'N/A', 'N/A', 'N/A', 'N/A', 'AUS', 'QLD', 'Brisbane', '4000', '000', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 0.0, datetime.datetime(2009, 5, 14, 6, 0, 10, 17000))
+
+ProjTransGroupDimension
+['SYSTransGroupID', 'SYSCompSiteID', 'TransGroup', 'TransGroupDesc', 'SYSCreateDate']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 1, 3, 59, 723000))
+(2, 1, 'Billed', 'Posted Bills', datetime.datetime(2014, 9, 16, 1, 3, 59, 740000))
+(3, 1, 'DraftBill', 'Unposted/Draft Bills', datetime.datetime(2014, 9, 16, 1, 3, 59, 753000))
+(4, 1, 'WaiverCharge', 'Waiver Charges', datetime.datetime(2014, 9, 16, 1, 3, 59, 770000))
+(5, 1, 'NonBillable', 'Non-Billable', datetime.datetime(2014, 9, 16, 1, 3, 59, 770000))
+(6, 1, 'Credit', 'Credit Bills', datetime.datetime(2014, 9, 16, 1, 3, 59, 770000))
+(7, 1, 'Reversed', 'Reversed/Transferred', datetime.datetime(2014, 9, 16, 1, 3, 59, 787000))
+(8, 1, 'Revenue', 'Revenue Recognition', datetime.datetime(2014, 9, 16, 1, 3, 59, 787000))
+(9, 1, 'MatPlan', 'Material Planning', datetime.datetime(2014, 9, 16, 1, 3, 59, 800000))
+(10, 1, 'ExpPlan', 'Expense Planning', datetime.datetime(2014, 9, 16, 1, 3, 59, 800000))
+
+ProjTransDimension
+['SYSTransID', 'SYSCompSiteID', 'SYSParentTransID', 'TransCode', 'TransType', 'TransDesc', 'SYSCreateDate']
+(1, 1, 1, 'RevenueRecognition', 'RevenueRecognition', 'RevenueRecognition', datetime.datetime(2014, 9, 16, 1, 3, 59, 613000))
+(2, 1, 2, 'Expense', 'Expense', 'Expense', datetime.datetime(2014, 9, 16, 1, 3, 59, 630000))
+(3, 1, 3, 'Material', 'Material', 'Material', datetime.datetime(2014, 9, 16, 1, 3, 59, 643000))
+(4, 1, 4, 'Time', 'Time', 'Time', datetime.datetime(2014, 9, 16, 1, 3, 59, 643000))
+(5, 1, 4, 'Overtime', 'Overtime', 'Overtime', datetime.datetime(2014, 9, 16, 1, 3, 59, 660000))
+(6, 1, 4, 'Standard', 'Standard', 'Standard', datetime.datetime(2014, 9, 16, 1, 3, 59, 677000))
+(7, 1, 4, 'EstimateTimeComplete', 'EstimateTimeComplete', 'EstimateTimeComplete', datetime.datetime(2014, 9, 16, 1, 3, 59, 677000))
+(8, 1, 4, 'Billed', 'Billed', 'Billed', datetime.datetime(2014, 9, 16, 1, 3, 59, 690000))
+(9, 1, 4, 'AvailableHour', 'AvailableHour', 'AvailableHour', datetime.datetime(2014, 9, 16, 1, 3, 59, 707000))
+(10, 1, 4, 'Fixed', 'Fixed', 'Fixed', datetime.datetime(2014, 9, 16, 1, 3, 59, 707000))
+
+ECSSourceXREF
+['SYSSourceID', 'SourceLegacyID', 'SourceDescription', 'SYSBatchID', 'SYSCreateDate']
+(1, 'Initial Load', 'Initial Load', 0, datetime.datetime(2014, 9, 16, 4, 57, 11, 787000))
+
+ECSCustomerDimension
+['SYSCustomerID', 'SYSSourceID', 'CustomerID', 'CustomerName', 'CustRefID', 'CustCreditLimit', 'CreditRating', 'PaymentTermsCode', 'TransferPointNum', 'FreightAccount', 'ResaleNum', 'CustomerTypeCode', 'CustomerTypeDesc', 'ActiveFlag', 'Marketplace', 'CarrierCode', 'ServiceLevelCode', 'BillToID', 'SYSCreateDate']
+(1, 1, 'N/A', 'N/A', 'N/A', 0.0, 'N/A', 0, 0, 'N/A', 'N/A', 'N/A', 'N/A', 0, 'N/A', 'N/A', 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 5, 0, 2, 7000))
+(2, 1, '*CHOOSE*', 'Choose Customer', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, datetime.datetime(2014, 9, 16, 5, 0, 2, 303000))
+(3, 1, '12WENT20', '12 Wentworth Selbourne Chamber', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, datetime.datetime(2014, 9, 16, 5, 0, 2, 303000))
+(4, 1, '215ADE', '215 Adelaide Street Pty Ltd', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 0, None, None, None, None, datetime.datetime(2014, 9, 16, 5, 0, 2, 303000))
+(5, 1, '215ADE10', '215 Adelaide Street Pty Ltd', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, datetime.datetime(2014, 9, 16, 5, 0, 2, 303000))
+(6, 1, 'AAASSN20', 'Australian Architects Assn', None, None, None, 30, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, datetime.datetime(2014, 9, 16, 5, 0, 2, 303000))
+(7, 1, 'ABACUS10', 'Abacus Property', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, datetime.datetime(2014, 9, 16, 5, 0, 2, 303000))
+(8, 1, 'ABCBNE10', 'ABC', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, datetime.datetime(2014, 9, 16, 5, 0, 2, 303000))
+(9, 1, 'ABCMEL40', 'ABC Melbourne', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, datetime.datetime(2014, 9, 16, 5, 0, 2, 303000))
+(10, 1, 'ABIGRP10', 'Abi Group', None, 0.0, None, None, None, None, None, 'N/A', 'N/A', 1, None, None, None, None, datetime.datetime(2014, 9, 16, 5, 0, 2, 303000))
+
+ProjTimeDimension
+['SYSTimeID', 'calendar_date', 'calendar_day', 'calendar_month', 'calendar_month_name', 'calendar_quarter', 'calendar_year', 'day_of_year', 'week_of_year', 'year_month', 'dimension_base_date', 'SYSCreateDate']
+(1, datetime.datetime(1900, 1, 1, 0, 0), 1, 1, 'N/A', 1, 1900, 'N/A', 'N/A', 'N/A', datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 1, 3, 59, 723000))
+(2, datetime.datetime(1988, 1, 1, 0, 0), 1, 1, 'January', 1, 1988, '1', '1', '1       ', datetime.datetime(1988, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 28, 100000))
+(3, datetime.datetime(1988, 1, 2, 0, 0), 2, 1, 'January', 1, 1988, '2', '1', '1       ', datetime.datetime(1988, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 28, 100000))
+(4, datetime.datetime(1988, 1, 3, 0, 0), 3, 1, 'January', 1, 1988, '3', '2', '1       ', datetime.datetime(1988, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 28, 100000))
+(5, datetime.datetime(1988, 1, 4, 0, 0), 4, 1, 'January', 1, 1988, '4', '2', '1       ', datetime.datetime(1988, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 28, 100000))
+(6, datetime.datetime(1988, 1, 5, 0, 0), 5, 1, 'January', 1, 1988, '5', '2', '1       ', datetime.datetime(1988, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 28, 100000))
+(7, datetime.datetime(1988, 1, 6, 0, 0), 6, 1, 'January', 1, 1988, '6', '2', '1       ', datetime.datetime(1988, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 28, 100000))
+(8, datetime.datetime(1988, 1, 7, 0, 0), 7, 1, 'January', 1, 1988, '7', '2', '1       ', datetime.datetime(1988, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 28, 100000))
+(9, datetime.datetime(1988, 1, 8, 0, 0), 8, 1, 'January', 1, 1988, '8', '2', '1       ', datetime.datetime(1988, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 28, 100000))
+(10, datetime.datetime(1988, 1, 9, 0, 0), 9, 1, 'January', 1, 1988, '9', '2', '1       ', datetime.datetime(1988, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 28, 100000))
+
+ProjTimeFiscalDimension
+['SYSFiscalID', 'SYSCompSiteID', 'SYSTimeID', 'fiscal_period', 'fiscal_year', 'period_start_date', 'period_end_date', 'year_start_date', 'year_end_date', 'apply_date', 'SYSCreateDate']
+(1, 1, 1, 'N/A', 'N/A', datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(1900, 1, 1, 0, 0), datetime.datetime(2014, 9, 16, 1, 3, 59, 770000))
+(2, 1, 6667, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 27, 210000))
+(3, 1, 6668, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 2, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 27, 210000))
+(4, 1, 6669, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 3, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 27, 210000))
+(5, 1, 6670, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 4, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 27, 210000))
+(6, 1, 6671, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 5, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 27, 210000))
+(7, 1, 6672, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 6, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 27, 210000))
+(8, 1, 6673, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 7, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 27, 210000))
+(9, 1, 6674, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 8, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 27, 210000))
+(10, 1, 6675, 'Apr', 'Fiscal Year End 2006-6 -30', datetime.datetime(2006, 4, 1, 0, 0), datetime.datetime(2006, 4, 30, 0, 0), datetime.datetime(2005, 7, 1, 0, 0), datetime.datetime(2006, 6, 30, 0, 0), datetime.datetime(2006, 4, 9, 0, 0), datetime.datetime(2014, 9, 16, 1, 4, 27, 210000))
+
+ECSProductDimension
+['SYSProductID', 'SYSSourceID', 'PartID', 'PartDesc', 'PartRefID', 'ProductLineCode', 'ProductLineDesc', 'CommodityCode', 'CommodityDesc', 'GLAccountCode', 'ICNCode', 'SYSCreateDate']
+(1, 1, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', datetime.datetime(2014, 9, 16, 5, 0, 2, 100000))
+
+tmpProjInitResourceMinDate
+['ResourceID', 'StartDate']
+('BROGERS', datetime.datetime(2010, 7, 12, 0, 0))
+('JMCCONOCHIE', datetime.datetime(2006, 1, 1, 0, 0))
+('SEMBLING', datetime.datetime(2006, 1, 1, 0, 0))
+('MJANEKE', datetime.datetime(2009, 9, 16, 0, 0))
+('AWANG', datetime.datetime(2006, 1, 1, 0, 0))
+('DLONDONO', datetime.datetime(2007, 10, 15, 0, 0))
+('FESPANA', datetime.datetime(2010, 7, 28, 0, 0))
+('HWATT', datetime.datetime(2006, 1, 1, 0, 0))
+('STHOMPSON', datetime.datetime(2006, 1, 1, 0, 0))
+('MMICUTA', datetime.datetime(2014, 2, 3, 0, 0))
+
+ECSSalesPersonDimension
+['SYSSalesPersonID', 'SYSSourceID', 'SalesPersonID', 'SalesAreaCode', 'CustomerID', 'ActiveFlag', 'LastName', 'FirstName', 'DepartmentCode', 'EmailAddr', 'WorkPhone', 'Fax', 'AnnualQuota', 'SYSCreateDate']
+(1, 1, 'N/A', 'N/A', 'N/A', 0, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 0, datetime.datetime(2014, 9, 16, 5, 0, 2, 147000))
+
+CRMCompetitorDimension
+['SYSCompetitorID', 'SYSSourceID', 'OpportunityID', 'CompetitorName', 'SYSCreateDate']
+(1, 1, 'N/A', 'N/A', datetime.datetime(2009, 5, 14, 6, 0, 7, 203000))
