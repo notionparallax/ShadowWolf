@@ -36,7 +36,18 @@ devGrunt:
   volumes:
     - client:/ShadowWolf/client
   command: grunt server
-#swProdRails:
-#  build: server
-#swProdAngular:
-#  build: client
+prodRails:
+  build: server
+  links:
+    - devMongo:mongo
+  working_dir: /home/app/server
+  expose:
+    - 3000
+  command: passenger start
+prodAngular:
+  build: client
+  links:
+    - prodRails:server
+  ports:
+    - "0.0.0.0:9000:9000"
+  command: /run.sh
