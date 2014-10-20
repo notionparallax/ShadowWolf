@@ -35,12 +35,12 @@ Person.all.each{|p|
 }
 
 # if people have left, set their status
-leftPeople = [""]
+leftPeople = ["lchen"]
 Person.all.each{|p|
     if leftPeople.include? p.employee.login
-        puts p.employee.login + " Active"
+        puts p.employee.login + " Left"
         newCondition = Condition.new
-        newCondition.name = "Active"
+        newCondition.name = "Left"
         newCondition.start_date = DateTime.now
         p.conditions << newCondition
         p.save
@@ -70,7 +70,7 @@ Person.all.each{|p|
 
 destroyPeople = [""]
 Person.all.each{|p|
-    if (destroyPeople.include? p.employee.login) and (p.employee.photo.bw == "http://www.doriabiddle.com/images/bunsen.gif")
+    if destroyPeople.include? p.employee.login
         puts p.employee.login + " destroy"
         p.destroy
     end

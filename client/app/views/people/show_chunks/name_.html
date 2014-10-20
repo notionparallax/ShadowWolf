@@ -1,93 +1,82 @@
 <div class="row">
-  <div class="col-md-6">
-    <div class="row">
-      <h3>Preferred Name</h3>
-      <div class="col-md-4">
-        <p class="explantory-text">Often people are called something other than their<em>official</em> name. This is where you tell us what you'd prefer to be know as.</p>
-      </div>
-      <div class="col-md-8">
-        <editable-group object="person"
-                        lens="name" help-text-display="ht.name">
-          <editable property="preferred_first" label="preferred first">This is the first name that you prefer to be known by. This is what you'll be called in sumbissions and on your business card. <span class="temp-note">Question for everyone: is this true? Do we need ANOTHER field for casual name?</span></editable>
-          <editable property="preferred_last"  label="preferred last" >This is the last name that you prefer to be known by. For example, this would be different to your passport name if you have changed your name legally, but still use your old name professionally.</editable>
-        </editable-group>
-        <div ng-bind="ht.name"></div>
-      </div>
+    <div class="col-md-6">
+        <div class="row">
+            <h3>Preferred Name</h3>
+            <div class="col-md-4">
+                <p class="explantory-text">Often people are called something other than their
+                    <em>official</em>name. This is where you tell us what you'd prefer to be know as.</p>
+            </div>
+            <div class="col-md-8">
+                <editable-group object="person" lens="name" help-text-display="ht.name">
+                    <editable property="preferred_first" label="preferred first">This is the first name that you prefer to be known by. This is what you'll be called in sumbissions and on your business card.
+                        <span class="temp-note">Question for everyone: is this true? Do we need ANOTHER field for casual name?</span>
+                    </editable>
+                    <editable property="preferred_last" label="preferred last">This is the last name that you prefer to be known by. For example, this would be different to your passport name if you have changed your name legally, but still use your old name professionally.</editable>
+                </editable-group>
+                <div ng-bind="ht.name"></div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="col-md-6">
-    <div class="row">
-      <h3>Position</h3>
-      <div class="col-md-4">
-        <p class="explantory-text">This is your official job title. This is exactly what will be printed on your business card.</p>
-      </div>
-      <div class="col-md-8">
-        <editable-group object="person"
-                  lens="employee">
-          <editable property="position" label="position"
-          editable-typeahead='pos for pos in ["Accounts","Accounts Manager","Administration Manager ","Administrative Assistant ","Architect ","Architectural Graduate ","Architectural Technician","Associate ","BIM/CAD Manager","BIM/CAD Support","Commercial Director","Communications Coordinator","Computation Specialist","Design Technology Director","Desktop Support","Desktop Support","Graphic Designer ","Information Systems Manager","Infrastructure Manager","Interior Designer","International Projects Manager ","IT Director","IT Manager","Librarian ","National Director ","NSW Studio Director ","Office Assistant ","Operations Manager ","Personal Assistant ","Practice Director","Principal ","Programmer","Project Administrator","Project Secretary","Public Relations Manager","QLD Studio Director ","Receptionist","Registered Architect Country","Revit Specialist","Senior Associate ","Senior Health Architect","Senior Interior Designer ","Senior Practice Director","Student of Architecture ","Technical Standards Manager","VIC Studio Director ","National Communications,Culture and Design Manager","Codebook Specialist","Computation Specialist","Practice Director,Information & Design Technology","Software Developer","Design Technology Analyst","IT Infrastructure & Operations Manager","Document Controller","IT Support Analyst","IT Support Manager","IT Project Manager","Model Manager"] | filter:$viewValue'
-          >This is your Position/Title.</editable>
-        </editable-group>
-      </div>
+    <div class="col-md-6">
+        <div class="row">
+            <h3>Position</h3>
+            <div class="col-md-4">
+                <p class="explantory-text">This is your official job title. This is exactly what will be printed on your business card.</p>
+            </div>
+            <div class="col-md-8">
+                <editable-group object="person" lens="employee">
+                    <editable property="position" label="position" editable-typeahead='pos for pos in ["Accounts","Accounts Manager","Administration Manager ","Administrative Assistant ","Architect ","Architectural Graduate ","Architectural Technician","Associate ","BIM/CAD Manager","BIM/CAD Support","Commercial Director","Communications Coordinator","Computation Specialist","Design Technology Director","Desktop Support","Desktop Support","Graphic Designer ","Information Systems Manager","Infrastructure Manager","Interior Designer","International Projects Manager ","IT Director","IT Manager","Librarian ","National Director ","NSW Studio Director ","Office Assistant ","Operations Manager ","Personal Assistant ","Practice Director","Principal ","Programmer","Project Administrator","Project Secretary","Public Relations Manager","QLD Studio Director ","Receptionist","Registered Architect Country","Revit Specialist","Senior Associate ","Senior Health Architect","Senior Interior Designer ","Senior Practice Director","Student of Architecture ","Technical Standards Manager","VIC Studio Director ","National Communications,Culture and Design Manager","Codebook Specialist","Computation Specialist","Practice Director,Information & Design Technology","Software Developer","Design Technology Analyst","IT Infrastructure & Operations Manager","Document Controller","IT Support Analyst","IT Support Manager","IT Project Manager","Model Manager"] | filter:$viewValue'>This is your Position/Title.</editable>
+                </editable-group>
+            </div>
+        </div>
     </div>
-  </div>
 
-</div><!--end row-->
+</div>
+<!--end row-->
 
 
 <div class="row">
-  <div class="col-md-6">
-    <div class="row">
-      <h3>Passport Name</h3>
-      <div class="col-md-4">
-        <p class="explantory-text">This is your name as it appears in your passport. We sometimes need this for legal documents.</p>
-      </div>
-      <div class="col-md-8">
-        <editable-group object="person"
-                        lens="name">
-          <editable property="prefix" label="Prefix">A name prefix is usually something like Miss, Ms, Mr, or it could be Dr, Admiral or Archbishop.</editable>
-          <editable property="first"  label="First" >This is your first name as it appears on your passport.</editable>
-          <editable property="middle" label="Middle">This is your middle name or names as they appear on your passport. (If you don't have a middle name just leave it blank.)</editable>
-          <editable property="last"   label="Last"  >This is your last name as it appears on your passport.</editable>
-          <editable property="suffix" label="Suffix"
-          editable-typeahead="qual for qual in ['PhD(Arch)','MArch(Hons)','MArch','BArchSt(Hons)','BArch(Hons)','BArch','MSc(ConsLaw)','BSc(Arch)','BSc','BbeArch','BPD(Arch)','Dr Ing Arch','Dipl Ing Arch','Dipl Ing Arch(FH)','Arch DPLG M Urbanism (Paris VIII)','Arch DPLG (Paris)','DipArch','DipArchTech','GradDipArch','GradCertDesSc','BApSc(BltEnv)','BBltEnv(IntDes)','BA(EnvDes)','BA(IntDes)','BA(Hons)','BA','MBA','BIntArch(Hons)','MDesSc(Sustainable Design)','BDes(Arch)','BDes(IntDes)Hons','BDes(IntDes)','BDes(Theatre) NIDA','BDes','BMgmt(Mktg)','BNurs','Cert in Nursing','DipArts','DipHort(Landscape)','GC(Innovation)','RAIA','RIBA','FRAIA','FDIA','FCSD']"
-          >A name suffix is usually something like Jr, PhD, OA etc. We also use this section to fee the letters after your name on your business card.</editable>
-        </editable-group>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="row">
-      <h3>Fixed details</h3>
-      <p class="explantory-text">These aren't editable because these are the values that identify you to the databases that we use.</p>
-
-      <div class="col-md-5">
+    <div class="col-md-6">
         <div class="row">
-          <h4>login</h4>
-          <div class="col-md-6">
-            <p class="explantory-text">This is your login for the computer system, and also how <a href="http://en.wikipedia.org/wiki/Active_directory" title="Wikipedia: Active Directory">Active Directory</a> and <a href="http://en.wikipedia.org/wiki/Epicor" title="Wikipedia: Epicor">Epicor</a> identifies you. Only you have this login.</p><!--non editable, primary DB key-->
-          </div>
-          <div class="col-md-6">
-            <p><span class="field-name">login</span>
-               <span class="ang-inserted">{{person.employee.login}}</span></p>
-          </div>
+            <h3>Passport Name</h3>
+            <div class="col-md-4">
+                <p class="explantory-text">This is your name as it appears in your passport. We sometimes need this for legal documents.</p>
+            </div>
+            <div class="col-md-8">
+                <editable-group object="person" lens="name">
+                    <editable property="prefix" label="Prefix">A name prefix is usually something like Miss, Ms, Mr, or it could be Dr, Admiral or Archbishop.</editable>
+                    <editable property="first" label="First">This is your first name as it appears on your passport.</editable>
+                    <editable property="middle" label="Middle">This is your middle name or names as they appear on your passport. (If you don't have a middle name just leave it blank.)</editable>
+                    <editable property="last" label="Last">This is your last name as it appears on your passport.</editable>
+                    <editable property="suffix" label="Suffix" editable-typeahead="qual for qual in ['PhD(Arch)','MArch(Hons)','MArch','BArchSt(Hons)','BArch(Hons)','BArch','MSc(ConsLaw)','BSc(Arch)','BSc','BbeArch','BPD(Arch)','Dr Ing Arch','Dipl Ing Arch','Dipl Ing Arch(FH)','Arch DPLG M Urbanism (Paris VIII)','Arch DPLG (Paris)','DipArch','DipArchTech','GradDipArch','GradCertDesSc','BApSc(BltEnv)','BBltEnv(IntDes)','BA(EnvDes)','BA(IntDes)','BA(Hons)','BA','MBA','BIntArch(Hons)','MDesSc(Sustainable Design)','BDes(Arch)','BDes(IntDes)Hons','BDes(IntDes)','BDes(Theatre) NIDA','BDes','BMgmt(Mktg)','BNurs','Cert in Nursing','DipArts','DipHort(Landscape)','GC(Innovation)','RAIA','RIBA','FRAIA','FDIA','FCSD']">A name suffix is usually something like Jr, PhD, OA etc. We also use this section to fee the letters after your name on your business card.</editable>
+                </editable-group>
+            </div>
         </div>
-      </div>
-
-      <div ng-if="isCurrentUser()" class="col-md-5">
-        <div class="row">
-          <h4 id="finance">finance</h4>
-          <div class="col-md-4">
-            <p class="explantory-text">This is your identifier in <a href="http://en.wikipedia.org/wiki/Sage_MicrOpay" title="Wikipedia: MicrOpay">MicrOpay</a>.</p><!--non editable, primary DB key-->
-          </div>
-          <div class="col-md-8">
-            <p><span class="field-name">employee code</span>
-               <span class="ang-inserted">{{person.employee.finance.employee_code}}</span></p>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </div>
+    <div class="col-md-6">
+
+        <h3>Fixed details</h3>
+        <p class="explantory-text">These aren't editable because these are the values that identify you to the databases that we use.</p>
+
+        <h4>Login</h4>
+
+        <p class="explantory-text">This is your login for the computer system, and also how <a href="http://en.wikipedia.org/wiki/Active_directory" title="Wikipedia: Active Directory">Active Directory</a> and <a href="http://en.wikipedia.org/wiki/Epicor" title="Wikipedia: Epicor">Epicor</a> identifies you. Only you have this login.</p>
+        <!--non editable, primary DB key-->
+        <p>
+            <span class="field-name">login:</span>
+            <span class="ang-inserted">{{person.employee.login}}</span>
+        </p>
+
+        <div ng-if="isCurrentUser()">
+            <h4 id="finance">Finance</h4>
+            <p class="explantory-text">This is your identifier in <a href="http://en.wikipedia.org/wiki/Sage_MicrOpay" title="Wikipedia: MicrOpay">MicrOpay</a>.</p>
+            <!--non editable, primary DB key-->
+
+            <p>
+                <span class="field-name">employee code:</span>
+                <span class="ang-inserted">{{person.employee.finance.employee_code}}</span>
+            </p>
+        </div>
+    </div>
 </div>

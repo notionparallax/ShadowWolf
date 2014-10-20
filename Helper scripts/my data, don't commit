@@ -1,0 +1,26 @@
+0: 
+activity: "Co-author paper"
+created_at: null
+date: "2013-04-07"
+description: "Simulating the Sensing of Building Occupancy"
+id: {}
+updated_at: null
+url: "http://www.simaud.org/2013/program.php#simulating-the-sensing-of-building-occupancy"
+
+1: 
+activity: "Taught a design studio"
+created_at: null
+date: ""
+description: "Simulation and staying alive"
+id: {}
+updated_at: null
+url: ""
+
+2: 
+activity: "Present Paper"
+created_at: null
+date: "2012-03-26"
+description: "A Spatial Query & Analysis Tool for Architects"
+id: {}
+updated_at: null
+url: "http://www.simaud.org/2012/"
