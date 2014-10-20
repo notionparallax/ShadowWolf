@@ -33,7 +33,7 @@ angular.module('ShadowWolf', ['ngResource',
         templateUrl: 'views/projects/show.html',
         controller: 'ProjectsShowController'
       })
-      .when('/callback', {
+      .when('/callback/', {
         template: '<span></span>', // doesn't seem to work without some html
         controller: 'CallbackController'
       })
