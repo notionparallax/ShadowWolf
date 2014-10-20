@@ -1,26 +1,29 @@
 'use strict';
 
 angular.module('ShadowWolf')
-.service('Session', function($cookieStore) {
+.service('Session', function($cookieStore, ipCookie) {
   var _accessToken = '_accessToken',
       _personId = '_personId',
       _login = '_login';
-  //TODO use cookies or some other more permanent store than memory
-  this.getAccessToken = function() { return $cookieStore.get(_accessToken); };
-  this.setAccessToken = function(accessToken) { $cookieStore.put(_accessToken, accessToken); };
+  function get(key) { return ipCookie(key); }
+  function set(key,value) { return ipCookie(key,value,{expires:30}); } // days
 
-  this.getPersonId = function() { return $cookieStore.get(_personId); };
-  this.setPersonId = function(personId) { $cookieStore.put(_personId, personId); };
+  this.getAccessToken = function() { return get(_accessToken); };
+  this.setAccessToken = function(accessToken) { set(_accessToken, accessToken); };
 
-  this.getPersonLogin = function() { return $cookieStore.get(_login); };
-  this.setPersonLogin = function(login) { $cookieStore.put(_login, login); };
+  this.getPersonId = function() { return get(_personId); };
+  this.setPersonId = function(personId) { set(_personId, personId); };
+
+  this.getPersonLogin = function() { return get(_login); };
+  this.setPersonLogin = function(login) { set(_login, login); };
 
   this.logout = function() {
-    $cookieStore.put(_accessToken, '');
-    $cookieStore.put(_personId, '');
-    $cookieStore.put(_login, '');
+    set(_accessToken, '');
+    set(_personId, '');
+    set(_login, '');
   };
 
+  // Used by editable directive before enabling editor
   this.authorize = function() {
     return {
       success: false,
