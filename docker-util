@@ -55,6 +55,7 @@ case "$1" in
         fig up -d devGrunt
         ;;
       server)
+        rm -f server/tmp/pids/server.pid
         fig up -d devRails
         ;;
       console)
@@ -62,6 +63,11 @@ case "$1" in
         ;;
       mongo)
         fig up -d devMongo
+        ;;
+      factories)
+        echo Adding 10 people and projects to database...
+        echo '[:person,:project].each{|m|FactoryGirl.create_list(m,10)}' | fig run --rm devConsole
+        echo Done.
         ;;
       *)
         echo "$USAGE"
