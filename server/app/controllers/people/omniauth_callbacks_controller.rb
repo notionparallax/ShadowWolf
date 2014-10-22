@@ -35,7 +35,7 @@ class People::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def add_params(url, token, person_id, login)
-    "#{url}?access_token=#{token}&person_id=#{person_id}" + ( login ? "&login=#{login}" : "")
+    "#{url}&access_token=#{token}&person_id=#{person_id}" + ( login ? "&login=#{login}" : "")
   end
 
   def auth_hash
