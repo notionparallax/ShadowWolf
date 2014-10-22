@@ -11,4 +11,5 @@ class EmployeeContact
   field :extension, type: String
   field :studio, type: String
   field :work_email, type: String
+  field :direct_dial, type: String
 end

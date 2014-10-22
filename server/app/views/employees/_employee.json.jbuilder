@@ -1,5 +1,5 @@
 json.id employee.id
-json.extract! employee, :created_at, :updated_at, :login, :position, :skills_update_link
+json.extract! employee, :created_at, :updated_at, :login, :position, :skills_update_link, :seat_code, :value_tweet
 json.photo do
   json.partial! "photos/photo.json.jbuilder", photo: employee.photo
 end if employee.photo

@@ -33,5 +33,7 @@ FactoryGirl.define do
     login { (Faker::Base::ULetters.sample + Faker::Name.last_name ).downcase }
     position { Faker::Name.title }
     skills_update_link { 'https://www.youtube.com/watch?v=qb_hqexKkw8' }
+    seat_code { ('A'..'Z').to_a.sample + (1..12).to_a.sample.to_s }
+    value_tweet { (Faker::Lorem.words(40) . join ' ' )[0..130].length }
   end
 end
