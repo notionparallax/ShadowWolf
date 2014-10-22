@@ -36,6 +36,14 @@ devGrunt:
   volumes:
     - client:/ShadowWolf/client
   command: grunt server
+devProtractor:
+  image: ShadowWolf_dev
+  working_dir: /ShadowWolf/client
+  ports:
+    - "4444:4444"
+  volumes:
+    - client:/ShadowWolf/client
+  command: protractor Protractor.js
 prodRails:
   build: server
   links:
