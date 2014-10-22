@@ -230,3 +230,32 @@ editable-group[lens="employee.photo"] div.editable-text-display {
         stroke: none;
     }
 }
+
+
+@media print{
+    @page {
+        margin: 0.5cm;
+    }
+    //:root{-webkit-print-color-adjust:exact}
+    * {-webkit-print-color-adjust:exact;}
+    .demo{
+        height: 500px;
+        flex-basis: 500px;
+        margin: 3px;
+    }
+    div{
+        page-break-inside: avoid;
+    }
+    .details h1 {
+        font-size: 50px;
+    }
+    .info-box{
+        border: 1px dashed silver;
+    }
+    .drawer-in {
+        top: 8%;
+    }
+    .navbar, .problem-btn{
+        display: none;
+    }
+}
