@@ -3,7 +3,7 @@
 // The callback controler handles the login callback
 angular.module('ShadowWolf')
 .controller('CallbackController',
-function($scope, $location, Session, Flash) {
+function($scope, $location, Session, Flash, $routeParams) {
   var message = $location.search().message;
   if (message) {
     Flash.add({
@@ -21,5 +21,5 @@ function($scope, $location, Session, Flash) {
     Session.setPersonLogin($location.search().login);
   }
   $location.search('');
-  $location.path("/people");
+  $location.path($routeParams.path || "/people");
 });

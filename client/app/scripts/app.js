@@ -7,7 +7,8 @@ angular.module('ShadowWolf', ['ngResource',
                               'ui.bootstrap',
                               'angulartics',
                               'angulartics.google.analytics',
-                              'contenteditable'])
+                              'contenteditable',
+                              'ipCookie'])
   .config(function ($routeProvider, $httpProvider, $analyticsProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -32,7 +33,7 @@ angular.module('ShadowWolf', ['ngResource',
         templateUrl: 'views/projects/show.html',
         controller: 'ProjectsShowController'
       })
-      .when('/callback', {
+      .when('/callback/', {
         template: '<span></span>', // doesn't seem to work without some html
         controller: 'CallbackController'
       })

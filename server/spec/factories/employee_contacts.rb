@@ -6,5 +6,6 @@ FactoryGirl.define do
     extension { [2,3,4,7].sample.to_s + Faker::Number.digit + Faker::Number.digit }
     studio { ['Brisbane', 'Sydney', 'Canberra', 'Auckland', 'Bangkok', 'London', 'Melbourne'].sample }
     work_email { Faker::Name.first_name + "_" + Faker::Name.last_name + "@bvn.com.au" }
+    direct_dial { Faker::PhoneNumber.phone_number }
   end
 end

@@ -8,7 +8,6 @@ read -r -d '' HELP <<HERE
 Usage: $0 <command> <target>
 
 Commands:
-  install (No targets) Ensures you have the shadowwolf-dev docker image.
   dev     Development commands like \`rails s\` and \`grunt server\`.
   prod    Production environment, currently only supports console.
   build   Build docker images.
@@ -31,23 +30,11 @@ SHARED_VOLUME=`pwd`:/ShadowWolf/
 BASE_ARGS="-t -v $SHARED_VOLUME "
 DEFAULT_ARGS="-d $BASE_ARGS "
 case "$1" in
-  install)
-    rm -f Dockerfile
-    ln -s development.docker Dockerfile
-    docker build -t shadowwolf-dev .
-    rm -f Dockerfile
-    ln -s development-server.docker Dockerfile
-    docker build -t shadowwolf-dev-server .
-    rm -f Dockerfile
-    ln -s mongo.docker Dockerfile
-    docker build -t shadowwolf-mongo .
-    rm -f Dockerfile
-    ln -s development-testing.docker Dockerfile
-    docker build -t shadowwolf-dev-testing .
-    ;;
   dev)
     case "$2" in
       test)
+        echo This is disabled while we work on some internals.
+        exit 1
         [[ -z `docker ps | grep -e "sw-client[^/]"` ]] && $0 dev client
         [[ -z `docker ps | grep -e "sw-webdriver[^/]"` ]] && $0 dev webdriver
         SUITE="all"
@@ -59,27 +46,28 @@ case "$1" in
         docker run --name sw-testing -i $BASE_ARGS --link sw-webdriver:webdriver --link sw-client:client -w /ShadowWolf/client/ shadowwolf-dev-testing protractor Protractor.js --suite $SUITE && notify-send "ShadowWolf Tests" Done || notify-send "ShadowWolf Tests" Fail
         ;;
       webdriver)
+        echo This is disabled while we work on some internals.
+        exit 1
         docker kill sw-webdriver && docker rm sw-webdriver
         docker run --name sw-webdriver $DEFAULT_ARGS -p 4444 -w /ShadowWolf/client/ shadowwolf-dev-testing webdriver-manager start
         ;;
       client)
-        # 9000 for grunt server and 35729 for live-reload
-        [[ -z `docker ps | grep -e "sw-server[^/]"` ]] && $0 dev server
-        docker kill sw-client && docker rm sw-client
-        docker run --name sw-client --link sw-server:server $DEFAULT_ARGS -p 9000:9000 -p 35729:35729 -w /ShadowWolf/client/ shadowwolf-dev grunt server
+        fig up -d devGrunt
         ;;
       server)
-        [[ -z `docker ps | grep -e "sw-mongo[^/]"` ]] && $0 dev mongo
-        docker kill sw-server && docker rm sw-server && rm server/tmp/pids/server.pid
-        # rails uses 3000
-        docker run -d -p 3000 --name sw-server --link sw-mongo:mongo $DEFAULT_ARGS -w /ShadowWolf/server/ shadowwolf-dev-server rails server
+        rm -f server/tmp/pids/server.pid
+        fig up -d devRails
         ;;
       console)
-        docker run -i -t -v $SHARED_VOLUME --link sw-mongo:mongo -w /ShadowWolf/server/ shadowwolf-dev rails console
+        fig run --rm devConsole
         ;;
       mongo)
-        docker kill sw-mongo && docker rm sw-mongo
-        docker run -d -p 27017 --name sw-mongo $DEFAULT_ARGS shadowwolf-mongo mongod
+        fig up -d devMongo
+        ;;
+      factories)
+        echo Adding 10 people and projects to database...
+        echo '[:person,:project].each{|m|FactoryGirl.create_list(m,10)}' | fig run --rm devConsole
+        echo Done.
         ;;
       *)
         echo "$USAGE"
@@ -87,25 +75,19 @@ case "$1" in
     esac
     ;;
   build)
-    CONTAINER_NAME="shadowwolf-deploy"
     case "$2" in
       client)
-        rm Dockerfile
-        ln -s production-client.docker Dockerfile
-        CONTAINER_NAME="$CONTAINER_NAME"-client
+        fig run --rm --no-deps devGrunt grunt build \
+          && fig build prodAngular
         ;;
       server)
-        rm Dockerfile
-        rm server/tmp/pids/server.pid
-        ln -s production-server.docker Dockerfile
-        CONTAINER_NAME="$CONTAINER_NAME"-server
+        fig build prodRails
         ;;
       *)
         echo "$USAGE"
         exit 1
         ;;
     esac
-    docker build -t $CONTAINER_NAME .
     ;;
   deploy)
     if [[ -z $BVN_SERVER ]]
@@ -114,25 +96,25 @@ case "$1" in
     fi
     case "$2" in
       client)
-        image=`docker images | egrep '^shadowwolf-deploy-client' | grep latest | awk '{print $3}'`
+        image=`docker images | egrep '^ShadowWolf_prodAngular' | grep latest | awk '{print $3}'`
         docker tag $image $BVN_SERVER:5000/shadowwolf-deploy-client
         docker push $BVN_SERVER:5000/shadowwolf-deploy-client
         remote_script="
         docker pull $BVN_SERVER:5000/shadowwolf-deploy-client > /dev/null;
         docker rm -f sw-client;
-        docker run -d --name sw-client --link sw-server:server -p 9000:9000 -e SERVER_PORT_3000_TCP_ADDR=$BVN_SERVER $BVN_SERVER:5000/shadowwolf-deploy-client;
+        docker run -d --name sw-client --link sw-server:server -p 9000:9000 -e SERVER_PORT_3000_TCP_ADDR=$BVN_SERVER $BVN_SERVER:5000/shadowwolf-deploy-client /run.sh;
         "
         ssh $USER@$BVN_SERVER $remote_script
         ;;
       server)
-        image=`docker images | egrep '^shadowwolf-deploy-server' | grep latest | awk '{print $3}'`
+        image=`docker images | egrep '^ShadowWolf_prodRails' | grep latest | awk '{print $3}'`
         docker tag $image $BVN_SERVER:5000/shadowwolf-deploy-server
         docker push $BVN_SERVER:5000/shadowwolf-deploy-server
         remote_script="
         docker pull $BVN_SERVER:5000/shadowwolf-deploy-server > /dev/null;
         docker rm -f sw-client ; docker rm -f sw-server;
-        docker run -d --name sw-server --link sw-mongo:mongo -p 3000:3000 $BVN_SERVER:5000/shadowwolf-deploy-server;
-        docker run -d --name sw-client --link sw-server:server -p 9000:9000 -e SERVER_PORT_3000_TCP_ADDR=$BVN_SERVER $BVN_SERVER:5000/shadowwolf-deploy-client;
+        docker run -d --name sw-server --link sw-mongo:mongo -p 3000:3000 -w /home/app/server $BVN_SERVER:5000/shadowwolf-deploy-server passenger start -a 0.0.0.0 -p 3000 -e production;
+        docker run -d --name sw-client --link sw-server:server -p 9000:9000 -e SERVER_PORT_3000_TCP_PORT=3000 -e SERVER_PORT_3000_TCP_ADDR=$BVN_SERVER $BVN_SERVER:5000/shadowwolf-deploy-client /run.sh;
         TZ='Australia/Sydney' nohup docker logs -f sw-server > /home/dave/logs/`date --iso-8601=minutes` &
         "
         ssh $USER@$BVN_SERVER $remote_script

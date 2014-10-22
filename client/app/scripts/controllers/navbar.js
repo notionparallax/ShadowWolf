@@ -10,7 +10,7 @@ angular.module('ShadowWolf')
       + '/people/auth/ldap?redirect_uri='
       + encodeURIComponent( 
           Config.getReturnPoint()
-          + '/#/callback'
+          + '/#/callback?path=' + $location.path()
         )
   };
 

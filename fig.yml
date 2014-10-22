@@ -1,0 +1,61 @@
+devBase:
+  build: base-docker-image
+dev:
+  build: .
+devMongo:
+  build: mongo-docker-image
+  expose: 
+    - 27017
+  command: mongod
+devConsole:
+  image: ShadowWolf_dev
+  working_dir: /ShadowWolf/server
+  links:
+    - devMongo:mongo
+  volumes:
+    - server:/ShadowWolf/server
+  command: rails console
+devRails:
+  image: ShadowWolf_dev
+  working_dir: /ShadowWolf/server
+  links:
+    - devMongo:mongo
+  expose:
+    - 3000
+  volumes:
+    - server:/ShadowWolf/server
+  command: rails server
+devGrunt:
+  image: ShadowWolf_dev
+  working_dir: /ShadowWolf/client
+  links:
+    - devRails:server
+  ports:
+    - "9000:9000"
+    - "35729:35729"
+  volumes:
+    - client:/ShadowWolf/client
+  command: grunt server
+devProtractor:
+  image: ShadowWolf_dev
+  working_dir: /ShadowWolf/client
+  ports:
+    - "4444:4444"
+  volumes:
+    - client:/ShadowWolf/client
+  command: protractor Protractor.js
+prodRails:
+  build: server
+  links:
+    - devMongo:mongo
+  working_dir: /home/app/server
+  expose:
+    - 3000
+  command: passenger start
+prodAngular:
+  build: client
+  links:
+    - prodRails:server
+  ports:
+    - "0.0.0.0:9000:9000"
+  command: /run.sh

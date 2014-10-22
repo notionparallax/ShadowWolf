@@ -54,6 +54,7 @@ class Person
     self.employee.contact                              =   EmployeeContact.new           if  self.employee.contact.nil?
     self.employee.contact.mobile                       =   Mobile.new                    if  self.employee.contact.mobile.nil?
     self.employee.office_culture                       =   OfficeCulture.new             if  self.employee.office_culture.nil?
+    self.employee.office_culture.dietary               =   Dietary.new                   if  self.employee.office_culture.dietary.nil?
     self.employee.employee_press                       =   EmployeePress.new             if  self.employee.employee_press.nil?
     self.contact                                       =   PersonContact.new             if  self.contact.nil?
     self.contact.social                                =   Social.new                    if  self.contact.social.nil?

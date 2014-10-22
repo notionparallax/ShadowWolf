@@ -3,7 +3,6 @@
 
 # OSX crap
 .DS_Store
-Dockerfile
 
 #sublime
 *.[sublime]*
