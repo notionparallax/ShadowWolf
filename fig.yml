@@ -1,61 +1,82 @@
-devBase:
+devbase:
   build: base-docker-image
 dev:
   build: .
-devMongo:
+devmongo:
   build: mongo-docker-image
   expose: 
     - 27017
   command: mongod
-devConsole:
-  image: ShadowWolf_dev
+devconsole:
+  image: shadowwolf_dev
   working_dir: /ShadowWolf/server
   links:
-    - devMongo:mongo
+    - devmongo:mongo
   volumes:
     - server:/ShadowWolf/server
   command: rails console
-devRails:
-  image: ShadowWolf_dev
+devflask:
+  image: shadowwolf_dev
+  volumes:
+    - beowulf:/ShadowWolf/beowulf
+  command: python3 main.py
+  working_dir: /ShadowWolf/beowulf
+  environment:
+    - MSSQL_SERVER
+  ports:
+    - 5000:5000
+devrails:
+  image: shadowwolf_dev
   working_dir: /ShadowWolf/server
   links:
-    - devMongo:mongo
+    - devmongo:mongo
   expose:
     - 3000
   volumes:
     - server:/ShadowWolf/server
   command: rails server
-devGrunt:
-  image: ShadowWolf_dev
+devgrunt:
+  image: shadowwolf_dev
   working_dir: /ShadowWolf/client
   links:
-    - devRails:server
+    - devrails:server
   ports:
     - "9000:9000"
     - "35729:35729"
   volumes:
     - client:/ShadowWolf/client
   command: grunt server
-devProtractor:
-  image: ShadowWolf_dev
+devprotractor:
+  image: shadowwolf_dev
   working_dir: /ShadowWolf/client
   ports:
     - "4444:4444"
   volumes:
     - client:/ShadowWolf/client
   command: protractor Protractor.js
-prodRails:
+prodrails:
   build: server
   links:
-    - devMongo:mongo
+    - devmongo:mongo
   working_dir: /home/app/server
   expose:
     - 3000
   command: passenger start
-prodAngular:
+prodangular:
   build: client
   links:
-    - prodRails:server
+    - prodrails:server
   ports:
     - "0.0.0.0:9000:9000"
   command: /run.sh
+prodflask:
+  build: beowulf
+  environment:
+    - MSSQL_SERVER
+    - MSSQL_UID
+    - MSSQL_PWD
+    - MSSQL_DB
+    - PORT=9001
+  ports:
+    - $MSSQL_SERVER::1433
+    - 9001:9001

@@ -52,21 +52,21 @@ case "$1" in
         docker run --name sw-webdriver $DEFAULT_ARGS -p 4444 -w /ShadowWolf/client/ shadowwolf-dev-testing webdriver-manager start
         ;;
       client)
-        fig up -d devGrunt
+        fig -p shadowwolf up -d devgrunt
         ;;
       server)
         rm -f server/tmp/pids/server.pid
-        fig up -d devRails
+        fig -p shadowwolf up -d devrails
         ;;
       console)
-        fig run --rm devConsole
+        fig -p shadowwolf run --rm devconsole
         ;;
       mongo)
-        fig up -d devMongo
+        fig -p shadowwolf up -d devmongo
         ;;
       factories)
         echo Adding 10 people and projects to database...
-        echo '[:person,:project].each{|m|FactoryGirl.create_list(m,10)}' | fig run --rm devConsole
+        echo '[:person,:project].each{|m|FactoryGirl.create_list(m,10)}' | fig -p shadowwolf run --rm devconsole
         echo Done.
         ;;
       *)
@@ -76,12 +76,18 @@ case "$1" in
     ;;
   build)
     case "$2" in
+      dev)
+        fig -p shadowwolf build
+        ;;
       client)
-        fig run --rm --no-deps devGrunt grunt build \
-          && fig build prodAngular
+        fig -p shadowwolf run --rm --no-deps devgrunt grunt build \
+          && fig -p shadowwolf build prodangular
         ;;
       server)
-        fig build prodRails
+        fig -p shadowwolf build prodrails
+        ;;
+      beowulf)
+        fig -p shadowwolf build prodflask
         ;;
       *)
         echo "$USAGE"
@@ -96,7 +102,7 @@ case "$1" in
     fi
     case "$2" in
       client)
-        image=`docker images | egrep '^ShadowWolf_prodAngular' | grep latest | awk '{print $3}'`
+        image=`docker images | egrep '^shadowwolf_prodangular' | grep latest | awk '{print $3}'`
         docker tag $image $BVN_SERVER:5000/shadowwolf-deploy-client
         docker push $BVN_SERVER:5000/shadowwolf-deploy-client
         remote_script="
@@ -107,7 +113,7 @@ case "$1" in
         ssh $USER@$BVN_SERVER $remote_script
         ;;
       server)
-        image=`docker images | egrep '^ShadowWolf_prodRails' | grep latest | awk '{print $3}'`
+        image=`docker images | egrep '^shadowwolf_prodrails' | grep latest | awk '{print $3}'`
         docker tag $image $BVN_SERVER:5000/shadowwolf-deploy-server
         docker push $BVN_SERVER:5000/shadowwolf-deploy-server
         remote_script="
@@ -116,6 +122,27 @@ case "$1" in
         docker run -d --name sw-server --link sw-mongo:mongo -p 3000:3000 -w /home/app/server $BVN_SERVER:5000/shadowwolf-deploy-server passenger start -a 0.0.0.0 -p 3000 -e production;
         docker run -d --name sw-client --link sw-server:server -p 9000:9000 -e SERVER_PORT_3000_TCP_PORT=3000 -e SERVER_PORT_3000_TCP_ADDR=$BVN_SERVER $BVN_SERVER:5000/shadowwolf-deploy-client /run.sh;
         TZ='Australia/Sydney' nohup docker logs -f sw-server > /home/dave/logs/`date --iso-8601=minutes` &
+        "
+        ssh $USER@$BVN_SERVER $remote_script
+        ;;
+      beowulf)
+        image=`docker images | egrep '^shadowwolf_prodflask' | grep latest | awk '{print $3}'`
+        docker tag $image $BVN_SERVER:5000/shadowwolf-beowulf
+        docker push $BVN_SERVER:5000/shadowwolf-beowulf
+        remote_script="
+        docker pull $BVN_SERVER:5000/shadowwolf-beowulf > /dev/null;
+        docker rm -f sw-beowulf;
+        docker run -d --name sw-beowulf
+          -e MSSQL_SERVER=$MSSQL_SERVER
+          -e MSSQL_UID=$MSSQL_UID
+          -e MSSQL_PWD=$MSSQL_PWD
+          -e MSSQL_DB=$MSSQL_DB
+          -e PORT=9001
+          -e debug=yes
+          -p 9001:9001
+          -w /beowulf
+          $BVN_SERVER:5000/shadowwolf-beowulf
+          python3 main.py;
         "
         ssh $USER@$BVN_SERVER $remote_script
         ;;
