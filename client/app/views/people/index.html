@@ -21,7 +21,7 @@
               redirect-link="#/people/{{ p.id['$oid'] }}"
               email="{{p.employee.contact.work_email}}"
               first-name="{{p.name.preferred_first}}"
-              value-tweet="{{p.value_tweet || p.name.preferred_first+p.name.preferred_last}}">
+              value-tweet="{{p.employee.value_tweet || p.name.preferred_first+' '+p.name.preferred_last}}">
               <!--I loved @debcha's talk about what DIY biohackers can learn from medical materials science and now you can to. youtube.com/watch?v=zJBb16…-->
   </display-box>
 

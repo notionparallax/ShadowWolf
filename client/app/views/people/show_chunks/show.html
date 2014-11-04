@@ -9,6 +9,15 @@
             <div class="row">
                 <div class="col-sm-6">
                     include "biz-card_.html"
+                    
+                    <p>We have lots of people, with lots of skills. Summarise yourself in 140 characters.</p>
+                    <editable-group object="person"
+                      lens="employee"
+                      subgroup-class="alert alert-info col-xs-12 col-sm-12 col-md-12">
+                        <editable property="value_tweet" label="Your Value" type="textarea">
+                           Explain why people should talk to you in 140 characters or less.
+                        </editable>
+                    </editable-group>
                 </div>
                 <div class="col-sm-6">
                     <div class="row">
