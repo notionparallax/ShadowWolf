@@ -14,7 +14,8 @@ angular.module('ShadowWolf')
           isCurrentUser:"@",
           email:        "@",
           firstName:    "@",
-          condition:    "@"
+          condition:    "@",
+          valueTweet:   "@"
         },
         link: function (scope, element, attrs) {},
         controller: function($scope, Session, $location) {
@@ -22,19 +23,19 @@ angular.module('ShadowWolf')
               return Session.getPersonLogin();
             };
 
-            $scope.state = "drawer-in";
+            // $scope.state = "drawer-in";
 
-            $scope.setDrawerState=function(state){
-              if(state!='click'){
-                $scope.state = state;
-              }
-              else if($scope.state == 'drawer-in'){
-                $scope.state = 'drawer-out';
-              }
-              else if($scope.state == 'drawer-out'){
-                 $scope.state = 'drawer-in';
-              }
-            };
+            // $scope.setDrawerState=function(state){
+            //   if(state!='click'){
+            //     $scope.state = state;
+            //   }
+            //   else if($scope.state == 'drawer-in'){
+            //     $scope.state = 'drawer-out';
+            //   }
+            //   else if($scope.state == 'drawer-out'){
+            //      $scope.state = 'drawer-in';
+            //   }
+            // };
         }
     };
 });

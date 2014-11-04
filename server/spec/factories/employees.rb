@@ -34,6 +34,6 @@ FactoryGirl.define do
     position { Faker::Name.title }
     skills_update_link { 'https://www.youtube.com/watch?v=qb_hqexKkw8' }
     seat_code { ('A'..'Z').to_a.sample + (1..12).to_a.sample.to_s }
-    value_tweet { (Faker::Lorem.words(40) . join ' ' )[0..130].length }
+    value_tweet { (Faker::Lorem.words(40) . join ' ' )[0..140] }
   end
 end

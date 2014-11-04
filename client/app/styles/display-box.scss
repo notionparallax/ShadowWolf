@@ -1,7 +1,3 @@
-body {
-    padding-top: 50px;
-    position: relative;
-}
 .flex-container {
     display: flex;
     flex-flow: row wrap;
@@ -17,7 +13,12 @@ body {
     // width: 200px;
 
 }
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 .info-box {
+    z-index: 0;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -26,18 +27,12 @@ body {
     left: 0;
     background-size: cover;
     background-position: center;
-    .stormtrooper {
-    -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 0.5s; /* Firefox < 16 */
-        -ms-animation: fadein 0.5s; /* Internet Explorer */
-         -o-animation: fadein 0.5s; /* Opera < 12.1 */
-            animation: fadein 0.5s;
-    }
-}
-
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    pointer-events: none;
+    -webkit-animation: fadein 1s;
+       -moz-animation: fadein 1s;
+        -ms-animation: fadein 1s;
+         -o-animation: fadein 1s;
+            animation: fadein 1s;
 }
 .details {
     color: white;
@@ -48,36 +43,44 @@ body {
     padding-left: 0.5em;
     padding-right: 0.5em;
     border-radius: 0 15px 0 0;
-    -moz-transition: top 0.25s;
-    -webkit-transition: top 0.25s;
-    -o-transition: top 0.25s;
-    transition: top 0.25s;
     h1 {
         font-size: 24px;
     }
 }
-.drawer-in {
-    top: 100%;
-}
-.drawer-out {
-    top: 50%;
-}
-.title {
-    position: relative;
-    width: 200px;
-    margin: 0;
-    -moz-transition: top 0.25s, color 0.25s;
-    -webkit-transition: top 0.25s, color 0.25s;
-    -o-transition: top 0.25s, color 0.25s;
-    transition: top 0.25s, color 0.25s;
-}
-.title-drawer-in {
-    top: -40px;
-    color: rgba(200, 54, 54, 0.9);
-}
-.title-drawer-out {
-    top: 0;
+.value-tweet-container {
+    // z-index: 2000;
+    background-color: rgba(0, 0, 0, 0.6);
     color: rgba(255, 255, 255, 0.9);
+    padding: 0.5em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box; /* Remove if you don't want to cover the entire tile */
+    height: 100%; /* Remove if you don't want to cover the entire tile */
+    width: 100%; /* Remove if you don't want to cover the entire tile */
+    -webkit-transition: opacity 0.5s ease-in;
+       -moz-transition: opacity 0.5s ease-in;
+        -ms-transition: opacity 0.5s ease-in;
+         -o-transition: opacity 0.5s ease-in;
+            transition: opacity 0.5s ease-in;
+    opacity: 0;
+    p{
+        font-size: 90%;
+        text-decoration: none;
+    }
+    &:hover{
+        opacity: 1;
+    }
+}
+.name-container {
+    position: absolute;
+    bottom: 0.2em;
+    left: 0.2em;
+    pointer-events: none;
+    h1{
+        color: red;
+        font-size: 125%;
+    }
 }
 .problem-btn {
     position: absolute;
@@ -89,31 +92,15 @@ body {
     border: none;
 }
 /*condition styling*/
+.Active    { /*this is the default, leave it blank for the moment*/}
+.Retired   { border-bottom:  5px solid blue;  }
+.Maternity { border-bottom:  5px solid pink;  }
+.Leave     { border-bottom:  5px solid orange;}
+.Deceased  { opacity:       0.2;              }
+.Applicant { border-bottom:  5px solid green; }
+.Left      { border-bottom: 30px solid grey;  }
+.Unknown   { border-bottom:  5px solid red;   }
 
-.Active {
-    /*this is the default, leave it blank for the moment*/
-}
-.Retired {
-    border-bottom: 5px solid blue;
-}
-.Maternity {
-    border-bottom: 5px solid pink;
-}
-.Leave {
-    border-bottom: 5px solid orange;
-}
-.Deceased {
-    opacity: 0.2;
-}
-.Applicant {
-    border-bottom: 5px solid green;
-}
-.Left {
-    border-bottom: 30px solid grey;
-}
-.Unknown {
-    border-bottom: 5px solid red;
-}
 @media screen and (orientation: portrait) and (max-width: 520px) {
 
     .demo {
