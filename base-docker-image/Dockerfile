@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:14.04
 
 # Ruby
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C3173AA6 && \
