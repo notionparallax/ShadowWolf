@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ShadowWolf')
-.service('Session', function($cookieStore, ipCookie) {
+.service('Session', function(ipCookie) {
   var _accessToken = '_accessToken',
       _personId = '_personId',
       _login = '_login';
