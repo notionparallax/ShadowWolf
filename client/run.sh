@@ -7,7 +7,7 @@ cat << EOF > /dist/scripts/endpoint.js
 'use strict';
 angular.module('ShadowWolf')
 .constant('ENDPOINT', "$ENDPOINT")
-.constant('RETURNPOINT', "$RETURNPOINT");
+.constant('RETURNPOINT', "$RETURNPOINT")
 .constant('BEOWULF_SERVER', "$BEOWULF_SERVER");
 EOF
 sed -ibak 's@</body>@<script src="scripts/endpoint.js"></script></body>@' /dist/index.html
