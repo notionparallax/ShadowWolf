@@ -186,6 +186,20 @@ editable-group[lens="employee.photo"] div.editable-text-display {
 }
 
 
+.personal-project-list {
+    list-style-type: none;
+    li {
+        margin-bottom: 0.5em;
+        img {
+                height: 4em;
+                width:  4em;
+                border-radius: 50%;
+                margin: 0.5em;
+            }
+        }
+}
+
+
 #business-card{
     p {
         font-family: 'BlenderMedium', sans-serif;

@@ -1,9 +1,8 @@
 <section dissabled-ng-show="person.employee.project_experiences" class="row">
-  <h4> Experience at BVN DH</h4>
-    <ul>
-      <li ng-repeat="project in getRelatedProjects()">{{project}}</li>
-    </ul>
-  <!-- <div class="alert alert-warning">coming as soon as we've tied the project  data to people through the Epicor data. </div> -->
+  <h4> Experience at BVN</h4>
+  <ul class="personal-project-list">
+    <li ng-repeat="project in getRelatedProjects()"><img src="http://goo.gl/6ymmw2"><a href="projects/{{project}}">The project name ({{project}})</a></li>
+  </ul>
 </section>
 
 <section dissabled-ng-show="person.employee.project_experiences" class="row">
