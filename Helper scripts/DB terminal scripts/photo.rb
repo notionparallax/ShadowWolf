@@ -35,7 +35,7 @@ Person.all.each{|p|
 }
 
 # if people have left, set their status
-leftPeople = ["lchen"]
+leftPeople = ["sblack"]
 Person.all.each{|p|
     if leftPeople.include? p.employee.login
         puts p.employee.login + " Left"
@@ -43,6 +43,23 @@ Person.all.each{|p|
         newCondition.name = "Left"
         newCondition.start_date = DateTime.now
         p.conditions << newCondition
+        p.save
+    end
+}
+
+Person.all.each{|p|
+    if leftPeople.include? p.employee.login
+        puts p.employee.login
+        c1 = Condition.new
+        c1.name = "Left"
+        c1.start_date = DateTime.new(2012,12,4)
+        p.conditions << c1
+
+        c2 = Condition.new
+        c2.name = "Left"
+        c2.start_date = DateTime.new(2006,4,3)
+        p.conditions << c2
+
         p.save
     end
 }
@@ -58,17 +75,17 @@ Person.all.each{|p|
 }
 
 # change a studio
-bkkpeople = ["",""]
+melpeople = ["",""]
 Person.all.each{|p|
-    if bkkpeople.include? p.employee.login
-        puts p.employee.login + " bkk"
-        p.employee.contact.studio = "Bangkok"
+    if melpeople.include? p.employee.login
+        puts p.employee.login + " mel"
+        p.employee.contact.studio = "Melbourne"
         p.save
     end
 }
 
 
-destroyPeople = [""]
+destroyPeople = ["CJO"]
 Person.all.each{|p|
     if destroyPeople.include? p.employee.login
         puts p.employee.login + " destroy"
@@ -76,12 +93,23 @@ Person.all.each{|p|
     end
 }
 
-
-
+eg = [""]
+Person.all.each{|p|
+    if eg.include? p.employee.login
+        puts ""
+        puts p.employee.login + " exists"
+        puts ""
+        p.employee.login = ""
+        p.save
+    end
+}
 
 
 
 # goes through 3 lists and sets people accordingly
+leftPeople=[]
+leavePeople=['']
+maternityPeople=[]
 Person.all.each{|p|
     if leftPeople.include?(p.employee.login)
         puts p.employee.login
@@ -120,6 +148,14 @@ Person.all.each{|p|
         puts p.employee.login + " added a new dietary"
         d= Dietary.new
         p.employee.office_culture.dietary = d
+        p.save
+    end
+    unless p.employee.office_culture.dietary.preference
+        puts p.employee.login
+        dp = Preference.new
+        dp.likes = "cakes"
+        dp.dislikes = "dirt"
+        p.employee.office_culture.dietary.preference = dp
         p.save
     end
 }
@@ -161,10 +197,52 @@ photosAndPeople.each{|ppp|
 }
 
 Person.all.each{|p|
-   if 'BCANTOR' == p.employee.login
-    p.employee.photo.bw = "http://blogs.bvn.com.au/tropos/files/2014/07/Barry_Cantor.jpg"
+   if '' == p.employee.login
+    p.employee.photo.bw = "http://blogs.bvn.com.au/tropos/files/2014/07/.jpg"
     p.save
     puts p.employee.photo.bw
     puts ""
    end
+}
+
+peeps=[
+    {:sacName => "" , :studio => "Melbourne", :photo => "", :ext => 8, :login => ""},
+    {:sacName => "" , :studio => "Melbourne", :photo => "", :ext => 9, :login => ""},
+    {:sacName => "" , :studio => "Melbourne", :photo => "", :ext => 2, :login => ""},
+    {:sacName => "" , :studio => "Melbourne", :photo => "", :ext => 0, :login => ""},
+    {:sacName => "" , :studio => "Melbourne", :photo => "", :ext => 3, :login => ""},
+    {:sacName => "" , :studio => "Melbourne", :photo => "", :ext => 7, :login => ""},
+    {:sacName => "" , :studio => "Melbourne", :photo => "", :ext => 4, :login => ""},
+    {:sacName => "" , :studio => "Melbourne", :photo => "", :ext => 0, :login => ""},
+    {:sacName => "" , :studio => "Melbourne", :photo => "", :ext => 1, :login => ""},
+]
+peeps.each{|ppp|
+    Person.all.each{|p|
+       if ppp[:login] == p.employee.login
+        puts ppp[:sacName]
+
+        if ppp[:photo] != ""
+            p.employee.photo.bw = ppp[:photo]
+        end
+
+        if ppp[:studio] != ""
+            p.employee.contact.studio    = ppp[:studio]
+        end
+
+        if ppp[:ext] != ""
+            p.employee.contact.extension = ppp[:ext]
+        end
+
+        p.save
+        puts ""
+       end
+    }
+}
+
+Person.all.each{|p|
+    Person.all.each{|op|
+        if p.employee.login.downcase == op.employee.login.downcase
+            puts p.employee.login + "  " + op.employee.login
+        end
+    }
 }
