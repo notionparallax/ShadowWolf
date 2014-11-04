@@ -3,7 +3,7 @@
 angular.module('ShadowWolf', ['ngResource',
                               'ngRoute',
                               'ngSanitize',
-                              'ngCookies','config',
+                              'config',
                               'ui.bootstrap',
                               'angulartics',
                               'angulartics.google.analytics',
