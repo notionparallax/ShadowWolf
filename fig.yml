@@ -23,8 +23,12 @@ devflask:
   working_dir: /ShadowWolf/beowulf
   environment:
     - MSSQL_SERVER
+    - MSSQL_UID
+    - MSSQL_PWD
+    - MSSQL_DB
+    - PORT=9001
   ports:
-    - 5000:5000
+    - 9001:9001
 devrails:
   image: shadowwolf_dev
   working_dir: /ShadowWolf/server
@@ -40,6 +44,7 @@ devgrunt:
   working_dir: /ShadowWolf/client
   links:
     - devrails:server
+    - devflask:beowulf
   ports:
     - "9000:9000"
     - "35729:35729"

@@ -2,7 +2,7 @@
 
 angular.module('ShadowWolf')
 .controller('PeopleShowController',
-function($scope, Person, $routeParams, Session, $location, Lens, Flash) {
+function($scope, Person, $routeParams, Session, $location, Lens, Flash, Beowulf) {
   $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
   $scope._person = function() { return Person.get($routeParams.personId); };
   $scope._person().$promise.then(function(person) {
@@ -42,5 +42,8 @@ function($scope, Person, $routeParams, Session, $location, Lens, Flash) {
         errorMessage: '<p>You need to be logged in as ' + name + ' to change fields.</p>'
       };
     }
+  };
+  $scope.getRelatedProjects = function() {
+    return Beowulf.getProjects($scope.person.employee.login);
   };
 });

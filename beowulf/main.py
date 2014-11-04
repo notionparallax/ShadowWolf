@@ -30,7 +30,9 @@ def get_projects(login):
         WHERE prd.resourceid = ?
         AND actualhours <> 0
         """, [login.upper()])
-        return Response(json.dumps([row[0] for row in cursor.fetchall()]), mimetype='application/json')
+        response = Response(json.dumps([row[0] for row in cursor.fetchall()]), mimetype='application/json')
+        response.headers['Access-Control-Allow-Origin'] = '*'
+        return response
 
 @app.route('/get_people/<project_number>')
 def get_people(project_number):
@@ -44,7 +46,9 @@ def get_people(project_number):
         WHERE projectcode = ?
         AND actualhours <> 0
         """, [project_number.upper()])
-        return Response(json.dumps([row[0] for row in cursor.fetchall()]), mimetype='application/json')
+        response = Response(json.dumps([row[0] for row in cursor.fetchall()]), mimetype='application/json')
+        response.headers['Access-Control-Allow-Origin'] = '*'
+        return response
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=PORT,debug=DEBUG)
