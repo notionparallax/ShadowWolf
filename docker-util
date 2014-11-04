@@ -108,7 +108,7 @@ case "$1" in
         remote_script="
         docker pull $BVN_SERVER:5000/shadowwolf-deploy-client > /dev/null;
         docker rm -f sw-client;
-        docker run -d --name sw-client --link sw-server:server -p 9000:9000 -e SERVER_PORT_3000_TCP_ADDR=$BVN_SERVER $BVN_SERVER:5000/shadowwolf-deploy-client /run.sh;
+        docker run -d --name sw-client --link sw-beowulf:beowulf --link sw-server:server -p 9000:9000 -e SERVER_PORT_3000_TCP_ADDR=$BVN_SERVER $BVN_SERVER:5000/shadowwolf-deploy-client /run.sh;
         "
         ssh $USER@$BVN_SERVER $remote_script
         ;;
