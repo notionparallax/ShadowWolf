@@ -10,3 +10,8 @@
     <editable property="project_categories"     label="Project Categories"                             >A comma separated list of the catagories that this project is in</editable>
     <editable property="project_sub_catagories" label="Project Sub-categories"                         >A comma separated list of the catagories that this project is in. [TODO: why does this exist?]</editable>
 </editable-group>
+
+<h3>Team</h3>
+<ul>
+  <li ng-repeat="person in getRelatedPeople()">{{person}}</li>
+</ul>

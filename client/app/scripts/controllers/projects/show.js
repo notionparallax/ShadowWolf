@@ -2,7 +2,7 @@
 
 angular.module('ShadowWolf')
 .controller('ProjectsShowController',
-function($scope, Project, $routeParams, Session, $location, Lens, Flash) {
+function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf) {
   if (!Session.getPersonId()) {
     Flash.add({
       template: '<p>You must be logged in to view that page.</p>',
@@ -15,4 +15,7 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash) {
     $scope.project = newValue;
   });
   Session.authorize = function() { return { success: true }; };
+  $scope.getRelatedPeople = function() {
+    return Beowulf.getPeople($scope.project.project_number);
+  };
 });
