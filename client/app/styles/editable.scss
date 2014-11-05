@@ -4,7 +4,7 @@ div[contenteditable="true"]{
     padding: 0.5em;
 }
 div.editable-text-display {
-    max-height: 6em;
+    // max-height: 6em;
 }
 
 .editable-lable, .editable-text{
@@ -56,4 +56,9 @@ input:valid {
 input:invalid + textarea + .save-btn{
    opacity: 0.3;
    pointer-events: none;
+}
+
+editable-group[lens="employee.photo"] div.editable-text-display {
+    word-wrap: break-word;
+    padding-right: 2em;
 }
