@@ -6,14 +6,9 @@ function($scope, Projects, Session, Search) {
   $scope.limit = 60;
   $scope.searchQuery = '';
   searchBar.focus();
-  $scope.searchResults = [];
-  Projects.getProjects().$promise.then(function(projects) {
-    $scope.searchResults = projects; // make a copy
-  });
+  $scope.searchResults = Projects.getProjects();
   $scope.$watch('searchQuery', function(newValue) {
-    Projects.getProjects().$promise.then(function(projects) {
-      $scope.searchResults = projects.filter($scope.compareTo(newValue));
-    });
+    $scope.searchResults = Projects.getProjects().filter($scope.compareTo(newValue));
   });
 
   $scope.getKittenImage = function(i) {

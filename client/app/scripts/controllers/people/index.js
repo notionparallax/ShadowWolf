@@ -24,18 +24,11 @@ function($scope, People, Session, Search, GA) {
     }
     return results;
   }
-  $scope.searchResults = getDefaultSearchResults();
-
-
-  People.getPeople().$promise.then(function(people) {
-    $scope.searchResults = people;
-  });
+  $scope.searchResults = People.getPeople();
 
   $scope.$watch('searchQuery', function(newValue) {
     if ($scope.searchQuery === undefined) return;
-    People.getPeople().$promise.then(function(people) {
-      $scope.searchResults = people.filter($scope.compareTo(newValue));
-    });
+    $scope.searchResults = People.getPeople().filter($scope.compareTo(newValue));
   });
   $scope.logKey = function($event) {
     var category = 'search',

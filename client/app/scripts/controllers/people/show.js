@@ -2,26 +2,23 @@
 
 angular.module('ShadowWolf')
 .controller('PeopleShowController',
-function($scope, Person, $routeParams, Session, $location, Lens, Flash, Beowulf) {
+function($scope, Person, $routeParams, Session, $location, Lens, Flash, Beowulf, Projects) {
   $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
   $scope._person = function() { return Person.get($routeParams.personId); };
-  $scope._person().$promise.then(function(person) {
-    $scope.slides = [{image: person.employee.photo.bw,    text:""},
-                    {image: person.employee.photo.colour, text:""},
-                    {image: person.employee.photo.fun,    text:""}];
+  $scope._person().$promise.then(function(newValue){
+    $scope.person = newValue;
+    if (!$scope.person.employee) $scope.slides = [];
+    else $scope.slides = [{image: newValue.employee.photo.bw,    text:""},
+                          {image: newValue.employee.photo.colour, text:""},
+                          {image: newValue.employee.photo.fun,    text:""}];
   });
   $scope.$watch('_person()', function(newValue) {
     $scope.person = newValue;
-    if (!$scope.person.employee) $scope.person.employee = { photo : {} };
-    $scope.slides = [{image: newValue.employee.photo.bw,    text:""},
-                    {image: newValue.employee.photo.colour, text:""},
-                    {image: newValue.employee.photo.fun,    text:""}];
+    if (!$scope.person.employee) $scope.slides = [];
+    else $scope.slides = [{image: newValue.employee.photo.bw,    text:""},
+                          {image: newValue.employee.photo.colour, text:""},
+                          {image: newValue.employee.photo.fun,    text:""}];
   });
-
-  $scope.slides = function() {
-    return slideValues;
-  };
-
   $scope.isUser = function() {
     return !!Session.getPersonId();
   };
@@ -44,6 +41,8 @@ function($scope, Person, $routeParams, Session, $location, Lens, Flash, Beowulf)
     }
   };
   $scope.getRelatedProjects = function() {
-    return Beowulf.getProjects($scope.person.employee.login);
+    if (!$scope.person.employee) return [];
+    var projectNumbers = Beowulf.getProjectNumbers($scope.person.employee.login);
+    return Projects.getProjects(projectNumbers);
   };
 });
