@@ -244,28 +244,37 @@ a#LogIn {
 
 @media print{
     @page {
+        size: 21cm 28cm;
         margin: 0.5cm;
     }
     //:root{-webkit-print-color-adjust:exact}
-    * {-webkit-print-color-adjust:exact;}
-    .demo{
-        height: 500px;
-        flex-basis: 500px;
-        margin: 3px;
+    body{overflow:visible;}
+    * {
+        -webkit-print-color-adjust:exact;
+        color: inherit;
+        float: none  !important;
+        color: white !important;
     }
-    div{
+    .navbar, .problem-btn, #searchBar, .value-tweet-container  {
+        display: none;
+    }
+    .flex-container{
+        display: block;
+        &> div:nth-child(6n){page-break-after: always;}
+        // &> div:nth-child(7){page-break-before:always;}
+    }
+    .demo{
+        height:7cm;
+        width: 7cm;
+        margin: 0.1cm;
+        display: inline-block;
         page-break-inside: avoid;
     }
     .details h1 {
-        font-size: 50px;
+        font-size: 0.8cm;
     }
     .info-box{
-        border: 1px dashed silver;
-    }
-    .drawer-in {
-        top: 8%;
-    }
-    .navbar, .problem-btn{
-        display: none;
+        //border: 0.05cm dashed silver;
+        background-size: cover !important;
     }
 }
