@@ -83,9 +83,11 @@
     h1{
         color: red;
         font-size: 125%;
-        span.small {
-            color: white;
-            }
+        .primary  {}
+        .secondary{}
+        .number   {
+            text-transform: uppercase;
+        }
     }
 }
 .problem-btn {

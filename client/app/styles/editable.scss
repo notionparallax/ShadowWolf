@@ -3,8 +3,8 @@ div[contenteditable="true"]{
     border: 1px solid silver;
     padding: 0.5em;
 }
-div.editable-text-display {
-    // max-height: 6em;
+.editable-text-display div {
+  margin-bottom: 0.5em;
 }
 
 .editable-lable, .editable-text{
