@@ -1,7 +1,9 @@
 <section dissabled-ng-show="person.employee.project_experiences" class="row">
   <h4> Experience at BVN</h4>
   <ul class="personal-project-list">
-    <li ng-repeat="project in getRelatedProjects()"><img src="http://goo.gl/6ymmw2"><a href="projects/{{project}}">The project name ({{project}})</a></li>
+    <li ng-repeat="project in getRelatedProjects()">
+      <img ng-src="{{project.img}}"><a href="#/projects/{{project|id}}">{{project.project_number}}</a>
+    </li>
   </ul>
 </section>
 

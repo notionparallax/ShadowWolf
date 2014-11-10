@@ -12,6 +12,8 @@
 </editable-group>
 
 <h3>Team</h3>
-<ul>
-  <li ng-repeat="person in getRelatedPeople()">{{person}}</li>
+<ul class="personal-project-list">
+  <li ng-repeat="person in getRelatedPeople()">
+    <img ng-src="{{person.employee.photo.bw || 'images/fb_stormtrooper.jpg'}}"><a href="#/people/{{person|id}}">{{person.name.preferred_first}} {{person.name.preferred_last}}</a>
+  </li>
 </ul>
