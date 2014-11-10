@@ -14,7 +14,8 @@
   <display-box
               ng-repeat="p in searchResults | orderBy:sortFunctions | limitTo:limit track by $id(p)"
               class="{{stormtrooperClass}}"
-              title-text="{{p.name.preferred_first}} {{p.name.preferred_last}}"
+              title-text-one="{{p.name.preferred_first}}"
+              title-text-two="{{p.name.preferred_last}}"
               body-text="{{ p.employee.contact.extension }}"
               img-src="{{p.employee.photo.bw}}"
               condition='{{p.current_condition_name}}'

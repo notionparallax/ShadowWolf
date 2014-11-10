@@ -7,7 +7,8 @@ angular.module('ShadowWolf')
         replace: true,
         templateUrl: 'scripts/directives/display_box.html',
         scope: {
-          titleText:    "@",
+          titleTextOne: "@",
+          titleTextTwo: "@",
           bodyText:     "@",
           imgSrc:       "@",
           redirectLink: "@",

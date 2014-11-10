@@ -13,12 +13,14 @@
   <a ng-href="{{redirectLink}}"
      analytics-on="click"
      analytics-event="open a person"
-     analytics-label="{{getCurrentUserLogin()}} clicked {{titleText}}"
+     analytics-label="{{getCurrentUserLogin()}} clicked {{titleTextOne}} {{titleTextTwo}}"
      analytics-category="displayBox">
 
     <div class="name-container">
       <h1>
-        {{titleText}}&nbsp;<span class="small">{{bodyText}}</span>
+        <span class="primary"  >{{titleTextOne}}</span> 
+        <span class="secondary">{{titleTextTwo}}</span> 
+        <span class="number"   >{{bodyText}}</span>
       </h1>
     </div>
 
