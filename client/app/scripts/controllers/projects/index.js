@@ -8,7 +8,13 @@ function($scope, Projects, Session, Search) {
   searchBar.focus();
   $scope.searchResults = Projects.getProjects();
   $scope.$watch('searchQuery', function(newValue) {
-    $scope.searchResults = Projects.getProjects().filter($scope.compareTo(newValue));
+    var projects = Projects.getProjects();
+    var results = [];
+    var matches = $scope.compareTo(newValue);
+    for (var p in projects) {
+      if (matches( projects[p] )) results.push(projects[p]);
+    }
+    $scope.searchResults = results;
   });
 
   $scope.getKittenImage = function(i) {
@@ -26,9 +32,7 @@ function($scope, Projects, Session, Search) {
     };
   };
   $scope.showMore = function() { // boolean
-    var x = $scope.searchQuery == '' && $scope.searchResults.length > $scope.limit;
-    console.log(x, $scope.searchQuery, $scope.searchResults.length, $scope.limit);
-    return x;
+    return $scope.searchQuery == '' && $scope.searchResults.length > $scope.limit;
   };
   $scope.showAll = function() { // side effect
     $scope.limit = $scope.searchResults.length;

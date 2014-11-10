@@ -10,7 +10,7 @@
 
 <div class="row flex-container" infinite-scroll="loadMoreResults()">
   <!--start a project/person box as a directive-->
-  <display-box ng-repeat="p in searchResults | limitTo:60 track by $id(p)"
+  <display-box ng-repeat="p in searchResults | limitTo:limit track by $id(p)"
               title-text="{{ p.building.phases[0].project_name || p.project_number + ' (no project name)'}}"
               body-text="{{p.project_number}}"
               img-src="{{p.img || getKittenImage($index) }}"

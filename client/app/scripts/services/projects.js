@@ -28,7 +28,7 @@ angular.module('ShadowWolf')
     }
   });
   this.getProjects = function(projectNumbers) { 
-    if (!projectNumbers) return projects;
+    if (!projectNumbers) return _projects;
     else {
       var projectResults = projectNumbers.map(function(projectNumber) {
         return _projects[projectNumber];

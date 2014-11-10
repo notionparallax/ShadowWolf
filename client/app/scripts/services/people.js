@@ -25,14 +25,12 @@ angular.module('ShadowWolf')
   initPeople().$promise.then(function(people) {
     for (var p in people) {
       var person = people[p];
-      if (person.employee.login == null) debugger;
       _people[person.employee.login.toLowerCase()] = person;
     }
   });
   this.getPeople = function(logins) {
     if (!logins) return _people;
     else return logins.map(function(login) {
-      console.log(_people,_people[login]);
       return _people[login.toLowerCase()];
     }).filter(function(person) { return person !== undefined; });
   };

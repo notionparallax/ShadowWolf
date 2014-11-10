@@ -14,6 +14,6 @@
 <h3>Team</h3>
 <ul class="personal-project-list">
   <li ng-repeat="person in getRelatedPeople()">
-    <img ng-src="{{person.img}}"><a href="#/people/{{person|id}}">{{person.employee.login}} - {{person.name.preferred_list}} {{person.name.preferred_last}}</a>
+    <img ng-src="{{person.employee.photo.bw || 'images/fb_stormtrooper.jpg'}}"><a href="#/people/{{person|id}}">{{person.name.preferred_first}} {{person.name.preferred_last}}</a>
   </li>
 </ul>
