@@ -242,6 +242,49 @@ a#LogIn {
     }
 }
 
+////////////////////////////////
+// stylesheet for place cards //
+////////////////////////////////
+// @media print{
+//     @page {
+//         size: 21cm 28cm;
+//         margin: 0.5cm;
+//     }
+//     //:root{-webkit-print-color-adjust:exact}
+//     body{overflow:visible;}
+//     * {
+//         -webkit-print-color-adjust:exact;
+//         color: inherit;
+//         float: none  !important;
+//         color: white !important;
+//     }
+//     .navbar, .problem-btn, #searchBar, .value-tweet-container  {
+//         display: none;
+//     }
+//     .flex-container{
+//         display: block;
+//         &> div:nth-child(6n){page-break-after: always;}
+//         // &> div:nth-child(7){page-break-before:always;}
+//     }
+//     .demo{
+//         height:7cm;
+//         width: 7cm;
+//         margin: 0.1cm;
+//         display: inline-block;
+//         page-break-inside: avoid;
+//     }
+//     .details h1 {
+//         font-size: 0.8cm;
+//     }
+//     .info-box{
+//         //border: 0.05cm dashed silver;
+//         background-size: cover !important;
+//     }
+// }
+
+/////////////////////////////////
+// stylesheet for printed list //
+/////////////////////////////////
 @media print{
     @page {
         size: 21cm 28cm;
@@ -252,29 +295,38 @@ a#LogIn {
     * {
         -webkit-print-color-adjust:exact;
         color: inherit;
-        float: none  !important;
-        color: white !important;
+        //float: none  !important;
+        //color: black !important;
     }
     .navbar, .problem-btn, #searchBar, .value-tweet-container  {
         display: none;
     }
     .flex-container{
         display: block;
-        &> div:nth-child(6n){page-break-after: always;}
-        // &> div:nth-child(7){page-break-before:always;}
     }
     .demo{
-        height:7cm;
-        width: 7cm;
+        height:1cm;
+        width: 100%;
         margin: 0.1cm;
-        display: inline-block;
+        display: block;
         page-break-inside: avoid;
     }
-    .details h1 {
-        font-size: 0.8cm;
+    .name-container {
+        left: 1cm;
+        h1 {
+            //font-size: 0.4cm;
+            .primary  {font-weight: bold;}
+            .secondary{}
+            .number   {
+                font-weight: bold;
+                float: left;
+                margin-right: 1em;
+            }
+        }
     }
     .info-box{
-        //border: 0.05cm dashed silver;
-        background-size: cover !important;
+        background-size:   contain   !important;
+        background-repeat: no-repeat !important;
+        background-position: 0 0;
     }
 }
