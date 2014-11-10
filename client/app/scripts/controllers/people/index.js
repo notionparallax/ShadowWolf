@@ -24,18 +24,17 @@ function($scope, People, Session, Search, GA) {
     }
     return results;
   }
-  $scope.searchResults = getDefaultSearchResults();
-
-
-  People.getPeople().$promise.then(function(people) {
-    $scope.searchResults = people;
-  });
+  $scope.searchResults = People.getPeople();
 
   $scope.$watch('searchQuery', function(newValue) {
     if ($scope.searchQuery === undefined) return;
-    People.getPeople().$promise.then(function(people) {
-      $scope.searchResults = people.filter($scope.compareTo(newValue));
-    });
+    var people = People.getPeople();
+    var results = [];
+    var matches = $scope.compareTo(newValue);
+    for (var p in people) {
+      if (matches( people[p] )) results.push(people[p]);
+    }
+    $scope.searchResults = results;
   });
   $scope.logKey = function($event) {
     var category = 'search',
@@ -74,9 +73,7 @@ function($scope, People, Session, Search, GA) {
     'random_number'
   ];
   $scope.showMore = function() { // boolean
-    var x = $scope.searchQuery == '' && $scope.searchResults.length > $scope.limit;
-    console.log(x, $scope.searchQuery, $scope.searchResults.length, $scope.limit);
-    return x;
+    return $scope.searchQuery == '' && $scope.searchResults.length > $scope.limit;
   };
   $scope.showAll = function() { // side effect
     $scope.limit = $scope.searchResults.length;

@@ -10,6 +10,7 @@ json.array!(@people) do |person|
     json.current_condition_name 'Unknown'
   end
   json.employee do
+    json.login person.employee.login
     json.value_tweet person.employee.value_tweet
     json.contact do
       json.partial! "employee_contacts/employee_contact.json.jbuilder", contact: person.employee.contact

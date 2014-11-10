@@ -21,8 +21,19 @@ angular.module('ShadowWolf')
   $http.defaults.useXDomain = true;
 
   var _People = $resource(Config.getEndPoint() + '/people.json');
-  var _people = initPeople();
-  this.getPeople = function() { return _people; };
+  var _people = {};
+  initPeople().$promise.then(function(people) {
+    for (var p in people) {
+      var person = people[p];
+      _people[person.employee.login.toLowerCase()] = person;
+    }
+  });
+  this.getPeople = function(logins) {
+    if (!logins) return _people;
+    else return logins.map(function(login) {
+      return _people[login.toLowerCase()];
+    }).filter(function(person) { return person !== undefined; });
+  };
   this.getPerson = function(id) {
     for (var p in _people) {
       var person = _people[p];
