@@ -85,3 +85,15 @@ prodflask:
   ports:
     - $MSSQL_SERVER::1433
     - 9001:9001
+devtests:
+  build: tests
+  volumes:
+    - server:/ShadowWolf/server
+    - tests:/ShadowWolf/tests
+  working_dir: /ShadowWolf/tests
+  links:
+    - devmongo:mongo
+    - devrails:server
+    - devflask:beowulf
+    - devgrunt:grunt
+  command: bundle exec cucumber .

@@ -25,7 +25,9 @@ angular.module('ShadowWolf')
   initPeople().$promise.then(function(people) {
     for (var p in people) {
       var person = people[p];
-      _people[person.employee.login.toLowerCase()] = person;
+      if (person.employee && person.employee.login) {
+        _people[person.employee.login.toLowerCase()] = person;
+      }
     }
   });
   this.getPeople = function(logins) {

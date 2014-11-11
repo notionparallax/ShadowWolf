@@ -1,0 +1,8 @@
+source 'https://rubygems.org'
+if File.exists?('../server/Gemfile') then
+    eval File.read('../server/Gemfile'), nil, 'Gemfile.devel'
+end
+gem 'cucumber' 
+gem 'poltergeist' 
+gem 'capybara' 
+gem 'aruba'
