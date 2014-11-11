@@ -24,9 +24,12 @@ function($scope, Projects, Session, Search) {
   $scope.compareTo = function(query) {
     return function(project) {
       if(!query || !project) return true;
+      var phase = {};
+      if (project.building && project.building.phases)
+        phase = project.building.phases[0];
       var matchAgainst =
             [ (project.project_number || "")
-            , (project.project_name || "")
+            , (phase.project_name || "")
             ];
       return Search.search(query, matchAgainst);
     };
