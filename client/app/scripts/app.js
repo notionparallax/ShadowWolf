@@ -39,7 +39,7 @@ angular.module('ShadowWolf', ['ngResource',
       })
       .when('/extras', {
         templateUrl: 'views/misc_page/index.html',
-        controller: 'ProjectsShowController'
+        controller: 'ExtrasController'
       })
       .otherwise({
         redirectTo: '/people/'
