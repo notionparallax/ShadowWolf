@@ -93,7 +93,7 @@ devtests:
   working_dir: /ShadowWolf/tests
   links:
     - devmongo:mongo
-    - devrails:server
+    - devrails:rails
     - devflask:beowulf
     - devgrunt:grunt
-  command: bundle exec cucumber .
+  command: bundle exec cucumber features
