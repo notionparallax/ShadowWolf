@@ -1,3 +1,4 @@
+require 'json'
 require 'cucumber'
 require 'capybara'
 require 'capybara/cucumber'
@@ -13,14 +14,13 @@ Before do
 end
 
 Given /there are 10 (.*) in the database/ do |model|
-  puts model.singularize.to_sym
   FactoryGirl.create_list model.singularize.to_sym, 10
 end
 
-When /I visit the (.*) (.*) index/ do |service,model|
+When /I visit the (.*) (.*) index/ do |service,path|
   service_address = ENV["#{service.upcase}_PORT"].gsub(/^tcp/,'http')
-  visit service_address + '/#/' + model
-  visit service_address + '/#/' + model
+  visit service_address + path
+  visit service_address + path
 end
 
 Then /there should be 10 display boxes/ do
@@ -32,5 +32,10 @@ Then /there should be 10 display boxes/ do
 end
 
 Then /there should be 10 json (.*)/ do |model|
-  raise 'not implemented'
+  klass = model.singularize.classify.constantize
+  object_ids = JSON.parse(find('pre').text).map do |p|
+    p['id']['$oid'] 
+  end
+  objects_in_db = klass.find object_ids
+  raise "10 #{model.pluralize} not found" unless objects_in_db.count == 10
 end
