@@ -40,6 +40,15 @@ Feature: Search Bar
     And   I type 'Sydney' into the searchBar
     Then  there should be 2 display boxes
 
+  Scenario: Typing first and last name into the search bar
+    Given the following people:
+      | first_name | last_name | studio   | login  |
+      |    Alex    |   King    | Sydney   | aking  |
+      |    Alex    |   Smith   | Sydney   | ssmith |
+      |    Jack    |   White   | Brisbane | jwhite |
+    When  I visit the grunt /#/people index
+    And   I type 'Alex King' into the searchBar
+    Then  there should be 1 display box
 
   Scenario: Loading projects index
     Given the following projects:
@@ -70,3 +79,23 @@ Feature: Search Bar
     When  I visit the grunt /#/projects index
     And   I type 'bunker' into the searchBar
     Then  there should be 1 display boxes
+
+  Scenario: More than 60 projects
+    Given there are 61 projects in the database
+    When  I visit the grunt /#/projects index
+    Then  there should be 60 display boxes
+    And   the 'Show all' a tag should be present
+
+  Scenario: More than 60 projects click show all
+    Given there are 61 projects in the database
+    When  I visit the grunt /#/projects index
+    And   I click the 'Show all' a tag
+    Then  there should be 61 display boxes
+    And   the 'Show all' a tag should not be present
+
+  Scenario: More than 60 people click show all
+    Given there are 61 people in the database
+    When  I visit the grunt /#/people index
+    And   I click the 'Show all' a tag
+    Then  there should be 61 display boxes
+    And   the 'Show all' a tag should not be present

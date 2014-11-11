@@ -42,14 +42,19 @@ Given /the following (.*):/ do |model,objects|
   end
 end
 
-Given /there are 10 (.*) in the database/ do |model|
-  FactoryGirl.create_list model.singularize.to_sym, 10
+Given /there are (\d+) (.*) in the database/ do |n,model|
+  FactoryGirl.create_list model.singularize.to_sym, n.to_i
 end
 
 When /I visit the (.*) (.*) index/ do |service,path|
-  service_address = ENV["#{service.upcase}_PORT"].gsub(/^tcp/,'http')
+  service_address =
+    ENV["#{service.upcase}_PORT"].gsub(/^tcp/,'http')
   visit service_address + path
   visit service_address + path
+end
+
+When /I click the '(.*)' (.*) tag/ do |text,element|
+  find( element, text: text ).trigger 'click'
 end
 
 When /I type '(.*)' into the (.*)/ do |text,element|
@@ -61,6 +66,14 @@ Then /there should be (\d+) display box/ do |n|
   count = all('.info-box').count 
   if count != n.to_i 
     raise "Expected #{n} display boxes, found: #{count}"
+  end
+end
+
+Then /the '(.*)' (.*) tag should( not)? be present/ do |text,element,negate|
+  if negate
+    assert_no_selector element, text: text
+  else
+    assert_selector element, text: text
   end
 end
 
