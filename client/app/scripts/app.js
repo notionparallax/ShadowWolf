@@ -37,6 +37,10 @@ angular.module('ShadowWolf', ['ngResource',
         template: '<span></span>', // doesn't seem to work without some html
         controller: 'CallbackController'
       })
+      .when('/extras', {
+        templateUrl: 'views/misc_page/index.html',
+        controller: 'ProjectsShowController'
+      })
       .otherwise({
         redirectTo: '/people/'
       });
