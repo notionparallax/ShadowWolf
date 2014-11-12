@@ -12,6 +12,7 @@
          tooltip-trigger="mouseenter"><!--data area-->
       <div ng-show="!editorEnabled"
          class="form-control-static editable editable-text editable-output"
+         tabindex=0
          ng-click="enableEditor($event)"
          analytics-on="click"
          analytics-event="editable enabled by {{getCurrentUserLogin()}}"
