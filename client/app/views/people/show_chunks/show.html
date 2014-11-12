@@ -11,11 +11,9 @@
                     include "biz-card_.html"
 
                     <p>We have lots of people, with lots of skills. Summarise yourself in 140 characters.</p>
-                    <editable-group object="person"
-                      lens="employee"
-                      subgroup-class="alert alert-info col-xs-12 col-sm-12 col-md-12">
+                    <editable-group object="person" lens="employee" subgroup-class="alert alert-info col-xs-12 col-sm-12 col-md-12">
                         <editable property="value_tweet" label="Your Value" type="textarea">
-                           Explain why people should talk to you in 140 characters or less.
+                            Explain why people should talk to you in 140 characters or less.
                         </editable>
                     </editable-group>
                 </div>
@@ -32,12 +30,25 @@
                                data-show-replies="true"
                               >Tweets by @{{person.contact.social.twitter}}</a>
                         </div> -->
-                    </div><!-- end row -->
+                    </div>
+                    <!-- end row -->
                 </div>
                 <div class="col-sm-4">
                     <div class="row">
                         <div class="col-sm-12">
+                            <editable-group object="person" lens="employee" help-text-display="ht.name">
+                                <editable property="seat_code" label="Seat Code">Each seat has a code. By putting this in it helps people find where you sit.</editable>
+                            </editable-group>
+                        </div>
+                    </div><!-- end row -->
+                    <div class="row">
+                        <div class="col-sm-12">
                             include "studioMap_.html"
+                        </div>
+                    </div><!-- end row -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>Soon this map will show where you sit.</p>
                         </div>
                     </div><!-- end row -->
                 </div>
