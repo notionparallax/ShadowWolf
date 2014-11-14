@@ -339,6 +339,7 @@ svg {
 // stylesheet for printed list //
 /////////////////////////////////
 @media print{
+    //all people page
     @page {
         size: 21cm 28cm;
         margin: 0.5cm;
@@ -382,4 +383,79 @@ svg {
         background-repeat: no-repeat !important;
         background-position: 0 0;
     }
+
+    //person page
+    div[class^='col-'] {
+        width: 100%;
+        padding: 0;
+    }
+    .alert{
+        border: 0.5mm solid grey;
+    }
+    // .col-md-6 {
+    //     width: 100%;
+    // }
+    // .col-sm-3 {
+    //     width: 23%;
+    // }
+    .tab-content{
+        div{
+            display: block;
+            clear: both;
+        }
+        &> .tab-pane {
+            display: block;
+        }
+    }
+    .explantory-text {
+        color: black;
+        font-size: 4mm;
+        display: block;
+    }
+    .row{
+        page-break-inside: avoid;
+        margin: 0;
+    }
+    label.col-sm-3 {width: inherit;}
+    .form-group{margin:0;}
+    .alert{padding:0; margin: 0;}
+    //editable specific
+    .editable-lable, .editable-text {
+        line-height: initial;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    editable {
+        width: inherit;
+        height: inherit;
+        display: block;
+    }
+
+    .photo-row {
+        &> .col-sm-3{
+            width:32%;
+            display: inline-block;
+            clear: none;
+            .caption{display: none;}
+        }
+        div:nth-child(2) {
+            width: 100%;
+        }
+    }
+
+    .conditions-list > div {
+        width: 20%;
+        display: inline-block;
+        clear: none;
+    }
+
+    // div[tooltip-html-unsafe]:after {
+    //     //temporary way to show the tool tips
+    //     content: attr(tooltip-html-unsafe);
+    //     font-size: xx-small;
+    // }
+    .carousel-col,    .input-group,    input,    .nav-tabs,    .btn, button,    .caption {
+        display: none !important;
+    }
+
 }
