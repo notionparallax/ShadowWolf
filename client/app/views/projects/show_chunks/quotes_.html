@@ -1,10 +1,10 @@
 <h2>Quotes</h2>
-<p class="explantory-text">Explanatory text goes in here</p>
+<p class="explantory-text">We use quotes to give submissions an air of authority and to make them seem more genuine. The more quotes that we can harvest the better.</p>
 <div ng-repeat="quote in project.building.legacy.quotes">
     <editable-group object="project" lens="building.legacy.quotes[{{quote|id}}]" subgroup-class="alert alert-info col-sm-6">
         <editable property="quote"    label="quote"                            >What did someone say?</editable>
         <editable property="citation" label="citation" editable-typahead="true">Who said it?</editable>
         <!--TODO make a context property <editable property="context" label="Context">Where did they say it? In a chat? In the Financial Review?</editable>-->
-        <editable property="date"     label="date"    >What was the context?</editable>
+        <editable property="date"     label="date"                              >When did they say it?</editable>
     </editable-group>
 </div>
