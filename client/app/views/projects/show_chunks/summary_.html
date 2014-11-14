@@ -2,7 +2,7 @@
     <editable property="project_number" label="Project Number">This is the project number. It should just be the part up to the dot, not the dot and the number after e.g. S0809004 not S0809004.GAR. You can't edit it just yet, but that's coming really soon.</editable>
 </editable-group>
 
-<p class="explantory-text">Explanatory text goes in here</p>
+<p class="explantory-text">This is a short, overall summary of the project</p>
 <editable-group object="project" lens="building" subgroup-class="alert alert-info col-sm-12">
     <editable property="description"            label="Description"            type="textarea"         >This is an internal, easy to understand summary of the project.</editable>
     <editable property="attribution"            label="Attribution"            editable-typahead="true">What organisation did this project? We've had many names over our past!</editable>
@@ -12,6 +12,7 @@
 </editable-group>
 
 <h3>Team</h3>
+<p class="explantory-text">This is everyone who has put time against this project.</p>
 <ul class="personal-project-list">
   <li ng-repeat="person in getRelatedPeople()">
     <img ng-src="{{person.employee.photo.bw || 'images/fb_stormtrooper.jpg'}}"><a href="#/people/{{person|id}}">{{person.name.preferred_first}} {{person.name.preferred_last}}</a>
