@@ -19,8 +19,8 @@
 </editable-group>
 <div ng-repeat="building.phases[{{phase|id}}].key_dates" class="">
     <editable-group object="person" lens="conditions[{{condition|id}}]" subgroup-class="alert alert-success">
-        <editable property="date"        label="Date"        type="date"              >This is the label of this period of your life, it will normally be taken from the list above.</editable>
-        <editable property="description" label="Description" editable-typeahead="true">This is the date that this period started. You don't need to put in when it ended becasue that is inferred from the start date of the next period.</editable>
+        <editable property="description" label="Description" editable-typeahead="true">A description of the thing that happened. (Completed DD, start on site etc.).</editable>
+        <editable property="date"        label="Date"        type="date"              >The date that this thing happened.</editable>
         <!-- date: null
         description: null -->
     </editable-group>
