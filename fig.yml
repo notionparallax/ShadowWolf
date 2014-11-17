@@ -50,7 +50,7 @@ devgrunt:
     - "35729:35729"
   volumes:
     - client:/ShadowWolf/client
-  command: grunt server
+  command: pwd && ls && grunt server
 devprotractor:
   image: shadowwolf_dev
   working_dir: /ShadowWolf/client
