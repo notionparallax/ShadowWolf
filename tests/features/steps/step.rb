@@ -51,6 +51,7 @@ When /I visit the (.*) (.*) index/ do |service,path|
     ENV["#{service.upcase}_PORT"].gsub(/^tcp/,'http')
   visit service_address + path
   visit service_address + path
+  sleep 2
 end
 
 When /I click the '(.*)' (.*) tag/ do |text,element|
@@ -59,6 +60,18 @@ end
 
 When /I type '(.*)' into the (.*)/ do |text,element|
   fill_in element, with: text
+end
+
+When /I click on the first project's display box/ do
+  all( '.demo' ).first.all( 'a' ).last.click
+  sleep 5
+end
+When /I click on the project press tab/ do
+  puts all('.demo').count
+  find( '.nav-tabs' ).find( 'a', text: 'Press' ).click
+end
+When /I click on the add attentions button/ do
+  raise 'error'
 end
 
 Then /there should be (\d+) display box/ do |n|
