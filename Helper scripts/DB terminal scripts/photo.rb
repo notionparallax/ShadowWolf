@@ -10,8 +10,23 @@ muppets = ["http://img4.wikia.nocookie.net/__cb20101015151246/muppet/images/0/05
            "http://i2.cdn.turner.com/cnn/dam/assets/130704041649-sesame-street-muppet-elmo-horizontal-gallery.jpg",
            "http://www.aceshowbiz.com/images/still/the-muppets-pic08.jpg"]
 
-#a list of logins of people who don't have photos
-blankPeople = ["",""]
+# kill the muppets
+Person.all.each{|p|
+    if muppets.include? p.employee.photo.bw
+        puts p.employee.login + " is a muppet"
+        p.employee.photo.bw = "http://i134.photobucket.com/albums/q94/juliansaul/gurning.jpg"
+        p.save
+    end
+}
+
+#replace a specific photo
+Person.all.each{|p|
+    if p.employee.login == ""
+        p.employee.photo.bw = ""
+        p.save
+    end
+}
+
 
 Person.all.each{|p|
     #add photo stubs to each person
