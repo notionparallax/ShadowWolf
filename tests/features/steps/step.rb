@@ -1,12 +1,16 @@
+require 'uri'
 require 'json'
 require 'cucumber'
 require 'capybara'
 require 'capybara/cucumber'
 require 'capybara/poltergeist'
+
+ENV['RAILS_ENV'] = 'test'
 require '../server/config/environment' # load the rails app
 
 Capybara.default_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist
+OmniAuth.config.test_mode = true
 
 def create_from_hash klass, hash
   if klass.eql? Person
@@ -35,6 +39,16 @@ Before do
   Project.destroy_all
 end
 
+Given /I am a logged in user/ do
+  grunt_address = ENV['GRUNT_PORT'].gsub(/^tcp/,'http')
+  grunt_address += '/#/callback?'
+  rails_address = ENV['RAILS_PORT'].gsub(/^tcp/,'http')
+  rails_address += '/people/auth/ldap?redirect_uri='
+  rails_address += URI.encode grunt_address
+  visit rails_address
+  sleep 1
+end
+
 Given /the following (.*):/ do |model,objects|
   klass = model.singularize.classify.constantize
   objects.hashes.each do |object|
@@ -50,6 +64,7 @@ When /I visit the (.*) (.*) index/ do |service,path|
   service_address =
     ENV["#{service.upcase}_PORT"].gsub(/^tcp/,'http')
   visit service_address + path
+  sleep 2
   visit service_address + path
   sleep 2
 end
@@ -67,7 +82,6 @@ When /I click on the first project's display box/ do
   sleep 5
 end
 When /I click on the project press tab/ do
-  puts all('.demo').count
   find( '.nav-tabs' ).find( 'a', text: 'Press' ).click
 end
 When /I click on the add attentions button/ do
@@ -104,3 +118,12 @@ Then /the search bar should have focus/ do
     raise 'Search bar should be focused'
   end
 end
+
+When(/^I click the add attentions button$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^a new attentions editable group should appear$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
