@@ -4,9 +4,9 @@ Feature: Project Show
 
   Scenario: Add a new press attention
     Given I am a logged in user
-    And   there are 1 projects in the database
+    And   there is 1 project in the database with only 1 press attentions
     When  I visit the grunt /#/projects index
     And   I click on the first project's display box
     And   I click on the project press tab
     And   I click the add attentions button
-    Then  a new attentions editable group should appear
+    Then  there should be 2 press attention editable groups

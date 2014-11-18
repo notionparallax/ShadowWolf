@@ -60,6 +60,15 @@ Given /there are (\d+) (.*) in the database/ do |n,model|
   FactoryGirl.create_list model.singularize.to_sym, n.to_i
 end
 
+Given /there is 1 project in the database with only 1 press attentions/ do
+  p = FactoryGirl.create :project
+  attention = Attention.new
+  press = BuildingPress.new
+  press.attentions = [attention]
+  p.building.presses = [ press ]
+  p.save
+end
+
 When /I visit the (.*) (.*) index/ do |service,path|
   service_address =
     ENV["#{service.upcase}_PORT"].gsub(/^tcp/,'http')
@@ -119,11 +128,15 @@ Then /the search bar should have focus/ do
   end
 end
 
-When(/^I click the add attentions button$/) do
-  pending # express the regexp above with the code you wish you had
+When /I click the add attentions button/ do
+  all( '[ng-repeat="attention in press.attentions"]' )
+    .last
+    .find( 'a', text: 'Add' )
+    .click
 end
 
-Then(/^a new attentions editable group should appear$/) do
-  pending # express the regexp above with the code you wish you had
+Then /there should be 2 press attention editable groups/ do
+  count = all( '[ng-repeat="attention in press.attentions"]' ).count
+  raise 'Expected 2 press attention editable groups, found: ' + count.to_s if count != 2
 end
 
