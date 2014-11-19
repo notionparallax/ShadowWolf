@@ -52,7 +52,7 @@ angular.module("ShadowWolf")
 
       // Get the name for the label and input tag
       $scope.getName = function() {
-        return $scope.property + $scope.$id;
+        return $scope.label;
       };
 
       $scope.maybeCancelOrSave = function($event) {
