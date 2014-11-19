@@ -60,12 +60,18 @@ Given /there are (\d+) (.*) in the database/ do |n,model|
   FactoryGirl.create_list model.singularize.to_sym, n.to_i
 end
 
-Given /there is 1 project in the database with only 1 press attentions/ do
-  p = FactoryGirl.create :project
-  attention = Attention.new
-  press = BuildingPress.new
-  press.attentions = [attention]
-  p.building.presses = [ press ]
+Given /there is 1 (.*) in the database with (\d+) (.*)/ do |model,n,object|
+  n = n.to_i
+  p = FactoryGirl.create model.to_sym
+  if model == 'project'
+    attention = Attention.new body_text: 'stuff'
+    press = BuildingPress.new
+    press.attentions = [attention]
+    p.building.presses = [ press ]
+  elsif model == 'person'
+    condition = Condition.new
+    p.conditions = [ condition ]
+  end
   p.save
 end
 
@@ -86,15 +92,12 @@ When /I type '(.*)' into the (.*)/ do |text,element|
   fill_in element, with: text
 end
 
-When /I click on the first project's display box/ do
+When /I click on the first (.*)'s display box/ do |model|
   all( '.demo' ).first.all( 'a' ).last.click
   sleep 5
 end
-When /I click on the project press tab/ do
-  find( '.nav-tabs' ).find( 'a', text: 'Press' ).click
-end
-When /I click on the add attentions button/ do
-  raise 'error'
+When /I click on the (.*) (.*) tab/ do |model,tab|
+  find( '.nav-tabs' ).find( 'a', text: tab.capitalize ).click
 end
 
 Then /there should be (\d+) display box/ do |n|
@@ -128,15 +131,53 @@ Then /the search bar should have focus/ do
   end
 end
 
-When /I click the add attentions button/ do
-  all( '[ng-repeat="attention in press.attentions"]' )
+When /I click the add (.*) (.*) button/ do |model,objects|
+  object = objects.singularize
+  all( "[ng-repeat*=\"#{object} in #{model}.#{objects}\"]" )
     .last
     .find( 'a', text: 'Add' )
     .click
+  sleep 2
 end
 
-Then /there should be 2 press attention editable groups/ do
-  count = all( '[ng-repeat="attention in press.attentions"]' ).count
-  raise 'Expected 2 press attention editable groups, found: ' + count.to_s if count != 2
+When /I click on the (.*) editable/ do |property|
+  find( "[property=\"#{property}\"] .editable-output" ).click
 end
 
+When /I submit "(.*)" to the (.*) input/ do |text, name|
+  fill_in( name.capitalize , with: text )
+  find( "[property=\"#{name}\"]" )
+    .find( '.editable-input' )
+    .find( '[title="save"]'  )
+    .click
+  sleep 1
+end
+
+Then /the (.*) editable should display "(.*)"/ do |property,text|
+  actual_text = find( "[property=\"#{property}\"]" )
+    .find( '.editable-output' )
+    .find( 'div' ).text
+  unless actual_text == text
+    raise "Expected #{property} editable's text to be: #{text}, found: #{actual_text}"
+  end
+end
+
+Then /my suffix should equal "Jr."/ do
+  suffix = Person.first.name.suffix
+  unless suffix == 'Jr.'
+    raise "Expected suffix to be 'Jr.', found : #{suffix}"
+  end
+end
+
+Then /there should be 2 (.*) (.*) editable groups/ do |model, object|
+  objects = object.pluralize
+  count = all( "[ng-repeat*=\"#{object} in #{model}.#{objects}\"]" ).count
+  raise "Expected 2 #{model} #{objects} editable groups, found: #{count.to_s}" if count != 2
+end
+
+Then /I should have 1 person in the database with 2 conditions/ do
+  count = Person.count
+  raise 'Expected 1 person found: ' + count if count != 1
+  count = Person.first.conditions.count
+  raise 'Expected 2 conditions found: ' + count if count != 2
+end

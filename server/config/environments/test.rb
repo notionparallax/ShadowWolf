@@ -57,4 +57,7 @@ ShadowWolf::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Flush the dam log
+  config.autoflush_log = true
 end
