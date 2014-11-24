@@ -3,7 +3,7 @@
 <div ng-repeat="quote in project.building.legacy.quotes">
     <editable-group object="project" lens="building.legacy.quotes[{{quote|id}}]" subgroup-class="alert alert-info col-sm-6">
         <editable property="quote"    label="quote"                            >What did someone say?</editable>
-        <editable property="citation" label="citation" editable-typahead="true">Who said it?</editable>
+        <editable property="citation" label="citation" editable-typeahead="true">Who said it?</editable>
         <!--TODO make a context property <editable property="context" label="Context">Where did they say it? In a chat? In the Financial Review?</editable>-->
         <editable property="date"     label="date"    >What was the context?</editable>
     </editable-group>
