@@ -21,3 +21,8 @@ json.quotes do
     json.partial! "quotes/quote.json.jbuilder", quote: quote
   end
 end
+json.initiatives do
+  json.array!(legacy.initiatives) do |initiative|
+    json.partial! "initiatives/initiative.json.jbuilder", initiative: initiative
+  end
+end
