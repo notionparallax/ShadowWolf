@@ -26,7 +26,8 @@ angular.module("ShadowWolf")
 
       // NB: this function only makes sense if isPlural() == true
       $scope.addObject = function() {
-        if (Session.getPersonId() != $scope.object.id.$oid) {
+        if ($scope.objectName == 'person'
+            && Session.getPersonId() != $scope.object.id.$oid) {
           var name = $scope.object.name.preferred_first || $scope.name.first;
           Flash.add({
             template: '<p>You need to be logged in as ' + name + ' to create more.</p>'
@@ -36,7 +37,7 @@ angular.module("ShadowWolf")
         var newObject = { id: null };
         var parentLens = $scope.lens.slice(0,$scope.lens.lastIndexOf('['));
         var objects = Lens.get($scope.object,parentLens);
-        //objects.push(newObject);
+        objects.push(newObject);
 
         // TODO refactor this along with `removeObject`
         var updateObject = {};
@@ -47,13 +48,13 @@ angular.module("ShadowWolf")
           function(result){
           Models.set($scope.objectName)(result);
           console.log("successfully created");
-        }, function(){
+        }, function() {
           console.log("unsuccessfully created");
           Flash.add({
             template: "<p>Unable to create a new object at this time. Please check your connection and try again.</p>",
             css: "flash-fail"
           }, 5000);
-          $scope.target().splice($scope.target().indexOf(newObject), 1);
+          objects.splice(objects.indexOf(newObject), 1);
         });
       };
       // NB: this function only makes sense if isPlural() == true

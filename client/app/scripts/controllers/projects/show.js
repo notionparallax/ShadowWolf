@@ -4,6 +4,7 @@ angular.module('ShadowWolf')
 .controller('ProjectsShowController',
 function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf, People) {
   if (!Session.getPersonId()) {
+    console.error('non logged in user tried to access projects');
     Flash.add({
       template: '<p>You must be logged in to view that page.</p>',
       css: 'flash-fail'

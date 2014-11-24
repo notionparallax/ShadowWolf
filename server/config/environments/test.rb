@@ -1,4 +1,28 @@
 ShadowWolf::Application.configure do
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:ldap] = OmniAuth::AuthHash.new({
+    provider: 'ldap',
+    info: {
+      first_name: 'Fred',
+      last_name: 'Son of Fred',
+      email: 'fred@clan_of_freds.com'
+    },
+    extra: {
+      raw_info: {
+        samaccountname: 'duuude'
+      }
+    }
+  })
+  request = Struct.new(:env).new({})
+  request.env["devise.mapping"] = Devise.mappings[:user]
+  request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:ldap]
+
+  config.middleware.use Rack::Cors do
+    allow do
+      origins '*'
+      resource '*', :headers => :any, :methods => [:get, :options, :patch]
+    end
+  end
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's
@@ -33,4 +57,7 @@ ShadowWolf::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Flush the dam log
+  config.autoflush_log = true
 end

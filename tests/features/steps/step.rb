@@ -1,12 +1,16 @@
+require 'uri'
 require 'json'
 require 'cucumber'
 require 'capybara'
 require 'capybara/cucumber'
 require 'capybara/poltergeist'
+
+ENV['RAILS_ENV'] = 'test'
 require '../server/config/environment' # load the rails app
 
 Capybara.default_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist
+OmniAuth.config.test_mode = true
 
 def create_from_hash klass, hash
   if klass.eql? Person
@@ -35,6 +39,16 @@ Before do
   Project.destroy_all
 end
 
+Given /I am a logged in user/ do
+  grunt_address = ENV['GRUNT_PORT'].gsub(/^tcp/,'http')
+  grunt_address += '/#/callback?'
+  rails_address = ENV['RAILS_PORT'].gsub(/^tcp/,'http')
+  rails_address += '/people/auth/ldap?redirect_uri='
+  rails_address += URI.encode grunt_address
+  visit rails_address
+  sleep 1
+end
+
 Given /the following (.*):/ do |model,objects|
   klass = model.singularize.classify.constantize
   objects.hashes.each do |object|
@@ -46,11 +60,28 @@ Given /there are (\d+) (.*) in the database/ do |n,model|
   FactoryGirl.create_list model.singularize.to_sym, n.to_i
 end
 
+Given /there is 1 (.*) in the database with (\d+) (.*)/ do |model,n,object|
+  n = n.to_i
+  p = FactoryGirl.create model.to_sym
+  if model == 'project'
+    attention = Attention.new body_text: 'stuff'
+    press = BuildingPress.new
+    press.attentions = [attention]
+    p.building.presses = [ press ]
+  elsif model == 'person'
+    condition = Condition.new
+    p.conditions = [ condition ]
+  end
+  p.save
+end
+
 When /I visit the (.*) (.*) index/ do |service,path|
   service_address =
     ENV["#{service.upcase}_PORT"].gsub(/^tcp/,'http')
   visit service_address + path
+  sleep 2
   visit service_address + path
+  sleep 2
 end
 
 When /I click the '(.*)' (.*) tag/ do |text,element|
@@ -59,6 +90,14 @@ end
 
 When /I type '(.*)' into the (.*)/ do |text,element|
   fill_in element, with: text
+end
+
+When /I click on the first (.*)'s display box/ do |model|
+  all( '.demo' ).first.all( 'a' ).last.click
+  sleep 5
+end
+When /I click on the (.*) (.*) tab/ do |model,tab|
+  find( '.nav-tabs' ).find( 'a', text: tab.capitalize ).click
 end
 
 Then /there should be (\d+) display box/ do |n|
@@ -90,4 +129,55 @@ Then /the search bar should have focus/ do
   if evaluate_script('document.activeElement.id') != 'searchBar'
     raise 'Search bar should be focused'
   end
+end
+
+When /I click the add (.*) (.*) button/ do |model,objects|
+  object = objects.singularize
+  all( "[ng-repeat*=\"#{object} in #{model}.#{objects}\"]" )
+    .last
+    .find( 'a', text: 'Add' )
+    .click
+  sleep 2
+end
+
+When /I click on the (.*) editable/ do |property|
+  find( "[property=\"#{property}\"] .editable-output" ).click
+end
+
+When /I submit "(.*)" to the (.*) input/ do |text, name|
+  fill_in( name.capitalize , with: text )
+  find( "[property=\"#{name}\"]" )
+    .find( '.editable-input' )
+    .find( '[title="save"]'  )
+    .click
+  sleep 1
+end
+
+Then /the (.*) editable should display "(.*)"/ do |property,text|
+  actual_text = find( "[property=\"#{property}\"]" )
+    .find( '.editable-output' )
+    .find( 'div' ).text
+  unless actual_text == text
+    raise "Expected #{property} editable's text to be: #{text}, found: #{actual_text}"
+  end
+end
+
+Then /my suffix should equal "Jr."/ do
+  suffix = Person.first.name.suffix
+  unless suffix == 'Jr.'
+    raise "Expected suffix to be 'Jr.', found : #{suffix}"
+  end
+end
+
+Then /there should be 2 (.*) (.*) editable groups/ do |model, object|
+  objects = object.pluralize
+  count = all( "[ng-repeat*=\"#{object} in #{model}.#{objects}\"]" ).count
+  raise "Expected 2 #{model} #{objects} editable groups, found: #{count.to_s}" if count != 2
+end
+
+Then /I should have 1 person in the database with 2 conditions/ do
+  count = Person.count
+  raise 'Expected 1 person found: ' + count if count != 1
+  count = Person.first.conditions.count
+  raise 'Expected 2 conditions found: ' + count if count != 2
 end

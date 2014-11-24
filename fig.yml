@@ -93,7 +93,29 @@ devtests:
   working_dir: /ShadowWolf/tests
   links:
     - devmongo:mongo
-    - devrails:rails
+    - testrails:rails
     - devflask:beowulf
-    - devgrunt:grunt
+    - testgrunt:grunt
   command: bundle exec cucumber features
+testrails:
+  image: shadowwolf_dev
+  working_dir: /ShadowWolf/server
+  links:
+    - devmongo:mongo
+  expose:
+    - 3000
+  volumes:
+    - server:/ShadowWolf/server
+  command: rails server -e test
+testgrunt:
+  image: shadowwolf_dev
+  working_dir: /ShadowWolf/client
+  links:
+    - testrails:server
+    - devflask:beowulf
+  ports:
+    - "9000:9000"
+    - "35729:35729"
+  volumes:
+    - client:/ShadowWolf/client
+  command: grunt server
