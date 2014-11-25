@@ -95,6 +95,41 @@ angular.module("ShadowWolf")
         $scope.editorEnabled = false;
       };
 
+      $scope.removeTag = function(tag) {
+        var tagIndex = $scope.subobject[$scope.property].indexOf(tag);
+        $scope.subobject[$scope.property].splice(tagIndex, 1);
+        $scope.editable.value = $scope.subobject[$scope.property];
+        $scope.save();
+      };
+
+      $scope.tagsKeyUp = function($event) {
+        switch ($event.which) {
+          case 13 /*Enter*/:
+            $scope.subobject[$scope.property] = $scope.subobject[$scope.property].push( $scope.editable.newTag );
+            $scope.editable.newTag = '';
+            $scope.save();
+            break;
+          case 27 /*Esc*/:
+            $scope.editable.newTag
+            $scope.disableEditor();
+            break;
+        }
+      };
+      $scope.getTags = function($query) {
+        var tags = $scope.object.building.legacy.initiatives.map(
+          function(initiative) { return initiative.tags; }
+        ).reduce(function(acc,next) { return acc.concat(next); }, [])
+        var tagsFound = {};
+        tags = tags.filter(function(tag) {
+          if (tagsFound[tag]) return false;
+          else {
+            tagsFound[tag] = true;
+            return tag.indexOf($query) >= 0;
+          }
+        });
+        return tags;
+      };
+
       /**
        * Saves the edited value in the rails database. If the subobject and sublens
        * variables exist then it will send all of the sibling values back to the

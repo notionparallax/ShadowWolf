@@ -1,9 +1,10 @@
 <h2>Initiatives</h2>
 <p class="explantory-text">Explanatory text goes in here</p>
-<div ng-repeat="initiaive in project.building.legacy.initiavies">
-    <editable-group object="project" lens="building.legacy.esd.initiatives[{{initiative|id}}]" subgroup-class="alert alert-info col-sm-6">
+<div ng-repeat="initiative in project.building.legacy.initiatives">
+    <editable-group object="project" lens="building.legacy.initiatives[{{initiative|id}}]" subgroup-class="alert alert-info col-sm-6">
         <editable property="title"       label="title"       editable-typahead="true">What was the thing that you did? (Think of this as a title.)</editable>
         <editable property="reason"      label="reason"      editable-typahead="true">Why did you do it? (Briefly)</editable>
         <editable property="description" label="description" type="textarea"         >Write a bit more about it here. What was the story?</editable>
+        <editable property="tags"       label="tags"        type="tags"             ></editable>
     </editable-group>
 </div>

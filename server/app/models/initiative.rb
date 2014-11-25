@@ -7,4 +7,5 @@ class Initiative
   field :title, type: String
   field :reason, type: String
   field :description, type: String
+  field :tags, type: Array
 end

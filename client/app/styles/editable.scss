@@ -62,3 +62,25 @@ editable-group[lens="employee.photo"] div.editable-text-display {
     word-wrap: break-word;
     padding-right: 2em;
 }
+
+.tags {
+  display: inline-block;
+  .tag-input {
+    cursor: text;
+    float: right;
+    display: inline-block;
+  }
+  ul.tag-list {
+    list-style-type: none;
+    display: inline-block;
+    li.tag-item {
+      margin: 2px;
+      padding: 0px 5px;
+      display: inline-block;
+      float: left;
+      border: 1px solid #ACACAC;
+      border-radius: 3px;
+      background: linear-gradient(to bottom, #F0F9FF 0px, #CBEBFF 47%, #A1DBFF 100%) repeat scroll 0% 0% transparent;
+    }
+  }
+}

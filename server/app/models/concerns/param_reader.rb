@@ -10,8 +10,13 @@ module ParamReader
     changes.keys.each do |key|
       subobject, subchange = object.send(key), changes[key]
       if changes[key].class == Array
-        array_class = object.class.embedded_relations[key].klass
-        apply_array_changes object, array_class, subobject, subchange
+        relation = object.class.embedded_relations[key]
+        if relation
+          array_class = relation.klass
+          apply_array_changes object, array_class, subobject, subchange
+        else # it's an array of values to set
+          object.send("#{key}=", changes[key])
+        end
       elsif changes[key].class.ancestors.include? ActiveSupport::HashWithIndifferentAccess
         apply_changes subobject, subchange
       else
@@ -29,6 +34,7 @@ module ParamReader
       else # find element in db
         db_elem = array.find(id)
       end
+      
       if elem.class == String # destroy
         db_elem.destroy
       else # update

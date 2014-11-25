@@ -2,7 +2,7 @@
 
 angular.module('ShadowWolf')
 .controller('ProjectsShowController',
-function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf, People) {
+function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf, People,$q) {
   if (!Session.getPersonId()) {
     console.error('non logged in user tried to access projects');
     Flash.add({
