@@ -34,7 +34,7 @@ angular.module('ShadowWolf')
         return _projects[projectNumber];
     }).filter(function(project) { return project !== undefined }); 
       projectResults.map(function(project){
-        console.log(project.img);
+        
       });
       return projectResults;
     }

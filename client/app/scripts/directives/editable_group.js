@@ -47,9 +47,9 @@ angular.module("ShadowWolf")
           updateObject,
           function(result){
           Models.set($scope.objectName)(result);
-          console.log("successfully created");
+          
         }, function() {
-          console.log("unsuccessfully created");
+          
           Flash.add({
             template: "<p>Unable to create a new object at this time. Please check your connection and try again.</p>",
             css: "flash-fail"
@@ -90,9 +90,9 @@ angular.module("ShadowWolf")
         Models.update($scope.objectName)( $scope.object.id['$oid'],
           updateObject,
           function(){
-          console.log("successfully destroyed");
+          
         }, function(){
-          console.log("unsuccessfully destroyed");
+          
           objects.push(object);
         });
       };

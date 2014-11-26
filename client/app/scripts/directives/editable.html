@@ -10,7 +10,7 @@
          tooltip-placement="top"
          tooltip-html-unsafe="{{ tooltipText }}"
          tooltip-trigger="mouseenter"><!--data area-->
-      <div ng-show="!editorEnabled"
+      <div ng-if="!editorEnabled"
          class="form-control-static editable editable-text editable-output"
          tabindex=0
          ng-click="enableEditor($event)"
@@ -29,7 +29,7 @@
         <div class="editable-text-display" ng-if="type != 'number' && type != 'checkbox' && type != 'tags'" ng-bind-html="subobject[property]"></div>
       </div>
 
-      <div ng-show="editorEnabled"
+      <div ng-if="editorEnabled"
            class="input-group editable-input">
         <input ng-if="type != 'textarea' && type != 'year' && type != 'tags'"
                typeahead="{{ typeahead }}"
@@ -52,10 +52,10 @@
           </textarea>
         </div>
         <div contenteditable="true"
-             ng-show="type == 'textarea'"
+             ng-if="type == 'textarea'"
              ng-model="editable.value">
         </div>
-        <!-- <textarea ng-show="type == 'textarea'"
+        <!-- <textarea ng-if="type == 'textarea'"
                   ng-keyup="maybeCancelOrSave($event)"
                   ng-model="editable.value">
         </textarea> -->
