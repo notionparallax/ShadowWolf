@@ -3,24 +3,22 @@ class Legacy
   include Mongoid::Timestamps
 
   embeds_many :quotes
-
   accepts_nested_attributes_for :quotes
 
   embeds_many :testimonials
-
   accepts_nested_attributes_for :testimonials
 
   embeds_many :awards
-
   accepts_nested_attributes_for :awards
 
   embeds_one :photography
-
   accepts_nested_attributes_for :photography
 
   embeds_one :esd, class_name: 'EnvironmentalSustainableDesign'
-
   accepts_nested_attributes_for :esd
+
+  embeds_many :initiatives
+  accepts_nested_attributes_for :initiatives
 
   embedded_in :building
 
