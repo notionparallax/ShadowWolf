@@ -36,5 +36,15 @@
         <tab heading="Press">
             include "press_.html"
         </tab>
+        <tab heading="Project Sheets">
+          <tabset>
+            <tab ng-repeat="tag in tags()" heading="{{tag}}">
+              <h3>Initiatives</h3>
+              <div ng-repeat="initiative in getObjectsByTag(tag).initiatives()">
+                <p>{{initiative.title}}</p>
+              </div>
+            </tab>
+          </tabset>
+        </tab>
     </tabset>
 </article>

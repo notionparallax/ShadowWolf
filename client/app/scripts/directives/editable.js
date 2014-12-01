@@ -7,7 +7,8 @@ angular.module("ShadowWolf")
                                 Flash,
                                 GA,
                                 $http,
-                                Config) {
+                                Config,
+                                Tags) {
   var editDisabled = false;
   return {
     restrict: "E",
@@ -116,18 +117,7 @@ angular.module("ShadowWolf")
         }
       };
       $scope.getTags = function($query) {
-        var tags = $scope.object.building.legacy.initiatives.map(
-          function(initiative) { return initiative.tags; }
-        ).reduce(function(acc,next) { return acc.concat(next); }, [])
-        var tagsFound = {};
-        tags = tags.filter(function(tag) {
-          if (tagsFound[tag]) return false;
-          else {
-            tagsFound[tag] = true;
-            return tag.indexOf($query) >= 0;
-          }
-        });
-        return tags;
+        return Tags.project($scope.object).getTags($query);
       };
 
       /**
