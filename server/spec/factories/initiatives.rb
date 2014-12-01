@@ -5,5 +5,6 @@ FactoryGirl.define do
     title { ["wind turbine", "magic glass", "green roof"].sample }
     reason { Faker::Lorem.sentence }
     description { Faker::Lorem.paragraphs(2).join('<br>') }
+    tags { [%w(retail business residential).sample, %w(retail business residential).sample] }
   end
 end

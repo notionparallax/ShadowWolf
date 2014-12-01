@@ -29,6 +29,18 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     return {
       initiatives: function() {
         return $scope.project.building.legacy.initiatives.filter(has(tag));
+      },
+      testimonials: function() {
+        return $scope.project.building.legacy.testimonials.filter(has(tag));
+      },
+      awards: function() {
+        return $scope.project.building.legacy.awards.filter(has(tag));
+      },
+      certifications: function() {
+        return $scope.project.building.legacy.esd.certifications.filter(has(tag));
+      },
+      esdInitiatives: function() {
+        return $scope.project.building.legacy.esd.initiatives.filter(has(tag));
       }
     };
   };

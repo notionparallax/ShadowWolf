@@ -43,6 +43,18 @@
               <div ng-repeat="initiative in getObjectsByTag(tag).initiatives()">
                 <p>{{initiative.title}}</p>
               </div>
+              <h3>Awards</h3>
+              <div ng-repeat="award in getObjectsByTag(tag).awards()">
+                <p>{{award.award}}</p>
+              </div>
+              <h3>Testimonials</h3>
+              <div ng-repeat="testimonial in getObjectsByTag(tag).testimonials()">
+                <p>{{testimonial.testimonial}}</p>
+              </div>
+              <h3>Certifications</h3>
+              <div ng-repeat="certification in getObjectsByTag(tag).certifications()">
+                <p>{{certification.name}}</p>
+              </div>
             </tab>
           </tabset>
         </tab>

@@ -5,9 +5,17 @@ angular.module("ShadowWolf")
   this.project = function(proj) {
     return {
       getTags: function($query) {
-        var tags = proj.building.legacy.initiatives.map(
-          function(initiative) { return initiative.tags; }
-        ).reduce(function(acc,next) { console.log(next);return acc.concat(next); }, [])
+        /* Get all tags */
+        var getTags = function(object) { return object.tags; };
+        var concat = function(acc,next) { return acc.concat(next); };
+        var tags = [
+            proj.building.legacy.initiatives.map(getTags),
+            proj.building.legacy.testimonials.map(getTags),
+            proj.building.legacy.awards.map(getTags),
+            proj.building.legacy.esd.certifications.map(getTags),
+            proj.building.legacy.esd.initiatives.map(getTags)
+          ].reduce(concat, []).reduce(concat, [])
+        /* Make tags unique */
         var tagsFound = {};
         tags = tags.filter(function(tag) {
           if (tagsFound[tag]) return false;
@@ -16,7 +24,6 @@ angular.module("ShadowWolf")
             return $query === undefined ? true : tag.indexOf($query) >= 0;
           }
         });
-        console.log(tags);
         return tags;
       }
     };

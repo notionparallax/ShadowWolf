@@ -8,4 +8,5 @@ class Certification
   field :ranking, type: String
   field :awarding_body, type: String
   field :expiry_date, type: Date
+  field :tags, type: Array, default: []
 end
