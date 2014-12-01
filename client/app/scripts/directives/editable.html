@@ -44,12 +44,11 @@
                ng-keyup="maybeCancelOrSave($event)"
                class="form-control"
                name="{{ getName() }}"/>
-        <div class="tags">
-          <ul ng-if="type == 'tags'" class="tag-list">
+        <div ng-if="type == 'tags'" class="tags">
+          <ul class="tag-list">
             <li class="tag-item" ng-repeat="tag in subobject[property]">{{tag}}</li>
           </ul>
-          <textarea class="tag-input" typeahead="tag for tag in getTags($viewValue)" ng-model="editable.newTag" ng-keyup="tagsKeyUp($event)">
-          </textarea>
+          <input class="tag-input" typeahead="tag for tag in getTags($viewValue)" ng-model="editable.newTag" ng-keyup="tagsKeyUp($event)">
         </div>
         <div contenteditable="true"
              ng-if="type == 'textarea'"
