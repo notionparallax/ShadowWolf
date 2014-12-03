@@ -106,7 +106,7 @@ angular.module("ShadowWolf")
       $scope.tagsKeyUp = function($event) {
         switch ($event.which) {
           case 13 /*Enter*/:
-            $scope.subobject[$scope.property] = $scope.subobject[$scope.property].push( $scope.editable.newTag );
+            $scope.subobject[$scope.property].push( $scope.editable.newTag );
             $scope.editable.newTag = '';
             $scope.save();
             break;
