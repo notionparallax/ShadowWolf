@@ -48,7 +48,7 @@
           <ul class="tag-list">
             <li class="tag-item" ng-repeat="tag in subobject[property]">{{tag}}</li>
           </ul>
-          <input class="tag-input" typeahead="tag for tag in getTags($viewValue)" ng-model="editable.newTag" ng-keyup="tagsKeyUp($event)">
+          <input class="tag-input" typeahead="tag for tag in getTags($viewValue)" ng-model="editable.newTag" ng-keyup="tagsKeyUp($event)" name="{{ getName() }}">
         </div>
         <div contenteditable="true"
              ng-if="type == 'textarea'"

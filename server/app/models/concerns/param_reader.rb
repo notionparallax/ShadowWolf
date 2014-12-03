@@ -15,12 +15,16 @@ module ParamReader
           array_class = relation.klass
           apply_array_changes object, array_class, subobject, subchange
         else # it's an array of values to set
-          object.send("#{key}=", changes[key])
+          object.send("#{key}=", changes[key] || [])
         end
       elsif changes[key].class.ancestors.include? ActiveSupport::HashWithIndifferentAccess
         apply_changes subobject, subchange
       else
-        object.send("#{key}=", changes[key])
+        if object.fields[key].type == Array
+          object.send("#{key}=", changes[key] || [])
+        else
+          object.send("#{key}=", changes[key])
+        end
       end
     end
   end

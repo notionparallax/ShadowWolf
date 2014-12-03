@@ -83,11 +83,11 @@ angular.module("ShadowWolf")
         }
         $scope.editorEnabled = true;
         $scope.editable.value = $scope.subobject[$scope.property];
-        var input = $scope.rootElement.querySelector('input')
-          || $scope.rootElement.querySelector('textarea')
-          || $scope.rootElement.querySelector('div[contenteditable]');
 
         setTimeout(function(){
+          var input = $scope.rootElement.querySelector('input')
+            || $scope.rootElement.querySelector('textarea')
+            || $scope.rootElement.querySelector('div[contenteditable]');
           input.focus();
         }, 0);
       };
@@ -111,7 +111,7 @@ angular.module("ShadowWolf")
             $scope.save();
             break;
           case 27 /*Esc*/:
-            $scope.editable.newTag
+            $scope.editable.newTag = '';
             $scope.disableEditor();
             break;
         }
@@ -131,7 +131,14 @@ angular.module("ShadowWolf")
 
         // Set the value locally
         var object = $scope.subobject ? $scope.subobject : $scope.target();
-        object[$scope.property] = $scope.editable.value;
+        if ($scope.type !== 'tags') {
+          object[$scope.property] = $scope.editable.value;
+        } else {
+          if ($scope.editable.newTag) {
+            // If there's a tag in the input then add it to existing tags
+            object[$scope.property].push($scope.editable.newTag);
+          }
+        }
 
         // Wrap it for transport
         var diffObject = { id: object.id['$oid'] };
