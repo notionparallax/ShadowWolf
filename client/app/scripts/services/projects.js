@@ -30,13 +30,15 @@ angular.module('ShadowWolf')
   this.getProjects = function(projectNumbers) { 
     if (!projectNumbers) return _projects;
     else {
-      var projectResults = projectNumbers.map(function(projectNumber) {
-        return _projects[projectNumber];
-    }).filter(function(project) { return project !== undefined }); 
-      projectResults.map(function(project){
-        
-      });
-      return projectResults;
+      var projectsMatchingNumbers = {};
+      for (var i in projectNumbers) {
+        var projectNumber = projectNumbers[i].toLowerCase();
+        var project = _projects[projectNumber];
+        if (project) {
+          projectsMatchingNumbers[projectNumber] = project;
+        }
+      }
+      return projectsMatchingNumbers;
     }
   };
   this.getProject = function(projectNumber) {

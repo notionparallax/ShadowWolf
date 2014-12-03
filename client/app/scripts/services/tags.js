@@ -8,13 +8,14 @@ angular.module("ShadowWolf")
         /* Get all tags */
         var getTags = function(object) { return object.tags; };
         var concat = function(acc,next) { return acc.concat(next); };
-        var tags = [
+        var tags = proj && proj.building && proj.building.legacy ? [
             proj.building.legacy.initiatives.map(getTags),
             proj.building.legacy.testimonials.map(getTags),
             proj.building.legacy.awards.map(getTags),
             proj.building.legacy.esd.certifications.map(getTags),
             proj.building.legacy.esd.initiatives.map(getTags)
-          ].reduce(concat, []).reduce(concat, [])
+          ] : [];
+        tags = tags.reduce(concat, []).reduce(concat, []);
         /* Make tags unique */
         var tagsFound = {};
         tags = tags.filter(function(tag) {

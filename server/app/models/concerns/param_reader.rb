@@ -8,6 +8,7 @@ module ParamReader
   # the changes to the object (without saving).
   def apply_changes object, changes
     changes.keys.each do |key|
+      next if key == 'id'
       subobject, subchange = object.send(key), changes[key]
       if changes[key].class == Array
         relation = object.class.embedded_relations[key]
@@ -20,7 +21,7 @@ module ParamReader
       elsif changes[key].class.ancestors.include? ActiveSupport::HashWithIndifferentAccess
         apply_changes subobject, subchange
       else
-        if object.fields[key].type == Array
+        if not object.fields[key].nil? and object.fields[key].type == Array
           object.send("#{key}=", changes[key] || [])
         else
           object.send("#{key}=", changes[key])
