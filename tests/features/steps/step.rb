@@ -46,7 +46,7 @@ Given /I am a logged in user/ do
   rails_address += '/people/auth/ldap?redirect_uri='
   rails_address += URI.encode grunt_address
   visit rails_address
-  sleep 1
+  sleep 2
 end
 
 Given /the following (.*):/ do |model,objects|
@@ -60,16 +60,21 @@ Given /there are (\d+) (.*) in the database/ do |n,model|
   FactoryGirl.create_list model.singularize.to_sym, n.to_i
 end
 
-Given /there is 1 (.*) in the database with (\d+) (.*)( .*)?/ do |model,n,object,qualifier|
+Given /there is 1 (.*) in the database with (\d+) (.*), with a tag/ do |model,n,object|
+  n = n.to_i
+  p = FactoryGirl.create model.to_sym
+  test = Testimonial.new
+  p.building.legacy.testimonials = [ test ]
+  test.tags = [ 'Some tag' ]
+  p.save
+end
+Given /there is 1 (.*) in the database with (\d+) ([^,]*)$/ do |model,n,object|
   n = n.to_i
   p = FactoryGirl.create model.to_sym
   if model == 'project'
     if object == 'testimonial'
       test = Testimonial.new
       p.building.legacy.testimonials = [ test ]
-      if qualifier == 'with a tag'
-        test.tags << 'Some tag'
-      end
     else
       attention = Attention.new body_text: 'stuff'
       press = BuildingPress.new
@@ -109,7 +114,7 @@ When /I click on the (.*) (.*) tab/ do |model,tab|
 end
 
 Then /there should be (\d+) display box/ do |n|
-  sleep 1
+  sleep 2
   count = all('.info-box').count 
   if count != n.to_i 
     raise "Expected #{n} display boxes, found: #{count}"
@@ -150,26 +155,28 @@ end
 
 When /I click on the (.*) editable$/ do |property|
   all( "[property=\"#{property}\"] .editable-output" ).first.click
+  sleep 2
 end
 
-When /I submit "(.*)" to the (.*) input/ do |text, name|
+When /I submit "(.*)" to the (.*) input for the (.*) property/ do |text, name, prop|
   fill_in( name , with: text )
-  all( "[property=\"#{name}\"]" )
+  all( "[property=\"#{prop}\"]" )
     .first
     .find( '.editable-input' )
     .find( '[title="save"]'  )
     .click
-  sleep 1
+  sleep 2
 end
 
 When /I click on the cross for the first testimonial tags editable tag/ do
   all( '[property="tags"] .editable-output .tags li:first-child a' ).first.click
+  sleep 2
 end
 
 Then /the (.*) editable should display "(.*)"/ do |property,text|
-  actual_text = find( "[property=\"#{property}\"]" )
-    .find( '.editable-output' )
-    .find( 'div' ).text
+  x = find( "[property=\"#{property}\"]" )
+  y = x.find( '.editable-output' )
+  actual_text = y.find( '.editable-text-display' ).text
   unless actual_text == text
     raise "Expected #{property} editable's text to be: #{text}, found: #{actual_text}"
   end
@@ -196,7 +203,7 @@ Then /I should have 1 (.*) in the database with (.*)/ do |model,qualifier|
     count = Person.first.conditions.count
     raise 'Expected 2 conditions found: ' + count if count != 2
   elsif qualifier == "tag 'New Tag' on its testimonial"
-    unless Project.first.building.legacy.testimonials.first.tags.first == 'New Tag'
+    unless Project.first.building.legacy.testimonials.first.tags.include? 'New Tag'
       raise 'Testimonial should have tag \'New Tag\''
     end
   elsif qualifier == 'no tags on its testimonial'
