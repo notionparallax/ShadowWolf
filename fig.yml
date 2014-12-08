@@ -29,6 +29,18 @@ devflask:
     - PORT=9001
   ports:
     - 9001:9001
+devoaf:
+  build: oaf
+  environment:
+    -  OPEN_ASSET_USERNAME
+    -  OPEN_ASSET_PASSWORD
+    -  OPEN_ASSET_ENDPOINT
+  volumes:
+    - oaf:/oaf
+  ports:
+    - '4567:4567'
+  working_dir: /oaf
+  command: ruby main.rb
 devrails:
   image: shadowwolf_dev
   working_dir: /ShadowWolf/server
