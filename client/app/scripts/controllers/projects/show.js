@@ -2,7 +2,7 @@
 
 angular.module('ShadowWolf')
 .controller('ProjectsShowController',
-function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf, People) {
+function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf, People,$q, Tags) {
   if (!Session.getPersonId()) {
     console.error('non logged in user tried to access projects');
     Flash.add({
@@ -20,4 +20,29 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     var logins = Beowulf.getPeopleLogins($scope.project.project_number);
     return People.getPeople(logins);
   };
+  $scope.getObjectsByTag = function(tag) {
+    var has = function(tag) {
+      return function(object) {
+        return object.tags.indexOf(tag) !== -1;
+      };
+    };
+    return {
+      initiatives: function() {
+        return $scope.project.building.legacy.initiatives.filter(has(tag));
+      },
+      testimonials: function() {
+        return $scope.project.building.legacy.testimonials.filter(has(tag));
+      },
+      awards: function() {
+        return $scope.project.building.legacy.awards.filter(has(tag));
+      },
+      certifications: function() {
+        return $scope.project.building.legacy.esd.certifications.filter(has(tag));
+      },
+      esdInitiatives: function() {
+        return $scope.project.building.legacy.esd.initiatives.filter(has(tag));
+      }
+    };
+  };
+  $scope.tags = function() { return Tags.project($scope.project).getTags(); };
 });

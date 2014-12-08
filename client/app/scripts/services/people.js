@@ -32,9 +32,17 @@ angular.module('ShadowWolf')
   });
   this.getPeople = function(logins) {
     if (!logins) return _people;
-    else return logins.map(function(login) {
-      return _people[login.toLowerCase()];
-    }).filter(function(person) { return person !== undefined; });
+    else {
+      var peopleMatchingLogins = {};
+      for (var i in logins) {
+        var login = logins[i].toLowerCase();
+        var person = _people[login];
+        if (person) {
+          peopleMatchingLogins[login] = person;
+        }
+      }
+      return peopleMatchingLogins;
+    }
   };
   this.getPerson = function(id) {
     for (var p in _people) {

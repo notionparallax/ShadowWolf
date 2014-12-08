@@ -11,7 +11,7 @@ angular.module('ShadowWolf')
     undefined;
   this.getReturnPoint = function() { return _returnPoint; };
   this.getBeowulf = function() {
-    console.log('Rawwrr, I am Beowulf!');
+    
     return BEOWULF_SERVER;
   };
 });

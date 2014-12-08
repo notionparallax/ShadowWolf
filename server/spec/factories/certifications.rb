@@ -6,5 +6,6 @@ FactoryGirl.define do
     ranking { ["***", "****", "******"].sample }
     awarding_body { ["NABERS", "GBCA", "Carbon Buzz"].sample }
     expiry_date { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
+    tags { [%w(retail business residential).sample, %w(education health finance).sample] }
   end
 end

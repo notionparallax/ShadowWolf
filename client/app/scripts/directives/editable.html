@@ -10,7 +10,7 @@
          tooltip-placement="top"
          tooltip-html-unsafe="{{ tooltipText }}"
          tooltip-trigger="mouseenter"><!--data area-->
-      <div ng-show="!editorEnabled"
+      <div ng-if="!editorEnabled"
          class="form-control-static editable editable-text editable-output"
          tabindex=0
          ng-click="enableEditor($event)"
@@ -20,13 +20,18 @@
          analytics-category="editable-buttons">
         <p class="editable-text-display" ng-if="type == 'number'" ng-bind="subobject[property] | number"></p>
         <p class="editable-text-display" ng-if="type == 'checkbox'" ng-bind="subobject[property] ? 'Yes' : 'No'"></p>
+        <div class="tags">
+          <ul ng-if="type == 'tags'" class="tag-list">
+            <li class="tag-item" ng-repeat="tag in subobject[property]">{{tag}}<a ng-click="removeTag(tag)">✖</a></li>
+          </ul>
+        </div>
         <!-- See #239 for why the " + '' " exists below. -->
-        <div class="editable-text-display" ng-if="type != 'number' && type != 'checkbox'" ng-bind-html="subobject[property]"></div>
+        <div class="editable-text-display" ng-if="type != 'number' && type != 'checkbox' && type != 'tags'" ng-bind-html="subobject[property]"></div>
       </div>
 
-      <div ng-show="editorEnabled"
+      <div ng-if="editorEnabled"
            class="input-group editable-input">
-        <input ng-if="type != 'textarea' && type != 'year'"
+        <input ng-if="type != 'textarea' && type != 'year' && type != 'tags'"
                typeahead="{{ typeahead }}"
                type="{{ type }}"
                ng-model="editable.value"
@@ -39,11 +44,17 @@
                ng-keyup="maybeCancelOrSave($event)"
                class="form-control"
                name="{{ getName() }}"/>
+        <div ng-if="type == 'tags'" class="tags">
+          <ul class="tag-list">
+            <li class="tag-item" ng-repeat="tag in subobject[property]">{{tag}}</li>
+          </ul>
+          <input class="tag-input" typeahead="tag for tag in getTags($viewValue)" ng-model="editable.newTag" ng-keyup="tagsKeyUp($event)" name="{{ getName() }}">
+        </div>
         <div contenteditable="true"
-             ng-show="type == 'textarea'"
+             ng-if="type == 'textarea'"
              ng-model="editable.value">
         </div>
-        <!-- <textarea ng-show="type == 'textarea'"
+        <!-- <textarea ng-if="type == 'textarea'"
                   ng-keyup="maybeCancelOrSave($event)"
                   ng-model="editable.value">
         </textarea> -->

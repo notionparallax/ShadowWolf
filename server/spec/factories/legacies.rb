@@ -11,6 +11,9 @@ FactoryGirl.define do
     after(:build) do |legacy|
       FactoryGirl.build_list( :award, [0,1,2,3,10].sample, legacy: legacy )
     end
+    after(:build) do |legacy|
+      FactoryGirl.build_list( :initiative, [0,1,2,3,10].sample, legacy: legacy )
+    end
     photography { FactoryGirl.build( :photography ) }
     esd { FactoryGirl.build( :environmental_sustainable_design ) }
     one_line_grab { Faker::Lorem.paragraphs.join('<br>') }

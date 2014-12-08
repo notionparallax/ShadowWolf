@@ -7,4 +7,5 @@ class Award
   field :award, type: String
   field :date, type: Date
   field :jury, type: Array
+  field :tags, type: Array, default: []
 end

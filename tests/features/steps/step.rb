@@ -46,7 +46,7 @@ Given /I am a logged in user/ do
   rails_address += '/people/auth/ldap?redirect_uri='
   rails_address += URI.encode grunt_address
   visit rails_address
-  sleep 1
+  sleep 2
 end
 
 Given /the following (.*):/ do |model,objects|
@@ -60,14 +60,27 @@ Given /there are (\d+) (.*) in the database/ do |n,model|
   FactoryGirl.create_list model.singularize.to_sym, n.to_i
 end
 
-Given /there is 1 (.*) in the database with (\d+) (.*)/ do |model,n,object|
+Given /there is 1 (.*) in the database with (\d+) (.*), with a tag/ do |model,n,object|
+  n = n.to_i
+  p = FactoryGirl.create model.to_sym
+  test = Testimonial.new
+  p.building.legacy.testimonials = [ test ]
+  test.tags = [ 'Some tag' ]
+  p.save
+end
+Given /there is 1 (.*) in the database with (\d+) ([^,]*)$/ do |model,n,object|
   n = n.to_i
   p = FactoryGirl.create model.to_sym
   if model == 'project'
-    attention = Attention.new body_text: 'stuff'
-    press = BuildingPress.new
-    press.attentions = [attention]
-    p.building.presses = [ press ]
+    if object == 'testimonial'
+      test = Testimonial.new
+      p.building.legacy.testimonials = [ test ]
+    else
+      attention = Attention.new body_text: 'stuff'
+      press = BuildingPress.new
+      press.attentions = [attention]
+      p.building.presses = [ press ]
+    end
   elsif model == 'person'
     condition = Condition.new
     p.conditions = [ condition ]
@@ -101,7 +114,7 @@ When /I click on the (.*) (.*) tab/ do |model,tab|
 end
 
 Then /there should be (\d+) display box/ do |n|
-  sleep 1
+  sleep 2
   count = all('.info-box').count 
   if count != n.to_i 
     raise "Expected #{n} display boxes, found: #{count}"
@@ -140,23 +153,30 @@ When /I click the add (.*) (.*) button/ do |model,objects|
   sleep 2
 end
 
-When /I click on the (.*) editable/ do |property|
-  find( "[property=\"#{property}\"] .editable-output" ).click
+When /I click on the (.*) editable$/ do |property|
+  all( "[property=\"#{property}\"] .editable-output" ).first.click
+  sleep 2
 end
 
-When /I submit "(.*)" to the (.*) input/ do |text, name|
-  fill_in( name.capitalize , with: text )
-  find( "[property=\"#{name}\"]" )
+When /I submit "(.*)" to the (.*) input for the (.*) property/ do |text, name, prop|
+  fill_in( name , with: text )
+  all( "[property=\"#{prop}\"]" )
+    .first
     .find( '.editable-input' )
     .find( '[title="save"]'  )
     .click
-  sleep 1
+  sleep 2
+end
+
+When /I click on the cross for the first testimonial tags editable tag/ do
+  all( '[property="tags"] .editable-output .tags li:first-child a' ).first.click
+  sleep 2
 end
 
 Then /the (.*) editable should display "(.*)"/ do |property,text|
-  actual_text = find( "[property=\"#{property}\"]" )
-    .find( '.editable-output' )
-    .find( 'div' ).text
+  x = find( "[property=\"#{property}\"]" )
+  y = x.find( '.editable-output' )
+  actual_text = y.find( '.editable-text-display' ).text
   unless actual_text == text
     raise "Expected #{property} editable's text to be: #{text}, found: #{actual_text}"
   end
@@ -175,9 +195,26 @@ Then /there should be 2 (.*) (.*) editable groups/ do |model, object|
   raise "Expected 2 #{model} #{objects} editable groups, found: #{count.to_s}" if count != 2
 end
 
-Then /I should have 1 person in the database with 2 conditions/ do
-  count = Person.count
-  raise 'Expected 1 person found: ' + count if count != 1
-  count = Person.first.conditions.count
-  raise 'Expected 2 conditions found: ' + count if count != 2
+Then /I should have 1 (.*) in the database with (.*)/ do |model,qualifier|
+  sleep 2 
+  if qualifier == '2 conditions'
+    count = Person.count
+    raise 'Expected 1 person found: ' + count if count != 1
+    count = Person.first.conditions.count
+    raise 'Expected 2 conditions found: ' + count if count != 2
+  elsif qualifier == "tag 'New Tag' on its testimonial"
+    unless Project.first.building.legacy.testimonials.first.tags.include? 'New Tag'
+      raise 'Testimonial should have tag \'New Tag\''
+    end
+  elsif qualifier == 'no tags on its testimonial'
+    if Project.first.building.legacy.testimonials.first.tags.length > 0
+      raise 'Found tag on testimonial when there should be none.'
+    end
+  end
+end
+
+Then /on the Project Sheets tab there exists a tab for 'New Tag'/ do
+  find( '.nav-tabs' ).find( 'a', text: 'Project Sheets' ).click
+  newTagTab = all(  '.nav-tabs' )[1].find( 'a', text: 'New Tag' )
+  raise '\'New Tag\' tab does not exist' if newTagTab.nil?
 end

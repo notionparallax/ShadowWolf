@@ -7,7 +7,8 @@ angular.module("ShadowWolf")
                                 Flash,
                                 GA,
                                 $http,
-                                Config) {
+                                Config,
+                                Tags) {
   var editDisabled = false;
   return {
     restrict: "E",
@@ -82,17 +83,41 @@ angular.module("ShadowWolf")
         }
         $scope.editorEnabled = true;
         $scope.editable.value = $scope.subobject[$scope.property];
-        var input = $scope.rootElement.querySelector('input')
-          || $scope.rootElement.querySelector('textarea')
-          || $scope.rootElement.querySelector('div[contenteditable]');
 
         setTimeout(function(){
+          var input = $scope.rootElement.querySelector('input')
+            || $scope.rootElement.querySelector('textarea')
+            || $scope.rootElement.querySelector('div[contenteditable]');
           input.focus();
         }, 0);
       };
 
       $scope.disableEditor = function() {
         $scope.editorEnabled = false;
+      };
+
+      $scope.removeTag = function(tag) {
+        var tagIndex = $scope.subobject[$scope.property].indexOf(tag);
+        $scope.subobject[$scope.property].splice(tagIndex, 1);
+        $scope.editable.value = $scope.subobject[$scope.property];
+        $scope.save();
+      };
+
+      $scope.tagsKeyUp = function($event) {
+        switch ($event.which) {
+          case 13 /*Enter*/:
+            $scope.subobject[$scope.property].push( $scope.editable.newTag );
+            $scope.editable.newTag = '';
+            $scope.save();
+            break;
+          case 27 /*Esc*/:
+            $scope.editable.newTag = '';
+            $scope.disableEditor();
+            break;
+        }
+      };
+      $scope.getTags = function($query) {
+        return Tags.project($scope.object).getTags($query);
       };
 
       /**
@@ -106,7 +131,14 @@ angular.module("ShadowWolf")
 
         // Set the value locally
         var object = $scope.subobject ? $scope.subobject : $scope.target();
-        object[$scope.property] = $scope.editable.value;
+        if ($scope.type !== 'tags') {
+          object[$scope.property] = $scope.editable.value;
+        } else {
+          if ($scope.editable.newTag) {
+            // If there's a tag in the input then add it to existing tags
+            object[$scope.property].push($scope.editable.newTag);
+          }
+        }
 
         // Wrap it for transport
         var diffObject = { id: object.id['$oid'] };

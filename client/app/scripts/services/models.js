@@ -5,7 +5,7 @@ angular.module("ShadowWolf")
   function getModel(modelName) {
     if (modelName == "person") return Person;
     if (modelName == "project") return Project;
-    console.log("Model.update called with invalid objectName: " + modelName);
+    
     return {};
   }
 

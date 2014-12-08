@@ -5,7 +5,7 @@ Feature: Person Show Page
     And   I click on the first person's display box
     And   I click on the person name tab
     And   I click on the suffix editable
-    And   I submit "Jr." to the suffix input
+    And   I submit "Jr." to the Suffix input for the suffix property
     Then  the suffix editable should display "Jr."
     And   my suffix should equal "Jr."
 
