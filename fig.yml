@@ -40,7 +40,7 @@ devoaf:
   ports:
     - '4567:4567'
   working_dir: /oaf
-  command: ruby main.rb
+  command: ./run.sh
 devrails:
   image: shadowwolf_dev
   working_dir: /ShadowWolf/server
