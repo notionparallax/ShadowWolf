@@ -49,7 +49,6 @@ get '/projects/:project_number' do
   project_image_url
 end
 put '/projects' do
-  puts params
   project_numbers = JSON.parse request.body.read
   project_image_urls = {}
   project_numbers.each do |project_number|
