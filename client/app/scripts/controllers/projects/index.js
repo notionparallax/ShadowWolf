@@ -2,8 +2,8 @@
 
 angular.module('ShadowWolf')
 .controller('ProjectsIndexController',
-function($scope, Projects, Session, Search) {
-  $scope.limit = 60;
+function($scope, Projects, Session, Search, Oaf) {
+  $scope.limit = 9;//60;
   $scope.searchQuery = '';
   searchBar.focus();
   $scope.searchResults = Projects.getProjects();
@@ -17,8 +17,9 @@ function($scope, Projects, Session, Search) {
     $scope.searchResults = results;
   });
 
-  $scope.getKittenImage = function(i) {
-    return "http://placekitten.com/g/270/24" + (i%10);
+  $scope.getProjectImage = function(project, index) {
+    return Oaf.getProjectImage(project.project_number)
+      || "http://placekitten.com/g/270/24" + (index%10);
   };
 
   $scope.compareTo = function(query) {

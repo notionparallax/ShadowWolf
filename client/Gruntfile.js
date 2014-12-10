@@ -102,9 +102,10 @@ module.exports = function (grunt) {
         name: 'config',
         constants: {
           ENV: 'development',
-          ENDPOINT: "http://" + process.env.SERVER_PORT_3000_TCP_ADDR + ":" + process.env.SERVER_PORT_3000_TCP_PORT,
-          RETURNPOINT: "http://" + process.env.SERVER_PORT_3000_TCP_ADDR + ":" + 9000,
-          BEOWULF_SERVER: 'http://' + process.env.BEOWULF_PORT_9001_TCP_ADDR + ':' + process.env.BEOWULF_PORT_9001_TCP_PORT
+          ENDPOINT: 'http://' + process.env.SERVER_PORT_3000_TCP_ADDR + ':' + process.env.SERVER_PORT_3000_TCP_PORT,
+          RETURNPOINT: 'http://' + process.env.SERVER_PORT_3000_TCP_ADDR + ':' + 9000,
+          BEOWULF_SERVER: 'http://' + process.env.BEOWULF_PORT_9001_TCP_ADDR + ':' + process.env.BEOWULF_PORT_9001_TCP_PORT,
+          OAF_SERVER: 'http://' + process.env.OAF_PORT_4567_TCP_ADDR + ':' + process.env.OAF_PORT_4567_TCP_PORT
         }
       }]
     },

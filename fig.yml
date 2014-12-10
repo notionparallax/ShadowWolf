@@ -57,6 +57,7 @@ devgrunt:
   links:
     - devrails:server
     - devflask:beowulf
+    - devoaf:oaf
   ports:
     - "9000:9000"
     - "35729:35729"

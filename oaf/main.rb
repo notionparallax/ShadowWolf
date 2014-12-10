@@ -17,14 +17,19 @@ set :files   , mk_resource( 'Files'    )
 
 before do
   content_type 'application/json'
+  headers 'Access-Control-Allow-Origin' => '*',
+    'Access-Control-Allow-Methods' => ['OPTIONS', 'PUT'],
+    'Access-Control-Allow-Headers' => 'Content-Type'
 end
 
 def get_project_image_url project_number
   projects = settings.projects
   files = settings.files
   # get via oa image url
-  oa_id = JSON.parse( projects.get( accept: :json, params: { textMatching: 'exact', code: params[:project_number] } ) ).first['id']
-  images = JSON.parse( files.get( accept: :json, params: { textMatching: 'exact', project_id: oa_id } ) )
+  project = JSON.parse( projects.get( accept: :json, params: { textMatching: 'exact', code: project_number } ) ).first
+  return nil if project.nil?
+  oa_id  = project['id']
+  images = JSON.parse(    files.get( accept: :json, params: { textMatching: 'exact', project_id: oa_id             } ) )
   return nil if images.empty?
   first_image_sizes = JSON.parse( files["/#{images.first['id']}/Sizes"].get( accept: :json, params: { file_format: 'jpg' } ) )
   image_closest_to_200_width = first_image_sizes.min { |a,b| (200-a['width'].to_i).abs <=> (200-b['width'].to_i).abs }
@@ -37,18 +42,16 @@ def get_project_image_url project_number
   ].join
   # cache image url
   settings.redis.set project_number, image_url
+  puts "set #{project_number} to have url #{image_url}"
   # return image url 
   image_url
 end
 
-get '/projects/:project_number' do
-  project_image_url = settings.redis.get params[:project_number]
-  if not project_image_url
-    project_image_url = get_project_image_url params[:project_number]
-  end
-  project_image_url
+options '/projects' do
+  200
 end
 put '/projects' do
+  puts params
   project_numbers = JSON.parse request.body.read
   project_image_urls = {}
   project_numbers.each do |project_number|
