@@ -8,12 +8,4 @@ class Testimonial
   field :date, type: Date
   field :citation, type: String
   field :tags, type: Array, default: []
-
-  before_save do |document|
-    puts 'zomg'
-    if document.tags.nil?
-      puts 'zomg nil'
-      document.tags = []
-    end
-  end
 end

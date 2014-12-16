@@ -22,16 +22,20 @@ class Legacy
 
   embedded_in :building
 
-  field :one_line_grab, type: String
+  embeds_many :templates
+  accepts_nested_attributes_for :templates
+
   field :dirty_pictures, type: String
   field :dirty_testimonial, type: String
-  field :description_project_sheet, type: String
-  field :description_200_500_words, type: String
-  field :description_awards_style, type: String
   field :dirty_awards, type: String
-  field :innovation_client_style, type: String
-  field :innovation_value_add, type: String
-  field :interesting_things, type: String
-  field :brief_elements, type: String
-  field :security_level, type: String
+
+  #field :one_line_grab, type: String
+  #field :description_project_sheet, type: String
+  #field :description_200_500_words, type: String
+  #field :description_awards_style, type: String
+  #field :innovation_client_style, type: String
+  #field :innovation_value_add, type: String
+  #field :interesting_things, type: String
+  #field :brief_elements, type: String
+  #field :security_level, type: String
 end
