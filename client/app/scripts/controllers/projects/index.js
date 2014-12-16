@@ -18,7 +18,9 @@ function($scope, Projects, Session, Search, Oaf) {
   });
 
   $scope.getProjectImage = function(project, index) {
-    return Oaf.getProjectImage(project.project_number)
+    return Oaf.getProjectImage(project.project_number, {
+      updateCache: false
+    })
       || "http://placekitten.com/g/270/24" + (index%10);
   };
 

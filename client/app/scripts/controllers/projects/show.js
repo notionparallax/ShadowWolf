@@ -2,7 +2,7 @@
 
 angular.module('ShadowWolf')
 .controller('ProjectsShowController',
-function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf, People,$q, Tags) {
+function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf, People,$q, Tags, Oaf) {
   if (!Session.getPersonId()) {
     console.error('non logged in user tried to access projects');
     Flash.add({
@@ -11,9 +11,16 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     }, 5000);
     $location.path("/projects");
   }
+  var loadedImage = false;
   $scope._project = function() { return Project.get($routeParams.projectId); };
   $scope.$watch('_project()', function(newValue) {
     $scope.project = newValue;
+    if (!loadedImage && newValue.project_number) {
+      loadedImage = true;
+      Oaf.getProjectImage($scope.project.project_number, {
+        updateCache: true
+      });
+    }
   });
   Session.authorize = function() { return { success: true }; };
   $scope.getRelatedPeople = function(logins) {
