@@ -3,7 +3,7 @@
 angular.module('ShadowWolf')
 .controller('NavbarController', function($scope, Session, Config, $location) {
   $scope.loggedIn = function() { return !!Session.getAccessToken(); };
-  $scope.logout = function() {  };
+  $scope.logout = function() { Session.logout(); };
 
   $scope.getLogInLink = function() {
     return Config.getEndPoint() 
