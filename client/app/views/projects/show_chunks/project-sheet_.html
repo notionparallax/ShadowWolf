@@ -6,73 +6,88 @@
     </div>
     <div class="text">
         <h1>{{project.building.phases[0].project_name}}</h1>
-        <div class="body-text">
-            <p>Single-origin coffee lo-fi banjo, organic lomo plaid tofu taxidermy.</p>
-            <p>Flannel ethical tofu, Thundercats street art skateboard migas mixtape salvia trust fund +1 vegan Neutra photo booth. Single-origin coffee literally American Apparel Tumblr sartorial YOLO. Fanny pack ethical fingerstache stumptown. YOLO Blue Bottle kitsch food truck, jean shorts roof party iPhone Thundercats. Literally fashion axe VHS flexitarian, church-key Etsy locavore organic readymade cray. Flexitarian shabby chic cliche organic, raw denim actually food truck wayfarers. Tilde typewriter you probably haven't heard of them hella.</p>
-            <p>Normcore paleo photo booth cold-pressed dreamcatcher kogi. Vice narwhal cardigan farm-to-table disrupt, chillwave semiotics Pitchfork organic cred deep v PBR Williamsburg. Disrupt VHS chia tattooed, pug bespoke retro asymmetrical ugh drinking vinegar sustainable Pinterest trust fund crucifix pork belly. Pour-over actually paleo flexitarian kale chips. Narwhal food truck biodiesel leggings asymmetrical try-hard. Cliche Brooklyn Tumblr flannel. Pug pork belly bicycle rights, food truck Echo Park cronut kitsch pickled Austin Schlitz cred seitan crucifix farm-to-table.</p>
-            <h3>Testimonials</h3>
-            <div ng-repeat="testimonial in getObjectsByTag(tag).testimonials()">
-                <p>{{testimonial.testimonial}}</p>
-            </div>
-        </div>
-        <div class="bites">
-            <div class="data">
-                <div class="attribution">{{project.building.attribution}}</div>
-                <div class="client">
-                    <h2>Client        </h2>
-                    <p>{{project.building.client.main}}</p>
-                </div>
-                <div class="location">
-                    <h2>Location      </h2>
-                    <p>{{project.building.locations[0].address.state_county}}, {{project.building.locations[0].address.country}}</p>
-                </div>
-                <div class="completion">
-                    <h2>Completion    </h2>
-                    <p>We don't seem to have an obvious way to define this!{{project.building.attribution}}</p>
-                </div>
-                <div class="value">
-                    <h2>Value         </h2>
-                    <p>We don't have a final budget yet, just phase budgets{{project.building.attribution}}</p>
-                </div>
-                <div class="services">
-                    <h2>Services      </h2>
-                    <p>{{project.building.attribution}}</p>
-                </div>
-                <div class="size">
-                    <h2>Size          </h2>
-                    <p>{{project.building.dims.gba.measurement}} ({{project.building.dims.gba.standard_name}})</p>
-                    We sh
-                </div>
-                <div class="brief-elements">
-                    <h2>Brief Elements</h2>
-                    <ul>
-                        <li ng-repeat="brief-element in getObjectsByTag(tag).brief-elements()">
-                            {{brief-element.text}}
-                        </li>
-                    </ul>
-                </div>
+        <div class="body">
 
-            </div>
-            <div class="grabs">
-                <div ng-if="">
-                    <h3>Value Add</h3>
-                    <div ng-repeat="initiative in getObjectsByTag(tag).initiatives()">
-                        <p>{{initiative.title}}</p>
-                    </div>
-                </div>
-                <div ng-if="">
-                    <h3>Certifications</h3>
-                    <div ng-repeat="certification in getObjectsByTag(tag).certifications()">
-                        <p>{{certification.name}}</p>
-                    </div>
-                </div>
-                <div ng-if="">
-                    <h3>Awards</h3>
-                    <div ng-repeat="award in getObjectsByTag(tag).awards()">
-                        <p>{{award.award}}</p>
-                    </div>
-                </div>
-            </div>
+          <div class="body-text">
+              <p>Single-origin coffee lo-fi banjo, organic lomo plaid tofu taxidermy.</p>
+              <p>Flannel ethical tofu, Thundercats street art skateboard migas mixtape salvia trust fund +1 vegan Neutra photo booth. Single-origin coffee literally American Apparel Tumblr sartorial YOLO. Fanny pack ethical fingerstache stumptown. YOLO Blue Bottle kitsch food truck, jean shorts roof party iPhone Thundercats. Literally fashion axe VHS flexitarian, church-key Etsy locavore organic readymade cray. Flexitarian shabby chic cliche organic, raw denim actually food truck wayfarers. Tilde typewriter you probably haven't heard of them hella.</p>
+              <p>Normcore paleo photo booth cold-pressed dreamcatcher kogi. Vice narwhal cardigan farm-to-table disrupt, chillwave semiotics Pitchfork organic cred deep v PBR Williamsburg. Disrupt VHS chia tattooed, pug bespoke retro asymmetrical ugh drinking vinegar sustainable Pinterest trust fund crucifix pork belly. Pour-over actually paleo flexitarian kale chips. Narwhal food truck biodiesel leggings asymmetrical try-hard. Cliche Brooklyn Tumblr flannel. Pug pork belly bicycle rights, food truck Echo Park cronut kitsch pickled Austin Schlitz cred seitan crucifix farm-to-table.</p>
+          </div>
+
+          <div class="testimonials" ng-if="getObjectsByTag(tag).testimonials()">
+              <h3>Testimonials</h3>
+              <div ng-repeat="testimonial in getObjectsByTag(tag).testimonials()">
+                  <figure>
+                      <blockquote>{{testimonial.testimonial}}</blockquote>
+                      <figcaption>
+                          <cite>{{testimonial.citation}}</cite> - {{testimonial.date}}
+                      </figcaption>
+                  </figure>
+              </div>
+          </div>
+          
         </div>
+          <div class="bites">
+              <div class="data">
+                  <div class="attribution">{{project.building.attribution}}</div>
+                  <div class="client">
+                      <h2>Client        </h2>
+                      <p>{{project.building.client.main}}</p>
+                  </div>
+                  <div class="location">
+                      <h2>Location      </h2>
+                      <p>{{project.building.locations[0].address.state_county}}, {{project.building.locations[0].address.country}}</p>
+                  </div>
+                  <div class="completion">
+                      <h2>Completion    </h2>
+                      <p class="note">We don't seem to have an obvious way to define this!</p>
+                      <p></p>
+                  </div>
+                  <div class="value">
+                      <h2>Value         </h2>
+                      <p class="note">We don't have a final budget yet, just phase budgets</p>
+                      <p>${{project.building.attribution}}</p>
+                  </div>
+                  <div class="services">
+                      <h2>Services      </h2>
+                      <p>{{project.building.attribution}}</p>
+                  </div>
+                  <div class="size">
+                      <h2>Size          </h2>
+                      <p>{{project.building.dims.gba.measurement}}{{project.building.dims.gba.unit}}{{project.building.dims.gba.title}}
+                          <span ng-if="project.building.dims.gba.standard_name">({{project.building.dims.gba.standard_name}}, <span ng-if="project.building.dims.gba.standard_version">{{project.building.dims.gba.standard_version}})</span></span>
+                      </p>
+                  </div>
+                  <div class="brief-elements">
+                      <h2>Brief Elements</h2>
+                      <ul>
+                          <li ng-repeat="brief-element in getObjectsByTag(tag).brief-elements()">
+                              {{brief-element.text}}
+                          </li>
+                      </ul>
+                  </div>
+
+              </div>
+              <div class="grabs">
+                  <div ng-if="getObjectsByTag(tag).initiatives()">
+                      <h3>Value Add</h3>
+                      <div ng-repeat="initiative in getObjectsByTag(tag).initiatives()">
+                          <p>{{initiative.title}}</p>
+                      </div>
+                  </div>
+                  <div ng-if="getObjectsByTag(tag).certifications()">
+                      <h3>Certifications</h3>
+                      <div ng-repeat="certification in getObjectsByTag(tag).certifications()">
+                          <p>{{certification.name}}</p>
+                      </div>
+                  </div>
+                  <div ng-if="getObjectsByTag(tag).awards()">
+                      <h3>Awards</h3>
+                      <div ng-repeat="award in getObjectsByTag(tag).awards()">
+                          <p>{{award.award}}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
     </div>
 </div>

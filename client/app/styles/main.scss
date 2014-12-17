@@ -298,6 +298,16 @@ svg {
 
 //project sheets
 .project-sheet{
+    .note {
+        width: 8em;
+        display: block;
+        font-size: 80%;
+        line-height: 90%;
+        background-color: bisque;
+        padding: 0.5em;
+        border-radius: 0.3em;
+        float: right;
+    }
     .photos{
         padding: 1em;
         width: 50%;
@@ -323,13 +333,17 @@ svg {
     }
     h1,h2,h3{text-transform: uppercase;}
     h2{
-        font-size: 101%;
+        font-size: 100%;
         font-weight: bold;
+        margin-bottom: 0;
+        margin-top: 0.3em
     }
-    .body-text{
+    .body-text, .testimonials{
         width:60%;
         float: left;
         padding-right: 2em;
+    }
+    .body-text{
         p{
             font-size: 100%;
             &:first-child{
@@ -337,7 +351,18 @@ svg {
             }
         }
     }
+    figure{
+        blockquote {
+            margin: 0;
+            border: none;
+            padding: 0;
+        }
+        figcaption {
+            text-align: right;
+        }
+    }
     .bites{
+        p{margin-bottom: 0.2em;}
         width:40%;
         float: right;
         .attribution,
@@ -346,7 +371,11 @@ svg {
         .completion,
         .value,
         .services,
-        .size,.brief-elements{border-bottom:1px solid black;}
+        .size,.brief-elements{
+            border-bottom:1px solid black;
+            padding-left: 1em;
+        }
+        .attribution{font-weight: bold;}
         .data{border-top:   1px solid black;}
         .brief-elements{
             ul{
