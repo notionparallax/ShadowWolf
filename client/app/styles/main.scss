@@ -295,6 +295,68 @@ svg {
         display: none;
     }
 }
+
+//project sheets
+.project-sheet{
+    .photos{
+        padding: 1em;
+        width: 50%;
+        float:left;
+        img{
+            width: 49%;
+            height: 300px;
+            object-fit: cover;
+            &:first-child{
+                width:100%;
+                margin-bottom: 1em;
+                margin-top: 4em;
+                height: 550px;
+
+            }
+            &:nth-child(2){float:left;}
+            &:nth-child(3){float:right;}
+        }
+    }
+    .text{
+        width: 50%;
+        float:right;
+    }
+    h1,h2,h3{text-transform: uppercase;}
+    h2{
+        font-size: 101%;
+        font-weight: bold;
+    }
+    .body-text{
+        width:60%;
+        float: left;
+        padding-right: 2em;
+        p{
+            font-size: 100%;
+            &:first-child{
+                font-size: 140%;
+            }
+        }
+    }
+    .bites{
+        width:40%;
+        float: right;
+        .attribution,
+        .client,
+        .location,
+        .completion,
+        .value,
+        .services,
+        .size,.brief-elements{border-bottom:1px solid black;}
+        .data{border-top:   1px solid black;}
+        .brief-elements{
+            ul{
+                list-style-position: inside;
+                list-style-type:none;
+            }
+        }
+        .grabs{}
+    }
+}
 ////////////////////////////////
 // stylesheet for place cards //
 ////////////////////////////////

@@ -1,22 +1,22 @@
 <h2>Initiatives</h2>
-<p class="explantory-text">What was special about this building? Was there a special ESD or social iniative that goes along with this building?</p>
+<p class="explantory-text">What was special about this building? Was there a special strategic or social iniative that goes along with this building?</p>
 <div ng-repeat="initiative in project.building.legacy.initiatives">
-    <editable-group object="project" lens="building.legacy.esd.initiatives[{{initiative|id}}]" subgroup-class="alert alert-info col-sm-6">
+    <editable-group object="project" lens="building.legacy.esd.initiatives[{{initiative|id}}]" subgroup-class="alert alert-info col-sm-x">
         <editable property="title"       label="title"       editable-typahead="true">What was the thing that you did? (Think of this as a title.)</editable>
         <editable property="reason"      label="reason"      editable-typahead="true">Why did you do it? (Briefly)</editable>
         <editable property="description" label="description" type="textarea"         >Write a bit more about it here. What was the story?</editable>
-        <editable property="tags"       label="tags"        type="tags"             ></editable>
+        <editable property="tags"        label="tags"        type="tags"             >Tags define which project sheet this piece of information goes onto.</editable>
     </editable-group>
 </div>
 
 
-<h2>ESD Certifications</h2>
-<p class="explantory-text">If this project has any ESD certification then log it here. For the moment you should put non-ESD certifications here too until they have a home of their own.</p>
-<div ng-repeat="certification in project.building.legacy.certifications">
-	<editable-group object="project" lens="building.legacy.esd.certifications[{{certification|id}}]" subgroup-class="alert alert-info">
-	    <editable property="name"          label="name"          editable-typahead="true">What is the name of this certificate?</editable>
-	    <editable property="ranking"       label="ranking"       editable-typahead="true">What's the score? 5 star?</editable>
-	    <editable property="awarding_body" label="awarding body" editable-typahead="true">Who awards this certificate?</editable>
-	    <editable property="expiry_date"   label="expiry date"                           >When does this certificate stop being valid?</editable>
-	</editable-group>
+<h2>ESD Initiatives</h2>
+<p class="explantory-text">If this project has any ESD initiatives then explain it here.</p>
+<div ng-repeat="initiative in project.building.legacy.esd.initiatives">
+    <editable-group object="project" lens="building.legacy.esd.initiatives[{{initiative|id}}]" subgroup-class="alert alert-info">
+        <editable property="title"       label="title"       editable-typahead="true">What was the thing that you did? (Think of this as a title.)</editable>
+        <editable property="reason"      label="reason"      editable-typahead="true">Why did you do it? (Briefly)</editable>
+        <editable property="description" label="description" type="textarea"         >Write a bit more about it here. What was the story?</editable>
+        <editable property="tags"        label="tags"        type="tags"             >Tags define which project sheet this piece of information goes onto.</editable>
+    </editable-group>
 </div>
