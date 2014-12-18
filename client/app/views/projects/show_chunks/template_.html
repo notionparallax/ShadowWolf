@@ -1,6 +1,6 @@
 <h2>Template</h2>
 <p class="explantory-text">This is the text that will go onto the project sheet and onto awards boards.</p>
-<editable-group object="project" lens="building.legacy" subgroup-class="alert alert-info col-sm-12">
+<!-- <editable-group object="project" lens="building.legacy" subgroup-class="alert alert-info col-sm-12">
      <editable property="one_line_grab"             label="one line grab"                            >If you only had 10 seconds to talk about this project, what would you say? Think of this as the Tweet of this project.</editable>
      <editable property="description_project_sheet" label="description project sheet" type="textarea">This is the text that will go onto this project's project sheet. In future we're going to auto generate a lot of these sheets, so this is the 'source of truth'.</editable>
      <editable property="description_awards_style"  label="description awards style"  type="textarea">This is the text that was/would/will be on this project's awards submission board.</editable>
@@ -9,4 +9,13 @@
      <editable property="interesting_things"        label="interesting things"        type="textarea">What were the outstandingly interestign things about this project?</editable>
      <editable property="brief_elements"            label="brief elements"            type="textarea">What were the important things that the client asked for in this project?</editable>
      <editable property="security_level"            label="security level"            type="textarea">Is this project secret? Can we say some things but not others? What should people be aware of?</editable>
-</editable-group>
+</editable-group> -->
+
+
+<div ng-repeat="template in project.building.legacy.templates">
+    <editable-group object="project" lens="building.legacy.templates[{{template|id}}]" subgroup-class="alert alert-info col-sm-x">
+        <editable property="title" label="Title" editable-typahead="true">This is a description for this bit of text - make it descriptive!</editable>
+        <editable property="text"  label="Text"  type="date"             >This is the body </editable>
+        <editable property="tags"  label="Tags"  type="tags"             >Tags define which project sheet this piece of information goes onto.</editable>
+    </editable-group>
+</div>
