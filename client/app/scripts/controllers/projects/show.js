@@ -34,6 +34,12 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
       };
     };
     return {
+      dims: function() {
+        return $scope.project.building.dims.filter(has(tag));
+      },
+      breaf_elements: function() {
+        return $scope.project.building.brief_elements.filter(has(tag));
+      },
       initiatives: function() {
         return $scope.project.building.legacy.initiatives.filter(has(tag));
       },
