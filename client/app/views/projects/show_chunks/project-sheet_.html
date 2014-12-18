@@ -7,10 +7,8 @@
     <div class="text">
         <h1>{{project.building.phases[0].project_name}}</h1>
         <div class="body">
-            <div class="body-text">
-                <p>Single-origin coffee lo-fi banjo, organic lomo plaid tofu taxidermy.</p>
-                <p>Flannel ethical tofu, Thundercats street art skateboard migas mixtape salvia trust fund +1 vegan Neutra photo booth. Single-origin coffee literally American Apparel Tumblr sartorial YOLO. Fanny pack ethical fingerstache stumptown. YOLO Blue Bottle kitsch food truck, jean shorts roof party iPhone Thundercats. Literally fashion axe VHS flexitarian, church-key Etsy locavore organic readymade cray. Flexitarian shabby chic cliche organic, raw denim actually food truck wayfarers. Tilde typewriter you probably haven't heard of them hella.</p>
-                <p>Normcore paleo photo booth cold-pressed dreamcatcher kogi. Vice narwhal cardigan farm-to-table disrupt, chillwave semiotics Pitchfork organic cred deep v PBR Williamsburg. Disrupt VHS chia tattooed, pug bespoke retro asymmetrical ugh drinking vinegar sustainable Pinterest trust fund crucifix pork belly. Pour-over actually paleo flexitarian kale chips. Narwhal food truck biodiesel leggings asymmetrical try-hard. Cliche Brooklyn Tumblr flannel. Pug pork belly bicycle rights, food truck Echo Park cronut kitsch pickled Austin Schlitz cred seitan crucifix farm-to-table.</p>
+            <div class="body-text" ng-repeat="bodytext in getObjectsByTag(tag).templates()">
+                <div>{{bodytext.text}}</div>
             </div>
 
             <div class="testimonials" ng-if="getObjectsByTag(tag).testimonials()">
