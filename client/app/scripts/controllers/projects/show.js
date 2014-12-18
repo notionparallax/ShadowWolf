@@ -58,9 +58,6 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
       certifications: function() {
         return $scope.project.building.legacy.esd.certifications.filter(has(tag));
       },
-      templates: function() {
-        return $scope.project.building.legacy.templates.filter(has(tag));
-      },
       esdInitiatives: function() {
         return $scope.project.building.legacy.esd.initiatives.filter(has(tag));
       }
