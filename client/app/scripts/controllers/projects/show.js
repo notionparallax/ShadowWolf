@@ -22,6 +22,9 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
       });
     }
   });
+  $scope.getImages = function() {
+    return Oaf.getProjectImage($scope.project.project_number);
+  };
   Session.authorize = function() { return { success: true }; };
   $scope.getRelatedPeople = function(logins) {
     var logins = Beowulf.getPeopleLogins($scope.project.project_number);
@@ -37,7 +40,7 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
       dims: function() {
         return $scope.project.building.dims.filter(has(tag));
       },
-      breaf_elements: function() {
+      brief_elements: function() {
         return $scope.project.building.brief_elements.filter(has(tag));
       },
       initiatives: function() {
