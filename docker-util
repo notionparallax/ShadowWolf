@@ -124,7 +124,7 @@ case "$1" in
         docker pull $BVN_SERVER:5000/shadowwolf-deploy-server > /dev/null;
         docker rm -f sw-client ; docker rm -f sw-server;
         docker run -d --name sw-server --link sw-mongo:mongo -p 3000:3000 -w /home/app/server $BVN_SERVER:5000/shadowwolf-deploy-server passenger start -a 0.0.0.0 -p 3000 -e production;
-        docker run -d --name sw-client --link sw-beowulf:beowulf --link sw-server:server -p 9000:9000 -e SERVER_PORT_3000_TCP_PORT=3000 -e SERVER_PORT_3000_TCP_ADDR=$BVN_SERVER $BVN_SERVER:5000/shadowwolf-deploy-client /run.sh;
+        docker run -d --name sw-client --link sw-oaf:oaf --link sw-beowulf:beowulf --link sw-server:server -p 9000:9000 -e SERVER_PORT_3000_TCP_PORT=3000 -e SERVER_PORT_3000_TCP_ADDR=$BVN_SERVER $BVN_SERVER:5000/shadowwolf-deploy-client /run.sh;
         TZ='Australia/Sydney' nohup docker logs -f sw-server > /home/dave/logs/`date --iso-8601=minutes` &
         "
         ssh $USER@$BVN_SERVER $remote_script

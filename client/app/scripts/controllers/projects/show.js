@@ -52,6 +52,9 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
       awards: function() {
         return $scope.project.building.legacy.awards.filter(has(tag));
       },
+      templates: function() {
+        return $scope.project.building.legacy.templates.filter(has(tag));
+      },
       certifications: function() {
         return $scope.project.building.legacy.esd.certifications.filter(has(tag));
       },
