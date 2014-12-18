@@ -5,12 +5,19 @@ json.locations do
     json.partial! "locations/location.json.jbuilder", location: location
   end
 end
+json.brief_elements do
+  json.array!(building.brief_elements) do |brief_element|
+    json.partial! "brief_elements/brief_element.json.jbuilder", brief_element: brief_element
+  end
+end
 json.project_source do
   json.partial! "project_sources/project_source.json.jbuilder", project_source: building.project_source
 end if building.project_source
 json.dims do
-  json.partial! "dimension_groups/dimension_group.json.jbuilder", dims: building.dims
-end if building.dims
+  json.array!(building.dims) do |dimension|
+    json.partial! "dimensions/dimension.json.jbuilder", dimension: dimension
+  end
+end
 json.client do
   json.partial! "clients/client.json.jbuilder", client: building.client
 end if building.client

@@ -29,14 +29,9 @@ class Project
     self.building.legacy.esd.certifications          <<  Certification.new            if  self.building.legacy.esd.certifications.length          ==  0
     self.building.legacy.esd.initiatives             <<  Initiative.new              if  self.building.legacy.esd.initiatives.length             ==  0
     self.building.legacy.quotes                         <<  Quote.new                   if  self.building.legacy.quotes.length                         ==  0
-    self.building.legacy.testimonials                   <<  Testimonial.new             if  self.building.legacy.testimonials.length                   ==  0
+    self.building.legacy.testimonials                   <<  Testimonial.new              if  self.building.legacy.testimonials.length                   ==  0
     self.building.relationship_description              =   RelationshipDescription.new  if  self.building.relationship_description.nil?
-    self.building.dims                                  =   DimensionGroup.new           if  self.building.dims.nil?
-    self.building.dims.footprint_area                   =   FootprintArea.new            if  self.building.dims.footprint_area.nil?
-    self.building.dims.gba                              =   GrossBuildingArea.new                      if  self.building.dims.gba.nil?
-    self.building.dims.gfa                              =   GrossFloorArea.new                      if  self.building.dims.gfa.nil?
-    self.building.dims.height                           =   Height.new                   if  self.building.dims.height.nil?
-    self.building.dims.nla                              =   NetLettableArea.new                      if  self.building.dims.nla.nil?
+    self.building.dims                                  =   Dimension.new                if  self.building.dims.nil?
     self.building.qas                                   <<  QualityAssurance.new         if  self.building.qas.length                                   ==  0
     self.building.locations                             <<  Location.new                 if  self.building.locations.length                             ==  0
     self.building.locations[0].address                  =   Address.new                  if  self.building.locations[0].address.nil?
@@ -44,7 +39,7 @@ class Project
     self.building.phases                                <<  Phase.new                    if  self.building.phases.length                                ==  0
     self.building.phases[0].budget                      =   Budget.new                   if  self.building.phases[0].budget.nil?
     self.building.phases[0].key_dates                   <<  KeyDate.new                  if  self.building.phases[0].key_dates.length                   ==  0
-    self.building.presses                               <<  BuildingPress.new                    if  self.building.presses.length                               ==  0
+    self.building.presses                               <<  BuildingPress.new            if  self.building.presses.length                               ==  0
     self.building.presses[0].attentions                 <<  Attention.new                if  self.building.presses[0].attentions.length                 ==  0
     self.building.presses[0].campaigns                  <<  Campaign.new                 if  self.building.presses[0].campaigns.length                  ==  0
     

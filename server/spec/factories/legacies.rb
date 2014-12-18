@@ -22,6 +22,9 @@ FactoryGirl.define do
     dirty_pictures { 'nick knight took some pics on tuesday' }
     dirty_testimonial { 'blocks out the sun<br>--neighbours' }
     dirty_awards { 'this project won an award for being good' }
+    start_date '2014-12-10'
+    completion_date '2014-12-10'
+    final_budget 'one Million dolla'
 
     #one_line_grab { Faker::Lorem.paragraphs.join('<br>') }
     #description_project_sheet { Faker::Lorem.paragraphs.join('<br>') }
