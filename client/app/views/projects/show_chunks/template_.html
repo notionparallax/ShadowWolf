@@ -15,7 +15,7 @@
 <div ng-repeat="template in project.building.legacy.templates">
     <editable-group object="project" lens="building.legacy.templates[{{template|id}}]" subgroup-class="alert alert-info col-sm-x">
         <editable property="title" label="Title" editable-typahead="true">This is a description for this bit of text - make it descriptive!</editable>
-        <editable property="text"  label="Text"  type="date"             >This is the body </editable>
+        <editable property="text"  label="Text"  type="textarea"         >This is the body </editable>
         <editable property="tags"  label="Tags"  type="tags"             >Tags define which project sheet this piece of information goes onto.</editable>
     </editable-group>
 </div>
