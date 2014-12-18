@@ -19,12 +19,12 @@ FactoryGirl.define do
     end
     photography { FactoryGirl.build( :photography ) }
     esd { FactoryGirl.build( :environmental_sustainable_design ) }
-    dirty_pictures { 'nick knight took some pics on tuesday' }
+    dirty_pictures    { 'nick knight took some pics on tuesday' }
     dirty_testimonial { 'blocks out the sun<br>--neighbours' }
-    dirty_awards { 'this project won an award for being good' }
-    start_date '2014-12-10'
-    completion_date '2014-12-10'
-    final_budget 'one Million dolla'
+    dirty_awards      { 'this project won an award for being good' }
+    start_date        {   1.day.ago.to_s }
+    completion_date   { 100.day.ago.to_s }
+    final_budget      { rand(10000..99000000) }
 
     #one_line_grab { Faker::Lorem.paragraphs.join('<br>') }
     #description_project_sheet { Faker::Lorem.paragraphs.join('<br>') }
