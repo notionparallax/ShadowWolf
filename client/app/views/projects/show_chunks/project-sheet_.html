@@ -1,11 +1,11 @@
 <div class="project-sheet">
     <div class="photos">
-        <img src="http://i2.cdn.turner.com/cnn/dam/assets/140218103215-sheraton-huzhou-hot-spring-resort-horizontal-large-gallery.jpg">
-        <img src="http://todaysfacilitymanager.com/wp-content/uploads/duke_energy_center_2010.jpg">
-        <img src="http://www.toxel.com/wp-content/uploads/2009/05/building08.jpg">
+        <img ng-src="{{getImages()[0]}}">
+        <img ng-src="{{getImages()[1]}}">
+        <img ng-src="{{getImages()[2]}}">
     </div>
     <div class="text">
-    <h1>{{project.building.phases[0].project_name}}</h1>
+        <h1>{{project.building.phases[0].project_name}}</h1>
         <div class="body">
             <div class="body-text">
                 <p>Single-origin coffee lo-fi banjo, organic lomo plaid tofu taxidermy.</p>
@@ -17,7 +17,7 @@
                 <h3>Testimonials</h3>
                 <div ng-repeat="testimonial in getObjectsByTag(tag).testimonials()">
                     <figure>
-                        <blockquote>{{testimonial.testimonial}}</blockquote>
+                        <blockquote ng-bind-html="testimonial.testimonial"></blockquote>
                         <figcaption>
                             <cite>{{testimonial.citation}}</cite> - {{testimonial.date}}
                         </figcaption>
@@ -38,29 +38,30 @@
                 </div>
                 <div class="completion">
                     <h2>Completion    </h2>
-                    <p class="note">We don't seem to have an obvious way to define this!</p>
-                    <p></p>
+                    <p>{{project.building.legacy.start_date}} - {{project.building.legacy.completion_date}}</p>
                 </div>
                 <div class="value">
                     <h2>Value         </h2>
-                    <p class="note">We don't have a final budget yet, just phase budgets</p>
-                    <p>${{project.building.attribution}}</p>
+                    <p>${{project.building.legacy.final_budget}}</p>
                 </div>
                 <div class="services">
                     <h2>Services      </h2>
-                    <p>{{project.building.attribution}}</p>
+                    <p ng-bind-html="project.building.phases[0].services_scope"></p>
                 </div>
                 <div class="size">
                     <h2>Size          </h2>
-                    <p>{{project.building.dims.gba.measurement}}{{project.building.dims.gba.unit}}{{project.building.dims.gba.title}}
-                        <span ng-if="project.building.dims.gba.standard_name">({{project.building.dims.gba.standard_name}}, <span ng-if="project.building.dims.gba.standard_version">{{project.building.dims.gba.standard_version}})</span></span>
+                    <p ng-repeat="dim in getObjectsByTag(tag).dims()">
+                        {{dim.measurement}}{{dim.unit}} {{dim.title}}
+                        <span ng-if="dim.standard_name">({{dim.standard_name}}
+                        <span ng-if="dim.standard_version">, {{dim.standard_version}})
+                        </span></span>
                     </p>
                 </div>
-                <div class="brief-elements">
+                <div class="brief-elements" ng-if="getObjectsByTag(tag).brief_elements()">
                     <h2>Brief Elements</h2>
                     <ul>
-                        <li ng-repeat="brief-element in getObjectsByTag(tag).brief-elements()">
-                            {{brief-element.text}}
+                        <li ng-repeat="brief_element in getObjectsByTag(tag).brief_elements()">
+                            {{brief_element.description}}
                         </li>
                     </ul>
                 </div>
@@ -69,21 +70,27 @@
             <div class="grabs">
                 <div ng-if="getObjectsByTag(tag).initiatives()">
                     <h3>Value Add</h3>
-                    <div ng-repeat="initiative in getObjectsByTag(tag).initiatives()">
-                        <p>{{initiative.title}}</p>
-                    </div>
+                    <ul>
+                        <li ng-repeat="initiative in getObjectsByTag(tag).initiatives()">
+                            {{initiative.title}}
+                        </li>
+                    </ul>
                 </div>
                 <div ng-if="getObjectsByTag(tag).certifications()">
                     <h3>Certifications</h3>
-                    <div ng-repeat="certification in getObjectsByTag(tag).certifications()">
-                        <p>{{certification.name}}</p>
-                    </div>
+                    <ul>
+                        <li ng-repeat="certification in getObjectsByTag(tag).certifications()">
+                            {{certification.name}}
+                        </li>
+                    </ul>
                 </div>
                 <div ng-if="getObjectsByTag(tag).awards()">
                     <h3>Awards</h3>
-                    <div ng-repeat="award in getObjectsByTag(tag).awards()">
-                        <p>{{award.award}}</p>
-                    </div>
+                    <ul>
+                        <li ng-repeat="award in getObjectsByTag(tag).awards()">
+                            {{award.award}}
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

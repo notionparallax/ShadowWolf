@@ -330,7 +330,10 @@ svg {
         width: 50%;
         float:right;
     }
-    h1,h2,h3{text-transform: uppercase;}
+    h1,h2,h3{
+        text-transform: uppercase;
+        border: none;
+    }
     h1{
         margin-bottom: 2em;
         width: 100%;
