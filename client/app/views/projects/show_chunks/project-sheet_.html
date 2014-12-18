@@ -88,7 +88,7 @@
                     <h3>Awards</h3>
                     <ul>
                         <li ng-repeat="award in getObjectsByTag(tag).awards()">
-                            {{award.award}}
+                            {{award.date.split("-")[0]}} - {{award.award}}
                         </li>
                     </ul>
                 </div>
