@@ -1,5 +1,5 @@
 json.id legacy.id
-json.extract! legacy, :created_at, :updated_at, :one_line_grab, :dirty_pictures, :dirty_testimonial, :description_project_sheet, :description_200_500_words, :description_awards_style, :dirty_awards, :innovation_client_style, :innovation_value_add, :interesting_things, :brief_elements, :security_level
+json.extract! legacy, :created_at, :updated_at, :dirty_pictures, :dirty_testimonial, :dirty_awards
 json.esd do
   json.partial! "environmental_sustainable_designs/environmental_sustainable_design.json.jbuilder", esd: legacy.esd
 end if legacy.esd
@@ -24,5 +24,10 @@ end
 json.initiatives do
   json.array!(legacy.initiatives) do |initiative|
     json.partial! "initiatives/initiative.json.jbuilder", initiative: initiative
+  end
+end
+json.templates do
+  json.array!(legacy.templates) do |template|
+    json.partial! "templates/template.json.jbuilder", template: template
   end
 end
