@@ -319,7 +319,6 @@ svg {
             &:first-child{
                 width:100%;
                 margin-bottom: 1em;
-                margin-top: 4em;
                 height: 550px;
 
             }
@@ -332,17 +331,23 @@ svg {
         float:right;
     }
     h1,h2,h3{text-transform: uppercase;}
+    h1{
+        margin-bottom: 2em;
+        width: 100%;
+        display: block;
+    }
     h2{
         font-size: 100%;
         font-weight: bold;
         margin-bottom: 0;
         margin-top: 0.3em
     }
-    .body-text, .testimonials{
+    .body{
         width:60%;
         float: left;
         padding-right: 2em;
     }
+    .body-text, .testimonials{}
     .body-text{
         p{
             font-size: 100%;
