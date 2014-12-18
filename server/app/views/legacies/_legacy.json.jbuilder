@@ -1,5 +1,5 @@
 json.id legacy.id
-json.extract! legacy, :created_at, :updated_at, :dirty_pictures, :dirty_testimonial, :dirty_awards
+json.extract! legacy, :created_at, :updated_at, :dirty_pictures, :dirty_testimonial, :dirty_awards, :start_date, :completion_date, :final_budget
 json.esd do
   json.partial! "environmental_sustainable_designs/environmental_sustainable_design.json.jbuilder", esd: legacy.esd
 end if legacy.esd

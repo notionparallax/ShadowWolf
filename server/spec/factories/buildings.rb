@@ -12,12 +12,17 @@ FactoryGirl.define do
     after(:build) do |building|
       FactoryGirl.build_list( :phase, [0,1,2,3,10].sample, building: building )
     end
+    after(:build) do |building|
+      FactoryGirl.build_list( :dimension, [0,1,2,3,10].sample, building: building )
+    end
     relationship_description { FactoryGirl.build( :relationship_description ) }
     client { FactoryGirl.build( :client ) }
-    dims { FactoryGirl.build( :dimension_group ) }
     project_source { FactoryGirl.build( :project_source ) }
     after(:build) do |building|
       FactoryGirl.build_list( :location, [0,1,2,3,10].sample, building: building )
+    end
+    after(:build) do |building|
+      FactoryGirl.build_list( :brief_element, [0,1,2,3,10].sample, building: building )
     end
     description { Faker::Lorem.paragraphs.join('<br>') }
     attribution { ["BVN","Donovan Hill","BVN Donovan Hill"].sample }

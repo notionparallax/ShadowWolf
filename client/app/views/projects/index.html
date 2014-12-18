@@ -13,7 +13,7 @@
   <display-box ng-repeat="p in searchResults | limitTo:limit track by $id(p)"
               title-text-one="{{ p.building.phases[0].project_name || p.project_number + ' (no project name)'}}"
               body-text="{{p.project_number}}"
-              img-src="{{p.img || getKittenImage($index) }}"
+              img-src="{{ getProjectImage(p, $index) }}"
               redirect-link="#/projects/{{ p.id.$oid }}">
     <p>{{ p.project_categories }}</p>
   </display-box>

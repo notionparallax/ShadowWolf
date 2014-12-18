@@ -28,6 +28,9 @@ class Legacy
   field :dirty_pictures, type: String
   field :dirty_testimonial, type: String
   field :dirty_awards, type: String
+  field :start_date, type: String
+  field :completion_date, type: String
+  field :final_budget, type: String
 
   #field :one_line_grab, type: String
   #field :description_project_sheet, type: String
