@@ -13,6 +13,7 @@ angular.module('ShadowWolf')
    * trigger a $digest cycle.
    */
   function resetBufferTimer(config) {
+    var config = config || {};
     return setTimeout(function() {
       console.log('Querying Oaf at ' + Config.getOaf() + ' with ' + buffer.length + ' project numbers.');
       $http.put(Config.getOaf() + '/projects', buffer, {
