@@ -72,9 +72,9 @@ Given /there is 1 (.*) in the database with (\d+) ([^,]*)$/ do |model,n,object|
   n = n.to_i
   p = FactoryGirl.create model.to_sym
   if model == 'project'
-    if object == 'testimonial'
-      test = Testimonial.new
-      p.building.legacy.testimonials = [ test ]
+    if object.singularize == 'testimonial'
+      p.building.legacy.testimonials = [ ]
+      n.times { p.building.legacy.testimonials << Testimonial.new }
     else
       attention = Attention.new body_text: 'stuff'
       press = BuildingPress.new
@@ -99,6 +99,12 @@ end
 
 When /I click the '(.*)' (.*) tag/ do |text,element|
   find( element, text: text ).trigger 'click'
+end
+
+When /I click the remove testimonial button/ do
+  button = all( "[ng-repeat*=\"testimonial\"]" ).first.find( 'button', text: '×' )
+  button.click
+  sleep 2
 end
 
 When /I type '(.*)' into the (.*)/ do |text,element|
@@ -193,6 +199,12 @@ Then /there should be 2 (.*) (.*) editable groups/ do |model, object|
   objects = object.pluralize
   count = all( "[ng-repeat*=\"#{object} in #{model}.#{objects}\"]" ).count
   raise "Expected 2 #{model} #{objects} editable groups, found: #{count.to_s}" if count != 2
+end
+
+Then /there should be 1 testimonial in the database/ do
+  proj = Project.first
+  count = proj.building.legacy.testimonials.count
+  raise "Expected 1 testimonial found #{count}" if count != 1
 end
 
 Then /I should have 1 (.*) in the database with (.*)/ do |model,qualifier|

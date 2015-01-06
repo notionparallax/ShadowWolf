@@ -59,7 +59,8 @@ angular.module("ShadowWolf")
       };
       // NB: this function only makes sense if isPlural() == true
       $scope.removeObject = function(object) {
-        if (Session.getPersonId() != $scope.object.id.$oid) {
+
+        if (Session.getPersonId() && $scope.objectName == 'person' && Session.getPersonId() != $scope.object.id.$oid) {
           var name = $scope.object.name.preferred_first || $scope.name.first;
           Flash.add({
             template: '<p>You need to be logged in as ' + name + ' to remove this.</p>'
