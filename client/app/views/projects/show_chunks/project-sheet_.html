@@ -17,7 +17,8 @@
                     <figure>
                         <blockquote ng-bind-html="testimonial.testimonial"></blockquote>
                         <figcaption>
-                            <cite>{{testimonial.citation}}</cite> - {{testimonial.date}}
+                            <cite>{{testimonial.citation}}</cite>
+                                <span ng-if="testimonial.date"> - {{testimonial.date}}</span>
                         </figcaption>
                     </figure>
                 </div>
