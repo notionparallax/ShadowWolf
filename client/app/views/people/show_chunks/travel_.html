@@ -8,7 +8,7 @@
                   subgroup-class="alert alert-warning col-xs-12 col-sm-4 col-md-3">
     <editable property="number"       label="number"                               >What is your passport number?</editable>
     <editable property="expiry"       label="expiry"                               >When does this passport expire?</editable>
-    <editable property="issuing_body" label="issuing body" editable-typahead="true">Who issues this passport? It'll be written inside, don't just assume that it is your home country, it might be a sub-agency e.g. a British passport issued in Melbourne.</editable>
+    <editable property="issuing_body" label="issuing body" editable-typeahead="true">Who issues this passport? It'll be written inside, don't just assume that it is your home country, it might be a sub-agency e.g. a British passport issued in Melbourne.</editable>
   </editable-group>
   <h4>Frequent flier programs</h4>
   <!--it'd be cool to get status updates from somewhere like http://awardwallet.com/ in the future-->
@@ -16,7 +16,7 @@
                   object="person"
                   lens="employee.travel.frequent_flier_programs[{{ffp|id}}]"
                   subgroup-class="alert alert-warning col-xs-12 col-sm-4 col-md-3">
-    <editable property="name"   label="name"  editable-typahead="true">This is the name of the programme. E.g. Virgin velocity or One world</editable>
+    <editable property="name"   label="name"  editable-typeahead="true">This is the name of the programme. E.g. Virgin velocity or One world</editable>
     <editable property="number" label="number"                        >Your number for this programme.</editable>
   </editable-group>
 </section>
