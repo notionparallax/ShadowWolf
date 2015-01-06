@@ -51,8 +51,8 @@
                     <p ng-repeat="dim in getObjectsByTag(tag).dims()">
                         {{dim.measurement}}{{dim.unit}} {{dim.title}}
                         <span ng-if="dim.standard_name">({{dim.standard_name}}
-                        <span ng-if="dim.standard_version">, {{dim.standard_version}})
-                        </span></span>
+                        <span ng-if="dim.standard_version">, {{dim.standard_version}}
+                        </span>)</span>
                     </p>
                 </div>
                 <div class="brief-elements" ng-if="getObjectsByTag(tag).brief_elements()">
@@ -71,6 +71,14 @@
                     <ul>
                         <li ng-repeat="initiative in getObjectsByTag(tag).initiatives()">
                             {{initiative.title}}
+                        </li>
+                    </ul>
+                </div>
+                <div ng-if="getObjectsByTag(tag).esdInitiatives()">
+                    <h3>ESD</h3>
+                    <ul>
+                        <li ng-repeat="esdInitiative in getObjectsByTag(tag).esdInitiatives()">
+                            {{esdInitiative.title}}
                         </li>
                     </ul>
                 </div>
