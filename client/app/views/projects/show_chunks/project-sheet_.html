@@ -8,7 +8,7 @@
         <h1>{{project.building.phases[0].project_name}}</h1>
         <div class="body">
             <div class="body-text" ng-repeat="bodytext in tagsProperties[tag].templates">
-                <div>{{bodytext.text}}</div>
+              <div ng-bind-html="bodytext.text"></div>
             </div>
 
             <div class="testimonials" ng-if="tagsProperties[tag].testimonials">

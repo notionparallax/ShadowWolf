@@ -34,7 +34,7 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
   // has() is used by the tag objects $watcher to filter
   var has = function(tag) {
     return function(object) {
-      return object.tags.indexOf(tag) !== -1;
+      return object.tags ? object.tags.indexOf(tag) !== -1 : false;
     };
   };
   $scope.$watch('tags()', function(tags) {
