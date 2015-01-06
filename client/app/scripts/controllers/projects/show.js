@@ -30,38 +30,29 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     var logins = Beowulf.getPeopleLogins($scope.project.project_number);
     return People.getPeople(logins);
   };
-  $scope.getObjectsByTag = function(tag) {
-    var has = function(tag) {
-      return function(object) {
-        return object.tags.indexOf(tag) !== -1;
-      };
-    };
-    return {
-      dims: function() {
-        return $scope.project.building.dims.filter(has(tag));
-      },
-      brief_elements: function() {
-        return $scope.project.building.brief_elements.filter(has(tag));
-      },
-      initiatives: function() {
-        return $scope.project.building.legacy.initiatives.filter(has(tag));
-      },
-      testimonials: function() {
-        return $scope.project.building.legacy.testimonials.filter(has(tag));
-      },
-      awards: function() {
-        return $scope.project.building.legacy.awards.filter(has(tag));
-      },
-      certifications: function() {
-        return $scope.project.building.legacy.esd.certifications.filter(has(tag));
-      },
-      templates: function() {
-        return $scope.project.building.legacy.templates.filter(has(tag));
-      },
-      esdInitiatives: function() {
-        return $scope.project.building.legacy.esd.initiatives.filter(has(tag));
-      }
+
+  // has() is used by the tag objects $watcher to filter
+  var has = function(tag) {
+    return function(object) {
+      return object.tags.indexOf(tag) !== -1;
     };
   };
+  $scope.$watch('tags()', function(tags) {
+    $scope.tagsProperties = {};
+    var building = $scope.project.building;
+    for (var tagIndex in tags) {
+      var tag = tags[tagIndex];
+      $scope.tagsProperties[tag] = {
+        dims:            building.dims                     .filter(has(tag)),
+        brief_elements:  building.brief_elements           .filter(has(tag)),
+        initiatives:     building.legacy.initiatives       .filter(has(tag)),
+        testimonials:    building.legacy.testimonials      .filter(has(tag)),
+        awards:          building.legacy.awards            .filter(has(tag)),
+        templates:       building.legacy.templates         .filter(has(tag)),
+        certifications:  building.legacy.esd.certifications.filter(has(tag)),
+        esdInitiatives:  building.legacy.esd.initiatives   .filter(has(tag))
+      };
+    }
+  }, true /* necessary to avoid infinite digest */ );
   $scope.tags = function() { return Tags.project($scope.project).getTags(); };
 });

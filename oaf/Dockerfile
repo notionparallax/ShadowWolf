@@ -8,3 +8,4 @@ RUN gem2.1 install sinatra rake bundler rest-client redis --no-ri --no-rdoc
 ENV LANG en_AU.utf8
 ENV LANGUAGE en_AU.UTF-8
 ENV LC_ALL en_AU.UTF-8
+ADD . /oaf

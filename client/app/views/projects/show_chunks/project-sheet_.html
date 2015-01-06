@@ -7,13 +7,13 @@
     <div class="text">
         <h1>{{project.building.phases[0].project_name}}</h1>
         <div class="body">
-            <div class="body-text" ng-repeat="bodytext in getObjectsByTag(tag).templates()">
+            <div class="body-text" ng-repeat="bodytext in tagsProperties[tag].templates">
                 <div>{{bodytext.text}}</div>
             </div>
 
-            <div class="testimonials" ng-if="getObjectsByTag(tag).testimonials()">
+            <div class="testimonials" ng-if="tagsProperties[tag].testimonials">
                 <h3>Testimonials</h3>
-                <div ng-repeat="testimonial in getObjectsByTag(tag).testimonials()">
+                <div ng-repeat="testimonial in tagsProperties[tag].testimonials">
                     <figure>
                         <blockquote ng-bind-html="testimonial.testimonial"></blockquote>
                         <figcaption>
@@ -48,17 +48,18 @@
                 </div>
                 <div class="size">
                     <h2>Size          </h2>
-                    <p ng-repeat="dim in getObjectsByTag(tag).dims()">
+                    <p ng-repeat="dim in tagsProperties[tag].dims">
                         {{dim.measurement}}{{dim.unit}} {{dim.title}}
                         <span ng-if="dim.standard_name">({{dim.standard_name}}
                         <span ng-if="dim.standard_version">, {{dim.standard_version}}
                         </span>)</span>
+                        <!-- This is a headfuck, but it comes out as: 24000000m² GFA (BCUK , V3 ) -->
                     </p>
                 </div>
-                <div class="brief-elements" ng-if="getObjectsByTag(tag).brief_elements()">
+                <div class="brief-elements" ng-if="tagsProperties[tag].brief_elements">
                     <h2>Brief Elements</h2>
                     <ul>
-                        <li ng-repeat="brief_element in getObjectsByTag(tag).brief_elements()">
+                        <li ng-repeat="brief_element in tagsProperties[tag].brief_elements">
                             {{brief_element.description}}
                         </li>
                     </ul>
@@ -66,34 +67,34 @@
 
             </div>
             <div class="grabs">
-                <div ng-if="getObjectsByTag(tag).initiatives()">
+                <div ng-if="tagsProperties[tag].initiatives">
                     <h3>Value Add</h3>
                     <ul>
-                        <li ng-repeat="initiative in getObjectsByTag(tag).initiatives()">
+                        <li ng-repeat="initiative in tagsProperties[tag].initiatives">
                             {{initiative.title}}
                         </li>
                     </ul>
                 </div>
-                <div ng-if="getObjectsByTag(tag).esdInitiatives()">
+                <div ng-if="tagsProperties[tag].esdInitiatives">
                     <h3>ESD</h3>
                     <ul>
-                        <li ng-repeat="esdInitiative in getObjectsByTag(tag).esdInitiatives()">
+                        <li ng-repeat="esdInitiative in tagsProperties[tag].esdInitiatives">
                             {{esdInitiative.title}}
                         </li>
                     </ul>
                 </div>
-                <div ng-if="getObjectsByTag(tag).certifications()">
+                <div ng-if="tagsProperties[tag].certifications">
                     <h3>Certifications</h3>
                     <ul>
-                        <li ng-repeat="certification in getObjectsByTag(tag).certifications()">
+                        <li ng-repeat="certification in tagsProperties[tag].certifications">
                             {{certification.name}}
                         </li>
                     </ul>
                 </div>
-                <div ng-if="getObjectsByTag(tag).awards()">
+                <div ng-if="tagsProperties[tag].awards">
                     <h3>Awards</h3>
                     <ul>
-                        <li ng-repeat="award in getObjectsByTag(tag).awards()">
+                        <li ng-repeat="award in tagsProperties[tag].awards">
                             {{award.date.split("-")[0]}} - {{award.award}}
                         </li>
                     </ul>

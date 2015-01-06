@@ -9,9 +9,12 @@ angular.module("ShadowWolf")
         var getTags = function(object) { return object.tags; };
         var concat = function(acc,next) { return acc.concat(next); };
         var tags = proj && proj.building && proj.building.legacy ? [
+            proj.building.dims.map(getTags),
+            proj.building.brief_elements.map(getTags),
             proj.building.legacy.initiatives.map(getTags),
             proj.building.legacy.testimonials.map(getTags),
             proj.building.legacy.awards.map(getTags),
+            proj.building.legacy.templates.map(getTags),
             proj.building.legacy.esd.certifications.map(getTags),
             proj.building.legacy.esd.initiatives.map(getTags)
           ] : [];

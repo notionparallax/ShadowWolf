@@ -3,7 +3,7 @@
 angular.module('ShadowWolf')
 .controller('ProjectsIndexController',
 function($scope, Projects, Session, Search, Oaf) {
-  $scope.limit = 9;//60;
+  $scope.limit = 60;
   $scope.searchQuery = '';
   searchBar.focus();
   $scope.searchResults = Projects.getProjects();
