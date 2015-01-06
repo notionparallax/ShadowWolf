@@ -51,8 +51,9 @@
                     <p ng-repeat="dim in tagsProperties[tag].dims">
                         {{dim.measurement}}{{dim.unit}} {{dim.title}}
                         <span ng-if="dim.standard_name">({{dim.standard_name}}
-                        <span ng-if="dim.standard_version">, {{dim.standard_version}})
-                        </span></span>
+                        <span ng-if="dim.standard_version">, {{dim.standard_version}}
+                        </span>)</span>
+                        <!-- This is a headfuck, but it comes out as: 24000000m² GFA (BCUK , V3 ) -->
                     </p>
                 </div>
                 <div class="brief-elements" ng-if="tagsProperties[tag].brief_elements">
@@ -71,6 +72,14 @@
                     <ul>
                         <li ng-repeat="initiative in tagsProperties[tag].initiatives">
                             {{initiative.title}}
+                        </li>
+                    </ul>
+                </div>
+                <div ng-if="tagsProperties[tag].esdInitiatives">
+                    <h3>ESD</h3>
+                    <ul>
+                        <li ng-repeat="esdInitiative in tagsProperties[tag].esdInitiatives">
+                            {{esdInitiative.title}}
                         </li>
                     </ul>
                 </div>
