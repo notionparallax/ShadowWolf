@@ -14,15 +14,11 @@
         </editable-group>
 
 <h3>Key Dates</h3>
-<editable-group object="project" lens="building.phases[{{phase|id}}].key_dates" subgroup-class="alert alert-info col-sm-6">
-    <editable property="dirty_members" label="dirty team members">This data came from the project library, it should be replaced by the data provided by Epicor. If you are project custodian you should check that the team that is automatically generated is correct and then empty this field out.</editable>
-</editable-group>
-<div ng-repeat="building.phases[{{phase|id}}].key_dates" class="">
-    <editable-group object="person" lens="conditions[{{condition|id}}]" subgroup-class="alert alert-success">
+<div ng-repeat="key_date in phase.key_dates" class="">
+    <editable-group object="project" lens="building.phases[{{phase|id}}].key_dates[{{key_date|id}}]" subgroup-class="alert alert-info">
+        <editable property="name"        label="Name"        editable-typeahead="true">A name for the thing that happened.</editable>
         <editable property="description" label="Description" editable-typeahead="true">A description of the thing that happened. (Completed DD, start on site etc.).</editable>
         <editable property="date"        label="Date"        type="date"              >The date that this thing happened.</editable>
-        <!-- date: null
-        description: null -->
     </editable-group>
 </div>
 
