@@ -150,6 +150,12 @@ li a#wiki-link div strong {
 .temp-map {
     width: 100%;
 }
+sw-map {
+    width: 100%;
+    min-height: 512px;
+    display: block;
+}
+
 button.close {
     position: relative;
     right: 0.0em;
