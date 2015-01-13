@@ -261,3 +261,20 @@ Person.all.each{|p|
         end
     }
 }
+
+
+Project.all.each{|p|
+    unless p.building.project_categories.class == Array
+        p.building.project_categories = "" if p.building.project_categories.nil?
+        pcs = p.building.project_categories.split(",").map(&:strip)
+        p.building.project_categories = pcs
+        p.save
+    end
+}
+
+Project.all.map{|p| p.building.project_categories.class}.uniq
+
+Project.all.map{|p| p.building.project_categories.map { |pc|
+    pc.include? ','
+    }.any?
+}.any?
