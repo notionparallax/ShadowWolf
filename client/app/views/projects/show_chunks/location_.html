@@ -1,17 +1,14 @@
 <h2>Location</h2>
 <p class="explantory-text">This is a way of finding the address of the project, also where the front door is, and eventually a nice boundary drawing too. This will eventually feed to the public website so that people can find the projects.</p>
 <p class="explantory-text">The addresses were preloaded by <a href="http://blogs.bvn.com.au/tropos/2013/09/24/artificial-artificial-intelligence/">Mechanical turks</a>. As people with domain knowledge, your job is to collate their attempts into one canonical address/location box. Once there is a good address for this project we'll remove the others.</p>
-<style>
-  sw-map {
-    width: 100%;
-    min-height: 512px;
-    display: block;
-  }
-</style>
+
 <div ng-repeat="location in project.building.locations"
      class="row col-sm-12 alert alert-info">
     <div class="col-sm-6">
-      <sw-ng-map project="project" location-id="location|id" lat="location.geo_json.lat" lon="location.geo_json.lon"></sw-ng-map>
+      <sw-ng-map project="project"
+                 location-id="location|id"
+                 lat="location.geo_json.lat"
+                 lon="location.geo_json.lon"></sw-ng-map>
     </div>
     <div class="col-sm-6">
         <editable-group object="project"
@@ -27,4 +24,6 @@
              <editable property="postcode"       label="postcode"      editable-typahead="true">E.g. 2000 or CT18 8EG</editable>
         </editable-group>
     </div>
+    <editable-group object="project" lens="building.locations[{{location|id}}]" subgroup-class="">
+    </editable-group>
 </div>
