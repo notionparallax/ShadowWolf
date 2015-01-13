@@ -68,13 +68,28 @@ Given /there is 1 (.*) in the database with (\d+) (.*), with a tag/ do |model,n,
   test.tags = [ 'Some tag' ]
   p.save
 end
+Given /there is 1 project in the database with project number (.*)/ do |project_number|
+  p = FactoryGirl.create :project
+  p.project_number = project_number
+  p.save
+end
+Given /I have already visited project show page for (.*)/ do |project_number|
+  service_address =
+    ENV["GRUNT_PORT"].gsub(/^tcp/,'http')
+  visit service_address + '/#/projects'
+  sleep 2
+  visit service_address + '/#/projects'
+  sleep 2
+  all( '.demo' ).first.all( 'a' ).last.click
+  sleep 5
+end
 Given /there is 1 (.*) in the database with (\d+) ([^,]*)$/ do |model,n,object|
   n = n.to_i
   p = FactoryGirl.create model.to_sym
   if model == 'project'
-    if object == 'testimonial'
-      test = Testimonial.new
-      p.building.legacy.testimonials = [ test ]
+    if object.singularize == 'testimonial'
+      p.building.legacy.testimonials = [ ]
+      n.times { p.building.legacy.testimonials << Testimonial.new }
     else
       attention = Attention.new body_text: 'stuff'
       press = BuildingPress.new
@@ -99,6 +114,12 @@ end
 
 When /I click the '(.*)' (.*) tag/ do |text,element|
   find( element, text: text ).trigger 'click'
+end
+
+When /I click the remove testimonial button/ do
+  button = all( "[ng-repeat*=\"testimonial\"]" ).first.find( 'button', text: '×' )
+  button.click
+  sleep 2
 end
 
 When /I type '(.*)' into the (.*)/ do |text,element|
@@ -195,6 +216,12 @@ Then /there should be 2 (.*) (.*) editable groups/ do |model, object|
   raise "Expected 2 #{model} #{objects} editable groups, found: #{count.to_s}" if count != 2
 end
 
+Then /there should be 1 testimonial in the database/ do
+  proj = Project.first
+  count = proj.building.legacy.testimonials.count
+  raise "Expected 1 testimonial found #{count}" if count != 1
+end
+
 Then /I should have 1 (.*) in the database with (.*)/ do |model,qualifier|
   sleep 2 
   if qualifier == '2 conditions'
@@ -217,4 +244,8 @@ Then /on the Project Sheets tab there exists a tab for 'New Tag'/ do
   find( '.nav-tabs' ).find( 'a', text: 'Project Sheets' ).click
   newTagTab = all(  '.nav-tabs' )[1].find( 'a', text: 'New Tag' )
   raise '\'New Tag\' tab does not exist' if newTagTab.nil?
+end
+Then /the background image/ do
+  info_box = find '.info-box'
+  raise 'fail' if info_box[:style].include? 'kitten'
 end

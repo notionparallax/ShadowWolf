@@ -124,6 +124,7 @@ testgrunt:
   image: shadowwolf_dev
   working_dir: /ShadowWolf/client
   links:
+    - devoaf:oaf
     - testrails:server
     - devflask:beowulf
   expose:

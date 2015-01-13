@@ -1,0 +1,70 @@
+<link rel="import" href="/bower_components/google-map/google-map.html">
+<link rel="import" href="/bower_components/google-map/google-map-search.html">
+<polymer-element name="sw-map" attributes="latitude longitude">
+<template>
+<google-map-search id="search" query="{{mapQuery}}" result="{{result}}"></google-map-search>
+<google-map id="map" zoomable=true disableDefaultUI=true latitude="{{latitude}}" longitude="{{longitude}}">
+</google-map>
+<input value="{{query}}">
+  <style>
+    input {
+      position: absolute;
+      top: 15px;
+      left: 28px;
+    }
+    google-map {
+      display: block;
+      width: 100%;
+      min-height: 512px;
+    }
+    google-map-search {
+      min-height: 12px;
+      min-width: 5em;
+    }
+  </style>
+</template>
+<script>
+  Polymer('sw-map',{
+    result: '',
+    queryChanged: function(oldValue,newValue) {
+      this.job('setQuery', function() {
+        this.mapQuery = newValue;
+      }, 500);
+    },
+    resultChanged: function(oldValue,newValue) {
+        console.log('w00t');
+      this.$.map.map.setCenter({ lat: newValue.latitude, lng: newValue.longitude });
+    },
+    marker: null,
+    latitude: -33.86,
+    longitude: 151.21,
+    ready: function() {
+      var that = this;
+      that.$.map.addEventListener('google-map-ready',function(){
+        /**
+         * @var map This polymer element's
+         *          polymer element's
+         *          google map
+         */
+        var map = that.$.map.map;
+        that.$.search.map = map;
+        map.set("disableDoubleClickZoom", true);
+        that.marker = new google.maps.Marker({
+          position: map.getCenter(),
+          draggable: true,
+          map: map
+        });
+        that.marker.addListener('mouseup', function(event) {
+          that.latitude  = this.position.lat();
+          that.longitude = this.position.lng();
+          that.dispatchEvent(new CustomEvent('latLongSelected', { detail: {
+            lat: this.position.lat(),
+            lng: this.position.lng()
+          }}));
+        });
+      });
+    }
+  });
+</script>
+
+</polymer-element>
