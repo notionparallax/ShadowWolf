@@ -36,6 +36,7 @@ angular.module('ShadowWolf')
    * Oaf. When they come back the digest cycle will be run.
    */
   this.getProjectImage = function(projectNumber, newConfig) {
+    newConfig = newConfig || {};
     if ( projects[projectNumber] !== undefined && newConfig.updateCache !== true) {
       return projects[projectNumber];
     }
