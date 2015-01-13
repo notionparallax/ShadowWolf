@@ -68,6 +68,21 @@ Given /there is 1 (.*) in the database with (\d+) (.*), with a tag/ do |model,n,
   test.tags = [ 'Some tag' ]
   p.save
 end
+Given /there is 1 project in the database with project number (.*)/ do |project_number|
+  p = FactoryGirl.create :project
+  p.project_number = project_number
+  p.save
+end
+Given /I have already visited project show page for (.*)/ do |project_number|
+  service_address =
+    ENV["GRUNT_PORT"].gsub(/^tcp/,'http')
+  visit service_address + '/#/projects'
+  sleep 2
+  visit service_address + '/#/projects'
+  sleep 2
+  all( '.demo' ).first.all( 'a' ).last.click
+  sleep 5
+end
 Given /there is 1 (.*) in the database with (\d+) ([^,]*)$/ do |model,n,object|
   n = n.to_i
   p = FactoryGirl.create model.to_sym
@@ -229,4 +244,8 @@ Then /on the Project Sheets tab there exists a tab for 'New Tag'/ do
   find( '.nav-tabs' ).find( 'a', text: 'Project Sheets' ).click
   newTagTab = all(  '.nav-tabs' )[1].find( 'a', text: 'New Tag' )
   raise '\'New Tag\' tab does not exist' if newTagTab.nil?
+end
+Then /the background image/ do
+  info_box = find '.info-box'
+  raise 'fail' if info_box[:style].include? 'kitten'
 end

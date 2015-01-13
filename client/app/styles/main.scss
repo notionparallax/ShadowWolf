@@ -60,6 +60,11 @@ li a#wiki-link div {
     font-size: 60%;
     line-height: 85%;
 }
+li a#wiki-link div strong {
+    display: inline-block;
+    width: 0.6em;
+    text-align: center;
+}
 .face-box {
     position: relative;
     margin-bottom: 1em;

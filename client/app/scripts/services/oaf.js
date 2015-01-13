@@ -4,6 +4,7 @@ angular.module('ShadowWolf')
   var projects = {};
   var buffer = [];
   var bufferTimer;
+  var config = {};
 
   /**
    * Will return a timer that when it completes in 100ms will send all buffered
@@ -12,10 +13,10 @@ angular.module('ShadowWolf')
    * back from Oaf it will merge them with the existing projectImages then
    * trigger a $digest cycle.
    */
-  function resetBufferTimer(config) {
-    var config = config || {};
+  function resetBufferTimer(newConfig) {
+    config = newConfig;
     return setTimeout(function() {
-      console.log('Querying Oaf at ' + Config.getOaf() + ' with ' + buffer.length + ' project numbers.');
+      console.log('Querying Oaf at ' + Config.getOaf() + ' with ' + buffer.length + ' project numbers.'  );
       $http.put(Config.getOaf() + '/projects', buffer, {
         params: { update_cache: config.updateCache }
       }).then(function(result) {
@@ -28,18 +29,21 @@ angular.module('ShadowWolf')
       bufferTimer = undefined;
     }, 100);
   }
+
   /**
    * Will return the project image if it exists. If it does not exist it will
    * return null and buffer requests for images for 100ms then send them off to
    * Oaf. When they come back the digest cycle will be run.
    */
-  this.getProjectImage = function(projectNumber, config) {
-    if ( projects[projectNumber] !== undefined ) {
+  this.getProjectImage = function(projectNumber, newConfig) {
+    newConfig = newConfig || {};
+    if ( projects[projectNumber] !== undefined && newConfig.updateCache !== true) {
       return projects[projectNumber];
     }
 
     if (!bufferTimer) bufferTimer = resetBufferTimer(config);
     if (buffer.indexOf(projectNumber) == -1) buffer.push(projectNumber);
+    if (newConfig.updateCache) config.updateCache = true;
     projects[projectNumber] = '';
     return projects[projectNumber];
   };
