@@ -6,3 +6,11 @@
     <editable property="direct"                   label="Primary     User"    editable-typeahead="true">E.g. Department of Defence, ASB Bank, Mt Annan Botanic Garden.</editable>
     <editable property="end_user"                 label="End         user"    editable-typeahead="true">The group/people/organisation that uses the project E.g. UTS Department of Science.</editable>
 </editable-group>
+
+<h3>Referees</h3>
+<div ng-repeat="referee in project.building.client.referees">
+    <editable-group object="project" lens="building.client.referees[{{referee|id}}]" subgroup-class="alert alert-info col-sm-x">
+        <editable property="description" label="Description" editable-typahead="true">Their position and relationship to the project </editable>
+        <editable property="details"     label="Details"        type="textarea"      >Their contact details, e.g. Name, organisation, phone number, email address</editable>
+    </editable-group>
+</div>
