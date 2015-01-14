@@ -4,7 +4,7 @@
 
 <div ng-repeat="dim in project.building.dims">
     <editable-group object="project" lens="building.dims[{{dim|id}}]" subgroup-class="alert alert-info col-sm-x">
-        <editable property="measurement"      label="Measurement"      type="number"           >What is the value of this measurement? E.g. if it is 30,000m², enter 30000</editable>
+        <editable property="measurement"      label="Measurement"      type="number"           >What is the value of this measurement? E.g. if it is 30,000m², enter 30000.</editable>
         <editable property="unit"             label="Unit"             editable-typeahead="true">What is the number above measuring?</editable>
         <editable property="title"            label="Title"            editable-typeahead="true">What does this measurement describe? E.g. is it retail NLA, overall GFA, site area?</editable>
         <editable property="standard_name"    label="Standard Name"    editable-typeahead="true">What measurement standard was used to establish this? If there isn't one, leave it blank.</editable>
