@@ -3,10 +3,10 @@
                            The more quotes that we can harvest the better.</p>
 <div ng-repeat="quote in project.building.legacy.quotes">
     <editable-group object="project" lens="building.legacy.quotes[{{quote|id}}]" subgroup-class="alert alert-info col-sm-6">
-        <editable property="quote"    label="quote"                            >What did someone say?</editable>
-        <editable property="citation" label="citation" editable-typahead="true">Who said it?</editable>
+        <editable property="quote"    label="Quote"                            >What did someone say?</editable>
+        <editable property="citation" label="Citation" editable-typahead="true">Who said it?</editable>
         <div class="future-feature"><editable property="context" label="Context">Where did they say it? In a chat? In the Financial Review?</editable></div>
-        <editable property="date"     label="date"              type="date"    >When did they say it?</editable>
-        <editable property="tags"     label="tags"              type="tags"    >Tags define which project sheet this piece of information goes onto.</editable>
+        <editable property="date"     label="Date"              type="date"    >When did they say it?</editable>
+        <editable property="tags"     label="Tags"              type="tags"    >Tags define which project sheet this piece of information goes onto.</editable>
     </editable-group>
 </div>

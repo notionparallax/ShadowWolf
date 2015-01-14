@@ -262,6 +262,15 @@ Person.all.each{|p|
     }
 }
 
+people = []
+Person.all.each{|p|
+    name     = p.name.preferred_first + " " + p.name.preferred_last
+    photoURL = p.employee.photo.bw
+    login    = p.employee.login
+    people.push "#{login}, #{name}, #{photoURL}"
+}
+puts people
+
 
 Project.all.each{|p|
     unless p.building.project_categories.class == Array
