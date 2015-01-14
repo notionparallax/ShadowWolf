@@ -10,7 +10,7 @@
 <h3>Referees</h3>
 <div ng-repeat="referee in project.building.client.referees">
     <editable-group object="project" lens="building.client.referees[{{referee|id}}]" subgroup-class="alert alert-info col-sm-x">
-        <editable property="description" label="Description" editable-typahead="true">Their position and relationship to the project </editable>
+        <editable property="description" label="Description" editable-typeahead="true">Their position and relationship to the project </editable>
         <editable property="details"     label="Details"        type="textarea"      >Their contact details, e.g. Name, organisation, phone number, email address</editable>
     </editable-group>
 </div>

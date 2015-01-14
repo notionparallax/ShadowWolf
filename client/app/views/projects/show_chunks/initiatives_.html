@@ -2,8 +2,8 @@
 <p class="explantory-text">What was special about this building? Was there a special strategic or social iniative that goes along with this building?</p>
 <div ng-repeat="initiative in project.building.legacy.initiatives">
     <editable-group object="project" lens="building.legacy.esd.initiatives[{{initiative|id}}]" subgroup-class="alert alert-info col-sm-x">
-        <editable property="title"       label="Title"       editable-typahead="true">What was the thing that you did? (Think of this as a title.)</editable>
-        <editable property="reason"      label="Reason"      editable-typahead="true">Why did you do it? (Briefly)</editable>
+        <editable property="title"       label="Title"       editable-typeahead="true">What was the thing that you did? (Think of this as a title.)</editable>
+        <editable property="reason"      label="Reason"      editable-typeahead="true">Why did you do it? (Briefly)</editable>
         <editable property="description" label="Description" type="textarea"         >Write a bit more about it here. What was the story?</editable>
         <editable property="tags"        label="Tags"        type="tags"             >Tags define which project sheet this piece of information goes onto.</editable>
     </editable-group>
@@ -14,8 +14,8 @@
 <p class="explantory-text">If this project has any ESD initiatives then explain it here.</p>
 <div ng-repeat="initiative in project.building.legacy.esd.initiatives">
     <editable-group object="project" lens="building.legacy.esd.initiatives[{{initiative|id}}]" subgroup-class="alert alert-info">
-        <editable property="title"       label="Title"       editable-typahead="true">What was the thing that you did? (Think of this as a title.)</editable>
-        <editable property="reason"      label="Reason"      editable-typahead="true">Why did you do it? (Briefly)</editable>
+        <editable property="title"       label="Title"       editable-typeahead="true">What was the thing that you did? (Think of this as a title.)</editable>
+        <editable property="reason"      label="Reason"      editable-typeahead="true">Why did you do it? (Briefly)</editable>
         <editable property="description" label="Description" type="textarea"         >Write a bit more about it here. What was the story?</editable>
         <editable property="tags"        label="Tags"        type="tags"             >Tags define which project sheet this piece of information goes onto.</editable>
     </editable-group>
