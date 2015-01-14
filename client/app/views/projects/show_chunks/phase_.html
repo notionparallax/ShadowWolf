@@ -11,26 +11,21 @@
             <editable property="staff_contact_login"   label="Staff contact login"   editable-typahead="true">Who is the go to person for this project? Usually the project director (unless they've left!)</editable>
             <editable property="staff_custodian_login" label="Staff custodian login" editable-typahead="true">Who is responsible for maintaining this page?</editable>
             <editable property="dirty_date"            label="Dirty date"                                    >Some date or other from the project library, lets get rid of this as soon as we can! If you are project custodian you should check that the date automatically generated is correct and then empty this field out.</editable>
+            <editable property="dirty_members"         label="Dirty team members"                            >This data came from the project library, it should be replaced by the data provided by Epicor. If you are project custodian you should check that the team that is automatically generated is correct and then empty this field out.</editable>
         </editable-group>
 
         <h3>Key Dates</h3>
         <editable-group object="project" lens="building.phases[{{phase|id}}].key_dates" subgroup-class="alert alert-info col-sm-6">
             <editable property="dirty_date" label="Dirty date">This data came from the project library, it should be replaced by the data provided by Epicor. If you are project custodian you should check that the team that is automatically generated is correct and then empty this field out.</editable>
         </editable-group>
-        <div ng-repeat="building.phases[{{phase|id}}].key_dates" class="">
-            <editable-group object="person" lens="conditions[{{condition|id}}]" subgroup-class="alert alert-success">
+
+        <div ng-repeat="key_date in phase.key_dates" class="">
+            <editable-group object="project" lens="building.phases[{{phase|id}}].key_dates[{{key_date|id}}]" subgroup-class="alert alert-info">
+                <editable property="name"        label="Name"        editable-typeahead="true">The name of this date, like 'Start on site' or 'Opening ceremony'. </editable>
                 <editable property="description" label="Description" editable-typeahead="true">A description of the thing that happened. (Completed DD, start on site etc.).</editable>
                 <editable property="date"        label="Date"        type="date"              >The date that this thing happened.</editable>
-                <!-- date: null
-                description: null -->
             </editable-group>
         </div>
-
-
-        <h3>Members</h3>
-        <editable-group object="project" lens="building.phases[{{phase|id}}]" subgroup-class="alert alert-info col-sm-6">
-            <editable property="dirty_members" label="Dirty team members">This data came from the project library, it should be replaced by the data provided by Epicor. If you are project custodian you should check that the team that is automatically generated is correct and then empty this field out.</editable>
-        </editable-group>
 
         <h3>Budget</h3>
         <editable-group object="project" lens="building.phases[{{phase|id}}].budget" subgroup-class="alert alert-info col-sm-6">
