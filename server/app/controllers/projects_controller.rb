@@ -14,6 +14,15 @@ class ProjectsController < ApplicationController
     render json: @projects
   end
 
+  # get any projects with matching project numbers
+  def numbers
+    @projects = Project.where( project_number: params[:project_number] )
+      .query
+      .select('building.phases.project_name'.to_sym => 'project_name',
+              project_number: 1)
+    render json: @projects
+  end
+
   # GET /projects/1
   # GET /projects/1.json
   def show
@@ -32,12 +41,17 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
+    @project = Project.new
+    @project.project_number = project_params[:project_number]
+    @project.building = Building.new
+    @project.building.phases << Phase.new
+    @project.building.phases.first.project_name = project_params[:project_name]
+    @project.building.phases.first.staff_contact_login = project_params[:project_login]
 
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @project }
+        format.json { render json: @project }
       else
         format.html { render action: 'new' }
         format.json { render json: @project.errors, status: :unprocessable_entity }

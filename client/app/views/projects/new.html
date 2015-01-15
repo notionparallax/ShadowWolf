@@ -1,0 +1,25 @@
+<form ng-if="!submitting">
+  <label for="number">Project Number</label>
+  <input name="number" ng-model="project.number">
+  <span>
+    <span ng-if="existingProjectNumber">✗ ({{ existingProjectNumber.project_name}})</span>
+    <span ng-if="!existingProjectNumber && project.number.length > 3">✓</span>
+  </span>
+  <br>
+  <label for="number">Project Name</label>
+  <input name="name" ng-model="project.name">
+  <span>
+    <span ng-if="project.name.length > 0 && project.name.length < 5">✗</span>
+    <span ng-if="project.name.length >= 5">✓</span>
+  </span>
+  <br>
+  <label for="number">Project Contact Login</label>
+  <input name="login" ng-model="project.login">
+  <span>
+    <span ng-if="existingPersonLogin">✓ ({{ existingPersonLogin.name }})</span>
+    <span ng-if="!existingPersonLogin && project.login.length > 3">✗</span>
+  </span>
+  <br>
+  <button ng-disabled="!validEntry()" ng-click="submit()">Create Project</button>
+</form>
+<p ng-if="submitting">Submitting new project...</p>
