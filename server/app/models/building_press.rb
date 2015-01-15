@@ -12,4 +12,8 @@ class BuildingPress
 
   embedded_in :building, inverse_of: :presses
 
+  embeds_many :press_releases, class_name: 'PressRelease'
+
+  accepts_nested_attributes_for :press_releases
+
 end

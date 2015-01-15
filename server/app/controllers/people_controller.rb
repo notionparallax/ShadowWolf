@@ -1,11 +1,20 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_person, except: [:index, :show]
+  before_action :authorize_person, except: [:index, :show, :logins]
 
   # GET /people
   # GET /people.json
   def index
     @people = Person.all
+  end
+
+  def logins
+    @people = Person.where( 'employee.login' => params[:login] )
+      .query
+      .select 'employee.login' => 1,
+        'name.preferred_first' => 1,
+        'name.preferred_last'  => 1
+    render json: @people
   end
 
   # GET /people/1

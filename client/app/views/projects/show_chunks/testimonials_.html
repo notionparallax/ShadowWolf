@@ -2,9 +2,9 @@
 <p class="explantory-text">This is where we record the things that people have said about the project.</p>
 <div ng-repeat="testimonial in project.building.legacy.testimonials">
     <editable-group object="project" lens="building.legacy.testimonials[{{testimonial|id}}]" subgroup-class="alert alert-info col-sm-6">
-        <editable property="testimonial" label="testimonial"                        >Someone like the project? What did they say?</editable>
-        <editable property="citation"    label="citation"   editable-typeahead="true">Who said it?</editable>
-        <editable property="date"        label="date"       type="date"             >When did they say it?</editable>
-        <editable property="tags"       label="tags"        type="tags"             >Tags define which project sheet this piece of information goes onto.</editable>
+        <editable property="testimonial" label="Testimonial"                        >Someone like the project? What did they say?</editable>
+        <editable property="citation"    label="Citation"   editable-typeahead="true">Who said it?</editable>
+        <editable property="date"        label="Date"       type="date"             >When did they say it?</editable>
+        <editable property="tags"       label="Tags"        type="tags"             >Tags define which project sheet this piece of information goes onto.</editable>
     </editable-group>
 </div>

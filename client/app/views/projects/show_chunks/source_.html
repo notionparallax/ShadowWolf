@@ -2,8 +2,8 @@
 <p class="explantory-text">How did we get this projecct?</p>
 <!--TODO this feel like it needs much more richness.-->
 <editable-group object="project" lens="building.project_source" subgroup-class="alert alert-info col-sm-6">
-    <editable property="competition_win" label="competition win">Was this project the result of a competition win or was it found through other methods?</editable>
-    <editable property="competition_URL" label="competition URL">If it was, put a link to the competition website here.</editable>
+    <editable property="competition_win" label="Competition win">Was this project the result of a competition win or was it found through other methods?</editable>
+    <editable property="competition_URL" label="Competition URL">If it was, put a link to the competition website here.</editable>
     <p><a href="{{ subobject.competition_URL }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></p>
 </editable-group>
 
@@ -11,6 +11,6 @@
 <p class="explantory-text">Who did this project come in through? Where is it from?</p>
 <editable-group object="project" lens="building.project_source.referred_by" subgroup-class="alert alert-info col-sm-6">
      <editable property="BVN_staff_login"      label="BVNstaff login"       editable-typeahead="true">This is the login of the person that found the project.</editable>
-     <editable property="contact_name"         label="contact name"         editable-typeahead="true">Who is the person to talk to at the commissioning organisation?</editable>
-     <editable property="contact_organisation" label="contact organisation" editable-typeahead="true">What organisation is commissioning this job?</editable>
+     <editable property="contact_name"         label="Contact name"         editable-typeahead="true">Who is the person to talk to at the commissioning organisation?</editable>
+     <editable property="contact_organisation" label="Contact organisation" editable-typeahead="true">What organisation is commissioning this job?</editable>
 </editable-group>

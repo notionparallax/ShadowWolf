@@ -66,6 +66,7 @@ ShadowWolf::Application.routes.draw do
 
   resources :non_buildings
 
+  get "projects/numbers" => "projects#numbers"
   resources :projects
 
   devise_for :people, :controllers => { :omniauth_callbacks => "people/omniauth_callbacks" }
@@ -133,6 +134,7 @@ ShadowWolf::Application.routes.draw do
 
   resources :person_names
 
+  get "people/logins" => "people#logins"
   resources :people
 
   resources :people do

@@ -11,5 +11,6 @@ FactoryGirl.define do
     comments { Faker::Lorem.paragraphs.join('<br>') }
     fee_type { ["fixed fee", "lump sum", "hourly"].sample }
     dirty_budget "a cool mil"
+    confidential { [true,true,false].sample }
   end
 end

@@ -7,9 +7,9 @@
         <editable-group object="person"
                         lens="employee.contact"
                         subgroup-class="alert alert-info col-sm-10 col-md-10">
-          <editable  property="extension"  label="extension"  type="number">This is your desk phone extension.</editable>
-          <editable  property="studio"     label="studio"     editable-typeahead="place for place in ['Sydney','Melbourne','Brisbane','Bangkok','Baku','Toronto','London','Darlinghurst'] | filter:$viewValue">This is the studio that you work in.</editable>
-          <editable  property="work_email" label="work email" type="email">This is your ~~~@bvn.com.au email address.</editable>
+          <editable  property="extension"  label="Extension"  type="number">This is your desk phone extension.</editable>
+          <editable  property="studio"     label="Studio"     editable-typeahead="place for place in ['Sydney','Melbourne','Brisbane','Bangkok','Baku','Toronto','London','Darlinghurst'] | filter:$viewValue">This is the studio that you work in.</editable>
+          <editable  property="work_email" label="Work email" type="email">This is your ~~~@bvn.com.au email address.</editable>
         </editable-group>
 
         <div ng-if="isCurrentUser()" class="col-md-10">
@@ -17,9 +17,9 @@
           <editable-group object="person"
                           lens="employee.contact.mobile"
                           subgroup-class="alert alert-warning col-sm-10 col-md-10">
-            <editable property="number"     label="number"     type="tel"     >This is your mobile number.</editable>
-            <editable property="is_work"    label="is work"    type="checkbox">This is <em>True</em> if BVN provides your mobile.</editable>
-            <editable property="distribute" label="distribute" type="checkbox">This is <em>True</em> if it is OK for people give your mobile number out to people.</editable>
+            <editable property="number"     label="Number"     type="tel"     >This is your mobile number.</editable>
+            <editable property="is_work"    label="Is work"    type="checkbox">This is <em>True</em> if BVN provides your mobile.</editable>
+            <editable property="distribute" label="Distribute" type="checkbox">This is <em>True</em> if it is OK for people give your mobile number out to people.</editable>
           </editable-group>
         </div>
 
@@ -34,8 +34,8 @@
       <editable-group object="person"
                       lens="contact"
                       subgroup-class="alert alert-warning col-sm-10 col-md-10">
-        <editable property="personal_email" label="personal email" type="email">This is a way of contacting you by email if we aren't using your  ~~~@bvn.com.au email address. This is useful if you leave and people want to ask you questions. (Or just say hi!)</editable>
-        <editable property="personal_phone" label="personal phone" type="tel"  >This is a way of contacting you by phone if you aren't at work.</editable>
+        <editable property="personal_email" label="Personal email" type="email">This is a way of contacting you by email if we aren't using your  ~~~@bvn.com.au email address. This is useful if you leave and people want to ask you questions. (Or just say hi!)</editable>
+        <editable property="personal_phone" label="Personal phone" type="tel"  >This is a way of contacting you by phone if you aren't at work.</editable>
       </editable-group>
     </section>
 
@@ -44,14 +44,14 @@
       <editable-group object="person"
                       lens="contact.social"
                       subgroup-class="alert alert-info col-sm-10 col-md-10">
-        <editable property="twitter"     label="twitter"    >This is your Twitter name. Leave the @ off.</editable>
-        <editable property="instagram"   label="instagram"  >This is your Instagram name. Leave the @ off.</editable>
-        <editable property="github"      label="github"     >This is your github name.</editable>
-        <editable property="pinterest"   label="pinterest"  >This is your pintrest name.</editable>
-        <editable property="google_plus" label="google plus">This is your Google+ name. If you have a vanity name then it'll look like <code>+yourname</code> otherwise it'll just be a long number.</editable>
-        <editable property="linkedin"    label="linkedin"   >This is your linkedin link. This is a bit hard to find, but if you go to your profile it's a tiny grey link below your photo. It looks like: http://au.linkedin.com/pub/ben-doherty/59/193/b2a/ </editable>
-        <editable property="facebook"    label="facebook"   >This is your Facebook name. If you have a vanity name then it'll look like <code>yourname</code> otherwise it'll just be a long number.</editable>
-        <editable property="tumblr"      label="tumblr"     >This is the link to your tumblr. e.g. <a href="http://i-justreally-like-cats-okay.tumblr.com/">http://i-justreally-like-cats-okay.tumblr.com</a></editable>
+        <editable property="twitter"     label="Twitter"    >This is your Twitter name. Leave the @ off.</editable>
+        <editable property="instagram"   label="Instagram"  >This is your Instagram name. Leave the @ off.</editable>
+        <editable property="github"      label="Github"     >This is your github name.</editable>
+        <editable property="pinterest"   label="Pinterest"  >This is your pintrest name.</editable>
+        <editable property="google_plus" label="Google plus">This is your Google+ name. If you have a vanity name then it'll look like <code>+yourname</code> otherwise it'll just be a long number.</editable>
+        <editable property="linkedin"    label="Linkedin"   >This is your linkedin link. This is a bit hard to find, but if you go to your profile it's a tiny grey link below your photo. It looks like: http://au.linkedin.com/pub/ben-doherty/59/193/b2a/ </editable>
+        <editable property="facebook"    label="Facebook"   >This is your Facebook name. If you have a vanity name then it'll look like <code>yourname</code> otherwise it'll just be a long number.</editable>
+        <editable property="tumblr"      label="Tumblr"     >This is the link to your tumblr. e.g. <a href="http://i-justreally-like-cats-okay.tumblr.com/">http://i-justreally-like-cats-okay.tumblr.com</a></editable>
         <!--This will need a bit of tweaking once we know what's going on.-->
 
         <!-- <iframe class="insta-frame"

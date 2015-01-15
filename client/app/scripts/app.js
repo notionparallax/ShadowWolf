@@ -45,6 +45,10 @@ angular.module('ShadowWolf', ['ngResource',
         templateUrl: 'views/projects/index.html',
         controller: 'ProjectsIndexController'
       })
+      .when('/projects/new', {
+        templateUrl: 'views/projects/new.html',
+        controller: 'ProjectsNewController'
+      })
       .when('/projects/:projectId', {
         templateUrl: 'views/projects/show.html',
         controller: 'ProjectsShowController'

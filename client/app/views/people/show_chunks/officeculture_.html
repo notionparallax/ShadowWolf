@@ -9,20 +9,16 @@
       <editable-group object="person"
                 lens="employee.office_culture"
                 subgroup-class="">
-        <editable property="first_aider"  label="first aider" type="checkbox">If you are currently  a first aider then this should be ticked, otherwise it should be blank.</editable>
-        <editable property="fire_warden"  label="fire warden" type="checkbox">If you are a fire warden then this should be ticked, otherwise it should be blank.</editable>
+        <editable property="first_aider"  label="First aider" type="checkbox">If you are currently  a first aider then this should be ticked, otherwise it should be blank.</editable>
+        <editable property="fire_warden"  label="Fire warden" type="checkbox">If you are a fire warden then this should be ticked, otherwise it should be blank.</editable>
       </editable-group>
 
       <editable-group object="person"
                 lens="employee.office_culture.dietary"
                 subgroup-class="">
-        <editable property="requirements" label="Requirements" editable-typeahead="true">This is a comma separated list of things that you can't  eat (for fear of feeling ill, messing up your morals or dying). For example: eggs, gluten, shellfish.</editable>
-      </editable-group>
-      <editable-group object="person"
-                lens="employee.office_culture.dietary.preference"
-                subgroup-class="">
-        <editable property="likes"        label="Likes"        editable-typeahead="true">This is a comma separated list of things that you really like  eating. For example: bacon, pizza, pinaple.</editable>
-        <editable property="dislikes"     label="Dislikes"     editable-typeahead="true">This is a comma separated list of things that you really don't like  eating. For example: devon, olives, bread..</editable>
+        <editable property="requirements" label="Requirements" type="tags">This is a list of things that you can't eat (for fear of feeling ill, messing up your morals or dying). For example: eggs, gluten, shellfish.</editable>
+        <editable property="likes"        label="Likes"        type="tags">This is a list of things that you really like  eating. For example: bacon, pizza, pinaple.</editable>
+        <editable property="dislikes"     label="Dislikes"     type="tags">This is a list of things that you really don't like  eating. For example: devon, olives, bread..</editable>
       </editable-group>
 
     </div>

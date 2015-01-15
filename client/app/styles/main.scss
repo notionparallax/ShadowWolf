@@ -150,8 +150,14 @@ li a#wiki-link div strong {
 .temp-map {
     width: 100%;
 }
+sw-map {
+    width: 100%;
+    min-height: 512px;
+    display: block;
+}
+
 button.close {
-    position: absolute;
+    position: relative;
     right: 0.0em;
     top: -0.5em;
     background-color: #bce8f1;
@@ -566,4 +572,42 @@ svg {
         display: none !important;
     }
 
+}
+
+
+/// new project page ///
+.new-project-page{
+    font-size: 120%;
+    width: 70%;
+    border: 2px black solid;
+    border-radius: 2em;
+    padding: 2em;
+    margin: auto;
+    margin-top: 5em;
+
+    label {
+      display: inline-block;
+      width: 10em;
+    }
+    input {
+        width: 60%;
+        padding-right: 0.5em;
+    }
+    button{
+        float: right;
+        margin-right: 4em;
+        margin-bottom: 1em;
+    }
+    div{
+        margin-bottom: 1em;
+    }
+    .secret-message {
+      position: absolute;
+      left: 2em;
+      bottom: 71px;
+      font-size: small;
+      border: 1px dashed;
+      border-radius: 1em;
+      padding: 0.5em;
+    }
 }

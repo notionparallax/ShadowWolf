@@ -10,3 +10,8 @@ json.campaigns do
     json.partial! "campaigns/campaign.json.jbuilder", campaign: campaign
   end
 end
+json.press_releases do
+  json.array!(press.press_releases) do |press_release|
+    json.partial! "press_releases/press_release.json.jbuilder", press_release: press_release
+  end
+end
