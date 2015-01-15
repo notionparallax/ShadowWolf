@@ -24,6 +24,7 @@ class Project
     self.building.project_source                        =   ProjectSource.new            if  self.building.project_source.nil?
     self.building.project_source.referred_by            =   ReferredBy.new               if  self.building.project_source.referred_by.nil?
     self.building.legacy                                =   Legacy.new                   if  self.building.legacy.nil?
+    self.building.legacy.initiatives                    <<  Initiative.new               if  self.building.legacy.initiatives.length                ==  0
     self.building.legacy.awards                         <<  Award.new                    if  self.building.legacy.awards.length                         ==  0
     self.building.legacy.esd                            =   EnvironmentalSustainableDesign.new  if  self.building.legacy.esd.nil?
     self.building.legacy.esd.certifications             <<  Certification.new            if  self.building.legacy.esd.certifications.length             ==  0
