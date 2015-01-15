@@ -20,7 +20,7 @@ ShadowWolf::Application.configure do
   config.middleware.use Rack::Cors do
     allow do
       origins '*'
-      resource '*', :headers => :any, :methods => [:get, :options, :patch]
+      resource '*', :headers => :any, :methods => [:get, :options, :patch, :post]
     end
   end
   # Settings specified here will take precedence over those in config/application.rb.
