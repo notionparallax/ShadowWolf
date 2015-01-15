@@ -1,74 +1,14 @@
 <h2>Key Dimensions</h2>
 <p class="explantory-text">How big is this project? This might seem childish, but really it's important for us to be able to classify things by size. Submissions often ask for evidence of projects in certain size ranges, so being able to search for this rather than just guess is important.</p>
-<p class="explantory-text">Some of these fields need numbers. Don't put in thousant separators or units, we'll handle all of that for you.</p>
-<!-- <div class="row">
-    <div class="col-md-4">
-        <h3>Dirty size</h3>
-        <p class="explantory-text">This is the size from the old project sheets. It is writen in all kinds of different ways. This makes it hard to impossible to search so we need to break it out into the fields below.</p>
-        <editable-group object="project" lens="building.dims" subgroup-class="alert alert-info col-sm-12">
-            <editable property="dirty_size" label="dirty size">This is the size from the project library, if you are the project custodian, or you think you know enough about this project, then you should move this number into the appropriate field.</editable>
-        </editable-group>
-    </div>
-
-    <div class="col-md-4">
-        <h3>Height</h3>
-        <p class="explantory-text">Put the project's height in here. Measure it in metres, but enter it just as a number.</p>
-        <editable-group object="project" lens="building.dims.height" subgroup-class="alert alert-info col-sm-12">
-            <editable property="measurement"      label="measurement"      type="number"            >What is the height of this building in metres? E.g. if it is 30m high, enter 30</editable>
-            <editable property="standard_name"    label="standard name"    editable-typahead="true" >What measurement standard was used to establish this? If there isn't one, leave it blank.</editable>
-            <editable property="standard_version" label="standard version" editable-typahead="true" >What version of the standard was used to establish this? If there isn't one, leave it blank.</editable>
-        </editable-group>
-    </div>
-
-    <div class="col-md-4">
-        <h3>Footprint area</h3>
-        <p class="explantory-text">Put the project's footprint area in here. Measure it in square metres, but enter it just as a number.</p>
-        <editable-group object="project" lens="building.dims.footprint_area" subgroup-class="alert alert-info col-sm-12">
-            <editable property="measurement"      label="measurement"      type="number"            >What is the footprint area of this project in square metres? E.g. if it is 30,000m², enter 30000</editable>
-            <editable property="standard_name"    label="standard name"    editable-typahead="true" >What measurement standard was used to establish this? If there isn't one, leave it blank.</editable>
-            <editable property="standard_version" label="standard version" editable-typahead="true" >What version of the standard was used to establish this? If there isn't one, leave it blank.</editable>
-        </editable-group>
-    </div>
-
-    <div class="col-md-4">
-        <h3>GBA</h3>
-        <p class="explantory-text">What is the total gross building area for this project?</p>
-        <editable-group object="project" lens="building.dims.gba" subgroup-class="alert alert-info col-sm-12">
-            <editable property="measurement"      label="measurement"      type="number"            >What is the GBA of this project in square metres? E.g. if it is 30,000m², enter 30000</editable>
-            <editable property="standard_name"    label="standard name"    editable-typahead="true" >What measurement standard was used to establish this? If there isn't one, leave it blank.</editable>
-            <editable property="standard_version" label="standard version" editable-typahead="true" >What version of the standard was used to establish this? If there isn't one, leave it blank.</editable>
-        </editable-group>
-    </div>
-
-    <div class="col-md-4">
-        <h3>GFA</h3>
-        <p class="explantory-text">What is the total gross floor area for this project?</p>
-        <editable-group object="project" lens="building.dims.gfa" subgroup-class="alert alert-info col-sm-12">
-            <editable property="measurement"      label="measurement"      type="number"           >What is the GFA of this project in square metres? E.g. if it is 30,000m², enter 30000</editable>
-            <editable property="standard_name"    label="standard name"    editable-typahead="true">What measurement standard was used to establish this? If there isn't one, leave it blank.</editable>
-            <editable property="standard_version" label="standard version" editable-typahead="true">What version of the standard was used to establish this? If there isn't one, leave it blank.</editable>
-        </editable-group>
-    </div>
-
-    <div class="col-md-4">
-        <h3>NLA</h3>
-        <p class="explantory-text">What is the total net lettable area for this project?</p>
-        <editable-group object="project" lens="building.dims.nla" subgroup-class="alert alert-info col-sm-12">
-            <editable property="measurement"      label="measurement"      type="number"           >What is the NLA of this project in square metres? E.g. if it is 30,000m², enter 30000</editable>
-            <editable property="standard_name"    label="standard name"    editable-typahead="true">What measurement standard was used to establish this? If there isn't one, leave it blank.</editable>
-            <editable property="standard_version" label="standard version" editable-typahead="true">What version of the standard was used to establish this? If there isn't one, leave it blank.</editable>
-        </editable-group>
-    </div>
-</div> -->
-
+<p class="explantory-text">Some of these fields need numbers. Don't put in thousand separators or units, we'll handle all of that for you.</p>
 
 <div ng-repeat="dim in project.building.dims">
     <editable-group object="project" lens="building.dims[{{dim|id}}]" subgroup-class="alert alert-info col-sm-x">
-        <editable property="measurement"      label="Measurement"      type="number"           >What is the value of this measurement? E.g. if it is 30,000m², enter 30000</editable>
-        <editable property="unit"             label="Unit"             editable-typahead="true">What is the number above measuring?</editable>
-        <editable property="title"            label="Title"            editable-typahead="true">What does this measurement describe? E.g. is it retail NLA, overall GFA, site area?</editable>
-        <editable property="standard_name"    label="Standard Name"    editable-typahead="true">What measurement standard was used to establish this? If there isn't one, leave it blank.</editable>
-        <editable property="standard_version" label="Standard Version" editable-typahead="true">What version of the standard was used to establish this? If there isn't one, leave it blank.</editable>
+        <editable property="measurement"      label="Measurement"      type="number"           >What is the value of this measurement? E.g. if it is 30,000m², enter 30000.</editable>
+        <editable property="unit"             label="Unit"             editable-typeahead="true">What is the number above measuring?</editable>
+        <editable property="title"            label="Title"            editable-typeahead="true">What does this measurement describe? E.g. is it retail NLA, overall GFA, site area?</editable>
+        <editable property="standard_name"    label="Standard Name"    editable-typeahead="true">What measurement standard was used to establish this? If there isn't one, leave it blank.</editable>
+        <editable property="standard_version" label="Standard Version" editable-typeahead="true">What version of the standard was used to establish this? If there isn't one, leave it blank.</editable>
         <editable property="tags"             label="Tags"             type="tags"             ></editable>
     </editable-group>
 </div>

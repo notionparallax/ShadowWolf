@@ -150,8 +150,14 @@ li a#wiki-link div strong {
 .temp-map {
     width: 100%;
 }
+sw-map {
+    width: 100%;
+    min-height: 512px;
+    display: block;
+}
+
 button.close {
-    position: absolute;
+    position: relative;
     right: 0.0em;
     top: -0.5em;
     background-color: #bce8f1;
