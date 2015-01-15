@@ -13,4 +13,5 @@ class Budget
   field :comments, type: String
   field :fee_type, type: String
   field :dirty_budget, type: String
+  field :confidential, type: Boolean
 end
