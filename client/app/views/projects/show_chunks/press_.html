@@ -15,3 +15,11 @@
         <editable property="strategy" label="Strategy" type="textarea">Describe the campain.</editable>
     </editable-group>
 </div>
+
+
+<!-- TODO: This is untested -->
+<editable-group object="project" ng-repeat="release in press.press_releases" lens="building.presses[{{press|id}}].press_releases[{{release|id}}]" subgroup-class="alert alert-info col-sm-6">
+    <editable property="title" label="Title"                >What is the headline for this release?</editable>
+    <editable property="date"  label="Date"  type="date"    >When was this release made?</editable>
+    <editable property="body"  label="Body"  type="textarea">What was the body of this release?</editable>
+</editable-group>
