@@ -4,13 +4,13 @@
 
 <div ng-repeat="location in project.building.locations"
      class="row col-sm-12 alert alert-info">
-    <div class="col-sm-6">
+    <div class="col-sm-5">
       <sw-ng-map project="project"
                  location-id="location|id"
                  lat="location.geo_json.lat"
                  lon="location.geo_json.lon"></sw-ng-map>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-5">
         <editable-group object="project"
                         lens="building.locations[{{location|id}}].address"
                         subgroup-class="col-sm-12">

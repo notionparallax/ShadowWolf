@@ -22,6 +22,19 @@
                     </figure>
                 </div>
             </div>
+
+            <div class="quotes" ng-if="tagsProperties[tag].quotes">
+                <h3>Testimonials</h3>
+                <div ng-repeat="quote in tagsProperties[tag].quotes">
+                    <figure>
+                        <blockquote ng-bind-html="quote.quote"></blockquote>
+                        <figcaption>
+                            <cite>{{quote.citation}}</cite> - {{quote.date}} <br> {{quote.context}}
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+
         </div>
         <div class="bites">
             <div class="data">

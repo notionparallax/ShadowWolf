@@ -3,7 +3,7 @@
   <p class="explantory-text">This sections captures your awards. This is not for awards that projects that you have worked on have won, but rather projects that you, as a person, have won. Use one box per award and add  a new box for each additional one.</p>
   <p class="explantory-text">Awards that projects that you worked on will be added soon.</p>
 
-  <div ng-repeat="award in person.employee.personal_awards | orderBy:'expiry':true" class="col-xs-12 col-sm-6 col-md-4">
+  <div ng-repeat="award in person.employee.personal_awards | orderBy:'expiry':true" class="col-xs-12 col-sm-5 col-md-4">
     <editable-group object="person"
                     lens="employee.personal_awards[{{award|id}}]"
                     subgroup-class="alert alert-info">
