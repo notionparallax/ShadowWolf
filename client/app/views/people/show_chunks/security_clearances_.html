@@ -5,7 +5,7 @@
   <div ng-repeat="sec in person.employee.security_clearances | orderBy:'expiry':true">
     <editable-group object="person"
                     lens="employee.security_clearances[{{sec|id}}]"
-                    subgroup-class="alert alert-warning col-xs-12 col-sm-6 col-md-4">
+                    subgroup-class="alert alert-warning col-xs-12 col-sm-5 col-md-4">
 
       <editable property="issuing_body" label="Issuing body" editable-typeahead="true">This is the organisation that your clearance is with.</editable>
       <editable property="level"        label="Level"        editable-typeahead="true">What level is your clearance?</editable>

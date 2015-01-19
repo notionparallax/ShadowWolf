@@ -2,7 +2,7 @@
   <h3>Registrations</h3>
   <p class="explantory-text">Are you a registered architect? A registered aromatherapist? Where and when are you registered?</p>
 
-  <div ng-repeat="reg in person.employee.registrations | orderBy:'first_issue_date':true" class="col-xs-12 col-sm-6 col-md-4">
+  <div ng-repeat="reg in person.employee.registrations | orderBy:'first_issue_date':true" class="col-xs-12 col-sm-5 col-md-4">
     <editable-group object="person"
                     lens="employee.registrations[{{reg|id}}]"
                     subgroup-class="alert alert-info">

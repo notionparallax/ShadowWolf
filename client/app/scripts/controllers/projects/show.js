@@ -47,6 +47,7 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
         brief_elements:  building.brief_elements           .filter(has(tag)),
         initiatives:     building.legacy.initiatives       .filter(has(tag)),
         testimonials:    building.legacy.testimonials      .filter(has(tag)),
+        quotes:          building.legacy.quotes            .filter(has(tag)),
         awards:          building.legacy.awards            .filter(has(tag)),
         templates:       building.legacy.templates         .filter(has(tag)),
         certifications:  building.legacy.esd.certifications.filter(has(tag)),

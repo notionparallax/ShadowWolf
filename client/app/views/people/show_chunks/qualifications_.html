@@ -2,7 +2,7 @@
   <h3>Qualifications / education</h3>
   <p class="explantory-text">This sections captures your qualifications. Put in all your qualifications, so if you have a PhD, a degree in Japanese, or a certificate for a short course in Equine nutrition, put it in. Use one box per qualification and add a new box for each additional one.</p>
 
-  <div ng-repeat="qual in person.employee.qualifications | orderBy:'last_year':true" class="col-xs-12 col-sm-6 col-md-4">
+  <div ng-repeat="qual in person.employee.qualifications | orderBy:'last_year':true" class="col-xs-12 col-sm-5 col-md-4">
     <editable-group object="person"
                     lens="employee.qualifications[{{qual|id}}]"
                     subgroup-class="alert alert-info">
