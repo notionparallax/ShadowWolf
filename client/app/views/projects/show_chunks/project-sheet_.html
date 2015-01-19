@@ -24,12 +24,13 @@
             </div>
 
             <div class="quotes" ng-if="tagsProperties[tag].quotes">
-                <h3>Testimonials</h3>
+                <h3>Quotes</h3>
                 <div ng-repeat="quote in tagsProperties[tag].quotes">
                     <figure>
                         <blockquote ng-bind-html="quote.quote"></blockquote>
                         <figcaption>
-                            <cite>{{quote.citation}}</cite> - {{quote.date}} <br> {{quote.context}}
+                            <cite>{{quote.citation}}</cite> - {{quote.date}}<br>
+                            <span ng-if="quote.context">({{quote.context}})</span>
                         </figcaption>
                     </figure>
                 </div>
