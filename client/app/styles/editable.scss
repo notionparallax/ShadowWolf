@@ -40,7 +40,9 @@ div[contenteditable="true"]{
 .tooltip{
     overflow-wrap:break-word;
 }
-
+.row .alert {
+  position: relative;
+}
 button.close {
     position: absolute;
     right: -0.5em;
