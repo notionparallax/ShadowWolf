@@ -42,9 +42,9 @@ class Project
     self.building.phases                     << Phase.new                          if self.building.phases.length                    == 0
     self.building.phases[0].budget           =  Budget.new                         if self.building.phases[0].budget.nil?
     self.building.phases[0].key_dates        << KeyDate.new                        if self.building.phases[0].key_dates.length       == 0
-    self.building.presses                    << BuildingPress.new                  if self.building.presses.length                   == 0
-    self.building.presses[0].attentions      << Attention.new                      if self.building.presses[0].attentions.length     == 0
-    self.building.presses[0].campaigns       << Campaign.new                       if self.building.presses[0].campaigns.length      == 0
+    self.building.press                      =  BuildingPress.new                  if self.building.press.nil?
+    self.building.press.attentions           << Attention.new                      if self.building.press.attentions.length          == 0
+    self.building.press.campaigns            << Campaign.new                       if self.building.press.campaigns.length           == 0
     
   end
 end

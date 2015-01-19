@@ -32,10 +32,8 @@ end
 json.legacy do
   json.partial! "legacies/legacy.json.jbuilder", legacy: building.legacy
 end if building.legacy
-json.presses do
-  json.array!(building.presses) do |press|
-    json.partial! "building_presses/building_press.json.jbuilder", press: press
-  end
+json.press do |press|
+  json.partial! "building_presses/building_press.json.jbuilder", press: building.press
 end
 json.qas do
   json.array!(building.qas) do |qa|
