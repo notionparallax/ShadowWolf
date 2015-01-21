@@ -5,7 +5,7 @@ angular.module('ShadowWolf')
   return {
     restrict: 'E',
     replace: true,
-    template: '<sw-map latitude="{{lat}}" longitude="{{lon}}"></sw-map>',
+    template: '<sw-map latitude="{{latitude()}}" longitude="{{longitude()}}"></sw-map>',
     scope: {
       project: '=',
       locationId: '=',
@@ -20,8 +20,19 @@ angular.module('ShadowWolf')
       });
     },
     controller: function($scope) {
+      $scope.latitude = function() {
+        // max lat is 85, see:
+        // http://stackoverflow.com/questions/11849636/maximum-lat-and-long-bounds-for-the-world-google-maps-api-latlngbounds
+        if (typeof $scope.lat !== 'number' || Math.abs($scope.lat) <= 85) {
+          return -33.86;
+        } else return $scope.lat;
+      };
+      $scope.longitude = function() {
+        if (typeof $scope.lon !== 'number' || Math.abs($scope.long) <= 180) {
+          return 151.21;
+        } else return $scope.lon;
+      };
       $scope.onChange = function(latLon) {
-        console.log(latLon);
         var updateObject = {
           project: {
             building: {
