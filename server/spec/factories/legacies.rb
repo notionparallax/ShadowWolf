@@ -17,6 +17,9 @@ FactoryGirl.define do
     after(:build) do |legacy|
       FactoryGirl.build_list( :initiative, [0,1,2,3,10].sample, legacy: legacy )
     end
+    after(:build) do |legacy|
+      FactoryGirl.build_list( :legacy_budget, [0,1,2,3,10].sample, legacy: legacy )
+    end
     photography { FactoryGirl.build( :photography ) }
     esd { FactoryGirl.build( :environmental_sustainable_design ) }
     dirty_pictures    { 'nick knight took some pics on tuesday' }
