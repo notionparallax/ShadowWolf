@@ -3,3 +3,11 @@
 <editable-group object="project" lens="building.legacy" subgroup-class="alert alert-info col-sm-4">
     <editable property="final_budget"      label="Final Budget" type="number">The official budget, in numbers. E.g. 1000000 not 1M.</editable>
 </editable-group>
+
+<div ng-repeat="budget in project.building.legacy.budgets">
+    <editable-group object="project" lens="building.legacy.budgets[{{budget|id}}]" subgroup-class="alert alert-info col-sm-5">
+        <editable property="description" label="Description" editable-typeahead="true">If this has a title on the project sheet, what is it?</editable>
+        <editable property="budget"      label="Value"       type="number"            >The official budget, in numbers. E.g. 1000000 not 1M.</editable>
+        <editable property="tags"        label="Tags"        type="tags"              >Tags define which project sheet this piece of information goes onto.</editable>
+    </editable-group>
+</div>
