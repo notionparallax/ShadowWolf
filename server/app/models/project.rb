@@ -46,6 +46,7 @@ class Project
     self.building.press                      =  BuildingPress.new                  if self.building.press.nil?
     self.building.press.attentions           << Attention.new                      if self.building.press.attentions.length          == 0
     self.building.press.campaigns            << Campaign.new                       if self.building.press.campaigns.length           == 0
+    self.building.press.press_releases       << PressRelease.new                   if self.building.press.press_releases.length      == 0
     
   end
 end
