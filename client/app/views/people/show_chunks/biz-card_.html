@@ -11,18 +11,18 @@
                 {{ person.name.preferred_first }} {{ person.name.preferred_last }}
             </p>
             <p class="meta">
-                <span class="role"  >{{person.employee.position}}</span><span ng-if="person.name.suffix">,</span>
-                <span class="suffix">{{person.name.suffix}}</span>
+                <span ng-if="person.employee.position" class="role"  >{{person.employee.position}}</span>
+                <span ng-if="person.name.suffix">,</span> <span class="suffix">{{person.name.suffix}}</span>
             </p>
             <p class="contact">
-                <span class="">
+                <span class="telephone">
                     <span ng-if="person.employee.contact.studio === 'Bangkok'"  ><!-- No landline --></span>
                     <span ng-if="person.employee.contact.studio === 'Sydney'"   ><span class="bold">T</span>&nbsp;+61 2 8297 7200</span>
                     <span ng-if="person.employee.contact.studio === 'Melbourne'"><span class="bold">T</span>&nbsp;+61 3 9639 9199</span>
-                    <span ng-if="person.employee.contact.studio === 'Brisbane'" ><span class="bold">T</span>&nbsp;+61 2 8297 7200</span>
+                    <span ng-if="person.employee.contact.studio === 'Brisbane'" ><span class="bold">T</span>&nbsp;+61 7 3852 2525</span>
                     <span ng-if="person.employee.contact.studio === 'London'"   ><!-- No landline --></span>
                     <span ng-if="person.employee.contact.studio === 'Canada'"   ><!-- No landline --></span>
-                    <span ng-if="person.employee.contact.studio === 'Canberra'" ><span class="bold">T</span>&nbsp;+61 7 3852 2525</span>
+                    <span ng-if="person.employee.contact.studio === 'Canberra'" ><span class="bold">T</span>&nbsp;+61 2 8297 7200</span>
                 <span class="no-break" ng-if="person.employee.contact.mobile.distribute">
                     <span class="bold">M</span>&nbsp;{{person.employee.contact.mobile.number}}</span>
                 <span class="no-break">
@@ -37,7 +37,7 @@
                     255 Pitt Street / Sydney 2000 Australia
                 </span>
                 <span ng-if="person.employee.contact.studio === 'Melbourne'">
-                    Melbourne Central Tower / 360 Elizabeth Street/ Melbourne 3000 Australia
+                    Melbourne Central Tower / 360 Elizabeth Street / Melbourne 3000 Australia
                 </span>
                 <span ng-if="person.employee.contact.studio === 'Brisbane'" >
                     Level 4 / 12 Creek Street / Brisbane 4000 Australia
