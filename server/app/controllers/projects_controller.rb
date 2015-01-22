@@ -1,7 +1,3 @@
-require 'net/http'
-require "uri"
-require 'json'
-
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
@@ -26,7 +22,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    refresh_hero_image if params[:refresh_hero_image]
   end
 
   # GET /projects/new
@@ -93,42 +88,4 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit!
     end
-
-    PROJECT_URL = '/REST/1/Projects'
-    FILE_URL = '/REST/1/Files'
-    OPEN_ASSET_URL = ENV['OPEN_ASSET_URL_PROD']
-    OPEN_ASSET_USERNAME = ENV['OPEN_ASSET_USERNAME']
-    OPEN_ASSET_PASSWORD = ENV['OPEN_ASSET_PASSWORD']
-    def ask_oa(request, params)
-      uri = URI.parse(OPEN_ASSET_URL + request)
-      uri.query = URI.encode_www_form(params)
-      request = Net::HTTP::Get.new(uri.request_uri)
-      request.basic_auth(OPEN_ASSET_USERNAME, OPEN_ASSET_PASSWORD)
-      response = Net::HTTP.start(uri.hostname, uri.port) { |http| http.request(request) }
-      json_response = JSON.parse(response.body)
-      return json_response
-    end
-    def selectHighestRankedImage projectImages
-      projectImages.inject({rank: '0'}) do |bestYet,current|
-        current['rank'].to_i > bestYet['rank'].to_i ? current : bestYet
-      end
-    end
-    def selectImageFileSize imageFileSizes
-      imageFileSizes.inject({'width' => '-100000000'}) do |bestYet,current|
-        bestYetDistance = (200 - bestYet['width'].to_i).abs
-        currentDistance = (200 - current['width'].to_i).abs
-        currentDistance < bestYetDistance ? current : bestYet
-      end
-    end
-    def refresh_hero_image
-      projectOpenAssetID = ask_oa(PROJECT_URL, { textMatching: 'exact', code: @project.project_number })[0]['id']
-      projectImages = ask_oa(FILE_URL, { textMatching: 'exact', project_id: projectOpenAssetID })
-      highestRankedImage = selectHighestRankedImage projectImages
-      highestRankedImageFileSizes = ask_oa(FILE_URL + "/#{highestRankedImage['id']}/Sizes", { file_format: 'jpg' })
-      chosenHighestRankedImageSize = selectImageFileSize highestRankedImageFileSizes
-      heroImageUrl = OPEN_ASSET_URL + chosenHighestRankedImageSize['http_root'] + chosenHighestRankedImageSize['relative_path']
-      @project.img = heroImageUrl
-      @project.save
-    end
-
 end

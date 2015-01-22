@@ -25,6 +25,9 @@ class Legacy
   embeds_many :templates
   accepts_nested_attributes_for :templates
 
+  embeds_many :legacy_budgets
+  accepts_nested_attributes_for :legacy_budgets
+
   field :dirty_pictures, type: String
   field :dirty_testimonial, type: String
   field :dirty_awards, type: String

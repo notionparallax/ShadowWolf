@@ -19,6 +19,7 @@ $iconWhiteSpritePath:"../images/glyphicons-halflings-white.png";
 // }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p,html, body{
     font-family: "Blender", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    clear: both;
 }
 html, body {
     margin: 0;
@@ -156,16 +157,6 @@ sw-map {
     display: block;
 }
 
-button.close {
-    position: relative;
-    right: 0.0em;
-    top: -0.5em;
-    background-color: #bce8f1;
-    border-radius: 10px;
-    padding: 5px;
-    /* border: 2px solid #00D2FC; */
-    padding-top: 0px;
-}
 .alert-info {
     margin-right: 10px;
 }

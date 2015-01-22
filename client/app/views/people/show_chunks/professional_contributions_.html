@@ -2,7 +2,7 @@
   <h3>Professional contributions</h3>
   <p class="explantory-text">This sections captures your professional contributions. Things like teaching, speaking at conferences etc. Use one box per contributions/experience/event and add a new box for each additional one.</p>
 
-  <div ng-repeat="cont in person.employee.professional_contributions" class="col-xs-12 col-sm-6 col-md-4">
+  <div ng-repeat="cont in person.employee.professional_contributions" class="col-xs-12 col-sm-5 col-md-4">
   <editable-group object="person"
                   lens="employee.professional_contributions[{{cont|id}}]"
                   subgroup-class="alert alert-info">

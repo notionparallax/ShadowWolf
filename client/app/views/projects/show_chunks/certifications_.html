@@ -1,7 +1,7 @@
 <h2>ESD Certifications</h2>
 <p class="explantory-text">If this project has any ESD certification then log it here.</p>
 <div ng-repeat="certification in project.building.legacy.esd.certifications">
-  <editable-group object="project" lens="building.legacy.esd.certifications[{{certification|id}}]" subgroup-class="alert alert-info col-sm-x">
+  <editable-group object="project" lens="building.legacy.esd.certifications[{{certification|id}}]" subgroup-class="alert alert-info col-sm-4">
       <editable property="name"          label="Name"          editable-typeahead="true">What is the name of this certificate?</editable>
       <editable property="ranking"       label="Ranking"       editable-typeahead="true">What's the score? 5 star?</editable>
       <editable property="awarding_body" label="Awarding body" editable-typeahead="true">Who awards this certificate?</editable>

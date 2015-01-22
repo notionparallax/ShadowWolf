@@ -26,7 +26,8 @@ class Project
     self.building.project_source.referred_by =  ReferredBy.new                     if self.building.project_source.referred_by.nil?
     self.building.legacy                     =  Legacy.new                         if self.building.legacy.nil?
     self.building.legacy.awards              << Award.new                          if self.building.legacy.awards.length             == 0
-    self.building.legacy.initiatives         << Initiative.new                     if  self.building.legacy.initiatives.length       ==  0
+    self.building.legacy.initiatives         << Initiative.new                     if self.building.legacy.initiatives.length        ==  0
+    self.building.legacy.legacy_budgets      << LegacyBudget.new                   if self.building.legacy.legacy_budgets.length     ==  0
     self.building.legacy.esd                 =  EnvironmentalSustainableDesign.new if self.building.legacy.esd.nil?
     self.building.legacy.esd.certifications  << Certification.new                  if self.building.legacy.esd.certifications.length == 0
     self.building.legacy.esd.initiatives     << Initiative.new                     if self.building.legacy.esd.initiatives.length    == 0
@@ -42,9 +43,10 @@ class Project
     self.building.phases                     << Phase.new                          if self.building.phases.length                    == 0
     self.building.phases[0].budget           =  Budget.new                         if self.building.phases[0].budget.nil?
     self.building.phases[0].key_dates        << KeyDate.new                        if self.building.phases[0].key_dates.length       == 0
-    self.building.presses                    << BuildingPress.new                  if self.building.presses.length                   == 0
-    self.building.presses[0].attentions      << Attention.new                      if self.building.presses[0].attentions.length     == 0
-    self.building.presses[0].campaigns       << Campaign.new                       if self.building.presses[0].campaigns.length      == 0
+    self.building.press                      =  BuildingPress.new                  if self.building.press.nil?
+    self.building.press.attentions           << Attention.new                      if self.building.press.attentions.length          == 0
+    self.building.press.campaigns            << Campaign.new                       if self.building.press.campaigns.length           == 0
+    self.building.press.press_releases       << PressRelease.new                   if self.building.press.press_releases.length      == 0
     
   end
 end

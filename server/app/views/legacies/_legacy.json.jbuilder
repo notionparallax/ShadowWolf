@@ -31,3 +31,8 @@ json.templates do
     json.partial! "templates/template.json.jbuilder", template: template
   end
 end
+json.legacy_budgets do
+  json.array!(legacy.legacy_budgets) do |budget|
+    json.partial! "legacy_budgets/legacy_budget.json.jbuilder", budget: budget
+  end
+end

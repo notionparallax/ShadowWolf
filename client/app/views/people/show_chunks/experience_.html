@@ -9,7 +9,7 @@
 
 <section dissabled-ng-show="person.employee.project_experiences" class="row">
   <h4> Project Experience at Other Firms</h4>
-  <div ng-repeat="exp in person.employee.project_experiences | orderBy:'end_date':true" class="col-xs-12 col-sm-6 col-md-4">
+  <div ng-repeat="exp in person.employee.project_experiences | orderBy:'end_date':true" class="col-xs-12 col-sm-5 col-md-4">
     <editable-group object="person"
                     lens="employee.project_experiences[{{exp|id}}]"
                     subgroup-class="alert alert-info">

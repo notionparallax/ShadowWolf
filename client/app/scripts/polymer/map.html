@@ -6,7 +6,16 @@
 <google-map id="map" zoomable=true disableDefaultUI=true latitude="{{latitude}}" longitude="{{longitude}}">
 </google-map>
 <input value="{{query}}">
+<p class="lat-long">lat/long: ({{markerLat}}, {{markerLng}})</p>
   <style>
+    .lat-long {
+      position: absolute;
+      top: 29px;
+      left: 32px;
+      font-size: 55%;
+      color: black;
+      text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+    }
     input {
       position: absolute;
       top: 15px;
@@ -32,12 +41,13 @@
       }, 500);
     },
     resultChanged: function(oldValue,newValue) {
-        console.log('w00t');
       this.$.map.map.setCenter({ lat: newValue.latitude, lng: newValue.longitude });
     },
     marker: null,
     latitude: -33.86,
     longitude: 151.21,
+    markerLat: -33.86,
+    markerLng: 151.21,
     ready: function() {
       var that = this;
       that.$.map.addEventListener('google-map-ready',function(){
@@ -53,6 +63,11 @@
           position: map.getCenter(),
           draggable: true,
           map: map
+        });
+        that.marker.addListener('drag', function() {
+          var latLng = that.marker.getPosition();
+          that.markerLat = Number(latLng.lat()).toFixed(2);
+          that.markerLng = Number(latLng.lng()).toFixed(2);
         });
         that.marker.addListener('mouseup', function(event) {
           that.latitude  = this.position.lat();

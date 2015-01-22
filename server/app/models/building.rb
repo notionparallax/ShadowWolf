@@ -5,8 +5,8 @@ class Building
   embeds_many :qas, class_name: 'QualityAssurance'
   accepts_nested_attributes_for :qas
 
-  embeds_many :presses, class_name: 'BuildingPress'
-  accepts_nested_attributes_for :presses
+  embeds_one :press, class_name: 'BuildingPress'
+  accepts_nested_attributes_for :press
 
   embeds_one :legacy
   accepts_nested_attributes_for :legacy
