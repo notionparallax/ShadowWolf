@@ -109,7 +109,8 @@
                     <h3>Awards</h3>
                     <ul>
                         <li ng-repeat="award in tagsProperties[tag].awards">
-                            {{award.date.split("-")[0]}} - {{award.award}}
+                            <span ng-if="award.date">{{award.date.split("-")[0]}} -</span>
+                            {{award.award}}
                         </li>
                     </ul>
                 </div>
