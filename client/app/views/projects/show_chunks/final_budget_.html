@@ -5,7 +5,7 @@
 </editable-group>
 
 <div ng-repeat="budget in project.building.legacy.legacy_budgets">
-    <editable-group object="project" lens="building.legacy.legacy_budgets[{{budget|id}}]" subgroup-class="alert alert-info col-sm-5">
+    <editable-group object="project" lens="building.legacy.legacy_budgets[{{budget|id}}]" subgroup-class="alert alert-info col-md-5">
         <editable property="description" label="Description" editable-typeahead="true">If this has a title on the project sheet, what is it?</editable>
         <editable property="budget"      label="Value"       type="number"            >The official budget, in numbers. E.g. 1000000 not 1M.</editable>
         <editable property="tags"        label="Tags"        type="tags"              >Tags define which project sheet this piece of information goes onto.</editable>
