@@ -4,9 +4,9 @@
     <div ng-repeat="attention in project.building.press.attentions">
       <editable-group object="project" lens="building.press.attentions[{{attention|id}}]" subgroup-class="alert alert-info col-sm-5">
           <editable property="url"                label="Url"                                       >Is there a place that we can link to that we can read this bit of press?</editable>
-          <p><a href="{{ subobject.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></p>
+          <p class="urlink"><a href="{{ subobject.url }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></p>
           <editable property="scan_or_screengrab" label="Scan or screengrab"                        >Press is transient, attatch an image of the page.</editable>
-          <p><a href="{{ subobject.scan_or_screengrab }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></p>
+          <p class="urlink"><a href="{{ subobject.scan_or_screengrab }}"><span class="glyphicon glyphicon-link"></span>Go to link.</a></p>
           <editable property="publication"        label="Publication"       editable-typeahead="true">Where was this attention published?</editable>
           <editable property="reason"             label="Reason"            editable-typeahead="true">Why did this project get this attention? Was it a huge success? Did it fall down? Was there a murder mystery filmed there?</editable>
       </editable-group>

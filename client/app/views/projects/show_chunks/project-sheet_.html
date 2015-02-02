@@ -18,7 +18,7 @@
                         <blockquote ng-bind-html="testimonial.testimonial"></blockquote>
                         <figcaption>
                             <cite>{{testimonial.citation}}</cite>
-                                <span ng-if="testimonial.date"> - {{testimonial.date}}</span>
+                                <span ng-if="testimonial.date"> - {{testimonial.date | date: "MMMM'&nbsp;'d'&nbsp;'yyyy"}}</span>
                         </figcaption>
                     </figure>
                 </div>
@@ -30,7 +30,7 @@
                     <figure>
                         <blockquote ng-bind-html="quote.quote"></blockquote>
                         <figcaption>
-                            <cite>{{quote.citation}}</cite> - {{quote.date}}<br>
+                            <cite>{{quote.citation}}</cite> - {{quote.date | date: "MMMM'&nbsp;'d'&nbsp;'yyyy"}}<br>
                             <span ng-if="quote.context">({{quote.context}})</span>
                         </figcaption>
                     </figure>
@@ -51,11 +51,11 @@
                 </div>
                 <div class="completion">
                     <h2>Completion    </h2>
-                    <p>{{project.building.legacy.start_date}} - {{project.building.legacy.completion_date}}</p>
+                    <p>{{project.building.legacy.start_date | date: 'MMMM yyyy'}} - {{project.building.legacy.completion_date | date: 'MMMM yyyy'}}</p>
                 </div>
                 <div class="value">
                     <h2>Value         </h2>
-                    <p>${{project.building.legacy.final_budget}}</p>
+                    <p>{{project.building.legacy.final_budget | currency:"$":0}}</p><!-- This needs to be upgraded to include the right currency -->
                 </div>
                 <div class="services">
                     <h2>Services      </h2>
@@ -64,7 +64,7 @@
                 <div class="size">
                     <h2>Size          </h2>
                     <p ng-repeat="dim in tagsProperties[tag].dims">
-                        {{dim.measurement}}{{dim.unit}} {{dim.title}}
+                        {{dim.measurement | number:0}}{{dim.unit}} {{dim.title}}
                         <span ng-if="dim.standard_name">({{dim.standard_name}}
                         <span ng-if="dim.standard_version">, {{dim.standard_version}}</span>)</span>
                         <!-- This is a headfuck, but it comes out as: 24000000m² GFA (BCUK , V3 ) -->
@@ -109,8 +109,7 @@
                     <h3>Awards</h3>
                     <ul>
                         <li ng-repeat="award in tagsProperties[tag].awards">
-                            <span ng-if="award.date">{{award.date.split("-")[0]}} -</span>
-                            {{award.award}}
+                            {{award.date | date: "yyyy ' - '"}}{{award.award}}
                         </li>
                     </ul>
                 </div>
