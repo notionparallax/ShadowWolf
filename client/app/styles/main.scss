@@ -109,6 +109,11 @@ li a#wiki-link div strong {
         border: 1px solid orange;
     }
 }
+.urlink {
+  width: 100%;
+  text-align: right;
+  font-size: 80%;
+}
 
 /* Flash box */
 .flashes {
@@ -446,8 +451,8 @@ svg {
 @media print{
     //all people page
     @page {
-        size: 21cm 28cm;
-        margin: 0.5cm;
+        size: A3 landscape;
+        margin: 18mm 40mm 18mm 18mm;
     }
     //:root{-webkit-print-color-adjust:exact}
     body{overflow:visible;}
@@ -457,11 +462,46 @@ svg {
         //float: none  !important;
         //color: black !important;
     }
-    .navbar, .problem-btn, #searchBar, .value-tweet-container  {
+    .navbar, .problem-btn, #searchBar, .value-tweet-container, .page-header  {
         display: none;
     }
     .flex-container{
         display: block;
+    }
+    .photos{
+        width:152mm !important;
+        padding: 0 !important;
+        img{
+            height:84mm !important;
+        }
+        img:first-child {
+          width: 100%;
+          margin-bottom: 6mm !important;
+          height: 172mm !important;
+        }
+    }
+    .project-sheet {
+      border: 1px dashed orange;
+      width: 363mm;
+      height: 261mm;
+    }
+    .text {
+      float: none !important;
+      position: absolute;
+      border: 1px dashed red;
+      width: 135mm !important;
+      left: 230mm;
+      font-size: 2.5mm;
+      h1{font-size: 4.5mm;}
+      h2{font-size: 3.5mm;}
+      h3{font-size: 3.0mm;}
+    }
+    .bites {
+      float: none !important;
+      position: absolute;
+      border: 1px dashed blue;
+      width: 55mm !important;
+      left: 80mm;
     }
     .demo{
         height:1cm;

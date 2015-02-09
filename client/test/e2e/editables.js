@@ -2,7 +2,7 @@ var pageObjects     = require("../page_objects.js");
 var EditableGroup   = pageObjects.EditableGroup;
 var BackEndLogs     = pageObjects.BackEndLogs;
 var Utils           = require("../utils.js");
-var typaheadResults = require("../typeahead_results.js").results;
+var typeaheadResults = require("../typeahead_results.js").results;
 var setup           = Utils.setup;
 var visit           = Utils.visit;
 var mockBackend     = Utils.mockBackend;
@@ -15,7 +15,7 @@ describe('editables in show page', function(){
     mockBackend(
       {
         'people/test' : mockPerson,
-        'typeahead_results' : typaheadResults
+        'typeahead_results' : typeaheadResults
       },
       'test-id', 'test-token');
     visit('callback?person_id=test-id&access_token=test-token&login=test-login');
@@ -139,7 +139,7 @@ describe('editables in show page', function(){
     expect(approach.getValue()).not.toBe('null');
   });
 
- it('should fill in the editable from the typahead', function(){
+ it('should fill in the editable from the typeahead', function(){
     browser.sleep(2000);
     Utils.selectTab('Reg');
     browser.sleep(2000);
@@ -151,7 +151,7 @@ describe('editables in show page', function(){
     browser.actions().sendKeys(protractor.Key.TAB).perform();
     browser.actions().sendKeys(protractor.Key.ENTER).perform();
 
-    expect(institution.getValue()).toBe(typaheadResults[0]);//"Oxford Brookes University"
+    expect(institution.getValue()).toBe(typeaheadResults[0]);//"Oxford Brookes University"
     expect(element(by.css('.logs')).getInnerHtml()).toBe('');
   });
 

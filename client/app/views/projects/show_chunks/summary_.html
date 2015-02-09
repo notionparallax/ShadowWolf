@@ -13,7 +13,7 @@
 
 <p class="explantory-text">What were the key brief elements?</p>
 <div ng-repeat="element in project.building.brief_elements">
-    <editable-group object="project" lens="building.brief_elements[{{element|id}}]" subgroup-class="alert alert-info col-sm-4">
+    <editable-group object="project" lens="building.brief_elements[{{element|id}}]" subgroup-class="alert alert-info col-md-5">
         <editable property="description" label="Description"            >What were the key brief elements?</editable>
         <editable property="tags"        label="Tags"        type="tags"></editable>
     </editable-group>

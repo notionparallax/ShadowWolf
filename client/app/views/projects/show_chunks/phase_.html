@@ -2,7 +2,7 @@
 <tabset>
     <tab ng-repeat="phase in project.building.phases" heading="{{$index}}">
         <p class="explantory-text">This is a summary of this phase of the project.</p>
-        <editable-group object="project" lens="building.phases[{{phase|id}}]" subgroup-class="alert alert-info col-sm-5">
+        <editable-group object="project" lens="building.phases[{{phase|id}}]" subgroup-class="alert alert-info col-md-5">
             <editable property="project_name"          label="Project name">What was the project called? More details about this in the phases.</editable>
             <editable property="studio"                label="Studio"                editable-typeahead="true">Where did the bulk of the work get done? (This usually matches up with the first letter of the project number)</editable>
             <editable property="client"                label="Client"                editable-typeahead="true">Who was this project for? More details about this in the phases.</editable>
@@ -15,12 +15,12 @@
         </editable-group>
 
         <h3>Key Dates</h3>
-        <editable-group object="project" lens="building.phases[{{phase|id}}].key_dates" subgroup-class="alert alert-info col-sm-5">
+        <editable-group object="project" lens="building.phases[{{phase|id}}].key_dates" subgroup-class="alert alert-info col-md-5">
             <editable property="dirty_date" label="Dirty date">This data came from the project library, it should be replaced by the data provided by Epicor. If you are project custodian you should check that the team that is automatically generated is correct and then empty this field out.</editable>
         </editable-group>
 
         <div ng-repeat="key_date in phase.key_dates" class="">
-            <editable-group object="project" lens="building.phases[{{phase|id}}].key_dates[{{key_date|id}}]" subgroup-class="alert alert-info col-sm-5">
+            <editable-group object="project" lens="building.phases[{{phase|id}}].key_dates[{{key_date|id}}]" subgroup-class="alert alert-info col-md-5">
                 <editable property="name"        label="Name"        editable-typeahead="true">The name of this date, like 'Start on site' or 'Opening ceremony'. </editable>
                 <editable property="description" label="Description" editable-typeahead="true">A description of the thing that happened. (Completed DD, start on site etc.).</editable>
                 <editable property="date"        label="Date"        type="date"              >The date that this thing happened.</editable>
@@ -28,7 +28,7 @@
         </div>
 
         <h3>Budget</h3>
-        <editable-group object="project" lens="building.phases[{{phase|id}}].budget" subgroup-class="alert alert-info col-sm-5">
+        <editable-group object="project" lens="building.phases[{{phase|id}}].budget" subgroup-class="alert alert-info col-md-5">
             <editable property="dirty_budget"              label="Dirty budget">Dirty value! Lets get rid of this as soon as we can! If you are project custodian you should check that the value automatically generated is correct and then empty this field out.</editable>
             <editable property="initial_phase_value_total" label="Initial phase value total" type="number">What did we think that the total value was when we started this phase? In whole dollars e.g. 3000000 not $3M.</editable>
             <editable property="final_phase_value_total"   label="Final phase value total"   type="number">What was the total at the end of the phase? In whole dollars e.g. 3000000 not $3M.</editable>
