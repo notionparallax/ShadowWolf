@@ -14,4 +14,5 @@ class Budget
   field :fee_type, type: String
   field :dirty_budget, type: String
   field :confidential, type: Boolean
+  field :currency, type: String
 end

@@ -12,5 +12,6 @@ FactoryGirl.define do
     fee_type { ["fixed fee", "lump sum", "hourly"].sample }
     dirty_budget "a cool mil"
     confidential { [true,true,false].sample }
+    currency { %w(AUD GBP USA).sample }
   end
 end
