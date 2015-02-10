@@ -35,7 +35,7 @@ def get_tags description
     end.flatten.flatten.uniq
 end
 def top_3_images images
-  images.sort { |a,b|
+  (images || []).sort { |a,b|
     b['rank'].to_i <=> a['rank'].to_i 
   }[0..2]
 end
@@ -104,7 +104,7 @@ put '/project_by_tags/:project_number' do
   image_urls_by_tags = {}
   tags.each do |tag|
     redis_result = settings.redis.get( project_number + ':' + tag )
-    image_urls_by_tags[tag] = redis_result unless redis_result.nil?
+    image_urls_by_tags[tag] = parse_result redis_result unless redis_result.nil?
   end
   tags_to_search = tags - image_urls_by_tags.keys
   unless tags_to_search.empty?

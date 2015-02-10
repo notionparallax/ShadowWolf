@@ -2,8 +2,8 @@
 angular.module('ShadowWolf')
 .service('Oaf', function(Config, $http) {
   var projects = {};
-  var buffer = [];
-  var bufferTimer;
+  var buffer = []; // list of project numbers
+  var bufferTimer; // time until buffer will be used
   var config = {};
 
   /**
@@ -29,6 +29,19 @@ angular.module('ShadowWolf')
       bufferTimer = undefined;
     }, 100);
   }
+
+  var imagesByTags = {};
+  this.getImagesByTags = function(project_number, tags) {
+    if (imagesByTags[project_number]) return imagesByTags[project_number];
+
+    $http.put(Config.getOaf() + '/project_by_tags/' + project_number, tags)
+      .then(function(result) {
+        imagesByTags[project_number] = result.data;
+        debugger;
+      }.bind(this));
+    imagesByTags[project_number] = {};
+    return imagesByTags[project_number];
+  };
 
   /**
    * Will return the project image if it exists. If it does not exist it will

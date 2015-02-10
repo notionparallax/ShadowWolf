@@ -18,12 +18,13 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     if (!loadedImage && newValue.project_number) {
       loadedImage = true;
       Oaf.getProjectImage($scope.project.project_number, {
-        updateCache: true
+        updateCache: true,
+        tags: $scope.tags()
       });
     }
   });
   $scope.getImages = function() {
-    return Oaf.getProjectImage($scope.project.project_number);
+    return Oaf.getImagesByTags($scope.project.project_number, $scope.tags() );
   };
   Session.authorize = function() { return { success: true }; };
   $scope.getRelatedPeople = function(logins) {
