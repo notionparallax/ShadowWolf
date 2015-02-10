@@ -23,12 +23,12 @@ angular.module('ShadowWolf')
       $scope.latitude = function() {
         // max lat is 85, see:
         // http://stackoverflow.com/questions/11849636/maximum-lat-and-long-bounds-for-the-world-google-maps-api-latlngbounds
-        if (typeof $scope.lat !== 'number' || Math.abs($scope.lat) <= 85) {
+        if (typeof $scope.lat !== 'number' || Math.abs($scope.lat) >= 85) {
           return -33.86;
         } else return $scope.lat;
       };
       $scope.longitude = function() {
-        if (typeof $scope.lon !== 'number' || Math.abs($scope.long) <= 180) {
+        if (typeof $scope.lon !== 'number' || Math.abs($scope.lon) >= 180) {
           return 151.21;
         } else return $scope.lon;
       };
