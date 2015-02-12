@@ -193,6 +193,13 @@ case "$1" in
     [[ -n "$*" ]] && COMMAND="$*"
     docker run -i -t -v $SHARED_VOLUME shadowwolf-dev $COMMAND
     ;;
+  get-redis-dump)
+    remote_script="
+    sudo cp /var/lib/docker/aufs/mnt/\$(docker inspect -f '{{.Id}}' sw-oaf)/var/lib/redis/dump.rdb ~/.
+    "
+    ssh -t $USER@$BVN_SERVER $remote_script
+    scp $USER@$BVN_SERVER:~/dump.rdb oaf/redis-dump.rdb
+    ;;
   help)
     echo "$HELP"
     ;;
