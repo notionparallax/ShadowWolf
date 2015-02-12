@@ -1,8 +1,8 @@
 <div class="project-sheet">
     <div class="photos">
-        <img ng-src="{{getImages()[tag][0]}}">
-        <img ng-src="{{getImages()[tag][1]}}">
-        <img ng-src="{{getImages()[tag][2]}}">
+        <img ng-src="{{getImages()[tag][0] || 'http://placehold.it/550&text=First%20'  + tag + '%20Image%20not%20found' }}">
+        <img ng-src="{{getImages()[tag][1] || 'http://placehold.it/225&text=Second%20' + tag + '%20Image%20not%20found' }}">
+        <img ng-src="{{getImages()[tag][2] || 'http://placehold.it/225&text=Third%20'  + tag + '%20Image%20not%20found' }}">
     </div>
     <div class="text">
         <h1>{{project.building.phases[0].project_name}}</h1>
