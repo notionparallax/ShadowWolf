@@ -37,7 +37,6 @@ angular.module('ShadowWolf')
     $http.put(Config.getOaf() + '/project_by_tags/' + project_number, tags)
       .then(function(result) {
         imagesByTags[project_number] = result.data;
-        debugger;
       }.bind(this));
     imagesByTags[project_number] = {};
     return imagesByTags[project_number];
