@@ -81,7 +81,11 @@ case "$1" in
   build)
     case "$2" in
       dev)
-        fig -p shadowwolf build
+        shift
+        shift
+        [[ -n "$*" ]] \
+          && fig -p shadowwolf build "$*" \
+          || fig -p shadowwolf build
         ;;
       client)
         fig -p shadowwolf run --rm --no-deps devgrunt grunt build \
@@ -191,7 +195,7 @@ case "$1" in
     shift
     COMMAND="bash"
     [[ -n "$*" ]] && COMMAND="$*"
-    docker run -i -t -v $SHARED_VOLUME shadowwolf-dev $COMMAND
+    fig -p shadowwolf run --rm devconsole $COMMAND
     ;;
   get-redis-dump)
     remote_script="
