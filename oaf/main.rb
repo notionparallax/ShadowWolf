@@ -72,7 +72,6 @@ def get_project_image_urls project_number, tags
     images.each_pair { |tag,image_urls| settings.redis.set project_number + ':' + tag, JSON.generate( image_urls ) }
   end
   
-  # cache image url
   # return image url 
   images
 end
