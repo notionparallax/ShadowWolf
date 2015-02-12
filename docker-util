@@ -70,6 +70,9 @@ case "$1" in
         echo '[:person,:project].each{|m|FactoryGirl.create_list(m,10)}' | fig -p shadowwolf run --rm devconsole
         echo Done.
         ;;
+      grunt-includes)
+        fig -p shadowwolf run --rm --no-deps devgrunt grunt includes
+        ;;
       *)
         echo "$USAGE"
         ;;
