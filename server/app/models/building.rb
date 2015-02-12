@@ -36,7 +36,7 @@ class Building
 
   field :description, type: String
   field :attribution, type: String
-  field :BCA_classification, type: String
+  field :BCA_classification, type: Array
   field :project_categories, type: Array
   field :project_sub_catagories, type: Array
   field :source_information_filepath, type: String

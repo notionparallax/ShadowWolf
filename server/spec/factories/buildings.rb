@@ -24,7 +24,7 @@ FactoryGirl.define do
     end
     description { Faker::Lorem.paragraphs.join('<br>') }
     attribution { ["BVN","Donovan Hill","BVN Donovan Hill"].sample }
-    BCA_classification { "Class " + ["1","1A","1B","2","3","4","5","6","7","8","9","9A","9B","9C","10","10A","10B"].sample }
+    BCA_classification { ["Class " + ["1","1A","1B","2","3","4","5","6","7","8","9","9A","9B","9C","10","10A","10B"].sample] }
     project_categories { [Faker::Name.first_name ,Faker::Name.first_name, Faker::Name.first_name] }
     project_sub_catagories { [Faker::Name.first_name + ", "+Faker::Name.first_name + ", " + Faker::Name.first_name] }
     source_information_filepath { '/file/name.docx' }
