@@ -40,6 +40,8 @@ class Building
   field :project_categories, type: Array
   field :project_sub_catagories, type: Array
   field :source_information_filepath, type: String
+  field :planning_authority, type: String
+  field :legacy_bd_number, type: String
 
   after_initialize if: :new_record? do |doc|
     doc.client = Client.new
