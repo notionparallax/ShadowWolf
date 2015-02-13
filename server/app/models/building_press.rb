@@ -16,4 +16,9 @@ class BuildingPress
 
   accepts_nested_attributes_for :press_releases
 
+  after_initialize if: :new_record? do |doc|
+    doc.attentions = [Attention.new]
+    doc.campaigns = [Campaign.new]
+    doc.press_releases = [PressRelease.new]
+  end
 end

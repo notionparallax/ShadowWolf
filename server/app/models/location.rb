@@ -12,4 +12,8 @@ class Location
 
   embedded_in :building
 
+  after_initialize if: :new_record? do |doc|
+    doc.address = Address.new
+    doc.geo_json = GeoJson.new
+  end
 end

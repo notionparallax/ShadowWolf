@@ -10,4 +10,8 @@ class ProjectSource
 
   field :competition_win, type: Boolean
   field :competition_URL, type: String
+
+  after_initialize if: :new_record? do |doc|
+    doc.referred_by = ReferredBy.new
+  end
 end

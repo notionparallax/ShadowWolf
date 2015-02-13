@@ -11,4 +11,8 @@ class Client
 
   embeds_many :referees, class_name: 'Referee'
   accepts_nested_attributes_for :referees
+
+  after_initialize if: :new_record? do |doc|
+    doc.referees = [Referee.new]
+  end
 end

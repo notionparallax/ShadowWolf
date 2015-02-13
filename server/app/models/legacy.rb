@@ -44,4 +44,14 @@ class Legacy
   #field :interesting_things, type: String
   #field :brief_elements, type: String
   #field :security_level, type: String
+
+  after_initialize if: :new_record? do |doc|
+    doc.awards = [Award.new]
+    doc.initiatives = [Initiative.new]
+    doc.legacy_budgets = [LegacyBudget.new]
+    doc.esd = EnvironmentalSustainableDesign.new
+    doc.quotes = [Quote.new]
+    doc.testimonials = [Testimonial.new]
+    doc.photography = Photography.new
+  end
 end

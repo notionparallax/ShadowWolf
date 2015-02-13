@@ -10,4 +10,8 @@ class EnvironmentalSustainableDesign
 
   embedded_in :legacy, inverse_of: :esd
 
+  after_initialize if: :new_record? do |doc|
+    doc.certifications = [Certification.new]
+    doc.initiatives = [Initiative.new]
+  end
 end

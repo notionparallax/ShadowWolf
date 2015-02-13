@@ -40,4 +40,17 @@ class Building
   field :project_categories, type: Array
   field :project_sub_catagories, type: Array
   field :source_information_filepath, type: String
+
+  after_initialize if: :new_record? do |doc|
+    doc.client = Client.new
+    doc.project_source = ProjectSource.new
+    doc.legacy = Legacy.new
+    doc.relationship_description = RelationshipDescription.new
+    doc.dims = [Dimension.new]
+    doc.qas = [QualityAssurance.new]
+    doc.locations = [Location.new]
+    doc.phases = [Phase.new]
+    doc.press = BuildingPress.new
+    doc.brief_elements = [BriefElement.new]
+  end
 end

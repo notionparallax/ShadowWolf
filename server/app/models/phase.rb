@@ -23,4 +23,9 @@ class Phase
   field :dirty_date, type: String
   field :referee, type: String
   field :dirty_finish, type: String
+
+  after_initialize if: :new_record? do |doc|
+    doc.budget = Budget.new
+    doc.key_dates = [KeyDate.new]
+  end
 end
