@@ -30,13 +30,13 @@ def get_tags description
   description.scan( /\[\[([^\]]*)\]\]/ )
     .map do |top|
       top.map do |bot|
-        bot.split(',').map(&:strip) 
-      end 
+        bot.split(',').map(&:strip)
+      end
     end.flatten.flatten.uniq
 end
 def top_3_images images
   (images || []).sort { |a,b|
-    b['rank'].to_i <=> a['rank'].to_i 
+    b['rank'].to_i <=> a['rank'].to_i
   }[0..2]
 end
 def get_image_url image
@@ -62,17 +62,20 @@ def get_project_image_urls project_number, tags
     settings.redis.set project_number, JSON.generate( first_3_image_urls )
   else
     images_by_tags = images.inject({}) do |hash,image|
-      get_tags(image['description']).each do |tag|
-        hash[tag] = [] if hash[tag].nil?
-        hash[tag] << image 
+      get_tags(image['description']).map(&:downcase).each do |tag|
+        downcase_tag = tag.downcase
+        hash[downcase_tag] = [] if hash[downcase_tag].nil?
+        hash[downcase_tag] << image
       end
       hash
     end
-    images = tags.inject({}) { |hash,tag| hash[tag] = top_3_images(images_by_tags[tag]).map(&method(:get_image_url)); hash }
+    images = tags
+      .map(&:downcase)
+      .inject({}) { |hash,tag| hash[tag] = top_3_images(images_by_tags[tag]).map(&method(:get_image_url)); hash }
     images.each_pair { |tag,image_urls| settings.redis.set project_number + ':' + tag, JSON.generate( image_urls ) }
   end
-  
-  # return image url 
+
+  # return image url
   images
 end
 

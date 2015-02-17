@@ -32,29 +32,10 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     return People.getPeople(logins);
   };
 
-  // has() is used by the tag objects $watcher to filter
-  var has = function(tag) {
-    return function(object) {
-      return object.tags ? object.tags.indexOf(tag) !== -1 : false;
-    };
+  $scope.getPropertiesWithTag = function(object,tag) {
+    return object.filter(function(property) {
+      return property.tags.indexOf(tag) !== -1;
+    });
   };
-  $scope.$watch('tags()', function(tags) {
-    $scope.tagsProperties = {};
-    var building = $scope.project.building;
-    for (var tagIndex in tags) {
-      var tag = tags[tagIndex];
-      $scope.tagsProperties[tag] = {
-        dims:            building.dims                     .filter(has(tag)),
-        brief_elements:  building.brief_elements           .filter(has(tag)),
-        initiatives:     building.legacy.initiatives       .filter(has(tag)),
-        testimonials:    building.legacy.testimonials      .filter(has(tag)),
-        quotes:          building.legacy.quotes            .filter(has(tag)),
-        awards:          building.legacy.awards            .filter(has(tag)),
-        templates:       building.legacy.templates         .filter(has(tag)),
-        certifications:  building.legacy.esd.certifications.filter(has(tag)),
-        esdInitiatives:  building.legacy.esd.initiatives   .filter(has(tag))
-      };
-    }
-  }, true /* necessary to avoid infinite digest */ );
   $scope.tags = function() { return Tags.project($scope.project).getTags(); };
 });
