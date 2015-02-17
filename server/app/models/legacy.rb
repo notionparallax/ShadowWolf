@@ -53,5 +53,6 @@ class Legacy
     doc.quotes = [Quote.new]
     doc.testimonials = [Testimonial.new]
     doc.photography = Photography.new
+    doc.templates = [Template.new]
   end
 end
