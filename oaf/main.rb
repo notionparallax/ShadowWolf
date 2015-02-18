@@ -71,7 +71,16 @@ def get_project_image_urls project_number, tags
     end
     images = tags
       .map(&:downcase)
-      .inject({}) { |hash,tag| hash[tag] = top_3_images(images_by_tags[tag]).map(&method(:get_image_url)); hash }
+      .inject({}) do |hash,tag|
+        image_to_select_from =
+          unless tag.downcase.eql? 'main'
+            images_by_tags[tag]
+          else
+            images_by_tags.values.flatten
+          end
+        hash[tag] = top_3_images( image_to_select_from ).map(&method(:get_image_url))
+        hash
+      end
     images.each_pair { |tag,image_urls| settings.redis.set project_number + ':' + tag, JSON.generate( image_urls ) }
   end
 
