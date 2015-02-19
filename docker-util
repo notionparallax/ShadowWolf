@@ -187,7 +187,7 @@ case "$1" in
         remote_script="
           docker run -i -t --rm --link sw-mongo:mongo -w /home/app/server $BVN_SERVER:5000/shadowwolf-deploy-server rails console -e production;
         "
-        ssh $USER@$BVN_SERVER $remote_script
+        ssh -t $USER@$BVN_SERVER $remote_script
       ;;
     esac
     ;;
