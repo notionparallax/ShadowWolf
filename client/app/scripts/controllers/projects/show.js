@@ -32,10 +32,33 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     return People.getPeople(logins);
   };
 
-  $scope.getPropertiesWithTag = function(object,tag) {
-    return object.filter(function(property) {
-      return property.tags.indexOf(tag) !== -1;
-    });
-  };
+  // "Decorates" input lists with cache identifiers
+  $scope.getPropertiesWithTag = (function(){
+    // Must cache actual items so don't trigger infinite $digest
+    // Hence local scope
+    var cache = {}; 
+    var counter = 0;
+    var CACHE_PROPERTY_NAME = '__projects_show_controller_hidden_cache_identifier';
+    return function(object,tag) {
+      if (object === undefined) return;
+      // Create a spot in cache for list if not existant
+      if (!object[CACHE_PROPERTY_NAME]) {
+        counter++; 
+        object[CACHE_PROPERTY_NAME] = counter;
+        cache[counter] = {};
+      }
+
+      // Fill spot in cache for tag if not existant
+      var objectId = object[CACHE_PROPERTY_NAME];
+      if (!cache[objectId][tag]) {
+        cache[objectId][tag] = object.filter(function(property) {
+          return property.tags.indexOf(tag) !== -1;
+        });
+      }
+
+      // Retrieve from cache
+      return cache[objectId][tag];
+    };
+  }());
   $scope.tags = function() { return Tags.project($scope.project).getTags(); };
 });
