@@ -9,7 +9,7 @@
                 <p class="editable-text-display" ng-if="type == 'checkbox'" ng-bind="subobject[property] ? 'Yes' : 'No'"></p>
                 <div class="tags" ng-if="type == 'tags'">
                     <ul class="tag-list">
-                        <li class="tag-item" ng-repeat="tag in subobject[property]">{{tag}}<a ng-click="removeTag(tag)">✖</a>
+                        <li class="tag-item" ng-repeat="tag in subobject[property] track by $index">{{tag}}<a ng-click="removeTag(tag, $event)">✖</a>
                         </li>
                     </ul>
                 </div>

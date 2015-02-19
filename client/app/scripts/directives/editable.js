@@ -96,7 +96,8 @@ angular.module("ShadowWolf")
         $scope.editorEnabled = false;
       };
 
-      $scope.removeTag = function(tag) {
+      $scope.removeTag = function(tag, $event) {
+        $event.stopPropagation();
         var tagIndex = $scope.subobject[$scope.property].indexOf(tag);
         $scope.subobject[$scope.property].splice(tagIndex, 1);
         $scope.editable.value = $scope.subobject[$scope.property];
@@ -106,9 +107,14 @@ angular.module("ShadowWolf")
       $scope.tagsKeyUp = function($event) {
         switch ($event.which) {
           case 13 /*Enter*/:
-            $scope.subobject[$scope.property].push( $scope.editable.newTag );
-            $scope.editable.newTag = '';
-            $scope.save();
+            if (!!$scope.editable.newTag.trim()) {
+              $scope.subobject[$scope.property].push( $scope.editable.newTag );
+              $scope.editable.newTag = '';
+              $scope.save();
+            } else {
+              $scope.editable.newTag = '';
+              $scope.disableEditor();
+            }
             break;
           case 27 /*Esc*/:
             $scope.editable.newTag = '';
