@@ -10,7 +10,6 @@ def mk_resource resource
 end
 
 set :redis, Redis.new
-RestClient.log = Logger.new(STDOUT)
 set :bind, '0.0.0.0'
 Projects = mk_resource( 'Projects' )
 Files = mk_resource( 'Files'    )
@@ -72,13 +71,13 @@ def get_project_image_urls project_number, tags
     images = tags
       .map(&:downcase)
       .inject({}) do |hash,tag|
-        image_to_select_from =
+        images_to_select_from =
           unless tag.downcase.eql? 'main'
             images_by_tags[tag]
           else
             images_by_tags.values.flatten
           end
-        hash[tag] = top_3_images( image_to_select_from ).map(&method(:get_image_url))
+        hash[tag] = top_3_images( images_to_select_from ).map(&method(:get_image_url))
         hash
       end
     images.each_pair { |tag,image_urls| settings.redis.set project_number + ':' + tag, JSON.generate( image_urls ) }
@@ -97,7 +96,7 @@ put '/projects' do
   project_numbers.each do |project_number|
     image_urls_as_json = settings.redis.get project_number
     if image_urls_as_json.nil? and params[:update_cache].eql? 'true'
-      image_urls = get_project_image_urls project_number
+      image_urls = get_project_image_urls project_number, nil
     elsif not image_urls_as_json.nil?
       image_urls = JSON.parse image_urls_as_json
     end
@@ -115,7 +114,10 @@ put '/project_by_tags/:project_number' do
   image_urls_by_tags = {}
   tags.each do |tag|
     redis_result = settings.redis.get( project_number + ':' + tag )
-    image_urls_by_tags[tag] = parse_result redis_result unless redis_result.nil?
+    if redis_result
+      parsed_result = parse_result redis_result
+      image_urls_by_tags[tag] = parsed_result unless parsed_result.nil? or parsed_result.empty?
+    end
   end
   tags_to_search = tags - image_urls_by_tags.keys
   unless tags_to_search.empty?
