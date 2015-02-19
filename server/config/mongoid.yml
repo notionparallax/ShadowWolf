@@ -80,6 +80,3 @@ production:
       hosts:
         - <%= "#{ENV['MONGO_PORT_27017_TCP_ADDR']}:#{ENV['MONGO_PORT_27017_TCP_PORT']}" %>
       database: shadow_wolf_production
-      options:
-        skip_version_check: true
-        safe: true
