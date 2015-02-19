@@ -21,7 +21,7 @@ angular.module("ShadowWolf")
       $scope.isLast = function() { return $scope.$parent.$last; };
 
       $scope.isPlural = function() {
-        return $scope.lens[$scope.lens.length-1] == ']';
+        return $scope.lens ? $scope.lens[$scope.lens.length-1] == ']' : false;
       };
 
       // NB: this function only makes sense if isPlural() == true
