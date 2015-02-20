@@ -108,6 +108,7 @@ angular.module("ShadowWolf")
         switch ($event.which) {
           case 13 /*Enter*/:
             if (!!$scope.editable.newTag.trim()) {
+              if (!$scope.suboject[$scope.property]) $scope.subobject[property] = [];
               $scope.subobject[$scope.property].push( $scope.editable.newTag );
               $scope.editable.newTag = '';
               $scope.save();
