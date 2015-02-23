@@ -7,8 +7,12 @@
 
 <div ng-repeat="budget in project.building.legacy.legacy_budgets">
     <editable-group object="project" lens="building.legacy.legacy_budgets[{{budget|id}}]" subgroup-class="alert alert-info col-md-5">
-        <editable property="description" label="Description" editable-typeahead="true">This is the title on the project sheet. E.g. <em>Construction Value</em> or just <em>Value</em></editable>
-        <editable property="budget"      label="Value"       type="number"            >The official budget, in numbers. E.g. 1000000 not 1M.</editable>
-        <editable property="tags"        label="Tags"        type="tags"              >Tags define which project sheet this piece of information goes onto.</editable>
+        <editable property="description"  label="Description"  editable-typeahead="true">This is the title on the project sheet. E.g. <em>Construction Value</em> or just <em>Value</em></editable>
+        <editable property="budget"       label="Value"        type="number"            >The official budget, in numbers. E.g. 1000000 not 1M.</editable>
+
+        <editable property="currency"     label="Currency"                              >What's the currency of this money? <a href="http://en.wikipedia.org/wiki/ISO_4217#Active_codes">Use the ISO code. E.g. AUD, GBP, USD, NZD etc.</a></editable>
+        <editable property="confidential" label="Confidential" type="checkbox"          >Should this be kept private?</editable>
+
+        <editable property="tags"         label="Tags"         type="tags"              >Tags define which project sheet this piece of information goes onto.</editable>
     </editable-group>
 </div>
