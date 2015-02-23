@@ -51,7 +51,7 @@
                 </div>
                 <div class="completion">
                     <h2>Completion    </h2>
-                    <p>{{project.building.legacy.start_date | date: 'MMMM yyyy'}} - {{project.building.legacy.completion_date | date: 'MMMM yyyy'}}</p>
+                    <p>{{project.building.legacy.start_date | toISODate | date: 'MMMM yyyy'}} - {{project.building.legacy.completion_date | toISODate | date: 'MMMM yyyy'}}</p>
                 </div>
                 <div class="value">
                     <h2>Value         </h2>
