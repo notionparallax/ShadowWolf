@@ -107,15 +107,7 @@ angular.module("ShadowWolf")
       $scope.tagsKeyUp = function($event) {
         switch ($event.which) {
           case 13 /*Enter*/:
-            if (!!$scope.editable.newTag.trim()) {
-              if (!$scope.suboject[$scope.property]) $scope.subobject[property] = [];
-              $scope.subobject[$scope.property].push( $scope.editable.newTag );
-              $scope.editable.newTag = '';
-              $scope.save();
-            } else {
-              $scope.editable.newTag = '';
-              $scope.disableEditor();
-            }
+            $scope.save();
             break;
           case 27 /*Esc*/:
             $scope.editable.newTag = '';
@@ -141,9 +133,13 @@ angular.module("ShadowWolf")
         if ($scope.type !== 'tags') {
           object[$scope.property] = $scope.editable.value;
         } else {
-          if ($scope.editable.newTag) {
+          if (!!$scope.editable.newTag.trim()) {
+            // If the array home is null stub it to an empty array
+            if (!object[$scope.property]) object[$scope.property] = [];
             // If there's a tag in the input then add it to existing tags
             object[$scope.property].push($scope.editable.newTag);
+            // Clear the tag input
+            $scope.editable.newTag = '';
           }
         }
 
