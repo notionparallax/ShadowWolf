@@ -27,6 +27,16 @@
     </editable-group>
 </div>
 
+<h3>Related Projects</h3>
+<p class="explantory-text">There are the projects that are related to this one.</p>
+<editable-group ng-repeat="related_project in project.related_projects"
+                object="project"
+                lens="related_projects[{{related_project|id}}]"
+                subgroup-class="alert alert-info">
+  <editable property="project_number" label="Project Number">The project number of the related project</editable>
+  <editable property="description" label="Relationship Description" type="textarea">A description of the project's relation</editable>
+</editable-group>
+
 <h3>Team</h3>
 <p class="explantory-text">This is everyone who has put time against this project.</p>
 <ul class="personal-project-list">
