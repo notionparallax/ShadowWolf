@@ -106,8 +106,15 @@
 .Leave     { border-bottom:  5px solid orange;}
 .Deceased  { opacity:       0.2;              }
 .Applicant { border-bottom:  5px solid green; }
-.Left      { border-bottom: 30px solid grey;  }
+.Left      { opacity: 0.6;
+             -webkit-filter: blur(5px);
+             -moz-filter: blur(5px);
+             -ms-filter: blur(5px);
+             -o-filter: blur(5px);
+             filter: blur(5px);
+}
 .Unknown   { border-bottom:  5px solid red;   }
+
 
 @media screen and (orientation: portrait) and (max-width: 520px) {
 
