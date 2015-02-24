@@ -5,5 +5,6 @@ FactoryGirl.define do
     tags { [%w(retail business residential).sample, %w(education health finance).sample] }
     confidential { [true,true,false].sample }
     currency { %w(AUD GBP USA).sample }
+    date { [1,3,9].sample.years.ago }
   end
 end
