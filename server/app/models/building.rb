@@ -57,5 +57,6 @@ class Building
     doc.phases = [Phase.new]
     doc.press = BuildingPress.new
     doc.brief_elements = [BriefElement.new]
+    doc.extras = [Extra.new]
   end
 end
