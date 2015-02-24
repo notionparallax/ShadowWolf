@@ -32,6 +32,9 @@ class Building
   embeds_many :brief_elements, class_name: 'BriefElement'
   accepts_nested_attributes_for :brief_elements
 
+  embeds_many :extras
+  accepts_nested_attributes_for :extras
+
   embedded_in :project
 
   field :description, type: String
