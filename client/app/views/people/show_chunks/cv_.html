@@ -1,0 +1,143 @@
+<h1>{{ person.name.preferred_first }} {{ person.name.preferred_last }}</h1>
+<h2>{{person.employee.position}}</h2>
+<h3 class="qualifications">Qualifications</h3>
+<p class="qualifications"
+   ng-repeat="qual in person.employee.qualifications">{{qual.name}}</p>
+
+<h3 class="memberships">Membership<h3>
+<p class="memberships"
+   ng-repeat="membership in person.employee.memberships">{{membership.name}}</p>
+
+<h3 ng-if="person.employee.registration" class="memberships">Registration</h3>
+<p  ng-if="person.employee.registration">Registered Architect<span class="memberships"
+   ng-repeat="reg in person.employee.registrations">{{reg.organisation}} {{reg.state}} </span></p>
+
+<img ng-src="{{ person.employee.photo.bw }}">
+
+<p class="one-line-grab">{{person.employee.biography.one_line_bio}}</p>
+
+<p class="body-bio">{{person.employee.biography.approach}}</p>
+
+<h3 class="experience">Project experience</h3>
+2014-
+AMP Quay Quarter Stage 1 DA for redevelopment of
+2 CBD blocks, Sydney NSW $1.2B
+Campus Masterplan &amp; Stage 1 Building, Charles Sturt
+University, Port Macquarie NSW $30M
+Macquarie Bank 50 Martin Place, Sydney NSW
+Northern Beaches Hospital PPP Bid, Sydney NSW $500M
+Ascham School Science Centre &amp; Boarding House,
+Edgecliff NSW $20M
+Bendigo Hospital PPP Bid, BAFO Stage, VIC $650M
+UTS Thomas Street Science Building, Delivery Phase, Sydney NSW $110M
+2013
+Campus Masterplan, Charles Sturt University, Port
+Macquarie NSW $30M
+Christchurch Health Precinct Masterplan, NZ (120,000m2 GFA development, 60,000m2 site)
+University of Adelaide Urban Design Framework, SA
+Bendigo Hospital PPP Bid, BAFO Stage, VIC $650M
+UTS Thomas Street Science Building Design Phases, Sydney NSW $90M
+2012
+Royal North Shore Hospital Redevelopment, Sydney NSW $1B
+National Life Sciences Hub, Research and Education
+Building, Charles Sturt University, Wagga NSW $45M
+The Braggs (Institute for Photonics and Advanced Sensing) University of Adelaide, Adelaide SA $95M
+Campbelltown Hospital 120 bed Mental Health Service
+Building PDP, Sydney $110M
+Sydney Children’s Hospital Child and Adolescent Mental
+Health Service (CAMHS) Building, Randwick NSW $25M
+Prince of Wales Mental Health Intensive Care Building, Randwick NSW $12M
+Sunshine Coast University Hospital PPP Bid, QLD $2B
+Tree Kangaroo and Pademelon Exhibit Taronga Zoo, Sydney NSW
+Student Accommodation for Orange and Wagga Campuses, Charles Sturt University, NSW $25M
+2011
+HMAS Creswell Cerberus and Geelong Houses:
+Recreation, Training and Education Buildings, Jervis
+Bay NSW
+HMAS Creswell Survival at Sea Facility, The Waterfront,
+Jervis Bay NSW
+HMAS Creswell Physical Fitness Centre, Jervis Bay NSW
+Air Warfare Destroyer and Landing Helicopter Deck
+Home Port Infrastructure Requirements (Randwick
+Training Centre), Sydney NSW $130M (completion 2018)
+Taronga Zoo Upper and Lower Entry Precincts, Sydney NSW
+2010
+Cranbrook School Masterplan, Sydney NSW
+Charles Sturt University Wagga Wagga Campus Masterplan, NSW
+HMAS Creswell Griffiths House (Living In Accommodation), Jervis Bay NSW
+Mawson Laboratories First Year Experience, School of
+Geology, University of Adelaide, Adelaide SA
+Scott Theatre Refurbishment, University of Adelaide, Adelaide SA
+BVN Sydney Studio, Sydney NSW
+Charles Sturt University Wagga Wagga Campus Science Precinct Plan, NSW
+Australian Securities Exchange Client Floor, Sydney
+NSW $3M
+2009
+UTS Broadway Building Competition, Sydney NSW
+$200M
+Attorney General’s Department Workplace, Canberra
+ACT $40M
+2008
+UTS City Campus 2020 Masterplan, Sydney NSW $850M
+Robina Hospital Expansion Masterplan, Gold Coast QLD $290M
+‘The Q’ Queanbeyan Performing Arts Centre,
+Queanbeyan, NSW $8M
+Westmead Town Centre Masterplan, Sydney NSW
+2007
+HMAS Creswell Redevelopment Masterplan, Jervis Bay NSW $85M
+Austrade International Strategic Accommodation Plan
+Royal North Shore Hospital Redevelopment PPP Bid, Sydney NSW $900M
+Stockland Head Office, Sydney NSW $30M
+Deutsche Bank Workplace, Melbourne VIC
+Deutsche Bank Workplace, Auckland NZ
+2006
+International Terminal Expansion, Brisbane QLD $280M
+Australian Securities Exchange Strategic Brief and National Acommodation Strategy
+Wilkhahn Asia Pacific Showroom and Factory, Sydney NSW $80M
+Bluestone Workplace, Sydney $3M
+Town Hall House Refurbishment Proposal, Sydney NSW
+Sans Souci Retail and Commercial Development, Sydney NSW $30M
+2005
+Deutsche Bank Workplace, Sydney NSW $36M
+2004
+L5 Building University of NSW, Sydney NSW $36M
+Baker &amp; McKenzie Workplace, Sydney NSW
+Munich Reinsurance Building Upgrade and Workplace, Sydney NSW
+2003
+Westpac Sydney CBD Property Strategy and Portfolio, Sydney NSW
+Credit Union Services Corporation Fitout, Sydney NSW
+2001
+The King’s School Centre for Learning and Leadership, Sydney NSW $5M
+Wealth Management (NAB+MLC) Workplace, Sydney NSW $3M
+Commonwealth Bank CBD Property Strategy, Sydney NSW
+2000
+Clemenger BBDO Workplace, Sydney NSW $3M
+1999
+UNSW Science Square and Dalton Cafe, Sydney NSW
+1998
+UNSW Sir Robert Webster Building, Sydney NSW $12M
+Munich Reinsurance Workplace, Melbourne VIC
+<h3 class="awards">Awards</h3>
+THE BRAGGS (INSTITUTE OF PHOTONICS &amp; ADVANCED SENSING), UNIVERSITY OFADELAIDE (in association with Hames Sharley Adelaide)
+2013 RAIA SA Jack McConnell Award for Public Architecture
+TARONGA ZOO UPPER ENTRY PRECINCT
+2012 RAIA National Award for Urban Design
+2012 RAIA NSW Lloyd Rees Award for Outstanding Urban Design
+2012 Australian Award for Urban Design, Delivered Outcome - Large Scale Commendation
+NATIONAL LIFE SCIENCES HUB, RESEARCH AND EDUCATION BUILDING, CHARLES STURT UNIVERSITY
+2013 RAIA NSW Blacket Prize for Regional Architecture
+2012 MBA Excellence in Construction
+Award for Tertiary Buildings $20M-$50M
+HMAS CRESWELL PHYSICAL FITNESS CENTRE
+2012 RAIA ACT Public Architecture
+HMAS CRESWELL CERBERUS AND GEELONG HOUSES
+2012 RAIA ACT Heritage Commendation
+HMAS CRESWELL SURVIVAL AT SEA FACILITY, THE WATERFRONT
+2012 RAIA ACT Small Project Architecture
+HMAS CRESWELL GRIFFITHS HOUSE
+2011 RAIA ACT Residential Architecture - Multiple Housing
+BVN DONOVAN HILL STUDIO, SYDNEY
+2011 RAIA NSW John Verge Interior Architecture Award
+2011 IDA NSW State Award
+ATTORNEY GENERAL’S DEPARTMENT WORKPLACE, CANBERRA
+2010 RAIA ACT W. Hayward Morris Award for Interior Architecture
