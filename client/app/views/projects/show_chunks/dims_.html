@@ -15,16 +15,13 @@
     </editable-group>
 </div>
 
-<h3>Numbers of&hellip; Coming soon</h3>
+<h3>Numbers of things</h3>
 <p class="explantory-text">How many things were there? Were there 100 floors? 1000 beds? 50 apartments?</p>
-<p class="explantory-text">Some of these fields need numbers. Don't put in thousand separators or units, we'll handle all of that for you.</p>
-<!-- <div ng-repeat="dim in project.building.dims">
-    <editable-group object="project" lens="building.dims[{{dim|id}}]" subgroup-class="alert alert-info col-md-5">
-        <editable property="measurement"      label="Measurement"      type="number"           >What is the value of this measurement? E.g. if it is 30,000m², enter 30000.</editable>
-        <editable property="unit"             label="Unit"             editable-typeahead="true">What is the number above measuring?</editable>
-        <editable property="title"            label="Title"            editable-typeahead="true">What does this measurement describe? E.g. is it retail NLA, overall GFA, site area?</editable>
-        <editable property="standard_name"    label="Standard Name"    editable-typeahead="true">What measurement standard was used to establish this? If there isn't one, leave it blank.</editable>
-        <editable property="standard_version" label="Standard Version" editable-typeahead="true">What version of the standard was used to establish this? If there isn't one, leave it blank.</editable>
-        <editable property="tags"             label="Tags"             type="tags"             ></editable>
+<p class="explantory-text">Some of these fields need numbers. Don't put in thousand separators we'll handle all of that for you.</p>
+<div ng-repeat="ext in project.building.extras">
+    <editable-group object="project" lens="building.extras[{{ext|id}}]" subgroup-class="alert alert-info col-md-5">
+        <editable property="label"    label="Things"    editable-typeahead="true">What thing were there many of? Desks, Apartments etc.</editable>
+        <editable property="quantity" label="Number of" type="number"            >What is the number above counting?</editable>
+        <editable property="tags"     label="Tags"      type="tags"              ></editable>
     </editable-group>
-</div> -->
+</div>
