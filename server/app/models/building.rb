@@ -35,6 +35,9 @@ class Building
   embeds_many :building_relationships
   accepts_nested_attributes_for :building_relationships
 
+  embeds_many :extras
+  accepts_nested_attributes_for :extras
+
   embedded_in :project
 
   field :description, type: String
@@ -58,5 +61,6 @@ class Building
     doc.press = BuildingPress.new
     doc.brief_elements = [BriefElement.new]
     doc.building_relationships = [BuildingRelationship.new]
+    doc.extras = [Extra.new]
   end
 end
