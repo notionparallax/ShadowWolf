@@ -8,6 +8,8 @@ FactoryGirl.define do
       FactoryGirl.build_list( :dimension, [0,1,2,3,10].sample, building: building )
       FactoryGirl.build_list( :location, [0,1,2,3,10].sample, building: building )
       FactoryGirl.build_list( :brief_element, [0,1,2,3,10].sample, building: building )
+      FactoryGirl.build_list( :building_relationship, [0,1,2,3,10].sample, building: building )
+      FactoryGirl.build_list( :extra, [0,1,2,3,10].sample, building: building )
     end
     legacy { FactoryGirl.build( :legacy ) }
     press { FactoryGirl.build( :building_press ) }

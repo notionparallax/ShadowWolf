@@ -36,6 +36,7 @@
     img{
         object-fit: cover;
         width: 100%;
+        height: 100%;
         -webkit-filter: grayscale(1);
     }
 }
@@ -87,7 +88,7 @@
     padding-left: 0.4em;
     background: linear-gradient(to top, hsla(0,0%,0%,0.9) 0%,hsla(0,0%,0%,0) 100%);
     h1{
-        color: hsb(52,100,94);
+        color: hsla(52, 100%, 70%, 1);
         font-size: 130%;
         text-transform: uppercase;
         span{display:block;}
