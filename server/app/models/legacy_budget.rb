@@ -9,4 +9,5 @@ class LegacyBudget
   field :tags, type: Array, default: []
   field :confidential, type: Boolean
   field :currency, type: String
+  field :date, type: String
 end
