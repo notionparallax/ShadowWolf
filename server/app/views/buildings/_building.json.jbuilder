@@ -40,3 +40,8 @@ json.qas do
     json.partial! "quality_assurances/quality_assurance.json.jbuilder", qa: qa
   end
 end
+json.building_relationships do
+  json.array!(building.building_relationships) do |building_relationships|
+    json.partial! "building_relationships/building_relationship.json.jbuilder", building_relationship: building_relationship
+  end
+end
