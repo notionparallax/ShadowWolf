@@ -107,6 +107,10 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
+    lograge (0.3.1)
+      actionpack (>= 3)
+      activesupport (>= 3)
+      railties (>= 3)
     lumberjack (1.0.4)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -215,6 +219,7 @@ DEPENDENCIES
   faker
   guard-rspec
   jbuilder (~> 1.2)
+  lograge
   mongoid (> 4.0.0)!
   mongoid-model-maker!
   mongoid-rspec!

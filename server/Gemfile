@@ -47,3 +47,5 @@ gem 'mongoid-model-maker', github: 'Dawil/MongoidModelMaker'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-ldap', github: 'Dawil/omniauth-ldap'
+
+gem 'lograge'
