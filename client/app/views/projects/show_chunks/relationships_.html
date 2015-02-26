@@ -1,7 +1,21 @@
 <h2>Relationships</h2>
+<p class="explantory-text">This is depricated. If you come to this and it's empty; don't fill it in.</p>
 <p class="explantory-text">This records the key relationships we had during the project and the state that they were left in. If person X at company Y loves us, but person Z got really annoyed then record that sort of thing here. This is so in future we can go back and find out what not to say or what to talk up. E.g. if we left it in a screaming argument then we need to patch things up before we ask for a favour!</p>
 <editable-group object="project" lens="building.relationship_description" subgroup-class="alert alert-info col-md-5">
     <editable property="client"      label="Client"      type="textarea">Describe the relationship we had with the client.</editable>
     <editable property="stakeholder" label="Stakeholder" type="textarea">Describe the relationship we had with the stakeholders.</editable>
     <editable property="councils"    label="Councils"    type="textarea">Describe the relationship we had with the council.</editable>
 </editable-group>
+
+<h3>External team</h3>
+<p class="explantory-text">This keep track of the parties involved in this project. It superscedes the fields above.</p>
+<p class="explantory-text">This will show up on a timeline eventually</p>
+<div ng-repeat="member in project.building.building_relationships">
+	<editable-group object="project" lens="building.building_relationships[{{member|id}}]" subgroup-class="alert alert-info col-md-5">
+	    <editable property="entity"                   label="Entity"                     >What is this entity's name? Arup Facades etc.</editable>
+	    <editable property="relationship_name"        label="Their role"                 >What was their role on the team? Structural engineer, ergonomist etc.</editable>
+	    <editable property="relationship_description" label="Description" type="textarea">Describe the relationship. This is internal, it's to give future teams some insight. Don't hold back; were they great or useless?</editable>
+	    <editable property="start_date"               label="start_date"  type="date"    >What date did this relationship start?</editable>
+	    <editable property="end_date"                 label="end_date"    type="date"    >What date did this relationship finish?</editable>
+	</editable-group>
+</div>
