@@ -18,6 +18,20 @@ You can see a live version, with dummy data [here](http://notionparallax.co.uk/S
 ## Contributing ##
 We're probably not ready for anyone to get involved in a big way as we're changing too much stuff, but if there are any features that you would like to see, or bugs that you think we should fix, then feel free to open an issue.
 
+### What we're doing ###
+  1. Make a new branch called [issue number]-[Short_description_of_issue]   (underscore separated)
+  1. Move issue into "in progress" on Waffle
+  1. Work on issue
+  1. Make pull request through GH website
+  1. Move issue into "under review" column in Waffle
+  1. Test/discuss/etc. code
+  1. Merge pull request and delete branch
+  1. Move issue into "in dev" column in Waffle
+  1. Deploy if you feel like it
+
+[![Throughput Graph](https://graphs.Waffle.io/notionparallax/shadowwolf/throughput.svg)](https://Waffle.io/notionparallax/shadowwolf/metrics)
+
+
 ### Development environment ###
 
 ShadowWolf is 3 main components which currently live inside docker containers.
