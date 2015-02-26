@@ -41,7 +41,7 @@ json.qas do
   end
 end
 json.building_relationships do
-  json.array!(building.building_relationships) do |building_relationships|
+  json.array!(building.building_relationships) do |building_relationship|
     json.partial! "building_relationships/building_relationship.json.jbuilder", building_relationship: building_relationship
   end
 end
