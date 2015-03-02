@@ -1,8 +1,9 @@
 <div class="project-sheet">
     <div class="photos">
-        <img ng-src="{{getImages()[tag.toLowerCase()][0] || 'http://placehold.it/550&text=First%20'  + tag + '%20Image%20not%20found' }}">
-        <img ng-src="{{getImages()[tag.toLowerCase()][1] || 'http://placehold.it/225&text=Second%20' + tag + '%20Image%20not%20found' }}">
-        <img ng-src="{{getImages()[tag.toLowerCase()][2] || 'http://placehold.it/225&text=Third%20'  + tag + '%20Image%20not%20found' }}">
+      <img ng-src="{{getImages()[tag.toLowerCase()][0] || 'http://placehold.it/550&text=First%20'  + tag + '%20Image%20not%20found' }}">
+      <img ng-src="{{getImages()[tag.toLowerCase()][1] || 'http://placehold.it/225&text=Second%20' + tag + '%20Image%20not%20found' }}">
+      <img ng-src="{{getImages()[tag.toLowerCase()][2] || 'http://placehold.it/225&text=Third%20'  + tag + '%20Image%20not%20found' }}">
+      <span ng-click="refreshOafImages()">Click to get latest images</span>
     </div>
     <div class="text">
         <h1>{{project.building.phases[0].project_name}}</h1>
