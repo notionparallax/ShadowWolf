@@ -75,7 +75,7 @@ def get_project_image_urls project_number, tags
           unless tag.downcase.eql? 'main'
             images_by_tags[tag]
           else
-            images_by_tags.values.flatten
+            images
           end
         hash[tag] = top_3_images( images_to_select_from ).map(&method(:get_image_url))
         hash
