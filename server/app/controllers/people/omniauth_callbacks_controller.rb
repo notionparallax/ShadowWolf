@@ -1,3 +1,5 @@
+require 'json'
+require 'http'
 require 'uri'
 class People::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def ldap
@@ -16,6 +18,7 @@ class People::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       p.employee.contact = EmployeeContact.new work_email: info['email']
       p.employee.biography = Biography.new
       p.save
+      email_ben_about p
       login_and_redirect p
     end
   end
@@ -43,5 +46,21 @@ class People::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
   def auth_login
     auth_hash['extra']['raw_info']['samaccountname'].first.to_s
+  end
+
+  def email_ben_about person
+    body =
+      {
+        key: ENV['MANDRILL_KEY'],
+        message:
+          {
+            from_email: ENV['MANDRILL_EMAIL'],
+            to: [{email:ENV['MANDRILL_EMAIL'],type:"to"}],
+            autotext: "true",
+            subject: "ShadowWolf: A new user is born",
+            html: "<p>Happy birthday to #{person.name.first + ' ' + person.name.last}! Their login is #{person.employee.login}. You should go <strike>say hi</strike> badger them.</p>"
+          }
+      }
+    HTTP.post("https://mandrillapp.com/api/1.0/messages/send.json?key=#{body[:key]}", body: JSON.dump( body ) )
   end
 end

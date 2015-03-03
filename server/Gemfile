@@ -49,3 +49,4 @@ gem 'omniauth'
 gem 'omniauth-ldap', github: 'Dawil/omniauth-ldap'
 
 gem 'lograge'
+gem 'http' # ssl that doesn't suck please
