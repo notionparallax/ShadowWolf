@@ -33,6 +33,12 @@
         -ms-animation: fadein 1s;
          -o-animation: fadein 1s;
             animation: fadein 1s;
+    img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        -webkit-filter: grayscale(1);
+    }
 }
 .details {
     color: white;
@@ -73,20 +79,23 @@
     }
 }
 .name-container {
+    height: 50%;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     pointer-events: none;
-    padding-left: 0.2em;
+    padding-left: 0.4em;
     background: linear-gradient(to top, hsla(0,0%,0%,0.9) 0%,hsla(0,0%,0%,0) 100%);
     h1{
-        color: red;
-        font-size: 125%;
+        color: hsla(52, 100%, 70%, 1);
+        font-size: 130%;
+        text-transform: uppercase;
+        span{display:block;}
         .primary  {}
         .secondary{}
         .number   {
-            text-transform: uppercase;
+            font-size: 85%;
         }
     }
 }
@@ -106,8 +115,15 @@
 .Leave     { border-bottom:  5px solid orange;}
 .Deceased  { opacity:       0.2;              }
 .Applicant { border-bottom:  5px solid green; }
-.Left      { border-bottom: 30px solid grey;  }
+.Left      { opacity: 0.6;
+             -webkit-filter: blur(5px);
+             -moz-filter: blur(5px);
+             -ms-filter: blur(5px);
+             -o-filter: blur(5px);
+             filter: blur(5px);
+}
 .Unknown   { border-bottom:  5px solid red;   }
+
 
 @media screen and (orientation: portrait) and (max-width: 520px) {
 
