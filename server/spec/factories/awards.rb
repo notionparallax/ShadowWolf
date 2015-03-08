@@ -5,6 +5,6 @@ FactoryGirl.define do
     award { Faker::Company.catch_phrase }
     date  { (0..20).to_a.sample.years.ago + (1..345).to_a.sample.days }
     jury  { Faker::Lorem.paragraphs }
-    tags  { [%w(retail business residential).sample, %w(education health finance).sample] }
+    tags { ["main", %w(retail business residential).sample, %w(education health finance).sample] }
   end
 end
