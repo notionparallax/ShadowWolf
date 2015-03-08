@@ -321,12 +321,18 @@ svg {
     }
     .photos{
         .overlay {
+            transition: all 0.2s linear;
             position: absolute;
+            border: 1px solid red;
             height: 100%;
             width: 100%;
             left: 0;
             top: 0;
-            background-color: rgba(0, 0, 0, 0.35);
+            background-color: rgb(0, 0, 0);
+            opacity: 0;
+        }
+        &:hover .overlay {
+            opacity: 1;
         }
         padding: 1em;
         width: 50%;
