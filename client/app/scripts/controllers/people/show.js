@@ -2,7 +2,7 @@
 
 angular.module('ShadowWolf')
 .controller('PeopleShowController',
-function($scope, Person, $routeParams, Session, $location, Lens, Flash, Beowulf, Projects) {
+function($scope, Person, $routeParams, Session, $location, Lens, Flash, Beowulf, Projects, Malcolm, $q) {
   $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
   $scope._person = function() { return Person.get($routeParams.personId); };
   $scope._person().$promise.then(function(newValue){
@@ -40,9 +40,34 @@ function($scope, Person, $routeParams, Session, $location, Lens, Flash, Beowulf,
       };
     }
   };
-  $scope.getRelatedProjects = function() {
-    if (!$scope.person.employee) return [];
-    var projectNumbers = Beowulf.getProjectNumbers($scope.person.employee.login);
-    return Projects.getProjects(projectNumbers);
+  $scope.getRelatedProjects = (function(){
+    var promise, promiseResult;
+    return function() {
+      if (!$scope.person.employee) return [];
+      var projectNumbers = Beowulf.getProjectNumbers($scope.person.employee.login);
+      var projects = Malcolm.projects
+        .select({ project_number: true,
+                  building: { phases: { project_name: true },
+                              legacy: { awards: true       }
+                            }
+                })
+        .as('personCVProjects')
+        .where({ in: { project_number: ['s0810004','C060402'] /*projectNumbers*/ } })
+        .all();
+        promise = projects.rails;
+        projects.rails.then(function(res) {
+          if (promise === projects.rails) {
+            promiseResult = res.data;
+          }
+        });
+      return projects.rails === promise ? promiseResult : [];
+    };
+  }());
+  $scope.getRelatedAwards = function() {
+    var awards = $scope.getRelatedProjects().map(function(project) {
+      return project.building.legacy.awards;
+    });
+    var flatAwards = [].concat.apply([],awards);
+    return flatAwards;
   };
 });

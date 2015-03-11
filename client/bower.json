@@ -14,7 +14,8 @@
     "angular-contenteditable": "~0.3.7",
     "angular-bindonce": "~0.3.1",
     "angular-cookie": "~4.0.4",
-    "google-map": "GoogleWebComponents/google-map#~0.4.0"
+    "google-map": "GoogleWebComponents/google-map#~0.4.0",
+    "malcolmdb": "0.0.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.2",
@@ -22,6 +23,7 @@
     "angular-route": "~1.2"
   },
   "resolutions": {
-    "angular": "1.2.16"
+    "angular": "1.2.16",
+    "malcolmdb": "~0.1.0"
   }
 }
