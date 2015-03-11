@@ -4,9 +4,13 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all.query.select(img: 1,'building.phases.project_name'.to_sym => 'project_name', project_number: 1)
-    # rename _id to id to conform with people route
-    @projects = @projects.map { |p| h = p.as_json; h["id"] = h.delete "_id" ; h}
+    if params[:project_number]
+      @projects = Project.where(:project_number.in => params[:project_number])
+    else
+      @projects = Project.all.query.select(img: 1,'building.phases.project_name'.to_sym => 'project_name', project_number: 1)
+      # rename _id to id to conform with people route
+      @projects = @projects.map { |p| h = p.as_json; h["id"] = h.delete "_id" ; h}
+    end
     render json: @projects
   end
 
