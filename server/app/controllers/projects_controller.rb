@@ -12,8 +12,11 @@ class ProjectsController < ApplicationController
 
   # get any projects with matching project numbers
   def numbers
-    @projects = Project.where( project_number: params[:project_number] )
-      .query
+    @projects = Project.or(
+        Project.or( project_number: params[:project_number] ).selector,
+        Project.or( project_number: params[:project_number].downcase ).selector,
+        Project.or( project_number: params[:project_number].upcase ).selector
+    ) .query
       .select('building.phases.project_name'.to_sym => 'project_name',
               project_number: 1)
     render json: @projects
