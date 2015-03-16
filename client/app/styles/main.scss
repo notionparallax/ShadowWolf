@@ -320,7 +320,7 @@ svg {
         float: right;
     }
     .photos{
-        .overlay {
+        .refreshing-overlay {
             transition: all 0.2s linear;
             position: absolute;
             border: 1px solid red;
@@ -331,7 +331,7 @@ svg {
             background-color: rgb(0, 0, 0);
             opacity: 0;
         }
-        &:hover .overlay {
+        &:hover .refreshing-overlay {
             opacity: 1;
         }
         padding: 1em;
@@ -341,11 +341,10 @@ svg {
             width: 49%;
             height: 300px;
             object-fit: cover;
-            &:first-child{
+            &:nth-child(2){
                 width:100%;
                 margin-bottom: 1em;
                 height: 550px;
-
             }
             &:nth-child(3){float:left;}
             &:nth-child(4){float:right;}
