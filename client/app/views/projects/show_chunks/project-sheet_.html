@@ -1,6 +1,6 @@
 <div class="project-sheet">
     <div class="photos">
-        <div class="refreshing-overlay" ng-click="">
+        <div class="refreshing-overlay" ng-click="refreshOafImages()">
             <span class="glyphicon glyphicon-refresh"></span>
         </div>
         <img ng-src="{{getImages()[tag.toLowerCase()][0] || 'http://placehold.it/550&text=First%20'  + tag + '%20Image%20not%20found' }}">
