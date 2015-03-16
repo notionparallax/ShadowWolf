@@ -1,7 +1,7 @@
 <div class="project-sheet">
     <div class="photos">
-        <div class="refreshing-overlay">
-            <button><span class="glyphicon glyphicon-refresh"></span></button>
+        <div class="refreshing-overlay" ng-click="">
+            <span class="glyphicon glyphicon-refresh"></span>
         </div>
         <img ng-src="{{getImages()[tag.toLowerCase()][0] || 'http://placehold.it/550&text=First%20'  + tag + '%20Image%20not%20found' }}">
         <img ng-src="{{getImages()[tag.toLowerCase()][1] || 'http://placehold.it/225&text=Second%20' + tag + '%20Image%20not%20found' }}">
