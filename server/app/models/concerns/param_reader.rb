@@ -14,7 +14,7 @@ module ParamReader
         relation = object.class.embedded_relations[key]
         if relation
           array_class = relation.klass
-          apply_array_changes object, array_class, subobject, subchange
+          apply_array_changes object, array_class, subobject, subchange, key
         else # it's an array of values to set
           object.send("#{key}=", changes[key] || [])
         end
@@ -31,7 +31,7 @@ module ParamReader
   end
 
   # applies changes to array elements, returning
-  def apply_array_changes parent, klass, array, changes
+  def apply_array_changes parent, klass, array, changes, key
     changes.each do |elem|
       id = elem.class == String ? elem : elem['id']
       if id.nil? # create new klass
@@ -45,6 +45,12 @@ module ParamReader
       else # update
         apply_changes db_elem, elem.except('id')
       end
+    end
+    # check array is in same order as in changes
+    changes_ids,array_ids = [changes,array].map { |a| a.map { |b| b[:id] } }
+    if changes_ids.length == array_ids.length and not changes_ids.eql? array_ids
+      new_array = changes_ids.reject(&:nil?).map { |id| array.find id }
+      parent.send("#{key}=", new_array)
     end
   end
 end

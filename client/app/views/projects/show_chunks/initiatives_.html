@@ -1,7 +1,7 @@
 <h2>Initiatives</h2>
 <p class="explantory-text">What was special about this building? Was there a special strategic or social iniative that goes along with this building?</p>
 <div ng-repeat="initiative in project.building.legacy.initiatives">
-    <editable-group object="project" lens="building.legacy.initiatives[{{initiative|id}}]" subgroup-class="alert alert-info col-sm-4">
+    <editable-group object="project" orderable="true" lens="building.legacy.initiatives[{{initiative|id}}]" subgroup-class="alert alert-info col-sm-4">
         <editable property="title"       label="Title"       editable-typeahead="true">What was the thing that you did? (Think of this as a title.)</editable>
         <editable property="reason"      label="Reason"      editable-typeahead="true">Why did you do it? (Briefly)</editable>
         <editable property="description" label="Description" type="textarea"         >Write a bit more about it here. What was the story?</editable>

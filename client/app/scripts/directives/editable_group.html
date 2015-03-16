@@ -1,4 +1,5 @@
 <!-- <div class="row"> -->
+  <span ng-if="orderable && !$parent.$first" style="left: 0px; top:50%; font-size: large; display: inline" ng-click="shiftUp()">◀</span>
   <div class="{{ subgroupClass }}" ng-repeat="subobject in [target()]">
     <button ng-if="isPlural()"
             type="button"

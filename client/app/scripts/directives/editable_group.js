@@ -8,12 +8,39 @@ angular.module("ShadowWolf")
     transclude:      true,
     templateUrl:     "scripts/directives/editable_group.html",
     scope: {
+      orderable:     "=",
       object  :      "=",
       objectName:    "@object",
       subgroupClass: "@",
       lens:          "@"
     },
     controller: function($scope) {
+      $scope.shiftUp = function() {
+        var parentLens = $scope.lens.slice(0,$scope.lens.lastIndexOf('['));
+        var parentObject = Lens.get($scope.object,parentLens);
+        var target = $scope.target();
+        var currentIndex = parentObject.indexOf(target);
+        parentObject.splice(currentIndex, 1); // remove current object
+        parentObject.splice(currentIndex-1,0, target);
+
+        // save array
+        var newObject = parentObject.map(function(obj) { return { id: obj.id.$oid } });
+        var updateObject = {};
+        updateObject[$scope.objectName] = Lens.wrapObject(parentLens, newObject);
+
+        Models.update($scope.objectName)( $scope.object.id['$oid'],
+          updateObject,
+          function(result){
+          Models.set($scope.objectName)(result);
+          
+        }, function() {
+          
+          Flash.add({
+            template: "<p>Unable to modify the order at this time.</p>",
+            css: "flash-fail"
+          }, 5000);
+        });
+      };
       $scope.target = function() {
         return Lens.get($scope.object, $scope.lens);
       };
