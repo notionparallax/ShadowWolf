@@ -1,6 +1,7 @@
-<!-- <div class="row"> -->
-  <span ng-if="orderable && !$parent.$first" style="left: 0px; top:50%; font-size: large; display: inline" ng-click="shiftUp()">◀</span>
   <div class="{{ subgroupClass }}" ng-repeat="subobject in [target()]">
+    <button class="shuffle-btn pull-right" ng-if="orderable && !isLast()" 
+            type="button"
+            ng-click="shiftDown()">⬌</button>
     <button ng-if="isPlural()"
             type="button"
             ng-click="removeObject(subobject)"
@@ -14,4 +15,3 @@
   <a ng-if="isPlural() && isLast()"
      class="btn btn-primary add-button"
      ng-click="addObject()">Add</a>
-<!-- </div> -->

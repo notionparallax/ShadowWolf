@@ -15,13 +15,13 @@ angular.module("ShadowWolf")
       lens:          "@"
     },
     controller: function($scope) {
-      $scope.shiftUp = function() {
+      $scope.shiftDown = function() {
         var parentLens = $scope.lens.slice(0,$scope.lens.lastIndexOf('['));
         var parentObject = Lens.get($scope.object,parentLens);
         var target = $scope.target();
         var currentIndex = parentObject.indexOf(target);
         parentObject.splice(currentIndex, 1); // remove current object
-        parentObject.splice(currentIndex-1,0, target);
+        parentObject.splice(currentIndex+1,0, target);
 
         // save array
         var newObject = parentObject.map(function(obj) { return { id: obj.id.$oid } });

@@ -642,3 +642,14 @@ svg {
       padding: 0.5em;
     }
 }
+.shuffle-btn {
+  position: absolute;
+  right: -0.5em;
+  top: 20%;
+  background-color: rgba(188, 232, 241, 0.39);
+  border-radius: 10px;
+  padding: 10px 5px;
+  display: block;
+  border: 2px solid rgba(0, 210, 252, 0.39);
+  padding-top: 0px;
+}
