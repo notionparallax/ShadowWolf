@@ -323,18 +323,34 @@ svg {
         padding: 1em;
         width: 50%;
         float:left;
+        position: relative;
+        .refreshing-overlay {
+            transition: all 0.2s linear;
+            position: absolute;            
+            height: 900px;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.46);
+            border-radius: 1em;
+            opacity: 0;
+            padding-top: 250px;
+            text-align: center;
+        }
+        &:hover .refreshing-overlay {
+            opacity: 1;
+        }
         img{
             width: 49%;
             height: 300px;
             object-fit: cover;
-            &:first-child{
+            &:nth-child(2){
                 width:100%;
                 margin-bottom: 1em;
                 height: 550px;
-
             }
-            &:nth-child(2){float:left;}
-            &:nth-child(3){float:right;}
+            &:nth-child(3){float:left;}
+            &:nth-child(4){float:right;}
         }
     }
     .text{
@@ -398,8 +414,8 @@ svg {
         .data{border-top:   1px solid black;}
         .brief-elements{
             ul{
-                list-style-position: inside;
-                list-style-type:none;
+                //list-style-position: inside;
+                //list-style-type:none;
             }
         }
         .grabs{}
@@ -641,4 +657,15 @@ svg {
       border-radius: 1em;
       padding: 0.5em;
     }
+}
+.shuffle-btn {
+  position: absolute;
+  right: -0.5em;
+  top: 20%;
+  background-color: rgba(188, 232, 241, 0.39);
+  border-radius: 10px;
+  padding: 10px 5px;
+  display: block;
+  border: 2px solid rgba(0, 210, 252, 0.39);
+  padding-top: 0px;
 }

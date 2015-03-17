@@ -1,5 +1,8 @@
 <div class="project-sheet">
     <div class="photos">
+        <div class="refreshing-overlay" ng-click="refreshOafImages()">
+            <span class="glyphicon glyphicon-refresh"></span>
+        </div>
         <img ng-src="{{getImages()[tag.toLowerCase()][0] || 'http://placehold.it/550&text=First%20'  + tag + '%20Image%20not%20found' }}">
         <img ng-src="{{getImages()[tag.toLowerCase()][1] || 'http://placehold.it/225&text=Second%20' + tag + '%20Image%20not%20found' }}">
         <img ng-src="{{getImages()[tag.toLowerCase()][2] || 'http://placehold.it/225&text=Third%20'  + tag + '%20Image%20not%20found' }}">
@@ -51,7 +54,7 @@
                 </div>
                 <div class="completion">
                     <h2>Completion    </h2>
-                    <p>{{project.building.legacy.start_date | date: 'MMMM yyyy'}} - {{project.building.legacy.completion_date | date: 'MMMM yyyy'}}</p>
+                    <p>{{project.building.legacy.start_date | toISODate | date: 'MMMM yyyy'}} - {{project.building.legacy.completion_date | toISODate | date: 'MMMM yyyy'}}</p>
                 </div>
                 <div class="value">
                     <h2>Value         </h2>

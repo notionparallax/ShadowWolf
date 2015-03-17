@@ -75,7 +75,7 @@ def get_project_image_urls project_number, tags
           unless tag.downcase.eql? 'main'
             images_by_tags[tag]
           else
-            images_by_tags.values.flatten
+            images
           end
         hash[tag] = top_3_images( images_to_select_from ).map(&method(:get_image_url))
         hash
@@ -112,11 +112,13 @@ put '/project_by_tags/:project_number' do
   project_number = params[:project_number]
   tags = JSON.parse request.body.read
   image_urls_by_tags = {}
-  tags.each do |tag|
-    redis_result = settings.redis.get( project_number + ':' + tag )
-    if redis_result
-      parsed_result = parse_result redis_result
-      image_urls_by_tags[tag] = parsed_result unless parsed_result.nil? or parsed_result.empty?
+  unless params[:ignore_cache]
+    tags.each do |tag|
+      redis_result = settings.redis.get( project_number + ':' + tag )
+      if redis_result
+        parsed_result = parse_result redis_result
+        image_urls_by_tags[tag] = parsed_result unless parsed_result.nil? or parsed_result.empty?
+      end
     end
   end
   tags_to_search = tags - image_urls_by_tags.keys
