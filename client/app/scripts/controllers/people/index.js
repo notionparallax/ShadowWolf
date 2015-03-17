@@ -2,7 +2,7 @@
 
 angular.module('ShadowWolf')
 .controller('PeopleIndexController',
-function($scope, People, Session, Search, GA) {
+function($scope, People, Session, Search, GA, SearchScopeLinker) {
   $scope.limit = 60;
   $scope.searchQuery = '';
   $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
@@ -36,6 +36,8 @@ function($scope, People, Session, Search, GA) {
     }
     $scope.searchResults = results;
   });
+  SearchScopeLinker.link($scope,'searchQuery','q');
+
   $scope.logKey = function($event) {
     var category = 'search',
         action = 'keydown',

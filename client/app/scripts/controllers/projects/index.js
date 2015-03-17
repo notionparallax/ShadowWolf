@@ -2,7 +2,7 @@
 
 angular.module('ShadowWolf')
 .controller('ProjectsIndexController',
-function($scope, Projects, Session, Search, Oaf) {
+function($scope, Projects, Session, Search, Oaf, SearchScopeLinker) {
   $scope.limit = 60;
   $scope.searchQuery = '';
   searchBar.focus();
@@ -43,4 +43,5 @@ function($scope, Projects, Session, Search, Oaf) {
   $scope.showAll = function() { // side effect
     $scope.limit = $scope.searchResults.length;
   };
+  SearchScopeLinker.link($scope,'searchQuery','q');
 });
