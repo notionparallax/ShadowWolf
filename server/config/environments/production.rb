@@ -1,4 +1,5 @@
 ShadowWolf::Application.configure do
+  config.lograge.enabled = true
   config.middleware.use Rack::Cors do
     allow do
       origins '*'

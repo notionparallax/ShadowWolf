@@ -31,10 +31,13 @@ angular.module('ShadowWolf')
   }
 
   var imagesByTags = {};
-  this.getImagesByTags = function(project_number, tags) {
-    if (imagesByTags[project_number]) return imagesByTags[project_number];
+  this.getImagesByTags = function(project_number, tags, config) {
+    var fetch_latest = (config || {}).fetch_latest || false;
+    if (imagesByTags[project_number] && !fetch_latest) return imagesByTags[project_number];
 
-    $http.put(Config.getOaf() + '/project_by_tags/' + project_number, tags)
+    var params = fetch_latest ? { ignore_cache: true } : {};
+    $http.put(Config.getOaf() + '/project_by_tags/' + project_number, tags,
+        { params: params })
       .then(function(result) {
         imagesByTags[project_number] = result.data;
       }.bind(this));

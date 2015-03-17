@@ -61,4 +61,8 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     };
   }());
   $scope.tags = function() { return Tags.project($scope.project).getTags(); };
+  $scope.refreshOafImages = function() {
+    Oaf.getImagesByTags($scope.project.project_number, $scope.tags(),
+        { fetch_latest: true });
+  };
 });

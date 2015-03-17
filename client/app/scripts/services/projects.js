@@ -32,7 +32,7 @@ angular.module('ShadowWolf')
     else {
       var projectsMatchingNumbers = {};
       for (var i in projectNumbers) {
-        var projectNumber = projectNumbers[i].toLowerCase();
+        var projectNumber = projectNumbers[i];
         var project = _projects[projectNumber];
         if (project) {
           projectsMatchingNumbers[projectNumber] = project;
