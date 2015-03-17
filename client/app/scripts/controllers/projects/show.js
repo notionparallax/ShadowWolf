@@ -12,7 +12,7 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     $location.path("/projects");
   }
   var loadedImage = false;
-  $scope._project = function() { return Project.get($routeParams.projectId); };
+  $scope._project = function() { return Project.getByProjectNumber($routeParams.projectNumber); };
   $scope.$watch('_project()', function(newValue) {
     $scope.project = newValue;
     if (!loadedImage && newValue.project_number) {
