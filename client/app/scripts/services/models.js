@@ -13,7 +13,7 @@ angular.module("ShadowWolf")
     var updateMethod = getModel(objectName)._get().update;
     return function(id, postData, success, error) {
       var idObject = {};
-      idObject[objectName + 'Id'] = id;
+      idObject[objectName + 'IdOr' + (objectName == 'person' ? 'Login' : 'ProjectNumber') ] = id;
       return updateMethod(idObject, postData, success, error);
     };
   };
