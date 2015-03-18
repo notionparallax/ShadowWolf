@@ -40,8 +40,8 @@ module ParamReader
         db_elem = array.find(id)
       end
       
-      if elem.class == String # destroy
-        db_elem.destroy
+      if elem.class == String # destroy and exit
+        return db_elem.destroy
       else # update
         apply_changes db_elem, elem.except('id')
       end
