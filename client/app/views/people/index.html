@@ -19,7 +19,7 @@
               body-text="{{ p.employee.contact.extension }}"
               img-src="{{p.employee.photo.bw}}"
               condition='{{p.current_condition_name}}'
-              redirect-link="#/people/{{ p.id['$oid'] }}"
+              redirect-link="#/people/{{ p.employee.login }}"
               email="{{p.employee.contact.work_email}}"
               first-name="{{p.name.preferred_first}}"
               value-tweet="{{p.employee.value_tweet || p.name.preferred_first+' '+p.name.preferred_last +' hasn&rsquo;t written a value tweet yet!'}}">
