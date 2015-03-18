@@ -107,7 +107,7 @@ angular.module("ShadowWolf")
       $scope.tagsKeyUp = function($event) {
         switch ($event.which) {
           case 13 /*Enter*/:
-            $scope.save();
+            $scope.save($event.shiftKey);
             break;
           case 27 /*Esc*/:
             $scope.editable.newTag = '';
@@ -124,7 +124,7 @@ angular.module("ShadowWolf")
        * variables exist then it will send all of the sibling values back to the
        * server, otherwise it just sends back the single field.
        */
-      $scope.save = function() {
+      $scope.save = function(leaveEditorEnabled) {
         // Report to GA
         GA.sendEvent('editable-buttons', 'save', $scope.property + ": " + $scope.subobject[$scope.property] + " ---> " + $scope.editable.value);
 
@@ -166,6 +166,7 @@ angular.module("ShadowWolf")
             flash.css = 'flash-success';
             handle.timeout(5000);
             Models.set($scope.objectName)($scope.object);
+            if (leaveEditorEnabled) $scope.enableEditor();
           }, function() {
             flash.template = '<p>Update unsuccessful for {{flash.label()}}. You may wish to check your submission.</p>';
             flash.css = 'flash-failure';

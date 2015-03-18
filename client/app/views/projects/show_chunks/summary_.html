@@ -41,6 +41,6 @@
 <p class="explantory-text">This is everyone who has put time against this project.</p>
 <ul class="personal-project-list">
   <li ng-repeat="person in getRelatedPeople()">
-    <img ng-src="{{person.employee.photo.bw || 'images/fb_stormtrooper.jpg'}}"><a href="#/people/{{person|id}}">{{person.name.preferred_first}} {{person.name.preferred_last}}</a>
+    <img ng-src="{{person.employee.photo.bw || 'images/fb_stormtrooper.jpg'}}"><a href="#/people/{{person.employee.login}}">{{person.name.preferred_first}} {{person.name.preferred_last}}</a>
   </li>
 </ul>
