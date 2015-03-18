@@ -74,7 +74,7 @@ class PeopleController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_person
-      @person = Person.find(params[:id])
+      @person =  Person.where( 'employee.login'.to_sym => params[:id] ).first || Person.find(params[:id])
       name = "#{@person.employee.login}, #{@person.name.first} #{@person.name.last}"
       logger.info "Set person: #{name}"
     end

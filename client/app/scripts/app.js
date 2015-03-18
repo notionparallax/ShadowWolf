@@ -35,21 +35,23 @@ angular.module('ShadowWolf', ['ngResource',
       })
       .when('/people', {
         templateUrl: 'views/people/index.html',
+        reloadOnSearch: false,
         controller: 'PeopleIndexController'
       })
-      .when('/people/:personId', {
+      .when('/people/:login', {
         templateUrl: 'views/people/show.html',
         controller: 'PeopleShowController'
       })
       .when('/projects', {
         templateUrl: 'views/projects/index.html',
+        reloadOnSearch: false,
         controller: 'ProjectsIndexController'
       })
       .when('/projects/new', {
         templateUrl: 'views/projects/new.html',
         controller: 'ProjectsNewController'
       })
-      .when('/projects/:projectId', {
+      .when('/projects/:projectNumber', {
         templateUrl: 'views/projects/show.html',
         controller: 'ProjectsShowController'
       })

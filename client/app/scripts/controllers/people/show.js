@@ -4,7 +4,7 @@ angular.module('ShadowWolf')
 .controller('PeopleShowController',
 function($scope, Person, $routeParams, Session, $location, Lens, Flash, Beowulf, Projects) {
   $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
-  $scope._person = function() { return Person.get($routeParams.personId); };
+  $scope._person = function() { return Person.getByLogin($routeParams.login); };
   $scope._person().$promise.then(function(newValue){
     $scope.person = newValue;
     if (!$scope.person.employee) $scope.slides = [];
