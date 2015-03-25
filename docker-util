@@ -184,10 +184,7 @@ case "$1" in
     fi
     case "$2" in
       console)
-        remote_script="
-          docker run -i -t --rm --link sw-mongo:mongo -w /home/app/server $BVN_SERVER:5000/shadowwolf-deploy-server rails console -e production;
-        "
-        ssh -t $USER@$BVN_SERVER $remote_script
+      fig -p shadowwolf run prodconsole
       ;;
     esac
     ;;
