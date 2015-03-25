@@ -185,15 +185,17 @@ case "$1" in
     case "$2" in
       console)
         &>/dev/null ssh -t $USER@$BVN_SERVER "docker inspect mongo-ambassador"
-        [[ "$?" = 1 ]] && $0 prod ambassador up
-        fig -p shadowwolf run prodconsole; $0 prod ambassador down
+        ambassador_present=$?
+        [[ "$ambassador_present" = 1 ]] && $0 prod ambassador up
+        fig -p shadowwolf run prodconsole
+        [[ "$ambassador_present" = 1 ]] && $0 prod ambassador down
       ;;
       ambassador)
         case "$3" in
           up)
-            init_ambassador="docker run -d --link sw-mongo:mongo --name mongo-ambassador -p 27017:27017 svendowideit/ambassador"
-            echo Starting ambassador to Mongo Land...
-            &>/dev/null ssh -t $USER@$BVN_SERVER $init_ambassador
+            send_ambassador="docker run -d --link sw-mongo:mongo --name mongo-ambassador -p 27017:27017 svendowideit/ambassador"
+            echo Sending ambassador to Mongo Land...
+            &>/dev/null ssh -t $USER@$BVN_SERVER $send_ambassador
             ;;
           down)
             assasinate_ambassador="docker rm -f mongo-ambassador"
