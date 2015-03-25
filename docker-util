@@ -184,8 +184,29 @@ case "$1" in
     fi
     case "$2" in
       console)
-      fig -p shadowwolf run prodconsole
+        &>/dev/null ssh -t $USER@$BVN_SERVER "docker inspect mongo-ambassador"
+        [[ "$?" = 1 ]] && $0 prod ambassador up
+        fig -p shadowwolf run prodconsole; $0 prod ambassador down
       ;;
+      ambassador)
+        case "$3" in
+          up)
+            init_ambassador="docker run -d --link sw-mongo:mongo --name mongo-ambassador -p 27017:27017 svendowideit/ambassador"
+            echo Starting ambassador to Mongo Land...
+            &>/dev/null ssh -t $USER@$BVN_SERVER $init_ambassador
+            ;;
+          down)
+            assasinate_ambassador="docker rm -f mongo-ambassador"
+            echo -e Hiring hitmen... War with Mongo Land beginning in:$"\n"3
+            sleep 1
+            echo 2
+            sleep 1
+            echo 1
+            &>/dev/null ssh -t $USER@$BVN_SERVER $assasinate_ambassador
+            echo -n .; sleep 0.33; echo -n .; sleep 0.33; echo -n .; sleep 0.33; echo bang
+            ;;
+        esac
+        ;;
     esac
     ;;
   run)
