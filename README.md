@@ -1,4 +1,3 @@
-[![Stories in Ready](https://badge.waffle.io/notionparallax/ShadowWolf.png?label=ready&title=Ready)](https://waffle.io/notionparallax/ShadowWolf)
 ShadowWolf
 ==========
 
@@ -19,7 +18,7 @@ You can see a live version, with dummy data [here](http://notionparallax.co.uk/S
 ## Contributing ##
 We're probably not ready for anyone to get involved in a big way as we're changing too much stuff, but if there are any features that you would like to see, or bugs that you think we should fix, then feel free to open an issue.
 
-### What we're doing ###
+### What we're doing [![Stories in Ready](https://badge.waffle.io/notionparallax/ShadowWolf.png?label=ready&title=Ready)](https://waffle.io/notionparallax/ShadowWolf) ###
   1. Make a new branch called [issue number]-[Short_description_of_issue]   (underscore separated)
   1. Move issue into "in progress" on Waffle
   1. Work on issue
