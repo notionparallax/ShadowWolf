@@ -45,9 +45,16 @@
         <tab heading="Styleguide">
             include "styleguide_.html"
         </tab>
-        <tab heading="Project Sheets">
+        <tab heading="Project Sheets" ng-if="batchPrinting == undefined">
           <tabset>
-            <tab ng-repeat="tag in tags()" heading="{{tag}}">
+            <tab ng-repeat="tag in tags()">
+              include "project-sheet_.html"
+            </tab>
+          </tabset>
+        </tab>
+        <tab heading="Project Sheets" active="true" ng-if="batchPrinting">
+          <tabset>
+            <tab ng-repeat="tag in tags()" active="tag == batchPrinting" heading="{{tag}}">
               include "project-sheet_.html"
             </tab>
           </tabset>

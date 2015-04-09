@@ -2,7 +2,8 @@
 
 angular.module('ShadowWolf')
 .controller('ProjectsShowController',
-function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf, People,$q, Tags, Oaf) {
+function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf, People,$q, Tags, Oaf, $http) {
+  $scope.batchPrinting = $routeParams.batchPrinting;
   if (!Session.getPersonId()) {
     console.error('non logged in user tried to access projects');
     Flash.add({
@@ -17,14 +18,22 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     $scope.project = newValue;
     if (!loadedImage && newValue.project_number) {
       loadedImage = true;
-      Oaf.getProjectImage($scope.project.project_number, {
+      var config = {
         updateCache: true,
         tags: $scope.tags()
-      });
+      };
+      Oaf.getProjectImage($scope.project.project_number, config);
     }
   });
   $scope.getImages = function() {
-    return Oaf.getImagesByTags($scope.project.project_number, $scope.tags() );
+    var config = {};
+    if (!!$scope.batchPrinting) config.callback = function notifyDesktop() {
+      console.log('notifying localhost 8887');
+      $http.post('http://localhost:8887', {
+          tags: $scope.tags()
+      });
+    };
+    return Oaf.getImagesByTags($scope.project.project_number, $scope.tags(), config );
   };
   Session.authorize = function() { return { success: true }; };
   $scope.getRelatedPeople = function(logins) {

@@ -40,6 +40,7 @@ angular.module('ShadowWolf')
         { params: params })
       .then(function(result) {
         imagesByTags[project_number] = result.data;
+        if (!!config.callback) config.callback();
       }.bind(this));
     imagesByTags[project_number] = {};
     return imagesByTags[project_number];
