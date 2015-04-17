@@ -1,7 +1,7 @@
   <div class="{{ subgroupClass }}" ng-repeat="subobject in [target()]">
     <button class="shuffle-btn pull-right" ng-if="orderable && !isLast()" 
             type="button"
-            ng-click="shiftDown()">⬌</button>
+            ng-click="shiftDown()">↹</button>
     <button ng-if="isPlural()"
             type="button"
             ng-click="removeObject(subobject)"
