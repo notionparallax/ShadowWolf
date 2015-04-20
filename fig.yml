@@ -30,6 +30,9 @@ devflask:
   ports:
     - 9001:9001
 devoaf:
+  dns:
+    - 10.22.140.50
+    - 10.22.140.51
   build: oaf
   environment:
     -  OPEN_ASSET_USERNAME

@@ -165,6 +165,8 @@ case "$1" in
         docker pull $BVN_SERVER:5000/shadowwolf-oaf > /dev/null;
         docker rm -f sw-oaf;
         docker run -d --name sw-oaf
+          --dns 10.22.140.50
+          --dns 10.22.140.51
           -e OPEN_ASSET_USERNAME=$OPEN_ASSET_USERNAME
           -e OPEN_ASSET_PASSWORD=$OPEN_ASSET_PASSWORD
           -e OPEN_ASSET_ENDPOINT=$OPEN_ASSET_ENDPOINT
