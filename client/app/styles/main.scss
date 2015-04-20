@@ -468,7 +468,7 @@ svg {
     //all people page
     @page {
         size: A3 landscape;
-        margin: 18mm 40mm 18mm 18mm;
+        margin: 18mm 00mm 18mm 00mm;
     }
     //:root{-webkit-print-color-adjust:exact}
     body{overflow:visible;}
@@ -478,6 +478,8 @@ svg {
         //float: none  !important;
         //color: black !important;
     }
+
+    .flashes, .flash, .flash-fail, .flash-success,
     .navbar, .problem-btn, #searchBar, .value-tweet-container, .page-header  {
         display: none;
     }
@@ -490,21 +492,21 @@ svg {
         img{
             height:84mm !important;
         }
-        img:first-child {
+        img:nth-child(2) {
           width: 100%;
           margin-bottom: 6mm !important;
-          height: 172mm !important;
+          height: 150mm !important;
         }
     }
     .project-sheet {
-      border: 1px dashed orange;
+      //border: 1px dashed orange;
       width: 363mm;
       height: 261mm;
     }
     .text {
       float: none !important;
       position: absolute;
-      border: 1px dashed red;
+      //border: 1px dashed red;
       width: 135mm !important;
       left: 230mm;
       font-size: 2.5mm;
@@ -515,7 +517,7 @@ svg {
     .bites {
       float: none !important;
       position: absolute;
-      border: 1px dashed blue;
+      //border: 1px dashed blue;
       width: 55mm !important;
       left: 80mm;
     }
