@@ -5,36 +5,31 @@
 <google-map-search id="search" query="{{mapQuery}}" result="{{result}}"></google-map-search>
 <google-map id="map" zoomable=true disableDefaultUI=true latitude="{{latitude}}" longitude="{{longitude}}">
 </google-map>
-<input class="search" value="{{query}}">
-<input class="sat-btn" name=sat type=checkbox checked="{{sat}}"><label for=sat>Sat</label>
-<p class="lat-long">lat/long: ({{markerLat}}, {{markerLng}})</p>
+<div class="control-holder">
+  <input class="search"  value="{{query}}">
+  <input class="sat-btn" name=sat type=checkbox checked="{{sat}}"><label for=sat>Sat</label>
+  <p class="lat-long">lat/long: ({{markerLat}}, {{markerLng}})</p>
+</div>
   <style>
-    .lat-long {
+    .control-holder{
       position: absolute;
-      top: 29px;
-      left: 32px;
-      font-size: 55%;
-      color: black;
-      text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-    }
-    .search {
-      position: absolute;
+      width: 80%;
       top: 15px;
       left: 28px;
-    }
-    .sat-btn {
-      position: absolute;
-      top: 17px;
-      left: 170px;
-    }
-    label {
-      position: absolute;
-      top: 20px;
-      left: 190px;
       font-size: 55%;
       color: black;
       text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
     }
+    .lat-long {
+      display: block;
+      margin: 0;
+    }
+    .search {
+      display: inline-block;
+      width: 40%;
+    }
+    .sat-btn {}
+    label {}
     google-map {
       display: block;
       width: 100%;
