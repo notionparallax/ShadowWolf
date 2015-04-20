@@ -5,7 +5,8 @@
 <google-map-search id="search" query="{{mapQuery}}" result="{{result}}"></google-map-search>
 <google-map id="map" zoomable=true disableDefaultUI=true latitude="{{latitude}}" longitude="{{longitude}}">
 </google-map>
-<input value="{{query}}">
+<input class="search" value="{{query}}">
+<input class="sat-btn" name=sat type=checkbox checked="{{sat}}"><label for=sat>Sat</label>
 <p class="lat-long">lat/long: ({{markerLat}}, {{markerLng}})</p>
   <style>
     .lat-long {
@@ -16,10 +17,23 @@
       color: black;
       text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
     }
-    input {
+    .search {
       position: absolute;
       top: 15px;
       left: 28px;
+    }
+    .sat-btn {
+      position: absolute;
+      top: 17px;
+      left: 170px;
+    }
+    label {
+      position: absolute;
+      top: 20px;
+      left: 190px;
+      font-size: 55%;
+      color: black;
+      text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
     }
     google-map {
       display: block;
@@ -35,6 +49,11 @@
 <script>
   Polymer('sw-map',{
     result: '',
+    sat: false,
+    satChanged: function(oldValue,newValue) {
+      this.$.map.mapType = this.$.map.mapType === 'satellite'
+        ? 'roadmap' : 'satellite';
+    },
     queryChanged: function(oldValue,newValue) {
       this.job('setQuery', function() {
         this.mapQuery = newValue;
