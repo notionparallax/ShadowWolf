@@ -186,11 +186,31 @@ case "$1" in
     fi
     case "$2" in
       console)
-        remote_script="
-          docker run -i -t --rm --link sw-mongo:mongo -w /home/app/server $BVN_SERVER:5000/shadowwolf-deploy-server rails console -e production;
-        "
-        ssh -t $USER@$BVN_SERVER $remote_script
+        &>/dev/null ssh -t $USER@$BVN_SERVER "docker inspect mongo-ambassador"
+        ambassador_present=$?
+        [[ "$ambassador_present" = 1 ]] && $0 prod ambassador up
+        fig -p shadowwolf run prodconsole
+        [[ "$ambassador_present" = 1 ]] && $0 prod ambassador down
       ;;
+      ambassador)
+        case "$3" in
+          up)
+            send_ambassador="docker run -d --link sw-mongo:mongo --name mongo-ambassador -p 27017:27017 svendowideit/ambassador"
+            echo Sending ambassador to Mongo Land...
+            &>/dev/null ssh -t $USER@$BVN_SERVER $send_ambassador
+            ;;
+          down)
+            assasinate_ambassador="docker rm -f mongo-ambassador"
+            echo -e Hiring hitmen... War with Mongo Land beginning in:$"\n"3
+            sleep 1
+            echo 2
+            sleep 1
+            echo 1
+            &>/dev/null ssh -t $USER@$BVN_SERVER $assasinate_ambassador
+            echo -n .; sleep 0.33; echo -n .; sleep 0.33; echo -n .; sleep 0.33; echo bang
+            ;;
+        esac
+        ;;
     esac
     ;;
   run)
