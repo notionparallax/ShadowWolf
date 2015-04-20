@@ -222,6 +222,13 @@ case "$1" in
     ssh -t $USER@$BVN_SERVER $remote_script
     scp $USER@$BVN_SERVER:~/dump.rdb oaf/redis-dump.rdb
     ;;
+  get-mongo-dump)
+    &>/dev/null ssh -t $USER@$BVN_SERVER "docker inspect mongo-ambassador"
+    [[ "$?" = 1 ]] && $0 prod ambassador up
+    docker run --rm -v $(pwd)/mongo-wd:/wd \
+      -it -w /wd shadowwolf_devmongo mongodump -h 10.22.140.67 -p 27017 --db shadow_wolf_production -c projects -o /wd
+    $0 prod ambassador down
+    ;;
   help)
     echo "$HELP"
     ;;

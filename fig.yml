@@ -6,7 +6,10 @@ devmongo:
   build: mongo-docker-image
   expose: 
     - 27017
-  command: mongod
+  volumes:
+    - mongo-wd:/wd
+  working_dir: /wd
+  command: ./run.sh
 devconsole:
   image: shadowwolf_dev
   working_dir: /ShadowWolf/server
