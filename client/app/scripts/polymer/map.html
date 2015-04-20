@@ -78,6 +78,7 @@
         var map = that.$.map.map;
         that.$.search.map = map;
         map.set("disableDoubleClickZoom", true);
+        that.$.map.zoom = 17;
         that.marker = new google.maps.Marker({
           position: map.getCenter(),
           draggable: true,
