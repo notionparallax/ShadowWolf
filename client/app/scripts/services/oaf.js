@@ -1,6 +1,6 @@
 'use strict';
 angular.module('ShadowWolf')
-.service('Oaf', function(Config, $http) {
+.service('Oaf', function(Config, $http, $timeout) {
   var projects = {};
   var buffer = []; // list of project numbers
   var bufferTimer; // time until buffer will be used
@@ -33,9 +33,13 @@ angular.module('ShadowWolf')
   var imagesByTags = {};
   this.getImagesByTags = function(project_number, tags, config) {
     var fetch_latest = (config || {}).fetch_latest || false;
-    if (imagesByTags[project_number] && !fetch_latest) return imagesByTags[project_number];
+    if (imagesByTags[project_number] && !fetch_latest) {
+      if (config.callback) $timeout(config.callback, 0);
+      return imagesByTags[project_number];
+    }
 
     var params = fetch_latest ? { ignore_cache: true } : {};
+    params.update_cache = config.update_cache;
     $http.put(Config.getOaf() + '/project_by_tags/' + project_number, tags,
         { params: params })
       .then(function(result) {

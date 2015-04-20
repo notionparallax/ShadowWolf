@@ -8,3 +8,5 @@
 *.[sublime]*
 
 Helper scripts/sample objects
+project-sheets
+oaf/redis-dump.rdb

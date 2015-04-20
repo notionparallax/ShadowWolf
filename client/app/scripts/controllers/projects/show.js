@@ -26,15 +26,26 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     }
   });
   $scope.getImages = function() {
-    var config = {};
-    if (!!$scope.batchPrinting) config.callback = function notifyDesktop() {
-      console.log('notifying localhost 8887');
-      $http.post('http://localhost:8887', {
-          tags: $scope.tags()
-      });
+    var sendCallback = true;
+    return function() {
+      var config = {};
+      if (!!$scope.batchPrinting) {
+        config.fetch_latest = false;
+        config.update_cache = false;
+        if (sendCallback) {
+          sendCallback = false;
+          config.callback = function notifyDesktop() {
+            $http.post('http://localhost:8887', {
+                project_name: $scope.project.building.phases[0].project_name,
+                tags: $scope.tags()
+            });
+          };
+        }
+      }
+      return Oaf.getImagesByTags($scope.project.project_number, $scope.tags(), config );
     };
-    return Oaf.getImagesByTags($scope.project.project_number, $scope.tags(), config );
-  };
+  }();
+
   Session.authorize = function() { return { success: true }; };
   $scope.getRelatedPeople = function(logins) {
     var logins = Beowulf.getPeopleLogins($scope.project.project_number);
@@ -51,7 +62,7 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     return function(object,tag) {
       if (object === undefined) return;
       // Create a spot in cache for list if not existant
-      if (!object[CACHE_PROPERTY_NAME]) {
+      if (!object[CACHE_PROPERTY_NAME] || !cache[object[CACHE_PROPERTY_NAME]]) {
         counter++; 
         object[CACHE_PROPERTY_NAME] = counter;
         cache[counter] = {};

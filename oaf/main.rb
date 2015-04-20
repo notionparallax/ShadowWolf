@@ -122,7 +122,7 @@ put '/project_by_tags/:project_number' do
     end
   end
   tags_to_search = tags - image_urls_by_tags.keys
-  unless tags_to_search.empty?
+  unless tags_to_search.empty? or params[:update_cache].eql? 'false'
     image_urls_by_tags.merge! get_project_image_urls( project_number, tags_to_search )
   end
   image_urls_by_tags.to_json
