@@ -6,5 +6,6 @@ class Extra
 
   field :label, type: String
   field :quantity, type: Float
+  field :tags, type: Array, default: []
 
 end
