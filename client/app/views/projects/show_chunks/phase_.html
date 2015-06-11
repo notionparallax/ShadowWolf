@@ -18,7 +18,7 @@
             <editable property="dirty_date" label="Dirty date">This data came from the project library, it should be replaced by the data provided by Epicor. If you are project custodian you should check that the team that is automatically generated is correct and then empty this field out.</editable>
         </editable-group>
 
-        <div ng-repeat="key_date in phase.key_dates" class="">
+        <div ng-repeat="key_date in phase.key_dates.sort(compareNullableDates)" class="">
             <editable-group object="project" lens="building.phases[{{phase|id}}].key_dates[{{key_date|id}}]" subgroup-class="alert alert-info col-md-5">
                 <editable property="name"        label="Name"        editable-typeahead="true">The name of this date, like 'Start on site' or 'Opening ceremony'. </editable>
                 <editable property="description" label="Description" editable-typeahead="true">A description of the thing that happened. (Completed DD, start on site etc.).</editable>

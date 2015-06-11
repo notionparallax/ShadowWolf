@@ -65,4 +65,13 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     Oaf.getImagesByTags($scope.project.project_number, $scope.tags(),
         { fetch_latest: true });
   };
+
+  $scope.compareNullableDates = function comp(a,b) {
+    if (a.date === null) return 1;
+    else {
+      if (b === undefined || b.date === null) return -1;
+      else return a.date > b.date;
+    }
+  };
+
 });
