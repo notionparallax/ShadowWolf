@@ -23,5 +23,6 @@ FactoryGirl.define do
     project_categories { [Faker::Name.first_name ,Faker::Name.first_name, Faker::Name.first_name] }
     project_sub_catagories { [Faker::Name.first_name + ", "+Faker::Name.first_name + ", " + Faker::Name.first_name] }
     source_information_filepath { '/file/name.docx' }
+    confidential   { [true,false,false,false,false].sample }
   end
 end

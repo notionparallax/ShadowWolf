@@ -48,6 +48,7 @@ class Building
   field :source_information_filepath, type: String
   field :planning_authority, type: String
   field :legacy_bd_number, type: String
+  field :confidential, type: Boolean, default: false
 
   after_initialize if: :new_record? do |doc|
     doc.client = Client.new
