@@ -24,7 +24,7 @@ function($scope, Person, $routeParams, Session, $location, Lens, Flash, Beowulf,
   };
 
   $scope.isCurrentUser = function() {
-    return Session.getPersonId() == $routeParams.personId;
+    return Session.getPersonLogin() == $routeParams.login;
   };
 
   Session.authorize = function(person) {
