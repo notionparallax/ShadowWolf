@@ -58,7 +58,7 @@ def get_project_image_urls project_number, tags
   return nil if images.empty?
   if tags.nil?
     images = top_3_images(images).map(&method(:get_image_url))
-    settings.redis.set project_number, JSON.generate( first_3_image_urls )
+    settings.redis.set project_number, JSON.generate( images )
   else
     images_by_tags = images.inject({}) do |hash,image|
       get_tags(image['description']).map(&:downcase).each do |tag|
