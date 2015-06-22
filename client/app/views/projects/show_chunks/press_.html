@@ -13,7 +13,7 @@
     </div>
 
     <h3>Campaigns</h3>
-    <p class="explantory-text">If we have a coordiated effort to get this project into the press, describe the effort here.</p>
+    <p class="explantory-text">If we have a coordinated effort to get this project into the press, describe the effort here.</p>
     <div ng-repeat="campaign in project.building.press.campaigns">
       <editable-group object="project" lens="building.press.campaigns[{{campaign|id}}]" subgroup-class="alert alert-info col-md-5">
           <editable property="strategy" label="Strategy" type="textarea">Describe the campain.</editable>
