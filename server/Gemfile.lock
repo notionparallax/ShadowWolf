@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/Dawil/MongoidModelMaker.git
-  revision: 93184ed096b5d1f89498666b0fc45870ecf09bec
-  specs:
-    mongoid-model-maker (0.1.18)
-      rails
-      thor
-
-GIT
   remote: git://github.com/Dawil/omniauth-ldap.git
   revision: 0916dcb68a9ffbaf110ab68be23db2214693f4e5
   specs:
@@ -62,6 +54,7 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    addressable (2.3.8)
     arel (4.0.1)
     bcrypt-ruby (3.1.2)
     bson (2.3.0)
@@ -76,6 +69,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.4)
+    domain_name (0.5.24)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.0.0)
     factory_girl (4.2.0)
@@ -86,8 +81,6 @@ GEM
     faker (1.2.0)
       i18n (~> 0.5)
     ffi (1.9.0)
-    form_data (0.1.2)
-      http-form_data
     formatador (0.2.4)
     guard (1.8.2)
       formatador (>= 0.2.4)
@@ -100,10 +93,14 @@ GEM
       rspec (~> 2.13)
     hashie (2.0.5)
     hike (1.2.3)
-    http (0.7.1)
-      form_data (~> 0.1.0)
+    http (0.8.12)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
       http_parser.rb (~> 0.6.0)
-    http-form_data (1.0.0)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
+    http-form_data (1.0.1)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     jbuilder (1.5.0)
@@ -213,6 +210,9 @@ GEM
     uglifier (2.1.2)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.1)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -225,11 +225,10 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   faker
   guard-rspec
-  http
+  http (~> 0.8.0)
   jbuilder (~> 1.2)
   lograge
   mongoid (> 4.0.0)!
-  mongoid-model-maker!
   mongoid-rspec!
   omniauth
   omniauth-ldap!
@@ -239,3 +238,6 @@ DEPENDENCIES
   sass-rails
   sdoc
   uglifier
+
+BUNDLED WITH
+   1.10.4
