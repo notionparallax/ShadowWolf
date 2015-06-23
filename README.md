@@ -47,7 +47,10 @@ cd Projects
 git clone https://github.com/notionparallax/ShadowWolf.git
 cd ShadowWolf
 docker -d #this might not be necessary for you
-
+```
+If this doesn't work reinstall docker! (argh)
+Make sure it runs without sudo. Then...
+```
 ./docker-util install
 ```
 This will build the images.
