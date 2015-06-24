@@ -59,8 +59,12 @@ angular.module('ShadowWolf', ['ngResource',
         controller: 'CallbackController'
       })
       .when('/extras', {
-        templateUrl: 'views/misc_page/index.html',
+        templateUrl: 'views/extras/index.html',
         controller: 'ExtrasController'
+      })
+      .when('/changelog', {
+        templateUrl: 'views/changelog/index.html',
+        controller: 'ChangeLogController'
       })
       .otherwise({
         redirectTo: '/people/'
