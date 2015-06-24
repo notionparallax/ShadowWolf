@@ -25,5 +25,6 @@ FactoryGirl.define do
     source_information_filepath { '/file/name.docx' }
     confidential   { [true,false,false,false,false].sample }
     is_bd   { [true,false,false,false,false].sample }
+    original_architect { ["PINK","Bligh Lobb", "BVN Architecture", "BVN Donnovan Hill"].sample }
   end
 end
