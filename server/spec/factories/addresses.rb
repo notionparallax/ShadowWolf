@@ -10,5 +10,6 @@ FactoryGirl.define do
     state_county   { ["Ashmore and Cartier Islands","Australian Antarctic Territory","Australian Capital Territory","Christmas Island  Christmas Island","Cocos (Keeling) Islands  Cocos (Keeling) Islands","Coral Sea Islands","Heard Island and McDonald Islands","Jervis Bay Territory","New South Wales","Norfolk Island","Northern Territory","Queensland  Queensland","South Australia","Tasmania","Victoria","Western Australia"].sample }
     country        {  Faker::Address.country }
     postcode       { Faker::Address.postcode}
+    tags { ["main", %w(retail business residential).sample, %w(education health finance).sample] }
   end
 end
