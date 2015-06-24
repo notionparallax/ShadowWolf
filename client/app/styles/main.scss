@@ -213,7 +213,9 @@ a#LogIn {
             width: 8em;
         }
 }
-
+.mug-bw{
+    -webkit-filter: grayscale(1);
+}
 
 #business-card{
     p {
