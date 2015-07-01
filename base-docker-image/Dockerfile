@@ -10,7 +10,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C7917B12 && \
 RUN apt-get update && apt-get install -y \
   git software-properties-common make python python3.4 python3-pip python3.4-dev g++ \
   ruby2.1 ruby2.1-dev openjdk-7-jre-headless nodejs unixodbc unixodbc-dev freetds-dev \
-  tdsodbc curl \
+  tdsodbc curl zlib1g-dev patch \
   --no-install-recommends
 RUN gem2.1 install rails rake bundler compass --no-ri --no-rdoc
 # QT, used by phantomjs, doesn't pass the body along for PATCH requests.

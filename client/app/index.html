@@ -53,9 +53,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li ng-class="{active: isActive('/people')}"  ><a href="/#/people"  >People</a></li>
-            <li ng-class="{active: isActive('/projects')}"><a href="/#/projects">Projects</a></li>
-            <li ng-class="{active: isActive('/extras')}"  ><a href="/#/extras"  >Extras</a></li>
+            <li ng-class="{active: isActive('/people')}"    ><a href="/#/people"  >People</a></li>
+            <li ng-class="{active: isActive('/projects')}"  ><a href="/#/projects">Projects</a></li>
+            <li ng-class="{active: isActive('/extras')}"    ><a href="/#/extras"  >Extras</a></li>
+            <li ng-class="{active: isActive('/changelog')}"><a href="/#/changelog">Change Log</a></li>
             <li>
               <a id='wiki-link'
                  href="http://dc2-wiki001/mediawiki/index.php?title=Main_Page"
@@ -68,17 +69,6 @@
               </a>
             </li>
 
-            <!-- <li>
-              <a id='trello-link'
-                 href="https://trello.com/b/BvGTvd8I/peopledb"
-                 title="This links to our trello board where you can follow along with what we are doing, but more importantly, influence it!"
-                 data-toggle="popover"
-                 data-trigger="hover"
-                 data-placement="top"
-                 data-content="This links to our trello board where you can follow along with what we are doing, but more importantly, influence it!">
-                <img src="http://cdn.flaticon.com/png/64/39317.png" style="height: 2em; opacity: 0.5;">
-              </a>
-            </li> -->
             <li>
               <a id='github-link'
                  href="https://github.com/notionparallax/ShadowWolf/issues"
@@ -160,6 +150,7 @@
         <script src="scripts/services/tags.js"></script>
         <script src="scripts/services/oaf.js"></script>
         <script src="scripts/services/search_scope_linker.js"></script>
+        <script src="scripts/services/session_storage.js"></script>
         <script src="scripts/controllers/extras.js"></script>
         <script src="scripts/controllers/callback.js"></script>
         <script src="scripts/controllers/people/index.js"></script>
