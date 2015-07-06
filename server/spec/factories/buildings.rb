@@ -24,5 +24,7 @@ FactoryGirl.define do
     project_sub_catagories { [Faker::Name.first_name + ", "+Faker::Name.first_name + ", " + Faker::Name.first_name] }
     source_information_filepath { '/file/name.docx' }
     confidential   { [true,false,false,false,false].sample }
+    is_bd   { [true,false,false,false,false].sample }
+    original_architect { ["PINK","Bligh Lobb", "BVN Architecture", "BVN Donnovan Hill"].sample }
   end
 end

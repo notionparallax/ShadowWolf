@@ -6,5 +6,6 @@ FactoryGirl.define do
     confidential { [true,true,false].sample }
     currency { %w(AUD GBP USA).sample }
     date { [1,3,9].sample.years.ago }
+    comments { ["Over budget", "No comments", "Under budget", "$30M over budget"].sample }
   end
 end

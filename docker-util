@@ -153,7 +153,7 @@ case "$1" in
           -p 9001:9001
           -w /beowulf
           $BVN_SERVER:5000/shadowwolf-beowulf
-          python3 main.py;
+          python3 app/main.py;
         "
         ssh $USER@$BVN_SERVER $remote_script
         ;;

@@ -12,4 +12,5 @@ class Address
   field :state_county, type: String
   field :country, type: String
   field :postcode, type: String
+  field :tags, type: Array, default: []
 end
