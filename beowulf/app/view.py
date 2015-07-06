@@ -1,22 +1,16 @@
 import json
 
 def render_people(rows):
-    return json.dumps({
-        'people' : [
-            { 'login' : row[0],
-              'hours' : row[1] }
-            for row in rows
-        ]
-    })
+    people = {}
+    for row in rows:
+        people[row[0]] = row[1]
+    return json.dumps({ 'people' : people })
 
 def render_projects(rows):
-    return json.dumps({
-        'projects' : [
-            { 'project_number' : row[0],
-              'hours'          : row[1] }
-            for row in rows
-        ]
-    })
+    projects = {}
+    for row in rows:
+        projects[row[0]] = row[1]
+    return json.dumps({ 'projects' : projects })
 
 def render_error():
     return json.dumps({

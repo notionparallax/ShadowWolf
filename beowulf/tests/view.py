@@ -13,12 +13,10 @@ class ViewTests(unittest.TestCase):
                , ('fred',1)
                ]
         dikt = {
-            'people' : [
-                { 'login' : 'dave' ,
-                  'hours' :      0 },
-                { 'login' : 'fred' ,
-                  'hours' :      1 }
-            ]
+            'people' : {
+                'dave' : 0,
+                'fred' : 1
+            }
         }
         assert view.render_people(rows) == json.dumps(dikt)
 
@@ -27,12 +25,10 @@ class ViewTests(unittest.TestCase):
                , ('notcoolproject',4.3)
                ]
         dikt = {
-            'projects' : [
-                { 'project_number' : 'coolproject' ,
-                  'hours' :      5.0 },
-                { 'project_number' : 'notcoolproject' ,
-                  'hours' :      4.3 }
-            ]
+            'projects' : {
+                'coolproject'    : 5.0,
+                'notcoolproject' : 4.3
+            }
         }
         assert view.render_projects(rows) == json.dumps(dikt)
 
