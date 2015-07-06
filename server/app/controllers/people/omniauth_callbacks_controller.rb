@@ -55,10 +55,11 @@ class People::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         message:
           {
             from_email: ENV['MANDRILL_EMAIL'],
-            to: [{email:ENV['MANDRILL_EMAIL'],type:"to"}],
+            to: [{email:ENV['MANDRILL_EMAIL'],         type:"cc"},
+                 {email:p.employee.contact.work_email, type:"to"}],
             autotext: "true",
-            subject: "ShadowWolf: A new user is born",
-            html: "<p>Happy birthday to #{person.name.first + ' ' + person.name.last}! Their login is #{person.employee.login}. You should go <strike>say hi</strike> badger them.</p>"
+            subject: "A new user is born - welcome to the phonelist #{person.name.first}!",
+            html: "<p>Hello #{person.name.first} #{person.name.last}! </p><p>The phone list is about much more than just phone numbers. It's where (almost) all the information about you is stored. Everything that is related to your CV, your dietary requirements, your business card etc. lives there.</p><p>If you didn't fill it in when you were there before you can <a href='http://phonelist.bvn.com.au:9000/#/people/#{person.employee.login}'>edit yourself by clicking here</a>. In case you forget, your login is #{person.employee.login}.</p><p>The absolute minimum information needed is your extension, a photo and your studio.</p><p>If you need a hand then get in touch with me (Ben Doherty). You can <a href='http://phonelist.bvn.com.au:9000/#/people/bdoherty'>find my details here.</a></p>"
           }
       }
     HTTP.post("https://mandrillapp.com/api/1.0/messages/send.json?key=#{body[:key]}", body: JSON.dump( body ) )

@@ -213,7 +213,9 @@ a#LogIn {
             width: 8em;
         }
 }
-
+.mug-bw{
+    -webkit-filter: grayscale(1);
+}
 
 #business-card{
     p {
@@ -318,6 +320,9 @@ svg {
         padding: 0.5em;
         border-radius: 0.3em;
         float: right;
+    }
+    blockquote:before, blockquote:after {
+      content: '"';
     }
     .photos{
         padding: 1em;
