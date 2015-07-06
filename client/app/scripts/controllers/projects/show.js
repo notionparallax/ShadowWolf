@@ -27,10 +27,24 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     return Oaf.getImagesByTags($scope.project.project_number, $scope.tags() );
   };
   Session.authorize = function() { return { success: true }; };
-  $scope.getRelatedPeople = function(logins) {
-    var logins = Beowulf.getPeopleLogins($scope.project.project_number);
-    return People.getPeople(logins);
-  };
+  $scope.Beowulf = Beowulf;
+  $scope.relatedPeople = [];
+  $scope.$watch('Beowulf.getPeopleLogins( project.project_number )', function(hoursByLogin) {
+    var people = People.getPeople(
+                   Object.keys( hoursByLogin )
+        );
+    var peopleArray =  [];
+    for (var i in people) {
+      peopleArray.push( people[i] );
+    }
+    var resultArray = peopleArray
+      .map(function(person) { return {
+        hours: hoursByLogin[person.employee.login.toUpperCase()],
+        person: person
+      };
+    });
+    $scope.relatedPeople = resultArray;
+  }, true);
 
   // "Decorates" input lists with cache identifiers
   $scope.getPropertiesWithTag = (function(){

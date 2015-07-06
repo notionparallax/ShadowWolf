@@ -47,8 +47,8 @@
         <h3>Team</h3>
         <p class="explantory-text">This is everyone who has put time against this project.</p>
         <ul class="personal-project-list">
-          <li ng-repeat="person in getRelatedPeople()">
-            <img ng-src="{{person.employee.photo.bw || 'images/fb_stormtrooper.jpg'}}"><a href="#/people/{{person.employee.login}}">{{person.name.preferred_first}} {{person.name.preferred_last}}</a>
+          <li ng-repeat="p in relatedPeople | orderBy:'hours':true ">
+            <img ng-src="{{p.person.employee.photo.bw || 'images/fb_stormtrooper.jpg'}}"><a href="#/people/{{p.person.employee.login}}">{{ p.person.name.preferred_first }} {{ person.name.preferred_last }} <span class="hours">{{ p.hours }}</span></a>
           </li>
         </ul>
     </div>

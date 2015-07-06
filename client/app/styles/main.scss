@@ -671,3 +671,15 @@ svg {
   border: 2px solid rgba(0, 210, 252, 0.39);
   padding-top: 0px;
 }
+
+.hours {
+  font-size: 70%;
+}
+
+.hours:before {
+  content: "(";
+}
+
+.hours:after {
+  content: " hours)";
+}

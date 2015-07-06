@@ -1,8 +1,8 @@
 <section dissabled-ng-show="person.employee.project_experiences" class="row">
   <h4> Experience at BVN</h4>
   <ul class="personal-project-list">
-    <li ng-repeat="project in getRelatedProjects()">
-      <img ng-src="{{project.img}}"><a href="#/projects/{{project.project_number}}">{{project.project_number}}</a>
+    <li ng-repeat="p in relatedProjects | orderBy:'hours':true">
+      <img ng-src="{{p.project.img}}"><a href="#/projects/{{p.project.project_number}}">{{p.project.project_number}}<span ng-if="p.project.building.phases[0].project_name"> - {{p.project.building.phases[0].project_name}}</span> <span class="hours">{{ p.hours }}</span></a>
     </li>
   </ul>
 </section>

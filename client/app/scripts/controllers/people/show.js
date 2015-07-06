@@ -40,9 +40,22 @@ function($scope, Person, $routeParams, Session, $location, Lens, Flash, Beowulf,
       };
     }
   };
-  $scope.getRelatedProjects = function() {
-    if (!$scope.person.employee) return [];
-    var projectNumbers = Beowulf.getProjectNumbers($scope.person.employee.login);
-    return Projects.getProjects(projectNumbers);
-  };
+  $scope.Beowulf = Beowulf;
+  $scope.relatedProjects = [];
+  $scope.$watch('Beowulf.getProjectNumbers( person.employee.login )', function(hoursByProjectNumber) {
+    var projects = Projects.getProjects(
+                   Object.keys( hoursByProjectNumber )
+        );
+    var projectsArray =  [];
+    for (var i in projects) {
+      projectsArray.push( projects[i] );
+    }
+    var resultArray = projectsArray
+      .map(function(project) { return {
+        hours: hoursByProjectNumber[project.project_number.toUpperCase()],
+        project: project
+      };
+    });
+    $scope.relatedProjects = resultArray;
+  }, true);
 });
