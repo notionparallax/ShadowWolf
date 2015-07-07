@@ -1,13 +1,4 @@
-<h2>Client</h2>
-<p class="explantory-text">Who were the clients for this project? This is a pretty nuanced issue, so if there are many clients try to fit them into the field that fits best.</p>
-<editable-group object="project" lens="building.client" subgroup-class="alert alert-info">
-    <editable property="main"                     label="Contracting Party"   editable-typeahead="true">The first party that we have a contract with.</editable>
-    <editable property="second_contracting_party" label="Contracting Party 2" editable-typeahead="true">E.g. if we are novated or the project is sold to another party.</editable>
-    <editable property="direct"                   label="Primary     User"    editable-typeahead="true">E.g. Department of Defence, ASB Bank, Mt Annan Botanic Garden.</editable>
-    <editable property="end_user"                 label="End         user"    editable-typeahead="true">The group/people/organisation that uses the project E.g. UTS Department of Science.</editable>
-</editable-group>
-
-<h3>Referees</h3>
+<h2>Referees</h2>
 <div ng-repeat="referee in project.building.client.referees">
     <editable-group object="project" lens="building.client.referees[{{referee|id}}]" subgroup-class="alert alert-info col-sm-4">
         <editable property="description" label="Description" editable-typeahead="true">Their position and relationship to the project </editable>
