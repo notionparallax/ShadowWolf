@@ -13,7 +13,7 @@
   <!--start a project/person box as a directive-->
   <display-box
               ng-repeat="p in searchResults | orderBy:sortFunctions | limitTo:limit track by $id(p)"
-              class="{{stormtrooperClass}}"
+              class="{{stormtrooperClass}} person-display-box"
               title-text-one="{{p.name.preferred_first}}"
               title-text-two="{{p.name.preferred_last}}"
               body-text="{{ p.employee.contact.extension }}"
