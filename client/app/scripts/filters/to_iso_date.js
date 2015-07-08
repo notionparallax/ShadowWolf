@@ -3,6 +3,6 @@
 angular.module('ShadowWolf')
 .filter('toISODate',function() {
   return function(input) {
-    return new Date(input).toISOString();
+    return input ? new Date(input).toISOString() : null;
   };
 });
