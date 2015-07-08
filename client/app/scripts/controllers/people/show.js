@@ -2,7 +2,12 @@
 
 angular.module('ShadowWolf')
 .controller('PeopleShowController',
-function($scope, Person, $routeParams, Session, $location, Lens, Flash, Beowulf, Projects) {
+function($scope, Person, $routeParams, Session, $location, Lens, Flash, Beowulf, Projects, Oaf) {
+  $scope.getProjectImage = function(project) {
+    return Oaf.getProjectImage(project.project_number, {
+      updateCache: false
+    })[0];
+  };
   $scope.getCurrentUserLogin = function() { return Session.getPersonLogin(); };
   $scope._person = function() { return Person.getByLogin($routeParams.login); };
   $scope._person().$promise.then(function(newValue){
