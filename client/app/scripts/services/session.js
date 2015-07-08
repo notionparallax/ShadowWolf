@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('ShadowWolf')
-.service('Session', function(ipCookie) {
+.service('Session', function(SessionStorage) {
   var _accessToken = '_accessToken',
       _personId = '_personId',
       _login = '_login';
-  function get(key) { return ipCookie(key); }
-  function set(key,value) { return ipCookie(key,value,{expires:30}); } // days
+  function get(key)       { return SessionStorage.get(key); }
+  function set(key,value) { SessionStorage.set(key, value); }
 
   this.getAccessToken = function() { return get(_accessToken); };
   this.setAccessToken = function(accessToken) { set(_accessToken, accessToken); };

@@ -1,4 +1,8 @@
-  <div class="{{ subgroupClass }}" ng-repeat="subobject in [target()]">
+<div  ng-repeat="subobject in [target()]">
+  <a ng-if="isPlural() && isFirst()"
+     class="btn btn-primary add-button"
+     ng-click="addObject()">Add</a>
+  <div class="{{ subgroupClass }}">
     <button class="shuffle-btn pull-right" ng-if="orderable && !isLast()" 
             type="button"
             ng-click="shiftDown()">↹</button>
@@ -12,6 +16,4 @@
     </button>
     <div ng-transclude></div>
   </div>
-  <a ng-if="isPlural() && isLast()"
-     class="btn btn-primary add-button"
-     ng-click="addObject()">Add</a>
+</div>

@@ -10,4 +10,5 @@ class LegacyBudget
   field :confidential, type: Boolean
   field :currency, type: String
   field :date, type: String
+  field :comments, type: String
 end

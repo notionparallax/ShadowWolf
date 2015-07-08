@@ -49,6 +49,8 @@ class Building
   field :planning_authority, type: String
   field :legacy_bd_number, type: String
   field :confidential, type: Boolean, default: false
+  field :is_bd, type: Boolean, default: false
+  field :original_architect, type: String
 
   after_initialize if: :new_record? do |doc|
     doc.client = Client.new

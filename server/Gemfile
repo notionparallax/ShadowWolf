@@ -42,11 +42,9 @@ end
 
 gem 'rack-cors', :require => 'rack/cors'
 
-gem 'mongoid-model-maker', github: 'Dawil/MongoidModelMaker'
-
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-ldap', github: 'Dawil/omniauth-ldap'
 
 gem 'lograge'
-gem 'http' # ssl that doesn't suck please
+gem 'http', '~> 0.8.0' # ssl that doesn't suck please

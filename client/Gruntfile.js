@@ -76,6 +76,7 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
+          '.tmp/fonts/*',
           '.tmp/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
           '{.tmp,<%= yeoman.app %>}/scripts/**/*.js',
@@ -192,12 +193,13 @@ module.exports = function (grunt) {
     },
     compass: {
       options: {
+        sourcemap: true,
         sassDir: '<%= yeoman.app %>/styles',
         cssDir: '.tmp/styles',
         generatedImagesDir: '.tmp/images/generated',
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
+        fontsDir: '.tmp/fonts',
         importPath: '<%= yeoman.app %>/bower_components',
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
@@ -313,8 +315,7 @@ module.exports = function (grunt) {
             'scripts/directives/**/*.html',
             'views/**/*.html',
             'fonts/{,*/}*.*',
-            'scripts/polymer/*.html',
-            'bower_components/sass-bootstrap/fonts/*.*'
+            'scripts/polymer/*.html'
           ]
         }, {
           expand: true,
@@ -325,18 +326,27 @@ module.exports = function (grunt) {
           ]
         }, {
           expand: true,
-          cwd: '.tmp/fonts',
-          dest: '<%= yeoman.dist %>/fonts',
+          cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass/assets/fonts/bootstrap',
+          dest: '<%= yeoman.dist %>/fonts/bootstrap',
           src: [
-            'bower_components/bootstrap-sass/fonts/*'
+            '*'
           ]
         }]
       },
       styles: {
-        expand: true,
-        cwd: '<%= yeoman.app %>/styles',
-        dest: '.tmp/styles/',
-        src: '{,*/}*.css'
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          dest: '.tmp/styles/',
+          src: '{,*/}*.css'
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass/assets/fonts/bootstrap',
+          dest: '.tmp/fonts/bootstrap/',
+          src: [
+            '*'
+          ]
+        }]
       }
     },
     concurrent: {

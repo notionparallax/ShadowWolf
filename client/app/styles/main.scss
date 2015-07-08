@@ -1,6 +1,6 @@
 $iconSpritePath:"../images/glyphicons-halflings.png";
 $iconWhiteSpritePath:"../images/glyphicons-halflings-white.png";
-@import "bootstrap-sass/lib/bootstrap";
+@import "bootstrap-sass/assets/stylesheets/bootstrap";
 
 /*display-box starts here*/
 
@@ -213,7 +213,9 @@ a#LogIn {
             width: 8em;
         }
 }
-
+.mug-bw{
+    -webkit-filter: grayscale(1);
+}
 
 #business-card{
     p {
@@ -318,6 +320,9 @@ svg {
         padding: 0.5em;
         border-radius: 0.3em;
         float: right;
+    }
+    blockquote:before, blockquote:after {
+      content: '"';
     }
     .photos{
         padding: 1em;
@@ -670,4 +675,16 @@ svg {
   display: block;
   border: 2px solid rgba(0, 210, 252, 0.39);
   padding-top: 0px;
+}
+
+.hours {
+  font-size: 70%;
+}
+
+.hours:before {
+  content: "(";
+}
+
+.hours:after {
+  content: " hours)";
 }

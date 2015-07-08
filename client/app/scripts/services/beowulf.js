@@ -9,7 +9,7 @@ angular.module('ShadowWolf')
     cache.projects[login] = [];
     $http.get(Config.getBeowulf() + '/get_projects/' + login)
       .then(function(result) {
-        cache.projects[login] = result.data;
+        cache.projects[login] = result.data.projects;
       });
     return cache.projects[login];
   };
@@ -19,7 +19,7 @@ angular.module('ShadowWolf')
     cache.people[projectNumber] = [];
     $http.get(Config.getBeowulf() + '/get_people/' + projectNumber)
       .then(function(result) {
-        cache.people[projectNumber] = result.data
+        cache.people[projectNumber] = result.data.people;
       });
     return cache.people[projectNumber];
   };
