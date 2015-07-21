@@ -8,8 +8,8 @@ class Example < Model
     e.oa_id = hash['id']
     e
   end
-  def to_json options
-    { id: @oa_id, example: true }
+  def to_json options=nil
+    { id: @oa_id, example: true }.to_json
   end
 end
  
