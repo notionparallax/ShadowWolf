@@ -25,10 +25,10 @@ prodconsole:
     - MONGO_PORT_27017_TCP_PORT=27017
   command: rails console -e production
 devflask:
-  image: shadowwolf_dev
+  build: beowulf
   volumes:
     - beowulf:/ShadowWolf/beowulf
-  command: python3 main.py
+  command: python3 app/main.py
   working_dir: /ShadowWolf/beowulf
   environment:
     - MSSQL_SERVER
@@ -43,6 +43,8 @@ devoaf:
     - 10.22.140.50
     - 10.22.140.51
   build: oaf
+  links:
+    - devrails:rails
   environment:
     -  OPEN_ASSET_USERNAME
     -  OPEN_ASSET_PASSWORD
@@ -58,8 +60,8 @@ devrails:
   working_dir: /ShadowWolf/server
   links:
     - devmongo:mongo
-  expose:
-    - 3000
+  ports:
+    - 3000:3000
   volumes:
     - server:/ShadowWolf/server
   command: rails server

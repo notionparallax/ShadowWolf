@@ -26,6 +26,13 @@ Targets:
 Run '$0 dev client' to get a full working environment.
 HERE
 
+run() {
+  docker-compose -p shadowwolf run --rm $*
+}
+run-solo() {
+  run --no-deps $*
+}
+
 SHARED_VOLUME=`pwd`:/ShadowWolf/
 BASE_ARGS="-t -v $SHARED_VOLUME "
 DEFAULT_ARGS="-d $BASE_ARGS "
@@ -34,23 +41,17 @@ case "$1" in
     rm -f server/tmp/pids/server.pid
     case "$2" in
       test)
-        echo This is disabled while we work on some internals.
-        exit 1
-        [[ -z `docker ps | grep -e "sw-client[^/]"` ]] && $0 dev client
-        [[ -z `docker ps | grep -e "sw-webdriver[^/]"` ]] && $0 dev webdriver
-        SUITE="all"
-        if [[ -n "$3" ]];
-        then SUITE="$3"
-        fi
-
-        docker kill sw-testing && docker rm sw-testing
-        docker run --name sw-testing -i $BASE_ARGS --link sw-webdriver:webdriver --link sw-client:client -w /ShadowWolf/client/ shadowwolf-dev-testing protractor Protractor.js --suite $SUITE && notify-send "ShadowWolf Tests" Done || notify-send "ShadowWolf Tests" Fail
-        ;;
-      webdriver)
-        echo This is disabled while we work on some internals.
-        exit 1
-        docker kill sw-webdriver && docker rm sw-webdriver
-        docker run --name sw-webdriver $DEFAULT_ARGS -p 4444 -w /ShadowWolf/client/ shadowwolf-dev-testing webdriver-manager start
+        case "$3" in
+          beowulf)
+            run-solo devflask python3 tests
+            ;;
+          oaf)
+            [[ -n "$4" ]] \
+              && TEST="tests/$4.rb" \
+              || TEST="tests/all.rb"
+             run-solo -e REMOTE_TEST=yes -e OPEN_ASSET_ENDPOINT=$OPEN_ASSET_ENDPOINT -e OPEN_ASSET_USERNAME=$OPEN_ASSET_USERNAME -e OPEN_ASSET_PASSWORD=$OPEN_ASSET_PASSWORD devoaf ruby $TEST
+            ;;
+        esac
         ;;
       client)
         fig -p shadowwolf up -d devgrunt
