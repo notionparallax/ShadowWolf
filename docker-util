@@ -49,7 +49,8 @@ case "$1" in
             [[ -n "$4" ]] \
               && TEST="tests/$4.rb" \
               || TEST="tests/all.rb"
-             run-solo -e REMOTE_TEST=yes -e OPEN_ASSET_ENDPOINT=$OPEN_ASSET_ENDPOINT -e OPEN_ASSET_USERNAME=$OPEN_ASSET_USERNAME -e OPEN_ASSET_PASSWORD=$OPEN_ASSET_PASSWORD devoaf ruby $TEST
+            [[ "$4" = "remote" ]] && ENV_VARS="-e REMOTE_TEST=yes -e OPEN_ASSET_ENDPOINT=$OPEN_ASSET_ENDPOINT -e OPEN_ASSET_USERNAME=$OPEN_ASSET_USERNAME -e OPEN_ASSET_PASSWORD=$OPEN_ASSET_PASSWORD" 
+             run-solo $ENV_VARS devoaf ruby $TEST
             ;;
         esac
         ;;
