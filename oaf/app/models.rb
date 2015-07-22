@@ -5,12 +5,20 @@ class Project < Model
   def images
     @_images ||= get :image
   end
+  def images_by_tag tag
+    (images || []).sort_by do |image|
+      tag_name, tag_rank = image.tags_with_rank
+           .find { |tag_rank| tag_rank[0] == tag }
+      tag_rank || 0
+    end.reverse
+  end
   def self.from_hash hash
+    hash = hash.first
     p = Project.new
     p.project_number = hash['code']
     p.oa_id = hash['id']
     p.name = hash['name']
-    p
+    [p]
   end
   def to_json options=nil
     {
@@ -56,6 +64,24 @@ class Image < Model
       sizes: sizes
     }.to_json
   end
+  def [] index
+    if index == :square
+      sizes.find_all { |size| size.width == size.height }
+           .min(&:width)
+    else
+      # slow as a dog but it wont ever be a bottleneck
+      sizes.sort_by { |size| [size.width, size.height] }
+           .reject { |size| size == self[:square] }
+           .zip([
+             :thumbnail,
+             :small,
+             :web_view,
+             :medium
+           ])
+           .find { |pair| pair.last == index }
+           .first
+    end
+  end
   def access_level
     @access_level_id ||= get :access_level
   end
@@ -100,8 +126,56 @@ class Image < Model
   end
 end
 class Size < Model
-  attr_accessor :url
+  # The documentation on size objects is incomplete. Below is
+  # an example of a json result:
+  #
+  #   {
+  #     "cropped": "0",
+  #     "width": "1500",
+  #     "watermarked": "0",
+  #     "relative_path": "Projects/S0910004/S0910004_N214_jpg/S0910004_N214_medium.jpg",
+  #     "y_resolution": "72",
+  #     "allow_use": 1,
+  #     "http_relative_path": "5365c6ad6e3ab4e16cfe34cdb41fe993/0/0/Projects/S0910004/S0910004_N214_jpg/S0910004_N214_medium.jpg",
+  #     "id": "8",
+  #     "quality": "0",
+  #     "unc_root": "//dc2-oa001/",
+  #     "colourspace": "RGB",
+  #     "height": "1000",
+  #     "http_root": "/Images/",
+  #     "filesize": "397681",
+  #     "x_resolution": "72",
+  #     "recreate": "0",
+  #     "file_format": "jpg"
+  #   }
+  #
+  attr_accessor :width, :height, :relative_path, :http_relative_path, :http_root, :unc_root
   def self.from_hash hash
-    hash.map { |size_hash| s = Size.new; s.oa_id = size_hash['id']; s }
+    hash.map do |size_hash|
+      s = Model.hash_select size_hash, Size.new, %w(
+        relative_path
+        http_relative_path
+        http_root
+        unc_root
+      )
+      s.width = size_hash['width'].to_i
+      s.height = size_hash['height'].to_i
+      s
+    end
+  end
+  def to_json options=nil
+    {
+      oa_id: @oa_id,
+      width: @width,
+      height: @height,
+      relative_path: @relative_path,
+      http_relative_path: @http_relative_path,
+      http_root: @http_root,
+      unc_root: @unc_root,
+      url: url
+    }.to_json
+  end
+  def url
+    "http://#{ENV['OPEN_ASSET_ENDPOINT']}#{@http_root}#{@relative_path}"
   end
 end

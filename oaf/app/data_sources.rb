@@ -7,11 +7,26 @@ class DebugSource < DataSource
   end
   def get query
     sym, id = query.keys.first, query.values.first
-    from_json sym, @store[sym][id]
+    from_json sym, @store[sym][id] if @store[sym] and @store[sym][id]
   end
   def put collection, obj
     @store[collection] ||= {}
     @store[collection][obj.oa_id] = obj.to_json
+  end
+end
+class DoubleSource < DataSource
+  def initialize front, back
+    @front = front
+    @back = back
+  end
+  def get query
+    result = @front.get query
+    if result.nil?
+      result = @back.get query
+      collection = query.keys.first
+      result.each { |res| @front.put collection, res }
+    end
+    result
   end
 end
 class RedisSource < DataSource

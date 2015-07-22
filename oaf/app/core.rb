@@ -44,7 +44,7 @@ class DataSource
   def from_json klass_sym, json
     to_class( klass_sym )
       .from_hash( JSON.parse(json) )
-      .data_source( self )
+      .map { |result| result.data_source( self ) }
   end
   # Use query to get results from respective data source
   def get query
