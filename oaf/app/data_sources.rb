@@ -30,9 +30,21 @@ class DoubleSource < DataSource
   end
 end
 class RedisSource < DataSource
+  def initialize redis
+    @redis = redis
+  end
   def get query
+    key,val = query.keys.first, query.values.first
+    query_str = "#{key}:#{val}"
+    @redis.get query_str
   end
   def put collection, obj
+    key = if collection.eql? :project
+            "#{collection}:#{obj.project_number}"
+          else
+            "#{collection}:#{obj.oa_id}"
+          end
+    @redis.set key, obj.to_json
   end
 end
 class OASource < DataSource
