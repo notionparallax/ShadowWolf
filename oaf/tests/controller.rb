@@ -81,6 +81,11 @@ class ControllerTest < Test::Unit::TestCase
     assert_equal 'The requested size was not available.', last_response.body
   end
 
+  def test_options_on_json_route
+    options '/1.json'
+
+    assert_equal 200, last_response.status
+  end
   def test_json_200_json_on_success
     project = Object.new ; project.stubs(images_by_tag: [])
     project.stubs(to_json: 'foo')
