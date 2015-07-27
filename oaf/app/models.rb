@@ -15,8 +15,8 @@ class Project < Model
   def self.from_hash hash
     hash = hash.first
     p = Project.new
-    p.project_number = hash['code']
-    p.oa_id = hash['id']
+    p.project_number = hash['code'] || hash['project_number']
+    p.oa_id = hash['id'] || hash['oa_id']
     p.name = hash['name']
     [p]
   end
@@ -24,8 +24,7 @@ class Project < Model
     {
       oa_id: @oa_id,
       project_number: @project_number,
-      name: @name,
-      images: @images
+      name: @name
     }.to_json
   end
 end
@@ -44,6 +43,7 @@ class Image < Model
         'rank',
         'user_id'
       ]
+      i.oa_id = image_hash['oa_id'] if i.oa_id.nil?
       i.rank = i.rank.to_i
       i
     end
@@ -60,26 +60,25 @@ class Image < Model
       tags: tags_with_rank.inject({}) { |sum,a|
         sum[a.first] = a.last
         sum
-      },
-      sizes: sizes
+      }
     }.to_json
   end
   def [] index
-    if index == :square
+    if index == 'square'
       sizes.find_all { |size| size.width == size.height }
            .min(&:width)
     else
-      # slow as a dog but it wont ever be a bottleneck
-      sizes.sort_by { |size| [size.width, size.height] }
-           .reject { |size| size == self[:square] }
-           .zip([
-             :thumbnail,
-             :small,
-             :web_view,
-             :medium
-           ])
-           .find { |pair| pair.last == index }
-           .first
+      image_size,symbol_size = sizes
+        .sort_by { |size| [size.width, size.height] }
+        .reject { |size| size == self['square'] }
+        .zip([
+          :thumbnail,
+          :small,
+          :web_view,
+          :medium
+        ])
+        .find { |pair| pair.last.to_s == index }
+      image_size
     end
   end
   def access_level
@@ -158,6 +157,7 @@ class Size < Model
         http_root
         unc_root
       )
+      s.oa_id = size_hash['oa_id'] if s.oa_id.nil?
       s.width = size_hash['width'].to_i
       s.height = size_hash['height'].to_i
       s

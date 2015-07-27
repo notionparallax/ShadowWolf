@@ -8,10 +8,12 @@ class OAF < Sinatra::Base
 
   get '/:project_number/:tag/:index/:size' do
     project_number = params['project_number']
-    @project = settings.data_source.get project:  project_number
+    @project = 
+      settings.data_source.get( project:  project_number )
     if @project.nil?
       return render( 404, "No project found with project number: \"#{project_number}\"." )
     end
+    @project = @project.first
     images = @project.images_by_tag params['tag']
     begin
       index = Integer(params['index'])
@@ -41,7 +43,7 @@ class OAF < Sinatra::Base
     project_number = params['project_number']
     @project = settings.data_source.get project:  project_number
     if @project.nil?
-      render 404, 'null'
+      render 404, '{}'
     else
       render 200, @project.to_json
     end

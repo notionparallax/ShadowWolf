@@ -43,8 +43,12 @@ class DataSource
   # This could be changed by passing a dictionary of symbols to class to the datasource, if desired.
   def from_json klass_sym, json
     to_class( klass_sym )
-      .from_hash( JSON.parse(json) )
+      .from_hash( parse_json(json) )
       .map { |result| result.data_source( self ) }
+  end
+
+  def parse_json json
+    JSON.parse json
   end
   # Use query to get results from respective data source
   def get query

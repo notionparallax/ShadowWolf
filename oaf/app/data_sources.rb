@@ -9,9 +9,9 @@ class DebugSource < DataSource
     sym, id = query.keys.first, query.values.first
     from_json sym, @store[sym][id] if @store[sym] and @store[sym][id]
   end
-  def put collection, obj
+  def put collection, id, obj
     @store[collection] ||= {}
-    @store[collection][obj.oa_id] = obj.to_json
+    @store[collection][id] = obj.to_json
   end
 end
 class DoubleSource < DataSource
@@ -23,9 +23,10 @@ class DoubleSource < DataSource
     result = @front.get query
     if result.nil?
       result = @back.get query
-      collection = query.keys.first
-      result.each { |res| @front.put collection, res }
+      collection,id = query.keys.first,query.values.first
+      @front.put collection, id, result
     end
+    result.map { |r| r.data_source self }
     result
   end
 end
@@ -36,14 +37,11 @@ class RedisSource < DataSource
   def get query
     key,val = query.keys.first, query.values.first
     query_str = "#{key}:#{val}"
-    @redis.get query_str
+    result = @redis.get( query_str )
+    from_json key, result unless result.nil?
   end
-  def put collection, obj
-    key = if collection.eql? :project
-            "#{collection}:#{obj.project_number}"
-          else
-            "#{collection}:#{obj.oa_id}"
-          end
+  def put collection, id, obj
+    key = "#{collection}:#{id}"
     @redis.set key, obj.to_json
   end
 end
@@ -80,6 +78,11 @@ class OASource < DataSource
     username = ENV['OPEN_ASSET_USERNAME']
     password = ENV['OPEN_ASSET_PASSWORD']
     url = 'http://' + username + ':' + password + '@' + @base_url + '/REST/1/' + resource_url
+    begin
     @rest_client.get( url, params: params )
+    rescue Exception => e
+      raise e
+    end
+
   end
 end
