@@ -24,8 +24,8 @@ class TestCore < Test::Unit::TestCase
   end
  
   def test_data_source_from_json
-    e = @data_source.from_json :example, '{"id":5}'
-    assert_equal e.oa_id, 5
+    e = @data_source.from_json :example, '[{"id":5}]'
+    assert_equal e.first.oa_id, 5
   end
  
   def test_model_get

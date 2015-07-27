@@ -1,3 +1,5 @@
 require 'test/unit'
 require './tests/core.rb'
 require './tests/models.rb'
+require './tests/data_sources.rb'
+require './tests/controller.rb'

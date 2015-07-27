@@ -228,11 +228,11 @@ class TestModels < Test::Unit::TestCase
     i.sizes[4].width  = 750
     i.sizes[4].height = 1125
 
-    assert_equal i.sizes[0], i[:square]
-    assert_equal i.sizes[1], i[:thumbnail]
-    assert_equal i.sizes[2], i[:small]
-    assert_equal i.sizes[3], i[:web_view]
-    assert_equal i.sizes[4], i[:medium]
+    assert_equal i.sizes[0], i['square']
+    assert_equal i.sizes[1], i['thumbnail']
+    assert_equal i.sizes[2], i['small']
+    assert_equal i.sizes[3], i['web_view']
+    assert_equal i.sizes[4], i['medium']
   end
   def test_size_url
     s = Size.new

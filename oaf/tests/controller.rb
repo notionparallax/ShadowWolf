@@ -18,7 +18,7 @@ class ControllerTest < Test::Unit::TestCase
     size    = Object.new ;    size.stubs(:url => 'foo')
     image   = Object.new ;   image.stubs(:[] => size)
     project = Object.new ; project.stubs(images_by_tag: [image])
-    app.settings.data_source.stubs(:get).with(project: '1').returns(project)
+    app.settings.data_source.stubs(:get).with(project: '1').returns([project])
 
     get '/1/main/0/web_view'
 
@@ -35,7 +35,7 @@ class ControllerTest < Test::Unit::TestCase
   end
   def test_redirect_404s_on_no_images
     project = Object.new ; project.stubs(images_by_tag: [])
-    app.settings.data_source.stubs(:get).with(project: '1').returns(project)
+    app.settings.data_source.stubs(:get).with(project: '1').returns([project])
 
     get '/1/main/0/web_view'
 
@@ -44,7 +44,7 @@ class ControllerTest < Test::Unit::TestCase
   end
   def test_redirect_400s_on_negative_integer_index
     project = Object.new ; project.stubs(images_by_tag: [])
-    app.settings.data_source.stubs(:get).with(project: '1').returns(project)
+    app.settings.data_source.stubs(:get).with(project: '1').returns([project])
 
     get '/1/main/-1/web_view'
 
@@ -53,7 +53,7 @@ class ControllerTest < Test::Unit::TestCase
   end
   def test_redirect_404s_invalid_index
     project = Object.new ; project.stubs(images_by_tag: [nil])
-    app.settings.data_source.stubs(:get).with(project: '1').returns(project)
+    app.settings.data_source.stubs(:get).with(project: '1').returns([project])
 
     get '/1/main/1/web_view'
 
@@ -63,7 +63,7 @@ class ControllerTest < Test::Unit::TestCase
   def test_redirect_400s_on_invalid_size
     image   = Object.new ;   image.stubs(:[] => nil)
     project = Object.new ; project.stubs(images_by_tag: [image])
-    app.settings.data_source.stubs(:get).with(project: '1').returns(project)
+    app.settings.data_source.stubs(:get).with(project: '1').returns([project])
 
     get '/1/main/0/something_improper'
 
@@ -73,7 +73,7 @@ class ControllerTest < Test::Unit::TestCase
   def test_redirect_404s_on_absent_size
     image   = Object.new ;   image.stubs(:[] => nil)
     project = Object.new ; project.stubs(images_by_tag: [image])
-    app.settings.data_source.stubs(:get).with(project: '1').returns(project)
+    app.settings.data_source.stubs(:get).with(project: '1').returns([project])
 
     get '/1/main/0/web_view'
 
@@ -84,12 +84,12 @@ class ControllerTest < Test::Unit::TestCase
   def test_json_200_json_on_success
     project = Object.new ; project.stubs(images_by_tag: [])
     project.stubs(to_json: 'foo')
-    app.settings.data_source.stubs(:get).with(project: '1').returns(project)
+    app.settings.data_source.stubs(:get).with(project: '1').returns([project])
 
     get '/1.json'
 
     assert_equal   200, last_response.status
-    assert_equal 'foo', last_response.body
+    assert_equal '[foo]', last_response.body
   end
   def test_json_404s_on_no_project
     app.settings.data_source.stubs(:get).with(project: '1').returns(nil)
@@ -97,6 +97,6 @@ class ControllerTest < Test::Unit::TestCase
     get '/1.json'
 
     assert_equal    404, last_response.status
-    assert_equal 'null', last_response.body
+    assert_equal '{}', last_response.body
   end
 end
