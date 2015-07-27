@@ -1,5 +1,5 @@
 #!/bin/sh
 
-cp /oaf/redis-dump.rdb /var/lib/redis/dump.rdb
+#cp /oaf/redis-dump.rdb /var/lib/redis/dump.rdb
 redis-server /etc/redis/redis.conf
-ruby main.rb
+rackup -o 0.0.0.0 -p 4567
