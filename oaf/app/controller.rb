@@ -39,6 +39,9 @@ class OAF < Sinatra::Base
     [303,{ 'Location' => image_size.url }, nil] # your image is in another castle
   end
 
+  options '/:project_number.json' do
+    200
+  end
   get '/:project_number.json' do
     headers "Content-Type" => 'application/json'
     project_number = params['project_number']
