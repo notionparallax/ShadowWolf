@@ -55,25 +55,25 @@ case "$1" in
         esac
         ;;
       client)
-        fig -p shadowwolf up -d devgrunt
+        docker-compose -p shadowwolf up -d devgrunt
         ;;
       server)
         rm -f server/tmp/pids/server.pid
-        fig -p shadowwolf up -d devrails
+        docker-compose -p shadowwolf up -d devrails
         ;;
       console)
-        fig -p shadowwolf run --rm devconsole
+        docker-compose -p shadowwolf run --rm devconsole
         ;;
       mongo)
-        fig -p shadowwolf up -d devmongo
+        docker-compose -p shadowwolf up -d devmongo
         ;;
       factories)
         echo Adding 10 people and projects to database...
-        echo '[:person,:project].each{|m|FactoryGirl.create_list(m,10)}' | fig -p shadowwolf run --rm devconsole
+        echo '[:person,:project].each{|m|FactoryGirl.create_list(m,10)}' | docker-compose -p shadowwolf run --rm devconsole
         echo Done.
         ;;
       grunt-includes)
-        fig -p shadowwolf run --rm --no-deps devgrunt grunt includes
+        docker-compose -p shadowwolf run --rm --no-deps devgrunt grunt includes
         ;;
       *)
         echo "$USAGE"
@@ -86,21 +86,21 @@ case "$1" in
         shift
         shift
         [[ -n "$*" ]] \
-          && fig -p shadowwolf build "$*" \
-          || fig -p shadowwolf build
+          && docker-compose -p shadowwolf build "$*" \
+          || docker-compose -p shadowwolf build
         ;;
       client)
-        fig -p shadowwolf run --rm --no-deps devgrunt grunt build \
-          && fig -p shadowwolf build prodangular
+        docker-compose -p shadowwolf run --rm --no-deps devgrunt grunt build \
+          && docker-compose -p shadowwolf build prodangular
         ;;
       server)
-        fig -p shadowwolf build prodrails
+        docker-compose -p shadowwolf build prodrails
         ;;
       beowulf)
-        fig -p shadowwolf build prodflask
+        docker-compose -p shadowwolf build prodflask
         ;;
       oaf)
-        fig -p shadowwolf build devoaf
+        docker-compose -p shadowwolf build devoaf
         ;;
       *)
         echo "$USAGE"
@@ -191,7 +191,7 @@ case "$1" in
         &>/dev/null ssh -t $USER@$BVN_SERVER "docker inspect mongo-ambassador"
         ambassador_present=$?
         [[ "$ambassador_present" = 1 ]] && $0 prod ambassador up
-        fig -p shadowwolf run prodconsole
+        docker-compose -p shadowwolf run prodconsole
         [[ "$ambassador_present" = 1 ]] && $0 prod ambassador down
       ;;
       ambassador)
@@ -219,7 +219,7 @@ case "$1" in
     shift
     COMMAND="bash"
     [[ -n "$*" ]] && COMMAND="$*"
-    fig -p shadowwolf run --rm devconsole $COMMAND
+    docker-compose -p shadowwolf run --rm devconsole $COMMAND
     ;;
   get-redis-dump)
     remote_script="
