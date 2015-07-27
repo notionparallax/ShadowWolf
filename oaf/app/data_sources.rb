@@ -38,7 +38,7 @@ class RedisSource < DataSource
     key,val = query.keys.first, query.values.first
     query_str = "#{key}:#{val}"
     result = @redis.get( query_str )
-    from_json key, result unless result.nil?
+    from_json key, result.encode( 'utf-8', 'iso-8859-1' ) unless result.nil?
   end
   def put collection, id, obj
     key = "#{collection}:#{id}"
