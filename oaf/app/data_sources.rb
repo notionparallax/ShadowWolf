@@ -78,11 +78,6 @@ class OASource < DataSource
     username = ENV['OPEN_ASSET_USERNAME']
     password = ENV['OPEN_ASSET_PASSWORD']
     url = 'http://' + username + ':' + password + '@' + @base_url + '/REST/1/' + resource_url
-    begin
     @rest_client.get( url, params: params )
-    rescue Exception => e
-      raise e
-    end
-
   end
 end
