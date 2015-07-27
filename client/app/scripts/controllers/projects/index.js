@@ -17,11 +17,8 @@ function($scope, Projects, Session, Search, Oaf, SearchScopeLinker) {
     $scope.searchResults = results;
   });
 
-  $scope.getProjectImage = function(project, index) {
-    return Oaf.getProjectImage(project.project_number, {
-      updateCache: false
-    })[0]
-      || "http://placekitten.com/g/270/24" + (index%10);
+  $scope.getProjectImageUrl = function(project) {
+    return Oaf.getProjectImageUrl(project.project_number);
   };
 
   $scope.compareTo = function(query) {

@@ -23,9 +23,9 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
       });
     }
   });
-  $scope.getImages = function() {
-    return Oaf.getImagesByTags($scope.project.project_number, $scope.tags() );
-  };
+  $scope.getImage = function(index, tag, size) {
+    return Oaf.getProjectImageUrl($scope.project.project_number, index, tag, size);
+  }
   Session.authorize = function() { return { success: true }; };
   $scope.Beowulf = Beowulf;
   $scope.relatedPeople = [];
@@ -75,9 +75,4 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
     };
   }());
   $scope.tags = function() { return Tags.project($scope.project).getTags(); };
-  $scope.refreshOafImages = function() {
-    Oaf.getImagesByTags($scope.project.project_number, $scope.tags(),
-        { fetch_latest: true });
-  };
-
 });
