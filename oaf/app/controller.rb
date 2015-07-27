@@ -40,6 +40,7 @@ class OAF < Sinatra::Base
   end
 
   get '/:project_number.json' do
+    headers "Content-Type" => 'application/json'
     project_number = params['project_number']
     @project = settings.data_source.get project:  project_number
     if @project.nil?

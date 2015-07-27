@@ -90,6 +90,7 @@ class ControllerTest < Test::Unit::TestCase
 
     assert_equal   200, last_response.status
     assert_equal '[foo]', last_response.body
+    assert_equal 'application/json', last_response.headers['Content-Type']
   end
   def test_json_404s_on_no_project
     app.settings.data_source.stubs(:get).with(project: '1').returns(nil)
@@ -98,5 +99,6 @@ class ControllerTest < Test::Unit::TestCase
 
     assert_equal    404, last_response.status
     assert_equal '{}', last_response.body
+    assert_equal 'application/json', last_response.headers['Content-Type']
   end
 end
