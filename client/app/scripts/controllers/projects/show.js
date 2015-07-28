@@ -23,9 +23,13 @@ function($scope, Project, $routeParams, Session, $location, Lens, Flash, Beowulf
       });
     }
   });
+  $scope.cacheBustOaf = false;
   $scope.getImage = function(index, tag, size) {
-    return Oaf.getProjectImageUrl($scope.project.project_number, index, tag, size);
+    return Oaf.getProjectImageUrl($scope.project.project_number, index, tag, size, $scope.cacheBustOaf);
   }
+  $scope.refreshOafImages = function() {
+    $scope.cacheBustOaf = true;
+  };
   Session.authorize = function() { return { success: true }; };
   $scope.Beowulf = Beowulf;
   $scope.relatedPeople = [];
