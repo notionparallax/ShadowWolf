@@ -262,6 +262,13 @@ a#LogIn {
     }
 }
 
+.business-card-col svg {
+  -webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.2);
+     -moz-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.2);
+          box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.2);
+          margin-top: 1em;
+}
+
 //svg styling
 svg {
     width: 100%;
