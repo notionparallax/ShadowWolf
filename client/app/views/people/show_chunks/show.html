@@ -80,8 +80,6 @@
             include "reg_.html"
             include "memberships_.html"
             include "security_clearances_.html"
-            include "personal_awards_.html"
-            include "professional_contributions_.html"
         </tab>
 
         <tab ng-if="isCurrentUser()" heading="Travel">
@@ -93,7 +91,9 @@
         </tab>
 
         <tab heading="Bio">
-            include "bio_.html"
+            include "bio_.html"            
+            include "personal_awards_.html"
+            include "professional_contributions_.html"
         </tab>
 
         <tab heading="Culture">
