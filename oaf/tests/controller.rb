@@ -10,15 +10,41 @@ class ControllerTest < Test::Unit::TestCase
     OAF
   end
 
+  class O
+  end
   def setup
-    app.set :data_source, Object.new
+    app.set :redis, Object.new
+    app.set :oa, Object.new
+    app.set :data_source, O
   end
 
+  def test_data_source_sets_cache_bust
+    ds      = Object.new
+    ds.stubs(:get).with(project: '1').returns(nil)
+
+    e = O.expects(:new).with(app.settings.redis, app.settings.oa, true).returns(ds).once
+    get '/1/main/0/web_view?cache_bust=true'
+    assert e.verified?
+
+    e = O.expects(:new).with(app.settings.redis, app.settings.oa, false).returns(ds).once
+    get '/1/main/0/web_view'
+    assert e.verified?
+#
+    e = O.expects(:new).with(app.settings.redis, app.settings.oa, true).returns(ds).once
+    get '/1.json?cache_bust=true'
+    assert e.verified?
+
+    e = O.expects(:new).with(app.settings.redis, app.settings.oa, false).returns(ds).once
+    get '/1.json'
+    assert e.verified?
+
+  end
   def test_redirect_303s_on_success
     size    = Object.new ;    size.stubs(:url => 'foo')
     image   = Object.new ;   image.stubs(:[] => size)
     project = Object.new ; project.stubs(images_by_tag: [image])
-    app.settings.data_source.stubs(:get).with(project: '1').returns([project])
+    ds      = Object.new ;      ds.stubs(:get).with(project: '1').returns([project])
+    O.stubs(:new).returns(ds)
 
     get '/1/main/0/web_view'
 
@@ -26,7 +52,8 @@ class ControllerTest < Test::Unit::TestCase
     assert_equal 'foo', last_response.headers['Location']
   end
   def test_redirect_404s_on_no_project
-    app.settings.data_source.stubs(:get).with(project: '1').returns(nil)
+    ds      = Object.new ;      ds.stubs(:get).with(project: '1').returns(nil)
+    O.stubs(:new).returns(ds)
 
     get '/1/main/0/web_view'
 
@@ -35,7 +62,8 @@ class ControllerTest < Test::Unit::TestCase
   end
   def test_redirect_404s_on_no_images
     project = Object.new ; project.stubs(images_by_tag: [])
-    app.settings.data_source.stubs(:get).with(project: '1').returns([project])
+    ds      = Object.new ;      ds.stubs(:get).with(project: '1').returns([project])
+    O.stubs(:new).returns(ds)
 
     get '/1/main/0/web_view'
 
@@ -73,7 +101,10 @@ class ControllerTest < Test::Unit::TestCase
   def test_redirect_404s_on_absent_size
     image   = Object.new ;   image.stubs(:[] => nil)
     project = Object.new ; project.stubs(images_by_tag: [image])
-    app.settings.data_source.stubs(:get).with(project: '1').returns([project])
+    ds      = Object.new ;      ds.stubs(:get)
+                                  .with(project: '1')
+                                  .returns([project])
+    O.stubs(:new).returns(ds)
 
     get '/1/main/0/web_view'
 
@@ -88,8 +119,11 @@ class ControllerTest < Test::Unit::TestCase
   end
   def test_json_200_json_on_success
     project = Object.new ; project.stubs(images_by_tag: [])
-    project.stubs(to_json: 'foo')
-    app.settings.data_source.stubs(:get).with(project: '1').returns([project])
+                           project.stubs(to_json: 'foo')
+    ds      = Object.new ;      ds.stubs(:get)
+                                  .with(project: '1')
+                                  .returns([project])
+    O.stubs(:new).returns(ds)
 
     get '/1.json'
 
@@ -98,7 +132,10 @@ class ControllerTest < Test::Unit::TestCase
     assert_equal 'application/json', last_response.headers['Content-Type']
   end
   def test_json_404s_on_no_project
-    app.settings.data_source.stubs(:get).with(project: '1').returns(nil)
+    ds      = Object.new ;      ds.stubs(:get)
+                                  .with(project: '1')
+                                  .returns(nil)
+    O.stubs(:new).returns(ds)
 
     get '/1.json'
 

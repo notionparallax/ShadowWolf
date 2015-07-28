@@ -15,12 +15,13 @@ class DebugSource < DataSource
   end
 end
 class DoubleSource < DataSource
-  def initialize front, back
+  def initialize front, back, cache_bust
     @front = front
     @back = back
+    @cache_bust = cache_bust
   end
   def get query
-    result = @front.get query
+    result = @front.get query unless @cache_bust
     if result.nil?
       result = @back.get query
       collection,id = query.keys.first,query.values.first

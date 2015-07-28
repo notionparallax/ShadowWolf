@@ -38,6 +38,15 @@ class TestDataSources < Test::Unit::TestCase
     assert_not_equal 0, @front.store.count
   end
 
+  def test_double_cache_bust
+    @front.put :example, '2', [@example]
+    @front.expects(:get).never
+    @front.expects(:put)
+    @back.expects(:get).returns([])
+    @double = DoubleSource.new @front, @back, cache_bust: true
+
+    result = @double.get( example: '2' )
+  end
   def test_double_get_front_ignores_back
     @front.put :example, '2', [@example]
     @back.expects(:get).never

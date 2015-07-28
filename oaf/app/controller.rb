@@ -8,8 +8,8 @@ class OAF < Sinatra::Base
 
   get '/:project_number/:tag/:index/:size' do
     project_number = params['project_number']
-    @project = 
-      settings.data_source.get( project:  project_number )
+    @project = settings.data_source.new( settings.redis, settings.oa, params['cache_bust'].eql?('true') )
+      .get( project:  project_number )
     if @project.nil?
       return render( 404, "No project found with project number: \"#{project_number}\"." )
     end
@@ -45,7 +45,11 @@ class OAF < Sinatra::Base
   get '/:project_number.json' do
     headers "Content-Type" => 'application/json'
     project_number = params['project_number']
-    @project = settings.data_source.get project:  project_number
+    @project = settings.data_source.new(
+        settings.redis,
+        settings.oa,
+        params['cache_bust'].eql?('true')
+      ).get project:  project_number
     if @project.nil?
       render 404, '{}'
     else
