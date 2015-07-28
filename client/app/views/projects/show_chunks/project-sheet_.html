@@ -49,9 +49,9 @@
                     <p>{{project.building.client.main}}</p>
                 </div>
                 <div class="location">
-                    <h2>Location      </h2>
-                    <p>{{project.building.locations[0].address.state_county}}, {{project.building.locations[0].address.country}}</p>
-                </div>
+                    <h2>Location</h2>
+                    <p><span ng-if="project.building.locations[0].address.state_county">{{project.building.locations[0].address.state_county}}, </span>{{project.building.locations[0].address.country}}</p>
+                    </div>
                 <div class="completion">
                     <h2>Completion    </h2>
                     <p>{{project.building.legacy.start_date | toISODate | date: 'MMMM yyyy'}} - {{project.building.legacy.completion_date | toISODate | date: 'MMMM yyyy'}}</p>
