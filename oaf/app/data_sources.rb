@@ -15,7 +15,7 @@ class DebugSource < DataSource
   end
 end
 class DoubleSource < DataSource
-  def initialize front, back, cache_bust
+  def initialize front, back, cache_bust=false
     @front = front
     @back = back
     @cache_bust = cache_bust
