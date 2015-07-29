@@ -20,6 +20,9 @@ class TestModels < Test::Unit::TestCase
     assert_equal p.oa_id, 'whoop'
     assert_equal p.name, 'it does not even matter'
   end
+  def test_project_from_hash_on_empty_list
+    assert_equal [], Project.from_hash( [] )
+  end
   def test_project_to_json
     # The purpose of this test is to specify in code
     # what json values OAF returns.
