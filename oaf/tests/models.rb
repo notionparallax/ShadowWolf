@@ -49,25 +49,24 @@ class TestModels < Test::Unit::TestCase
     p = Project.new
     d = DataSource.new
     p.data_source d
-    d.stubs(:get).returns([
-      Image.new, Image.new, Image.new
-    ])
-    p.images[0].stubs(:tags_with_rank)
-               .returns([ ['something', 4],
-                          ['otherthing', 2],
-                          ['main', 8] ])
-    p.images[1].stubs(:tags_with_rank)
-               .returns([ ['something', 5],
-                          ['main', 6] ])
-    p.images[2].stubs(:tags_with_rank)
-               .returns([ ['something', 6],
-                          ['otherthing', 1],
-                          ['main', 9] ])
+    images = [ Image.new, Image.new, Image.new ]
+    d.stubs(:get).returns( images )
 
-    assert_equal p.images[0], p.images_by_tag('otherthing')[0]
-    assert_equal p.images[2], p.images_by_tag('something')[0]
-    assert_equal p.images[2], p.images_by_tag('main')[0]
-    assert_equal p.images[0], p.images_by_tag('main')[1]
+    p.images[0].stubs(:tags_with_rank)
+               .returns([ ['something' , 4],
+                          ['otherthing', 2],
+                          ['main'      ,10] ])
+    p.images[1].stubs(:tags_with_rank)
+               .returns([ ['something' , 5],
+                          ['main'      , 6] ])
+    p.images[2].stubs(:tags_with_rank)
+               .returns([ ['something' , 6],
+                          ['otherthing', 1],
+                          ['main'      , 9] ])
+
+    assert_equal [images[0], images[2]],           p.images_by_tag('otherthing')
+    assert_equal [images[2], images[1],images[0]], p.images_by_tag('something')
+    assert_equal [images[0], images[2],images[1]], p.images_by_tag('main')
   end
 
   def test_image_from_hash
@@ -146,13 +145,13 @@ class TestModels < Test::Unit::TestCase
     i = Image.new
     i.rank = 4
     i.description = "blah [[blah-0]]"
-    assert_equal ['blah',0], i.tags_with_rank.first
+    assert_equal [['blah',0],['main',4]], i.tags_with_rank
 
     i.description = "blah [[blah-3, blah-2]]"
-    assert_equal [['blah',3]], i.tags_with_rank
+    assert_equal [['blah',3],['main',4]], i.tags_with_rank
 
-    i.description = "blah [[something-10, blah]]"
-    assert_equal [['something',10],['blah',4]], i.tags_with_rank
+    i.description = "blah [[main-5, something-10, blah]]"
+    assert_equal [['main',5],['something',10],['blah',4]], i.tags_with_rank
   end
 
   def test_size_to_json
