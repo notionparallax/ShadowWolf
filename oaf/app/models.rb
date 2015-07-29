@@ -13,12 +13,16 @@ class Project < Model
     end.reverse
   end
   def self.from_hash hash
-    hash = hash.first
-    p = Project.new
-    p.project_number = hash['code'] || hash['project_number']
-    p.oa_id = hash['id'] || hash['oa_id']
-    p.name = hash['name']
-    [p]
+    unless false and hash.nil? or hash.empty?
+      hash = hash.first
+      p = Project.new
+      p.project_number = hash['code'] || hash['project_number']
+      p.oa_id = hash['id'] || hash['oa_id']
+      p.name = hash['name']
+      [p]
+    else
+      []
+    end
   end
   def to_json options=nil
     {
