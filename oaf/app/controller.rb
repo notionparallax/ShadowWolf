@@ -10,7 +10,7 @@ class OAF < Sinatra::Base
     project_number = params['project_number']
     @project = settings.data_source.new( settings.redis, settings.oa, params['cache_bust'].eql?('true') )
       .get( project:  project_number )
-    if @project.nil?
+    if @project.nil? or @project.empty?
       return render( 404, "No project found with project number: \"#{project_number}\"." )
     end
     @project = @project.first

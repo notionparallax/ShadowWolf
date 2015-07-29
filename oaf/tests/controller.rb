@@ -59,6 +59,14 @@ class ControllerTest < Test::Unit::TestCase
 
     assert_equal 404, last_response.status
     assert_equal 'No project found with project number: "1".', last_response.body
+
+    ds      = Object.new ;      ds.stubs(:get).with(project: '1').returns([])
+    O.stubs(:new).returns(ds)
+
+    get '/1/main/0/web_view'
+
+    assert_equal 404, last_response.status
+    assert_equal 'No project found with project number: "1".', last_response.body
   end
   def test_redirect_404s_on_no_images
     project = Object.new ; project.stubs(images_by_tag: [])
