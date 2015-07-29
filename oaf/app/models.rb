@@ -6,7 +6,10 @@ class Project < Model
     @_images ||= get :image
   end
   def images_by_tag tag
-    (images || []).sort_by do |image|
+    (images || []).find_all do |image|
+      tag.eql? 'main' or
+      image.tags_with_rank.map(&:first).include? tag
+    end.sort_by do |image|
       tag_name, tag_rank = image.tags_with_rank
            .find { |tag_rank| tag_rank[0] == tag }
       tag_rank || 0
@@ -104,7 +107,12 @@ class Image < Model
     parse_tags @description
   end
   def tags_with_rank
-    parse_tags_with_rank @description
+    tags_with_rank = parse_tags_with_rank @description
+    if tags_with_rank.find { |tag_with_rank| tag_with_rank.first.eql? 'main' }.nil?
+      tags_with_rank + [['main',@rank]]
+    else
+      tags_with_rank
+    end
   end
   private
   def parse_tags str
