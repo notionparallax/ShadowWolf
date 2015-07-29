@@ -73,7 +73,7 @@ class Image < Model
   def [] index
     if index == 'square'
       sizes.find_all { |size| size.width == size.height }
-           .min(&:width)
+           .min_by(&:width)
     else
       image_size,symbol_size = sizes
         .sort_by { |size| [size.width, size.height] }

@@ -153,6 +153,15 @@ class TestModels < Test::Unit::TestCase
     i.description = "blah [[main-5, something-10, blah]]"
     assert_equal [['main',5],['something',10],['blah',4]], i.tags_with_rank
   end
+  def test_image_index_square
+    i = Image.new
+    sizes = [Size.new, Size.new]
+    sizes[0].width , sizes[0].height = 10, 10
+    sizes[1].width , sizes[1].height = 20, 20
+    i.stubs(:sizes).returns( sizes )
+
+    assert_equal sizes[0], i['square']
+  end
 
   def test_size_to_json
     i = Size.new
