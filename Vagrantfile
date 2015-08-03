@@ -79,7 +79,10 @@ Vagrant.configure(2) do |config|
     sudo groupadd docker
     sudo gpasswd -a vagrant docker
     
+    sudo sed -i 's/DOCKER_OPTS$/DOCKER_OPTS --insecure-registry 10.22.140.67:5000/' /lib/systemd/system/docker.service
     sudo systemctl enable docker
     sudo systemctl restart docker
+
+    echo cd /vagrant >> /home/vagrant/.bashrc
   SHELL
 end
