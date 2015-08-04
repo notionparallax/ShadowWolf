@@ -3,9 +3,9 @@
         <div class="refreshing-overlay" ng-click="refreshOafImages()">
             <span class="glyphicon glyphicon-refresh"></span>
         </div>
-        <img ng-src="{{getImages()[tag.toLowerCase()][0] || 'http://placehold.it/550&text=First%20'  + tag + '%20Image%20not%20found' }}">
-        <img ng-src="{{getImages()[tag.toLowerCase()][1] || 'http://placehold.it/225&text=Second%20' + tag + '%20Image%20not%20found' }}">
-        <img ng-src="{{getImages()[tag.toLowerCase()][2] || 'http://placehold.it/225&text=Third%20'  + tag + '%20Image%20not%20found' }}">
+        <img ng-src="{{getImage(0, tag, 'web_view')}}">
+        <img ng-src="{{getImage(1, tag, 'web_view')}}">
+        <img ng-src="{{getImage(2, tag, 'web_view')}}">
     </div>
     <div class="text">
         <h1>{{project.building.phases[0].project_name}}</h1>

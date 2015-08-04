@@ -10,3 +10,5 @@
 Helper scripts/sample objects
 oaf/*.rdb
 project-sheets
+
+.vagrant
