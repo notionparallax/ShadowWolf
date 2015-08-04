@@ -47,10 +47,14 @@ cd Projects
 git clone https://github.com/notionparallax/ShadowWolf.git
 cd ShadowWolf
 docker -d #this might not be necessary for you
-
-./docker-util install
+sudo apt-get install fig
 ```
-This will build the images.
+If this doesn't work reinstall docker! (argh)
+Make sure it runs without sudo. Then...
+```
+./docker-util build dev
+```
+This will build the images using fig.
 
 ####Starting a development session####
 To save you from having to start these independently you can just run:
