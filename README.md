@@ -12,9 +12,6 @@ It is written for architecture practices, but might be applicable/portable to ot
 
 The name comes from another [group of trackers](http://en.wikipedia.org/wiki/Shadow_Wolves).
 
-## Demo ##
-You can see a live version, with dummy data [here](http://notionparallax.co.uk/ShadowWolf/client/dist/index.html#/people) (This is pretty out of date, but will be updated soon as we've got a whole new deployment mechanism.)
-
 ## Contributing ##
 We're probably not ready for anyone to get involved in a big way as we're changing too much stuff, but if there are any features that you would like to see, or bugs that you think we should fix, then feel free to open an issue.
 
@@ -34,10 +31,12 @@ We're probably not ready for anyone to get involved in a big way as we're changi
 
 ### Development environment ###
 
-ShadowWolf is 3 main components which currently live inside docker containers.
+ShadowWolf is 5 main components which currently live inside docker containers.
   1. A MongoDB database
   2. An Angular front end
   3. A rails back end
+  4. A small sinatra app for interfacing with OpenAsset
+  5. A small flask app for interfacing with Epicor
 
 #### Installing ####
 To install the environment for the first time:
@@ -46,31 +45,40 @@ mkdir Projects
 cd Projects
 git clone https://github.com/notionparallax/ShadowWolf.git
 cd ShadowWolf
-docker -d #this might not be necessary for you
-sudo apt-get install fig
 ```
-If this doesn't work reinstall docker! (argh)
-Make sure it runs without sudo. Then...
+
+##### Using Vagrant #####
+
+Make sure Vagrant and Virtualbox are installed, then:
+
+```
+vagrant up
+vagrant ssh
+./docker-util build dev
+```
+
+##### Without Vagrant (in linux) #####
+
+Make sure docker is installed and the daemon is running. Additionally make sure docker can run without the sudo command have docker-compose also installed. When in doubt, use the same version of docker-compose described in the Vagrantfile provision script. Then:
+
 ```
 ./docker-util build dev
 ```
-This will build the images using fig.
 
-####Starting a development session####
-To save you from having to start these independently you can just run:
+#### Starting a development session ####
+To save you from having to start these independently you can just run (inside the vagrant machine):
 
 ```
 cd Projects/ShadowWolf/
 ./docker-util dev client
 ```
-Which starts up the three containers in daemon mode. You can then go to [http://localhost:9000/#/people](http://localhost:9000/#/people) to see everything in action.
+Which starts up the five containers in daemon mode. You can then go to [http://localhost:9000/#/people](http://localhost:9000/#/people) to see everything in action. Note that logins wont work unless you are are the BVN network.
 
 #####  Populating the DB with sample data #####
 The DB is empty when you start it, so to fill it with sample data:
+
 ```
-$ ./docker-util dev console
-> FactoryGirl.create_list :person, 20
-> FactoryGirl.create_list :project, 20
+./docker-util dev factories
 ```
 
 #### useful docker commands ####
@@ -165,19 +173,3 @@ and then use ruby commands. Some examples are shown in `ShadowWolf / Helper scri
 The Mongo back end uses the [MongoidModelMaker](https://github.com/Dawil/MongoidModelMaker) gem to build out the data models.
 
 Rails really only works to control the database, flicking chunks of JSON at the angular client.
-
-
-### Testing ###
-
-We had a bit of a spike at the beginning to get things going, but are starting to add end to end tests. We are using PhantomJS and Selenium to get started, and we'll introduce unit testing etc. once end to end is working nicely.
-
-To run the tests
-
-```
-git push origin add-testing
-```
-
-
-
-<!--[![Build Status](https://travis-ci.org/notionparallax/ShadowWolf.png)](https://travis-ci.org/notionparallax/ShadowWolf)-->
-
