@@ -20,6 +20,7 @@ prodconsole:
   working_dir: /ShadowWolf/server
   volumes:
     - server:/ShadowWolf/server
+    - Helper scripts:/scripts
   environment:
     - MONGO_PORT_27017_TCP_ADDR=10.22.140.67
     - MONGO_PORT_27017_TCP_PORT=27017
