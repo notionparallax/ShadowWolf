@@ -235,4 +235,3 @@ case "$1" in
     echo "$USAGE"
     ;;
 esac
-# docker run --rm -it -v /home/dave/Projects/ShadowWolf/client:/ShadowWolf/client -w /ShadowWolf/client -e SERVER_PORT_3000_TCP_ADDR=10.22.140.67 -e SERVER_PORT_3000_TCP_PORT=3000 -e BEOWULF_PORT_9001_TCP_ADDR=10.22.140.67 -e BEOWULF_PORT_9001_TCP_PORT=9001 -w /ShadowWolf/client -p 9000:9000 shadowwolf_dev grunt server

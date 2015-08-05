@@ -1,5 +1,0 @@
-FROM shadowwolf-dev
-ADD ./client/ /ShadowWolf/client/
-RUN cd client && grunt build
-WORKDIR /ShadowWolf/client/
-CMD ["./run.sh"]
