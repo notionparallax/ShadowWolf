@@ -123,7 +123,7 @@ case "$1" in
         docker rm -f sw-client;
         docker run -d --name sw-client --link sw-oaf:oaf --link sw-beowulf:beowulf --link sw-server:server -p 9000:9000 -e SERVER_PORT_3000_TCP_ADDR=$BVN_SERVER $BVN_SERVER:5000/shadowwolf-deploy-client /run.sh;
         "
-        ssh $USER@$BVN_SERVER $remote_script
+        ssh dave@$BVN_SERVER $remote_script
         ;;
       server)
         image=`docker images | egrep '^shadowwolf_prodrails' | grep latest | awk '{print $3}'`
@@ -136,7 +136,7 @@ case "$1" in
         docker run -d --name sw-client --link sw-oaf:oaf --link sw-beowulf:beowulf --link sw-server:server -p 9000:9000 -e SERVER_PORT_3000_TCP_PORT=3000 -e SERVER_PORT_3000_TCP_ADDR=$BVN_SERVER $BVN_SERVER:5000/shadowwolf-deploy-client /run.sh;
         TZ='Australia/Sydney' nohup docker logs -f sw-server > /home/dave/logs/`date --iso-8601=minutes` &
         "
-        ssh $USER@$BVN_SERVER $remote_script
+        ssh dave@$BVN_SERVER $remote_script
         ;;
       beowulf)
         image=`docker images | egrep '^shadowwolf_prodflask' | grep latest | awk '{print $3}'`
@@ -157,7 +157,7 @@ case "$1" in
           $BVN_SERVER:5000/shadowwolf-beowulf
           python3 app/main.py;
         "
-        ssh $USER@$BVN_SERVER $remote_script
+        ssh dave@$BVN_SERVER $remote_script
         ;;
       oaf)
         image=`docker images | egrep '^shadowwolf_devoaf' | grep latest | awk '{print $3}'`
@@ -177,7 +177,7 @@ case "$1" in
           $BVN_SERVER:5000/shadowwolf-oaf
           ./run.sh;
         "
-        ssh $USER@$BVN_SERVER $remote_script
+        ssh dave@$BVN_SERVER $remote_script
         ;;
     esac
     ;;
@@ -188,7 +188,7 @@ case "$1" in
     fi
     case "$2" in
       console)
-        &>/dev/null ssh -t $USER@$BVN_SERVER "docker inspect mongo-ambassador"
+        &>/dev/null ssh -t dave@$BVN_SERVER "docker inspect mongo-ambassador"
         ambassador_present=$?
         [[ "$ambassador_present" = 1 ]] && $0 prod ambassador up
         docker-compose -p shadowwolf run prodconsole
@@ -199,7 +199,7 @@ case "$1" in
           up)
             send_ambassador="docker run -d --link sw-mongo:mongo --name mongo-ambassador -p 27017:27017 svendowideit/ambassador"
             echo Sending ambassador to Mongo Land...
-            &>/dev/null ssh -t $USER@$BVN_SERVER $send_ambassador
+            &>/dev/null ssh -t dave@$BVN_SERVER $send_ambassador
             ;;
           down)
             assasinate_ambassador="docker rm -f mongo-ambassador"
@@ -208,7 +208,7 @@ case "$1" in
             echo 2
             sleep 1
             echo 1
-            &>/dev/null ssh -t $USER@$BVN_SERVER $assasinate_ambassador
+            &>/dev/null ssh -t dave@$BVN_SERVER $assasinate_ambassador
             echo -n .; sleep 0.33; echo -n .; sleep 0.33; echo -n .; sleep 0.33; echo bang
             ;;
         esac
@@ -225,7 +225,7 @@ case "$1" in
     remote_script="
     sudo cp /var/lib/docker/aufs/mnt/\$(docker inspect -f '{{.Id}}' sw-oaf)/var/lib/redis/dump.rdb ~/.
     "
-    ssh -t $USER@$BVN_SERVER $remote_script
+    ssh -t dave@$BVN_SERVER $remote_script
     scp $USER@$BVN_SERVER:~/dump.rdb oaf/redis-dump.rdb
     ;;
   help)
