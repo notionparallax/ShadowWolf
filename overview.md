@@ -2,11 +2,10 @@
 
 1. [Prequisite Knowledge/Conceptual Dependencies](#Prequisite-Knowledge/Conceptual-Dependencies)
 2. [Software Architecture](#Software-Architecture)
-3. [History and Context](#History-and-Context )
-4. [Secrets](#Secrets)
-5. [Tooling/Development and Deployment Workflow](#Tooling/Development-and-Deployment-Workflow)
-6. [Technical Debt](#Technical-Debt)
-7. [Missing Features/Further work](#Missing-Features/Further work)
+3. [Secrets](#Secrets)
+4. [Tooling/Development and Deployment Workflow](#Tooling/Development-and-Deployment-Workflow)
+5. [Technical Debt](#Technical-Debt)
+6. [Missing Features/Further work](#Missing-Features/Further work)
 
 ## Prequisite-Knowledge/Conceptual-Dependencies
 
@@ -89,17 +88,7 @@ The nightly backups are simply a cronjob to run mongodump and put it in a folder
 
 Status monitoring is a cronjob that curls the server, hoping for 200 OK responses. If it get's anything else it uses mandrill to send a panic email.
 
-#### Database Restorations
 
-Not listed (because we don't have it) is a nice way to perform database restorations. It can be done, since the backups are there, but it's only been done less than a handful of times. The manual process involves:
-
-1. Stopping the mongo container on the server
-2. Starting a new blank one
-3. Starting a container linked to that with the mongo client installed and the backups in a shared volume
-4. Running mongorestore
-5. Restarting all the existing services
-
-## History-and-Context 
 ## Secrets
 
 Secrets that we have, but aren't in version control (because they're secret) are:
@@ -112,51 +101,198 @@ Because we're so ahead of the curve, here at BVN, we manage secrets by emailing 
 
 ## Tooling/Development-and-Deployment-Workflow
 
-zero to hero:
+### Zero to Hero: Linux
 
-    For a clean linux machine:
+```
+git clone https://github.com/notionparallax/ShadowWolf
+cd ShadowWolf
+vagrant up
+vagrant ssh
+# See section on secrets
+./docker-util build dev # Will fail on prodangular if first time, that's okay
+docker-compose -p shadowwolf run --rm --no-deps devgrunt npm install
+docker-compose -p shadowwolf run --rm --no-deps devgrunt bower --allow-root install
+./docker-util dev client
+```
 
-    For a clean windows machine
+### Editing the database throught the console
 
-Editing the database throught the console
+For locally connecting to the database:
 
-Adding scripts to be accessed from the console
+```
+./docker-util dev console
+```
 
-Local console usage
+For connecting to the production database:
 
-Local testing
+```
+./docker-util prod console
+```
 
-Factories for testing
+This will put you in a ruby/rails prompt.
 
-Dev workflow
+You can get all People or Projects like so:
 
-Accessing a specific container
+```
+ppl = Person.all.to_a
+pjs = Project.all.to_a
+```
 
-Redis RDB dumps
+Person and Project are mongoid models.
 
-Restoring the DB from a backup
+You can select from that a person with a particular login or project with project number:
+
+```
+per = ppl.find_all { |p| p.employee.login == 'foo' }[0]
+prj = pjs.find_all { |p| p.project_number == 'foo' }[0]
+```
+
+Any changes you make to these objects can be persisted by calling save:
+
+```
+prj.project_number = 'bar'
+prj.save
+```
+
+Additionally you can delete a model by calling destroy:
+
+```
+prj.destroy
+```
+
+### Adding scripts to be accessed from the console
+
+When you run `./docker-util prod console` this runs a container locally, but connected to the remote database. This means scripts you have locally in the `Helper scripts` folder can be accessed from within the container in the `/scripts` folder. For example:
+
+```
+$ cat <<RUBY > Helper\ scripts/baz.rb
+def foo
+  'bar'
+end
+RUBY
+$ ./docker-util prod console
+> require '/scripts/baz'
+> foo
+'bar'
+```
+
+### Local testing
+
+```
+./docker-util dev test oaf
+./docker-util dev test beowulf
+```
+
+### Factories for Experimenting locally
+
+```
+./docker-util dev factories
+```
+
+### Dev workflow
+
+Having installed the dev environment what I would normally do at the beginning of a day when I'm about to make some changes to the code base is:
+
+```
+./docker-util dev client && ./docker-util dev factories
+# edit some files
+# check the behavior in chrome
+```
+
+If some of the files I edited were html files in the /client folder then I would also have to run:
+
+```
+./docker-util dev grunt-includes
+```
+
+Occasionally I'll need to restart everything. Rerunning
+
+```
+./docker-util dev client && ./docker-util dev factories
+```
+
+Will bring me to a clean slate.
+
+
+### Accessing a specific container
+
+In case it wasn't already clear, docker-util is a very simple wrapper around some common utilities done with docker, docker-compose and ssh. If I wanted to access a container directly, outside of docker-util I would run:
+
+```
+docker-compose -p shadowwolf run --rm $container_name $command
+```
+
+I can optionally add in the `--no-deps` flag after `--rm` if the container dependencies are not needed. You can use all of the regular docker commands, like `docker ps` or `docker logs` to inspect the containers that are currently running.
+
+### Redis RDB dumps
+
+Since OAF cachings images in redis, but redis is included within the oaf container, when you deploy you are replacing the redis instance, along with all of it's saved image locations. Although the proper thing to do would be to put redis in a separate container so that OAF could be updated separate to redis (much like mongo and rails), for now the workaround is to copy the remote redis' data. Run
+
+```
+./docker-util get-redis-dump
+```
+
+to put a copy of remote's redis' data in the oaf folder. Then when
+
+```
+./docker-util build oaf
+```
+
+is run it will be included in the container, and the redis instance in the container will start with that dump.
+
+A similar thing was going to be done for mongo dumps to make db restoration easier, but things came up and it didn't get finished.
+
+### Restoring the DB from a backup
+
+This is unfortunately a manualy process. It involves:
+
+1. Stopping the mongo container on the server
+2. Starting a new blank one
+3. Starting a container linked to that with the mongo client installed and the backups in a shared volume
+4. Running mongorestore
+5. Restarting all the existing services
+
+Look inside the ~/backups/mongoutil folder on the server to see how it's done.
 
 ## Technical-Debt
 
-Angular is stuck on ...16 (version dependencies everywhere :( )
-
-docker util - code is bad
-
-Editables are hard to extend
-
-Data access layer in angular
-
-Code duplication in angular controllers
+* Version dependencies everywhere are way behind. NB: bumping angular versions breaks editables, somehow
+* docker util has a lot of code duplication. Moving things into bash functions would go a long way to improving code quality
+* editables in-line their polymorphism for different types (numbers, text, date, etc) rather than being open and extensible. They also have a fair bit of complicated state and depend on functionality in the controller of whatever page they're usd on
+* as mentioned in Infrastructure, data access in angular is not unified. This has lead to code duplication
+* There is further code duplication in angular controllers
+* Front end looks like a dogs dinner - no graphic designer time
 
 OAF and Beowulf are both pretty good!
 
-Grunt file is large and we don't understand it
-
-Front end looks like a dogs dinner - no graphic designer time
-
-Mongo model maker was a thing, if you find references to it...
+Mongo model maker was a thing, but it's dead now. Any reference to it in the code should be good to clean up.
 
 ## Missing-Features/Further work
 
-See [waffle board](https://waffle.io/notionparallax/ShadowWolf) for all this sort of stuff.
+See [waffle board](https://waffle.io/notionparallax/ShadowWolf) for all this sort of stuff. Suggestions of things to work on:
 
+* removing code duplication from docker-util (easy)
+* adding sourcemaps to the client so that debugging in production is easier. Could involve cleaning up the Gruntfile so that it's understood (easy)
+* getting a better db restoration story, similar to the `get-redis-dump` feature (medium)
+* refactoring editables to be open and extensible, with unit tests (hard)
+
+## TroubleShooting/Common Errors
+
+### container fails to start with "no such file" error
+
+This is caused by Bill Gates. Windows has different newline settings, so if you ever edit a file in windows and save with windows newlines, then try and run that file in the linux virtual machine, things will break. Try to identify which file is causing the error then save it as a unix file. In vim you would:
+
+```
+:set ff=unix
+:wq
+```
+
+### ./docker-util build client fails with permission denied or something about sass-cache
+
+This can usually be fixed by running:
+
+```
+sudo chown -R vagrant:vagrant client
+```
+
+assuming you're in the vagrant machine. If you're on a machine with a different user and group then read the chown man page to see how to update the above command.
