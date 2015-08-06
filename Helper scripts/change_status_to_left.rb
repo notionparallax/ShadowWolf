@@ -3,7 +3,7 @@ def left_people
   ["sblack","tchristensen","rwood","dingle","lwilliams"]
 end
 
-def change_to_left person
+def change_to_left p
   puts p.employee.login + " Left"
   newCondition = Condition.new
   newCondition.name = "Left"
