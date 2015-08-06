@@ -29,6 +29,8 @@ The concepts used include:
 * data access objects (DAO) in OAF
 * deployment and configuration is version controlled
 
+In particular, if you don't understand containerisation I recommend you have a read up on it and a play with some docker containers. They are used extensively in our development and deployment process.
+
 ## Software-Architecture
 
 ### Containers
@@ -114,6 +116,33 @@ docker-compose -p shadowwolf run --rm --no-deps devgrunt npm install
 docker-compose -p shadowwolf run --rm --no-deps devgrunt bower --allow-root install
 ./docker-util dev client
 ```
+
+### Deployment
+
+Building and deploying are two separate processes. To build a service run
+
+```
+./docker-util build $service
+```
+
+Where service can be client, server, oaf or beowulf.
+
+Once that's done you can run
+
+```
+./docker-util deploy $service
+```
+
+So if I made changes in both rails and angular, I would run
+
+```
+./docker-util build server \
+  && ./docker-util build client \
+  && ./docker-util deploy server \
+  && ./docker-deploy client
+```
+
+I recommend you read docker-util to see what's involved in a deployment. Afterwards feel free to read the section on Technical debt again.
 
 ### Editing the database throught the console
 
@@ -286,6 +315,8 @@ This is caused by Bill Gates. Windows has different newline settings, so if you 
 :set ff=unix
 :wq
 ```
+
+This can also occur when trying to run docker-util: "no such file /usr/bin/bash^M". The fix is the same.
 
 ### ./docker-util build client fails with permission denied or something about sass-cache
 
