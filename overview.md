@@ -38,9 +38,9 @@ If you look inside `docker-compose.yml` you will see that there are 5 services n
 
 * mongodb
 * a rails server
-* a sinatra server (OAF)
+* a Sinatra server (OAF)
 * a flask server (Beowulf)
-* an angluar client
+* an angular client
 
 #### MongoDB
 
@@ -111,5 +111,52 @@ Secrets that we have, but aren't in version control (because they're secret) are
 Because we're so ahead of the curve, here at BVN, we manage secrets by emailing them around.
 
 ## Tooling/Development-and-Deployment-Workflow
+
+zero to hero:
+
+    For a clean linux machine:
+
+    For a clean windows machine
+
+Editing the database throught the console
+
+Adding scripts to be accessed from the console
+
+Local console usage
+
+Local testing
+
+Factories for testing
+
+Dev workflow
+
+Accessing a specific container
+
+Redis RDB dumps
+
+Restoring the DB from a backup
+
 ## Technical-Debt
+
+Angular is stuck on ...16 (version dependencies everywhere :( )
+
+docker util - code is bad
+
+Editables are hard to extend
+
+Data access layer in angular
+
+Code duplication in angular controllers
+
+OAF and Beowulf are both pretty good!
+
+Grunt file is large and we don't understand it
+
+Front end looks like a dogs dinner - no graphic designer time
+
+Mongo model maker was a thing, if you find references to it...
+
 ## Missing-Features/Further work
+
+See [waffle board](https://waffle.io/notionparallax/ShadowWolf) for all this sort of stuff.
+
