@@ -101,7 +101,7 @@ Because we're so ahead of the curve, here at BVN, we manage secrets by emailing 
 
 ## Tooling/Development-and-Deployment-Workflow
 
-### Zero to Hero: Linux
+### Zero to Hero
 
 ```
 git clone https://github.com/notionparallax/ShadowWolf
