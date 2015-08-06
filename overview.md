@@ -133,7 +133,7 @@ This will put you in a ruby/rails prompt.
 
 You can get all People or Projects like so:
 
-```
+```ruby
 ppl = Person.all.to_a
 pjs = Project.all.to_a
 ```
@@ -142,21 +142,21 @@ Person and Project are mongoid models.
 
 You can select from that a person with a particular login or project with project number:
 
-```
+```ruby
 per = ppl.find_all { |p| p.employee.login == 'foo' }[0]
 prj = pjs.find_all { |p| p.project_number == 'foo' }[0]
 ```
 
 Any changes you make to these objects can be persisted by calling save:
 
-```
+```ruby
 prj.project_number = 'bar'
 prj.save
 ```
 
 Additionally you can delete a model by calling destroy:
 
-```
+```ruby
 prj.destroy
 ```
 
