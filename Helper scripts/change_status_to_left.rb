@@ -1,6 +1,6 @@
  # if people have left, set their status
 def left_people
-  ["sblack","tchristensen","rwood","dingle","lwilliams"]
+  ["swisker", "wblake", "ldean", "schiu", "ppannell", "ohyde", "acassar"]
 end
 
 def change_to_left p
