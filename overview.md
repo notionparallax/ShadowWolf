@@ -309,7 +309,7 @@ See [waffle board](https://waffle.io/notionparallax/ShadowWolf) for all this sor
 
 ### container fails to start with "no such file" error
 
-This is caused by Bill Gates. Windows has different newline settings, so if you ever edit a file in windows and save with windows newlines, then try and run that file in the linux virtual machine, things will break. Try to identify which file is causing the error then save it as a unix file. In vim you would:
+This is caused by Bill Gates. Windows has different newline settings, so if you ever edit a file in windows and save with windows newlines, then try and run that file in the linux virtual machine, things will break. Try to [identify which file is causing the error](http://superuser.com/questions/194668/grep-to-find-files-that-contain-m-windows-carriage-return) then save it as a unix file. In vim you would:
 
 ```
 :set ff=unix
