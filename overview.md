@@ -352,3 +352,9 @@ docker start sw-client
 and then everything should be fine.
 
 If `docker ps -a` doesn't contain those all of those containers then you'll need to do a deploy.
+
+A deploy won't start mongo. If you need to start it then:
+```
+docker run -d -p 27017:27017 -v /data/db:/data/db 10.22.14.67:5000/shadowwolf-mongo mongod --smallfiles
+```
+Hopefully you'll never need to run that though. Only if `docker ps -a` doesn't contain mongo.
