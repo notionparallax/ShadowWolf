@@ -349,6 +349,15 @@ docker start sw-oaf
 docker start sw beowulf
 docker start sw-client
 ```
+to restart the private registry
+```
+docker ps -a | grep reg
+```
+and then 
+```
+docker start [whatever the most recent registry container is called. E.g. desparate_archimedes]
+```
+
 and then everything should be fine.
 
 If `docker ps -a` doesn't contain those all of those containers then you'll need to do a deploy.
