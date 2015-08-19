@@ -327,3 +327,28 @@ sudo chown -R vagrant:vagrant client
 ```
 
 assuming you're in the vagrant machine. If you're on a machine with a different user and group then read the chown man page to see how to update the above command.
+
+### Server failure 
+
+If something really strange happens and the server is restarted then you can run:
+
+```
+docker ps
+```
+To see if things really are down
+Then 
+```
+docker ps -a
+```
+to see the old containers
+then (in this order)
+```
+docker start sw-mongo
+docker start sw-server
+docker start sw-oaf
+docker start sw beowulf
+docker start sw-client
+```
+and then everything should be fine.
+
+If `docker ps -a` doesn't contain those all of those containers then you'll need to do a deploy.
