@@ -4,7 +4,7 @@ ShadowWolf
 <img src="http://notionparallax.co.uk/img/Shadow_wolf_logo.png" align="right" >
 A mini ERP type app to capture people, projects and their relationships.
 
-It is being built in house at [BVN DH](https://bvn.com.au) as a way to pull together all our data sources.
+It is being built in house at [BVN](https://bvn.com.au) as a way to pull together all our data sources.
 
 Currently it's main focus is on collecting data from disparate historical sources (all the spreadsheets that have been made in the past as problem hacks). Most of this data is incomplete and dirty, so the other thing that it does is allow people who have knowledge to go and edit the data themselves.
 
@@ -120,7 +120,7 @@ To re-run the build scripts after modifying any of the show pages:
 
     ./docker-util dev client # same as above
 
-yeah, apparently it works already. It may sometimes take a moment or two past when the docker-util script exists. So...
+yeah, apparently it works already. It may sometimes take a moment or two past when the docker-util script exits. So...
 
 To look inside the local server and see when it finishes building:
 (only when curious about ongoings of container)
@@ -152,7 +152,7 @@ Although if things work then you should theoretically be able to do without.
 
 If you need to edit the production database you can use:
 
-    ./docker-util dev console
+    ./docker-util prod console
     
 and then use ruby commands. Some examples are shown in `ShadowWolf / Helper scripts / DB terminal scripts / photo.rb` 
 
