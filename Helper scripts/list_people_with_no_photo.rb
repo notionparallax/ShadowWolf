@@ -8,6 +8,7 @@ def working_url?(url_str)
 rescue
   false
 end
+<<<<<<< HEAD
 
 def http_response(url_str)
   url = URI.parse(url_str)
@@ -18,12 +19,15 @@ rescue
   false
 end
 
+=======
+>>>>>>> 914dbc389915916229d349682f96f77dffe90125
 # dom = "http://cv.bvn.com.au/image?login=drisch&photo_type=photoBW"
 # elsa= "https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xfa1/v/t1.0-9/s720x720/1920482_292227947613059_2939719102297845552_n.jpg?oh=45b8c2c3c327c687570fcc3fdb022b5b&oe=556BC2E6&__gda__=1429252232_ae4116b4ec12fdcf366a110e3cb8c971"
 # puts working_url? dom
 # puts working_url? elsa
 
 def list_people_with_no_photo people
+<<<<<<< HEAD
  counter = 0
   fname = "/scripts/BWPhotos.csv"
   somefile = File.open(fname, "w")
@@ -82,3 +86,13 @@ end
     # somefile.close
     # counter
 # end
+=======
+  people.each do |p|
+    if p.currentCondition == "active"
+    	unless working_url? p.employee.photo.bw
+    		puts "to: " + p.employee.contact.work_email
+    	end
+    end
+  end
+end
+>>>>>>> 914dbc389915916229d349682f96f77dffe90125
