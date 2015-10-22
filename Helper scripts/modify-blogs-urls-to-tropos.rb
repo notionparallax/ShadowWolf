@@ -29,3 +29,21 @@ def search_for_all_blogs
   Project.all.each {|p|  
     search_for_blogs p }
 end
+
+# search_for_blogs_in_campaigns was written to check for incorrect URLs
+# in the campaigns section of text - GitHub issue 807
+def search_for_blogs_in_campaigns prj
+    if prj.building.press.campaigns
+
+        for press in prj.building.press.campaigns do
+          if press.strategy and press.strategy.include? 'http://blogs.bvn.com.au/tropos/files/'
+            puts press.strategy
+            press.strategy = press.strategy.gsub('http://blogs.bvn.com.au/tropos/files/', 'http://tropos.bvn.com.au/wp-content/uploads/')
+            puts press.strategy + " wooooo! url"
+            press.save
+            puts prj.project_number
+          end
+        end
+    end
+    return prj
+end
