@@ -1,6 +1,8 @@
  # if people have left, set their status
 def left_people
-  ["swisker", "wblake", "ldean", "schiu", "ppannell", "ohyde", "acassar"]
+  ["abarber","jwaller", "stomoare"]
+  # ptrendall?
+  # jchui, kmallon?
 end
 
 def change_to_left p
@@ -10,7 +12,7 @@ def change_to_left p
   newCondition.start_date = DateTime.now
   p.conditions << newCondition
   p.employee.contact.extension = "Left"
-  p
+  p.save
 end
 
 # Call example:
