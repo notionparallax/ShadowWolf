@@ -58,20 +58,23 @@ end
 def hasRegs(ppl)
 	counter = 0
 	flag = false
-	fname = "/scripts/hasRegsOut.txt"
+	fname = "/scripts/hasRegsOut.csv"
 	somefile = File.open(fname, "w")
 	
-	somefile.puts "Login|current_condition|work_email|organisation|registration_number|state|country|expiry|first_granted|first_granted"
+	somefile.puts "\"Login\",\"current_condition\",\"work_email\",\"organisation\",\"registration_number\",\"state\",\"country\",\"expiry\",\"first_granted\""
 	
 	# check each person in array ppl
 	for p in ppl
 		# check each registration in array of registrations
 		for r in p.employee.registrations
-			# check if registration is not nil
-			if !(r.organisation.nil? && r.registration_number.nil? && r.state.nil? && r.country.nil? && r.expiry.nil? && r.first_granted.nil? && r.first_granted.nil?)
-                txtrow = "#{p.employee.login}|#{p.current_condition.name.to_s}|#{p.employee.contact.work_email.to_s}|#{r.organisation.to_s}|#{r.registration_number.to_s}|#{r.state.to_s}|#{r.country.to_s}|#{r.expiry.to_s}|#{r.first_granted.to_s}|#{r.first_granted.to_s}"
-				somefile.puts txtrow
-                flag = true
+			# check if registration is not nil 
+			if !(r.organisation.nil? && r.registration_number.nil? && r.state.nil? && r.country.nil? && r.expiry.nil? && r.first_granted.nil?)
+                # check registration is not empty
+				if !(r.organisation.to_s.empty? && r.registration_number.to_s.empty? && r.state.to_s.empty? && r.country.to_s.empty? && r.expiry.to_s.empty? && r.first_granted.to_s.empty?)
+					txtrow = "\"#{p.employee.login}\",\"#{p.current_condition.name.to_s}\",\"#{p.employee.contact.work_email.to_s}\",\"#{r.organisation.to_s}\",\"#{r.registration_number.to_s}\",\"#{r.state.to_s}\",\"#{r.country.to_s}\",\"#{r.expiry.to_s}\",\"#{r.first_granted.to_s}\""
+					somefile.puts txtrow
+					flag = true
+				end
             end
         end
         # count the number of people with qualifications filled in
@@ -85,14 +88,95 @@ def hasRegs(ppl)
     counter
 end
 
+# clean up data in registrations
+def cleanRegs(ppl)
+	nstate = 0
+	nup = 0
+	nc = 0
+	nuk = 0
+	nuk2 = 0
+	flag = false
+	fname = "/scripts/cleanRegsOut.csv"
+	somefile = File.open(fname, "w")
+	
+	somefile.puts "\"Login\",\"current_condition\",\"work_email\",\"organisation\",\"registration_number\",\"state\",\"country\",\"expiry\",\"first_granted\""
+	
+	# check each person in array ppl
+	for p in ppl
+		# check each registration in array of registrations
+		for r in p.employee.registrations
+			# check if registration is not nil
+			if !(r.organisation.nil? && r.registration_number.nil? && r.state.nil? && r.country.nil? && r.expiry.nil? && r.first_granted.nil?)
+				# if registration not nil start cleaning!
+				# Convert states to uppercase & 3 letters
+				auStates = Hash["NEW SOUTH WALES" => "NSW", "QUEENSLAND" => "QLD", "VICTORIA" => "VIC"]
+				if !r.state.nil?
+					# convert long states to 3 letters
+					if auStates[r.state.strip.upcase]
+						txtrow = "\"#{p.employee.login}\",\"#{p.current_condition.name.to_s}\",\"#{p.employee.contact.work_email.to_s}\",\"#{r.organisation.to_s}\",\"#{r.registration_number.to_s}\",\"#{r.state.to_s}\",\"#{r.country.to_s}\",\"#{r.expiry.to_s}\",\"#{r.first_granted.to_s}\""
+						somefile.puts txtrow
+						puts "login: #{p.employee.login}, State: #{r.state.to_s} => #{auStates[r.state.strip.upcase].to_s}, Country: #{r.country.to_s}"
+						r.state = auStates[r.state.strip.upcase]
+						r.save
+						nstate = nstate + 1
+					end
+					# check for any Aussie states that are not all uppercase (correct as needed)
+					auTLStates = ["NSW","QLD","VIC","ACT","WA","SA","NT","TAS"]
+					if auTLStates.include?(r.state.strip.upcase) && (r.state != r.state.upcase)
+						puts "login: #{p.employee.login}, State: #{r.state.to_s} => #{r.state.upcase.to_s}, Country: #{r.country.to_s}"
+						r.state = r.state.upcase
+						r.save
+						nup = nup + 1
+					end
+					# check for any Aussie states that don't have "Australia" for country
+					auTLStates = ["NSW","QLD","VIC","ACT","WA","SA","NT","TAS"]
+					if auTLStates.include?(r.state.strip.upcase) && r.country.nil?
+						puts "login: #{p.employee.login}, State: #{r.state.to_s}, Country: #{r.country.to_s} => Australia"
+						r.country = "Australia"
+						r.save
+						nc = nc + 1
+					end
+					
+					# check for UK or United Kingdom in state with blank country
+					# for these put country as 'United Kingdom' and leave state blank
+					if r.state.upcase.to_s == 'UK' || r.state.upcase.to_s == 'UNITED KINGDOM'
+						puts "login: #{p.employee.login}, State: #{r.state.to_s} => \"\", Country: #{r.country.to_s} => United Kingdom"
+						r.country = "United Kingdom"
+						r.state = ""
+						r.save
+						nuk = nuk + 1
+					end
+				end
+				# Convert UK to United Kingdom
+				if !r.country.nil? && (r.country.strip.upcase.to_s == "UK")
+					puts "login: #{p.employee.login}, Country: #{r.country.to_s} => United Kingdom"
+					r.country = "United Kingdom"
+					r.save
+					nuk2 = nuk2 + 1
+				end
+			end
+		end
+        # count the number of people with qualifications filled in
+        # (don't count the number of qualifications, hence flag)
+        # if flag
+        	# counter = counter + 1
+        	# flag = false
+        # end
+    end
+	
+    somefile.close
+	
+    [nstate, nup, nc, nuk, nuk2]
+end
+
 # find users that have non-blank Experience and output details to file
 def hasExp(ppl)
 	counter = 0
 	flag = false
-	fname = "/scripts/hasExpOut.txt"
+	fname = "/scripts/hasExpOut.csv"
 	somefile = File.open(fname, "w")
 	
-	somefile.puts "Login|current_condition|work_email|name|firm|role|stage|start_date|end_date|url"
+	somefile.puts "Login~current_condition~work_email~name~firm~role~stage~start_date~end_date~url"
 	
 	# check each person in array ppl
 	for p in ppl
@@ -100,7 +184,7 @@ def hasExp(ppl)
 		for ex in p.employee.project_experiences
 			# check if experience is not nil
 			if !(ex.name.nil? && ex.firm.nil? && ex.role.nil? && ex.stage.nil? && ex.start_date.nil? && ex.end_date.nil? && ex.url.nil?)
-                txtrow = "#{p.employee.login}|#{p.current_condition.name.to_s}|#{p.employee.contact.work_email.to_s}|#{ex.name }|#{ ex.firm }|#{ ex.role }|#{ ex.stage }|#{ ex.start_date }|#{ ex.end_date }|#{ ex.url}"
+                txtrow = "#{p.employee.login}~#{p.current_condition.name.to_s}~#{p.employee.contact.work_email.to_s}~#{ex.name }~#{ ex.firm }~#{ ex.role }~#{ ex.stage }~#{ ex.start_date }~#{ ex.end_date }~#{ ex.url}"
 				somefile.puts txtrow
                 flag = true
             end
@@ -358,4 +442,39 @@ def hasEV(ppl)
     end
     somefile.close
     counter
+end
+
+# hinds89, 29/10/2015
+def tcaseRoles(ppl)
+# check each person in array ppl
+	# check each person in array ppl
+	for p in ppl
+		# check each experience in array of project_experiences
+		for ex in p.employee.project_experiences
+			# check if experience is not nil
+			if !(ex.name.nil? && ex.firm.nil? && ex.role.nil? && ex.stage.nil? && ex.start_date.nil? && ex.end_date.nil? && ex.url.nil?)
+				# Check if 'Graduate 
+            end
+        end
+	end
+end
+
+# list projects with new lines in the project_name
+def gdpnums(prjs)
+	counter = 0
+	
+	for p in prjs
+		if p.building.phases[0].project_name =~ /\n/
+			print p.project_number + ", "
+			# puts counter.to_s + "." + p.building.phases[0].project_name
+			newname = p.building.phases[0].project_name.gsub(/[\n]+/, " ")
+			newname = newname.gsub(/\s+/, " ")
+			puts newname
+			p.building.phases[0].project_name = newname
+			p.save
+			counter = counter + 1
+		end
+	end
+	
+counter
 end

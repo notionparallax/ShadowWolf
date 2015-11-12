@@ -28,21 +28,23 @@ def list_people_with_no_photo people
  counter = 0
   fname = "/scripts/BWPhotos.csv"
   somefile = File.open(fname, "w")
+  totsnum = people.count
   
   # put headers in csv file
-  somefile.puts "Login,current_condition,work_email,bwphotoURL,http_response_code_of_URL"
+  somefile.puts "Login, preferred_first, preferred_last,current_condition,work_email,bwphotoURL,http_response_code_of_URL"
   
-  people.each do |p|
-	puts p.employee.login
+  people.each do |p, index|
+	puts p.employee.login + index.to_s + " of " + totsnum.to_s
     if p.current_condition.name == "Active"
     	unless working_url? p.employee.photo.bw
 		    counter = counter + 1
-			txtrow = "#{p.employee.login},#{p.current_condition.name.to_s},#{p.employee.contact.work_email.to_s},#{p.employee.photo.bw}, #{http_response(p.employee.photo.bw)}"
+			txtrow = "#{p.employee.login},#{p.name.preferred_first},#{p.name.preferred_last},#{p.current_condition.name.to_s},#{p.employee.contact.work_email.to_s},#{p.employee.photo.bw}, #{http_response(p.employee.photo.bw)}"
     		somefile.puts txtrow
-			puts txtrow
+			# print "\r" + txtrow
     	end
     end
   end
+  puts "Closing File : " + fname
   somefile.close
   counter
 end
