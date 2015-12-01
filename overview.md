@@ -144,7 +144,7 @@ So if I made changes in both rails and angular, I would run
 
 I recommend you read docker-util to see what's involved in a deployment. Afterwards feel free to read the section on Technical debt again.
 
-### Editing the database throught the console
+### Editing the database through the console
 
 For locally connecting to the database:
 
