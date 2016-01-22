@@ -176,15 +176,17 @@ def hasExp(ppl)
 	fname = "/scripts/hasExpOut.csv"
 	somefile = File.open(fname, "w")
 	
-	somefile.puts "Login~current_condition~work_email~name~firm~role~stage~start_date~end_date~url"
-	
+	# somefile.puts "Login~current_condition~work_email~name~firm~role~stage~start_date~end_date~url"
+
+	somefile.puts "p.employee.login~p.current_condition.name~p.employee.contact.work_email~project_experiences[].name~ project_experiences[].firm~ project_experiences[].role~ project_experiences[].stage~ project_experiences[].start_date~ project_experiences[].end_date~ project_experiences[].url"
+
 	# check each person in array ppl
 	for p in ppl
 		# check each experience in array of project_experiences
 		for ex in p.employee.project_experiences
 			# check if experience is not nil
 			if !(ex.name.nil? && ex.firm.nil? && ex.role.nil? && ex.stage.nil? && ex.start_date.nil? && ex.end_date.nil? && ex.url.nil?)
-                txtrow = "#{p.employee.login}~#{p.current_condition.name.to_s}~#{p.employee.contact.work_email.to_s}~#{ex.name }~#{ ex.firm }~#{ ex.role }~#{ ex.stage }~#{ ex.start_date }~#{ ex.end_date }~#{ ex.url}"
+                txtrow = "#{p.employee.login}~#{p.current_condition.name.to_s}~#{p.employee.contact.work_email.to_s}~#{ex.name }~#{ ex.firm }~#{ ex.role }~#{ ex.stage }~#{ ex.start_date.to_s }~#{ ex.end_date.to_s }~#{ ex.url}"
 				somefile.puts txtrow
                 flag = true
             end
@@ -207,7 +209,7 @@ def hasMems(ppl)
 	fname = "/scripts/hasMemsOut.txt"
 	somefile = File.open(fname, "w")
 	
-	somefile.puts "Login|current_condition|work_email|organisation|membership_number|state|country|expiry"
+	somefile.puts "Login|current_condition|work_email|p.employee.memberships[].organisation|p.employee.memberships[].membership_number|p.employee.memberships[].state|p.employee.memberships[].country|p.employee.memberships[].expiry"
 	
 	# check each person in array ppl
 	for p in ppl
@@ -385,7 +387,7 @@ def hasPR(ppl)
 	fname = "/scripts/hasPROut.csv"
 	somefile = File.open(fname, "w")
 	
-	somefile.puts "\"login\",\"current_condition\",\"work_email\",\"date\",\"url\",\"scan_or_screengrab\",\"body_text\",\"publication\",\"reason\""
+	somefile.puts "\"login\"~\"current_condition\"~\"work_email\"~\"date\"~\"url\"~\"scan_or_screengrab\"~\"body_text\"~\"publication\"~\"reason\""
 	
 	# check each person in array ppl
 	for p in ppl
@@ -393,8 +395,8 @@ def hasPR(ppl)
 		for pa in p.employee.employee_press.attentions
 			# only output if attentions is NOT nil
 			if !(pa.date.nil? && pa.url.nil? && pa.scan_or_screengrab.nil? && pa.body_text.nil? && pa.publication.nil? && pa.reason.nil?)
-                txtrow = "\"#{p.employee.login}\",\"#{p.current_condition.name.to_s}\",\"#{p.employee.contact.work_email.to_s}\","
-				txtrow << "\"#{pa.date}\",\"#{pa.url}\",\"#{pa.scan_or_screengrab}\",\"#{pa.body_text}\",\"#{pa.publication}\",\"#{pa.reason}\""
+                txtrow = "\"#{p.employee.login}\"~\"#{p.current_condition.name.to_s}\"~\"#{p.employee.contact.work_email.to_s}\"~"
+				txtrow << "\"#{pa.date}\"~\"#{pa.url}\"~\"#{pa.scan_or_screengrab}\"~\"#{pa.body_text =~ /\n/ ? ("**NEWLINES REMOVED" + pa.body_text.delete("\n")) : (pa.body_text)}\"~\"#{pa.publication}\"~\"#{pa.reason}\""
 				# somefile.puts txtrow
                 somefile.puts txtrow
 				flag = true
@@ -477,4 +479,53 @@ def gdpnums(prjs)
 	end
 	
 counter
+end
+
+# List in a csv logins, emails, dietary info for all people in the database
+def otherinfo(ppl)
+	counter = 0
+	flag = false
+	fname = "/scripts/otherinfoOut.csv"
+	somefile = File.open(fname, "w")
+
+	# Column Headings
+	somefile.puts "p.employee.login,p.employee.contact.work_email,p.employee.contact.studio,p.employee.contact.extension,p.employee.office_culture.fire_warden,p.employee.office_culture.first_aider,p.employee.office_culture.dietary[\"preference\"][\"likes\"], p.employee.office_culture.dietary[\"preference\"][\"dislikes\"], p.employee.office_culture.dietary.requirements, p.employee.office_culture.dietary.likes, p.employee.office_culture.dietary.dislikes"
+	
+	# Output details for each person
+	for p in ppl
+		# catch those people that don't have the '["preference"]' attribute
+		if p.employee.office_culture.dietary["preference"].nil?
+				somefile.puts "#{p.employee.login.to_s},#{p.employee.contact.work_email.to_s},#{p.employee.contact.studio.to_s}, #{p.employee.contact.extension.to_s},#{p.employee.office_culture.fire_warden.to_s},#{p.employee.office_culture.first_aider.to_s},,,\'#{p.employee.office_culture.dietary.requirements.to_s.gsub("\"","")}\',\'#{p.employee.office_culture.dietary.likes.to_s.gsub("\"","")}\',\'#{p.employee.office_culture.dietary.dislikes.to_s.gsub("\"","")}\'"
+		else
+			somefile.puts "#{p.employee.login.to_s},#{p.employee.contact.work_email.to_s},#{p.employee.contact.studio.to_s}, #{p.employee.contact.extension.to_s},#{p.employee.office_culture.fire_warden.to_s},#{p.employee.office_culture.first_aider.to_s},\'#{p.employee.office_culture.dietary["preference"]["likes"].to_s}\',\'#{p.employee.office_culture.dietary["preference"]["dislikes"].to_s}\',\'#{p.employee.office_culture.dietary.requirements.to_s.gsub("\"","")}\',\'#{p.employee.office_culture.dietary.likes.to_s.gsub("\"","")}\',\'#{p.employee.office_culture.dietary.dislikes.to_s.gsub("\"","")}\'"
+		end
+		counter = counter + 1
+	end
+	
+	# close file and return count of people 
+	somefile.close
+	counter
+end
+
+# List all conditions
+def listconds(ppl)
+	counter = 0
+	flag = false
+	fname = "/scripts/conds.csv"
+	somefile = File.open(fname, "w")
+
+	# Column Headings
+	somefile.puts "p.employee.login,p.conditions[].name, p.conditions[].start_date"
+	
+	# Output details for each person
+	for p in ppl
+		for con in p.conditions
+			somefile.puts "#{p.employee.login.to_s}, #{con.name}, #{con.start_date}"
+		end
+		counter = counter + 1
+	end
+	
+	# close file and return count of conditions
+	somefile.close
+	counter
 end
